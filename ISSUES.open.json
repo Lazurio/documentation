@@ -58,6 +58,25 @@
         "Astro runtime-family upgrade",
         "Dependabot alert closeout"
       ]
+    },
+    {
+      "id": "issue-2026-08-26-006",
+      "title": "Triage dependency vulnerabilities reported on the default branch",
+      "status": "open",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Which dependencies account for the 18 open GitHub vulnerability alerts, and which upgrades can be applied without breaking the pinned documentation stack?",
+      "impact": "GitHub reported 3 high, 9 moderate and 6 low dependency vulnerabilities during the Czech documentation push. The current gh identity received HTTP 404 when requesting alert details, so affected packages, reachability and fixed versions remain unverified.",
+      "options": [
+        "Inspect the alerts with an identity that can read repository security events, then prepare a separate dependency-update PR with build and browser verification.",
+        "If GitHub's count is stale or refers only to unreachable development tooling, record the evidence and close or downgrade this issue without weakening the current security baseline."
+      ],
+      "decision_needed_for": [
+        "dependency vulnerability remediation",
+        "production dependency risk acceptance"
+      ]
     }
   ]
 }
