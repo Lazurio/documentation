@@ -7,6 +7,7 @@ const docs = defineCollection({
   schema: docsSchema({
     extend: z.object({
       stableId: z.string().regex(/^lazurio-doc-[a-z0-9-]+$/),
+      locale: z.enum(['en', 'cs']),
       summary: z.string().min(20),
       updatedAt: z.string().date(),
       reviewedAt: z.string().date(),

@@ -20,7 +20,7 @@ its trust boundaries and the operational decision before approving it.
 ## Shape
 
 ```text
-data/v2/docs/*.md(x)       reviewed authoring source
+data/v2/docs/{en,cs}/*.md(x)  reviewed authoring source
           |
           +--> Astro + Starlight --> semantic website
           |
@@ -55,6 +55,7 @@ evidence lifecycle, machine discovery contract and independent rollback.
 Each document declares:
 
 - `stableId`: locale-independent identity;
+- `locale`: explicit language identity matching the top-level source folder;
 - `updatedAt`: last content change;
 - `reviewedAt`: last factual review;
 - `reviewOwner`: accountable reviewer;
@@ -62,6 +63,25 @@ Each document declares:
 
 The agent artifact builder emits the exact source commit and whether the build
 tree was dirty. Production artifacts must come from a clean reviewed commit.
+
+## Localization
+
+English (`en`) is the default locale and Czech (`cs`) is a curated peer, not a
+generated read model. Both locale trees use the same source-relative slugs and
+the same `stableId`, evidence references, audiences and trust-review metadata.
+Starlight owns locale routing, translated UI and the route-preserving language
+selector; the Module does not maintain a parallel router or custom locale
+component.
+
+Content validation fails when either locale is missing, when paired documents
+use different slugs or evidence metadata, or when a frontmatter locale does
+not match its source folder. Structural parity does not prove semantic
+equivalence, so trust-critical Czech claims retain the same named second
+reviewer and exact-head gate as their English counterparts.
+
+The content index publishes both locales, identifies English as the default
+and requires callers to request Czech explicitly for stable-ID lookup or
+search. A canonical route always identifies the exact localized document.
 
 ## Deployment
 
@@ -90,6 +110,8 @@ requires the canonical documentation hostname before loading Plausible.
 - A narrow repository-specific denylist of known private markers and local-path
   patterns fails before deployment. It is not general secret scanning, SAST or
   DLP; live repository and provider controls remain deployment evidence.
+- Missing or structurally divergent English/Czech locale pairs fail content
+  validation.
 - A dirty build is allowed for local preview but rejected by the production
   deployment command.
 - A missing production Plausible script URL fails the production build before
@@ -99,7 +121,6 @@ requires the canonical documentation hostname before loading Plausible.
 
 ## Deferred work
 
-- Czech localization after English content acceptance.
 - A read-only MCP server backed by the same public index.
 - Search infrastructure beyond Starlight's built-in static search.
 - Feedback collection, authenticated content and write APIs.

@@ -5,12 +5,15 @@ import starlight from '@astrojs/starlight'
 import { sidebar } from './src/sidebar'
 
 function accessibleTables() {
-  return (tree) => {
+  return (tree, file) => {
+    const isCzech = String(file.path ?? '').split(/[\\/]/).includes('cs')
     const visit = (node) => {
       if (node.type === 'element' && node.tagName === 'table') {
         node.properties ??= {}
         node.properties.tabIndex = 0
-        node.properties.ariaLabel = 'Scrollable documentation table'
+        node.properties.ariaLabel = isCzech
+          ? 'Posuvná tabulka dokumentace'
+          : 'Scrollable documentation table'
       }
       if (Array.isArray(node.children)) node.children.forEach(visit)
     }
@@ -44,6 +47,7 @@ export default defineConfig({
       defaultLocale: 'en',
       locales: {
         en: { label: 'English', lang: 'en' },
+        cs: { label: 'Čeština', lang: 'cs' },
       },
       social: [
         {

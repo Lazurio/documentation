@@ -9,3 +9,7 @@
 - Add agent discovery through `llms.txt` and a versioned content index.
 - Represent the repository in Lazurio as a read-only productionspace system,
   without Workspace runtime authority or a port lease.
+- Add a manually curated Czech locale with native route-preserving language
+  switching and parity checks against the English source.
+- Make Agent search and stable-ID retrieval locale-aware while keeping English
+  as the deterministic default.

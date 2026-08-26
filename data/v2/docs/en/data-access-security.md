@@ -2,6 +2,7 @@
 title: Data access and security
 description: A threat-aware explanation of Lazurio's trust boundaries and the checks a real deployment needs.
 stableId: lazurio-doc-data-access-security
+locale: en
 summary: Review identity, Organization isolation, local files, integrations, secrets, model providers, audit evidence, and residual risks.
 updatedAt: "2026-08-31"
 reviewedAt: "2026-08-31"

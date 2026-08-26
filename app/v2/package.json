@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "bun run prepare:data && astro dev",
     "prepare:data": "bun scripts/ensure-data-mount.mjs && bun scripts/build-agent-artifacts.mjs",
-    "validate:content": "bun scripts/validate-content.mjs",
+    "validate:content": "node --test scripts/locale-parity.test.mjs && bun scripts/validate-content.mjs",
     "test:links": "bun scripts/check-links.mjs",
-    "test:public-safety": "bun scripts/public-safety-scan.mjs",
+    "test:public-safety": "node --test scripts/public-safety-scan.test.mjs && bun scripts/public-safety-scan.mjs",
     "test:agent-index": "node --test scripts/query-content-index.test.mjs",
     "check": "bun run prepare:data && bun run validate:content && astro check && bun run test:links && bun run test:public-safety && bun run test:agent-index",
     "build": "bun run check && astro build && bun scripts/verify-redirect-artifact.mjs && bun scripts/verify-analytics-artifact.mjs",

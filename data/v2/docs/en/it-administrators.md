@@ -2,6 +2,7 @@
 title: A ten-minute IT briefing
 description: The questions an IT administrator should ask before approving Lazurio.
 stableId: lazurio-doc-it-administrators
+locale: en
 summary: A concise IT review of Lazurio's purpose, identity, access, data, integrations, operations, and approval boundaries.
 updatedAt: "2026-08-31"
 reviewedAt: "2026-08-31"

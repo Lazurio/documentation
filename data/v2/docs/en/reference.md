@@ -2,6 +2,7 @@
 title: Public references
 description: The evidence set used by Lazurio documentation.
 stableId: lazurio-doc-reference
+locale: en
 summary: Inspect the pinned Lazurio source and current Microsoft Learn pages behind architectural, security, privacy, and comparison claims.
 updatedAt: "2026-08-31"
 reviewedAt: "2026-08-31"

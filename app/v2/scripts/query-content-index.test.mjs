@@ -16,6 +16,15 @@ test('agent index returns the comparison for a Copilot query', async () => {
   assert.ok(results.some((document) => document.stableId === 'lazurio-doc-copilot-comparison'))
 })
 
+test('agent index searches only the requested locale', async () => {
+  const czechResults = await queryContentIndex('správce přístup oprávnění', { locale: 'cs' })
+  assert.ok(czechResults.length > 0)
+  assert.ok(czechResults.every((document) => document.locale === 'cs'))
+  assert.ok(czechResults.some((document) => document.stableId === 'lazurio-doc-it-administrators'))
+
+  assert.deepEqual(await queryContentIndex('access', { locale: 'unsupported' }), [])
+})
+
 test('agent retrieval resolves stable IDs and canonical routes', async () => {
   const byId = await getContentDocument('lazurio-doc-it-administrators')
   const byRoute = await getContentDocument('/en/it-administrators/')
@@ -29,6 +38,7 @@ test('agent retrieval selects a deterministic locale for shared stable IDs', asy
   await writeFile(
     indexPath,
     JSON.stringify({
+      supportedLocales: ['en', 'cs'],
       documents: [
         { stableId: 'shared-id', locale: 'cs', route: '/cs/shared/' },
         { stableId: 'shared-id', locale: 'en', route: '/en/shared/' },
@@ -44,6 +54,10 @@ test('agent retrieval selects a deterministic locale for shared stable IDs', asy
     assert.equal(
       (await getContentDocument('shared-id', { locale: 'cs', indexPath }))?.route,
       '/cs/shared/',
+    )
+    assert.equal(
+      await getContentDocument('shared-id', { locale: 'unsupported', indexPath }),
+      null,
     )
   } finally {
     await rm(directory, { recursive: true })

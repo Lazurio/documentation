@@ -9,14 +9,28 @@ async function readContentIndex(indexPath) {
   return JSON.parse(await readFile(indexPath, 'utf8'))
 }
 
-export async function queryContentIndex(query, indexPath = defaultIndexPath) {
+function normalizeOptions(options) {
+  return typeof options === 'string' ? { indexPath: options } : options
+}
+
+function supportsLocale(index, locale) {
+  const supportedLocales = index.supportedLocales ?? [
+    ...new Set(index.documents.map((document) => document.locale)),
+  ]
+  return supportedLocales.includes(locale)
+}
+
+export async function queryContentIndex(query, options = {}) {
+  const { locale = 'en', indexPath = defaultIndexPath } = normalizeOptions(options)
   const index = await readContentIndex(indexPath)
-  const terms = query.toLocaleLowerCase('en').split(/\s+/).filter(Boolean)
+  if (!supportsLocale(index, locale)) return []
+  const terms = query.toLocaleLowerCase(locale).split(/\s+/).filter(Boolean)
   return index.documents
+    .filter((document) => document.locale === locale)
     .map((document) => {
       const haystack = [document.title, document.summary, document.markdown, ...document.audience]
         .join('\n')
-        .toLocaleLowerCase('en')
+        .toLocaleLowerCase(locale)
       return { document, score: terms.reduce((score, term) => score + (haystack.includes(term) ? 1 : 0), 0) }
     })
     .filter(({ score }) => score > 0)
@@ -38,6 +52,7 @@ export async function getContentDocument(
     return null
   }
   const index = await readContentIndex(indexPath)
+  if (!supportsLocale(index, locale)) return null
   return (
     index.documents.find(
       (document) =>
@@ -48,12 +63,15 @@ export async function getContentDocument(
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const query = process.argv.slice(2).join(' ').trim()
+  const args = process.argv.slice(2)
+  const localeFlag = args.indexOf('--locale')
+  const locale = localeFlag >= 0 ? args.splice(localeFlag, 2)[1] : 'en'
+  const query = args.join(' ').trim()
   if (!query) {
-    console.error('Usage: bun scripts/query-content-index.mjs <query>')
+    console.error('Usage: bun scripts/query-content-index.mjs [--locale en|cs] <query>')
     process.exitCode = 2
   } else {
-    const results = await queryContentIndex(query)
+    const results = await queryContentIndex(query, { locale })
     console.log(JSON.stringify(results, null, 2))
   }
 }

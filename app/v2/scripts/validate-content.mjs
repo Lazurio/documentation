@@ -2,17 +2,28 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocuments } from './content-library.mjs'
+import { findLocaleParityErrors } from './locale-parity.mjs'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const moduleRoot = path.resolve(scriptDirectory, '../../..')
 const docsRoot = path.join(moduleRoot, 'data/v2/docs')
 const sourceMap = JSON.parse(await readFile(path.join(moduleRoot, 'data/v2/source-map.json'), 'utf8'))
+const documentation = JSON.parse(await readFile(path.join(moduleRoot, 'data/v2/documentation.json'), 'utf8'))
 const documents = await loadDocuments(docsRoot)
 const sourceIds = new Set(sourceMap.sources.map((source) => source.id))
 const identities = new Set()
+const documentsByStableId = new Map()
 const errors = []
-const required = ['title', 'stableId', 'summary', 'updatedAt', 'reviewedAt', 'reviewOwner', 'sourceRefs', 'audience']
+const supportedLocales = Array.isArray(documentation.locales) ? documentation.locales : []
+const required = ['title', 'stableId', 'locale', 'summary', 'updatedAt', 'reviewedAt', 'reviewOwner', 'sourceRefs', 'audience']
 const today = new Date().toISOString().slice(0, 10)
+
+if (!Array.isArray(documentation.locales) || supportedLocales.length !== new Set(supportedLocales).size) {
+  errors.push('documentation.json locales must be a unique array')
+}
+if (!supportedLocales.includes(documentation.default_locale)) {
+  errors.push('documentation.json default_locale must be included in locales')
+}
 
 for (const source of sourceMap.sources) {
   if (!source.id || !source.title || !source.url || !source.publisher || !source.reviewDueAt) {
@@ -29,6 +40,10 @@ for (const document of documents) {
     }
   }
   const locale = relativePath.split(path.sep)[0]
+  if (!supportedLocales.includes(locale)) errors.push(`${relativePath}: unsupported locale directory ${locale}`)
+  if (frontmatter.locale !== locale) {
+    errors.push(`${relativePath}: frontmatter locale ${frontmatter.locale ?? 'missing'} must match ${locale}`)
+  }
   const identity = `${locale}:${frontmatter.stableId}`
   if (identities.has(identity)) errors.push(`${relativePath}: duplicate ${identity}`)
   identities.add(identity)
@@ -52,10 +67,19 @@ for (const document of documents) {
     errors.push(`${relativePath}: trust-critical content requires Pablo AI as secondReviewOwner`)
   }
   if (markdown.length < 200) errors.push(`${relativePath}: document is too short to be useful`)
+  const localizedDocuments = documentsByStableId.get(frontmatter.stableId) ?? []
+  localizedDocuments.push(document)
+  documentsByStableId.set(frontmatter.stableId, localizedDocuments)
 }
 
-if (!documents.some((document) => document.relativePath === 'en/index.mdx')) {
-  errors.push('English documentation entry point is missing')
+for (const locale of supportedLocales) {
+  if (!documents.some((document) => document.relativePath === `${locale}/index.mdx`)) {
+    errors.push(`${locale}: documentation entry point is missing`)
+  }
+}
+
+for (const [stableId, localizedDocuments] of documentsByStableId) {
+  errors.push(...findLocaleParityErrors(stableId, localizedDocuments, supportedLocales))
 }
 
 if (errors.length > 0) {

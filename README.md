@@ -4,10 +4,11 @@ Public, evidence-backed documentation for Lazurio. It is written first for
 people evaluating or operating Lazurio and structured so agents can discover
 the same canonical material without a second content store.
 
-The first release is English-first. It starts with a ten-minute briefing for IT
-administrators and a sourced decision guide comparing Lazurio with Microsoft
-Copilot in the Microsoft 365 context. Czech follows after English content
-acceptance; it will be curated, not machine-published.
+The documentation is available in English and in a manually curated Czech
+version. It starts with a ten-minute briefing for IT administrators and a
+sourced decision guide comparing Lazurio with Microsoft Copilot in the
+Microsoft 365 context. Both locales share stable document identities, evidence
+references and review gates; neither is generated at runtime.
 
 ## Application and deployment
 
@@ -38,6 +39,9 @@ procedure lives in [OPERATIONS.md](OPERATIONS.md).
 Markdown/MDX under `data/v2/docs` is the only authoring source for public
 documentation. `llms.txt`, `content-index.json`, `robots.txt`, the website and
 the future read-only MCP surface are derived read models of that same Git tree.
+English is the default locale. Czech stable-ID search and retrieval must be
+requested explicitly with `locale: cs`; canonical `/en/` and `/cs/` routes
+always identify an exact localized page.
 
 Technical behavior remains owned by the public Lazurio source and by the
 relevant provider documentation. `data/v2/source-map.json` pins the evidence,

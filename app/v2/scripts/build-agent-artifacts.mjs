@@ -9,6 +9,7 @@ const moduleRoot = path.resolve(scriptDirectory, '../../..')
 const docsRoot = path.join(moduleRoot, 'data/v2/docs')
 const publicRoot = path.join(moduleRoot, 'data/v2/public')
 const sourceMapPath = path.join(moduleRoot, 'data/v2/source-map.json')
+const documentationPath = path.join(moduleRoot, 'data/v2/documentation.json')
 
 function git(args, fallback = 'unknown') {
   try {
@@ -21,13 +22,14 @@ function git(args, fallback = 'unknown') {
 export async function buildAgentArtifacts() {
   const documents = await loadDocuments(docsRoot)
   const sourceMap = JSON.parse(await readFile(sourceMapPath, 'utf8'))
+  const documentation = JSON.parse(await readFile(documentationPath, 'utf8'))
   const commit = git(['rev-parse', 'HEAD'])
   const dirty = git(['status', '--porcelain'], '') !== ''
   const generatedAt = git(['show', '-s', '--format=%cI', 'HEAD'], new Date(0).toISOString())
 
   const entries = documents.map(({ frontmatter, markdown, relativePath, route }) => ({
     stableId: frontmatter.stableId,
-    locale: relativePath.split(path.sep)[0],
+    locale: frontmatter.locale,
     route,
     canonicalUrl: `https://documentation.lazurio.ai${route}`,
     sourcePath: `data/v2/docs/${relativePath.split(path.sep).join('/')}`,
@@ -50,6 +52,8 @@ export async function buildAgentArtifacts() {
     sourceCommit: commit,
     sourceTreeDirty: dirty,
     generatedAt,
+    defaultLocale: documentation.default_locale,
+    supportedLocales: documentation.locales,
     sources: sourceMap.sources.map(({ id, title, url, publisher }) => ({ id, title, url, publisher })),
     documents: entries,
   }
@@ -61,9 +65,15 @@ export async function buildAgentArtifacts() {
     '',
     `Source commit: ${commit}${dirty ? ' (local dirty preview)' : ''}`,
     '',
-    '## Documentation',
+    '## English documentation',
     '',
-    ...entries.flatMap((entry) => [
+    ...entries.filter((entry) => entry.locale === 'en').flatMap((entry) => [
+      `- [${entry.title}](https://documentation.lazurio.ai${entry.route}): ${entry.summary}`,
+    ]),
+    '',
+    '## Česká dokumentace',
+    '',
+    ...entries.filter((entry) => entry.locale === 'cs').flatMap((entry) => [
       `- [${entry.title}](https://documentation.lazurio.ai${entry.route}): ${entry.summary}`,
     ]),
     '',

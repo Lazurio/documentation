@@ -2,6 +2,7 @@
 title: Frequently asked questions
 description: Direct answers to the first questions people and IT administrators ask about Lazurio.
 stableId: lazurio-doc-faq
+locale: en
 summary: Answers about what Lazurio is, whether it replaces Copilot, data access, local deployment, approval, audits, and the future MCP server.
 updatedAt: "2026-08-31"
 reviewedAt: "2026-08-31"
