@@ -71,6 +71,20 @@ test('documentation tables keep readable cell spacing', async ({ page }) => {
   expect(tableStyles.overflowX).toBe('auto')
 })
 
+test('FAQ answers expand only after the reader opens them', async ({ page }) => {
+  await page.goto('/en/faq/')
+  const firstQuestion = page.locator('.sl-markdown-content details').first()
+  const firstSummary = firstQuestion.getByText('Is Lazurio an AI model?', { exact: true })
+  const firstAnswer = firstQuestion.getByText(/Lazurio is the working environment/)
+
+  await expect(firstQuestion).not.toHaveAttribute('open', '')
+  await expect(firstAnswer).not.toBeVisible()
+
+  await firstSummary.click()
+  await expect(firstQuestion).toHaveAttribute('open', '')
+  await expect(firstAnswer).toBeVisible()
+})
+
 test('unknown documentation routes fail clearly', async ({ page }) => {
   const response = await page.goto('/en/not-a-document/')
   expect(response?.status()).toBe(404)

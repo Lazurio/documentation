@@ -141,6 +141,58 @@ header.header {
   border-bottom: 0;
 }
 
+.sl-markdown-content details {
+  margin-block: 0 0.625rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--sl-color-black) 94%, var(--sl-color-white));
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.sl-markdown-content details:hover,
+.sl-markdown-content details[open] {
+  border-color: var(--lz-blue-400);
+}
+
+.sl-markdown-content details summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--sl-color-white);
+  font-weight: 650;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sl-markdown-content details summary::-webkit-details-marker {
+  display: none;
+}
+
+.sl-markdown-content details summary::after {
+  flex: 0 0 auto;
+  color: var(--sl-color-text-accent);
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.sl-markdown-content details[open] summary::after {
+  content: '\2212';
+}
+
+.sl-markdown-content details > :last-child {
+  margin-bottom: 0;
+}
+
+.sl-markdown-content details[open] > :not(summary):first-of-type {
+  margin-top: 0.85rem;
+}
+
 .sl-markdown-content .card {
   border-color: var(--lz-gray-200);
   border-radius: 6px;
