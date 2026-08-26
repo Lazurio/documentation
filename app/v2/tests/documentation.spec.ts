@@ -26,6 +26,43 @@ test('critical pages have no serious accessibility violations', async ({ page })
   }
 })
 
+test('documentation tables keep readable cell spacing', async ({ page }) => {
+  await page.goto('/en/it-administrators/')
+  const table = page.locator('.sl-markdown-content table').first()
+  const cells = table.locator('th, td')
+
+  await expect(table).toBeVisible()
+  await expect(table).toHaveAttribute('tabindex', '0')
+  await expect(table).toHaveAttribute('aria-label', 'Scrollable documentation table')
+  expect(await cells.count()).toBeGreaterThan(0)
+
+  const cellStyles = await cells.evaluateAll((elements) =>
+    elements.map((cell) => {
+      const computed = getComputedStyle(cell)
+      return {
+        paddingInlineStart: Number.parseFloat(computed.paddingInlineStart),
+        paddingInlineEnd: Number.parseFloat(computed.paddingInlineEnd),
+        lineHeight: Number.parseFloat(computed.lineHeight),
+      }
+    }),
+  )
+  const tableStyles = await table.evaluate((element) => {
+    const computed = getComputedStyle(element)
+    return {
+      borderRadius: Number.parseFloat(computed.borderRadius),
+      overflowX: computed.overflowX,
+    }
+  })
+
+  for (const styles of cellStyles) {
+    expect(styles.paddingInlineStart).toBeGreaterThanOrEqual(16)
+    expect(styles.paddingInlineEnd).toBeGreaterThanOrEqual(16)
+    expect(styles.lineHeight).toBeGreaterThan(20)
+  }
+  expect(tableStyles.borderRadius).toBeGreaterThanOrEqual(6)
+  expect(tableStyles.overflowX).toBe('auto')
+})
+
 test('unknown documentation routes fail clearly', async ({ page }) => {
   const response = await page.goto('/en/not-a-document/')
   expect(response?.status()).toBe(404)
