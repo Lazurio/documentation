@@ -2,6 +2,7 @@
 title: Deployment and operations
 description: What is fixed by Lazurio and what must be decided for a concrete rollout.
 stableId: lazurio-doc-deployment-operations
+locale: en
 summary: Plan a Lazurio rollout across identity, devices, repositories, modules, integrations, logs, backup, updates, and offboarding.
 updatedAt: "2026-08-29"
 reviewedAt: "2026-08-29"

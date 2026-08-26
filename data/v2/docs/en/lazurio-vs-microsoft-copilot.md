@@ -2,6 +2,7 @@
 title: Lazurio vs Microsoft Copilot
 description: A fair, sourced decision guide for two products with overlapping AI value but different control planes.
 stableId: lazurio-doc-copilot-comparison
+locale: en
 summary: Compare Lazurio with Microsoft Copilot across purpose, context, permissions, execution, extensibility, governance, and deployment.
 updatedAt: "2026-08-31"
 reviewedAt: "2026-08-31"

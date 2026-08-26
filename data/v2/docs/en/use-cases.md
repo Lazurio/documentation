@@ -2,6 +2,7 @@
 title: What Lazurio is good for
 description: Practical use cases and the conditions under which Lazurio is a good fit.
 stableId: lazurio-doc-use-cases
+locale: en
 summary: See where Lazurio helps with product delivery, operations, knowledge, agent workflows, and multi-organization work—and where it does not.
 updatedAt: "2026-08-29"
 reviewedAt: "2026-08-29"

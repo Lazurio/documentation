@@ -68,8 +68,41 @@ test('the homepage offers a neutral route into every documentation section', asy
   await expect(page).toHaveURL(/\/en\/how-lazurio-works\/$/)
 })
 
+test('the language switch keeps the current page and localizes navigation', async ({ page }, testInfo) => {
+  await page.goto('/en/it-administrators/')
+  await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
+
+  if (testInfo.project.name.startsWith('mobile')) {
+    await page.locator('button[aria-controls="starlight__sidebar"]').click()
+  }
+  const englishLanguageSelect = page.locator('starlight-lang-select:visible select')
+  await expect(englishLanguageSelect).toBeVisible()
+  await englishLanguageSelect.selectOption({ label: 'Čeština' })
+
+  await expect(page).toHaveURL(/\/cs\/it-administrators\/$/)
+  await expect(page.locator('html')).toHaveAttribute('lang', 'cs')
+  await expect(page.getByRole('heading', { level: 1, name: 'Desetiminutový přehled pro IT' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Přístup k datům a bezpečnost' }).first()).toBeVisible()
+  await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
+
+  if (testInfo.project.name.startsWith('mobile')) {
+    await page.locator('button[aria-controls="starlight__sidebar"]').click()
+  }
+  const czechLanguageSelect = page.locator('starlight-lang-select:visible select')
+  await expect(czechLanguageSelect).toHaveValue('/cs/it-administrators/')
+  await czechLanguageSelect.selectOption({ label: 'English' })
+  await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
+})
+
 test('critical pages have no serious accessibility violations', async ({ page }) => {
-  for (const route of ['/en/', '/en/it-administrators/', '/en/lazurio-vs-microsoft-copilot/']) {
+  for (const route of [
+    '/en/',
+    '/en/it-administrators/',
+    '/en/lazurio-vs-microsoft-copilot/',
+    '/cs/',
+    '/cs/it-administrators/',
+    '/cs/lazurio-vs-microsoft-copilot/',
+  ]) {
     await page.goto(route)
     const results = await new AxeBuilder({ page }).analyze()
     const serious = results.violations.filter((violation) =>
@@ -199,6 +232,14 @@ test('FAQ answers expand only after the reader opens them', async ({ page }) => 
   await firstSummary.click()
   await expect(firstQuestion).toHaveAttribute('open', '')
   await expect(firstAnswer).toBeVisible()
+})
+
+test('Czech tables expose a localized scroll label', async ({ page }) => {
+  await page.goto('/cs/it-administrators/')
+  await expect(page.locator('.sl-markdown-content table').first()).toHaveAttribute(
+    'aria-label',
+    'Posuvná tabulka dokumentace',
+  )
 })
 
 test('unknown documentation routes fail clearly', async ({ page }) => {

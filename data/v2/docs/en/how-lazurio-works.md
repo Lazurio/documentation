@@ -2,6 +2,7 @@
 title: How Lazurio works
 description: The core operating model, from principal and Organization to draft and publication.
 stableId: lazurio-doc-how-it-works
+locale: en
 summary: Understand Lazurio's principals, agents, Organizations, repositories, workspace modules, drafts, reviews, and publication flow.
 updatedAt: "2026-08-30"
 reviewedAt: "2026-08-30"

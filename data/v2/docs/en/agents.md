@@ -2,6 +2,7 @@
 title: Documentation for agents
 description: Stable discovery and retrieval surfaces for agents that need to understand Lazurio.
 stableId: lazurio-doc-agents
+locale: en
 summary: Use llms.txt and the content index to discover reviewed Lazurio pages, evidence links, audiences, review dates, and stable identities.
 updatedAt: "2026-08-26"
 reviewedAt: "2026-08-26"
