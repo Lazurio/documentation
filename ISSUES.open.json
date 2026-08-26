@@ -75,27 +75,6 @@
       ]
     },
     {
-      "id": "issue-2026-08-26-006",
-      "title": "Decide whether Cloudflare should become authoritative for lazurio.ai",
-      "status": "open",
-      "severity": "medium",
-      "owner": "matejsuchanek",
-      "created_at": "2026-08-26",
-      "updated_at": "2026-08-26",
-      "question": "Should the complete lazurio.ai DNS zone move from WEDOS authoritative DNS to Cloudflare before the public website is connected?",
-      "impact": "Cloudflare authoritative DNS would centralize the Pages websites and make proxy, DDoS and WAF controls available to eligible web hostnames. The nameserver cutover affects the apex, wildcard, dashboard and documentation together and must preserve the current records before any cleanup or proxy hardening.",
-      "options": [
-        "Recommended: prepare a full Cloudflare zone with an exact DNS-only copy, verify its assigned nameservers directly, then approve a separate nameserver cutover and enable DNSSEC after stabilization.",
-        "Keep WEDOS authoritative and continue connecting individual Pages subdomains with CNAME records; this leaves the documentation protected by Pages but keeps split DNS operations.",
-        "Do not combine the DNS migration with replacement of the current WEDOS apex and wildcard; connect the Lazurio website and remove obsolete records in a later scoped change."
-      ],
-      "decision_needed_for": [
-        "authoritative DNS ownership",
-        "dashboard proxy hardening",
-        "Lazurio website cutover"
-      ]
-    },
-    {
       "id": "issue-2026-08-26-008",
       "title": "Align local Wrangler runtime with the declared compatibility date",
       "status": "open",
@@ -111,6 +90,27 @@
       ],
       "decision_needed_for": [
         "local Cloudflare Pages parity"
+      ]
+    },
+    {
+      "id": "issue-2026-08-26-009",
+      "title": "Complete post-migration Cloudflare hardening",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "When should DNSSEC be enabled and which eligible lazurio.ai hostnames should move from DNS-only resolution to Cloudflare proxying after the authoritative DNS cutover stabilizes?",
+      "impact": "Cloudflare now owns authoritative DNS, but DNS-only records preserve the previous network path and do not add Cloudflare proxy, WAF or origin shielding to the dashboard or current apex. Enabling proxying before origin TLS and rollback are verified could interrupt service; enabling DNSSEC before old delegation caches expire could create validation failures.",
+      "options": [
+        "Recommended: wait for public resolver convergence, enable DNSSEC through Cloudflare and WEDOS with end-to-end validation, then proxy the dashboard only after strict origin TLS and a direct-origin protection path are verified.",
+        "Keep the dashboard DNS-only until Cloudflare Tunnel or an origin firewall allowlist prevents bypassing the proxy.",
+        "Replace the current apex and wildcard only in the separate Lazurio website rollout; do not combine that content cutover with DNS security hardening."
+      ],
+      "decision_needed_for": [
+        "DNSSEC activation",
+        "dashboard proxy and origin hardening",
+        "Lazurio website cutover"
       ]
     }
   ]
