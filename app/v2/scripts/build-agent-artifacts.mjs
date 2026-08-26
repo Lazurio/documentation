@@ -29,6 +29,8 @@ export async function buildAgentArtifacts() {
     stableId: frontmatter.stableId,
     locale: relativePath.split(path.sep)[0],
     route,
+    canonicalUrl: `https://documentation.lazurio.ai${route}`,
+    sourcePath: `data/v2/docs/${relativePath.split(path.sep).join('/')}`,
     title: frontmatter.title,
     summary: frontmatter.summary,
     audience: frontmatter.audience,
