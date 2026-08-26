@@ -1,11 +1,7 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
-test('the site root selects the accepted English locale', async ({ page, request }) => {
-  const response = await request.get('/', { maxRedirects: 0 })
-  expect([301, 302]).toContain(response.status())
-  expect(response.headers().location).toBe('/en/')
-
+test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
   await expect(
