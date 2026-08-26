@@ -13,7 +13,7 @@
     "test:agent-index": "node --test scripts/query-content-index.test.mjs",
     "test:runtime-listener": "bun test ../../runtime-listener.test.mjs",
     "check": "bun run test:runtime-listener && bun run prepare:data && bun run validate:content && astro check && bun run test:links && bun run test:public-safety && bun run test:agent-index",
-    "build": "bun run check && astro build",
+    "build": "bun run check && astro build && bun scripts/verify-redirect-artifact.mjs",
     "test:browser": "bun run prepare:data && playwright test",
     "preview": "bun run build && wrangler pages dev dist",
     "deploy:preview": "bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=preview",
