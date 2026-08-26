@@ -27,6 +27,10 @@ bun run build
 bun run test:browser
 ```
 
+Deployment uses the operator's authenticated Wrangler session and an explicit
+`CLOUDFLARE_ACCOUNT_ID`; the public repository does not own an account ID or
+credential.
+
 ## Source of truth
 
 Markdown/MDX under `data/v2/docs` is the only authoring source for public
