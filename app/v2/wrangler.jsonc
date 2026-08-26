@@ -1,7 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "lazurio-documentation",
-  "account_id": "df33eb89e21d3ff8ef70bfbd6f6688ff",
   "compatibility_date": "2026-08-26",
   "compatibility_flags": [
     "nodejs_compat"
