@@ -1,9 +1,9 @@
 ---
-title: Veřejné zdroje
-description: Sada důkazů použitá pro první verzi dokumentace Lazuria.
+title: Použité zdroje
+description: Veřejné podklady, ze kterých vycházejí technická a bezpečnostní tvrzení v dokumentaci.
 stableId: lazurio-doc-reference
 locale: cs
-summary: Prohlédněte si připnutý source Lazuria a aktuální stránky Microsoft Learn, které dokládají tvrzení o architektuře, bezpečnosti, soukromí a srovnání.
+summary: Přehled konkrétních revizí zdrojů Lazuria a aktuálních stránek Microsoft Learn použitých při přípravě dokumentace.
 updatedAt: "2026-08-26"
 reviewedAt: "2026-08-26"
 reviewOwner: Matej Suchanek
@@ -27,34 +27,35 @@ audience:
   - agent
 ---
 
-První verze používá veřejné a ověřitelné zdroje. Odkazy na Lazurio jsou
-připnuté k přesné revizi source, která byla pro tuto dokumentaci posouzena.
-Odkazy na Microsoft vedou k aktuální dokumentaci poskytovatele, protože se
-služba v čase mění; kratší interval její revize vynucuje source mapa.
+Dokumentace vychází z veřejně dostupných a ověřitelných podkladů. Odkazy na
+Lazurio vedou na přesnou revizi repozitáře, která byla při přípravě textu
+posouzena. Odkazy na Microsoft směřují na aktuální dokumentaci poskytovatele,
+protože se jeho služby průběžně mění a údaje je potřeba pravidelně ověřovat.
 
-## Source Lazuria
+## Zdrojové materiály Lazuria
 
 - [Přehled projektu](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/README.md)
 - [Architektura](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-- [Model spolupráce, pravomocí a Publikace](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
-- [Standard integrací externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
-- [Standard lokální správy secrets](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md)
+- [Pravidla spolupráce, oprávnění a schvalování výsledků](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
+- [Standard pro integrace externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
+- [Standard lokální správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md)
 
-## Dokumentace poskytovatele Microsoft
+## Dokumentace Microsoftu
 
 - [Architektura Microsoft 365 Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
 - [Ochrana dat a audit](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing)
 - [Data, soukromí a bezpečnost](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
-- [Požadavky](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-minimum-requirements)
-- [Rozšiřitelnost](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
+- [Technické požadavky](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-minimum-requirements)
+- [Možnosti rozšíření](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
 
-## Kontrakt review
+## Kontrola aktuálnosti
 
-Strojově čitelná metadata zdrojů žijí ve veřejném repozitáři v
-`data/v2/source-map.json`. Každý záznam uvádí vlastníka, datum revize a termín
-příští revize. Po expiraci zdroje validace obsahu selže, takže dokumentace
-nemůže potichu vydávat staré chování poskytovatele za aktuální.
+Strojově čitelná evidence zdrojů je uložená ve veřejném repozitáři v souboru
+`data/v2/source-map.json`. U každého zdroje uvádí odpovědnou osobu, datum
+poslední kontroly a termín další kontroly. Jakmile platnost zdroje skončí,
+validace obsahu selže. Tím brání zveřejnění tvrzení založených na zdroji,
+jehož aktuálnost nebyla znovu ověřena.
 
-Bezpečnostně kritické stránky navíc uvádějí Pabla AI jako druhého reviewera.
-Produkční Publikace vyžaduje schválení přesného Git commitu, ne obecný souhlas
-se starší verzí Draftu.
+Bezpečnostně významné stránky uvádějí Pabla AI jako druhého reviewera.
+Produkční zveřejnění je vázané na schválení konkrétního Git commitu; starší
+souhlas se automaticky nevztahuje na pozdější úpravy.

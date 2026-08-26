@@ -1,10 +1,10 @@
 ---
-title: Poznejte Lazurio, než ho schválíte
-description: Veřejný a důkazy podložený výchozí bod pro posouzení Lazuria.
+title: Jak Lazurio funguje a co musí IT ověřit
+description: Veřejná dokumentace architektury, přístupů k datům, bezpečnostních hranic a provozu Lazuria.
 template: splash
 stableId: lazurio-doc-overview
 locale: cs
-summary: Začněte zde a zjistěte, co je Lazurio, jaký problém řeší a které otázky důvěry a provozu je potřeba položit.
+summary: Základní informace o účelu Lazuria, jeho fungování a otázkách, které je vhodné vyjasnit před nasazením.
 updatedAt: "2026-08-26"
 reviewedAt: "2026-08-26"
 reviewOwner: Matej Suchanek
@@ -18,42 +18,41 @@ audience:
   - builder
   - agent
 hero:
-  tagline: Transparentní provozní model pro spolupráci lidí a AI Agentů napříč skutečnými organizacemi, nástroji a verzovanou prací.
+  tagline: Architektura, přístupy k datům, bezpečnostní hranice a provozní požadavky na jednom místě.
   actions:
     - text: Pro správce IT
       link: /cs/it-administrators/
       icon: right-arrow
       variant: primary
-    - text: Srovnat s Microsoft Copilotem
+    - text: Srovnání s Microsoft Copilotem
       link: /cs/lazurio-vs-microsoft-copilot/
       icon: right-arrow
       variant: secondary
 ---
 
-Lazurio je pracovní prostředí a provozní model pro spolupráci lidí a AI
-Agentů. Dává této spolupráci explicitní tvar: firmy jsou oddělené do
-Organizací, práce žije ve verzovaných repozitářích, přístup vychází ze systémů,
-které ho skutečně vlastní, a podstatné změny zůstávají před Publikací
-revidovatelné. Veřejný source popisuje cílovou
+Lazurio je prostředí pro řízenou spolupráci lidí s AI agenty. Jednotlivé firmy
+odděluje do Organizací, práci opírá o verzované repozitáře a využívá oprávnění
+ze systémů, které data a akce skutečně spravují. Významné změny tak lze před
+zveřejněním nebo nasazením zkontrolovat. Veřejné zdrojové podklady popisují
+cílovou
 [architekturu](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
 i současná [pravidla spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md).
 
-Není to příslib, že AI systém může bezpečně udělat cokoli. Je to rámec, který
-zviditelňuje pravomoc, kontext, práci a publikační hranice natolik, aby je bylo
-možné řídit.
+To neznamená, že AI agent může bezpečně udělat cokoli. Lazurio pomáhá určit,
+kdo smí s jakým kontextem pracovat, jaké kroky má povolené a kdo rozhoduje o
+konečném zveřejnění nebo nasazení.
 
-## Vyberte si cestu
+## Kde začít
 
-- **Rozhodujete, zda Lazurio povolit:** přečtěte si [desetiminutový přehled pro
-  IT](/cs/it-administrators/) a [posouzení přístupu k
+- **Posuzujete Lazurio za IT:** přečtěte si [přehled pro správce
+  IT](/cs/it-administrators/) a [informace o přístupu k
   datům](/cs/data-access-security/).
-- **Chcete pochopit mechanismus:** podívejte se, [jak Lazurio
-  funguje](/cs/how-lazurio-works/) a jak se [nasazuje a
+- **Zajímá vás technické fungování:** podívejte se, [jak Lazurio
+  pracuje](/cs/how-lazurio-works/) a jak se [nasazuje a
   provozuje](/cs/deployment-operations/).
-- **Srovnáváte alternativy:** použijte průvodce rozhodnutím podložený zdroji
-  [Lazurio vs
-  Microsoft Copilot](/cs/lazurio-vs-microsoft-copilot/). Řeší překrývající se,
-  ale ne totožné problémy.
-- **Chcete dokumentaci předat Agentovi:** dejte mu `/llms.txt` nebo
-  `/content-index.json`. Obojí vzniká ze stejných zrevidovaných stránek, které
+- **Srovnáváte dostupná řešení:** přečtěte si věcné srovnání
+  [Lazuria a Microsoft Copilotu](/cs/lazurio-vs-microsoft-copilot/). Produkty
+  se v některých oblastech doplňují, ale neřeší stejný problém.
+- **Chcete dokumentaci zpřístupnit agentovi:** odkažte ho na `/llms.txt` nebo
+  `/content-index.json`. Oba soubory vznikají ze stejných zkontrolovaných stránek, které
   čtou lidé.

@@ -1,9 +1,9 @@
 ---
-title: Desetiminutový přehled pro IT
-description: Otázky, které by měl správce IT položit před schválením Lazuria.
+title: Přehled pro správce IT
+description: Co by mělo IT o Lazuriu vědět a ověřit před jeho nasazením.
 stableId: lazurio-doc-it-administrators
 locale: cs
-summary: Stručné IT posouzení účelu Lazuria, identity, přístupů, dat, integrací, provozu a schvalovacích hranic.
+summary: Stručný přehled účelu Lazuria, přístupů, dat, integrací, provozu a schvalování výsledků.
 updatedAt: "2026-08-26"
 reviewedAt: "2026-08-26"
 reviewOwner: Matej Suchanek
@@ -21,82 +21,86 @@ audience:
   - agent
 ---
 
-Lazurio je verzované pracovní prostředí pro lidi a AI Agenty. Je navržené
-tak, aby při práci s pomocí Agentů zviditelnilo organizační hranice, pravomoci
-a publikační rozhodnutí. Veřejný source lze zkontrolovat v
-[repozitáři Lazuria](https://github.com/HumanAndMachines/Lazurio/tree/69c53ec342124aef48cb9d04fd109f9886ec242e).
+Lazurio je verzované pracovní prostředí pro lidi a AI agenty. Jeho cílem je,
+aby při práci s AI zůstalo zřejmé, kde končí jedna firma, kdo má k čemu
+přístup a kdo smí výsledek zveřejnit nebo nasadit. Návrh systému lze ověřit ve
+veřejném [repozitáři Lazuria](https://github.com/HumanAndMachines/Lazurio/tree/69c53ec342124aef48cb9d04fd109f9886ec242e).
 
-Správná schvalovací otázka není pouze „Vidí AI data?“. Zní:
-**Která identita pracuje, na které mašině, v jaké Organizaci, přes kterou
-schválenou integraci, nad kterými daty a kdo smí výsledek Publikovat?**
+Při posuzování nestačí položit otázku „Vidí AI naše data?“. Je potřeba zjistit:
+**Která identita pracuje, na jakém zařízení, v jaké Organizaci, přes kterou
+schválenou integraci, s jakými daty a kdo smí výsledek schválit?**
 
 ## Stručně
 
-| Oblast | Dokumentovaná pozice Lazuria | Co má IT ověřit pro své nasazení |
+| Oblast | Jak je Lazurio navržené | Co má IT ověřit v konkrétním nasazení |
 | --- | --- | --- |
-| Identita | Pravomoc dává přihlášený Principál; Task Agent nezískává z promptu samostatná práva. | Správnost lidské nebo servisní identity, členství v repozitářích a vlastníka zařízení. |
-| Hranice Organizace | Jedna firma odpovídá jedné Organizaci a jedné GitHub organization/access hranici. Data různých Organizací se nesmí míchat. | Připojené a dostupné jsou jen zamýšlené repozitáře a Teamy. |
-| Lokální workspace | Práce začíná z checkoutnutého, verzovaného source na mašině vlastněné Principálem. | Hardening zařízení, šifrování disku, endpoint monitoring, zálohy a offboarding odpovídají pravidlům. |
-| Publikace | Práce Agenta je vratný Draft. Merge, deploy, odeslání a další externí Publikace vyžadují explicitní pravomoc. | Pravidla repozitáře, povinná review a oprávnění k deployi vynucují zamýšlený gate. |
-| Externí aplikace | Integrace jsou lokální pro danou mašinu, zrevidované a samostatně odvolatelné; dokumentovanou předností je oficiální MCP a potom oficiální CLI. | Každý zapnutý poskytovatel, OAuth scope, datový tok, pravidla retence a cesta k odvolání jsou přijaté. |
-| Secrets | Secrets patří do ignorovaných, ohraničených custody cest — ne do Gitu ani veřejné dokumentace. | Zvolené úložiště secrets, rotace, incident response a kontrola úniků skutečně fungují. |
-| Audit | Git commity, pull requesty, review a logy poskytovatelů vytvářejí důkazy, ale pokrytí závisí na použitých nástrojích. | Potřebné logy existují napříč GitHubem, endpointem, poskytovatelem modelu, aplikacemi a deployment infrastrukturou. |
+| Identita | Agent pracuje s oprávněními přihlášeného Principála; samotným zadáním žádná další práva nezíská. | Správnost lidské nebo servisní identity, členství v repozitářích a vlastníka zařízení. |
+| Oddělení firem | Jedna firma odpovídá jedné Organizaci a samostatné hranici přístupů v GitHubu. Data různých Organizací se nemají míchat. | Připojené a dostupné jsou pouze zamýšlené repozitáře a Teamy. |
+| Lokální pracovní prostředí | Práce vychází z lokálně stažených, verzovaných podkladů na zařízení Principála. | Zabezpečení zařízení, šifrování disku, dohled nad koncovými zařízeními, zálohování a odebrání přístupů odpovídají interním pravidlům. |
+| Schválení výsledku | Výstup agenta je nejprve vratný návrh. Sloučení změny, nasazení, odeslání nebo jiné zveřejnění vyžaduje příslušné oprávnění. | Pravidla repozitářů, povinné kontroly a oprávnění k nasazení skutečně vynucují zamýšlený schvalovací postup. |
+| Externí aplikace | Integrace se nastavují pro konkrétní zařízení, procházejí kontrolou a lze je samostatně odvolat. Přednost mají oficiální MCP servery a následně oficiální nástroje příkazové řádky. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
+| Přihlašovací a tajné údaje | Citlivé údaje patří do vyhrazených úložišť mimo Git a veřejnou dokumentaci. | Zvolené úložiště, obměna údajů, reakce na incident a kontrola úniků fungují i v praxi. |
+| Audit | Commity, pull requesty, schválení a záznamy poskytovatelů vytvářejí auditní podklady. Jejich úplnost závisí na použitých nástrojích. | Potřebné záznamy existují v GitHubu, na koncových zařízeních, u poskytovatele modelu, v připojených aplikacích i v infrastruktuře pro nasazení. |
 
-Jde o dokumentované návrhové a procesní hranice, nikoli o certifikaci. Základní
-kontrakty tvoří veřejný [model spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md),
+Jde o popis návrhových a procesních hranic, nikoli o bezpečnostní certifikaci.
+Základní pravidla jsou veřejná: [model spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md),
 [standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
-a [standard správy secrets](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md).
+a [standard správy citlivých údajů](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md).
 
-## Ke kterým datům lze přistupovat?
+## Ke kterým datům může Lazurio přistupovat?
 
-Jedna univerzální odpověď by nebyla poctivá, protože konkrétní dosah Lazuria
-závisí na Principálovi, mašině, oprávněních k repozitářům a zapnutých
-nástrojích. Při posouzení nasazení inventarizujte čtyři povrchy:
+Rozsah přístupu není pro všechna nasazení stejný. Závisí na identitě
+Principála, použitém zařízení, oprávněních k repozitářům a zapnutých nástrojích.
+Před nasazením zmapujte zejména tato čtyři místa:
 
-1. Git repozitáře a Teamy viditelné pro pracující identitu.
-2. Lokální soubory záměrně umístěné uvnitř aktivního workspace.
-3. Externí aplikace zapnuté přes schválený MCP server nebo CLI.
-4. Poskytovatele modelu a hostingu použité zvoleným execution klientem a Moduly.
+1. Git repozitáře a Teamy dostupné přihlášené identitě.
+2. Lokální soubory záměrně vložené do aktivního pracovního prostředí.
+3. Externí aplikace připojené přes schválený MCP server nebo nástroj příkazové
+   řádky.
+4. Poskytovatele modelu a hostingu, které využívá zvolený klient a jednotlivé
+   Moduly.
 
-Pouhá existence integrace v ekosystému nedokazuje, že je zapnutá. Vyžadujte
-živý seznam pro konkrétní nasazení s poskytovatelem, scope, vlastníkem a
-postupem odvolání.
+To, že Lazurio určitý typ integrace podporuje, ještě neznamená, že je v daném
+prostředí zapnutý. Pro konkrétní nasazení si vyžádejte aktuální seznam
+poskytovatelů, rozsahů oprávnění, vlastníků a postupů pro odebrání přístupu.
 
-## Co brání nechtěné Publikaci?
+## Jak se brání nechtěnému zveřejnění nebo nasazení?
 
-[Kontrakt spolupráce Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
-odděluje editovatelnou práci Agenta od Publikace. Běžný vývoj probíhá na větvi
-a přes pull request. Oprávnění GitHubu a pravidla větví zůstávají přístupovou
-autoritou; text v promptu není grantem. U akcí mimo Git, například odeslání
-zprávy nebo změny u poskytovatele, se stejný princip provádí explicitní
-autorizací a oprávněními poskytovatele.
+[Pravidla spolupráce v Lazuriu](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
+oddělují editovatelný návrh od okamžiku, kdy se výsledek skutečně zveřejní nebo
+nasadí. Při vývoji se běžně pracuje na samostatné větvi a přes pull request.
+Oprávnění a pravidla větví v GitHubu zůstávají rozhodující; textové zadání je
+nemůže rozšířit. U kroků mimo Git, například při odeslání zprávy nebo změně
+nastavení u poskytovatele, stejnou hranici drží výslovné schválení a oprávnění
+v dané službě.
 
-Procesní kontroly potřebují technické protějšky všude, kde je platforma umí
-vynutit. V akceptačním testu se pokuste o přístup k zamítnutému repozitáři,
-neschválenému externímu nástroji, chráněný merge a použití odvolaného
-přihlašovacího údaje — nestačí pouze přečíst pravidla.
+Procesní pravidlo má být podpořené technickou kontrolou všude, kde ji platforma
+umožňuje. V rámci přejímacího testu proto ověřte také zamítnutý přístup k
+repozitáři, neschválený externí nástroj, pokus o sloučení do chráněné větve a
+použití odvolaného přihlašovacího údaje. Samotné přečtení pravidel nestačí.
 
-## Minimální schvalovací balíček
+## Co si vyžádat před schválením
 
-Před produkčním rolloutem si od provozovatele vyžádejte:
+Před produkčním nasazením by měl provozovatel doložit:
 
-- inventář Organizace a repozitářů;
-- jmenovité lidské nebo servisní identity a GitHub Team granty;
-- minimální standard ochrany zařízení a lokálních dat;
+- seznam Organizací, repozitářů a Teamů zahrnutých do nasazení;
+- konkrétní lidské nebo servisní identity a jejich oprávnění v GitHubu;
+- minimální požadavky na zabezpečení zařízení a lokálních dat;
 - poskytovatele modelu a podmínky zpracování dat pro zvoleného klienta;
-- katalog integrací s přesnými scope a vlastníky odvolání;
-- postupy pro správu secrets, zálohy, mazání a offboarding;
-- ochranu větví a pravomoc k Publikaci;
-- zdroje logů, dobu uchování a kontakt pro incidenty;
-- ohraničený pilot s daty reprezentujícími skutečný use case.
+- seznam integrací včetně rozsahu oprávnění a vlastníka jejich odebrání;
+- postupy pro správu citlivých údajů, zálohy, mazání dat a ukončení přístupu;
+- pravidla chráněných větví a určení osob oprávněných ke schválení výsledku;
+- zdroje auditních záznamů, dobu jejich uchování a kontakt pro incidenty;
+- omezený pilot na datech a úkolech, které odpovídají zamýšlenému použití.
 
-Pokud některá odpověď není známá, zapište ji jako implementační issue místo
-toho, abyste architektonický záměr vydávali za bezpečnostní vlastnost.
+Pokud některý z těchto bodů není známý, má být vedený jako otevřená otázka
+konkrétního nasazení. Architektonický záměr sám o sobě není důkazem, že je dané
+bezpečnostní opatření skutečně zavedené.
 
-## Doporučené rozhodnutí
+## Doporučený postup
 
-Schvalte ohraničený pilot, když jsou identity, repozitáře, integrace,
-poskytovatel modelu a publikační gate konkrétní a otestovatelné. Neschvalujte
-plošné nasazení pouze z tohoto přehledu. Pro hlubší kontrolu pokračujte na
-[přístup k datům a bezpečnost](/cs/data-access-security/) a [nasazení a
-provoz](/cs/deployment-operations/).
+Začněte omezeným pilotem, pokud lze jednoznačně určit a otestovat identity,
+repozitáře, integrace, poskytovatele modelu a schvalování výsledků. Plošné
+nasazení neschvalujte pouze na základě tohoto přehledu. Podrobnosti najdete na
+stránkách [Přístup k datům a bezpečnost](/cs/data-access-security/) a
+[Nasazení a provoz](/cs/deployment-operations/).

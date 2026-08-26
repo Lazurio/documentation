@@ -81,7 +81,7 @@ test('the language switch keeps the current page and localizes navigation', asyn
 
   await expect(page).toHaveURL(/\/cs\/it-administrators\/$/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'cs')
-  await expect(page.getByRole('heading', { level: 1, name: 'Desetiminutový přehled pro IT' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Přehled pro správce IT' })).toBeVisible()
   await expect(page.getByRole('link', { name: 'Přístup k datům a bezpečnost' }).first()).toBeVisible()
   await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
 
