@@ -2,11 +2,11 @@ export const sidebar = [
   { label: 'Overview', translations: { cs: 'Přehled' }, slug: 'index' },
   {
     label: 'Evaluate Lazurio',
-    translations: { cs: 'Poznejte Lazurio' },
+    translations: { cs: 'Před nasazením' },
     items: [
-      { label: 'For IT administrators', translations: { cs: 'Pro IT administrátory' }, slug: 'it-administrators' },
+      { label: 'For IT administrators', translations: { cs: 'Přehled pro správce IT' }, slug: 'it-administrators' },
       { label: 'Lazurio vs Microsoft Copilot', translations: { cs: 'Lazurio a Microsoft Copilot' }, slug: 'lazurio-vs-microsoft-copilot' },
-      { label: 'Use cases', translations: { cs: 'Příklady použití' }, slug: 'use-cases' },
+      { label: 'Use cases', translations: { cs: 'Kdy dává Lazurio smysl' }, slug: 'use-cases' },
     ],
   },
   {
@@ -20,12 +20,12 @@ export const sidebar = [
   },
   {
     label: 'Reference',
-    translations: { cs: 'Podklady a reference' },
+    translations: { cs: 'Další informace' },
     items: [
-      { label: 'For agents', translations: { cs: 'Pro agenty' }, slug: 'agents' },
+      { label: 'For agents', translations: { cs: 'Pro AI agenty' }, slug: 'agents' },
       { label: 'FAQ', translations: { cs: 'Časté otázky' }, slug: 'faq' },
       { label: 'Security and control evidence', translations: { cs: 'Bezpečnost a podklady k ověření' }, slug: 'public-evidence' },
-      { label: 'Public references', translations: { cs: 'Veřejné zdroje' }, slug: 'reference' },
+      { label: 'Public references', translations: { cs: 'Použité zdroje' }, slug: 'reference' },
     ],
   },
 ]

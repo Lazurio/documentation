@@ -1,9 +1,9 @@
 ---
 title: Jak Lazurio funguje
-description: Základní provozní model od Principála a Organizace až po Draft a Publikaci.
+description: Jak Lazurio propojuje lidi, AI agenty, firemní data a schvalování výsledků.
 stableId: lazurio-doc-how-it-works
 locale: cs
-summary: Poznejte Principály, Agenty, Organizace, repozitáře, Workspace Moduly, Drafty, review a publikační tok Lazuria.
+summary: Vysvětlení základních pojmů Lazuria a postupu od zadání práce po schválený výsledek.
 updatedAt: "2026-08-26"
 reviewedAt: "2026-08-26"
 reviewOwner: Matej Suchanek
@@ -18,61 +18,61 @@ audience:
   - agent
 ---
 
-Lazurio považuje práci s pomocí AI za běžnou organizační práci s explicitním
-vlastnictvím a hranicemi. Člověk začne požadovaným výsledkem; Agent může
-prohlédnout autorizovaný kontext, vytvořit editovatelný Draft, ověřit ho a
-připravit k review. Pravomoc nevychází ze sebejistoty Agenta. Vychází z
-přihlášené identity a systémů, které danou akci vlastní.
+Lazurio přistupuje k práci s AI stejně jako k jiné firemní práci: musí být
+jasné, kdo ji zadal, k jakým podkladům lze přistupovat a kdo smí výsledek
+schválit. AI agent může projít povolený kontext, připravit návrh a ověřit jej,
+ale tím nezískává další oprávnění. Ta vždy vycházejí z přihlášené identity a
+ze systémů, ve kterých se práce skutečně provádí.
 
 Současný veřejný model definuje [architektura Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
 a [kontrakt spolupráce s Agenty](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md).
 
-## Pět užitečných pojmů
+## Základní pojmy
 
-**Principál** je člověk nebo AI Kolega, pro kterého se práce dělá. Drží
-skutečná oprávnění a poslední slovo.
+**Principál** je člověk nebo AI Kolega, jehož jménem práce probíhá. Používají
+se jeho oprávnění a on také rozhoduje o výsledku.
 
-**Task Agent** je aktivní nástrojová relace. Pracuje pro Principála a nemá
-vlastní pravomoc. Může navrhovat a připravovat; prompt z něj neudělá
-administrátora.
+**Task Agent** je konkrétní relace s AI nástrojem. Pracuje pro Principála a
+nemá vlastní oprávnění. Může připravovat návrhy a provádět povolené kroky;
+samotné zadání z něj administrátora neudělá.
 
 **Organizace** je přístupová hranice jedné firmy. V dokumentovaném modelu
 odpovídá GitHub organizaci a samostatnému kořeni repozitářů. Data a strategie
 konkrétní firmy zůstávají uvnitř této Organizace.
 
-**Workspace Modul** je aplikace nebo ohraničená pracovní oblast uvnitř
-Organizace. Modul vlastní svůj runtime kontrakt a lze ho samostatně vyvíjet,
-revidovat, nasazovat i vracet zpět.
+**Workspace Modul** je aplikace nebo jasně vymezená pracovní oblast uvnitř
+Organizace. Každý Modul má vlastní technické podmínky a lze jej samostatně
+vyvíjet, kontrolovat, nasazovat i vrátit na předchozí verzi.
 
-**Personalspace** je privátní prostor jednoho Principála. Není úložištěm pro
-organizační spolupráci ani zkratkou pro přesun firemních dat přes přístupové
-hranice.
+**Personalspace** je soukromý prostor jednoho Principála. Neslouží ke sdílení
+firemních informací ani k obcházení hranic mezi Organizacemi.
 
-## Od požadavku k publikovanému výsledku
+## Od zadání ke schválenému výsledku
 
-1. **Scope:** určete Organizaci, Modul a požadovaný výsledek.
-2. **Pravomoc:** použijte živý přístup přihlášeného Principála; nevymýšlejte
-   druhý systém oprávnění v textu.
-3. **Kontext:** načtěte jen repozitáře a nástroje potřebné pro daný task.
-4. **Draft:** vytvořte práci ve vratné podobě, obvykle na Git větvi a v pull
-   requestu.
-5. **Důkazy:** spusťte kontroly, ukažte praktický dopad a zachovejte kontext
-   pro review.
-6. **Rozhodnutí:** oprávněný Principál přesný výsledek schválí nebo zamítne.
-7. **Publikace:** proveďte merge, deploy, odeslání nebo jinak uveďte výsledek
-   v účinnost.
-8. **Uzavření:** aktualizujte autoritativní plán, zapište zbývající issues a
-   ukliďte dočasné pracovní prostory.
+1. **Vymezení práce:** určete Organizaci, Modul a očekávaný výsledek.
+2. **Oprávnění:** vycházejte ze skutečného přístupu přihlášeného Principála.
+   Textové zadání žádná nová práva nevytváří.
+3. **Kontext:** zpřístupněte jen repozitáře a nástroje potřebné pro daný úkol.
+4. **Návrh:** připravte výsledek ve vratné podobě, obvykle na samostatné větvi
+   a v pull requestu. Lazurio pro tuto fázi používá pojem Draft.
+5. **Ověření:** spusťte kontroly, popište praktický dopad a přiložte podklady
+   potřebné k posouzení změny.
+6. **Rozhodnutí:** oprávněný Principál konkrétní výsledek schválí, nebo zamítne.
+7. **Publikace:** teprve potom lze změnu sloučit, nasadit, odeslat nebo jinak
+   uvést do praxe.
+8. **Uzavření:** aktualizujte plán, zapište nevyřešené otázky a odstraňte
+   dočasné pracovní prostředí.
 
-Díky tomuto tvaru má lidské review význam: reviewer nevidí jen vygenerovaný
-text, ale přesnou změnu, důkazy, vlastníka a publikační rozhodnutí.
+Díky tomu se nekontroluje pouze vygenerovaný text. Posuzující člověk vidí
+konkrétní změnu, jejího vlastníka, výsledky ověření i to, kdo rozhoduje o
+jejím zveřejnění nebo nasazení.
 
 ## Zdroje pravdy místo jedné obří databáze
 
-Lazurio nevyžaduje kopírování všech druhů informací do jediného AI úložiště.
+Lazurio nevyžaduje kopírovat všechny informace do jediného úložiště pro AI.
 Kód zůstává v repozitářích, plány v Mission Control dané Organizace, trvalé
-znalosti v její Knowledgebase a data poskytovatelů za ohraničenou integrací.
-Pracovní prostředí pro daný task spojí relevantní části a zachová jejich
+znalosti v její Knowledgebase a data poskytovatelů za konkrétními integracemi.
+Pracovní prostředí pro konkrétní úkol propojí potřebné části a zachová jejich
 přirozené vlastníky.
 
 Tento rozdíl je důležitý v provozu. Odebrání přístupu k repozitáři nebo
@@ -83,6 +83,6 @@ role v dokumentaci nikoli.
 
 Veřejná architektura rozlišuje cílový model od aktuálně nasazené konfigurace.
 Ne každá instalace zpřístupňuje každou plánovanou schopnost. Při posouzení
-konkrétního nasazení vyžadujte živou konfiguraci a readback od poskytovatele.
-[Přehled pro IT](/cs/it-administrators/) uvádí minimální důkazy očekávané pro
-schválení.
+konkrétního nasazení proto vycházejte ze skutečné konfigurace a ověřte
+nastavení přímo u příslušných poskytovatelů. [Přehled pro správce
+IT](/cs/it-administrators/) uvádí, jaké podklady si před schválením vyžádat.

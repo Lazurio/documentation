@@ -1,9 +1,9 @@
 ---
-title: K čemu je Lazurio dobré
-description: Praktické use cases a podmínky, za kterých je Lazurio vhodným řešením.
+title: Kdy dává Lazurio smysl
+description: Praktické scénáře a podmínky, za kterých dává nasazení Lazuria smysl.
 stableId: lazurio-doc-use-cases
 locale: cs
-summary: Poznejte přínos Lazuria pro vývoj produktů, provoz, znalosti, agentní workflow a práci napříč Organizacemi — i situace, pro které vhodné není.
+summary: Příklady využití Lazuria při vývoji, v provozu a při správě znalostí, včetně situací, kdy je vhodnější jiné řešení.
 updatedAt: "2026-08-26"
 reviewedAt: "2026-08-26"
 reviewOwner: Matej Suchanek
@@ -18,62 +18,63 @@ audience:
   - agent
 ---
 
-Lazurio je nejpřínosnější, když se pomoc AI musí změnit v opakovatelnou a
-revidovatelnou organizační práci místo řady soukromých odpovědí v chatu. Jeho
-veřejný model spojuje oddělené firemní hranice, verzované zdroje pravdy,
-přístup k nástrojům a explicitní publikační rozhodnutí.
+Lazurio dává největší smysl tam, kde AI nemá jen odpovídat v chatu, ale
+pomáhat s opakovatelnou firemní prací, kterou lze zkontrolovat a dohledat.
+Propojuje přitom oddělené firemní prostředí, verzované podklady, přístupy k
+nástrojům a jasné schvalování výsledků.
 
-## Use cases, pro které se Lazurio dobře hodí
+## Kde může Lazurio pomoci
 
 ### Vývoj produktů a softwaru
 
-Agent může prohlédnout Modul, implementovat ohraničenou změnu, spustit testy a
-připravit pull request s důkazy. Tým zachová běžné vlastnictví v Gitu, review a
-rollback místo přijetí neprůhledného vygenerovaného artefaktu.
+AI agent může projít vybraný Modul, připravit jasně vymezenou změnu, spustit
+testy a založit pull request s výsledky ověření. Tým dál používá běžné postupy
+v Gitu, kontrolu změn a návrat k předchozí verzi; nemusí přebírat neprůhledný
+vygenerovaný výsledek.
 
-### Provozní workflow napříč nástroji
+### Provozní postupy napříč nástroji
 
-Task může potřebovat kontext repozitáře i schválenou externí aplikaci.
-Integrační model Lazuria dělá z každého připojení k poskytovateli explicitní a
-odvolatelnou součást konkrétní mašiny, místo aby předpokládal univerzální
-cloudový broker pro každého Agenta.
+Jeden úkol může vyžadovat podklady z repozitáře i přístup ke schválené externí
+aplikaci. Každé takové propojení je v Lazuriu konkrétní, dohledatelné a
+samostatně odvolatelné pro dané zařízení. Systém nespoléhá na jedinou
+prostřednickou cloudovou službu se souhrnným přístupem ke všem nástrojům.
 
 ### Trvalé organizační znalosti
 
-Rozhodnutí, plány, issues a znovupoužitelné znalosti lze zapisovat do
-pojmenovaného zdroje pravdy Organizace. Chat zůstává pracovním povrchem, ne
-jediným místem, kde kontext žije.
+Rozhodnutí, plány, otevřené otázky a znovu použitelné znalosti lze ukládat na
+určená místa v Organizaci. Chat slouží k práci, ale není jediným místem, kde
+důležitý kontext zůstává.
 
 ### Opakované agentní role
 
-Organizace mohou pro opakovanou práci balit ohraničené instrukce, nástroje,
-testy a publikační gatey. Další běh tak začíná ze zrevidované kompetenční
-hranice, ne z kopie promptu se skrytými předpoklady.
+Pro opakovanou práci lze připravit vymezenou sadu instrukcí, nástrojů, testů a
+schvalovacích podmínek. Další úkol pak vychází z předem zkontrolovaného
+postupu, nikoli z kopie zadání se skrytými předpoklady.
 
-### Více firem na mašině jednoho Principála
+### Více firem na zařízení jednoho Principála
 
-Root dokáže objevit několik autorizovaných Organizací a každou zachovat jako
-samostatnou GitHub a repozitářovou hranici. To pomáhá founderům, konzultantům a
-operátorům, kteří skutečně pracují napříč firmami a nesmějí míchat jejich
-privátní data.
+Lazurio může na jednom zařízení zpřístupnit několik povolených Organizací a
+každou zachovat jako samostatnou hranici v GitHubu i v lokálních
+repozitářích. To je užitečné pro zakladatele, konzultanty a provozní role,
+které pracují pro více firem a nesmějí míchat jejich neveřejná data.
 
-## Use cases vyžadující další kontroly
+## Kde jsou nutná další opatření
 
-Regulovaná data, produkční infrastruktura, finanční akce, hromadné zprávy,
-správa přihlašovacích údajů a destruktivní operace lze podporovat jen tehdy,
-když jsou konkrétní kontroly poskytovatele, přístupu a schválení navrženy pro
-dané riziko. Procesní model Lazuria nenahrazuje platné právo, certifikaci,
-oddělení povinností ani bezpečnostní posouzení poskytovatele.
+Práce s regulovanými daty, produkční infrastrukturou, finančními operacemi,
+hromadnou komunikací, přihlašovacími údaji nebo nevratnými zásahy vyžaduje
+opatření odpovídající konkrétnímu riziku. Lazurio nenahrazuje právní
+povinnosti, certifikaci, oddělení rolí ani bezpečnostní posouzení dodavatele.
 
 ## Kdy Lazurio nemusí být nejlepší první volbou
 
-- Potřebujete jen osobní tvorbu Draftů uvnitř jedné produktivní sady a
-  nepotřebujete source-controlled provádění ani workflow napříč nástroji.
-- Organizace nechce vlastnit přístupy k repozitářům, kontroly endpointů nebo
-  pravidla review.
-- Požadovaný task nelze ohraničit, otestovat ani vrátit a neexistuje
-  autorizovaný bod pro lidské rozhodnutí.
-- Celé workflow už řeší zralý produkt s jednodušší podporovanou řídicí vrstvou.
+- Potřebujete pouze osobního asistenta v jedné kancelářské sadě a neřešíte
+  verzované změny ani práci napříč nástroji.
+- Organizace nechce spravovat přístupy k repozitářům, zabezpečení zařízení a
+  pravidla pro kontrolu změn.
+- Úkol nelze rozumně vymezit, otestovat ani vrátit zpět a není jasné, kdo smí
+  rozhodnout o výsledku.
+- Celý pracovní postup už spolehlivě pokrývá zavedený produkt s jednodušší
+  správou.
 
 Pro osobní produktivitu soustředěnou v Microsoftu si přečtěte srovnání
 [Lazurio vs Microsoft Copilot](/cs/lazurio-vs-microsoft-copilot/). Rozumným

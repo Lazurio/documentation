@@ -1,9 +1,9 @@
 ---
 title: Nasazení a provoz
-description: Co určuje Lazurio a co musí být rozhodnuto pro konkrétní rollout.
+description: Co určuje Lazurio a která rozhodnutí musí udělat provozovatel konkrétního nasazení.
 stableId: lazurio-doc-deployment-operations
 locale: cs
-summary: Naplánujte rollout Lazuria v oblastech identity, zařízení, repozitářů, Modulů, integrací, logů, záloh, aktualizací a offboardingu.
+summary: Požadavky na identity, zařízení, repozitáře, Moduly, integrace, auditní záznamy, zálohy, aktualizace a odebrání přístupů.
 updatedAt: "2026-08-26"
 reviewedAt: "2026-08-26"
 reviewOwner: Matej Suchanek
@@ -21,88 +21,91 @@ audience:
   - agent
 ---
 
-Lazurio je framework s lokálními pracovními prostory a nezávisle vlastněnými
-Moduly, ne jedna univerzální hostovaná topologie. Veřejná
-[architektura](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-definuje společný model. Záznam o rolloutu musí určit skutečná zařízení,
-repozitáře, poskytovatele a nasazené služby dané Organizace.
+Lazurio neurčuje jediný způsob hostování. Společný model kombinuje lokální
+pracovní prostředí s Moduly, které lze provozovat a nasazovat samostatně.
+Veřejná [architektura](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
+popisuje společná pravidla. Každá Organizace však musí zdokumentovat konkrétní
+zařízení, repozitáře, poskytovatele a služby, které při svém nasazení používá.
 
-## Komponenty, které je potřeba zahrnout
+## Součásti nasazení
 
-1. **Mašina Principála:** endpoint, na kterém pracuje Kolega nebo AI Kolega.
-2. **Lazurio root:** lokální průvodce a spouštěcí plocha nad autorizovanými
-   checkouty Organizací.
-3. **Repozitář Organizace:** hranice firmy, její konfigurace a sdílené zdroje
-   pravdy.
-4. **Workspace Moduly:** aplikace s vlastním runtime kontraktem, závislostmi,
-   kontrolami a cílem nasazení.
-5. **GitHub:** identita pro repozitáře, Team granty, historie review a
-   vynucování pravidel větví v dokumentovaném výchozím modelu.
-6. **Execution klient a poskytovatel modelu:** vybírá je konkrétní nasazení a
-   posuzují se podle vlastních obchodních a datových podmínek.
-7. **Externí aplikace:** jednotlivě zapnuté MCP servery, CLI nebo browser
-   workflow s oprávněními na straně poskytovatele.
+1. **Zařízení Principála:** koncové zařízení, na kterém pracuje Kolega nebo AI
+   Kolega.
+2. **Kořen Lazuria:** lokální rozhraní a spouštěcí prostředí nad povolenými
+   pracovními kopiemi Organizací.
+3. **Repozitář Organizace:** hranice jedné firmy, její konfigurace a sdílené
+   autoritativní podklady.
+4. **Workspace Moduly:** aplikace s vlastními technickými podmínkami,
+   závislostmi, kontrolami a cílem nasazení.
+5. **GitHub:** systém identit a oprávnění pro repozitáře, Teamy, historii
+   kontrol a vynucování pravidel větví v dokumentovaném výchozím modelu.
+6. **Klient a poskytovatel AI modelu:** jejich výběr závisí na konkrétním
+   nasazení a každý z nich má vlastní obchodní a datové podmínky.
+7. **Externí aplikace:** jednotlivě povolené MCP servery, nástroje příkazové
+   řádky nebo řízené postupy v prohlížeči s oprávněními u daného poskytovatele.
 
-Ne každý Modul musí běžet na veřejném serveru. Některé jsou lokální nástroje,
-jiné interní služby a další publikují veřejnou plochu, jako je tento web.
-Vlastnictví Modulů udržuje tyto volby explicitní.
+Ne každý Modul musí běžet na veřejném serveru. Některé Moduly jsou lokální
+nástroje, jiné interní služby a další zpřístupňují veřejný web, například tuto
+dokumentaci. O způsobu provozu se rozhoduje pro každý Modul samostatně.
 
-## Postup rolloutu
+## Doporučený postup nasazení
 
-### 1. Definujte Organizaci
+### 1. Vymezte Organizaci
 
-Určete GitHub organizaci, repozitáře, Teamy, administrátory a vlastníka
-offboardingu. Rozhodněte, která firemní data sem patří a která jsou vyloučená.
+Určete organizaci v GitHubu, repozitáře, Teamy, administrátory a vlastníka
+procesu pro odebírání přístupů. Zároveň stanovte, která firemní data do
+Organizace patří a která jsou z ní výslovně vyloučená.
 
-### 2. Schvalte minimální standard endpointu
+### 2. Stanovte minimální zabezpečení zařízení
 
 Zdokumentujte podporované operační systémy, vlastnictví zařízení, šifrování,
-zamykání obrazovky, aktualizace, monitoring endpointu, lokální zálohy, vzdálené
-smazání a řešení incidentů. I mašina vlastněná Principálem potřebuje při práci
-s firemními daty kontroly na úrovni firmy.
+zamykání obrazovky, aktualizace, dohled nad koncovými zařízeními, lokální
+zálohy, vzdálené smazání a reakci na incident. I zařízení vlastněné
+Principálem musí při práci s firemními daty splňovat pravidla organizace.
 
-### 3. Vyberte execution poskytovatele
+### 3. Vyberte klienta a poskytovatele modelu
 
-Zaznamenejte klienta, poskytovatele modelu, typ účtu, autentizaci, nakládání s
-daty, retenci, telemetrii a smluvního vlastníka. Posouzení zopakujte při změně
-klienta nebo úrovně účtu.
+Zaznamenejte používaného klienta, poskytovatele modelu, typ účtu, způsob
+přihlášení, pravidla pro zpracování a uchovávání dat, telemetrii a smluvního
+vlastníka. Posouzení zopakujte při změně klienta, poskytovatele nebo typu účtu.
 
-### 4. Zapněte jen nezbytné repozitáře a integrace
+### 4. Povolte jen potřebné repozitáře a integrace
 
-Začněte jedním ohraničeným use casem. Principálovi dejte jen repozitáře a
-scope poskytovatelů, které potřebuje. Postupujte podle veřejného
-[standardu externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
-a otestujte odvolání přístupu.
+Začněte jedním jasně vymezeným scénářem. Principál má mít přístup pouze k
+repozitářům a rozsahům oprávnění, které pro něj potřebuje. Postupujte podle
+veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
+a vyzkoušejte také odebrání přístupu.
 
-### 5. Vynuťte pravidla Publikace
+### 5. Nastavte schvalování výsledků
 
-Nastavte ochranu větví, required checks a reviewery odpovídající repozitáři.
-Určete obdobná schvalovací místa pro zprávy, infrastrukturu, billing, secrets
-a destruktivní akce u poskytovatelů.
+Pro každý repozitář nastavte odpovídající ochranu větví, povinné kontroly a
+schvalovatele. Obdobná schvalovací místa určete také pro odesílání zpráv,
+změny infrastruktury, platby, práci s tajnými údaji a nevratné operace v
+externích službách.
 
-### 6. Proveďte akceptační cvičení
+### 6. Proveďte přejímací testy
 
-Dokažte běžný task, zamítnutý přístup, odvolání přihlašovacího údaje, selhání
-CI, rollback, offboarding a eskalaci incidentu. Důkazy uložte spolu s
-rozhodnutím o rolloutu.
+Ověřte běžný průběh úkolu, zamítnutý přístup, odvolání přihlašovacího údaje,
+selhání CI, návrat k předchozí verzi, odebrání přístupů a eskalaci incidentu.
+Výsledky testů uložte spolu s rozhodnutím o nasazení.
 
-## Aktualizace a rollback
+## Aktualizace a návrat k předchozí verzi
 
-Source Lazuria, konfigurace Organizace a každý Modul se verzují nezávisle.
-Aktualizace mají fast-forwardnout čisté primární checkouty, projít deklarované
-doctor/check gatey a vstoupit do produkce přes zrevidovaný přesný commit.
-Rollback znamená návrat dotčeného repozitáře nebo deploymentu na předchozí
-ověřenou revizi; nesmí potichu obnovit odvolané přihlašovací údaje ani
-nahrazená oprávnění.
+Zdrojové soubory Lazuria, konfigurace Organizace a jednotlivé Moduly se
+verzují nezávisle. Aktualizace mají posunout čisté primární pracovní kopie
+pouze na navazující commit, projít deklarovanými kontrolami `doctor` a
+`check` a vstoupit do produkce z přesně určeného a zkontrolovaného commitu.
+Při návratu k předchozí verzi se vrací pouze dotčený repozitář nebo nasazení.
+Odvolané přihlašovací údaje ani nahrazená oprávnění se tím nesmějí obnovit.
 
-## Provozní otázky závisející na nasazení
+## Otázky, které musí zodpovědět provozovatel
 
-- Kdo spravuje endpointy, GitHub Teamy a externí integrace?
+- Kdo spravuje koncová zařízení, Teamy v GitHubu a externí integrace?
 - Který poskytovatel modelu a jaké podmínky účtu platí?
-- Kde běží služby Modulů a ze kterých sítí jsou dostupné?
-- Jaké logy existují a jak dlouho se uchovávají?
+- Kde běží jednotlivé Moduly a ze kterých sítí jsou dostupné?
+- Jaké auditní záznamy vznikají a jak dlouho se uchovávají?
 - Jak se lokální data a přihlašovací údaje zálohují, mažou a obnovují?
-- Jaká doba odezvy je případně přislíbena?
+- Jaká doba reakce je případně smluvně přislíbená?
 
-Tyto odpovědi mají být součástí akceptačního balíčku konkrétního zákazníka.
-Tato veřejná dokumentace je záměrně nevymýšlí.
+Odpovědi patří do podkladů ke schválení konkrétního zákaznického nasazení.
+Veřejná dokumentace je nemůže určit obecně za všechny provozovatele.
