@@ -106,11 +106,15 @@ header.header {
 }
 
 .sl-markdown-content table {
-  display: table;
+  display: block;
   width: 100%;
-  border: 1px solid var(--lz-gray-200);
+  overflow-x: auto;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 6px;
+  border-spacing: 0;
   background: var(--sl-color-black);
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sl-markdown-content th {
@@ -119,7 +123,22 @@ header.header {
 }
 
 .sl-markdown-content :is(th, td) {
-  border-color: var(--lz-gray-200);
+  padding: 0.9rem 1.125rem;
+  border-color: var(--sl-color-gray-5);
+  line-height: 1.55;
+  vertical-align: top;
+}
+
+.sl-markdown-content :is(th:first-child, td:first-child) {
+  padding-inline-start: 1.125rem;
+}
+
+.sl-markdown-content :is(th:last-child, td:last-child) {
+  padding-inline-end: 1.125rem;
+}
+
+.sl-markdown-content tbody tr:last-child td {
+  border-bottom: 0;
 }
 
 .sl-markdown-content .card {

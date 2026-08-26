@@ -5,6 +5,21 @@ import starlight from '@astrojs/starlight'
 import { resolveModuleListener } from '../../runtime-listener.mjs'
 import { sidebar } from './src/sidebar'
 
+function accessibleTables() {
+  return (tree) => {
+    const visit = (node) => {
+      if (node.type === 'element' && node.tagName === 'table') {
+        node.properties ??= {}
+        node.properties.tabIndex = 0
+        node.properties.ariaLabel = 'Scrollable documentation table'
+      }
+      if (Array.isArray(node.children)) node.children.forEach(visit)
+    }
+
+    visit(tree)
+  }
+}
+
 const isRuntimeCommand = process.argv.some((argument) => ['dev', 'preview'].includes(argument))
 const testManifestUrl = process.env.CI
   ? new URL('./tests/fixtures/lazurio.module.json', import.meta.url)
@@ -17,6 +32,9 @@ const listener = resolveModuleListener(process.env, {
 export default defineConfig({
   site: 'https://documentation.lazurio.ai',
   publicDir: fileURLToPath(new URL('../../data/v2/public', import.meta.url)),
+  markdown: {
+    rehypePlugins: [accessibleTables],
+  },
   ...(listener
     ? {
         server: {
