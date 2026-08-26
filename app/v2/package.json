@@ -1,0 +1,42 @@
+{
+  "name": "@lazurio/documentation",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run prepare:data && astro dev",
+    "dev:launchpad": "bun run dev",
+    "prepare:data": "bun scripts/ensure-data-mount.mjs && bun scripts/build-agent-artifacts.mjs",
+    "validate:content": "bun scripts/validate-content.mjs",
+    "test:links": "bun scripts/check-links.mjs",
+    "test:public-safety": "bun scripts/public-safety-scan.mjs",
+    "test:agent-index": "node --test scripts/query-content-index.test.mjs",
+    "test:runtime-listener": "bun test ../../runtime-listener.test.mjs",
+    "check": "bun run test:runtime-listener && bun run prepare:data && bun run validate:content && astro check && bun run test:links && bun run test:public-safety && bun run test:agent-index",
+    "build": "bun run check && astro build",
+    "test:browser": "bun run prepare:data && playwright test",
+    "preview": "bun run build && wrangler pages dev dist",
+    "deploy:preview": "bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=preview",
+    "deploy:production": "bun scripts/assert-production-gate.mjs && bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=main"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "12.6.13",
+    "@astrojs/mdx": "4.3.0",
+    "@astrojs/starlight": "0.37.7",
+    "@fontsource-variable/inter-tight": "5.2.7",
+    "astro": "5.14.0",
+    "gray-matter": "4.0.3",
+    "rollup": "npm:@rollup/wasm-node@4.60.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.6",
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "1.55.0",
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3",
+    "wrangler": "4.92.0"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@4.60.1"
+  }
+}

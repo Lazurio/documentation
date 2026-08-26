@@ -1,0 +1,14 @@
+{
+  "schema": "lazurio.documentation.v1",
+  "title": "Lazurio documentation",
+  "canonical_url": "https://documentation.lazurio.ai",
+  "source_repository": "https://github.com/Lazurio/documentation",
+  "default_locale": "en",
+  "locales": ["en"],
+  "content_root": "data/v2/docs",
+  "agent_artifacts": ["/llms.txt", "/content-index.json", "/sitemap-index.xml"],
+  "production_review": {
+    "security_second_reviewer": "Pablo AI",
+    "exact_head_required": true
+  }
+}

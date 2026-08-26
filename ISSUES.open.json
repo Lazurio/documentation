@@ -1,0 +1,80 @@
+{
+  "schema": "workspace-issues.v1",
+  "issues": [
+    {
+      "id": "issue-2026-08-26-001",
+      "title": "Connect the WEDOS-managed public subdomain after content acceptance",
+      "status": "open",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Can documentation.lazurio.ai be associated with the Cloudflare Pages project and the required CNAME be published in WEDOS after the exact-head content gate?",
+      "impact": "The documentation can run on its immutable pages.dev deployment, but the canonical public URL and TLS readback remain incomplete until both provider sides agree on the hostname.",
+      "options": [
+        "Associate the subdomain in Cloudflare Pages first, then publish the exact CNAME in WEDOS and verify TLS and canonical URLs.",
+        "Keep the reviewed pages.dev deployment as preview and defer the public hostname without changing the lazurio.ai nameservers.",
+        "Migrate the whole DNS zone only under a separate mail and DNS preservation plan; do not do this for the documentation launch alone."
+      ],
+      "decision_needed_for": [
+        "production custom domain",
+        "TLS and canonical URL acceptance"
+      ]
+    },
+    {
+      "id": "issue-2026-08-26-002",
+      "title": "Select an external IT reader for the comprehension gate",
+      "status": "open",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Who will read the first deployed preview without an introductory call and report what remains unclear?",
+      "impact": "Internal checks can prove consistency and source coverage but cannot prove that an unfamiliar IT administrator understands Lazurio in ten minutes. The first public release keeps this test as a production gate.",
+      "options": [
+        "Choose one representative external IT administrator after the first readable preview exists.",
+        "Keep the release on preview until a suitable reader is available; do not substitute an internal author for the external comprehension test."
+      ],
+      "decision_needed_for": [
+        "production content acceptance"
+      ]
+    },
+    {
+      "id": "issue-2026-08-26-003",
+      "title": "Align the documentation lockup after the Lazurio logo direction is finalized",
+      "status": "open",
+      "severity": "low",
+      "owner": "annablazickova",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Which final Lazurio lockup should the documentation header use after the in-progress product identity is approved?",
+      "impact": "The first release safely uses the text title and the approved favicon. It must not present a working lockup direction as final brand identity.",
+      "options": [
+        "Keep the text title until the design-system owner publishes a final asset.",
+        "Adopt the approved asset in a later scoped visual update with browser parity checks."
+      ],
+      "decision_needed_for": [
+        "final header lockup"
+      ]
+    },
+    {
+      "id": "issue-2026-08-26-004",
+      "title": "Activate the Organization module slot before Module Setup",
+      "status": "open",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Will an authorized Organization reviewer approve the exact module registry entry so the documentation slot becomes active?",
+      "impact": "The repository and content can be prepared, but the canonical lazurio.module.v1 descriptor and Launchpad runtime remain fail-closed while the Organization registry reports planned_slot.",
+      "options": [
+        "Approve and publish the reviewed Organization registry change, update the Organization primary checkout, then run lazurio module setup read-only and with --apply.",
+        "Leave the slot planned and keep the documentation repository undeployable from Launchpad. Do not create a hand-written descriptor that bypasses the Organization authority."
+      ],
+      "decision_needed_for": [
+        "canonical Module descriptor",
+        "Launchpad runtime acceptance"
+      ]
+    }
+  ]
+}
