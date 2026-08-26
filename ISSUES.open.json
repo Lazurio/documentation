@@ -75,6 +75,24 @@
         "canonical Module descriptor",
         "Launchpad runtime acceptance"
       ]
+    },
+    {
+      "id": "issue-2026-08-26-005",
+      "title": "Confirm availability of advanced GitHub secret-scanning modes",
+      "status": "open",
+      "severity": "low",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Can non-provider pattern scanning and validity checks be enabled for this public repository under the current GitHub Organization plan and policy?",
+      "impact": "GitHub secret scanning, push protection, vulnerability alerts and Dependabot security updates are enabled. Provider readback still reports the two advanced secret-scanning modes as disabled, so their extra coverage is not currently part of the repository control set.",
+      "options": [
+        "Enable the advanced modes if the Organization plan exposes them and verify provider readback.",
+        "Keep standard secret scanning and push protection as the enforced baseline and document the advanced modes as unavailable."
+      ],
+      "decision_needed_for": [
+        "advanced repository security hardening"
+      ]
     }
   ]
 }
