@@ -2,26 +2,6 @@
   "schema": "workspace-issues.v1",
   "issues": [
     {
-      "id": "issue-2026-08-26-001",
-      "title": "Connect the WEDOS-managed public subdomain after content acceptance",
-      "status": "open",
-      "severity": "high",
-      "owner": "matejsuchanek",
-      "created_at": "2026-08-26",
-      "updated_at": "2026-08-26",
-      "question": "Can documentation.lazurio.ai be associated with the Cloudflare Pages project and the required CNAME be published in WEDOS after the exact-head content gate?",
-      "impact": "The documentation can run on its immutable pages.dev deployment, but the canonical public URL and TLS readback remain incomplete until both provider sides agree on the hostname.",
-      "options": [
-        "Associate the subdomain in Cloudflare Pages first, then publish the exact CNAME in WEDOS and verify TLS and canonical URLs.",
-        "Keep the reviewed pages.dev deployment as preview and defer the public hostname without changing the lazurio.ai nameservers.",
-        "Migrate the whole DNS zone only under a separate mail and DNS preservation plan; do not do this for the documentation launch alone."
-      ],
-      "decision_needed_for": [
-        "production custom domain",
-        "TLS and canonical URL acceptance"
-      ]
-    },
-    {
       "id": "issue-2026-08-26-002",
       "title": "Select an external IT reader for the comprehension gate",
       "status": "open",
@@ -92,6 +72,45 @@
       ],
       "decision_needed_for": [
         "advanced repository security hardening"
+      ]
+    },
+    {
+      "id": "issue-2026-08-26-006",
+      "title": "Decide whether Cloudflare should become authoritative for lazurio.ai",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Should the complete lazurio.ai DNS zone move from WEDOS authoritative DNS to Cloudflare before the public website is connected?",
+      "impact": "Cloudflare authoritative DNS would centralize the Pages websites and make proxy, DDoS and WAF controls available to eligible web hostnames. The nameserver cutover affects the apex, wildcard, dashboard and documentation together and must preserve the current records before any cleanup or proxy hardening.",
+      "options": [
+        "Recommended: prepare a full Cloudflare zone with an exact DNS-only copy, verify its assigned nameservers directly, then approve a separate nameserver cutover and enable DNSSEC after stabilization.",
+        "Keep WEDOS authoritative and continue connecting individual Pages subdomains with CNAME records; this leaves the documentation protected by Pages but keeps split DNS operations.",
+        "Do not combine the DNS migration with replacement of the current WEDOS apex and wildcard; connect the Lazurio website and remove obsolete records in a later scoped change."
+      ],
+      "decision_needed_for": [
+        "authoritative DNS ownership",
+        "dashboard proxy hardening",
+        "Lazurio website cutover"
+      ]
+    },
+    {
+      "id": "issue-2026-08-26-008",
+      "title": "Align local Wrangler runtime with the declared compatibility date",
+      "status": "open",
+      "severity": "low",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-26",
+      "question": "Which reviewed Wrangler version should replace 4.92.0 so local Pages emulation supports compatibility date 2026-08-26?",
+      "impact": "Build, CI and Cloudflare deployment work, but local `wrangler pages dev dist` currently fails because its bundled runtime supports dates only through 2026-05-22. Astro development and build artifact checks remain available, but they are not a full Pages runtime smoke.",
+      "options": [
+        "Upgrade the pinned Wrangler version in a separate dependency PR and rerun build plus Pages emulation.",
+        "Keep 4.92.0 temporarily and treat CI plus a deployed preview smoke as the provider-runtime proof."
+      ],
+      "decision_needed_for": [
+        "local Cloudflare Pages parity"
       ]
     }
   ]

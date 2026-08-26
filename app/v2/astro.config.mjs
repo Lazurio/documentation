@@ -31,6 +31,12 @@ const listener = resolveModuleListener(process.env, {
 
 export default defineConfig({
   site: 'https://documentation.lazurio.ai',
+  redirects: {
+    '/': {
+      status: 302,
+      destination: '/en/',
+    },
+  },
   publicDir: fileURLToPath(new URL('../../data/v2/public', import.meta.url)),
   markdown: {
     rehypePlugins: [accessibleTables],
