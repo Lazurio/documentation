@@ -31,6 +31,7 @@ const listener = resolveModuleListener(process.env, {
 
 export default defineConfig({
   site: 'https://documentation.lazurio.ai',
+  // Keep the locale prefix explicit so future curated locales can share root selection.
   redirects: {
     '/': {
       status: 302,
