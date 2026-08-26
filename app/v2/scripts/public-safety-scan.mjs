@@ -21,7 +21,7 @@ const forbidden = [
   ['/Users/', 'local user path'],
   ['personalspace/', 'Personalspace path'],
   ['Concept Line', 'client identity'],
-  ['Spectoda', 'external Organization reference'],
+  ['EXTERNAL_ORGANIZATION_FIXTURE', 'external Organization reference'],
   ['ghp_', 'GitHub token shape'],
   ['sk-proj-', 'API key shape'],
   ['AKIA', 'AWS access key shape'],
