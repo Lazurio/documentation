@@ -1,0 +1,11 @@
+{
+  "schema_version": "lazurio.module.v1",
+  "module_id": "documentation-ci-fixture",
+  "port_leases": [
+    {
+      "id": "main",
+      "host": "127.0.0.1",
+      "port": 4321
+    }
+  ]
+}

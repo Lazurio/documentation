@@ -1,0 +1,106 @@
+{
+  "schema": "lazurio.documentation.source-map.v1",
+  "reviewedAt": "2026-08-26",
+  "sources": [
+    {
+      "id": "lazurio-readme",
+      "title": "Lazurio README",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-11-26"
+    },
+    {
+      "id": "lazurio-architecture",
+      "title": "Lazurio architecture",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-11-26"
+    },
+    {
+      "id": "lazurio-collaboration-model",
+      "title": "Lazurio collaboration and access model",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-11-26"
+    },
+    {
+      "id": "lazurio-external-apps",
+      "title": "External application integration standard",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-11-26"
+    },
+    {
+      "id": "lazurio-secret-custody",
+      "title": "Local secret custody standard",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-11-26"
+    },
+    {
+      "id": "microsoft-copilot-architecture",
+      "title": "Microsoft 365 Copilot architecture and how it works",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-09-26"
+    },
+    {
+      "id": "microsoft-copilot-data-protection",
+      "title": "Data protection and auditing for Microsoft 365 Copilot",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-09-26"
+    },
+    {
+      "id": "microsoft-copilot-privacy",
+      "title": "Data, privacy, and security for Microsoft 365 Copilot",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-09-26"
+    },
+    {
+      "id": "microsoft-copilot-requirements",
+      "title": "Microsoft 365 Copilot requirements",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-minimum-requirements",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-09-26"
+    },
+    {
+      "id": "microsoft-copilot-extensibility",
+      "title": "Microsoft 365 Copilot extensibility",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-08-26",
+      "reviewDueAt": "2026-09-26"
+    }
+  ]
+}

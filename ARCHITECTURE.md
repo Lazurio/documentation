@@ -1,0 +1,94 @@
+# Architecture
+
+## Goal
+
+Provide one public, reviewable explanation of Lazurio for people and agents.
+The first consumer is an IT administrator who needs to understand the system,
+its trust boundaries and the operational decision before approving it.
+
+## Invariants
+
+1. Markdown/MDX in Git is the only authoring source.
+2. The website, sitemap, `llms.txt` and content index derive from the same tree.
+3. Public explanation never replaces a code-owned runtime contract.
+4. Trust-critical claims have public evidence, an owner and a review date.
+5. Private Organization, client and Personalspace information never enters the
+   repository.
+6. A future MCP server may read the content index but cannot become a writer or
+   a second content store.
+
+## Shape
+
+```text
+data/v2/docs/*.md(x)       reviewed authoring source
+          |
+          +--> Astro + Starlight --> semantic website
+          |
+          +--> artifact builder --> llms.txt
+                                 --> content-index.json
+                                 --> robots.txt
+                                 --> sitemap.xml (Starlight/Astro build)
+
+data/v2/source-map.json    public evidence and freshness contract
+```
+
+`app/v2` is the only runtime generation. `data/v2` contains authoritative
+content and public assets. `generated/v2` is reserved for reproducible derived
+artifacts that need to be inspected in Git; the deploy-time agent artifacts are
+generated directly into the public build input and are not authoring sources.
+
+## Why this stack
+
+Astro, Starlight, Bun and Cloudflare provide a small, well-supported static
+documentation stack with accessible navigation, deterministic builds and a
+portable deployment output. This Module intentionally excludes analytics, an
+editor, a private content import, migration history and unrelated assets.
+
+A standalone Module is preferable to embedding the docs in a marketing site:
+documentation needs its own information architecture, evidence lifecycle,
+machine discovery contract and independent rollback.
+
+## Content identity
+
+Each document declares:
+
+- `stableId`: locale-independent identity;
+- `updatedAt`: last content change;
+- `reviewedAt`: last factual review;
+- `reviewOwner`: accountable reviewer;
+- `sourceRefs`: IDs from `data/v2/source-map.json`.
+
+The agent artifact builder emits the exact source commit and whether the build
+tree was dirty. Production artifacts must come from a clean reviewed commit.
+
+## Deployment
+
+The application builds with the Astro Cloudflare adapter and is deployed as a
+Cloudflare Pages project. Pages is intentionally selected over a Workers
+Custom Domain for the first release because `lazurio.ai` DNS remains
+authoritative at WEDOS. Cloudflare Pages supports an externally managed
+subdomain through a CNAME after the hostname is associated with the Pages
+project; Workers Custom Domains require a Cloudflare-managed zone.
+
+Preview and production are separate branches of the Pages project. The public
+domain is connected only after exact-head content review and provider readback.
+Rollback redeploys the previous immutable Pages deployment and, if necessary,
+returns the WEDOS CNAME to the previous verified target.
+
+## Failure modes
+
+- Missing or expired evidence fails content validation.
+- Unknown source IDs or duplicate stable IDs fail the build.
+- Public-safety markers fail before deployment.
+- A dirty build is allowed for local preview but rejected by the production
+  deployment command.
+- Missing Module registration keeps `lazurio module setup` fail-closed.
+- Missing Cloudflare or WEDOS access blocks deployment without weakening the
+  DNS or review gate.
+
+## Deferred work
+
+- Czech localization after English content acceptance.
+- A read-only MCP server backed by the same public index.
+- Search infrastructure beyond Starlight's built-in static search.
+- Analytics, feedback collection, authenticated content and write APIs.
