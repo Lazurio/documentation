@@ -22,10 +22,14 @@ a hidden “AI version” of Lazurio documentation.
 - [`/llms.txt`](/llms.txt) is a compact map of canonical pages and summaries.
 - [`/content-index.json`](/content-index.json) is the versioned structured
   index. It includes stable document IDs, routes, audiences, review metadata,
-  public evidence references and Markdown content.
+  canonical URLs, public source paths, evidence references and Markdown content.
 - [`/sitemap-index.xml`](/sitemap-index.xml) is the web crawler map generated
   by the documentation build.
 - Human-readable pages remain the canonical interpretation surface.
+
+Stable-ID retrieval defaults to the English document. Agents can request a
+different published locale explicitly; canonical routes always select the exact
+localized page.
 
 All artifacts are built from `data/v2/docs` in the public
 [documentation repository](https://github.com/Lazurio/documentation). The
