@@ -9,11 +9,11 @@
       "owner": "matejsuchanek",
       "created_at": "2026-08-26",
       "updated_at": "2026-08-26",
-      "question": "Who will read the first deployed preview without an introductory call and report what remains unclear?",
-      "impact": "Internal checks can prove consistency and source coverage but cannot prove that an unfamiliar IT administrator understands Lazurio in ten minutes. The first public release keeps this test as a production gate.",
+      "question": "Who will read the live English baseline without an introductory call and report what remains unclear?",
+      "impact": "Internal checks can prove consistency and source coverage but cannot prove that an unfamiliar IT administrator understands Lazurio in ten minutes. The English baseline is live; this test remains the gate for declaring the IT-facing content accepted and will drive any necessary copy revisions.",
       "options": [
-        "Choose one representative external IT administrator after the first readable preview exists.",
-        "Keep the release on preview until a suitable reader is available; do not substitute an internal author for the external comprehension test."
+        "Choose one representative external IT administrator now that the first readable version is live.",
+        "Keep audience acceptance open until a suitable reader is available; do not substitute an internal author for the external comprehension test."
       ],
       "decision_needed_for": [
         "production content acceptance"
@@ -100,10 +100,10 @@
       "owner": "matejsuchanek",
       "created_at": "2026-08-26",
       "updated_at": "2026-08-26",
-      "question": "When should DNSSEC be enabled and which eligible lazurio.ai hostnames should move from DNS-only resolution to Cloudflare proxying after the authoritative DNS cutover stabilizes?",
-      "impact": "Cloudflare now owns authoritative DNS, but DNS-only records preserve the previous network path and do not add Cloudflare proxy, WAF or origin shielding to the dashboard or current apex. Enabling proxying before origin TLS and rollback are verified could interrupt service; enabling DNSSEC before old delegation caches expire could create validation failures.",
+      "question": "What reviewed sequence should enable DNSSEC and move eligible lazurio.ai hostnames from DNS-only resolution to Cloudflare proxying now that the authoritative cutover has converged?",
+      "impact": "Cloudflare now owns authoritative DNS and public resolver convergence was verified on 2026-08-26. DNS-only records preserve the previous network path and do not add Cloudflare proxy, WAF or origin shielding to the dashboard or current apex. Enabling proxying before origin TLS and rollback are verified could interrupt service; DNSSEC still requires a separately reviewed, end-to-end activation.",
       "options": [
-        "Recommended: wait for public resolver convergence, enable DNSSEC through Cloudflare and WEDOS with end-to-end validation, then proxy the dashboard only after strict origin TLS and a direct-origin protection path are verified.",
+        "Recommended: enable DNSSEC through Cloudflare and WEDOS with end-to-end validation, then proxy the dashboard only after strict origin TLS and a direct-origin protection path are verified.",
         "Keep the dashboard DNS-only until Cloudflare Tunnel or an origin firewall allowlist prevents bypassing the proxy.",
         "Replace the current apex and wildcard only in the separate Lazurio website rollout; do not combine that content cutover with DNS security hardening."
       ],
