@@ -140,6 +140,20 @@ button,
   letter-spacing: -0.005em !important;
 }
 
+.sl-link-button {
+  border-radius: 4px;
+}
+
+.sl-link-button.primary {
+  border-color: var(--sl-color-white);
+  background: var(--sl-color-white);
+  color: var(--sl-color-black);
+}
+
+.sl-link-button.primary:hover {
+  color: var(--sl-color-black);
+}
+
 :focus-visible {
   outline: 2px solid var(--sl-color-white) !important;
   outline-offset: 3px !important;
