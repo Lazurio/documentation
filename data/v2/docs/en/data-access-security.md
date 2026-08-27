@@ -65,7 +65,7 @@ someone else's private context.
 
 ### External applications
 
-The [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
+The [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
 prefers a locally curated official MCP server, then an official CLI, then a
 reviewed and pinned open-source implementation. Browser interaction is a
 fallback. MCP approval modes do not automatically constrain a CLI or arbitrary
@@ -84,7 +84,7 @@ contain provider names and exact scopes—not secret values.
 
 ### Secrets
 
-The [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/security/local-secret-custody.md)
+The [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
 keeps real credentials out of Git. Local ignored paths are scoped by owner or
 Organization, and tracked source contains only schemas, variable names and
 instructions. Your endpoint and backup controls must protect the actual local
@@ -96,7 +96,7 @@ custody location.
 | --- | --- | --- |
 | Prompt requests data from another company | GitHub denial for repositories without a grant; workspace selection and client sandbox/process rules for local paths | Confirm GitHub-side denial with an identity that lacks the grant. Separately test the chosen client's local filesystem boundary; do not claim a local audit event unless a named endpoint/client control records it. |
 | Agent attempts a protected publication | GitHub/provider permissions plus explicit principal approval | Attempt merge/deploy without required permission or review. |
-| Credential is copied into source | Ignored custody paths, review and the repository/provider scanning actually enabled for the deployment | Read back the live repository controls and run an approved safe canary exercise in a test repository. Lazurio does not provide a universal secret-scanning pipeline for every Organization. |
+| Credential is copied into source | Ignored custody paths, review and the repository/provider scanning actually enabled for the deployment | Read back the live repository controls and run an approved safe canary exercise in a test repository. The documentation repository only adds a narrow denylist for known private markers and local-path patterns; it is not general secret scanning, SAST or DLP, and Lazurio does not provide a universal scanning pipeline for every Organization. |
 | Integration has excessive access | Provider-side scopes and separate revocation | Read live OAuth/app grants and revoke one without affecting unrelated access. |
 | Local machine is lost | Device controls, encryption, credential revocation and recovery procedure | Run the organization's offboarding or lost-device exercise. |
 | Prompt or retrieved content manipulates the agent | Scoped context, untrusted-input handling, review and least-privilege tools | Seed a harmless prompt-injection canary and confirm the agent neither expands scope nor publishes without the relevant provider gate. |
@@ -119,7 +119,8 @@ The broader architecture also defines optional or separately deployed
 surfaces: Lazurio Dashboard, hosted team workspaces, and a per-owner
 Resident/Buddy service. Documented examples include Zulip for Resident
 conversation, GBrain for long-term memory, Tailscale or another approved
-private access layer, and T3 Code or another agent CLI in a hosted workspace.
+private access layer, Hermes or another operator-chosen OpenAI-compatible
+agent runtime, and T3 Code or another agent CLI in a hosted workspace.
 The public checkout ships bridge and provisioning code for these profiles, but
 their presence in source is not evidence that they are active. If any is
 enabled, add it to the deployment data-flow, processor inventory, network

@@ -42,8 +42,13 @@ No. Lazurio is in active development. The current supported setup is a public
 source checkout run with Git and Bun, and CLI v0 is experimental. A simple
 packaged installation is target architecture. The current license is
 FSL-1.1-Apache-2.0, which is source-available rather than an OSI open-source
-license today. Internal use is expressly permitted; offering a competing
-commercial product or service is not. Each published version becomes Apache
+license today. Internal use, non-commercial education or research, and
+professional services for a compliant licensee are permitted. Permitted use
+may include copying, modification and redistribution, with the license link
+and copyright notices retained. A Competing Use means making the software
+available to others in a commercial product or service that substitutes for
+Lazurio or another product or service the licensor offers using it, or offers
+the same or substantially similar functionality. Each published version becomes Apache
 2.0 on its second anniversary, and the software is provided without warranty.
 
 </details>
@@ -90,7 +95,7 @@ package.
 
 Real secrets stay outside Git in scoped, ignored custody paths or an approved
 provider store. Tracked files contain only schemas, required variable names and
-instructions. Read the public [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/security/local-secret-custody.md).
+instructions. Read the public [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md).
 
 </details>
 
