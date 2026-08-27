@@ -2,21 +2,11 @@
   "schema": "workspace-tasks.v1",
   "tasks": [
     {
-      "id": "documentation-first-release",
-      "title": "Publish the first English documentation release",
-      "status": "in_progress",
-      "owner": "codex",
-      "updated_at": "2026-08-26"
-    },
-    {
       "id": "documentation-czech-locale",
       "title": "Curate the Czech locale after English content acceptance",
-      "status": "blocked",
+      "status": "in_progress",
       "owner": "matejsuchanek",
-      "blocked_by": [
-        "documentation-first-release"
-      ],
-      "updated_at": "2026-08-26"
+      "updated_at": "2026-08-27"
     }
   ]
 }

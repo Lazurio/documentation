@@ -41,12 +41,12 @@ generated directly into the public build input and are not authoring sources.
 
 Astro, Starlight, Bun and Cloudflare provide a small, well-supported static
 documentation stack with accessible navigation, deterministic builds and a
-portable deployment output. This Module intentionally excludes analytics, an
-editor, a private content import, migration history and unrelated assets.
+portable deployment output. This repository intentionally excludes analytics,
+an editor, a private content import, migration history and unrelated assets.
 
-A standalone Module is preferable to embedding the docs in a marketing site:
-documentation needs its own information architecture, evidence lifecycle,
-machine discovery contract and independent rollback.
+A standalone documentation repository is preferable to embedding the docs in
+a marketing site: documentation needs its own information architecture,
+evidence lifecycle, machine discovery contract and independent rollback.
 
 ## Content identity
 
@@ -64,16 +64,16 @@ tree was dirty. Production artifacts must come from a clean reviewed commit.
 ## Deployment
 
 The application builds with the Astro Cloudflare adapter and is deployed as a
-Cloudflare Pages project. Pages is intentionally selected over a Workers
-Custom Domain for the first release because `lazurio.ai` DNS remains
-authoritative at WEDOS. Cloudflare Pages supports an externally managed
-subdomain through a CNAME after the hostname is associated with the Pages
-project; Workers Custom Domains require a Cloudflare-managed zone.
+Cloudflare Pages project. Cloudflare is authoritative for `lazurio.ai`; the
+Pages project and its custom hostname remain the natural owners of the public
+documentation deployment while the Git repository remains the content and
+review authority.
 
 Preview and production are separate branches of the Pages project. The public
 domain is connected only after exact-head content review and provider readback.
-Rollback redeploys the previous immutable Pages deployment and, if necessary,
-returns the WEDOS CNAME to the previous verified target.
+Rollback redeploys the previous immutable Pages deployment. DNS changes are a
+separate reviewed operation and are not part of ordinary documentation
+publication.
 
 ## Failure modes
 
@@ -84,8 +84,7 @@ returns the WEDOS CNAME to the previous verified target.
   DLP; live repository and provider controls remain deployment evidence.
 - A dirty build is allowed for local preview but rejected by the production
   deployment command.
-- Missing Module registration keeps `lazurio module setup` fail-closed.
-- Missing Cloudflare or WEDOS access blocks deployment without weakening the
+- Missing Cloudflare access blocks deployment without weakening the
   DNS or review gate.
 
 ## Deferred work

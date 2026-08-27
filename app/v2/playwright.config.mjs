@@ -1,12 +1,6 @@
 import { defineConfig, devices } from '@playwright/test'
-import { resolveModuleListener } from '../../runtime-listener.mjs'
 
-const listener = resolveModuleListener(process.env, {
-  manifestUrl: process.env.CI
-    ? new URL('./tests/fixtures/lazurio.module.json', import.meta.url)
-    : undefined,
-})
-const baseURL = `http://${listener.host}:${listener.port}`
+const baseURL = 'http://127.0.0.1:4321'
 
 export default defineConfig({
   testDir: './tests',
@@ -19,7 +13,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: 'bun run dev',
+    command: 'bun run dev -- --host 127.0.0.1 --port 4321',
     url: `${baseURL}/en/`,
     reuseExistingServer: false,
     timeout: 120_000,

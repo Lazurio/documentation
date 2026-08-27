@@ -1,4 +1,14 @@
 {
   "schema": "workspace-tasks.v1",
-  "tasks": []
+  "tasks": [
+    {
+      "id": "documentation-first-release",
+      "title": "Publish the first English documentation release",
+      "status": "done",
+      "owner": "codex",
+      "updated_at": "2026-08-27",
+      "completed_at": "2026-08-27",
+      "result": "The reviewed English documentation is live at documentation.lazurio.ai, including the IT briefing, public evidence and agent-readable artifacts. Findings from two independent AI IT-readers were incorporated before acceptance."
+    }
+  ]
 }

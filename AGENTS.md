@@ -1,6 +1,6 @@
 # Lazurio documentation — agent rules
 
-This is the public documentation Module for Lazurio.
+This is the public documentation repository for Lazurio.
 
 ## Authority
 
@@ -45,6 +45,8 @@ bun run build
 bun run test:browser
 ```
 
-Use Launchpad for the final local runtime smoke. Record new module-specific
-uncertainties in `ISSUES.open.json`; broader roadmap state belongs in
-the owning Organization's private Mission Control.
+Use the local Astro application for browser checks and the deployed Cloudflare
+Pages site for the final production smoke. This repository is a read-only
+productionspace system in Launchpad, not a runnable Workspace module. Record
+new repository-specific uncertainties in `ISSUES.open.json`; broader roadmap
+state belongs in the owning Organization's private Mission Control.

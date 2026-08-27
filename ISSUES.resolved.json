@@ -1,0 +1,33 @@
+{
+  "schema": "workspace-issues.v1",
+  "issues": [
+    {
+      "id": "issue-2026-08-26-004",
+      "title": "Classify Lazurio Documentation in the Organization inventory",
+      "status": "resolved",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-27",
+      "question": "Where should the public Lazurio Documentation repository live in the Human and Machine Organization inventory?",
+      "impact": "The repository needed one truthful local classification without changing its public GitHub owner or granting it Workspace runtime authority.",
+      "options": [
+        "Register it as a runnable Workspace module with Team membership and a port lease.",
+        "Register it as a read-only productionspace repository while preserving Lazurio/documentation as the provider authority."
+      ],
+      "decision_needed_for": [],
+      "resolved_at": "2026-08-27",
+      "resolved_by": "matejsuchanek",
+      "resolution": {
+        "decision": "Lazurio/documentation remains a public repository in the Lazurio GitHub Organization and is represented locally as productionspace/documentation in Human and Machine.",
+        "rationale": "Documentation is a public production surface with its own Cloudflare publication gate. It is not a Team-owned Workspace application and therefore has no Launchpad Start action, runtime lease or port.",
+        "selected_option": "Register it as a read-only productionspace repository while preserving Lazurio/documentation as the provider authority.",
+        "evidence": "The reviewed Organization inventory was published; Organization Doctor, Lazurio synchronization and Launchpad readback confirmed the read-only productionspace representation."
+      },
+      "resolved_from": {
+        "open_ledger_path": "ISSUES.open.json",
+        "previous_status": "in_progress"
+      }
+    }
+  ]
+}

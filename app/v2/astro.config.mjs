@@ -2,7 +2,6 @@ import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'astro/config'
 import cloudflare from '@astrojs/cloudflare'
 import starlight from '@astrojs/starlight'
-import { resolveModuleListener } from '../../runtime-listener.mjs'
 import { sidebar } from './src/sidebar'
 
 function accessibleTables() {
@@ -20,15 +19,6 @@ function accessibleTables() {
   }
 }
 
-const isRuntimeCommand = process.argv.some((argument) => ['dev', 'preview'].includes(argument))
-const testManifestUrl = process.env.CI
-  ? new URL('./tests/fixtures/lazurio.module.json', import.meta.url)
-  : undefined
-const listener = resolveModuleListener(process.env, {
-  allowMissing: !isRuntimeCommand,
-  manifestUrl: testManifestUrl,
-})
-
 export default defineConfig({
   site: 'https://documentation.lazurio.ai',
   // Keep the locale prefix explicit so future curated locales can share root selection.
@@ -42,14 +32,6 @@ export default defineConfig({
   markdown: {
     rehypePlugins: [accessibleTables],
   },
-  ...(listener
-    ? {
-        server: {
-          host: listener.host,
-          port: listener.port,
-        },
-      }
-    : {}),
   vite: {
     server: { strictPort: true },
     preview: { strictPort: true },
