@@ -69,9 +69,18 @@ The [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6
 prefers a locally curated official MCP server, then an official CLI, then a
 reviewed and pinned open-source implementation. Browser interaction is a
 fallback. MCP approval modes do not automatically constrain a CLI or arbitrary
-shell command. Each machine uses a separately revocable login, and the
-deployment catalogue should contain names and required scopes—not secret
-values.
+shell command. New ChatGPT or claude.ai connectors and shared hosted
+integration brokers are outside the standard because their OAuth custody
+follows a cloud account rather than one revocable machine. An existing
+connector may be a declared transition state, and a provider-operated remote
+MCP is acceptable when its configuration and token remain per-machine.
+
+For workflows that need to write, the public standard defaults to the required
+read and write scopes; read-only is optional tightening for unusually sensitive
+sources. That grant is a real capability. Calling an agent write a Draft does
+not prevent the provider from receiving data, and publication still needs the
+provider-specific technical or process gate. The deployment catalogue should
+contain provider names and exact scopes—not secret values.
 
 ### Secrets
 
@@ -87,7 +96,7 @@ custody location.
 | --- | --- | --- |
 | Prompt requests data from another company | GitHub denial for repositories without a grant; workspace selection and client sandbox/process rules for local paths | Confirm GitHub-side denial with an identity that lacks the grant. Separately test the chosen client's local filesystem boundary; do not claim a local audit event unless a named endpoint/client control records it. |
 | Agent attempts a protected publication | GitHub/provider permissions plus explicit principal approval | Attempt merge/deploy without required permission or review. |
-| Credential is copied into source | Ignored custody paths, public-safety scanning and review | Seed a safe canary matching a token pattern and confirm the pipeline fails. |
+| Credential is copied into source | Ignored custody paths, review and the repository/provider scanning actually enabled for the deployment | Read back the live repository controls and run an approved safe canary exercise in a test repository. Lazurio does not provide a universal secret-scanning pipeline for every Organization. |
 | Integration has excessive access | Provider-side scopes and separate revocation | Read live OAuth/app grants and revoke one without affecting unrelated access. |
 | Local machine is lost | Device controls, encryption, credential revocation and recovery procedure | Run the organization's offboarding or lost-device exercise. |
 | Prompt or retrieved content manipulates the agent | Scoped context, untrusted-input handling, review and least-privilege tools | Seed a harmless prompt-injection canary and confirm the agent neither expands scope nor publishes without the relevant provider gate. |
@@ -108,11 +117,13 @@ arrangement.
 
 The broader architecture also defines optional or separately deployed
 surfaces: Lazurio Dashboard, hosted team workspaces, and a per-owner
-Resident/Buddy service that may use communication or memory stores. They are
-not enabled by every source-checkout installation and are not hidden inside
-the local root. If any is enabled, add it to the deployment data-flow, processor
-inventory, network policy, logging, retention, backup, deletion and incident
-review.
+Resident/Buddy service. Documented examples include Zulip for Resident
+conversation, GBrain for long-term memory, Tailscale or another approved
+private access layer, and T3 Code or another agent CLI in a hosted workspace.
+The public checkout ships bridge and provisioning code for these profiles, but
+their presence in source is not evidence that they are active. If any is
+enabled, add it to the deployment data-flow, processor inventory, network
+policy, logging, retention, backup, deletion and incident review.
 
 ## Audit expectations
 

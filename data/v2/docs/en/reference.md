@@ -10,6 +10,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-readme
+  - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -41,6 +42,7 @@ regulatory review requires one.
 ## Lazurio source
 
 - [Project overview (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/README.md)
+- [License](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/LICENSE.md)
 - [Architecture (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/ARCHITECTURE.md)
 - [Collaboration, authority and publication model (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/AGENTS.md)
 - [External application integration standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
@@ -65,5 +67,8 @@ Security-critical pages also name Pablo AI. Pablo AI is the Organization
 Steward's automation identity for source alignment, security-claim review and
 exact-head delivery gates. It is not an independent auditor and does not attest
 that a customer deployment operates the documented controls. Production
-publication requires its approval of the exact Git commit as well as the
-repository's technical checks and authorized publication decision.
+policy requires its approval of the exact Git commit as well as the
+repository's technical checks and authorized publication decision. The deploy
+script mechanically verifies a clean `main` and an operator-supplied approved
+SHA; binding that SHA to Pablo AI's exact-head review is a delivery process
+step, not an independent attestation encoded by the script.

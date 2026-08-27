@@ -33,7 +33,7 @@ by the Organization.
 | Surface | Status | IT implication |
 | --- | --- | --- |
 | Source checkout with Git and Bun | Available today and the current supported setup path | Treat it as developer-operated software with repository, dependency and update ownership. |
-| Launchpad and Doctor | Available today for local discovery, application lifecycle and diagnostics | They run on the principal machine and do not replace endpoint management. |
+| Launchpad, Guide and Doctor | Available today for local discovery, guidance, application lifecycle and diagnostics | Launchpad and local web modules use loopback listeners and module-owned port leases. Inventory those local HTTP control surfaces even though they are not bound to the public network. They do not replace endpoint management. |
 | Lazurio CLI v0 | Experimental and unstable | Do not build a production integration on undocumented CLI syntax without version pinning and acceptance tests. |
 | Packaged CLI and generated non-Git root | Target architecture | Do not include it in a current bill of materials or support assumption. |
 | Dashboard | Separately developed hosted/admin surface | Include it only when the deployment actually uses it; document its operator, identity, storage and logs. |
@@ -42,8 +42,9 @@ by the Organization.
 ## Components to account for
 
 1. **Principal machine:** the endpoint where a person or AI colleague works.
-2. **Lazurio root:** the local guide and launch surface above authorized
-   Organization checkouts.
+2. **Lazurio root:** the local Guide, Launchpad, CLI/Core and Doctor above
+   authorized Organization checkouts. Launchpad and runnable modules expose
+   loopback HTTP listeners on dynamically selected or module-owned ports.
 3. **Organization repository:** the company boundary, configuration and
    shared sources of truth.
 4. **Workspace modules:** applications with their own runtime, dependencies,
@@ -52,11 +53,15 @@ by the Organization.
    enforcement in the documented default model.
 6. **Execution client and model provider:** for example Codex, Cursor, Claude
    Code or another approved client, plus the model service it calls. Their
-   terms govern the selected task context sent to them.
+   terms govern the selected task context sent to them. Current root tooling
+   checks for Git, GitHub CLI and Codex CLI in `PATH`; a missing Codex command
+   is a Doctor warning and some repair guidance assumes Codex. A non-Codex
+   rollout must test its chosen client against actual Doctor and repair flows.
 7. **External applications:** individually enabled MCP servers, CLIs or
    browser workflows with provider-side scopes.
-8. **Optional hosted services:** Dashboard, a hosted team workspace,
-   Resident/Buddy infrastructure, communication or memory stores if enabled.
+8. **Optional hosted services:** Dashboard; a hosted team workspace with T3
+   Code or another agent CLI; and Resident/Buddy infrastructure that may use
+   Zulip, GBrain and Tailscale or another approved private access layer.
 
 Not every module must be deployed to a public server. Some are local tools,
 some are internal services, and some publish a public surface such as this
@@ -77,6 +82,11 @@ handling. A principal-owned machine still needs company-grade controls when it
 processes company data. One machine is one trust domain; use a separate machine
 or equivalent infrastructure when mounted Organizations must not share an OS,
 disk or agent process.
+
+The documented default is one Organization per machine. A multi-Organization
+machine is an allowed exception inside one shared trust domain and needs
+separate provider sessions plus explicit acceptance of the cross-Organization
+endpoint risk.
 
 ### 3. Select the execution provider
 

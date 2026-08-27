@@ -44,9 +44,15 @@ installation. Optional hosted surfaces must be listed explicitly when enabled.
 | --- | --- |
 | Distribution | Developer source checkout using Git and Bun. A simple packaged installation is target architecture, not a released path. |
 | CLI and runtime | CLI v0 is experimental. Launchpad, Doctor and selected module/runtime flows work today, while broader distribution and resident onboarding are still evolving. |
-| License | FSL-1.1-Apache-2.0: source-available today, with an Apache 2.0 future license. This is not currently an OSI open-source license. |
+| License | [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/LICENSE.md): internal use is permitted; offering a competing commercial product or service is not. Each published version becomes Apache 2.0 on its second anniversary. The software is provided without warranty and is not currently under an OSI open-source license. |
 | Product owner | The public license notice names HumanAndMachine s.r.o. as copyright holder. A concrete operator must identify its support, hosting, incident and contractual owners. |
 | Assurance | No certification, universal service level, default retention period or universal deployment topology is claimed. |
+
+Security-critical pages name Pablo AI as a second reviewer. Pablo AI is the
+Organization Steward automation, not an independent auditor or certification.
+For this site, the deploy script mechanically checks a clean `main` and an
+operator-supplied approved commit; matching that commit to Pablo's exact-head
+review remains an explicit delivery process step.
 
 ## The short version
 
@@ -56,7 +62,7 @@ installation. Optional hosted surfaces must be listed explicitly when enabled.
 | Organization boundary | One company maps to one Organization and GitHub organization/access boundary. This is a repository and process boundary, not hard OS isolation on a shared endpoint. | The intended repositories and teams are the only ones mounted. Use separate machines or equivalent infrastructure where a stronger isolation boundary is required. |
 | Local workspace | Work starts from checked-out, versioned source on a principal-owned machine. | Device hardening, disk encryption, endpoint monitoring, backup and offboarding meet policy. |
 | Publication | Agent work is a reversible draft. Merge, deployment, sending and other external publication require explicit authority. | Repository rules, required reviews and deployment permissions enforce the intended gate. |
-| External apps | Integrations are locally curated and separately revocable; the documented preference is official MCP, then official CLI. | Each enabled provider, OAuth scope, data flow, retention policy and revocation path is accepted. |
+| External apps | Integrations are locally curated and separately revocable; the preference is official MCP, then official CLI. New ChatGPT/claude.ai connectors and shared hosted brokers are outside the standard because they break per-machine custody. | Each enabled provider, OAuth scope, data flow, retention policy and revocation path is accepted. The standard defaults to read+write scopes needed by the workflow; read-only is optional tightening, not the assumed baseline. |
 | Secrets | Secrets belong in ignored, scoped custody paths—not in Git or public documentation. | The chosen secret store, rotation, incident response and leak scanning are operational. |
 | Audit | Git commits, pull requests, reviews and provider logs create evidence, but coverage depends on the actual tools used. | Required logs exist across GitHub, endpoint, model provider, apps and deployment infrastructure. |
 

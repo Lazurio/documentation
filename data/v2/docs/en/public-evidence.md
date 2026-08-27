@@ -36,8 +36,11 @@ model or shared cloud data store. It explicitly marks the project as active
 development. Today developers run it from a source checkout using Git and Bun;
 CLI v0 is experimental, while a simple packaged installation and generated
 non-Git root are target architecture. The repository uses
-FSL-1.1-Apache-2.0, which is source-available today and grants an Apache 2.0
-future license.
+[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/LICENSE.md).
+Internal use is a permitted purpose; making the software available as a
+competing commercial product or service is not. Each published version becomes
+available under Apache 2.0 on its second anniversary, and the software is
+provided without warranty.
 
 ## Identity and authority
 
@@ -84,8 +87,12 @@ exists.
 The [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
 prefers an official machine-local MCP server, then an official CLI, then a
 reviewed pinned implementation, with browser interaction as fallback. Each
-machine should use separately revocable provider credentials. An OAuth token is
-a machine/session capability, and MCP approval settings do not automatically
+machine should use separately revocable provider credentials. New ChatGPT or
+claude.ai connectors and shared hosted brokers are outside the standard;
+provider-operated remote MCP remains acceptable when configuration and token
+custody are per-machine. The default scope for a workflow that needs writes is
+read+write, while read-only is optional tightening. An OAuth token is a
+machine/session capability, and MCP approval settings do not automatically
 constrain CLI or shell access.
 
 The [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/security/local-secret-custody.md)
@@ -95,13 +102,16 @@ rotates every secret or replaces backup and incident controls.
 
 ## Local and hosted surfaces
 
-The source checkout contains the local root, Launchpad, CLI/Core, Doctor and
-mounted Organization modules. The broader architecture also defines separately
-deployed or optional surfaces including Dashboard, hosted team workspaces and
-per-owner Resident/Buddy services with possible communication and memory
-stores. They are not enabled by every installation. A deployment that uses one
-must list it as a separate service with its own operator, identity, storage,
-network path, processors, logs, retention, backup and deletion controls.
+The source checkout contains the local root, Launchpad, Guide, CLI/Core, Doctor
+and mounted Organization modules. Launchpad and runnable modules use local
+loopback HTTP listeners with dynamically selected or module-owned port leases.
+The checkout also ships bridge and provisioning code for separately deployed
+profiles; source presence does not mean activation. Optional architecture
+includes Dashboard, hosted team workspaces, and per-owner Resident/Buddy
+services that may use Zulip, GBrain, Tailscale or another private access layer,
+and T3 Code or another agent CLI. A deployment that enables one must list it as
+a separate service with its own operator, identity, storage, network path,
+processors, logs, retention, backup and deletion controls.
 
 ## What this evidence does not prove
 

@@ -49,17 +49,20 @@ Organizations can package scoped instructions, tools, tests and publishing
 gates for recurring work. That makes the next run start from a reviewed
 competence boundary rather than a copied prompt with hidden assumptions.
 
-### Multiple companies on one principal's machine
+### Multiple companies on one principal's machine (exception)
 
 The root can discover several authorized Organizations while keeping each one
 a separate GitHub and repository boundary. This is useful for founders,
 consultants and operators who genuinely work across companies and must not mix
 their private data.
 
-This is not hard tenant isolation. One machine is one trust domain: the
+The recommended starting deployment is one Organization per machine. A
+multi-Organization machine is an allowed exception, not the default. It is not
+hard tenant isolation: one machine is one trust domain, so the
 Organizations can share an OS, disk and agent process with filesystem or
-network access. Use a separate machine or equivalent infrastructure where a
-compromise or over-broad client scope must not cross company boundaries.
+network access. Keep provider sessions separately named and revocable, and use
+a separate machine or equivalent infrastructure where a compromise or
+over-broad client scope must not cross company boundaries.
 
 ## Use cases that need additional controls
 
