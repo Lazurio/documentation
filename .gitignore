@@ -4,6 +4,7 @@ dist/
 .astro/
 test-results/
 playwright-report/
+app/v2/.wrangler/
 app/v2/src/content/docs
 data/v2/public/content-index.json
 data/v2/public/llms.txt

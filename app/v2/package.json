@@ -13,9 +13,11 @@
     "check": "bun run prepare:data && bun run validate:content && astro check && bun run test:links && bun run test:public-safety && bun run test:agent-index",
     "build": "bun run check && astro build && bun scripts/verify-redirect-artifact.mjs",
     "test:browser": "bun run prepare:data && playwright test",
+    "smoke:production": "bun scripts/smoke-public-release.mjs",
     "preview": "bun run build && wrangler pages dev dist",
     "deploy:preview": "bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=preview",
-    "deploy:production": "bun scripts/assert-production-gate.mjs && bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=main"
+    "deploy:production": "bun scripts/assert-production-gate.mjs && bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=main",
+    "rollback:production": "bun scripts/rollback-production.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "12.6.13",
@@ -32,7 +34,7 @@
     "@playwright/test": "1.55.0",
     "@types/node": "24.10.1",
     "typescript": "5.9.3",
-    "wrangler": "4.92.0"
+    "wrangler": "4.127.0"
   },
   "overrides": {
     "rollup": "npm:@rollup/wasm-node@4.60.1"
