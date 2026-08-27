@@ -42,7 +42,9 @@ No. Lazurio is in active development. The current supported setup is a public
 source checkout run with Git and Bun, and CLI v0 is experimental. A simple
 packaged installation is target architecture. The current license is
 FSL-1.1-Apache-2.0, which is source-available rather than an OSI open-source
-license today.
+license today. Internal use is expressly permitted; offering a competing
+commercial product or service is not. Each published version becomes Apache
+2.0 on its second anniversary, and the software is provided without warranty.
 
 </details>
 
