@@ -20,25 +20,6 @@
       ]
     },
     {
-      "id": "issue-2026-08-26-004",
-      "title": "Activate the Organization module slot before Module Setup",
-      "status": "in_progress",
-      "severity": "high",
-      "owner": "matejsuchanek",
-      "created_at": "2026-08-26",
-      "updated_at": "2026-08-27",
-      "question": "Will the reviewed Organization registry change activate the documentation slot after this repository publishes its module-owned lazurio.module.v1 descriptor?",
-      "impact": "The module-owned descriptor now defines the stable identity `documentation`, app root and port lease. It does not activate or authorize the Organization slot: the Organization manifest remains the registry authority, and Launchpad acceptance stays fail-closed until that change is reviewed, published and verified through Synchronizovat.",
-      "options": [
-        "Publish the reviewed module descriptor first, then rebase, approve and publish the Organization registry change and verify the active slot through Synchronizovat.",
-        "If Organization review rejects the slot, keep Launchpad activation blocked and revise the registry or descriptor in their natural owner repositories rather than bypassing either authority."
-      ],
-      "decision_needed_for": [
-        "canonical Module descriptor",
-        "Launchpad runtime acceptance"
-      ]
-    },
-    {
       "id": "issue-2026-08-26-005",
       "title": "Confirm availability of advanced GitHub secret-scanning modes",
       "status": "open",

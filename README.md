@@ -9,15 +9,16 @@ administrators and a sourced decision guide comparing Lazurio with Microsoft
 Copilot in the Microsoft 365 context. Czech follows after English content
 acceptance; it will be curated, not machine-published.
 
-## Runtime
+## Application and deployment
 
 - App generation: `app/v2`
 - Data generation: `data/v2`
 - Generated read models: `generated/v2` and build-time public artifacts
-- Launchpad module: `documentation`
 - Production target: Cloudflare Pages at `documentation.lazurio.ai`
 
-Run the application through Lazurio Launchpad. For repository checks:
+This public repository is mounted in Lazurio as a read-only productionspace
+system. Launchpad discovers it for orientation but does not start, stop or
+release it. For local repository checks:
 
 ```sh
 cd app/v2
