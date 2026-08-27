@@ -30,7 +30,8 @@ bun run test:browser
 
 Deployment uses the operator's authenticated Wrangler session and an explicit
 `CLOUDFLARE_ACCOUNT_ID`; the public repository does not own an account ID or
-credential.
+credential. The reviewed deployment, release-smoke and immutable rollback
+procedure lives in [OPERATIONS.md](OPERATIONS.md).
 
 ## Source of truth
 

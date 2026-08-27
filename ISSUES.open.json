@@ -20,42 +20,6 @@
       ]
     },
     {
-      "id": "issue-2026-08-26-005",
-      "title": "Confirm availability of advanced GitHub secret-scanning modes",
-      "status": "open",
-      "severity": "low",
-      "owner": "matejsuchanek",
-      "created_at": "2026-08-26",
-      "updated_at": "2026-08-26",
-      "question": "Can non-provider pattern scanning and validity checks be enabled for this public repository under the current GitHub Organization plan and policy?",
-      "impact": "GitHub secret scanning, push protection, vulnerability alerts and Dependabot security updates are enabled. Provider readback still reports the two advanced secret-scanning modes as disabled, so their extra coverage is not currently part of the repository control set.",
-      "options": [
-        "Enable the advanced modes if the Organization plan exposes them and verify provider readback.",
-        "Keep standard secret scanning and push protection as the enforced baseline and document the advanced modes as unavailable."
-      ],
-      "decision_needed_for": [
-        "advanced repository security hardening"
-      ]
-    },
-    {
-      "id": "issue-2026-08-26-008",
-      "title": "Align local Wrangler runtime with the declared compatibility date",
-      "status": "open",
-      "severity": "low",
-      "owner": "matejsuchanek",
-      "created_at": "2026-08-26",
-      "updated_at": "2026-08-26",
-      "question": "Which reviewed Wrangler version should replace 4.92.0 so local Pages emulation supports compatibility date 2026-08-26?",
-      "impact": "Build, CI and Cloudflare deployment work, but local `wrangler pages dev dist` currently fails because its bundled runtime supports dates only through 2026-05-22. Astro development and build artifact checks remain available, but they are not a full Pages runtime smoke.",
-      "options": [
-        "Upgrade the pinned Wrangler version in a separate dependency PR and rerun build plus Pages emulation.",
-        "Keep 4.92.0 temporarily and treat CI plus a deployed preview smoke as the provider-runtime proof."
-      ],
-      "decision_needed_for": [
-        "local Cloudflare Pages parity"
-      ]
-    },
-    {
       "id": "issue-2026-08-26-009",
       "title": "Complete post-migration Cloudflare hardening",
       "status": "open",
@@ -74,6 +38,25 @@
         "DNSSEC activation",
         "dashboard proxy and origin hardening",
         "Lazurio website cutover"
+      ]
+    },
+    {
+      "id": "issue-2026-08-27-010",
+      "title": "Upgrade the Astro runtime family after dependency-alert reachability review",
+      "status": "open",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-27",
+      "updated_at": "2026-08-27",
+      "question": "Which compatible Astro, Starlight and Cloudflare adapter versions should replace the current Astro 5 runtime without regressing the reviewed Documentation behavior?",
+      "impact": "GitHub reports 18 open dependency alerts on the default branch, including three high-severity Astro advisories. The current static Documentation does not use the vulnerable server-island or user-controlled slot patterns, and one high advisory explicitly excludes the Cloudflare adapter, but the direct runtime dependency remains on a vulnerable version and should not rely indefinitely on reachability assumptions.",
+      "options": [
+        "Recommended: prepare a separate reviewed runtime-family upgrade to a mutually compatible patched Astro, Starlight and Cloudflare adapter set, then rerun content, browser, Pages and production smokes.",
+        "If the compatible major upgrade cannot ship immediately, document an exact advisory-by-advisory reachability assessment and a short expiry for the temporary exception."
+      ],
+      "decision_needed_for": [
+        "Astro runtime-family upgrade",
+        "Dependabot alert closeout"
       ]
     }
   ]

@@ -28,6 +28,62 @@
         "open_ledger_path": "ISSUES.open.json",
         "previous_status": "in_progress"
       }
+    },
+    {
+      "id": "issue-2026-08-26-005",
+      "title": "Confirm availability of advanced GitHub secret-scanning modes",
+      "status": "resolved",
+      "severity": "low",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-27",
+      "question": "Can non-provider pattern scanning and validity checks be enabled for this public repository under the current GitHub Organization plan and policy?",
+      "impact": "GitHub secret scanning, push protection and Dependabot security updates remain enabled. The two additional modes are not available under the current Lazurio Organization plan.",
+      "options": [
+        "Enable the advanced modes if the Organization plan exposes them and verify provider readback.",
+        "Keep standard secret scanning and push protection as the enforced baseline and document the advanced modes as unavailable."
+      ],
+      "decision_needed_for": [],
+      "resolved_at": "2026-08-27",
+      "resolved_by": "matejsuchanek",
+      "resolution": {
+        "decision": "Keep the verified standard secret-scanning baseline and treat non-provider patterns plus partner validity checks as unavailable until the Organization plan changes.",
+        "rationale": "Live GitHub readback identifies the Lazurio Organization as GitHub Free and both repository modes as disabled. GitHub's current product documentation makes these modes available to Organization repositories on GitHub Team with Secret Protection. The global recommended configuration is unenforced and is not evidence that the controls run on this repository.",
+        "selected_option": "Keep standard secret scanning and push protection as the enforced baseline and document the advanced modes as unavailable.",
+        "evidence": "GitHub REST readback on 2026-08-27 plus the current GitHub documentation for generic patterns and partner validity checks."
+      },
+      "resolved_from": {
+        "open_ledger_path": "ISSUES.open.json",
+        "previous_status": "open"
+      }
+    },
+    {
+      "id": "issue-2026-08-26-008",
+      "title": "Align local Wrangler runtime with the declared compatibility date",
+      "status": "resolved",
+      "severity": "low",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-27",
+      "question": "Which reviewed Wrangler version should replace 4.92.0 so local Pages emulation supports compatibility date 2026-08-26?",
+      "impact": "Local Pages emulation now covers the declared compatibility date instead of relying only on Astro build and deployed-provider smoke.",
+      "options": [
+        "Upgrade the pinned Wrangler version in a separate dependency PR and rerun build plus Pages emulation.",
+        "Keep 4.92.0 temporarily and treat CI plus a deployed preview smoke as the provider-runtime proof."
+      ],
+      "decision_needed_for": [],
+      "resolved_at": "2026-08-27",
+      "resolved_by": "matejsuchanek",
+      "resolution": {
+        "decision": "Pin Wrangler 4.127.0.",
+        "rationale": "The reviewed version supports Node 22+, accepts compatibility date 2026-08-26 and keeps the existing Pages build and deployment contract unchanged.",
+        "selected_option": "Upgrade the pinned Wrangler version in a separate dependency PR and rerun build plus Pages emulation.",
+        "evidence": "The full build passed and Wrangler 4.127.0 served the generated Pages worker locally with 302 root redirect, 200 English page and exact content-index source commit."
+      },
+      "resolved_from": {
+        "open_ledger_path": "ISSUES.open.json",
+        "previous_status": "open"
+      }
     }
   ]
 }
