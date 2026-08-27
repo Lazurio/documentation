@@ -97,7 +97,7 @@ That is the natural route when the workflow should live inside Microsoft's
 product and governance ecosystem.
 
 Lazurio extensions are workspace modules and scoped tool integrations. The
-documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
+documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
 prefers official local MCP servers or CLIs and separately revocable machine
 identities. That is useful when the workflow is source-centric, crosses
 different providers or needs custom verification and publication gates.

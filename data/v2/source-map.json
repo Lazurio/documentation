@@ -7,7 +7,7 @@
       "title": "Lazurio README",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/README.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-08-27",
       "reviewDueAt": "2026-11-27"
@@ -17,7 +17,7 @@
       "title": "Lazurio architecture",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/ARCHITECTURE.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-08-27",
       "reviewDueAt": "2026-11-27"
@@ -27,7 +27,7 @@
       "title": "Lazurio collaboration and access model",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/AGENTS.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-08-27",
       "reviewDueAt": "2026-11-27"
@@ -37,7 +37,7 @@
       "title": "External application integration standard",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-08-27",
       "reviewDueAt": "2026-11-27"
@@ -47,7 +47,7 @@
       "title": "Local secret custody standard",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/security/local-secret-custody.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-08-27",
       "reviewDueAt": "2026-11-27"
@@ -57,7 +57,7 @@
       "title": "Lazurio license",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/LICENSE.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-08-27",
       "reviewDueAt": "2026-11-27"

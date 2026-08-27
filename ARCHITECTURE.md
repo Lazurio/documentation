@@ -79,7 +79,9 @@ returns the WEDOS CNAME to the previous verified target.
 
 - Missing or expired evidence fails content validation.
 - Unknown source IDs or duplicate stable IDs fail the build.
-- Public-safety markers fail before deployment.
+- A narrow repository-specific denylist of known private markers and local-path
+  patterns fails before deployment. It is not general secret scanning, SAST or
+  DLP; live repository and provider controls remain deployment evidence.
 - A dirty build is allowed for local preview but rejected by the production
   deployment command.
 - Missing Module registration keeps `lazurio module setup` fail-closed.

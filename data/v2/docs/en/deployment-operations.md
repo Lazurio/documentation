@@ -33,7 +33,7 @@ by the Organization.
 | Surface | Status | IT implication |
 | --- | --- | --- |
 | Source checkout with Git and Bun | Available today and the current supported setup path | Treat it as developer-operated software with repository, dependency and update ownership. |
-| Launchpad, Guide and Doctor | Available today for local discovery, guidance, application lifecycle and diagnostics | Launchpad and local web modules use loopback listeners and module-owned port leases. Inventory those local HTTP control surfaces even though they are not bound to the public network. They do not replace endpoint management. |
+| Launchpad, Guide and Doctor | Available today for local discovery, guidance, application lifecycle and diagnostics | Launchpad and local web modules use loopback listeners and module-owned port leases. Loopback binding is not caller authentication: another process on the same endpoint may still reach those HTTP surfaces. Guide is a pedagogical application with local file-writing flows, not a security control. Inventory and protect these surfaces even though they are not bound to the public network. |
 | Lazurio CLI v0 | Experimental and unstable | Do not build a production integration on undocumented CLI syntax without version pinning and acceptance tests. |
 | Packaged CLI and generated non-Git root | Target architecture | Do not include it in a current bill of materials or support assumption. |
 | Dashboard | Separately developed hosted/admin surface | Include it only when the deployment actually uses it; document its operator, identity, storage and logs. |
@@ -98,7 +98,7 @@ or account tier changes.
 
 Start with one bounded use case. Give the principal only the repositories and
 provider scopes it needs. Follow the public [external application
-standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
+standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
 and test revocation.
 
 ### 5. Enforce publication rules
