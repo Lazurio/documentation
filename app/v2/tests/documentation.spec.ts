@@ -5,19 +5,19 @@ test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Understand Lazurio before you approve it' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio: product, architecture and controls' }),
   ).toBeVisible()
 })
 
 test('the IT decision path is readable and navigable', async ({ page }) => {
   await page.goto('/en/')
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Understand Lazurio before you approve it' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio: product, architecture and controls' }),
   ).toBeVisible()
 
   await page.getByRole('link', { name: 'For IT administrators' }).first().click()
   await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
-  await expect(page.getByRole('heading', { level: 1, name: 'A ten-minute IT briefing' })).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Approval briefing for IT administrators' })).toBeVisible()
 
   await page.getByRole('link', { name: 'Lazurio vs Microsoft Copilot' }).first().click()
   await expect(page).toHaveURL(/\/en\/lazurio-vs-microsoft-copilot\/$/)

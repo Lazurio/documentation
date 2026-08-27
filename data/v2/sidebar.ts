@@ -21,6 +21,7 @@ export const sidebar = [
     items: [
       { label: 'For agents', slug: 'agents' },
       { label: 'FAQ', slug: 'faq' },
+      { label: 'Control evidence in English', slug: 'public-evidence' },
       { label: 'Public references', slug: 'reference' },
     ],
   },

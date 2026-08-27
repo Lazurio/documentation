@@ -3,8 +3,8 @@ title: Lazurio vs Microsoft Copilot
 description: A fair, sourced decision guide for two products with overlapping AI value but different control planes.
 stableId: lazurio-doc-copilot-comparison
 summary: Compare Lazurio with Microsoft Copilot across purpose, context, permissions, execution, extensibility, governance, and deployment.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+updatedAt: "2026-08-27"
+reviewedAt: "2026-08-27"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -28,8 +28,8 @@ Lazurio and Microsoft Copilot overlap in one important way: both help people
 use AI in real work. They are not direct substitutes at every layer.
 
 **Microsoft Copilot** is Microsoft's AI experience embedded across Microsoft
-365 and grounded in the signed-in user's permitted work data. **Lazurio** is an
-open, source-controlled operating model and workspace for governed work by
+365 and grounded in the signed-in user's permitted work data. **Lazurio** is a
+public-source, source-controlled operating model and workspace for governed work by
 people and agents across repositories, modules and explicitly connected tools.
 
 This page uses “Microsoft Copilot” for the current product family while the
@@ -57,8 +57,8 @@ and [data protection and auditing](https://learn.microsoft.com/en-us/microsoft-3
 
 Lazurio's public source defines GitHub as the access authority for repository
 work, separates Organizations, and treats agent output as a draft until an
-authorized publication decision. See the [collaboration contract](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
-and [architecture](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md).
+authorized publication decision. See the reviewed [English control evidence
+summary](/en/public-evidence/) and its exact source links.
 
 ## Data and privacy questions
 
@@ -97,7 +97,7 @@ That is the natural route when the workflow should live inside Microsoft's
 product and governance ecosystem.
 
 Lazurio extensions are workspace modules and scoped tool integrations. The
-documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
+documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
 prefers official local MCP servers or CLIs and separately revocable machine
 identities. That is useful when the workflow is source-centric, crosses
 different providers or needs custom verification and publication gates.

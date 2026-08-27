@@ -3,8 +3,8 @@ title: Deployment and operations
 description: What is fixed by Lazurio and what must be decided for a concrete rollout.
 stableId: lazurio-doc-deployment-operations
 summary: Plan a Lazurio rollout across identity, devices, repositories, modules, integrations, logs, backup, updates, and offboarding.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+updatedAt: "2026-08-27"
+reviewedAt: "2026-08-27"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -20,10 +20,24 @@ audience:
   - agent
 ---
 
-Lazurio is a framework with local workspaces and independently owned modules,
-not one universal hosted topology. The public [architecture](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-defines the common model. A rollout record must define the actual devices,
-repositories, providers and deployed services used by your Organization.
+Lazurio is currently installed from a public source checkout and combines
+local workspaces with independently owned modules. It does not ship one
+universal hosted topology. A rollout record must define the actual devices,
+repositories, clients, model providers, integrations and hosted services used
+by the Organization.
+
+![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
+
+## Current and target state
+
+| Surface | Status | IT implication |
+| --- | --- | --- |
+| Source checkout with Git and Bun | Available today and the current supported setup path | Treat it as developer-operated software with repository, dependency and update ownership. |
+| Launchpad and Doctor | Available today for local discovery, application lifecycle and diagnostics | They run on the principal machine and do not replace endpoint management. |
+| Lazurio CLI v0 | Experimental and unstable | Do not build a production integration on undocumented CLI syntax without version pinning and acceptance tests. |
+| Packaged CLI and generated non-Git root | Target architecture | Do not include it in a current bill of materials or support assumption. |
+| Dashboard | Separately developed hosted/admin surface | Include it only when the deployment actually uses it; document its operator, identity, storage and logs. |
+| Resident/Buddy VPS and hosted team workspace | Optional/specialized hosted profiles | Each enabled service is a separate processing and network surface, not part of the default local-only claim. |
 
 ## Components to account for
 
@@ -36,10 +50,13 @@ repositories, providers and deployed services used by your Organization.
    checks and deployment target.
 5. **GitHub:** repository identity, team grants, review history and branch
    enforcement in the documented default model.
-6. **Execution client and model provider:** selected by the deployment and
-   reviewed under its own commercial and data terms.
+6. **Execution client and model provider:** for example Codex, Cursor, Claude
+   Code or another approved client, plus the model service it calls. Their
+   terms govern the selected task context sent to them.
 7. **External applications:** individually enabled MCP servers, CLIs or
    browser workflows with provider-side scopes.
+8. **Optional hosted services:** Dashboard, a hosted team workspace,
+   Resident/Buddy infrastructure, communication or memory stores if enabled.
 
 Not every module must be deployed to a public server. Some are local tools,
 some are internal services, and some publish a public surface such as this
@@ -57,7 +74,9 @@ offboarding owner. Decide what company data belongs there and what is excluded.
 Document supported operating systems, device ownership, encryption, screen
 lock, patching, endpoint monitoring, local backup, remote wipe and incident
 handling. A principal-owned machine still needs company-grade controls when it
-processes company data.
+processes company data. One machine is one trust domain; use a separate machine
+or equivalent infrastructure when mounted Organizations must not share an OS,
+disk or agent process.
 
 ### 3. Select the execution provider
 
@@ -69,20 +88,21 @@ or account tier changes.
 
 Start with one bounded use case. Give the principal only the repositories and
 provider scopes it needs. Follow the public [external application
-standard](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
+standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
 and test revocation.
 
 ### 5. Enforce publication rules
 
 Set branch protection, required checks and reviewers appropriate to the
-repository. Define equivalent approval points for messages, infrastructure,
-billing, secrets and destructive provider actions.
+repository. For messages, infrastructure, billing, secrets and destructive
+provider actions, name the actual provider-side permission or confirmation.
+Where no technical interlock exists, record the rule as process-only.
 
 ### 6. Run an acceptance exercise
 
-Prove the normal task, a denied access attempt, credential revocation, failed
-CI, rollback, offboarding and incident escalation. Keep evidence with the
-rollout decision.
+Prove the normal task, GitHub-side access denial, the chosen client's local
+filesystem boundary, credential revocation, failed CI, rollback, offboarding
+and incident escalation. Keep evidence with the rollout decision.
 
 ## Updating and rollback
 
@@ -96,11 +116,12 @@ or superseded access.
 ## Operating questions that remain deployment-specific
 
 - Who maintains endpoints, GitHub teams and external integrations?
-- Which model provider and account terms apply?
+- Which execution client, model provider, account terms and subprocessors apply?
 - Where do module services run, and which networks can reach them?
 - Which logs exist and how long are they retained?
 - How are local data and credentials backed up, deleted and recovered?
-- What response time is promised, if any?
+- Which components are source-checkout, hosted, experimental or target-only?
+- Who provides support, and what response time is promised, if any?
 
 These answers should be part of the customer-specific acceptance package.
 This public documentation intentionally does not invent them.

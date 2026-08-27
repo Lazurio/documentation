@@ -14,7 +14,7 @@ acceptance; it will be curated, not machine-published.
 - App generation: `app/v2`
 - Data generation: `data/v2`
 - Generated read models: `generated/v2` and build-time public artifacts
-- Launchpad target: `humanandmachine-ai-documentation-v2`
+- Launchpad module: `documentation`
 - Production target: Cloudflare Pages at `documentation.lazurio.ai`
 
 Run the application through Lazurio Launchpad. For repository checks:

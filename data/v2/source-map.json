@@ -1,56 +1,66 @@
 {
   "schema": "lazurio.documentation.source-map.v1",
-  "reviewedAt": "2026-08-26",
+  "reviewedAt": "2026-08-27",
   "sources": [
     {
       "id": "lazurio-readme",
       "title": "Lazurio README",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/README.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/README.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-11-26"
+      "reviewedAt": "2026-08-27",
+      "reviewDueAt": "2026-11-27"
     },
     {
       "id": "lazurio-architecture",
       "title": "Lazurio architecture",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/ARCHITECTURE.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-11-26"
+      "reviewedAt": "2026-08-27",
+      "reviewDueAt": "2026-11-27"
     },
     {
       "id": "lazurio-collaboration-model",
       "title": "Lazurio collaboration and access model",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/AGENTS.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-11-26"
+      "reviewedAt": "2026-08-27",
+      "reviewDueAt": "2026-11-27"
     },
     {
       "id": "lazurio-external-apps",
       "title": "External application integration standard",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-11-26"
+      "reviewedAt": "2026-08-27",
+      "reviewDueAt": "2026-11-27"
     },
     {
       "id": "lazurio-secret-custody",
       "title": "Local secret custody standard",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/security/local-secret-custody.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-11-26"
+      "reviewedAt": "2026-08-27",
+      "reviewDueAt": "2026-11-27"
+    },
+    {
+      "id": "lazurio-license",
+      "title": "Lazurio license",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/LICENSE.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-27",
+      "reviewDueAt": "2026-11-27"
     },
     {
       "id": "microsoft-copilot-architecture",

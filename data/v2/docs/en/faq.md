@@ -3,13 +3,14 @@ title: Frequently asked questions
 description: Direct answers to the first questions people and IT administrators ask about Lazurio.
 stableId: lazurio-doc-faq
 summary: Answers about what Lazurio is, whether it replaces Copilot, data access, local deployment, approval, audits, and the future MCP server.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+updatedAt: "2026-08-27"
+reviewedAt: "2026-08-27"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-readme
+  - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -35,6 +36,18 @@ reviewed separately.
 
 <details>
 
+<summary>Is Lazurio a finished, packaged product?</summary>
+
+No. Lazurio is in active development. The current supported setup is a public
+source checkout run with Git and Bun, and CLI v0 is experimental. A simple
+packaged installation is target architecture. The current license is
+FSL-1.1-Apache-2.0, which is source-available rather than an OSI open-source
+license today.
+
+</details>
+
+<details>
+
 <summary>Does Lazurio replace Microsoft Copilot?</summary>
 
 Not categorically. Microsoft Copilot is a natural fit for assistance grounded
@@ -48,10 +61,11 @@ comparison](/en/lazurio-vs-microsoft-copilot/).
 
 <summary>Can an agent access everything the user can?</summary>
 
-Do not assume that. Effective access depends on the session, tool, local
-workspace and provider credential. The design principle is that a task agent
-does not gain rights from a prompt and should receive only the context needed
-for the task. Your deployment must verify the actual grants and denied paths.
+Do not assume that, but do not assume policy removes an existing capability
+either. Effective access depends on the client sandbox, OS access, local
+workspace and provider credentials. A prompt creates no new provider grant;
+however, a token or readable file already available to the client can be used
+by that process. Verify both allowed and denied paths.
 
 </details>
 
@@ -61,8 +75,10 @@ for the task. Your deployment must verify the actual grants and denied paths.
 
 No universal claim is made. The documented root and working checkouts are
 local, while Git repositories, model requests, external applications and
-deployed modules may use provider infrastructure. The concrete data-flow map
-belongs to the deployment acceptance package.
+deployed modules may use provider infrastructure. Optional Dashboard, hosted
+workspace and Resident/Buddy services add further stores when enabled. The
+concrete data-flow and processor map belongs to the deployment acceptance
+package.
 
 </details>
 
@@ -72,7 +88,7 @@ belongs to the deployment acceptance package.
 
 Real secrets stay outside Git in scoped, ignored custody paths or an approved
 provider store. Tracked files contain only schemas, required variable names and
-instructions. Read the public [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md).
+instructions. Read the public [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/security/local-secret-custody.md).
 
 </details>
 
@@ -80,11 +96,24 @@ instructions. Read the public [secret custody standard](https://github.com/Human
 
 <summary>What stops an agent from publishing a bad change?</summary>
 
-The operating model distinguishes an editable draft from publication.
-Repository permissions, branch rules, required checks and reviews enforce Git
-publication; other systems need equivalent provider-side permissions and
-explicit authorization. These controls reduce risk but do not make human
-approval infallible.
+The operating model distinguishes an editable draft from publication. GitHub
+branch rules, required checks, reviews and merge permissions can mechanically
+protect a branch. A task agent may still push a review branch when it has write
+access, and that already moves source to GitHub. Email, chat and other providers
+need their own technical permissions; explicit authorization is a process
+control where the provider or client exposes no equivalent interlock.
+
+</details>
+
+<details>
+
+<summary>Are Organizations isolated from each other on one machine?</summary>
+
+They are separate repository and GitHub access boundaries, but they are not
+hard OS tenants. One machine is one trust domain. Another process with the same
+effective filesystem access may be able to read more than the active
+Organization. Use separate machines or equivalent infrastructure where that
+risk is unacceptable.
 
 </details>
 
@@ -105,6 +134,7 @@ legal obligations.
 Git changes can be tied to commits, pull requests, reviews and deployments.
 Provider and endpoint actions require their own logs. Ask for an audit map that
 states which system records each relevant action and how long it is retained.
+Local file reads and prompts are not automatically logged by Lazurio.
 
 </details>
 

@@ -3,8 +3,8 @@ title: What Lazurio is good for
 description: Practical use cases and the conditions under which Lazurio is a good fit.
 stableId: lazurio-doc-use-cases
 summary: See where Lazurio helps with product delivery, operations, knowledge, agent workflows, and multi-organization work—and where it does not.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+updatedAt: "2026-08-27"
+reviewedAt: "2026-08-27"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -55,6 +55,11 @@ The root can discover several authorized Organizations while keeping each one
 a separate GitHub and repository boundary. This is useful for founders,
 consultants and operators who genuinely work across companies and must not mix
 their private data.
+
+This is not hard tenant isolation. One machine is one trust domain: the
+Organizations can share an OS, disk and agent process with filesystem or
+network access. Use a separate machine or equivalent infrastructure where a
+compromise or over-broad client scope must not cross company boundaries.
 
 ## Use cases that need additional controls
 
