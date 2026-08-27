@@ -3,17 +3,17 @@
   "issues": [
     {
       "id": "issue-2026-08-26-002",
-      "title": "Select an external IT reader for the comprehension gate",
-      "status": "open",
+      "title": "Close the English IT-reader comprehension gap",
+      "status": "in_progress",
       "severity": "high",
       "owner": "matejsuchanek",
       "created_at": "2026-08-26",
-      "updated_at": "2026-08-26",
-      "question": "Who will read the live English baseline without an introductory call and report what remains unclear?",
-      "impact": "Internal checks can prove consistency and source coverage but cannot prove that an unfamiliar IT administrator understands Lazurio in ten minutes. The English baseline is live; this test remains the gate for declaring the IT-facing content accepted and will drive any necessary copy revisions.",
+      "updated_at": "2026-08-27",
+      "question": "Will the revised English trust pack pass independent IT-reader review after the first external-model round found it insufficient as a self-contained approval package?",
+      "impact": "Fable 5 returned CONDITIONAL GO and Grok 4.6 returned NO-GO on documentation commit 5c210aa against public Lazurio source 62db937. Both identified the same material gaps: no topology/data-flow diagram, no explicit machine trust-domain caveat, insufficient separation of mechanical and process controls, and missing current product maturity, license and optional hosted surfaces. Audience acceptance remains open until the revised exact commit is reviewed again.",
       "options": [
-        "Choose one representative external IT administrator now that the first readable version is live.",
-        "Keep audience acceptance open until a suitable reader is available; do not substitute an internal author for the external comprehension test."
+        "Revise the public English pages against the shared findings and rerun Fable 5 plus Grok 4.6 without introductory context.",
+        "Keep the content available but do not describe it as an accepted self-contained IT approval package while either independent verdict remains NO-GO."
       ],
       "decision_needed_for": [
         "production content acceptance"
@@ -40,16 +40,16 @@
     {
       "id": "issue-2026-08-26-004",
       "title": "Activate the Organization module slot before Module Setup",
-      "status": "open",
+      "status": "in_progress",
       "severity": "high",
       "owner": "matejsuchanek",
       "created_at": "2026-08-26",
-      "updated_at": "2026-08-26",
-      "question": "Will an authorized Organization reviewer approve the exact module registry entry so the documentation slot becomes active?",
-      "impact": "The repository and content can be prepared, but the canonical lazurio.module.v1 descriptor and Launchpad runtime remain fail-closed while the Organization registry reports planned_slot.",
+      "updated_at": "2026-08-27",
+      "question": "Will the reviewed Organization registry change activate the documentation slot after this repository publishes its module-owned lazurio.module.v1 descriptor?",
+      "impact": "The module-owned descriptor now defines the stable identity `documentation`, app root and port lease. It does not activate or authorize the Organization slot: the Organization manifest remains the registry authority, and Launchpad acceptance stays fail-closed until that change is reviewed, published and verified through Synchronizovat.",
       "options": [
-        "Approve and publish the reviewed Organization registry change, update the Organization primary checkout, then run lazurio module setup read-only and with --apply.",
-        "Leave the slot planned and keep the documentation repository undeployable from Launchpad. Do not create a hand-written descriptor that bypasses the Organization authority."
+        "Publish the reviewed module descriptor first, then rebase, approve and publish the Organization registry change and verify the active slot through Synchronizovat.",
+        "If Organization review rejects the slot, keep Launchpad activation blocked and revise the registry or descriptor in their natural owner repositories rather than bypassing either authority."
       ],
       "decision_needed_for": [
         "canonical Module descriptor",

@@ -1,14 +1,15 @@
 ---
-title: Understand Lazurio before you approve it
-description: A public, evidence-backed starting point for evaluating Lazurio.
+title: "Lazurio: product, architecture and controls"
+description: A public, evidence-backed starting point for understanding and evaluating Lazurio.
 template: splash
 stableId: lazurio-doc-overview
 summary: Start here to understand what Lazurio is, what problem it solves, and which trust and operational questions to ask.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+updatedAt: "2026-08-27"
+reviewedAt: "2026-08-27"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
+  - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
 audience:
@@ -17,7 +18,7 @@ audience:
   - builder
   - agent
 hero:
-  tagline: A transparent operating model for people and AI agents working across real organizations, tools and source-controlled work.
+  tagline: How Lazurio is built, where data can flow, and which controls a real deployment must prove.
   actions:
     - text: For IT administrators
       link: /en/it-administrators/
@@ -29,17 +30,24 @@ hero:
       variant: secondary
 ---
 
-Lazurio is a working environment and operating model for collaboration between
-people and AI agents. It gives that collaboration an explicit shape: companies
-are separated into Organizations, work lives in versioned repositories, access
-comes from the systems that already own it, and consequential changes stay
-reviewable before publication. The public source describes both the target
-[architecture](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-and the current [collaboration rules](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md).
+Lazurio is a developer-stage local coordination layer for work done by people
+and AI agents. Today it is a public Git repository containing a CLI/Core,
+Launchpad, diagnostics, operating rules and a structure for mounting separate
+company repositories called Organizations. It is not an AI model, a managed
+SaaS tenant or a hard isolation layer around the selected agent client.
 
-It is not a promise that an AI system can safely do anything. It is a framework
-for making authority, context, work and publication boundaries visible enough
-to govern.
+The current supported setup path is a source checkout using Git and Bun. The
+CLI is version 0 and experimental; a simple packaged installation is a target,
+not a released distribution. Source is currently available under
+FSL-1.1-Apache-2.0, a source-available license with an Apache 2.0 future
+license. The public license notice names HumanAndMachine s.r.o. as copyright
+holder. Support, hosting and service-level commitments belong to a concrete
+commercial deployment and are not implied by this site.
+
+Lazurio keeps companies in separate repositories, takes repository authority
+from GitHub and other provider grants, and makes consequential changes
+reviewable before publication. These rules improve governance; they do not
+make an endpoint, model or integration safe by themselves.
 
 ## Choose your path
 
@@ -49,6 +57,8 @@ to govern.
 - **Understanding the mechanics:** see [how Lazurio
   works](/en/how-lazurio-works/) and how it is [deployed and
   operated](/en/deployment-operations/).
+- **Checking the underlying claims:** use the reviewed [English control
+  evidence](/en/public-evidence/) and its links to the exact public source.
 - **Comparing alternatives:** use the sourced [Lazurio vs Microsoft
   Copilot](/en/lazurio-vs-microsoft-copilot/) decision guide. They solve
   overlapping, but not identical, problems.

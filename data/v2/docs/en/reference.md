@@ -1,10 +1,10 @@
 ---
 title: Public references
-description: The evidence set used by the first Lazurio documentation release.
+description: The evidence set used by Lazurio documentation.
 stableId: lazurio-doc-reference
 summary: Inspect the pinned Lazurio source and current Microsoft Learn pages behind architectural, security, privacy, and comparison claims.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+updatedAt: "2026-08-27"
+reviewedAt: "2026-08-27"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -26,18 +26,25 @@ audience:
   - agent
 ---
 
-The first release uses public, inspectable sources. Lazurio links are pinned to
-the exact source revision reviewed for this documentation. Microsoft links
-point to current provider documentation because the service changes over time;
-their shorter review window is enforced by the source map.
+Lazurio links are pinned to the exact source revision reviewed for this
+documentation. Microsoft links point to current provider documentation because
+the service changes over time; their shorter review window is enforced by the
+source map.
+
+The pinned Lazurio source is currently written in Czech. English readers should
+start with the reviewed [control evidence summary](/en/public-evidence/), which
+states the security-relevant meaning in English and links every section to the
+exact source. The summary improves accessibility; it is not an independent
+certification or a substitute for a controlled translation where legal or
+regulatory review requires one.
 
 ## Lazurio source
 
-- [Project overview](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/README.md)
-- [Architecture](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-- [Collaboration, authority and publication model](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
-- [External application integration standard](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
-- [Local secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md)
+- [Project overview (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/README.md)
+- [Architecture (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/ARCHITECTURE.md)
+- [Collaboration, authority and publication model (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/AGENTS.md)
+- [External application integration standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/external-app-integrations.md)
+- [Local secret custody standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/2bc6784226ffc629df2ecf16dbd0693994c3a970/manual/security/local-secret-custody.md)
 
 ## Microsoft provider documentation
 
@@ -54,6 +61,9 @@ Machine-readable source metadata lives in the public repository at
 review deadline. Content validation fails after a source expires, preventing a
 silent claim that old provider behavior is still current.
 
-Security-critical pages also name Pablo AI as second reviewer. Production
-publication requires approval of the exact Git commit, not a general approval
-of an earlier draft.
+Security-critical pages also name Pablo AI. Pablo AI is the Organization
+Steward's automation identity for source alignment, security-claim review and
+exact-head delivery gates. It is not an independent auditor and does not attest
+that a customer deployment operates the documented controls. Production
+publication requires its approval of the exact Git commit as well as the
+repository's technical checks and authorized publication decision.
