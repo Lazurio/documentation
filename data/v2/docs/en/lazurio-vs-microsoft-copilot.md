@@ -3,8 +3,8 @@ title: Lazurio vs Microsoft Copilot
 description: A fair, sourced decision guide for two products with overlapping AI value but different control planes.
 stableId: lazurio-doc-copilot-comparison
 summary: Compare Lazurio with Microsoft Copilot across purpose, context, permissions, execution, extensibility, governance, and deployment.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -24,13 +24,13 @@ audience:
   - agent
 ---
 
-Lazurio and Microsoft Copilot overlap in one important way: both help people
-use AI in real work. They are not direct substitutes at every layer.
+Lazurio and Microsoft Copilot both help people use AI in real work, but they
+govern different layers and are not direct substitutes.
 
 **Microsoft Copilot** is Microsoft's AI experience embedded across Microsoft
 365 and grounded in the signed-in user's permitted work data. **Lazurio** is a
-public-source, source-controlled operating model and workspace for governed work by
-people and agents across repositories, modules and explicitly connected tools.
+source-controlled working environment for turning work across repositories,
+modules and approved tools into reviewable organizational outcomes.
 
 This page uses “Microsoft Copilot” for the current product family while the
 linked provider pages may use “Microsoft 365 Copilot.” Microsoft product facts

@@ -3,8 +3,8 @@ title: Public references
 description: The evidence set used by Lazurio documentation.
 stableId: lazurio-doc-reference
 summary: Inspect the pinned Lazurio source and current Microsoft Learn pages behind architectural, security, privacy, and comparison claims.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -27,26 +27,24 @@ audience:
   - agent
 ---
 
-Lazurio links are pinned to the exact source revision reviewed for this
-documentation. Microsoft links point to current provider documentation because
-the service changes over time; their shorter review window is enforced by the
-source map.
+Lazurio links are pinned to the source revision reviewed for this documentation.
+Microsoft links point to current provider documentation and therefore use a
+shorter freshness window in the public source map.
 
-The pinned Lazurio source is currently written in Czech. English readers should
-start with the reviewed [control evidence summary](/en/public-evidence/), which
-states the security-relevant meaning in English and links every section to the
-exact source. The summary improves accessibility; it is not an independent
-certification or a substitute for a controlled translation where legal or
-regulatory review requires one.
+The pinned Lazurio source is written in Czech. English readers should begin
+with the reviewed [control evidence](/en/public-evidence/), which summarizes
+the security-relevant meaning and links each claim to the exact source. It
+improves accessibility; it is not an independent certification or a controlled
+legal translation.
 
 ## Lazurio source
 
 - [Project overview (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
 - [License](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md)
 - [Architecture (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
-- [Collaboration, authority and publication model (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-- [External application integration standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-- [Local secret custody standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
+- [Authority and publication model (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
+- [External application standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
+- [Secret custody standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
 
 ## Microsoft provider documentation
 
@@ -58,17 +56,10 @@ regulatory review requires one.
 
 ## Review contract
 
-Machine-readable source metadata lives in the public repository at
-`data/v2/source-map.json`. Each entry names an owner, review date and next
-review deadline. Content validation fails after a source expires, preventing a
-silent claim that old provider behavior is still current.
-
-Security-critical pages also name Pablo AI. Pablo AI is the Organization
-Steward's automation identity for source alignment, security-claim review and
-exact-head delivery gates. It is not an independent auditor and does not attest
-that a customer deployment operates the documented controls. Production
-policy requires its approval of the exact Git commit as well as the
-repository's technical checks and authorized publication decision. The deploy
-script mechanically verifies a clean `main` and an operator-supplied approved
-SHA; binding that SHA to Pablo AI's exact-head review is a delivery process
-step, not an independent attestation encoded by the script.
+The source map names an owner, review date and expiry for every reference;
+validation fails when evidence is stale. Trust-critical pages also require an
+exact-commit review before production publication. Pablo AI is the
+Organization Steward automation used for that review, not an independent
+auditor or certification of a customer's deployment. The deploy script checks
+for a clean main branch and an operator-supplied approved commit; matching that
+commit to the exact-head review remains an explicit delivery step.
