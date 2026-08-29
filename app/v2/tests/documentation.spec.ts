@@ -5,7 +5,7 @@ test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Understand Lazurio before you approve it' }),
+    page.getByRole('heading', { level: 1, name: 'What if you could run a company through GitHub?' }),
   ).toBeVisible()
 })
 
@@ -27,8 +27,11 @@ test('a configured local host still does not load production analytics', async (
 test('the IT decision path is readable and navigable', async ({ page }) => {
   await page.goto('/en/')
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Understand Lazurio before you approve it' }),
+    page.getByRole('heading', { level: 1, name: 'What if you could run a company through GitHub?' }),
   ).toBeVisible()
+
+  await expect(page.getByRole('img', { name: /Company work is translated by Lazurio/ })).toBeVisible()
+  await expect(page.getByRole('img', { name: /People direct the work/ })).toBeVisible()
 
   await page.getByRole('link', { name: 'For IT administrators' }).first().click()
   await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
@@ -51,6 +54,10 @@ test('critical pages have no serious accessibility violations', async ({ page })
 
 test('diagram labels stay inside their nodes and arrowheads remain compact', async ({ page }) => {
   for (const route of [
+    '/diagrams/company-to-github.svg',
+    '/diagrams/company-to-github-mobile.svg',
+    '/diagrams/human-directed-work.svg',
+    '/diagrams/human-directed-work-mobile.svg',
     '/diagrams/lazurio-data-flow.svg',
     '/diagrams/draft-publication-flow.svg',
   ]) {

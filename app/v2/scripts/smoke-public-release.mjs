@@ -22,6 +22,10 @@ for (const pathname of [
   '/en/',
   '/en/it-administrators/',
   '/en/public-evidence/',
+  '/diagrams/company-to-github.svg',
+  '/diagrams/company-to-github-mobile.svg',
+  '/diagrams/human-directed-work.svg',
+  '/diagrams/human-directed-work-mobile.svg',
   '/diagrams/lazurio-data-flow.svg',
   '/diagrams/draft-publication-flow.svg',
 ]) {
