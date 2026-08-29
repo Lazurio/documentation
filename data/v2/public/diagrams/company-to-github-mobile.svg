@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1160" viewBox="0 0 600 1160" role="img" aria-labelledby="title description">
+  <title id="title">From company work to private GitHub processes</title>
+  <desc id="description">Lazurio translates reviewable company work such as projects, tasks, knowledge, decisions and approvals into private GitHub processes with repositories, issues, permissions, Drafts, review and Publication.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 8 4.5 L 1 8 z" fill="#6f77ff"/>
+    </marker>
+    <style>
+      .bg{fill:#090909}.panel{fill:#141414;stroke:#707070;stroke-width:2}.focus{fill:#0c0c53;stroke:#6f77ff;stroke-width:3}.item{fill:#262626;stroke:#505050;stroke-width:1.5}.title{fill:#fff;font:600 27px Inter,Arial,sans-serif}.label{fill:#fff;font:600 22px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 18px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 16px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect class="bg" width="600" height="1160" rx="18"/>
+  <text class="title" x="32" y="48">From company work</text>
+  <text class="title" x="32" y="79">to GitHub-native coordination</text>
+  <text class="note" x="32" y="108">Reviewable work becomes structured, versioned</text>
+  <text class="note" x="32" y="130">and attributable.</text>
+
+  <g data-node="company-work">
+    <rect class="panel" x="32" y="154" width="536" height="280" rx="16"/>
+    <text class="label" x="56" y="190">Company work</text>
+    <rect class="item" x="56" y="208" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="233">Projects and tickets</text>
+    <rect class="item" x="56" y="256" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="281">TODOs and deliverables</text>
+    <rect class="item" x="56" y="304" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="329">Knowledge and decisions</text>
+    <rect class="item" x="56" y="352" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="377">Reviews and approvals</text>
+    <text class="note" x="56" y="416">People still own the purpose.</text>
+  </g>
+
+  <path class="flow" d="M300 434 V466"/>
+
+  <g data-node="lazurio-translation">
+    <rect class="focus" x="32" y="474" width="536" height="266" rx="16"/>
+    <text class="label" x="56" y="510">Lazurio</text>
+    <text class="copy" x="56" y="540">
+      <tspan x="56">Translates how the company works into a</tspan>
+      <tspan x="56" dy="23">shared operating structure.</tspan>
+    </text>
+    <rect class="item" x="56" y="584" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="609">Organizations and Teams shape ownership</text>
+    <rect class="item" x="56" y="632" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="657">Modules and repositories hold bounded work</text>
+    <rect class="item" x="56" y="680" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="705">Draft and Publication make change deliberate</text>
+  </g>
+
+  <path class="flow" d="M300 740 V772"/>
+
+  <g data-node="github-processes">
+    <rect class="panel" x="32" y="780" width="536" height="280" rx="16"/>
+    <text class="label" x="56" y="816">Private GitHub processes</text>
+    <rect class="item" x="56" y="834" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="859">Repositories and history</text>
+    <rect class="item" x="56" y="882" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="907">Issues, projects and TODOs</text>
+    <rect class="item" x="56" y="930" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="955">Roles and branch rules</text>
+    <rect class="item" x="56" y="978" width="488" height="38" rx="9"/>
+    <text class="copy" x="74" y="1003">Drafts, review and Publication</text>
+    <text class="note" x="56" y="1042">GitHub records the change.</text>
+  </g>
+
+  <text class="copy" x="32" y="1102">Payroll, banking and specialist systems stay with</text>
+  <text class="copy" x="32" y="1128">their natural owners. GitHub is not a universal database.</text>
+</svg>

@@ -225,6 +225,30 @@ button,
   color: var(--sl-color-black);
 }
 
+.sl-markdown-content .lz-diagram {
+  margin-block: 2.25rem;
+}
+
+.sl-markdown-content .lz-diagram picture {
+  display: block;
+}
+
+.sl-markdown-content .lz-diagram img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 12px;
+  background: var(--lz-ink);
+}
+
+.sl-markdown-content .lz-diagram figcaption {
+  margin-top: 0.75rem;
+  color: var(--sl-color-gray-3);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
 :focus-visible {
   outline: 2px solid var(--sl-color-white) !important;
   outline-offset: 3px !important;
