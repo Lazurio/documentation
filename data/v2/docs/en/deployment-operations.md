@@ -3,8 +3,8 @@ title: Deployment and operations
 description: What is fixed by Lazurio and what must be decided for a concrete rollout.
 stableId: lazurio-doc-deployment-operations
 summary: Plan a Lazurio rollout across identity, devices, repositories, modules, integrations, logs, backup, updates, and offboarding.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -33,7 +33,7 @@ by the Organization.
 | Surface | Status | IT implication |
 | --- | --- | --- |
 | Source checkout with Git and Bun | Available today and the current supported setup path | Treat it as developer-operated software with repository, dependency and update ownership. |
-| Launchpad, Guide and Doctor | Available today for local discovery, guidance, application lifecycle and diagnostics | Launchpad and local web modules use loopback listeners and module-owned port leases. Loopback binding is not caller authentication: another process on the same endpoint may still reach those HTTP surfaces. Guide is a pedagogical application with local file-writing flows, not a security control. Inventory and protect these surfaces even though they are not bound to the public network. |
+| Launchpad, Guide and Doctor | Available today for local discovery, guidance, application lifecycle and diagnostics | Launchpad and local web Modules use loopback listeners and Module-owned port leases. Loopback binding is not caller authentication: another process on the same endpoint may still reach those HTTP surfaces. Guide is a pedagogical application with local file-writing flows, not a security control. Inventory and protect these surfaces even though they are not bound to the public network. |
 | Lazurio CLI v0 | Experimental and unstable | Do not build a production integration on undocumented CLI syntax without version pinning and acceptance tests. |
 | Packaged CLI and generated non-Git root | Target architecture | Do not include it in a current bill of materials or support assumption. |
 | Dashboard | Separately developed hosted/admin surface | Include it only when the deployment actually uses it; document its operator, identity, storage and logs. |
@@ -41,10 +41,10 @@ by the Organization.
 
 ## Components to account for
 
-1. **Principal machine:** the endpoint where a person or AI colleague works.
+1. **Principal Machine:** the endpoint where a Colleague or AI Colleague works.
 2. **Lazurio root:** the local Guide, Launchpad, CLI/Core and Doctor above
    authorized Organization checkouts. Launchpad and runnable modules expose
-   loopback HTTP listeners on dynamically selected or module-owned ports.
+   loopback HTTP listeners on dynamically selected or Module-owned ports.
 3. **Organization repository:** the company boundary, configuration and
    shared sources of truth.
 4. **Workspace modules:** applications with their own runtime, dependencies,
@@ -63,7 +63,7 @@ by the Organization.
    Code or another agent CLI; and Resident/Buddy infrastructure that may use
    Zulip, GBrain and Tailscale or another approved private access layer.
 
-Not every module must be deployed to a public server. Some are local tools,
+Not every Module must be deployed to a public server. Some are local tools,
 some are internal services, and some publish a public surface such as this
 documentation site. Module ownership keeps those choices explicit.
 
@@ -78,15 +78,15 @@ offboarding owner. Decide what company data belongs there and what is excluded.
 
 Document supported operating systems, device ownership, encryption, screen
 lock, patching, endpoint monitoring, local backup, remote wipe and incident
-handling. A principal-owned machine still needs company-grade controls when it
-processes company data. One machine is one trust domain; use a separate machine
+handling. A Principal-owned Machine still needs company-grade controls when it
+processes company data. One Machine is one trust domain; use a separate Machine
 or equivalent infrastructure when mounted Organizations must not share an OS,
 disk or agent process.
 
-The documented default is one Organization per machine. A multi-Organization
-machine is an allowed exception inside one shared trust domain and needs
-separate provider sessions plus explicit acceptance of the cross-Organization
-endpoint risk.
+A Root can mount multiple authorized Organizations on one Machine. This is a
+repository and provider-access separation inside one shared trust domain, not
+hard tenant isolation. Keep provider sessions separately named and revocable,
+and explicitly accept the cross-Organization endpoint risk.
 
 ### 3. Select the execution provider
 
@@ -96,9 +96,9 @@ or account tier changes.
 
 ### 4. Enable the minimum repositories and integrations
 
-Start with one bounded use case. Give the principal only the repositories and
+Start with one bounded use case. Give the Principal only the repositories and
 provider scopes it needs. Follow the public [external application
-standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
+standard](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/external-app-integrations.md)
 and test revocation.
 
 ### 5. Enforce publication rules
@@ -116,7 +116,7 @@ and incident escalation. Keep evidence with the rollout decision.
 
 ## Updating and rollback
 
-Lazurio source, Organization configuration and each module are versioned
+Lazurio source, Organization configuration and each Module are versioned
 independently. Updates should fast-forward clean primary checkouts, run the
 declared doctor/check gates and enter production through a reviewed exact
 commit. Rollback means returning the affected repository or deployment to a
@@ -127,7 +127,7 @@ or superseded access.
 
 - Who maintains endpoints, GitHub teams and external integrations?
 - Which execution client, model provider, account terms and subprocessors apply?
-- Where do module services run, and which networks can reach them?
+- Where do Module services run, and which networks can reach them?
 - Which logs exist and how long are they retained?
 - How are local data and credentials backed up, deleted and recovered?
 - Which components are source-checkout, hosted, experimental or target-only?

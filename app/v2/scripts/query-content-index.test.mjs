@@ -16,6 +16,20 @@ test('agent index returns the comparison for a Copilot query', async () => {
   assert.ok(results.some((document) => document.stableId === 'lazurio-doc-copilot-comparison'))
 })
 
+test('agent index exposes the technical Organization and AI app guides', async () => {
+  const organizationResults = await queryContentIndex('Example Organization Launchpad file structure')
+  const appResults = await queryContentIndex('Codex Claude Cursor Antigravity support')
+
+  assert.ok(
+    organizationResults.some(
+      (document) => document.stableId === 'lazurio-doc-example-organization',
+    ),
+  )
+  assert.ok(
+    appResults.some((document) => document.stableId === 'lazurio-doc-use-with-ai-apps'),
+  )
+})
+
 test('agent retrieval resolves stable IDs and canonical routes', async () => {
   const byId = await getContentDocument('lazurio-doc-it-administrators')
   const byRoute = await getContentDocument('/en/it-administrators/')

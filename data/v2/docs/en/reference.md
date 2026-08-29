@@ -2,9 +2,9 @@
 title: Public references
 description: The evidence set used by Lazurio documentation.
 stableId: lazurio-doc-reference
-summary: Inspect the pinned Lazurio source and current Microsoft Learn pages behind architectural, security, privacy, and comparison claims.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+summary: Inspect the pinned Lazurio source and current provider documentation behind architectural, AI app, security, privacy, and comparison claims.
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -15,6 +15,17 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-map
+  - lazurio-cli
+  - lazurio-launchpad
+  - lazurio-organization-schema
+  - lazurio-example-fixture
+  - lazurio-module-lifecycle
+  - openai-browser
+  - anthropic-claude-code-cli
+  - model-context-protocol
+  - cursor-agent-window
+  - antigravity-browser
   - microsoft-copilot-architecture
   - microsoft-copilot-data-protection
   - microsoft-copilot-privacy
@@ -41,12 +52,26 @@ regulatory review requires one.
 
 ## Lazurio source
 
-- [Project overview (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
-- [License](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md)
-- [Architecture (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
-- [Collaboration, authority and publication model (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-- [External application integration standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-- [Local secret custody standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
+- [Project overview (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/README.md)
+- [License](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/LICENSE.md)
+- [Architecture (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/ARCHITECTURE.md)
+- [Collaboration, authority and publication model (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/AGENTS.md)
+- [External application integration standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/external-app-integrations.md)
+- [Local secret custody standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/security/local-secret-custody.md)
+- [Repository map (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/MAP.md)
+- [CLI/Core v0 (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/lazurio/README.md)
+- [Launchpad (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/launchpad/README.md)
+- [Organization schema](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/lazurio/lazurio.organization.v1.schema.json)
+- [Example Organization fixture](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/lazurio/organization-install-lib.test.mjs)
+- [Module lifecycle (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/module-lifecycle.md)
+
+## AI app provider documentation
+
+- [Browser in ChatGPT desktop and Codex](https://learn.chatgpt.com/docs/browser)
+- [Claude Code CLI reference](https://docs.anthropic.com/en/docs/claude-code/cli-usage)
+- [Model Context Protocol](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
+- [Cursor Agent Window](https://cursor.com/new)
+- [Google Antigravity Browser](https://antigravity.google/docs/browser)
 
 ## Microsoft provider documentation
 

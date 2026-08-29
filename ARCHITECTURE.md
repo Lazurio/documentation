@@ -2,9 +2,10 @@
 
 ## Goal
 
-Provide one public, reviewable explanation of Lazurio for people and agents.
-The first consumer is an IT administrator who needs to understand the system,
-its trust boundaries and the operational decision before approving it.
+Provide one public, reviewable technical explanation of Lazurio for people and
+Task Agents. The first consumers are builders and technical evaluators who need
+to understand the system, create an Organization and connect their AI app.
+IT approval and operational controls remain a dedicated downstream path.
 
 ## Invariants
 
@@ -16,6 +17,8 @@ its trust boundaries and the operational decision before approving it.
    repository.
 6. A future MCP server may read the content index but cannot become a writer or
    a second content store.
+7. Product claims about host AI apps distinguish a verified in-app browser,
+   a side-by-side browser workflow and an unavailable native integration.
 
 ## Shape
 
@@ -45,8 +48,9 @@ portable deployment output. This repository intentionally excludes analytics,
 an editor, a private content import, migration history and unrelated assets.
 
 A standalone documentation repository is preferable to embedding the docs in
-a marketing site: documentation needs its own information architecture,
-evidence lifecycle, machine discovery contract and independent rollback.
+a marketing site: the website explains the product, while documentation owns
+technical procedures, examples, evidence lifecycle, machine discovery and
+independent rollback.
 
 ## Content identity
 

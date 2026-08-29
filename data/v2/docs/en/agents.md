@@ -3,8 +3,8 @@ title: Documentation for agents
 description: Stable discovery and retrieval surfaces for agents that need to understand Lazurio.
 stableId: lazurio-doc-agents
 summary: Use llms.txt and the content index to discover reviewed Lazurio pages, evidence links, audiences, review dates, and stable identities.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -14,7 +14,7 @@ audience:
   - agent
 ---
 
-Agents should read the same reviewed source as people. This site does not keep
+Task Agents should read the same reviewed source as people. This site does not keep
 a hidden “AI version” of Lazurio documentation.
 
 ## Discovery surfaces
@@ -48,9 +48,10 @@ preview. Production deployment rejects a dirty or non-approved commit.
 6. If a statement is absent or deployment-specific, say so instead of filling
    the gap from inference.
 
-## Future MCP server
+## MCP compatibility seam
 
-A later read-only MCP server may expose discovery and retrieval over the same
-content index. It will not become a writer, private overlay or second content
-store. The current JSON contract is the compatibility seam for that work; the
-website does not depend on the future server.
+Lazurio does not currently ship a documentation MCP server. A read-only server
+can later expose discovery and retrieval over the same content index without
+becoming a writer, private overlay or second content store. The current JSON
+contract is the compatibility seam; today's website and agent retrieval do not
+depend on an MCP server.

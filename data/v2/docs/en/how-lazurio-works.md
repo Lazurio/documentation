@@ -1,10 +1,10 @@
 ---
-title: How Lazurio works
-description: The core operating model, from principal and Organization to draft and publication.
+title: Core concepts
+description: The people, agent roles, spaces and work states that make Lazurio predictable.
 stableId: lazurio-doc-how-it-works
-summary: Understand Lazurio's principals, agents, Organizations, repositories, workspace modules, drafts, reviews, and publication flow.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+summary: Learn the distinct concepts Lazurio uses for people, AI identities, Task Agents, Machines, Organizations, Modules, Personalspace, Drafts and Publication.
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -17,94 +17,101 @@ audience:
   - agent
 ---
 
-Lazurio treats AI-assisted work as normal organizational work with explicit
-ownership and boundaries. A person starts with a desired outcome; an agent can
-inspect the authorized context, create an editable draft, verify it and prepare
-it for review. Authority does not come from the agent's confidence. It comes
-from the signed-in identity and the systems that own the action.
+Lazurio deliberately separates people, execution sessions, working spaces and
+publication states. Keeping these domains separate prevents a confident agent
+response, a folder name or a role label from being mistaken for authority.
 
-The current public model is summarized in [English control
-evidence](/en/public-evidence/) and linked there to the exact reviewed source.
+## Slice 1: people and agent roles
 
-## The five useful concepts
+```text
+Human Colleague ─┐
+                 ├─ is a Principal → uses permissions → has the last word
+AI Colleague ────┘
 
-**Principal** is the person or AI colleague for whom work is being done. The
-principal holds real permissions and the last word.
+Task Agent → temporary execution session working for its current Principal
+Buddy      → personal representative of one human Principal
+```
 
-**Task agent** is the active tool session. It works for the principal and has
-no independent authority. It can propose and prepare; a prompt does not make it
-an administrator.
+- A **Principal** is the person or AI Colleague for whom the current work is
+  performed.
+- A **Colleague** is a human Principal participating through Organization
+  roles, Teams and provider permissions.
+- An **AI Colleague** is a long-lived AI Principal with its own identity,
+  Machine, responsibility and grants.
+- A **Task Agent** is a temporary tool session such as Codex, Claude Code or
+  Cursor. It has no independent authority.
+- A **Buddy** is the personal AI representative of one human Principal. It
+  belongs to that person's Personalspace and is not an AI Colleague seat.
 
-**AI colleague** is a longer-lived AI principal with its own account, machine,
-responsibility and grants. It is not the same thing as a temporary task-agent
-session. The same live provider and repository permissions still determine
-what it can do.
+## Slice 2: spaces and boundaries
 
-**Organization** is one company's access boundary. In the documented model it
-maps to a GitHub organization and a separate repository root. Company-specific
-data and strategy stay within that Organization.
+```text
+Machine
+└── Lazurio Root
+    ├── Organization A
+    │   ├── workspace/Module repositories
+    │   └── productionspace repositories
+    ├── Organization B
+    └── Personalspace of this human Principal
+```
 
-**Workspace module** is an application or bounded work area inside an
-Organization. A module owns its runtime contract and can be developed,
-reviewed, deployed and rolled back independently.
+A **Machine** is one runtime, security and recovery boundary with a known
+owner. It can be a workstation, VM or provider-isolated hosted workspace.
 
-**Personalspace** is a private area for one principal. It is not an
-organizational collaboration store and is never a shortcut for moving company
-data across access boundaries.
+An **Organization** is one company, one GitHub Organization and one repository
+access boundary. Multiple Organizations can be mounted under one Lazurio Root,
+but their repositories, secrets and company context remain separate.
 
-## From request to published result
+A **Workspace Module** is a separately versioned repository used in everyday
+Organization work. Modules live flat under `workspace/<module>` and declare
+their Team membership; directory nesting does not grant access.
 
-1. **Scope:** identify the Organization, module and intended outcome.
-2. **Authority:** use the signed-in principal's live access; do not invent a
-   second permission system in prose.
+**Productionspace** holds Organization-level repositories with their own
+release and production model. Launchpad treats them as read-only unless a
+repository-specific policy says otherwise.
+
+**Personalspace** is private to one Principal and an optional Buddy. It is not
+an Organization collaboration store.
+
+## Slice 3: control surfaces
+
+```text
+Dashboard  → administer Organizations, people, Machines and hosted products
+Launchpad  → discover and run authorized local development Modules
+AI app     → host a Task Agent conversation and its tools
+CLI/Core   → provide headless context, diagnostics and lifecycle contracts
+```
+
+The surfaces share concepts but not ownership. Dashboard does not become the
+Launchpad process manager. Launchpad does not become an account or billing
+authority. The AI app does not become a new source of repository access.
+
+## Slice 4: from request to Publication
+
+1. **Scope:** name the Principal, Organization and Module.
+2. **Authority:** verify live access in GitHub or the relevant provider.
 3. **Context:** load only the repositories and tools required for the task.
-4. **Draft:** make the work in a reversible form, commonly a Git branch and
-   pull request.
-5. **Evidence:** run checks, show the practical effect and preserve review
-   context.
-6. **Decision:** an authorized principal approves or rejects the exact result.
-7. **Publication:** merge, deploy, send or otherwise make the result effective.
-8. **Closeout:** update the authoritative plan, record remaining issues and
-   clean temporary workspaces.
-
-This shape makes human review useful: the reviewer sees not only generated
-text, but the exact change, evidence, owner and publication decision.
+4. **Draft:** create an editable result, commonly a branch and pull request.
+5. **Evidence:** run checks and show the practical effect.
+6. **Decision:** an authorized Principal accepts or rejects the exact result.
+7. **Publication:** merge, deploy, send or otherwise make it effective.
+8. **Closeout:** record remaining work and clean temporary workspaces.
 
 ![Draft-to-publication flow](/diagrams/draft-publication-flow.svg)
 
-Git provides the clearest mechanical version of this flow. A task agent may
-create commits, push a review branch and open a pull request when the repository
-grant allows it; data has already reached GitHub at that point. Branch
-protection, required checks, reviews and merge permission can then block the
-protected-branch publication. Email, chat, billing and other providers have
-different mechanisms, so explicit authorization may be a process rule unless a
-named provider control enforces it.
+Publication is a state change, not a synonym for “the agent finished.” A
+commit and pushed pull request are reviewable Drafts in ordinary source work;
+the repository's branch rules and live permissions decide who may merge.
+Other systems have different boundaries, so their exact publish action must be
+named.
 
-## Source of truth, not one giant database
+## Source of truth without one giant database
 
-Lazurio does not require every kind of information to be copied into a single
-AI store. Code stays in repositories, plans stay in the Organization's Mission
-Control, durable knowledge stays in its Knowledgebase, and provider data stays
-behind a scoped integration. The working environment brings the relevant
-pieces together for a task while preserving their natural owners.
+Lazurio brings relevant material into one working context without requiring
+every fact to be copied into one AI database. Code stays in Module repositories,
+plans stay in Mission Control, durable Organization knowledge stays in its
+Knowledgebase, and provider data stays behind scoped integrations.
 
-That distinction matters operationally. Removing repository access or
-revoking an integration changes what the principal and its agent can reach;
-editing a role name in documentation does not.
-
-## What actually runs today
-
-The current supported setup is a public source checkout using Git and Bun. It
-contains Launchpad, CLI/Core v0, Doctor, operating manuals and the contracts
-used by connected Organizations and modules. CLI v0 remains experimental. A
-simple packaged CLI and automatically generated non-Git root are target
-architecture, not current distribution.
-
-Lazurio does not proxy or hide the model connection. The selected agent client
-and model provider receive the task context under their own terms. Optional
-hosted surfaces—Dashboard, hosted team workspaces or a per-owner Resident/Buddy
-service—must be inventoried separately when enabled.
-
-Ask for live configuration and provider readback when evaluating a specific
-deployment. The [IT briefing](/en/it-administrators/) lists the minimum
-evidence expected for approval.
+The [glossary](/en/glossary/) is the compact reference. The [Example
+Organization](/en/example-organization/) shows how these concepts appear on
+disk.

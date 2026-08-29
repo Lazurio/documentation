@@ -3,8 +3,8 @@ title: Lazurio vs Microsoft Copilot
 description: A fair, sourced decision guide for two products with overlapping AI value but different control planes.
 stableId: lazurio-doc-copilot-comparison
 summary: Compare Lazurio with Microsoft Copilot across purpose, context, permissions, execution, extensibility, governance, and deployment.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -43,11 +43,11 @@ the recommendations are our assessment.
 | --- | --- | --- |
 | Primary purpose | AI assistance inside the Microsoft 365 productivity environment. | Governed execution and durable collaboration across source-controlled organizational work. |
 | Natural context | Microsoft Graph and the user's permitted Microsoft 365 content, plus configured agents and connectors. | Selected Organization repositories, local workspace context and individually approved external tools. |
-| Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in principal's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
+| Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in Principal's GitHub/provider permissions and Machine-scoped integrations; prompts do not grant authority. |
 | Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Reviewable changes, plans, knowledge, applications and tool actions prepared through a defined draft-to-publication flow. |
-| Control plane | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, machines, module contracts and each connected provider's own administration. |
+| Control plane | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, Machines, Module contracts and each connected provider's own administration. |
 | Extensibility | Microsoft agents, Graph connectors, Copilot APIs and SDKs. | Modules, agent competence packages, MCP servers, official CLIs and browser workflows under local curation. |
-| Deployment | Microsoft-managed cloud service with published tenant requirements. | Framework and module deployment chosen per Organization; current public model begins with local checkouts and independently deployed modules. |
+| Deployment | Microsoft-managed cloud service with published tenant requirements. | Framework and Module deployment chosen per Organization; current public model begins with local checkouts and independently deployed Modules. |
 | Best fit | Productivity and knowledge work already centered on Microsoft 365. | Work that must cross repositories or tools while remaining source-controlled, testable and explicitly publishable. |
 
 Microsoft documents that Copilot works within the Microsoft 365 service
@@ -97,8 +97,8 @@ That is the natural route when the workflow should live inside Microsoft's
 product and governance ecosystem.
 
 Lazurio extensions are workspace modules and scoped tool integrations. The
-documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-prefers official local MCP servers or CLIs and separately revocable machine
+documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/external-app-integrations.md)
+prefers official local MCP servers or CLIs and separately revocable Machine
 identities. That is useful when the workflow is source-centric, crosses
 different providers or needs custom verification and publication gates.
 
@@ -115,7 +115,7 @@ different providers or needs custom verification and publication gates.
 
 ### Choose Lazurio first when
 
-- the output must become a reviewed repository change, module, operating plan
+- the output must become a reviewed repository change, Module, operating plan
   or durable organizational source of truth;
 - work crosses GitHub, local source and several non-Microsoft providers;
 - you need explicit company boundaries and an inspectable draft-to-publication

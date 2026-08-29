@@ -3,8 +3,8 @@ title: What Lazurio is good for
 description: Practical use cases and the conditions under which Lazurio is a good fit.
 stableId: lazurio-doc-use-cases
 summary: See where Lazurio helps with product delivery, operations, knowledge, agent workflows, and multi-organization work—and where it does not.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -26,7 +26,7 @@ truth, tool access and explicit publication decisions.
 
 ### Product and software delivery
 
-An agent can inspect a module, implement a bounded change, run its tests and
+A Task Agent can inspect a Module, implement a bounded change, run its tests and
 prepare a pull request with evidence. The team keeps normal Git ownership,
 review and rollback instead of accepting an opaque generated artifact.
 
@@ -34,8 +34,8 @@ review and rollback instead of accepting an opaque generated artifact.
 
 A task may need repository context plus an approved external application. The
 Lazurio integration model makes each provider connection an explicit,
-revocable part of the machine rather than assuming every agent should have a
-universal cloud broker.
+revocable part of the Machine rather than assuming every Task Agent should
+have a universal cloud broker.
 
 ### Durable organizational knowledge
 
@@ -49,19 +49,17 @@ Organizations can package scoped instructions, tools, tests and publishing
 gates for recurring work. That makes the next run start from a reviewed
 competence boundary rather than a copied prompt with hidden assumptions.
 
-### Multiple companies on one principal's machine (exception)
+### Multiple companies on one Principal's Machine
 
 The root can discover several authorized Organizations while keeping each one
 a separate GitHub and repository boundary. This is useful for founders,
 consultants and operators who genuinely work across companies and must not mix
 their private data.
 
-The recommended starting deployment is one Organization per machine. A
-multi-Organization machine is an allowed exception, not the default. It is not
-hard tenant isolation: one machine is one trust domain, so the
-Organizations can share an OS, disk and agent process with filesystem or
+This is not hard tenant isolation: one Machine is one trust domain, so the
+Organizations can share an OS, disk and Task Agent process with filesystem or
 network access. Keep provider sessions separately named and revocable, and use
-a separate machine or equivalent infrastructure where a compromise or
+a separate Machine or equivalent infrastructure where a compromise or
 over-broad client scope must not cross company boundaries.
 
 ## Use cases that need additional controls

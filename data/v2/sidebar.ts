@@ -1,19 +1,43 @@
 export const sidebar = [
-  { label: 'Overview', slug: 'index' },
   {
-    label: 'Evaluate Lazurio',
+    label: 'Start',
     items: [
-      { label: 'For IT administrators', slug: 'it-administrators' },
-      { label: 'Lazurio vs Microsoft Copilot', slug: 'lazurio-vs-microsoft-copilot' },
-      { label: 'Use cases', slug: 'use-cases' },
+      { label: 'Technical overview', slug: 'index' },
+      { label: 'Quickstart', slug: 'quickstart' },
+      { label: 'Core concepts', slug: 'how-lazurio-works' },
+      { label: 'Glossary', slug: 'glossary' },
     ],
   },
   {
-    label: 'Understand the system',
+    label: 'Build an Organization',
     items: [
-      { label: 'How Lazurio works', slug: 'how-lazurio-works' },
+      { label: 'Example Organization', slug: 'example-organization' },
+      { label: 'Components and source', slug: 'components-and-source' },
+    ],
+  },
+  {
+    label: 'Use with AI apps',
+    items: [
+      { label: 'Support matrix', slug: 'use-with-ai-apps' },
+      { label: 'Codex and ChatGPT Desktop', slug: 'codex' },
+      { label: 'Claude', slug: 'claude' },
+      { label: 'Cursor Glass', slug: 'cursor-glass' },
+      { label: 'Google Antigravity', slug: 'antigravity' },
+    ],
+  },
+  {
+    label: 'Operate Lazurio',
+    items: [
       { label: 'Data access and security', slug: 'data-access-security' },
       { label: 'Deployment and operations', slug: 'deployment-operations' },
+      { label: 'For IT administrators', slug: 'it-administrators' },
+    ],
+  },
+  {
+    label: 'Evaluate',
+    items: [
+      { label: 'Use cases', slug: 'use-cases' },
+      { label: 'Lazurio vs Microsoft Copilot', slug: 'lazurio-vs-microsoft-copilot' },
     ],
   },
   {
