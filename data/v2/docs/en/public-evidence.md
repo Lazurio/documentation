@@ -3,8 +3,8 @@ title: Lazurio control evidence in English
 description: Reviewed English summaries of the public Lazurio source used for product, security and operational claims.
 stableId: lazurio-doc-public-evidence
 summary: Verify the current product form, trust boundaries, authority model, integrations, hosted surfaces and evidence limits against one pinned public source revision.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -45,6 +45,8 @@ commercial product or service that substitutes for Lazurio or another product
 or service the licensor offers using it, or offers the same or substantially
 similar functionality. Each published version becomes available under Apache 2.0 on
 its second anniversary, and the software is provided without warranty.
+The license notice names HumanAndMachine s.r.o. as copyright holder. It does
+not itself promise hosting, support or a service level for a concrete rollout.
 
 ## Identity and authority
 
@@ -93,7 +95,8 @@ prefers an official machine-local MCP server, then an official CLI, then a
 reviewed pinned implementation, with browser interaction as fallback. Each
 machine should use separately revocable provider credentials. New ChatGPT or
 claude.ai connectors and shared hosted brokers are outside the standard;
-provider-operated remote MCP remains acceptable when configuration and token
+an already deployed connector can be recorded as a transition state.
+Provider-operated remote MCP remains acceptable when configuration and token
 custody are per-machine. The default scope for a workflow that needs writes is
 read+write, while read-only is optional tightening. An OAuth token is a
 machine/session capability, and MCP approval settings do not automatically
@@ -111,7 +114,9 @@ and mounted Organization modules. Launchpad and runnable modules use local
 loopback HTTP listeners with dynamically selected or module-owned port leases.
 Loopback binding is not caller authentication: other processes on the endpoint
 may still reach those surfaces. Guide is a pedagogical application with local
-file-writing flows, not a security control.
+file-writing flows, not a security control. Current Doctor tooling expects Git,
+GitHub CLI and Codex CLI; a rollout using another agent client must test its
+actual Doctor and repair path rather than assuming equivalence.
 The checkout also ships bridge and provisioning code for separately deployed
 profiles; source presence does not mean activation. Optional architecture
 includes Dashboard, hosted team workspaces, and per-owner Resident/Buddy

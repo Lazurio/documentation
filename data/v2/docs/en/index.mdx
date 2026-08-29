@@ -1,11 +1,11 @@
 ---
-title: "Lazurio: product, architecture and controls"
-description: A public, evidence-backed starting point for understanding and evaluating Lazurio.
+title: Understand Lazurio before you approve it
+description: A public, evidence-backed starting point for evaluating Lazurio.
 template: splash
 stableId: lazurio-doc-overview
 summary: Start here to understand what Lazurio is, what problem it solves, and which trust and operational questions to ask.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -18,7 +18,7 @@ audience:
   - builder
   - agent
 hero:
-  tagline: How Lazurio is built, where data can flow, and which controls a real deployment must prove.
+  tagline: A transparent operating model for people and AI agents working across real organizations, tools and source-controlled work.
   actions:
     - text: For IT administrators
       link: /en/it-administrators/
@@ -30,33 +30,22 @@ hero:
       variant: secondary
 ---
 
-Lazurio is a developer-stage local coordination layer for work done by people
-and AI agents. Today it is a public Git repository containing a CLI/Core,
-Launchpad, diagnostics, operating rules and a structure for mounting separate
-company repositories called Organizations. It is not an AI model, a managed
-SaaS tenant or a hard isolation layer around the selected agent client.
+Lazurio is a working environment and operating model for collaboration between
+people and AI agents. It gives that collaboration an explicit shape: companies
+remain separate Organizations, work lives in versioned repositories, access
+comes from the systems that already own it, and consequential changes stay
+reviewable before publication.
 
-The current supported setup path is a source checkout using Git and Bun. The
-CLI is version 0 and experimental; a simple packaged installation is a target,
-not a released distribution. Source is currently available under
-[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md),
-a source-available license. Permitted purposes include internal use,
-non-commercial education or research, and professional services for a licensee
-using the software compliantly. Permitted use may include copying, modification
-and redistribution, but redistributed copies and derivatives must keep the
-license link and copyright notices. A Competing Use means making the software
-available to others in a commercial product or service that substitutes for
-Lazurio or another product or service the licensor offers using it, or offers
-the same or substantially similar functionality. Each published version becomes
-available under Apache 2.0 on its second anniversary, and the software is
-provided without warranty. The notice names HumanAndMachine s.r.o. as copyright
-holder. Support, hosting and service-level commitments belong to a concrete
-commercial deployment and are not implied by this site.
+Today Lazurio runs from a public source checkout using Git and Bun. It includes
+Launchpad, diagnostics, an experimental CLI v0 and the operating contracts used
+by connected Organizations and modules. A simple packaged installation is a
+target, not a released distribution.
 
-Lazurio keeps companies in separate repositories, takes repository authority
-from GitHub and other provider grants, and makes consequential changes
-reviewable before publication. These rules improve governance; they do not
-make an endpoint, model or integration safe by themselves.
+Lazurio is not an AI model, a managed SaaS tenant or a universal security
+sandbox around the agent client. Its value is narrower and more practical: it
+makes authority, context, work and publication boundaries visible enough to
+govern. The [English control evidence](/en/public-evidence/) shows where those
+claims come from and what they do not prove.
 
 ## Choose your path
 
@@ -66,11 +55,15 @@ make an endpoint, model or integration safe by themselves.
 - **Understanding the mechanics:** see [how Lazurio
   works](/en/how-lazurio-works/) and how it is [deployed and
   operated](/en/deployment-operations/).
-- **Checking the underlying claims:** use the reviewed [English control
+- **Checking the underlying claims:** use the [English control
   evidence](/en/public-evidence/) and its links to the exact public source.
 - **Comparing alternatives:** use the sourced [Lazurio vs Microsoft
   Copilot](/en/lazurio-vs-microsoft-copilot/) decision guide. They solve
   overlapping, but not identical, problems.
 - **Letting an agent read the docs:** give it `/llms.txt` or
-  `/content-index.json`. Both are generated from the same reviewed pages that
-  people read.
+  `/content-index.json`. Both come from the same reviewed pages people read.
+
+Lazurio is currently source-available under
+[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md).
+See [control evidence](/en/public-evidence/#product-form-and-maturity) for the
+license, maturity and assurance details relevant to an approval decision.

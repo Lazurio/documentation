@@ -3,8 +3,8 @@ title: Data access and security
 description: A threat-aware explanation of Lazurio's trust boundaries and the checks a real deployment needs.
 stableId: lazurio-doc-data-access-security
 summary: Review identity, Organization isolation, local files, integrations, secrets, model providers, audit evidence, and residual risks.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -19,129 +19,93 @@ audience:
   - agent
 ---
 
-Lazurio's security model starts with a deliberately limited claim: an agent
-cannot be made safe by prompt wording alone. Security comes from the identity,
-machine, repository permissions, scoped tools, secret custody and publication
-controls around the session. Lazurio does not add a universal sandbox around
-the selected execution client. The [English evidence summary](/en/public-evidence/)
-maps these claims to the exact public source; a concrete deployment still needs
-verification.
+Lazurio begins with a deliberately limited security claim: prompt wording
+cannot make an agent safe. Security comes from the identity, machine,
+repository permissions, scoped tools, secret custody and publication controls
+around the session. Lazurio makes those boundaries inspectable; it does not add
+a universal sandbox around the selected agent client.
 
-## Trust boundaries
+## Boundary map
 
-### Principal and task agent
+### Identity and session
 
-The task agent operates for the signed-in principal. It must not acquire rights
-merely because a prompt asks it to. Effective access is supplied by the
-principal's device sessions, repository grants and provider credentials. This
-means offboarding and access review must include those underlying systems.
-If a client process can read a credential or file, policy language does not
-remove that capability.
+A task agent works for the signed-in principal and owns no separate rights. A
+prompt creates no repository or provider grant. At the same time, policy text
+cannot remove a capability already available to the process: a readable file,
+active session or exposed credential may be usable by the client.
 
-### Machine
+### Machine and Organization
 
-One machine is one Lazurio trust domain. Multiple Organizations may be mounted
-on it, but folders and repository boundaries do not provide kernel, account or
-cryptographic isolation from another process with the same effective OS
-access. A compromised endpoint or over-broad agent workspace can therefore
-become a cross-Organization incident. Use separate machines or equivalent
-infrastructure where the risk model requires a hard isolation boundary.
-
-### Organization
-
-An Organization is the company-level data and access boundary. Separate
-organizations remain separate repositories and GitHub organizations. Public
-patterns can move between them; secrets, client data, business strategy and
-private overlays cannot. On a shared machine, this is enforced by repository
-grants, workspace selection, client sandboxing where available and process
-discipline—not by Lazurio creating another OS boundary.
+An Organization is one company's GitHub and repository boundary. Company data,
+secrets and strategy must not cross into another Organization. One machine,
+however, is one trust domain. Directory and repository boundaries are not
+kernel or cryptographic isolation from another process with the same OS access.
+Use separate machines or equivalent infrastructure when a compromise must not
+cross company boundaries.
 
 ### Personalspace
 
-Personalspace is private to one principal and is not a shared company data
-store. Its privacy boundary has priority over convenience. Company knowledge
-needed by colleagues belongs in an authorized Organization store, not in
-someone else's private context.
+Personalspace is private to one principal, not a shared company store. Company
+knowledge needed by colleagues belongs in an authorized Organization source of
+truth rather than another person's private context.
 
-### External applications
+### External tools and secrets
 
 The [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-prefers a locally curated official MCP server, then an official CLI, then a
-reviewed and pinned open-source implementation. Browser interaction is a
-fallback. MCP approval modes do not automatically constrain a CLI or arbitrary
-shell command. New ChatGPT or claude.ai connectors and shared hosted
-integration brokers are outside the standard because their OAuth custody
-follows a cloud account rather than one revocable machine. An existing
-connector may be a declared transition state, and a provider-operated remote
-MCP is acceptable when its configuration and token remain per-machine.
+prefers an official machine-local MCP server, then an official CLI, then a
+reviewed pinned implementation, with browser interaction as fallback. New
+ChatGPT or claude.ai connectors and shared hosted brokers sit outside that
+per-machine custody model. A provider-operated remote MCP can fit when its
+configuration and token remain separately revocable for the machine.
 
-For workflows that need to write, the public standard defaults to the required
-read and write scopes; read-only is optional tightening for unusually sensitive
-sources. That grant is a real capability. Calling an agent write a Draft does
-not prevent the provider from receiving data, and publication still needs the
-provider-specific technical or process gate. The deployment catalogue should
-contain provider names and exact scopes—not secret values.
-
-### Secrets
-
-The [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
-keeps real credentials out of Git. Local ignored paths are scoped by owner or
-Organization, and tracked source contains only schemas, variable names and
-instructions. Your endpoint and backup controls must protect the actual local
-custody location.
+A workflow that needs writes may require read-and-write provider scopes. That
+grant is a real capability; calling the output a Draft does not stop data from
+reaching the provider. Real credentials stay outside Git in scoped ignored
+paths or approved provider stores. Endpoint, backup, rotation and incident
+controls must protect the actual custody location.
 
 ## Threats to test
 
-| Threat | Intended control | Acceptance test |
-| --- | --- | --- |
-| Prompt requests data from another company | GitHub denial for repositories without a grant; workspace selection and client sandbox/process rules for local paths | Confirm GitHub-side denial with an identity that lacks the grant. Separately test the chosen client's local filesystem boundary; do not claim a local audit event unless a named endpoint/client control records it. |
-| Agent attempts a protected publication | GitHub/provider permissions plus explicit principal approval | Attempt merge/deploy without required permission or review. |
-| Credential is copied into source | Ignored custody paths, review and the repository/provider scanning actually enabled for the deployment | Read back the live repository controls and run an approved safe canary exercise in a test repository. The documentation repository only adds a narrow denylist for known private markers and local-path patterns; it is not general secret scanning, SAST or DLP, and Lazurio does not provide a universal scanning pipeline for every Organization. |
-| Integration has excessive access | Provider-side scopes and separate revocation | Read live OAuth/app grants and revoke one without affecting unrelated access. |
-| Local machine is lost | Device controls, encryption, credential revocation and recovery procedure | Run the organization's offboarding or lost-device exercise. |
-| Prompt or retrieved content manipulates the agent | Scoped context, untrusted-input handling, review and least-privilege tools | Seed a harmless prompt-injection canary and confirm the agent neither expands scope nor publishes without the relevant provider gate. |
-| Generated explanation drifts from behavior | Exact public source links, review dates and CI validation | Change or expire an evidence reference and confirm the documentation build fails. |
+| Threat | Acceptance test |
+| --- | --- |
+| Access to another company | Confirm GitHub denial for an identity without the grant, then separately test the chosen client's local filesystem boundary. |
+| Unapproved publication | Attempt a protected merge or deployment without the required permission, check or review. |
+| Credential copied into source | Read back the scanning actually enabled and run an approved safe-canary exercise in a test repository. |
+| Over-broad integration | Inspect live scopes and revoke one credential without affecting unrelated access. |
+| Prompt injection | Seed a harmless canary and confirm the agent neither expands scope nor publishes without the relevant gate. |
+| Lost endpoint | Exercise device lockout, credential revocation, recovery and offboarding. |
+| Documentation drift | Expire or change a source reference in a test branch and confirm validation fails. |
 
-## Model-provider boundary
+The documentation repository's own checks include a narrow denylist for known
+private markers and local-path patterns. They are not general secret scanning,
+SAST or DLP for every Organization. Record the live controls rather than
+promoting one repository's test into a product-wide claim.
 
-Lazurio can be used through agent clients such as Codex, Cursor, Claude Code or
-another client approved by the operator. These clients and their model
-providers—not Lazurio—carry the model request. Selected files, prompts and tool
-results may leave the machine under their terms. This documentation therefore
-makes no universal retention or training claim. The operator must disclose the
-exact client, model provider, account tier, authentication, enabled telemetry,
-region where relevant, retention terms and any zero-data-retention
-arrangement.
+## Model and hosted-service boundaries
 
-## Optional hosted surfaces
+The agent client and model provider—not Lazurio—carry selected prompts, files
+and tool results. The operator must name the client, provider, account tier,
+authentication, telemetry, retention and region where relevant. This site
+makes no universal training or retention claim across providers.
 
-The broader architecture also defines optional or separately deployed
-surfaces: Lazurio Dashboard, hosted team workspaces, and a per-owner
-Resident/Buddy service. Documented examples include Zulip for Resident
-conversation, GBrain for long-term memory, Tailscale or another approved
-private access layer, Hermes or another operator-chosen OpenAI-compatible
-agent runtime, and T3 Code or another agent CLI in a hosted workspace.
-The public checkout ships bridge and provisioning code for these profiles, but
-their presence in source is not evidence that they are active. If any is
-enabled, add it to the deployment data-flow, processor inventory, network
-policy, logging, retention, backup, deletion and incident review.
+Dashboard, hosted team workspaces and per-owner Resident/Buddy services are
+optional or separately deployed. If enabled, each needs its own operator,
+identity, storage, network path, processor list, logs, retention, backup,
+deletion and incident controls. Source code being present does not prove that a
+service is active.
 
-## Audit expectations
+## Audit and residual risk
 
-Git history, pull requests, exact-head approvals and deployment records provide
-strong evidence for source changes. They do not automatically cover every
-model request, local file read or third-party API call. Build an audit map that
-states which system records identity, action, target, result and retention for
-each enabled surface. A missing log must be recorded as missing; policy text is
-not audit evidence.
+Git commits, pull requests, approvals and deployment records provide strong
+evidence for source changes. They do not automatically record every local file
+read, model request or third-party API call. Build an audit map that names the
+system recording identity, action, target, result and retention for each
+surface—and record missing logs as missing.
 
-## Residual risk
-
-An authorized identity can still expose information, approve a harmful change,
-or grant a tool too much access. A process boundary can be misapplied. A model
-can follow prompt injection or generate incorrect content. A local endpoint can
-be compromised, exposing more than one mounted Organization. A draft branch,
-provider draft or model request can already move data before final publication.
-Lazurio's value is to make these decisions narrower and more inspectable; it
-does not remove the need for least privilege, endpoint isolation, provider
-review, testing and human accountability.
+An authorized identity can still expose data or approve a harmful change. A
+model can follow malicious content. A machine can be compromised, and a Draft
+branch or provider draft may already move data before final publication.
+Lazurio narrows and exposes these decisions; it does not replace least
+privilege, endpoint security, provider review, testing or accountability. See
+the [English control evidence](/en/public-evidence/) for the exact public-source
+basis of these claims.

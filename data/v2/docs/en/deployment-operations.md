@@ -3,8 +3,8 @@ title: Deployment and operations
 description: What is fixed by Lazurio and what must be decided for a concrete rollout.
 stableId: lazurio-doc-deployment-operations
 summary: Plan a Lazurio rollout across identity, devices, repositories, modules, integrations, logs, backup, updates, and offboarding.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -20,118 +20,85 @@ audience:
   - agent
 ---
 
-Lazurio is currently installed from a public source checkout and combines
-local workspaces with independently owned modules. It does not ship one
-universal hosted topology. A rollout record must define the actual devices,
-repositories, clients, model providers, integrations and hosted services used
-by the Organization.
+Lazurio is developer-operated software with local workspaces and independently
+owned modules, not one universal hosted topology. A rollout record must name
+the actual machines, repositories, agent client, model provider, integrations
+and hosted services used by the Organization.
 
 ![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
 
 ## Current and target state
 
-| Surface | Status | IT implication |
+| Surface | Status | Operational meaning |
 | --- | --- | --- |
-| Source checkout with Git and Bun | Available today and the current supported setup path | Treat it as developer-operated software with repository, dependency and update ownership. |
-| Launchpad, Guide and Doctor | Available today for local discovery, guidance, application lifecycle and diagnostics | Launchpad and local web modules use loopback listeners and module-owned port leases. Loopback binding is not caller authentication: another process on the same endpoint may still reach those HTTP surfaces. Guide is a pedagogical application with local file-writing flows, not a security control. Inventory and protect these surfaces even though they are not bound to the public network. |
-| Lazurio CLI v0 | Experimental and unstable | Do not build a production integration on undocumented CLI syntax without version pinning and acceptance tests. |
-| Packaged CLI and generated non-Git root | Target architecture | Do not include it in a current bill of materials or support assumption. |
-| Dashboard | Separately developed hosted/admin surface | Include it only when the deployment actually uses it; document its operator, identity, storage and logs. |
-| Resident/Buddy VPS and hosted team workspace | Optional/specialized hosted profiles | Each enabled service is a separate processing and network surface, not part of the default local-only claim. |
+| Source checkout with Git and Bun | Supported today | The operator owns repository, dependency and update hygiene. |
+| Launchpad, Guide and Doctor | Available today | These are local discovery, guidance, lifecycle and diagnostic surfaces. Loopback listeners are not caller authentication. |
+| CLI v0 | Experimental | Pin versions and test any production automation that depends on it. |
+| Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |
+| Dashboard, hosted workspace and Resident/Buddy | Optional, separately deployed | Inventory each enabled service with its own identity, network, storage and operating owner. |
 
-## Components to account for
-
-1. **Principal machine:** the endpoint where a person or AI colleague works.
-2. **Lazurio root:** the local Guide, Launchpad, CLI/Core and Doctor above
-   authorized Organization checkouts. Launchpad and runnable modules expose
-   loopback HTTP listeners on dynamically selected or module-owned ports.
-3. **Organization repository:** the company boundary, configuration and
-   shared sources of truth.
-4. **Workspace modules:** applications with their own runtime, dependencies,
-   checks and deployment target.
-5. **GitHub:** repository identity, team grants, review history and branch
-   enforcement in the documented default model.
-6. **Execution client and model provider:** for example Codex, Cursor, Claude
-   Code or another approved client, plus the model service it calls. Their
-   terms govern the selected task context sent to them. Current root tooling
-   checks for Git, GitHub CLI and Codex CLI in `PATH`; a missing Codex command
-   is a Doctor warning and some repair guidance assumes Codex. A non-Codex
-   rollout must test its chosen client against actual Doctor and repair flows.
-7. **External applications:** individually enabled MCP servers, CLIs or
-   browser workflows with provider-side scopes.
-8. **Optional hosted services:** Dashboard; a hosted team workspace with T3
-   Code or another agent CLI; and Resident/Buddy infrastructure that may use
-   Zulip, GBrain and Tailscale or another approved private access layer.
-
-Not every module must be deployed to a public server. Some are local tools,
-some are internal services, and some publish a public surface such as this
-documentation site. Module ownership keeps those choices explicit.
+The basic installation still includes several owners: the principal machine,
+the local Lazurio root, Organization repositories, workspace modules, GitHub,
+the agent client and model provider, and every enabled external application.
+Some modules remain local; others run internally or publish a public surface.
+Their deployment and rollback contracts stay module-owned.
 
 ## Rollout sequence
 
 ### 1. Define the Organization
 
-Name the GitHub organization, repositories, teams, administrators and
-offboarding owner. Decide what company data belongs there and what is excluded.
+Name its GitHub organization, repositories, teams, administrators and
+offboarding owner. State what company data belongs there and what is excluded.
 
-### 2. Approve an endpoint baseline
+### 2. Approve the machine boundary
 
-Document supported operating systems, device ownership, encryption, screen
-lock, patching, endpoint monitoring, local backup, remote wipe and incident
-handling. A principal-owned machine still needs company-grade controls when it
-processes company data. One machine is one trust domain; use a separate machine
-or equivalent infrastructure when mounted Organizations must not share an OS,
-disk or agent process.
+Document ownership, encryption, patching, endpoint monitoring, local backup,
+remote wipe and incident handling. The recommended starting point is one
+Organization per machine. A multi-Organization machine is an accepted
+exception inside one shared trust domain, not hard tenant isolation.
 
-The documented default is one Organization per machine. A multi-Organization
-machine is an allowed exception inside one shared trust domain and needs
-separate provider sessions plus explicit acceptance of the cross-Organization
-endpoint risk.
-
-### 3. Select the execution provider
+### 3. Select the agent and model providers
 
 Record the client, model provider, account type, authentication, data handling,
-retention, telemetry and contractual owner. Repeat this review when the client
+retention, telemetry and contractual owner. Repeat the review when the client
 or account tier changes.
 
-### 4. Enable the minimum repositories and integrations
+### 4. Enable only the required context
 
-Start with one bounded use case. Give the principal only the repositories and
-provider scopes it needs. Follow the public [external application
-standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
+Begin with one bounded use case. Grant only the repositories and provider
+scopes it needs, follow the [external application
+standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md),
 and test revocation.
 
-### 5. Enforce publication rules
+### 5. Enforce publication
 
-Set branch protection, required checks and reviewers appropriate to the
-repository. For messages, infrastructure, billing, secrets and destructive
-provider actions, name the actual provider-side permission or confirmation.
-Where no technical interlock exists, record the rule as process-only.
+Set branch rules, checks and reviewers for repository changes. For messages,
+infrastructure, billing, secrets and destructive actions, name the real
+provider-side permission or confirmation. Where none exists, mark the rule as
+process-only.
 
-### 6. Run an acceptance exercise
+### 6. Exercise the rollout
 
-Prove the normal task, GitHub-side access denial, the chosen client's local
-filesystem boundary, credential revocation, failed CI, rollback, offboarding
-and incident escalation. Keep evidence with the rollout decision.
+Prove the normal task, a repository denial, the client's local filesystem
+boundary, credential revocation, failed CI, rollback, offboarding and incident
+escalation. Keep the evidence with the approval decision.
 
-## Updating and rollback
+## Updates, rollback and ownership
 
-Lazurio source, Organization configuration and each module are versioned
-independently. Updates should fast-forward clean primary checkouts, run the
-declared doctor/check gates and enter production through a reviewed exact
-commit. Rollback means returning the affected repository or deployment to a
-previous verified revision; it must not silently restore revoked credentials
-or superseded access.
+Lazurio source, Organization configuration and modules are versioned
+independently. Updates should advance clean primary checkouts, run their
+declared checks and reach production from a reviewed exact commit. Rollback
+returns only the affected source or deployment to a previously verified
+revision; it must not revive revoked credentials or obsolete access.
 
-## Operating questions that remain deployment-specific
+Before production use, close the remaining deployment-specific questions:
 
-- Who maintains endpoints, GitHub teams and external integrations?
-- Which execution client, model provider, account terms and subprocessors apply?
-- Where do module services run, and which networks can reach them?
-- Which logs exist and how long are they retained?
+- Who maintains machines, GitHub teams, dependencies and integrations?
+- Where do services run, and which networks can reach them?
+- Which logs exist, how long are they retained and who handles incidents?
 - How are local data and credentials backed up, deleted and recovered?
-- Which components are source-checkout, hosted, experimental or target-only?
-- Who provides support, and what response time is promised, if any?
+- Which components are stable, experimental, optional or target-only?
+- Who provides support, and what response time—if any—is promised?
 
-These answers should be part of the customer-specific acceptance package.
-This public documentation intentionally does not invent them.
+These answers belong to the concrete acceptance package. Public documentation
+cannot honestly invent them for every deployment.
