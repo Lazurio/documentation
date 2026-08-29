@@ -2,58 +2,83 @@
   <title id="title">Lazurio deployment and data-flow overview</title>
   <desc id="description">A principal machine contains the Lazurio root, Organization checkouts, a task agent client, and local integrations. Data can leave the machine for GitHub, a selected model provider, approved application providers, and optional Lazurio-hosted services.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6f77ff"/>
+    <marker id="arrow" viewBox="0 0 11 11" refX="10" refY="5.5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 10 5.5 L 1 10 z" fill="#6f77ff"/>
     </marker>
     <style>
-      .bg{fill:#090909}.boundary{fill:#141414;stroke:#d2ddfd;stroke-width:3}.box{fill:#262626;stroke:#707070;stroke-width:2}.external{fill:#0c0c53;stroke:#6f77ff;stroke-width:2}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.label{fill:#fff;font:600 20px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 16px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 15px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:4;marker-end:url(#arrow)}.optional{stroke-dasharray:10 8}
+      .bg{fill:#090909}.boundary{fill:#141414;stroke:#d2ddfd;stroke-width:3}.box{fill:#262626;stroke:#707070;stroke-width:2}.external{fill:#0c0c53;stroke:#6f77ff;stroke-width:2}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.label{fill:#fff;font:600 20px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 16px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 15px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}.optional{stroke-dasharray:10 8}
     </style>
   </defs>
   <rect class="bg" width="1200" height="720" rx="18"/>
   <text class="title" x="48" y="55">Lazurio: deployment and data flow</text>
   <rect class="boundary" x="42" y="90" width="650" height="568" rx="18"/>
   <text class="label" x="72" y="132">Principal machine — one trust domain</text>
-  <text class="note" x="72" y="160">OS, disk and agent processes are shared unless the operator adds stronger isolation.</text>
+  <text class="note" x="72" y="158">
+    <tspan x="72">OS, disk and agent processes are shared unless the operator</tspan>
+    <tspan x="72" dy="22">adds stronger isolation.</tspan>
+  </text>
 
-  <rect class="box" x="78" y="198" width="270" height="118" rx="12"/>
-  <text class="label" x="100" y="235">Lazurio root</text>
-  <text class="copy" x="100" y="265">Launchpad, CLI/Core, Doctor</text>
-  <text class="copy" x="100" y="290">and reviewed operating rules</text>
+  <g data-node="lazurio-root">
+    <rect class="box" x="78" y="198" width="270" height="118" rx="12"/>
+    <text class="label" x="100" y="235">Lazurio root</text>
+    <text class="copy" x="100" y="265">Launchpad, CLI/Core, Doctor</text>
+    <text class="copy" x="100" y="290">and reviewed operating rules</text>
+  </g>
 
-  <rect class="box" x="386" y="198" width="270" height="118" rx="12"/>
-  <text class="label" x="408" y="235">Task agent client</text>
-  <text class="copy" x="408" y="265">Codex, Cursor, Claude Code</text>
-  <text class="copy" x="408" y="290">or another approved client</text>
+  <g data-node="task-agent-client">
+    <rect class="box" x="386" y="198" width="270" height="118" rx="12"/>
+    <text class="label" x="408" y="235">Task agent client</text>
+    <text class="copy" x="408" y="265">Codex, Cursor, Claude Code</text>
+    <text class="copy" x="408" y="290">or another approved client</text>
+  </g>
 
-  <rect class="box" x="78" y="350" width="270" height="128" rx="12"/>
-  <text class="label" x="100" y="387">Organization checkouts</text>
-  <text class="copy" x="100" y="417">Versioned repositories and</text>
-  <text class="copy" x="100" y="442">independently owned modules</text>
+  <g data-node="organization-checkouts">
+    <rect class="box" x="78" y="350" width="270" height="128" rx="12"/>
+    <text class="label" x="100" y="387">Organization checkouts</text>
+    <text class="copy" x="100" y="417">Versioned repositories and</text>
+    <text class="copy" x="100" y="442">independently owned modules</text>
+  </g>
 
-  <rect class="box" x="386" y="350" width="270" height="128" rx="12"/>
-  <text class="label" x="408" y="387">Local integrations</text>
-  <text class="copy" x="408" y="417">Approved MCP servers, CLIs</text>
-  <text class="copy" x="408" y="442">and separately held credentials</text>
+  <g data-node="local-integrations">
+    <rect class="box" x="386" y="350" width="270" height="128" rx="12"/>
+    <text class="label" x="408" y="387">Local integrations</text>
+    <text class="copy" x="408" y="417">Approved MCP servers and CLIs</text>
+    <text class="copy" x="408" y="442">with separately held credentials</text>
+  </g>
 
-  <rect class="box" x="78" y="514" width="578" height="104" rx="12"/>
-  <text class="label" x="100" y="551">Local custody and evidence</text>
-  <text class="copy" x="100" y="581">Ignored secret paths, Git working trees and deployment-specific logs</text>
+  <g data-node="local-custody">
+    <rect class="box" x="78" y="514" width="578" height="104" rx="12"/>
+    <text class="label" x="100" y="548">Local custody and evidence</text>
+    <text class="copy" x="100" y="576">Ignored secret paths, Git working trees</text>
+    <text class="copy" x="100" y="600">and deployment-specific logs</text>
+  </g>
 
-  <rect class="external" x="770" y="105" width="370" height="105" rx="12"/>
-  <text class="label" x="794" y="143">GitHub</text>
-  <text class="copy" x="794" y="173">Source, teams, branch rules, PR evidence</text>
+  <g data-node="github">
+    <rect class="external" x="770" y="105" width="370" height="105" rx="12"/>
+    <text class="label" x="794" y="143">GitHub</text>
+    <text class="copy" x="794" y="173">Source, teams, branch rules, PR evidence</text>
+  </g>
 
-  <rect class="external" x="770" y="245" width="370" height="105" rx="12"/>
-  <text class="label" x="794" y="283">Selected model provider</text>
-  <text class="copy" x="794" y="313">Prompts and selected task context leave the machine</text>
+  <g data-node="model-provider">
+    <rect class="external" x="770" y="245" width="370" height="105" rx="12"/>
+    <text class="label" x="794" y="279">Selected model provider</text>
+    <text class="copy" x="794" y="307">Prompts and selected task context</text>
+    <text class="copy" x="794" y="331">leave the machine</text>
+  </g>
 
-  <rect class="external" x="770" y="385" width="370" height="105" rx="12"/>
-  <text class="label" x="794" y="423">Approved application providers</text>
-  <text class="copy" x="794" y="453">Data and actions allowed by each provider grant</text>
+  <g data-node="application-providers">
+    <rect class="external" x="770" y="385" width="370" height="105" rx="12"/>
+    <text class="label" x="794" y="419">Approved application providers</text>
+    <text class="copy" x="794" y="447">Data and actions allowed by each</text>
+    <text class="copy" x="794" y="471">provider grant</text>
+  </g>
 
-  <rect class="external optional" x="770" y="525" width="370" height="105" rx="12"/>
-  <text class="label" x="794" y="563">Optional hosted surfaces</text>
-  <text class="copy" x="794" y="593">Dashboard, hosted workspace, Resident/Buddy services</text>
+  <g data-node="hosted-surfaces">
+    <rect class="external optional" x="770" y="525" width="370" height="105" rx="12"/>
+    <text class="label" x="794" y="559">Optional hosted surfaces</text>
+    <text class="copy" x="794" y="587">Dashboard, hosted workspace and</text>
+    <text class="copy" x="794" y="611">Resident/Buddy services</text>
+  </g>
 
   <path class="flow" d="M656 257 C720 257 720 157 770 157"/>
   <path class="flow" d="M656 280 C720 280 720 297 770 297"/>

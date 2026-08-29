@@ -34,6 +34,72 @@ test('critical pages have no serious accessibility violations', async ({ page })
   }
 })
 
+test('diagram labels stay inside their nodes and arrowheads remain compact', async ({ page }) => {
+  for (const route of [
+    '/diagrams/lazurio-data-flow.svg',
+    '/diagrams/draft-publication-flow.svg',
+  ]) {
+    const response = await page.goto(route)
+    expect(response?.ok()).toBe(true)
+
+    const nodes = await page.locator('g[data-node]').evaluateAll((groups) =>
+      groups.map((group) => {
+        const rect = group.querySelector('rect')
+        const texts = [...group.querySelectorAll('text')]
+
+        if (!(rect instanceof SVGRectElement)) {
+          throw new Error('Diagram node is missing its bounding rectangle.')
+        }
+
+        return {
+          id: group.getAttribute('data-node'),
+          rect: {
+            left: rect.x.baseVal.value,
+            top: rect.y.baseVal.value,
+            right: rect.x.baseVal.value + rect.width.baseVal.value,
+            bottom: rect.y.baseVal.value + rect.height.baseVal.value,
+          },
+          texts: texts.map((text) => {
+            const box = text.getBBox()
+            return {
+              value: text.textContent?.trim(),
+              left: box.x,
+              top: box.y,
+              right: box.x + box.width,
+              bottom: box.y + box.height,
+            }
+          }),
+        }
+      }),
+    )
+
+    expect(nodes.length).toBeGreaterThan(0)
+    for (const node of nodes) {
+      for (const text of node.texts) {
+        expect(text.left, `${node.id}: "${text.value}" starts outside its node`).toBeGreaterThanOrEqual(
+          node.rect.left + 12,
+        )
+        expect(text.right, `${node.id}: "${text.value}" overflows its node`).toBeLessThanOrEqual(
+          node.rect.right - 12,
+        )
+        expect(text.top, `${node.id}: "${text.value}" starts above its node`).toBeGreaterThanOrEqual(
+          node.rect.top + 8,
+        )
+        expect(text.bottom, `${node.id}: "${text.value}" overflows below its node`).toBeLessThanOrEqual(
+          node.rect.bottom - 8,
+        )
+      }
+    }
+
+    const marker = page.locator('marker#arrow')
+    await expect(marker).toHaveAttribute('markerUnits', 'userSpaceOnUse')
+    await expect(marker).toHaveAttribute('markerWidth', /\S+/)
+    await expect(marker).toHaveAttribute('markerHeight', /\S+/)
+    expect(Number(await marker.getAttribute('markerWidth'))).toBeLessThanOrEqual(12)
+    expect(Number(await marker.getAttribute('markerHeight'))).toBeLessThanOrEqual(12)
+  }
+})
+
 test('documentation tables keep readable cell spacing', async ({ page }) => {
   await page.goto('/en/it-administrators/')
   const table = page.locator('.sl-markdown-content table').first()

@@ -2,42 +2,57 @@
   <title id="title">Lazurio draft-to-publication flow</title>
   <desc id="description">A scoped task uses authorized context to create a draft. Checks and exact-head review provide evidence. A mechanical provider gate and an authorized principal decision are both required before publication.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6f77ff"/>
+    <marker id="arrow" viewBox="0 0 11 11" refX="10" refY="5.5" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 10 5.5 L 1 10 z" fill="#6f77ff"/>
     </marker>
     <style>
-      .bg{fill:#090909}.box{fill:#262626;stroke:#707070;stroke-width:2}.gate{fill:#0c0c53;stroke:#6f77ff;stroke-width:3}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.label{fill:#fff;font:600 18px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 15px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:4;marker-end:url(#arrow)}
+      .bg{fill:#090909}.box{fill:#262626;stroke:#707070;stroke-width:2}.gate{fill:#0c0c53;stroke:#6f77ff;stroke-width:3}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.label{fill:#fff;font:600 18px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 15px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
     </style>
   </defs>
   <rect class="bg" width="1200" height="420" rx="18"/>
   <text class="title" x="48" y="58">From scoped request to publication</text>
-  <rect class="box" x="48" y="118" width="190" height="150" rx="12"/>
-  <text class="label" x="70" y="155">1. Scope</text>
-  <text class="copy" x="70" y="186">Organization, task,</text>
-  <text class="copy" x="70" y="210">identity and tools</text>
+  <g data-node="scope">
+    <rect class="box" x="48" y="118" width="190" height="150" rx="12"/>
+    <text class="label" x="70" y="155">1. Scope</text>
+    <text class="copy" x="70" y="186">Organization, task,</text>
+    <text class="copy" x="70" y="210">identity and tools</text>
+  </g>
 
-  <rect class="box" x="282" y="118" width="190" height="150" rx="12"/>
-  <text class="label" x="304" y="155">2. Draft</text>
-  <text class="copy" x="304" y="186">Editable branch, PR,</text>
-  <text class="copy" x="304" y="210">document or provider draft</text>
-  <text class="copy" x="304" y="238">Data may already leave locally</text>
+  <g data-node="draft">
+    <rect class="box" x="282" y="118" width="190" height="150" rx="12"/>
+    <text class="label" x="304" y="155">2. Draft</text>
+    <text class="copy" x="304" y="181">Editable branch, PR,</text>
+    <text class="copy" x="304" y="205">document or provider</text>
+    <text class="copy" x="304" y="229">draft; data may already</text>
+    <text class="copy" x="304" y="253">leave the machine</text>
+  </g>
 
-  <rect class="box" x="516" y="118" width="190" height="150" rx="12"/>
-  <text class="label" x="538" y="155">3. Evidence</text>
-  <text class="copy" x="538" y="186">Checks, diff, source links,</text>
-  <text class="copy" x="538" y="210">exact-head review</text>
+  <g data-node="evidence">
+    <rect class="box" x="516" y="118" width="190" height="150" rx="12"/>
+    <text class="label" x="538" y="155">3. Evidence</text>
+    <text class="copy" x="538" y="186">Checks and diff,</text>
+    <text class="copy" x="538" y="210">source links and</text>
+    <text class="copy" x="538" y="234">exact-head review</text>
+  </g>
 
-  <rect class="gate" x="750" y="98" width="190" height="190" rx="12"/>
-  <text class="label" x="772" y="138">4. Two gates</text>
-  <text class="copy" x="772" y="172">Mechanical:</text>
-  <text class="copy" x="772" y="195">provider permission/rule</text>
-  <text class="copy" x="772" y="226">Decision:</text>
-  <text class="copy" x="772" y="249">authorized principal approval</text>
+  <g data-node="two-gates">
+    <rect class="gate" x="750" y="98" width="190" height="190" rx="12"/>
+    <text class="label" x="772" y="136">4. Two gates</text>
+    <text class="copy" x="772" y="165">Mechanical:</text>
+    <text class="copy" x="772" y="186">provider permission</text>
+    <text class="copy" x="772" y="207">or rule</text>
+    <text class="copy" x="772" y="231">Decision:</text>
+    <text class="copy" x="772" y="252">authorized principal</text>
+    <text class="copy" x="772" y="273">approval</text>
+  </g>
 
-  <rect class="gate" x="984" y="118" width="168" height="150" rx="12"/>
-  <text class="label" x="1006" y="155">5. Publication</text>
-  <text class="copy" x="1006" y="186">Merge, deploy, send</text>
-  <text class="copy" x="1006" y="210">or external mutation</text>
+  <g data-node="publication">
+    <rect class="gate" x="984" y="118" width="168" height="150" rx="12"/>
+    <text class="label" x="1006" y="155">5. Publication</text>
+    <text class="copy" x="1006" y="186">Merge, deploy,</text>
+    <text class="copy" x="1006" y="210">send or external</text>
+    <text class="copy" x="1006" y="234">mutation</text>
+  </g>
 
   <path class="flow" d="M238 193 H282"/>
   <path class="flow" d="M472 193 H516"/>
