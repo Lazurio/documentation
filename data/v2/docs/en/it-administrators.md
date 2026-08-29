@@ -3,8 +3,8 @@ title: Approval briefing for IT administrators
 description: The system picture, data paths, enforcement limits and evidence to review before a Lazurio pilot.
 stableId: lazurio-doc-it-administrators
 summary: A concise IT review of Lazurio's purpose, identity, access, data, integrations, operations, and approval boundaries.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -21,15 +21,15 @@ audience:
   - agent
 ---
 
-Lazurio is a developer-stage local coordination layer for people and AI agents
-working across versioned company repositories and approved tools. Today the
-supported setup is a public source checkout run with Git and Bun. It includes
-an experimental CLI v0, Launchpad, diagnostics and operating contracts; it is
-not a vendor-managed AI service, a stable packaged installer or an additional
-sandbox around the selected agent client.
+Lazurio is a local working system for Colleagues, AI Colleagues and Task Agents
+operating across versioned Organization repositories and approved tools. The
+current supported setup is a Source Root run with Git and Bun. It includes
+CLI/Core v0, Launchpad, diagnostics and operating contracts; it is not a
+vendor-managed AI model, a released packaged distribution or an additional
+sandbox around the selected AI app.
 
-For a pilot decision, identify the operating identity and machine, the exact
-Organization repositories, the agent client and model provider, every enabled
+For a pilot decision, identify the operating identity and Machine, the exact
+Organization repositories, the AI app and model provider, every enabled
 integration, and the technical mechanism that permits or blocks each external
 action.
 
@@ -42,9 +42,9 @@ installation. Optional hosted surfaces must be listed explicitly when enabled.
 
 | Item | Current public position |
 | --- | --- |
-| Distribution | Developer source checkout using Git and Bun. A simple packaged installation is target architecture, not a released path. |
-| CLI and runtime | CLI v0 is experimental. Launchpad, Doctor and selected module/runtime flows work today, while broader distribution and resident onboarding are still evolving. |
-| License | [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md): internal use, non-commercial education or research, and professional services for a compliant licensee are permitted. Permitted use may include copying, modification and redistribution, with the license link and copyright notices retained. A Competing Use means making the software available to others in a commercial product or service that substitutes for Lazurio or another product or service the licensor offers using it, or offers the same or substantially similar functionality. Each published version becomes Apache 2.0 on its second anniversary. The software is provided without warranty and is not currently under an OSI open-source license. |
+| Distribution | Source Root using Git and Bun. A simple packaged installation is target architecture, not the current release path. |
+| CLI and runtime | CLI v0 is experimental. Launchpad, Doctor and selected Module/runtime flows work today, while broader distribution and resident onboarding are still evolving. |
+| License | [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/LICENSE.md): internal use, non-commercial education or research, and professional services for a compliant licensee are permitted. Permitted use may include copying, modification and redistribution, with the license link and copyright notices retained. A Competing Use means making the software available to others in a commercial product or service that substitutes for Lazurio or another product or service the licensor offers using it, or offers the same or substantially similar functionality. Each published version becomes Apache 2.0 on its second anniversary. The software is provided without warranty and is not currently under an OSI open-source license. |
 | Product owner | The public license notice names HumanAndMachine s.r.o. as copyright holder. A concrete operator must identify its support, hosting, incident and contractual owners. |
 | Assurance | No certification, universal service level, default retention period or universal deployment topology is claimed. |
 
@@ -58,11 +58,11 @@ review remains an explicit delivery process step.
 
 | Area | Documented Lazurio position | What IT should verify for its deployment |
 | --- | --- | --- |
-| Identity | The signed-in principal supplies authority; a task agent does not gain independent rights from a prompt. | The human or service identity, repository membership and device owner are correct. |
-| Organization boundary | One company maps to one Organization and GitHub organization/access boundary. The documented default is one Organization per machine; a shared machine is an accepted exception within one trust domain, not hard tenant isolation. | The intended repositories and teams are the only ones mounted. Use separate machines or equivalent infrastructure where a stronger isolation boundary is required. |
-| Local workspace | Work starts from checked-out, versioned source on a principal-owned machine. | Device hardening, disk encryption, endpoint monitoring, backup and offboarding meet policy. |
+| Identity | The signed-in Principal supplies authority; a Task Agent does not gain independent rights from a prompt. | The human or service identity, repository membership and device owner are correct. |
+| Organization boundary | One company maps to one Organization and GitHub organization/access boundary. One Root can mount multiple authorized Organizations on one Machine, but that Machine remains one shared trust domain rather than hard tenant isolation. | The intended repositories and Teams are the only ones mounted. Use separate Machines or equivalent infrastructure where a stronger isolation boundary is required. |
+| Local workspace | Work starts from checked-out, versioned source on a Principal-owned Machine. | Device hardening, disk encryption, endpoint monitoring, backup and offboarding meet policy. |
 | Publication | Agent work is a reversible draft. Merge, deployment, sending and other external publication require explicit authority. | Repository rules, required reviews and deployment permissions enforce the intended gate. |
-| External apps | Integrations are locally curated and separately revocable; the preference is official MCP, then official CLI. New ChatGPT/claude.ai connectors and shared hosted brokers are outside the standard because they break per-machine custody. | Each enabled provider, OAuth scope, data flow, retention policy and revocation path is accepted. The standard defaults to read+write scopes needed by the workflow; read-only is optional tightening, not the assumed baseline. |
+| External apps | Integrations are locally curated and separately revocable; the preference is official MCP, then official CLI. New ChatGPT/claude.ai connectors and shared hosted brokers are outside the standard because they break per-Machine custody. | Each enabled provider, OAuth scope, data flow, retention policy and revocation path is accepted. The standard defaults to read+write scopes needed by the workflow; read-only is optional tightening, not the assumed baseline. |
 | Secrets | Secrets belong in ignored, scoped custody paths—not in Git or public documentation. | The chosen secret store, rotation, incident response and leak scanning are operational. |
 | Audit | Git commits, pull requests, reviews and provider logs create evidence, but coverage depends on the actual tools used. | Required logs exist across GitHub, endpoint, model provider, apps and deployment infrastructure. |
 
@@ -73,7 +73,7 @@ language note and enforcement limits.
 ## What data can be reached?
 
 There is no honest universal list because Lazurio is a framework whose concrete
-reach depends on the principal, machine, repository grants and enabled tools.
+reach depends on the Principal, Machine, repository grants and enabled tools.
 A deployment review should inventory five surfaces:
 
 1. Git repositories and teams visible to the operating identity.
@@ -89,19 +89,19 @@ revocation instructions.
 
 ## Which controls are technical?
 
-An instruction cannot remove a capability already present on the machine. A
-repository or OAuth token is a machine/session capability usable by processes
+An instruction cannot remove a capability already present on the Machine. A
+repository or OAuth token is a Machine/session capability usable by processes
 that can reach it; Lazurio does not add a universal security sandbox around
 Cursor, Codex, Claude Code or another execution client.
 
 | Action | Mechanical gate | Process reliance and when data leaves |
 | --- | --- | --- |
 | Read a local file or repository | OS permissions, mounted workspace and any client sandbox | Scope rules guide the agent. A readable file may be sent to the model provider when selected as task context; local reads are not automatically audited. |
-| Push a branch or open a pull request | GitHub repository write permission | Agents may prepare and push reviewable Draft work. Source leaves the machine when pushed; a pull request is not the protected-branch merge gate. |
+| Push a branch or open a pull request | GitHub repository write permission | Task Agents may prepare and push reviewable Draft work. Source leaves the Machine when pushed; a pull request is not the protected-branch merge gate. |
 | Merge a protected branch | GitHub branch rules, required checks, required reviews and live merge permission | Reviewer judgment remains a human/organizational control. |
 | Create a provider draft | Provider OAuth/API scope or CLI credential | A draft email, message or provider object already sends data to that provider even if it is not yet externally delivered. |
-| Send a message or mutate a provider | Whatever permission or confirmation the provider exposes | Explicit principal authorization is mandatory in the Lazurio process, but is not a universal technical interlock. Verify each integration and client. |
-| Deploy | Deployment credential plus provider and repository gates configured by the module | A reviewed exact-commit gate can be mechanical; the operator still owns environment selection, secrets and rollback. |
+| Send a message or mutate a provider | Whatever permission or confirmation the provider exposes | Explicit Principal authorization is mandatory in the Lazurio process, but is not a universal technical interlock. Verify each integration and client. |
+| Deploy | Deployment credential plus provider and repository gates configured by the Module | A reviewed exact-commit gate can be mechanical; the operator still owns environment selection, secrets and rollback. |
 
 ![Draft-to-publication flow](/diagrams/draft-publication-flow.svg)
 

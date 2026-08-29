@@ -1,16 +1,16 @@
 ---
-title: "Lazurio: product, architecture and controls"
-description: A public, evidence-backed starting point for understanding and evaluating Lazurio.
+title: "Lazurio technical documentation"
+description: Build, connect and operate a Lazurio Organization with source-backed technical guidance.
 template: splash
 stableId: lazurio-doc-overview
-summary: Start here to understand what Lazurio is, what problem it solves, and which trust and operational questions to ask.
-updatedAt: "2026-08-27"
-reviewedAt: "2026-08-27"
+summary: Start here to understand Lazurio's technical shape, current release boundary, and the path from a source checkout to an Organization with Modules.
+updatedAt: "2026-08-29"
+reviewedAt: "2026-08-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
-  - lazurio-license
   - lazurio-architecture
+  - lazurio-map
   - lazurio-collaboration-model
 audience:
   - it-admin
@@ -18,59 +18,92 @@ audience:
   - builder
   - agent
 hero:
-  tagline: How Lazurio is built, where data can flow, and which controls a real deployment must prove.
+  tagline: The technical guide to Organizations, Modules, Launchpad and the AI apps that work alongside them.
   actions:
-    - text: For IT administrators
-      link: /en/it-administrators/
+    - text: Run the quickstart
+      link: /en/quickstart/
       icon: right-arrow
       variant: primary
-    - text: Compare with Microsoft Copilot
-      link: /en/lazurio-vs-microsoft-copilot/
+    - text: Explore the example Organization
+      link: /en/example-organization/
       icon: right-arrow
       variant: secondary
 ---
 
-Lazurio is a developer-stage local coordination layer for work done by people
-and AI agents. Today it is a public Git repository containing a CLI/Core,
-Launchpad, diagnostics, operating rules and a structure for mounting separate
-company repositories called Organizations. It is not an AI model, a managed
-SaaS tenant or a hard isolation layer around the selected agent client.
+Lazurio is a local working system in which people and AI cooperate across
+companies, projects and personal work without collapsing their repositories,
+data and permissions into one store. It supplies the structure, operating
+rules, diagnostics and Launchpad that let a Task Agent work inside a clearly
+named context.
 
-The current supported setup path is a source checkout using Git and Bun. The
-CLI is version 0 and experimental; a simple packaged installation is a target,
-not a released distribution. Source is currently available under
-[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md),
-a source-available license. Permitted purposes include internal use,
-non-commercial education or research, and professional services for a licensee
-using the software compliantly. Permitted use may include copying, modification
-and redistribution, but redistributed copies and derivatives must keep the
-license link and copyright notices. A Competing Use means making the software
-available to others in a commercial product or service that substitutes for
-Lazurio or another product or service the licensor offers using it, or offers
-the same or substantially similar functionality. Each published version becomes
-available under Apache 2.0 on its second anniversary, and the software is
-provided without warranty. The notice names HumanAndMachine s.r.o. as copyright
-holder. Support, hosting and service-level commitments belong to a concrete
-commercial deployment and are not implied by this site.
+The model resembles open-source collaboration at organization scale. An
+Organization has maintainers, contributors, repository grants and review
+rules. Its Modules remain separate repositories with their own owners and
+lifecycle, while Lazurio presents the authorized set as one coherent working
+environment. The result feels monorepo-like to a builder without becoming one
+giant repository or a second permission system.
 
-Lazurio keeps companies in separate repositories, takes repository authority
-from GitHub and other provider grants, and makes consequential changes
-reviewable before publication. These rules improve governance; they do not
-make an endpoint, model or integration safe by themselves.
+## The system in four slices
 
-## Choose your path
+```text
+Administration
+Dashboard → account → Organization → Marketplace → Colleagues and grants
 
-- **Deciding whether to allow it:** read the [ten-minute IT
-  briefing](/en/it-administrators/) and the [data-access
-  review](/en/data-access-security/).
-- **Understanding the mechanics:** see [how Lazurio
-  works](/en/how-lazurio-works/) and how it is [deployed and
-  operated](/en/deployment-operations/).
-- **Checking the underlying claims:** use the reviewed [English control
-  evidence](/en/public-evidence/) and its links to the exact public source.
-- **Comparing alternatives:** use the sourced [Lazurio vs Microsoft
-  Copilot](/en/lazurio-vs-microsoft-copilot/) decision guide. They solve
-  overlapping, but not identical, problems.
-- **Letting an agent read the docs:** give it `/llms.txt` or
-  `/content-index.json`. Both are generated from the same reviewed pages that
-  people read.
+Daily work
+AI app / Task Agent ↔ Lazurio Root ↔ Organization ↔ Module repositories
+
+Builder surface
+Launchpad → discover Modules → inspect status → start or open development apps
+
+Authority
+GitHub identity + Teams + repository grants + branch rules → allowed actions
+```
+
+These slices connect, but they are not interchangeable:
+
+- **Dashboard** is the starting and administrative surface for Lazurio
+  accounts, Organizations, Marketplace Modules, Colleagues, permissions, AI
+  Colleague Machines, hosting and operational visibility. It is developed and
+  deployed separately from the public Lazurio Root.
+- **Launchpad** is the builder-first surface on a Machine. It discovers the
+  Organizations and Modules available in that Root and manages local
+  development application lifecycle.
+- **An AI app** hosts the current Task Agent session. Lazurio is not the model
+  and does not give the session new permissions.
+- **GitHub and connected providers** remain the live access authorities.
+
+## What is available now
+
+| Capability | Current state |
+| --- | --- |
+| Source Root with Git and Bun | Supported development path |
+| Launchpad and Organization discovery | Available in the public source |
+| CLI/Core v0 | Available, experimental and not a stable public API |
+| Desktop Launchpad installer | Available on macOS and Windows |
+| Packaged CLI and generated Managed Root | Target architecture, not the current distribution |
+| Dashboard | Separately developed product surface, not runtime authority for Launchpad |
+| Native Lazurio MCP server | Not included in the current release |
+
+The public Lazurio source uses
+[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/LICENSE.md).
+It is source-available today and receives the Apache 2.0 future license on the
+schedule defined in that license. Do not describe the current Lazurio release
+itself as OSI open source.
+
+## Where to go next
+
+- [Quickstart](/en/quickstart/) — verify a source checkout and open Launchpad.
+- [Core concepts](/en/how-lazurio-works/) — understand people, agent roles,
+  spaces and publication.
+- [Example Organization](/en/example-organization/) — follow one public-safe
+  Organization from manifest to Module.
+- [Components and source](/en/components-and-source/) — map each product
+  surface to its public source and license boundary.
+- [AI app support matrix](/en/use-with-ai-apps/) — choose a truthful workflow
+  for Codex, Claude, Cursor or Antigravity.
+- [Data access and security](/en/data-access-security/) — review the actual
+  trust and data-flow boundaries.
+
+Every page is also available to agents through `/llms.txt`,
+`/content-index.json` and the sitemap. They are generated from the same
+reviewed Markdown that people read.

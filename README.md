@@ -1,13 +1,15 @@
 # Lazurio documentation
 
-Public, evidence-backed documentation for Lazurio. It is written first for
-people evaluating or operating Lazurio and structured so agents can discover
-the same canonical material without a second content store.
+Public, evidence-backed technical documentation for Lazurio. It is written
+first for builders, technical evaluators and operators, and structured so Task
+Agents can discover the same canonical material without a second content store.
 
-The first release is English-first. It starts with a ten-minute briefing for IT
-administrators and a sourced decision guide comparing Lazurio with Microsoft
-Copilot in the Microsoft 365 context. Czech follows after English content
-acceptance; it will be curated, not machine-published.
+The first release is English-first. It starts with the technical product model,
+current quickstart, a public-safe Example Organization, component/source map
+and truthful workflows for Codex, Claude, Cursor and Antigravity. IT controls
+and the sourced Microsoft Copilot comparison remain an operational and
+evaluation layer. Czech follows as a curated localization after English
+content acceptance.
 
 ## Application and deployment
 
@@ -54,8 +56,10 @@ owner and review window used by public claims.
 ## Current release boundary
 
 This repository does not implement an MCP server, chatbot, write API, analytics
-pipeline or private knowledge import. It does not claim certifications, legal
-compliance, a universal deployment model or a service-level agreement.
+pipeline or private knowledge import. It does not claim native integration
+where an AI app only supports a side-by-side browser workflow, nor
+certifications, legal compliance, a universal deployment model or a
+service-level agreement.
 
 ## License
 

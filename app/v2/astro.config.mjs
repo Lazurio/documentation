@@ -19,6 +19,26 @@ function accessibleTables() {
   }
 }
 
+function accessibleCodeBlocks() {
+  return {
+    name: 'Accessible code blocks',
+    hooks: {
+      postprocessRenderedBlock({ renderData }) {
+        const visit = (node) => {
+          if (node.type === 'element' && node.tagName === 'pre') {
+            node.properties ??= {}
+            node.properties.tabIndex = 0
+            node.properties.ariaLabel = 'Scrollable code example'
+          }
+          if (Array.isArray(node.children)) node.children.forEach(visit)
+        }
+
+        visit(renderData.blockAst)
+      },
+    },
+  }
+}
+
 export default defineConfig({
   site: 'https://documentation.lazurio.ai',
   // Keep the locale prefix explicit so future curated locales can share root selection.
@@ -54,6 +74,9 @@ export default defineConfig({
       ],
       sidebar,
       customCss: ['./src/styles/docs.css'],
+      expressiveCode: {
+        plugins: [accessibleCodeBlocks()],
+      },
     }),
   ],
   adapter: cloudflare({

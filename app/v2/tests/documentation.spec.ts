@@ -5,26 +5,47 @@ test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Lazurio: product, architecture and controls' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio technical documentation' }),
   ).toBeVisible()
 })
 
-test('the IT decision path is readable and navigable', async ({ page }) => {
+test('the technical start path reaches the quickstart and example Organization', async ({ page }) => {
   await page.goto('/en/')
   await expect(
-    page.getByRole('heading', { level: 1, name: 'Lazurio: product, architecture and controls' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio technical documentation' }),
   ).toBeVisible()
 
-  await page.getByRole('link', { name: 'For IT administrators' }).first().click()
-  await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
-  await expect(page.getByRole('heading', { level: 1, name: 'Approval briefing for IT administrators' })).toBeVisible()
+  await page.getByRole('link', { name: 'Run the quickstart' }).first().click()
+  await expect(page).toHaveURL(/\/en\/quickstart\/$/)
+  await expect(page.getByRole('heading', { level: 1, name: 'Quickstart' })).toBeVisible()
+  await expect(page.getByText('bun run launchpad', { exact: true })).toBeVisible()
 
-  await page.getByRole('link', { name: 'Lazurio vs Microsoft Copilot' }).first().click()
-  await expect(page).toHaveURL(/\/en\/lazurio-vs-microsoft-copilot\/$/)
+  await page.getByRole('link', { name: 'Example Organization' }).first().click()
+  await expect(page).toHaveURL(/\/en\/example-organization\/$/)
+  await expect(page.getByRole('heading', { level: 1, name: 'Example Organization' })).toBeVisible()
+  await expect(
+    page.getByRole('img', { name: 'Launchpad showing the synthetic Lazurio Example Organization' }),
+  ).toBeVisible()
+})
+
+test('the AI app support matrix states the native integration limits', async ({ page }) => {
+  await page.goto('/en/use-with-ai-apps/')
+  await expect(page.getByRole('heading', { level: 1, name: 'Use Lazurio with AI apps' })).toBeVisible()
+  await expect(page.getByText(/Lazurio release does not publish a native Lazurio MCP server/)).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Codex and ChatGPT Desktop' }).first()).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Claude' }).first()).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Cursor Glass' }).first()).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Google Antigravity' }).first()).toBeVisible()
 })
 
 test('critical pages have no serious accessibility violations', async ({ page }) => {
-  for (const route of ['/en/', '/en/it-administrators/', '/en/lazurio-vs-microsoft-copilot/']) {
+  for (const route of [
+    '/en/',
+    '/en/quickstart/',
+    '/en/example-organization/',
+    '/en/use-with-ai-apps/',
+    '/en/it-administrators/',
+  ]) {
     await page.goto(route)
     const results = await new AxeBuilder({ page }).analyze()
     const serious = results.violations.filter((violation) =>
@@ -35,7 +56,7 @@ test('critical pages have no serious accessibility violations', async ({ page })
 })
 
 test('documentation tables keep readable cell spacing', async ({ page }) => {
-  await page.goto('/en/it-administrators/')
+  await page.goto('/en/use-with-ai-apps/')
   const table = page.locator('.sl-markdown-content table').first()
   const cells = table.locator('th, td')
 
@@ -69,6 +90,14 @@ test('documentation tables keep readable cell spacing', async ({ page }) => {
   }
   expect(tableStyles.borderRadius).toBeGreaterThanOrEqual(6)
   expect(tableStyles.overflowX).toBe('auto')
+})
+
+test('scrollable code diagrams are keyboard focusable', async ({ page }) => {
+  await page.goto('/en/how-lazurio-works/')
+  const diagram = page.locator('.expressive-code pre').first()
+
+  await expect(diagram).toHaveAttribute('tabindex', '0')
+  await expect(diagram).toHaveAttribute('aria-label', 'Scrollable code example')
 })
 
 test('FAQ answers expand only after the reader opens them', async ({ page }) => {

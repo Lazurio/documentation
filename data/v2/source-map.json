@@ -1,66 +1,176 @@
 {
   "schema": "lazurio.documentation.source-map.v1",
-  "reviewedAt": "2026-08-27",
+  "reviewedAt": "2026-08-29",
   "sources": [
     {
       "id": "lazurio-readme",
       "title": "Lazurio README",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/README.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
     },
     {
       "id": "lazurio-architecture",
       "title": "Lazurio architecture",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/ARCHITECTURE.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
+    },
+    {
+      "id": "lazurio-map",
+      "title": "Lazurio repository map",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/MAP.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
     },
     {
       "id": "lazurio-collaboration-model",
       "title": "Lazurio collaboration and access model",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/AGENTS.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
+    },
+    {
+      "id": "lazurio-cli",
+      "title": "Lazurio CLI v0",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/lazurio/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
+    },
+    {
+      "id": "lazurio-launchpad",
+      "title": "Lazurio Launchpad",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/launchpad/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
+    },
+    {
+      "id": "lazurio-organization-schema",
+      "title": "Lazurio Organization schema",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/lazurio/lazurio.organization.v1.schema.json",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
+    },
+    {
+      "id": "lazurio-example-fixture",
+      "title": "Public Example Organization fixture",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/lazurio/organization-install-lib.test.mjs",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
+    },
+    {
+      "id": "lazurio-module-lifecycle",
+      "title": "Lazurio module lifecycle",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/module-lifecycle.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
     },
     {
       "id": "lazurio-external-apps",
       "title": "External application integration standard",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/external-app-integrations.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
     },
     {
       "id": "lazurio-secret-custody",
       "title": "Local secret custody standard",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/manual/security/local-secret-custody.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
     },
     {
       "id": "lazurio-license",
       "title": "Lazurio license",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/08d21803d4d4011304e1181ecf02ab9c5bfbad58/LICENSE.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-11-29"
+    },
+    {
+      "id": "openai-browser",
+      "title": "Browser in ChatGPT desktop and Codex",
+      "publisher": "OpenAI",
+      "kind": "provider-documentation",
+      "url": "https://learn.chatgpt.com/docs/browser",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-09-29"
+    },
+    {
+      "id": "anthropic-claude-code-cli",
+      "title": "Claude Code CLI reference",
+      "publisher": "Anthropic",
+      "kind": "provider-documentation",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/cli-usage",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-09-29"
+    },
+    {
+      "id": "model-context-protocol",
+      "title": "Model Context Protocol overview",
+      "publisher": "Model Context Protocol",
+      "kind": "provider-documentation",
+      "url": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-09-29"
+    },
+    {
+      "id": "cursor-agent-window",
+      "title": "Cursor Agent Window",
+      "publisher": "Cursor",
+      "kind": "provider-documentation",
+      "url": "https://cursor.com/new",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-09-29"
+    },
+    {
+      "id": "antigravity-browser",
+      "title": "Google Antigravity Browser",
+      "publisher": "Google",
+      "kind": "provider-documentation",
+      "url": "https://antigravity.google/docs/browser",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-08-29",
+      "reviewDueAt": "2026-09-29"
     },
     {
       "id": "microsoft-copilot-architecture",
