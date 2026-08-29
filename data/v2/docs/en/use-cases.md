@@ -53,8 +53,9 @@ boundary rather than a copied prompt with hidden assumptions.
 A founder, consultant or operator can mount several authorized Organizations
 while keeping their repositories and GitHub access separate. This is an
 exception inside one shared machine trust domain, not hard tenant isolation.
-Use separate machines or equivalent infrastructure when a compromise must not
-cross company boundaries.
+Keep provider sessions separately named and revocable. Use separate machines
+or equivalent infrastructure when a compromise must not cross company
+boundaries.
 
 ## Use cases that need additional controls
 

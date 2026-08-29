@@ -55,7 +55,8 @@ access boundaries.
 5. **Evidence:** run checks and show the practical effect.
 6. **Decision:** an authorized principal approves or rejects the exact result.
 7. **Publication:** merge, deploy, send or otherwise make it effective.
-8. **Closeout:** update the source of truth and record what remains.
+8. **Closeout:** update the source of truth, record what remains and clean
+   temporary workspaces.
 
 ![Draft-to-publication flow](/diagrams/draft-publication-flow.svg)
 

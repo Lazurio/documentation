@@ -55,7 +55,8 @@ offboarding owner. State what company data belongs there and what is excluded.
 Document ownership, encryption, patching, endpoint monitoring, local backup,
 remote wipe and incident handling. The recommended starting point is one
 Organization per machine. A multi-Organization machine is an accepted
-exception inside one shared trust domain, not hard tenant isolation.
+exception inside one shared trust domain, not hard tenant isolation. Keep its
+provider sessions separately named and revocable.
 
 ### 3. Select the agent and model providers
 
