@@ -5,5 +5,12 @@
   "compatibility_flags": [
     "nodejs_compat"
   ],
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "./dist",
+  "env": {
+    "production": {
+      "vars": {
+        "PUBLIC_PLAUSIBLE_SCRIPT_URL": "https://plausible.io/js/pa-ltzsxuYqcCwGVNf3CSHxF.js"
+      }
+    }
+  }
 }

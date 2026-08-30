@@ -52,6 +52,9 @@ export default defineConfig({
           href: 'https://github.com/Lazurio/documentation',
         },
       ],
+      components: {
+        Head: './src/components/Head.astro',
+      },
       sidebar,
       customCss: ['./src/styles/docs.css'],
     }),

@@ -11,7 +11,7 @@
     "test:public-safety": "bun scripts/public-safety-scan.mjs",
     "test:agent-index": "node --test scripts/query-content-index.test.mjs",
     "check": "bun run prepare:data && bun run validate:content && astro check && bun run test:links && bun run test:public-safety && bun run test:agent-index",
-    "build": "bun run check && astro build && bun scripts/verify-redirect-artifact.mjs",
+    "build": "bun run check && astro build && bun scripts/verify-redirect-artifact.mjs && bun scripts/verify-analytics-artifact.mjs",
     "test:browser": "bun run prepare:data && playwright test",
     "smoke:production": "bun scripts/smoke-public-release.mjs",
     "preview": "bun run build && wrangler pages dev dist",
