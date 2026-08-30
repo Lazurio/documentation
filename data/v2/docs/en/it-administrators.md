@@ -94,12 +94,16 @@ Controls remain with the system that owns the capability:
 | Merge or deploy an exact revision | Branch rules, required checks, reviews, merge rights and the module's deployment gate. |
 | Create or send something in an external provider | That provider's credential, scopes and confirmations. A provider draft may already transmit data; where no provider interlock exists, explicit authorization remains a process control. |
 
+In plain language, an Agent can prepare a proposed change, but making it
+effective still depends on both the signed-in account and the person responsible
+for the exact decision.
+
 <figure class="lz-diagram">
   <picture>
-    <source media="(max-width: 640px)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
-    <img src="/diagrams/draft-publication-flow.svg" alt="Scope bounds a Draft and its evidence; Publication requires both a mechanical provider gate and an authorized Principal decision." />
+    <source media="(max-width: 80rem)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
+    <img src="/diagrams/draft-publication-flow.svg" alt="A person defines the outcome, an Agent prepares a proposed change and proof, and the change takes effect only when the account is allowed to perform it and the responsible person approves it." />
   </picture>
-  <figcaption>Scope surrounds the change. Draft and evidence are prepared together; Publication remains behind two independent gates.</figcaption>
+  <figcaption>The Agent prepares; it does not self-authorize. Lazurio calls the identity responsible for the decision the Principal.</figcaption>
 </figure>
 
 ## Minimum approval package

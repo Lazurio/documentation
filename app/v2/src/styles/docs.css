@@ -204,6 +204,58 @@ header.header {
   border-color: var(--lz-blue-400);
 }
 
+.sl-markdown-content .lz-directory {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
+  margin-block: 1.5rem 2.5rem;
+}
+
+.sl-markdown-content .lz-directory a {
+  position: relative;
+  display: grid;
+  gap: 0.5rem;
+  min-height: 8.5rem;
+  padding: 1.25rem 3rem 1.25rem 1.25rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--sl-color-black) 95%, var(--sl-color-white));
+  color: var(--sl-color-text);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.sl-markdown-content .lz-directory a::after {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.25rem;
+  color: var(--sl-color-text-accent);
+  content: '\2192';
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.sl-markdown-content .lz-directory a:hover {
+  border-color: var(--lz-blue-400);
+  transform: translateY(-2px);
+}
+
+.sl-markdown-content .lz-directory strong {
+  align-self: end;
+  color: var(--sl-color-white);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.sl-markdown-content .lz-directory span {
+  color: var(--sl-color-gray-3);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
 button,
 [class*='badge'],
 .group-label span {
@@ -260,5 +312,15 @@ button,
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 40rem) {
+  .sl-markdown-content .lz-directory {
+    grid-template-columns: 1fr;
+  }
+
+  .sl-markdown-content .lz-directory a {
+    min-height: 0;
   }
 }

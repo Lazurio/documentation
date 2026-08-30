@@ -58,12 +58,16 @@ access boundaries.
 7. **Closeout:** update the source of truth, record what remains and clean
    temporary workspaces.
 
+Here is the same flow without the operating vocabulary: a person defines the
+outcome, the Agent prepares a proposed change, and before anything takes effect
+both the target system and the responsible person must allow the exact action.
+
 <figure class="lz-diagram">
   <picture>
-    <source media="(max-width: 640px)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
-    <img src="/diagrams/draft-publication-flow.svg" alt="Scope bounds a Draft and its evidence; Publication requires both a mechanical provider gate and an authorized Principal decision." />
+    <source media="(max-width: 80rem)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
+    <img src="/diagrams/draft-publication-flow.svg" alt="A person defines the outcome, an Agent prepares a proposed change and proof, and the change takes effect only when the account is allowed to perform it and the responsible person approves it." />
   </picture>
-  <figcaption>Scope surrounds the change. Draft and evidence are prepared together; Publication remains behind two independent gates.</figcaption>
+  <figcaption>The Agent prepares; it does not self-authorize. Lazurio calls the identity responsible for the decision the Principal.</figcaption>
 </figure>
 
 Git provides the clearest mechanical version of this flow. A task agent with
