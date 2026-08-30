@@ -41,6 +41,33 @@ test('the IT decision path is readable and navigable', async ({ page }) => {
   await expect(page).toHaveURL(/\/en\/lazurio-vs-microsoft-copilot\/$/)
 })
 
+test('the homepage offers a neutral route into every documentation section', async ({ page }) => {
+  await page.goto('/en/')
+
+  await page.getByRole('link', { name: 'Browse documentation' }).click()
+  await expect(page).toHaveURL(/\/en\/#browse-the-documentation$/)
+  await expect(page.getByRole('heading', { name: 'Browse the documentation' })).toBeVisible()
+  const directory = page.getByRole('navigation', { name: 'Documentation sections' })
+
+  for (const title of [
+    'How Lazurio works',
+    'Use cases',
+    'For IT administrators',
+    'Data access and security',
+    'Deployment and operations',
+    'Lazurio vs Microsoft Copilot',
+    'For agents',
+    'FAQ',
+    'Control evidence in English',
+    'Public references',
+  ]) {
+    await expect(directory.getByRole('link', { name: new RegExp(`^${title}`) })).toBeVisible()
+  }
+
+  await directory.getByRole('link', { name: /^How Lazurio works/ }).click()
+  await expect(page).toHaveURL(/\/en\/how-lazurio-works\/$/)
+})
+
 test('critical pages have no serious accessibility violations', async ({ page }) => {
   for (const route of ['/en/', '/en/it-administrators/', '/en/lazurio-vs-microsoft-copilot/']) {
     await page.goto(route)

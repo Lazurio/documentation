@@ -1,83 +1,102 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title description">
-  <title id="title">A scoped Draft reaches Publication only after two gates pass</title>
-  <desc id="description">Scope bounds the whole change. The editable Draft and its evidence are prepared together. Before Publication, both the provider's mechanical permission or rule and an authorized Principal's approval must pass.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title description">
+  <title id="title">People set the direction and Agents prepare the change</title>
+  <desc id="description">A person defines the outcome and boundaries. A Task Agent prepares an editable proposal with proof. Before the change takes effect, the signed-in account must be allowed to perform the action and the responsible person must approve the exact change. Otherwise the proposal is revised or stopped.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
       <path d="M 1 1 L 7 4 L 1 7 z" fill="#6f77ff"/>
     </marker>
     <style>
-      .bg{fill:#090909}.scope{fill:#111;stroke:#707070;stroke-width:2}.bundle{fill:#1b1b1b;stroke:#707070;stroke-width:2}.box{fill:#262626;stroke:#707070;stroke-width:2}.gate-panel{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.mechanical{fill:#262626;stroke:#6f77ff;stroke-width:2}.decision{fill:#141414;stroke:#d2ddfd;stroke-width:2}.publication{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.scope-label{fill:#6f77ff;font:600 15px Inter,Arial,sans-serif;letter-spacing:.04em}.label{fill:#fff;font:600 18px Inter,Arial,sans-serif}.sub-label{fill:#fff;font:600 14px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 14px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 14px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrow)}.and{fill:#6f77ff}.and-text{fill:#090909;font:700 11px Inter,Arial,sans-serif;text-anchor:middle}
+      .bg{fill:#090909}.box{fill:#171717;stroke:#707070;stroke-width:2}.agent{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.gate{fill:#111;stroke:#707070;stroke-width:2}.system{fill:#252525;stroke:#6f77ff;stroke-width:2}.decision{fill:#171717;stroke:#d2ddfd;stroke-width:2}.outcome{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.subtitle{fill:#d2ddfd;font:500 15px Inter,Arial,sans-serif}.eyebrow{fill:#6f77ff;font:700 13px Inter,Arial,sans-serif;letter-spacing:.05em}.label{fill:#fff;font:600 20px Inter,Arial,sans-serif}.question{fill:#fff;font:600 14px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 14px Inter,Arial,sans-serif}.small{fill:#d2ddfd;font:500 13px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrow)}.return{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;stroke-dasharray:8 8;marker-end:url(#arrow)}.and{fill:#6f77ff}.and-text{fill:#090909;font:700 10px Inter,Arial,sans-serif;text-anchor:middle}
     </style>
   </defs>
-  <rect class="bg" width="1200" height="500" rx="18"/>
-  <text class="title" x="48" y="54">A Draft becomes public only after both gates pass.</text>
-  <text class="note" x="48" y="82">Evidence grows with the Draft; it is not a later hand-off.</text>
+  <rect class="bg" width="1200" height="520" rx="18"/>
+  <text class="title" x="48" y="54">People set the direction. Agents prepare the change.</text>
+  <text class="subtitle" x="48" y="82">Before anything takes effect, two questions must both have a safe answer.</text>
 
-  <rect class="scope" x="48" y="108" width="1104" height="302" rx="18"/>
-  <text class="scope-label" x="72" y="140">SCOPE BOUNDS THE WHOLE CHANGE</text>
-  <text class="copy" x="72" y="165">Organization · task · operating identity · approved tools</text>
-
-  <rect class="bundle" x="72" y="192" width="454" height="174" rx="14"/>
-  <text class="scope-label" x="94" y="222">DRAFT BUNDLE · PREPARED TOGETHER</text>
-
-  <g data-node="editable-change">
-    <rect class="box" x="92" y="240" width="190" height="104" rx="10"/>
-    <text class="sub-label" x="108" y="267">EDITABLE CHANGE</text>
-    <text class="copy" x="108" y="292">
-      <tspan x="108">Branch, PR, document</tspan>
-      <tspan x="108" dy="19">or provider Draft</tspan>
+  <g data-node="human-direction">
+    <rect class="box" x="48" y="150" width="210" height="178" rx="14"/>
+    <text class="eyebrow" x="66" y="178">PERSON</text>
+    <text class="label" x="66" y="212">
+      <tspan x="66">Define outcome</tspan>
+      <tspan x="66" dy="25">+ boundaries</tspan>
+    </text>
+    <text class="copy" x="66" y="273">
+      <tspan x="66">What should change?</tspan>
+      <tspan x="66" dy="20">Where, under which</tspan>
+      <tspan x="66" dy="20">identity and tools?</tspan>
     </text>
   </g>
 
-  <text class="scope-label" x="289" y="297">+</text>
+  <path class="flow" d="M258 239 H288"/>
 
-  <g data-node="review-evidence">
-    <rect class="box" x="302" y="240" width="202" height="104" rx="10"/>
-    <text class="sub-label" x="318" y="267">REVIEW EVIDENCE</text>
-    <text class="copy" x="318" y="292">
-      <tspan x="318">Checks, diff, source links</tspan>
-      <tspan x="318" dy="19">and exact-head review</tspan>
+  <g data-node="agent-proposal">
+    <rect class="agent" x="296" y="150" width="250" height="178" rx="14"/>
+    <text class="eyebrow" x="316" y="178">TASK AGENT</text>
+    <text class="label" x="316" y="212">
+      <tspan x="316">Prepare a proposal</tspan>
+      <tspan x="316" dy="25">+ proof</tspan>
+    </text>
+    <text class="copy" x="316" y="273">
+      <tspan x="316">Editable work, checks,</tspan>
+      <tspan x="316" dy="20">diff and source links.</tspan>
     </text>
   </g>
 
-  <path class="flow" d="M526 279 H598"/>
+  <path class="flow" d="M546 239 H582"/>
 
-  <rect class="gate-panel" x="606" y="174" width="306" height="210" rx="14"/>
-  <text class="scope-label" x="628" y="204">PUBLICATION GATE · BOTH REQUIRED</text>
+  <rect class="gate" x="590" y="124" width="342" height="236" rx="16"/>
+  <text class="eyebrow" x="610" y="154">BEFORE IT TAKES EFFECT</text>
+  <text class="small" x="610" y="179">Both answers must be YES.</text>
 
-  <g data-node="mechanical-gate">
-    <rect class="mechanical" x="626" y="226" width="126" height="120" rx="10"/>
-    <text class="sub-label" x="640" y="253">MECHANICAL</text>
-    <text class="copy" x="640" y="280">
-      <tspan x="640">Provider</tspan>
-      <tspan x="640" dy="19">permission</tspan>
-      <tspan x="640" dy="19">or rule</tspan>
+  <g data-node="account-permission">
+    <rect class="system" x="610" y="196" width="136" height="136" rx="11"/>
+    <text class="eyebrow" x="624" y="220">SYSTEM</text>
+    <text class="question" x="624" y="248">
+      <tspan x="624">Is the account</tspan>
+      <tspan x="624" dy="19">allowed to act?</tspan>
+    </text>
+    <text class="copy" x="624" y="296">
+      <tspan x="624">Permissions +</tspan>
+      <tspan x="624" dy="19">provider rules</tspan>
     </text>
   </g>
 
-  <circle class="and" cx="759" cy="286" r="14"/>
-  <text class="and-text" x="759" y="290">AND</text>
+  <circle class="and" cx="761" cy="264" r="13"/>
+  <text class="and-text" x="761" y="268">AND</text>
 
-  <g data-node="decision-gate">
-    <rect class="decision" x="766" y="226" width="126" height="120" rx="10"/>
-    <text class="sub-label" x="780" y="253">DECISION</text>
-    <text class="copy" x="780" y="280">
-      <tspan x="780">Authorized</tspan>
-      <tspan x="780" dy="19">Principal</tspan>
-      <tspan x="780" dy="19">approval</tspan>
+  <g data-node="responsible-approval">
+    <rect class="decision" x="776" y="196" width="136" height="136" rx="11"/>
+    <text class="eyebrow" x="790" y="220">APPROVAL</text>
+    <text class="question" x="790" y="242">
+      <tspan x="790">Is this</tspan>
+      <tspan x="790" dy="18">exact change</tspan>
+      <tspan x="790" dy="18">approved?</tspan>
+    </text>
+    <text class="copy" x="790" y="299">
+      <tspan x="790">Approve, reject</tspan>
+      <tspan x="790" dy="18">or revise</tspan>
     </text>
   </g>
 
-  <path class="flow" d="M912 279 H980"/>
+  <path class="flow" d="M932 239 H946"/>
 
-  <g data-node="publication">
-    <rect class="publication" x="988" y="218" width="140" height="136" rx="14"/>
-    <text class="sub-label" x="1004" y="248">PUBLICATION</text>
-    <text class="label" x="1004" y="278">Make it</text>
-    <text class="label" x="1004" y="300">effective</text>
-    <text class="copy" x="1004" y="327">Merge · deploy</text>
-    <text class="copy" x="1004" y="341">send · mutate</text>
+  <g data-node="effective-change">
+    <rect class="outcome" x="954" y="150" width="198" height="178" rx="14"/>
+    <text class="eyebrow" x="972" y="178">ACTION TAKES EFFECT</text>
+    <text class="label" x="972" y="212">
+      <tspan x="972">The change</tspan>
+      <tspan x="972" dy="25">can take effect</tspan>
+    </text>
+    <text class="copy" x="972" y="273">
+      <tspan x="972">Merge, deploy, send</tspan>
+      <tspan x="972" dy="20">or update provider</tspan>
+      <tspan x="972" dy="20">state.</tspan>
+    </text>
   </g>
 
-  <text class="copy" x="48" y="454">The exact mechanical gate varies by provider. A process rule must never be presented as platform enforcement.</text>
+  <path class="return" d="M761 360 V394 H421 V338"/>
+  <text class="small" x="591" y="423" text-anchor="middle">If either answer is NO: revise or stop.</text>
+
+  <text class="copy" x="48" y="474">Provider controls differ. Technical permissions can block an action; where no technical interlock exists,</text>
+  <text class="copy" x="48" y="497">explicit authorization remains a process control.</text>
 </svg>
