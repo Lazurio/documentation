@@ -1,82 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title description">
-  <title id="title">A human-directed work loop</title>
-  <desc id="description">People set direction and limits. GitHub supplies identity, access and source context. Task Agents prepare Drafts and checks. People review the exact change, and an authorized Publication returns durable work to its owning Module.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title description">
+  <title id="title">People direct work while Task Agents coordinate it inside GitHub</title>
+  <desc id="description">GitHub provides the access boundary, versioned context and durable record for the whole work loop. People set direction, a Task Agent prepares an editable Draft with evidence, people review and authorize the exact change, and Publication updates the shared record for the next task.</desc>
   <defs>
-    <marker id="arrow" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto">
-      <path d="M 1 1 L 8 4.5 L 1 8 z" fill="#6f77ff"/>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 7 4 L 1 7 z" fill="#6f77ff"/>
     </marker>
     <style>
-      .bg{fill:#090909}.box{fill:#262626;stroke:#707070;stroke-width:2}.human{fill:#141414;stroke:#d2ddfd;stroke-width:2.5}.agent{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.label{fill:#fff;font:600 18px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 15px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 15px Inter,Arial,sans-serif}.index{fill:#6f77ff;font:600 15px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrow)}
+      .bg{fill:#090909}.context{fill:#111;stroke:#707070;stroke-width:2}.box{fill:#262626;stroke:#707070;stroke-width:2}.human{fill:#141414;stroke:#d2ddfd;stroke-width:2.5}.agent{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.context-label{fill:#6f77ff;font:600 15px Inter,Arial,sans-serif;letter-spacing:.04em}.label{fill:#fff;font:600 18px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 15px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 14px Inter,Arial,sans-serif}.owner{fill:#6f77ff;font:600 14px Inter,Arial,sans-serif;letter-spacing:.04em}.flow{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}.feedback{stroke-dasharray:8 7}
     </style>
   </defs>
-  <rect class="bg" width="1200" height="520" rx="18"/>
-  <text class="title" x="48" y="56">People direct. Agents coordinate. GitHub keeps the record.</text>
-  <text class="note" x="48" y="84">Every step has a clear owner; an Agent never gains authority from the task itself.</text>
+  <rect class="bg" width="1200" height="560" rx="18"/>
+  <text class="title" x="48" y="54">People direct. Agents coordinate. GitHub keeps the record.</text>
+  <text class="note" x="48" y="82">Authority stays with people; the Task Agent moves the work between their decisions.</text>
+
+  <rect class="context" x="48" y="112" width="1104" height="350" rx="18"/>
+  <text class="context-label" x="72" y="145">GITHUB · ACCESS BOUNDARY + VERSIONED CONTEXT + DURABLE RECORD</text>
+  <text class="copy" x="72" y="172">This context governs the whole loop. It is not a hand-off step between people and the Agent.</text>
 
   <g data-node="human-direction">
-    <rect class="human" x="48" y="128" width="196" height="214" rx="14"/>
-    <text class="index" x="70" y="158">01 · PEOPLE</text>
-    <text class="label" x="70" y="194">Set direction</text>
-    <text class="copy" x="70" y="226">
-      <tspan x="70">Define the outcome,</tspan>
-      <tspan x="70" dy="22">context and limits.</tspan>
+    <rect class="human" x="72" y="206" width="230" height="168" rx="14"/>
+    <text class="owner" x="94" y="236">PEOPLE</text>
+    <text class="label" x="94" y="270">Set direction</text>
+    <text class="copy" x="94" y="300">
+      <tspan x="94">Define the outcome,</tspan>
+      <tspan x="94" dy="22">context and limits.</tspan>
     </text>
-    <text class="note" x="70" y="306">Retain responsibility.</text>
+    <text class="note" x="94" y="352">Responsibility stays human.</text>
   </g>
 
-  <path class="flow" d="M244 235 H274"/>
-
-  <g data-node="github-context">
-    <rect class="box" x="282" y="128" width="196" height="214" rx="14"/>
-    <text class="index" x="304" y="158">02 · GITHUB</text>
-    <text class="label" x="304" y="194">Govern access</text>
-    <text class="copy" x="304" y="226">
-      <tspan x="304">Identity, access and</tspan>
-      <tspan x="304" dy="22">versioned context.</tspan>
-    </text>
-    <text class="note" x="304" y="306">No second access list.</text>
-  </g>
-
-  <path class="flow" d="M478 235 H508"/>
+  <path class="flow" d="M302 290 H334"/>
 
   <g data-node="agent-draft">
-    <rect class="agent" x="516" y="128" width="196" height="214" rx="14"/>
-    <text class="index" x="538" y="158">03 · TASK AGENT</text>
-    <text class="label" x="538" y="194">Coordinate work</text>
-    <text class="copy" x="538" y="226">
-      <tspan x="538">Prepare Drafts,</tspan>
-      <tspan x="538" dy="22">checks and evidence.</tspan>
+    <rect class="agent" x="342" y="206" width="250" height="168" rx="14"/>
+    <text class="owner" x="364" y="236">TASK AGENT</text>
+    <text class="label" x="364" y="270">Prepare Draft + evidence</text>
+    <text class="copy" x="364" y="300">
+      <tspan x="364">Coordinate editable work,</tspan>
+      <tspan x="364" dy="22">checks and review evidence.</tspan>
     </text>
-    <text class="note" x="538" y="306">No independent rights.</text>
+    <text class="note" x="364" y="352">No independent rights.</text>
   </g>
 
-  <path class="flow" d="M712 235 H742"/>
+  <path class="flow" d="M592 290 H624"/>
 
   <g data-node="human-review">
-    <rect class="human" x="750" y="128" width="196" height="214" rx="14"/>
-    <text class="index" x="772" y="158">04 · PEOPLE</text>
-    <text class="label" x="772" y="194">Review Drafts</text>
-    <text class="copy" x="772" y="226">
-      <tspan x="772">Correct, approve</tspan>
-      <tspan x="772" dy="22">or reject the Draft.</tspan>
+    <rect class="human" x="632" y="206" width="240" height="168" rx="14"/>
+    <text class="owner" x="654" y="236">PEOPLE</text>
+    <text class="label" x="654" y="270">Review + authorize</text>
+    <text class="copy" x="654" y="300">
+      <tspan x="654">Correct, reject or approve</tspan>
+      <tspan x="654" dy="22">the exact change.</tspan>
     </text>
-    <text class="note" x="772" y="306">Review exact impact.</text>
+    <text class="note" x="654" y="352">The decision stays human.</text>
   </g>
 
-  <path class="flow" d="M946 235 H976"/>
+  <path class="flow" d="M872 290 H904"/>
 
-  <g data-node="publication-result">
-    <rect class="box" x="984" y="128" width="168" height="214" rx="14"/>
-    <text class="index" x="1006" y="158">05 · RESULT</text>
-    <text class="label" x="1006" y="194">Publish</text>
-    <text class="copy" x="1006" y="226">
-      <tspan x="1006">Authorized change</tspan>
-      <tspan x="1006" dy="22">becomes shared</tspan>
-      <tspan x="1006" dy="22">Organization truth.</tspan>
+  <g data-node="publication-record">
+    <rect class="box" x="912" y="206" width="216" height="168" rx="14"/>
+    <text class="owner" x="934" y="236">PUBLICATION</text>
+    <text class="label" x="934" y="270">Update shared truth</text>
+    <text class="copy" x="934" y="300">
+      <tspan x="934">The authorized result</tspan>
+      <tspan x="934" dy="22">becomes reviewed context.</tspan>
     </text>
   </g>
 
-  <path class="flow" stroke-dasharray="8 7" d="M1068 342 V402 H380 V352"/>
-  <text class="note" x="524" y="430">Published work becomes reviewed context for the next task.</text>
-  <text class="copy" x="48" y="482">The loop can move quickly. Direction, access and Publication still belong to the authorized Principal.</text>
+  <path class="flow feedback" d="M1020 374 V416 H187 V384"/>
+  <text class="note" x="426" y="442">Published work informs the next direction.</text>
+  <text class="copy" x="48" y="518">Direction, access and Publication remain with the authorized Principal—even when the loop moves quickly.</text>
 </svg>

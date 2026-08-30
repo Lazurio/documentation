@@ -3,8 +3,8 @@ title: How Lazurio works
 description: The core operating model, from principal and Organization to draft and publication.
 stableId: lazurio-doc-how-it-works
 summary: Understand Lazurio's principals, agents, Organizations, repositories, workspace modules, drafts, reviews, and publication flow.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-08-30"
+reviewedAt: "2026-08-30"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -51,14 +51,20 @@ access boundaries.
 2. **Authority:** use the principal's live access; do not invent permissions
    in prose.
 3. **Context:** load only the repositories and tools needed for the task.
-4. **Draft:** make the work reversible and editable, commonly on a Git branch.
-5. **Evidence:** run checks and show the practical effect.
-6. **Decision:** an authorized principal approves or rejects the exact result.
-7. **Publication:** merge, deploy, send or otherwise make it effective.
-8. **Closeout:** update the source of truth, record what remains and clean
+4. **Draft + evidence:** make the work reversible and editable, commonly on a
+   Git branch; run checks and gather review evidence as the Draft changes.
+5. **Decision:** an authorized principal approves or rejects the exact result.
+6. **Publication:** merge, deploy, send or otherwise make it effective.
+7. **Closeout:** update the source of truth, record what remains and clean
    temporary workspaces.
 
-![Draft-to-publication flow](/diagrams/draft-publication-flow.svg)
+<figure class="lz-diagram">
+  <picture>
+    <source media="(max-width: 640px)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
+    <img src="/diagrams/draft-publication-flow.svg" alt="Scope bounds a Draft and its evidence; Publication requires both a mechanical provider gate and an authorized Principal decision." />
+  </picture>
+  <figcaption>Scope surrounds the change. Draft and evidence are prepared together; Publication remains behind two independent gates.</figcaption>
+</figure>
 
 Git provides the clearest mechanical version of this flow. A task agent with
 write access may push a branch and open a pull request; at that point the

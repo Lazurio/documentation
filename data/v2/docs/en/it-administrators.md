@@ -3,8 +3,8 @@ title: A ten-minute IT briefing
 description: The questions an IT administrator should ask before approving Lazurio.
 stableId: lazurio-doc-it-administrators
 summary: A concise IT review of Lazurio's purpose, identity, access, data, integrations, operations, and approval boundaries.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-08-30"
+reviewedAt: "2026-08-30"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -94,7 +94,13 @@ Controls remain with the system that owns the capability:
 | Merge or deploy an exact revision | Branch rules, required checks, reviews, merge rights and the module's deployment gate. |
 | Create or send something in an external provider | That provider's credential, scopes and confirmations. A provider draft may already transmit data; where no provider interlock exists, explicit authorization remains a process control. |
 
-![Draft-to-publication flow](/diagrams/draft-publication-flow.svg)
+<figure class="lz-diagram">
+  <picture>
+    <source media="(max-width: 640px)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
+    <img src="/diagrams/draft-publication-flow.svg" alt="Scope bounds a Draft and its evidence; Publication requires both a mechanical provider gate and an authorized Principal decision." />
+  </picture>
+  <figcaption>Scope surrounds the change. Draft and evidence are prepared together; Publication remains behind two independent gates.</figcaption>
+</figure>
 
 ## Minimum approval package
 
