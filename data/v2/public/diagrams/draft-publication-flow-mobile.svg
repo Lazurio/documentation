@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="1180" viewBox="0 0 600 1180" role="img" aria-labelledby="title description">
+  <title id="title">A scoped Draft reaches Publication only after two gates pass</title>
+  <desc id="description">Scope bounds the whole change. The editable Draft and its evidence are prepared together. Before Publication, both the provider's mechanical permission or rule and an authorized Principal's approval must pass.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">
+      <path d="M 1 1 L 7 4 L 1 7 z" fill="#6f77ff"/>
+    </marker>
+    <style>
+      .bg{fill:#090909}.scope{fill:#111;stroke:#707070;stroke-width:2}.bundle{fill:#1b1b1b;stroke:#707070;stroke-width:2}.box{fill:#262626;stroke:#707070;stroke-width:2}.gate-panel{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.mechanical{fill:#262626;stroke:#6f77ff;stroke-width:2}.decision{fill:#141414;stroke:#d2ddfd;stroke-width:2}.publication{fill:#0c0c53;stroke:#6f77ff;stroke-width:2.5}.title{fill:#fff;font:600 27px Inter,Arial,sans-serif}.scope-label{fill:#6f77ff;font:600 15px Inter,Arial,sans-serif;letter-spacing:.03em}.label{fill:#fff;font:600 21px Inter,Arial,sans-serif}.sub-label{fill:#fff;font:600 15px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 16px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 16px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrow)}.and{fill:#6f77ff}.and-text{fill:#090909;font:700 11px Inter,Arial,sans-serif;text-anchor:middle}
+    </style>
+  </defs>
+  <rect class="bg" width="600" height="1180" rx="18"/>
+  <text class="title" x="32" y="46">A Draft becomes public only</text>
+  <text class="title" x="32" y="78">after both gates pass.</text>
+  <text class="note" x="32" y="110">Evidence grows with the Draft; it is not a later hand-off.</text>
+
+  <rect class="scope" x="24" y="146" width="552" height="914" rx="18"/>
+  <text class="scope-label" x="48" y="182">SCOPE BOUNDS THE WHOLE CHANGE</text>
+  <text class="copy" x="48" y="212">Organization · task · identity · approved tools</text>
+
+  <rect class="bundle" x="48" y="250" width="504" height="282" rx="14"/>
+  <text class="scope-label" x="70" y="286">DRAFT BUNDLE · PREPARED TOGETHER</text>
+
+  <g data-node="editable-change">
+    <rect class="box" x="68" y="316" width="222" height="178" rx="10"/>
+    <text class="sub-label" x="86" y="350">EDITABLE CHANGE</text>
+    <text class="copy" x="86" y="384">
+      <tspan x="86">Branch, PR,</tspan>
+      <tspan x="86" dy="23">document or</tspan>
+      <tspan x="86" dy="23">provider Draft</tspan>
+    </text>
+  </g>
+
+  <circle class="and" cx="300" cy="405" r="14"/>
+  <text class="and-text" x="300" y="409">+</text>
+
+  <g data-node="review-evidence">
+    <rect class="box" x="310" y="316" width="222" height="178" rx="10"/>
+    <text class="sub-label" x="328" y="350">REVIEW EVIDENCE</text>
+    <text class="copy" x="328" y="384">
+      <tspan x="328">Checks, diff,</tspan>
+      <tspan x="328" dy="23">source links and</tspan>
+      <tspan x="328" dy="23">exact-head review</tspan>
+    </text>
+  </g>
+
+  <path class="flow" d="M300 532 V566"/>
+
+  <rect class="gate-panel" x="48" y="574" width="504" height="274" rx="14"/>
+  <text class="scope-label" x="70" y="610">PUBLICATION GATE · BOTH REQUIRED</text>
+
+  <g data-node="mechanical-gate">
+    <rect class="mechanical" x="68" y="642" width="222" height="164" rx="10"/>
+    <text class="sub-label" x="86" y="676">MECHANICAL</text>
+    <text class="copy" x="86" y="710">
+      <tspan x="86">Provider</tspan>
+      <tspan x="86" dy="23">permission</tspan>
+      <tspan x="86" dy="23">or rule</tspan>
+    </text>
+  </g>
+
+  <circle class="and" cx="300" cy="724" r="14"/>
+  <text class="and-text" x="300" y="728">AND</text>
+
+  <g data-node="decision-gate">
+    <rect class="decision" x="310" y="642" width="222" height="164" rx="10"/>
+    <text class="sub-label" x="328" y="676">DECISION</text>
+    <text class="copy" x="328" y="710">
+      <tspan x="328">Authorized</tspan>
+      <tspan x="328" dy="23">Principal</tspan>
+      <tspan x="328" dy="23">approval</tspan>
+    </text>
+  </g>
+
+  <path class="flow" d="M300 848 V882"/>
+
+  <g data-node="publication">
+    <rect class="publication" x="130" y="890" width="340" height="144" rx="14"/>
+    <text class="sub-label" x="154" y="924">PUBLICATION</text>
+    <text class="label" x="154" y="958">Make the exact</text>
+    <text class="label" x="154" y="983">change effective</text>
+    <text class="copy" x="154" y="1014">Merge · deploy · send · mutate</text>
+  </g>
+
+  <text class="copy" x="32" y="1104">The mechanical gate varies by provider. A process rule</text>
+  <text class="copy" x="32" y="1130">must never be presented as platform enforcement.</text>
+</svg>

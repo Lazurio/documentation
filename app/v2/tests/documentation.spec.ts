@@ -60,6 +60,7 @@ test('diagram labels stay inside their nodes and arrowheads remain compact', asy
     '/diagrams/human-directed-work-mobile.svg',
     '/diagrams/lazurio-data-flow.svg',
     '/diagrams/draft-publication-flow.svg',
+    '/diagrams/draft-publication-flow-mobile.svg',
   ]) {
     const response = await page.goto(route)
     expect(response?.ok()).toBe(true)

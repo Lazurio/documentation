@@ -28,6 +28,7 @@ for (const pathname of [
   '/diagrams/human-directed-work-mobile.svg',
   '/diagrams/lazurio-data-flow.svg',
   '/diagrams/draft-publication-flow.svg',
+  '/diagrams/draft-publication-flow-mobile.svg',
 ]) {
   await request(pathname)
 }
