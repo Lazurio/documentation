@@ -19,7 +19,7 @@ export default defineConfig({
       ...process.env,
       // Exercise the runtime hostname guard: the bootstrap is rendered on the
       // test host, but it must never request Plausible outside production.
-      PUBLIC_PLAUSIBLE_SCRIPT_URL: 'https://plausible.io/js/pa-ltzsxuYqcCwGVNf3CSHxF.js',
+      PUBLIC_PLAUSIBLE_SCRIPT_URL: 'https://plausible.io/js/pa-browser-test.js',
     },
     reuseExistingServer: false,
     timeout: 120_000,

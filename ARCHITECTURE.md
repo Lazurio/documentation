@@ -41,8 +41,10 @@ generated directly into the public build input and are not authoring sources.
 
 Astro, Starlight, Bun and Cloudflare provide a small, well-supported static
 documentation stack with accessible navigation, deterministic builds and a
-portable deployment output. This repository intentionally excludes analytics,
-an editor, a private content import, migration history and unrelated assets.
+portable deployment output. This repository intentionally excludes an editor,
+a private content import, migration history and unrelated assets. Production
+pages include aggregate Plausible pageviews; this is a narrow external
+measurement integration, not a second content store or analytics pipeline.
 
 A standalone documentation repository is preferable to embedding the docs in
 a marketing site: documentation needs its own information architecture,
@@ -75,6 +77,12 @@ Rollback redeploys the previous immutable Pages deployment. DNS changes are a
 separate reviewed operation and are not part of ordinary documentation
 publication.
 
+`app/v2/wrangler.jsonc#env.production.vars.PUBLIC_PLAUSIBLE_SCRIPT_URL` is the
+single production analytics configuration. `bun run build:production` loads
+that value into both Astro and the artifact verifier before deployment. Normal
+and preview builds deliberately omit it, and the browser bootstrap still
+requires the canonical documentation hostname before loading Plausible.
+
 ## Failure modes
 
 - Missing or expired evidence fails content validation.
@@ -84,6 +92,8 @@ publication.
   DLP; live repository and provider controls remain deployment evidence.
 - A dirty build is allowed for local preview but rejected by the production
   deployment command.
+- A missing production Plausible script URL fails the production build before
+  any artifact can be deployed; normal and preview builds remain analytics-free.
 - Missing Cloudflare access blocks deployment without weakening the
   DNS or review gate.
 
@@ -92,4 +102,4 @@ publication.
 - Czech localization after English content acceptance.
 - A read-only MCP server backed by the same public index.
 - Search infrastructure beyond Starlight's built-in static search.
-- Analytics, feedback collection, authenticated content and write APIs.
+- Feedback collection, authenticated content and write APIs.

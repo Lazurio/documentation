@@ -60,6 +60,8 @@ development and Cloudflare preview builds do not load analytics.
 
 The production script URL is owned by
 `app/v2/wrangler.jsonc#env.production.vars.PUBLIC_PLAUSIBLE_SCRIPT_URL`.
+`bun run build:production` reads that exact value into the Astro build and the
+artifact verifier; it fails closed when the production value is missing.
 The Starlight Head override in `app/v2/src/components/Head.astro` initializes
 it only on `documentation.lazurio.ai`. Pageviews contain the public
 documentation URL only; search text and other free-form values are not sent as

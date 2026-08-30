@@ -12,11 +12,12 @@
     "test:agent-index": "node --test scripts/query-content-index.test.mjs",
     "check": "bun run prepare:data && bun run validate:content && astro check && bun run test:links && bun run test:public-safety && bun run test:agent-index",
     "build": "bun run check && astro build && bun scripts/verify-redirect-artifact.mjs && bun scripts/verify-analytics-artifact.mjs",
+    "build:production": "bun scripts/build-production.mjs",
     "test:browser": "bun run prepare:data && playwright test",
     "smoke:production": "bun scripts/smoke-public-release.mjs",
     "preview": "bun run build && wrangler pages dev dist",
     "deploy:preview": "bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=preview",
-    "deploy:production": "bun scripts/assert-production-gate.mjs && bun run build && wrangler pages deploy dist --project-name=lazurio-documentation --branch=main",
+    "deploy:production": "bun scripts/assert-production-gate.mjs && bun run build:production && wrangler pages deploy dist --project-name=lazurio-documentation --branch=main",
     "rollback:production": "bun scripts/rollback-production.mjs"
   },
   "dependencies": {

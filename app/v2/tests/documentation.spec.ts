@@ -19,7 +19,7 @@ test('a configured local host still does not load production analytics', async (
 
   await expect(page.locator('script[data-plausible-script-url]')).toHaveAttribute(
     'data-plausible-script-url',
-    'https://plausible.io/js/pa-ltzsxuYqcCwGVNf3CSHxF.js',
+    'https://plausible.io/js/pa-browser-test.js',
   )
   expect(plausibleRequests).toEqual([])
 })
