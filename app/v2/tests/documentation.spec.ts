@@ -9,7 +9,7 @@ test('the site root selects the accepted English locale', async ({ page }) => {
   ).toBeVisible()
 })
 
-test('local documentation does not load production analytics', async ({ page }) => {
+test('a configured local host still does not load production analytics', async ({ page }) => {
   const plausibleRequests: string[] = []
   page.on('request', (request) => {
     if (request.url().startsWith('https://plausible.io/')) plausibleRequests.push(request.url())
@@ -17,7 +17,10 @@ test('local documentation does not load production analytics', async ({ page }) 
 
   await page.goto('/en/')
 
-  await expect(page.locator('script[data-plausible-script-url]')).toHaveCount(0)
+  await expect(page.locator('script[data-plausible-script-url]')).toHaveAttribute(
+    'data-plausible-script-url',
+    'https://plausible.io/js/pa-ltzsxuYqcCwGVNf3CSHxF.js',
+  )
   expect(plausibleRequests).toEqual([])
 })
 
