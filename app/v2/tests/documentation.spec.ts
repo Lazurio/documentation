@@ -9,6 +9,18 @@ test('the site root selects the accepted English locale', async ({ page }) => {
   ).toBeVisible()
 })
 
+test('local documentation does not load production analytics', async ({ page }) => {
+  const plausibleRequests: string[] = []
+  page.on('request', (request) => {
+    if (request.url().startsWith('https://plausible.io/')) plausibleRequests.push(request.url())
+  })
+
+  await page.goto('/en/')
+
+  await expect(page.locator('script[data-plausible-script-url]')).toHaveCount(0)
+  expect(plausibleRequests).toEqual([])
+})
+
 test('the IT decision path is readable and navigable', async ({ page }) => {
   await page.goto('/en/')
   await expect(

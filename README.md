@@ -53,9 +53,20 @@ owner and review window used by public claims.
 
 ## Current release boundary
 
-This repository does not implement an MCP server, chatbot, write API, analytics
-pipeline or private knowledge import. It does not claim certifications, legal
-compliance, a universal deployment model or a service-level agreement.
+This repository does not implement an MCP server, chatbot, write API,
+analytics pipeline or private knowledge import. Production pages load the
+site-specific Plausible script for the existing `lazurio.ai` property; local
+development and Cloudflare preview builds do not load analytics.
+
+The production script URL is owned by
+`app/v2/wrangler.jsonc#env.production.vars.PUBLIC_PLAUSIBLE_SCRIPT_URL`.
+The Starlight Head override in `app/v2/src/components/Head.astro` initializes
+it only on `documentation.lazurio.ai`. Pageviews contain the public
+documentation URL only; search text and other free-form values are not sent as
+custom properties.
+
+The repository does not claim certifications, legal compliance, a universal
+deployment model or a service-level agreement.
 
 ## License
 
