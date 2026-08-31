@@ -102,9 +102,16 @@ test('the language switch keeps the current page and localizes navigation', asyn
 test('the Czech homepage gives every reader a clear way into the documentation', async ({ page }) => {
   await page.goto('/cs/')
 
-  await page.getByRole('link', { name: 'Projít dokumentaci' }).click()
-  await expect(page).toHaveURL(/\/cs\/#kde-zacit$/)
-  await expect(page.getByRole('heading', { name: 'Kde začít' })).toBeVisible()
+  const browseDocumentation = page.getByRole('link', { name: 'Projít dokumentaci' })
+  const startHeading = page.getByRole('heading', { name: 'Kde začít' })
+
+  await expect(browseDocumentation).toHaveAttribute('href', '#kde-začít')
+  await browseDocumentation.click()
+  await expect
+    .poll(() => page.evaluate(() => decodeURIComponent(location.hash)))
+    .toBe('#kde-začít')
+  await expect(startHeading).toHaveAttribute('id', 'kde-začít')
+  await expect(startHeading).toBeInViewport()
   const directory = page.getByRole('navigation', { name: 'Části dokumentace' })
 
   for (const title of [
