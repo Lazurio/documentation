@@ -38,3 +38,13 @@ test('locale peers preserve review ownership and freshness', () => {
     ).some((error) => error.includes('reviewedAt')),
   )
 })
+
+test('locale peers report a missing configured locale before comparing metadata', () => {
+  const english = localizedDocument('en')
+  const unsupportedGerman = localizedDocument('de')
+
+  assert.deepEqual(
+    findLocaleParityErrors('example', [english, unsupportedGerman], ['en', 'cs']),
+    ['example: missing cs document'],
+  )
+})
