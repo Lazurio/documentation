@@ -81,8 +81,8 @@ test('the language switch keeps the current page and localizes navigation', asyn
 
   await expect(page).toHaveURL(/\/cs\/it-administrators\/$/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'cs')
-  await expect(page.getByRole('heading', { level: 1, name: 'Přehled pro správce IT' })).toBeVisible()
-  await expect(page.getByRole('link', { name: 'Přístup k datům a bezpečnost' }).first()).toBeVisible()
+  await expect(page.getByRole('heading', { level: 1, name: 'Deset minut pro IT' })).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Přístup k datům a zabezpečení' }).first()).toBeVisible()
   await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
 
   if (testInfo.project.name.startsWith('mobile')) {
@@ -92,6 +92,33 @@ test('the language switch keeps the current page and localizes navigation', asyn
   await expect(czechLanguageSelect).toHaveValue('/cs/it-administrators/')
   await czechLanguageSelect.selectOption({ label: 'English' })
   await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
+})
+
+test('the Czech homepage gives every reader a clear way into the documentation', async ({ page }) => {
+  await page.goto('/cs/')
+
+  await page.getByRole('link', { name: 'Projít dokumentaci' }).click()
+  await expect(page).toHaveURL(/\/cs\/#kde-zacit$/)
+  await expect(page.getByRole('heading', { name: 'Kde začít' })).toBeVisible()
+  const directory = page.getByRole('navigation', { name: 'Části dokumentace' })
+
+  for (const title of [
+    'Jak Lazurio funguje',
+    'Kdy dává Lazurio smysl',
+    'Přehled pro správce IT',
+    'Přístup k datům a zabezpečení',
+    'Nasazení a provoz',
+    'Lazurio a Microsoft Copilot',
+    'Pro AI agenty',
+    'Časté otázky',
+    'Bezpečnost a podklady k ověření',
+    'Použité zdroje',
+  ]) {
+    await expect(directory.getByRole('link', { name: new RegExp(`^${title}`) })).toBeVisible()
+  }
+
+  await directory.getByRole('link', { name: /^Jak Lazurio funguje/ }).click()
+  await expect(page).toHaveURL(/\/cs\/how-lazurio-works\/$/)
 })
 
 test('critical pages have no serious accessibility violations', async ({ page }) => {

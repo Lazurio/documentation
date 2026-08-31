@@ -1,15 +1,16 @@
 ---
-title: "Lazurio: architektura, bezpečnost a provoz"
-description: Veřejná dokumentace architektury, přístupů k datům, bezpečnostních hranic a provozu Lazuria.
+title: Co kdyby šla firma řídit přes GitHub?
+description: "Seznamte se s Lazuriem: soukromými procesy na GitHubu pro firemní práci, kterou lidé vedou a agenti koordinují."
 template: splash
 stableId: lazurio-doc-overview
 locale: cs
-summary: Základní informace o účelu Lazuria, jeho fungování a otázkách, které je vhodné vyjasnit před nasazením.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+summary: Začněte u modelu práce, v němž lidé určují směr, a pak pokračujte k podkladům, bezpečnosti a otázkám před nasazením.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
+  - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
 audience:
@@ -18,41 +19,100 @@ audience:
   - builder
   - agent
 hero:
-  tagline: Technické informace o přístupu k datům, správě oprávnění a nasazení.
+  tagline: Soukromé procesy na GitHubu pro firemní práci — lidé určují směr, agenti koordinují a vše lze před zveřejněním zkontrolovat.
   actions:
-    - text: Pro správce IT
+    - text: Pro IT administrátory
       link: /cs/it-administrators/
       icon: right-arrow
       variant: primary
-    - text: Srovnání s Microsoft Copilotem
+    - text: Porovnat s Microsoft Copilotem
       link: /cs/lazurio-vs-microsoft-copilot/
+      icon: right-arrow
+      variant: secondary
+    - text: Projít dokumentaci
+      link: '#kde-zacit'
       icon: right-arrow
       variant: secondary
 ---
 
-Lazurio je prostředí pro řízenou spolupráci lidí s AI agenty. Jednotlivé firmy
-odděluje do Organizací, práci opírá o verzované repozitáře a využívá oprávnění
-ze systémů, které data a akce skutečně spravují. Významné změny tak lze před
-zveřejněním nebo nasazením zkontrolovat. Veřejné zdrojové podklady popisují
-cílovou
-[architekturu](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-i současná [pravidla spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md).
+**Nejen zdrojový kód.** Také projekty, tickety, TODO, rozhodnutí, dokumentace,
+schválení — a stopa, kdo co změnil a proč.
 
-To neznamená, že AI agent může bezpečně udělat cokoli. Lazurio pomáhá určit,
-kdo smí s jakým kontextem pracovat, jaké kroky má povolené a kdo rozhoduje o
-konečném zveřejnění nebo nasazení.
+Velká část práce firmy může žít v GitHubu. Ne mzdy, účetnictví ani každá SaaS
+služba. Ale vše, co potřebuje jasného vlastníka, historii verzí, vymezený
+přístup, kontrolu a vědomé zveřejnění, tam své místo má.
+
+Lazurio je rámec, který tuto část firemního fungování převádí do soukromých
+procesů na GitHubu. Repozitáře drží práci. Oprávnění v GitHubu vymezují
+hranice. Lidé určují směr a rozhodují. Task Agenti v těchto hranicích připravují
+návrhy, kontroly a podklady, které lze před zveřejněním projít.
+
+Firma se tím nepředává AI. Lidé a agenti získají společný pracovní kontext:
+viditelný, verzovaný a kontrolovatelný. Agent může práci posunout, ale neurčuje
+směr firmy ani nezíská pravomoc jen proto, že ji dostal v promptu.
+
+## Co je Lazurio dnes
+
+Dnes Lazurio běží z veřejné zdrojové pracovní kopie pomocí Gitu a Bunu. Obsahuje
+Launchpad, diagnostiku, experimentální CLI v0 a provozní pravidla pro
+připojené Organizace a moduly. Jednoduchá balíčkovaná instalace je cíl do
+budoucna, nikoli hotová distribuce.
+
+Lazurio není AI model, spravovaná SaaS služba ani univerzální bezpečnostní
+sandbox kolem zvoleného klienta agenta. Jeho přínos je praktičtější: pomáhá
+udržet viditelné hranice mezi oprávněním, kontextem, prací a zveřejněním.
+[Bezpečnost a podklady k ověření](/cs/public-evidence/) ukazují, odkud tato
+tvrzení vycházejí a co naopak nedokazují.
 
 ## Kde začít
 
-- **Posuzujete Lazurio za IT:** přečtěte si [přehled pro správce
-  IT](/cs/it-administrators/) a [informace o přístupu k
-  datům](/cs/data-access-security/).
-- **Zajímá vás technické fungování:** podívejte se, [jak Lazurio
-  pracuje](/cs/how-lazurio-works/) a jak se [nasazuje a
-  provozuje](/cs/deployment-operations/).
-- **Srovnáváte dostupná řešení:** přečtěte si věcné srovnání
-  [Lazuria a Microsoft Copilotu](/cs/lazurio-vs-microsoft-copilot/). Produkty
-  se v některých oblastech doplňují, ale neřeší stejný problém.
-- **Chcete dokumentaci zpřístupnit agentovi:** odkažte ho na `/llms.txt` nebo
-  `/content-index.json`. Oba soubory vznikají ze stejných zkontrolovaných stránek, které
-  čtou lidé.
+Začněte otázkou, kterou zrovna řešíte. Nemusíte se nejdřív zařadit do role ani
+si vybrat hodnotící cestu.
+
+<nav className="lz-directory" aria-label="Části dokumentace">
+  <a href="/cs/how-lazurio-works/">
+    <strong>Jak Lazurio funguje</strong>
+    <span>Udělejte si jasno v lidech, agentech, Organizacích, návrzích a zveřejnění.</span>
+  </a>
+  <a href="/cs/use-cases/">
+    <strong>Kdy dává Lazurio smysl</strong>
+    <span>Podívejte se, jaké druhy firemní práce těží ze soukromého a kontrolovatelného procesu na GitHubu.</span>
+  </a>
+  <a href="/cs/it-administrators/">
+    <strong>Přehled pro správce IT</strong>
+    <span>Prověřte podobu produktu, provozní hranice a minimum podkladů pro schválení.</span>
+  </a>
+  <a href="/cs/data-access-security/">
+    <strong>Přístup k datům a zabezpečení</strong>
+    <span>Zjistěte, kam se lze dostat, která identita jedná a kde jsou skutečné kontroly.</span>
+  </a>
+  <a href="/cs/deployment-operations/">
+    <strong>Nasazení a provoz</strong>
+    <span>Naplánujte omezený pilot, běžný provoz, obnovu i návrat k předchozí verzi.</span>
+  </a>
+  <a href="/cs/lazurio-vs-microsoft-copilot/">
+    <strong>Lazurio a Microsoft Copilot</strong>
+    <span>Porovnejte dva přístupy k AI ve firmě, které se mohou překrývat, ale mají jiné těžiště.</span>
+  </a>
+  <a href="/cs/agents/">
+    <strong>Pro AI agenty</strong>
+    <span>Najděte strojově čitelný index a pravidla pro použití dokumentace jako kontextu.</span>
+  </a>
+  <a href="/cs/faq/">
+    <strong>Časté otázky</strong>
+    <span>Otevřete si přímé odpovědi na otázky, které se opakují nejčastěji.</span>
+  </a>
+  <a href="/cs/public-evidence/">
+    <strong>Bezpečnost a podklady k ověření</strong>
+    <span>Dohledejte důležitá tvrzení k přesnému veřejnému zdroji a přečtěte si jejich limity.</span>
+  </a>
+  <a href="/cs/reference/">
+    <strong>Použité zdroje</strong>
+    <span>Projděte kanonické veřejné podklady k produktu a jeho provoznímu modelu.</span>
+  </a>
+</nav>
+
+Lazurio je dnes dostupné pod licencí
+[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md).
+Podrobnosti o licenci, zralosti produktu a mezích těchto podkladů najdete v
+části [Bezpečnost a podklady k ověření](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).

@@ -1,11 +1,11 @@
 ---
 title: Přístup k datům a bezpečnost
-description: Bezpečnostní hranice Lazuria a kontroly, které je nutné ověřit v konkrétním nasazení.
+description: Bezpečnostní hranice Lazuria a kontroly, které musí projít konkrétní nasazení.
 stableId: lazurio-doc-data-access-security
 locale: cs
-summary: Jak v Lazuriu fungují identity, oddělení Organizací, lokální soubory, integrace, tajné údaje, poskytovatelé modelů a auditní záznamy.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+summary: Identity, oddělení Organizací, lokální soubory, integrace, tajné údaje, poskytovatelé modelů, auditní podklady a zbytková rizika.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -20,22 +20,20 @@ audience:
   - agent
 ---
 
-Bezpečnost AI agenta nelze zajistit jen instrukcemi v zadání. Rozhodují
-skutečná oprávnění přihlášené identity, zabezpečení zařízení, dostupné
-repozitáře a nástroje, správa tajných údajů a kontroly před zveřejněním nebo
-nasazením. Veřejná [pravidla spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
-popisují zamýšlené hranice. U každého konkrétního nasazení je však nutné
-ověřit, že jsou tato pravidla skutečně zavedená.
+Bezpečnost Lazuria začíná úmyslně omezeným tvrzením: formulace promptu sama
+agenta nezabezpečí. Rozhoduje identita, zařízení, práva k repozitářům,
+vymezené nástroje, úschova tajných údajů a kontroly před zveřejněním. Lazurio
+tyto hranice zpřehledňuje; nepřidává univerzální sandbox kolem vybraného
+klienta agenta.
 
 ## Hranice důvěry
 
 ### Principál a Task Agent
 
-Task Agent pracuje jménem přihlášeného Principála. Samotné zadání mu nemůže
-udělit další oprávnění. Skutečný rozsah přístupu závisí na relacích v zařízení
-Principála, oprávněních k repozitářům a přihlašovacích údajích jednotlivých
-služeb. Kontrola přístupů a jejich odebrání při odchodu uživatele proto musí
-zahrnout všechny tyto systémy.
+Task Agent pracuje jménem přihlášeného Principála a nemá vlastní oprávnění.
+Prompt mu nevytvoří přístup k repozitáři ani ke službě. Text pravidel zároveň
+neodebere schopnost, kterou už proces klienta má: čitelný soubor, aktivní
+relace nebo zpřístupněný přihlašovací údaj mohou být pro klienta použitelné.
 
 ### Organizace
 
@@ -43,8 +41,10 @@ Organizace představuje hranici dat a přístupů jedné firmy. V dokumentované
 modelu zůstávají jednotlivé Organizace oddělenými repozitáři a organizacemi v
 GitHubu. Mezi nimi lze přenášet veřejné a obecně použitelné postupy, nikoli
 tajné údaje, zákaznická data, obchodní strategii nebo soukromé vrstvy
-konkrétní firmy. Toto oddělení je požadavek návrhu; jeho skutečné vynucení je
-nutné ověřit při nasazení.
+konkrétní firmy. Jedno zařízení je však stále jedna doména důvěry: adresáře a
+repozitáře nejsou izolací od jiného procesu se stejným přístupem v operačním
+systému. Kde kompromitace nesmí překročit hranici firmy, použijte samostatná
+zařízení nebo rovnocennou infrastrukturu.
 
 ### Personalspace
 
@@ -55,7 +55,7 @@ mezi přístupovými hranicemi.
 
 ### Externí aplikace
 
-[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
+[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
 upřednostňuje oficiální MCP server spravovaný lokálně, poté oficiální nástroj
 příkazové řádky a následně zkontrolované open-source řešení s pevně určenou
 verzí. Ovládání přes webový prohlížeč je až náhradní možnost. Každé
@@ -65,7 +65,7 @@ tajné údaje.
 
 ### Tajné a přihlašovací údaje
 
-[Standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md)
+[Standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
 udržuje skutečné přihlašovací údaje mimo Git. Lokální úložiště jsou oddělená
 podle vlastníka nebo Organizace a verzované soubory obsahují pouze schémata,
 názvy proměnných a pokyny. Ochranu lokálních údajů, zařízení a záloh musí
@@ -79,6 +79,7 @@ zajistit pravidla konkrétní organizace; samotný standard ji negarantuje.
 | Agent se pokusí zveřejnit nebo nasadit neschválenou změnu | Oprávnění v GitHubu nebo jiné službě a výslovný souhlas Principála | Pokuste se změnu sloučit nebo nasadit bez potřebného oprávnění či kontroly. |
 | Přihlašovací údaj se dostane do repozitáře | Vyhrazená úložiště mimo Git, automatická kontrola veřejného obsahu a kontrola změn | Vložte neškodný testovací řetězec odpovídající formátu tokenu a ověřte, že kontrola selže. |
 | Integrace má příliš široká oprávnění | Rozsah oprávnění nastavený u poskytovatele a samostatné odvolání každého přístupu | Načtěte aktuální oprávnění OAuth nebo aplikace a jedno z nich odvolejte, aniž ovlivníte ostatní. |
+| Prompt se pokusí změnit rozsah práce | Omezený kontext, skutečná oprávnění a schvalovací brány | Vložte neškodný canary a ověřte, že agent nerozšíří kontext ani nic nezveřejní bez příslušné brány. |
 | Zařízení se ztratí | Zabezpečení zařízení, šifrování, odvolání přístupů a postup obnovy | Proveďte interní cvičení pro odchod uživatele nebo ztrátu zařízení. |
 | Dokumentace přestane odpovídat chování systému | Odkazy na přesnou revizi zdrojů, data kontroly a validace v CI | Změňte použitý zdroj nebo nechte skončit jeho platnost a ověřte, že sestavení dokumentace selže. |
 
@@ -94,17 +95,18 @@ od poskytovatele automaticky nepřenášejí na Lazurio jako celek.
 ## Požadavky na auditní stopu
 
 Historie v Gitu, pull requesty, schválení konkrétního commitu a záznamy o
-nasazení poskytují podrobné podklady pro změny ve zdrojových souborech.
-Automaticky však nezachytí každý požadavek na model, přečtení lokálního souboru
-nebo volání API třetí strany. Pro každou zapnutou oblast proto určete, který
-systém zaznamenává identitu, provedenou akci, její cíl, výsledek a dobu
-uchování záznamu.
+nasazení dobře dokládají změny ve zdrojových souborech. Automaticky však
+nezachytí každý požadavek na model, přečtení lokálního souboru ani volání API
+třetí strany. Pro každou zapnutou oblast proto pojmenujte systém, který
+zaznamenává identitu, akci, cíl, výsledek a dobu uchování; chybějící logy
+zapište jako chybějící, ne jako předpokládané.
 
 ## Zbytkové riziko
 
 Ani správně nastavená oprávnění nevyloučí všechny chyby. Oprávněný uživatel
 může zveřejnit citlivou informaci, schválit škodlivou změnu nebo povolit
 nástroji příliš široký přístup. Model může vytvořit chybný obsah a koncové
-zařízení může být napadené. Lazurio pomáhá tato rozhodnutí vymezit a usnadňuje
-jejich kontrolu, ale nenahrazuje princip nejmenších oprávnění, zabezpečení
-zařízení, posouzení dodavatelů, testování ani odpovědnost lidí.
+zařízení může být napadené. Lazurio tato rozhodnutí vymezuje a zpřehledňuje,
+ale nenahrazuje princip nejmenších oprávnění, zabezpečení zařízení, posouzení
+dodavatelů, testování ani odpovědnost lidí. Přesné veřejné zdroje a jejich
+limity najdete v části [Bezpečnost a podklady k ověření](/cs/public-evidence/).

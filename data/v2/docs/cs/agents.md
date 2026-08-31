@@ -1,11 +1,11 @@
 ---
-title: Jak dokumentaci používají AI agenti
-description: Strojově čitelná rozhraní pro vyhledání a načtení veřejné dokumentace Lazuria.
+title: Dokumentace pro AI agenty
+description: Strojově čitelné rozhraní pro vyhledání a načtení veřejné dokumentace Lazuria.
 stableId: lazurio-doc-agents
 locale: cs
-summary: K čemu slouží soubory llms.txt a content-index.json a jak z nich agent získá zkontrolovaný obsah včetně zdrojů a dat revize.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+summary: Jak z llms.txt a content-index.json získat zkontrolovaný obsah včetně zdrojů, cílových skupin a dat revize.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -16,15 +16,14 @@ audience:
 ---
 
 AI agenti mají vycházet ze stejného zkontrolovaného obsahu jako lidé. Tento
-web proto neudržuje samostatnou ani skrytou verzi dokumentace určenou pouze pro
-AI.
+web proto neudržuje samostatnou ani skrytou verzi dokumentace jen pro AI.
 
 ## Jak obsah najít a načíst
 
 - [`/llms.txt`](/llms.txt) nabízí stručný seznam hlavních stránek a jejich
   shrnutí.
 - [`/content-index.json`](/content-index.json) je verzovaný strukturovaný
-  přehled. U každého dokumentu obsahuje stabilní ID, cestu, cílové skupiny,
+  index. U každého dokumentu obsahuje stabilní ID, cestu, cílové skupiny,
   datum kontroly, kanonickou URL, veřejnou cestu ke zdrojovému souboru, odkazy
   na podklady a celý obsah v Markdownu.
 - [`/sitemap-index.xml`](/sitemap-index.xml) je mapa webu pro vyhledávače a
@@ -33,7 +32,7 @@ AI.
 
 Vyhledání podle stabilního ID ve výchozím nastavení vrací anglický dokument.
 Agent si může výslovně vyžádat jiný publikovaný jazyk; kanonická cesta vždy
-odkazuje na konkrétní jazykovou verzi stránky.
+vede na konkrétní jazykovou verzi stránky.
 
 Všechny tyto výstupy vznikají z `data/v2/docs` ve veřejném
 [repozitáři dokumentace](https://github.com/Lazurio/documentation). Index uvádí

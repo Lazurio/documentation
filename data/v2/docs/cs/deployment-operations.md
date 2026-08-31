@@ -1,11 +1,11 @@
 ---
 title: Nasazení a provoz
-description: Co určuje Lazurio a která rozhodnutí musí udělat provozovatel konkrétního nasazení.
+description: Co je v Lazuriu dané a co musí rozhodnout provozovatel konkrétního nasazení.
 stableId: lazurio-doc-deployment-operations
 locale: cs
-summary: Požadavky na identity, zařízení, repozitáře, Moduly, integrace, auditní záznamy, zálohy, aktualizace a odebrání přístupů.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+summary: Postup zavedení Lazuria přes identity, zařízení, repozitáře, moduly, integrace, logy, zálohy, aktualizace a odebírání přístupů.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -21,17 +21,17 @@ audience:
   - agent
 ---
 
-Lazurio neurčuje jediný způsob hostování. Společný model kombinuje lokální
-pracovní prostředí s Moduly, které lze provozovat a nasazovat samostatně.
-Veřejná [architektura](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-popisuje společná pravidla. Každá Organizace však musí zdokumentovat konkrétní
-zařízení, repozitáře, poskytovatele a služby, které při svém nasazení používá.
+Lazurio je software provozovaný vývojářem nad lokálními pracovními kopiemi a
+samostatně vlastněnými moduly, nikoli jedna univerzální hostovaná topologie.
+Záznam o nasazení proto musí pojmenovat skutečná zařízení, repozitáře, klienta
+agenta, poskytovatele modelu, integrace a hostované služby, které Organizace
+opravdu používá.
 
 ## Součásti nasazení
 
 1. **Zařízení Principála:** koncové zařízení, na kterém pracuje Kolega nebo AI
    Kolega.
-2. **Kořen Lazuria:** lokální rozhraní a spouštěcí prostředí nad povolenými
+2. **Lokální root Lazuria:** rozhraní a spouštěcí prostředí nad povolenými
    pracovními kopiemi Organizací.
 3. **Repozitář Organizace:** hranice jedné firmy, její konfigurace a sdílené
    autoritativní podklady.
@@ -44,11 +44,11 @@ zařízení, repozitáře, poskytovatele a služby, které při svém nasazení 
 7. **Externí aplikace:** jednotlivě povolené MCP servery, nástroje příkazové
    řádky nebo řízené postupy v prohlížeči s oprávněními u daného poskytovatele.
 
-Ne každý Modul musí běžet na veřejném serveru. Některé Moduly jsou lokální
-nástroje, jiné interní služby a další zpřístupňují veřejný web, například tuto
-dokumentaci. O způsobu provozu se rozhoduje pro každý Modul samostatně.
+Ne každý modul musí běžet na veřejném serveru. Některé jsou lokální nástroje,
+jiné interní služby a další zpřístupňují veřejný web, například tuto
+dokumentaci. O způsobu provozu se rozhoduje pro každý modul samostatně.
 
-## Doporučený postup nasazení
+## Postup zavedení
 
 ### 1. Vymezte Organizaci
 
@@ -58,10 +58,12 @@ Organizace patří a která jsou z ní výslovně vyloučená.
 
 ### 2. Stanovte minimální zabezpečení zařízení
 
-Zdokumentujte podporované operační systémy, vlastnictví zařízení, šifrování,
-zamykání obrazovky, aktualizace, dohled nad koncovými zařízeními, lokální
-zálohy, vzdálené smazání a reakci na incident. I zařízení vlastněné
-Principálem musí při práci s firemními daty splňovat pravidla organizace.
+Zdokumentujte vlastnictví zařízení, šifrování, aktualizace, dohled nad
+koncovými zařízeními, lokální zálohy, vzdálené smazání a reakci na incident.
+Rozumným výchozím bodem je jedna Organizace na zařízení. Více Organizací na
+jednom zařízení je vědomá výjimka uvnitř jedné domény důvěry, ne tvrdé oddělení
+tenantů. I zařízení vlastněné Principálem musí při práci s firemními daty
+splňovat pravidla Organizace.
 
 ### 3. Vyberte klienta a poskytovatele modelu
 
@@ -73,15 +75,15 @@ vlastníka. Posouzení zopakujte při změně klienta, poskytovatele nebo typu �
 
 Začněte jedním jasně vymezeným scénářem. Principál má mít přístup pouze k
 repozitářům a rozsahům oprávnění, které pro něj potřebuje. Postupujte podle
-veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
+veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
 a vyzkoušejte také odebrání přístupu.
 
 ### 5. Nastavte schvalování výsledků
 
-Pro každý repozitář nastavte odpovídající ochranu větví, povinné kontroly a
-schvalovatele. Obdobná schvalovací místa určete také pro odesílání zpráv,
-změny infrastruktury, platby, práci s tajnými údaji a nevratné operace v
-externích službách.
+Pro každý repozitář nastavte ochranu větví, povinné kontroly a review. U zpráv,
+infrastruktury, plateb, tajných údajů a nevratných operací pojmenujte skutečné
+oprávnění nebo potvrzení na straně poskytovatele. Pokud žádné neexistuje,
+označte pravidlo poctivě jako procesní.
 
 ### 6. Proveďte přejímací testy
 
@@ -91,21 +93,21 @@ Výsledky testů uložte spolu s rozhodnutím o nasazení.
 
 ## Aktualizace a návrat k předchozí verzi
 
-Zdrojové soubory Lazuria, konfigurace Organizace a jednotlivé Moduly se
-verzují nezávisle. Aktualizace mají posunout čisté primární pracovní kopie
-pouze na navazující commit, projít deklarovanými kontrolami `doctor` a
-`check` a vstoupit do produkce z přesně určeného a zkontrolovaného commitu.
-Při návratu k předchozí verzi se vrací pouze dotčený repozitář nebo nasazení.
-Odvolané přihlašovací údaje ani nahrazená oprávnění se tím nesmějí obnovit.
+Zdrojové soubory Lazuria, konfigurace Organizace a jednotlivé moduly se
+verzují nezávisle. Aktualizace mají posouvat čisté primární pracovní kopie,
+projít deklarovanými kontrolami a vstoupit do produkce z přesně určeného
+reviewovaného commitu. Návrat k předchozí verzi se týká jen dotčeného
+repozitáře nebo nasazení; nesmí obnovit odvolané přihlašovací údaje ani
+zastaralá oprávnění.
 
 ## Otázky, které musí zodpovědět provozovatel
 
 - Kdo spravuje koncová zařízení, Teamy v GitHubu a externí integrace?
 - Který poskytovatel modelu a jaké podmínky účtu platí?
-- Kde běží jednotlivé Moduly a ze kterých sítí jsou dostupné?
+- Kde běží jednotlivé moduly a ze kterých sítí jsou dostupné?
 - Jaké auditní záznamy vznikají a jak dlouho se uchovávají?
 - Jak se lokální data a přihlašovací údaje zálohují, mažou a obnovují?
 - Jaká doba reakce je případně smluvně přislíbená?
 
-Odpovědi patří do podkladů ke schválení konkrétního zákaznického nasazení.
-Veřejná dokumentace je nemůže určit obecně za všechny provozovatele.
+Odpovědi patří do podkladů ke schválení konkrétního nasazení. Veřejná
+dokumentace je nemůže poctivě vymyslet za každého provozovatele.

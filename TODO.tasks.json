@@ -7,7 +7,7 @@
       "status": "in_progress",
       "owner": "matejsuchanek",
       "updated_at": "2026-08-31",
-      "next_action": "Dokončit redakční úpravu, ověřit Cloudflare preview a vyžádat review přesného HEADu."
+      "next_action": "Projít ready Czech PR a Cloudflare preview; po přijetí obsahu vyžádat review přesného HEADu před produkční publikací."
     },
     {
       "id": "documentation-production-hardening",
