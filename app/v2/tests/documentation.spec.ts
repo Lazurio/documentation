@@ -82,12 +82,17 @@ test('the language switch keeps the current page and localizes navigation', asyn
   await expect(page).toHaveURL(/\/cs\/it-administrators\/$/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'cs')
   await expect(page.getByRole('heading', { level: 1, name: 'Deset minut pro IT' })).toBeVisible()
+
+  // Navigating to the localized route reloads the mobile page and closes the
+  // drawer. Re-open it before asserting localized sidebar content or using
+  // the Czech selector for the return journey.
+  if (testInfo.project.name.startsWith('mobile')) {
+    const sidebarToggle = page.locator('button[aria-controls="starlight__sidebar"]')
+    if ((await sidebarToggle.getAttribute('aria-expanded')) !== 'true') await sidebarToggle.click()
+  }
   await expect(page.getByRole('link', { name: 'Přístup k datům a zabezpečení' }).first()).toBeVisible()
   await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
 
-  if (testInfo.project.name.startsWith('mobile')) {
-    await page.locator('button[aria-controls="starlight__sidebar"]').click()
-  }
   const czechLanguageSelect = page.locator('starlight-lang-select:visible select')
   await expect(czechLanguageSelect).toHaveValue('/cs/it-administrators/')
   await czechLanguageSelect.selectOption({ label: 'English' })
