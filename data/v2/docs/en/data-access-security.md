@@ -3,8 +3,8 @@ title: Data access and security
 description: A threat-aware explanation of Lazurio's trust boundaries and the checks a real deployment needs.
 stableId: lazurio-doc-data-access-security
 summary: Review identity, Organization isolation, local files, integrations, secrets, model providers, audit evidence, and residual risks.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -107,5 +107,5 @@ model can follow malicious content. A machine can be compromised, and a Draft
 branch or provider draft may already move data before final publication.
 Lazurio narrows and exposes these decisions; it does not replace least
 privilege, endpoint security, provider review, testing or accountability. See
-the [English control evidence](/en/public-evidence/) for the exact public-source
+the [security and control evidence](/en/public-evidence/) for the exact public-source
 basis of these claims.

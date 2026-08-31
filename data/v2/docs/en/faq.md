@@ -3,8 +3,8 @@ title: Frequently asked questions
 description: Direct answers to the first questions people and IT administrators ask about Lazurio.
 stableId: lazurio-doc-faq
 summary: Answers about what Lazurio is, whether it replaces Copilot, data access, local deployment, approval, audits, and the future MCP server.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -42,7 +42,7 @@ No. Lazurio is in active development. The supported setup is a public source
 checkout using Git and Bun, and CLI v0 is experimental. A packaged installation
 is a future target. Lazurio is currently source-available under
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
-the [control evidence](/en/public-evidence/#product-form-and-maturity) explains
+the [security and control evidence](/en/public-evidence/#product-form-and-maturity) explains
 the license and maturity details.
 
 </details>

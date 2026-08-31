@@ -3,8 +3,8 @@ title: A ten-minute IT briefing
 description: The questions an IT administrator should ask before approving Lazurio.
 stableId: lazurio-doc-it-administrators
 summary: A concise IT review of Lazurio's purpose, identity, access, data, integrations, operations, and approval boundaries.
-updatedAt: "2026-08-30"
-reviewedAt: "2026-08-30"
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -50,7 +50,7 @@ services and belong in the inventory only when a deployment enables them.
 | License | Source-available under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each published version after two years. |
 | Assurance | No certification, universal service level, retention period or deployment topology is claimed. Support and hosting terms belong to the concrete deployment. |
 
-The [English control evidence](/en/public-evidence/) contains the detailed
+The [security and control evidence](/en/public-evidence/) contains the detailed
 license meaning, exact source links and evidence limits. Keeping that detail in
 one place prevents every reader-facing page from becoming a legal appendix.
 
