@@ -3,9 +3,9 @@ title: Lazurio a Microsoft Copilot
 description: Věcné srovnání dvou řešení, která využívají AI při práci, ale liší se účelem i způsobem správy.
 stableId: lazurio-doc-copilot-comparison
 locale: cs
-summary: Srovnání Lazuria a Microsoft Copilotu podle účelu, dostupného kontextu, oprávnění, správy, rozšiřitelnosti a nároků na provoz.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+summary: Věcné srovnání Lazuria a Microsoft Copilotu podle účelu, kontextu, oprávnění, provádění práce, rozšiřitelnosti, správy a nasazení.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -62,8 +62,8 @@ a na stránce věnované [ochraně dat a auditu](https://learn.microsoft.com/en-
 
 Veřejná pravidla Lazuria určují GitHub jako autoritu pro přístup k
 repozitářům, oddělují jednotlivé Organizace a považují výstup agenta za návrh,
-dokud jej oprávněná osoba neschválí. Viz [pravidla spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
-a [architekturu Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md).
+dokud jej oprávněná osoba neschválí. Viz [pravidla spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
+a [architekturu Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md).
 
 ## Data a soukromí
 
@@ -101,7 +101,7 @@ Tato cesta je přirozená, pokud má pracovní postup zůstat uvnitř produktov�
 správního prostředí Microsoftu.
 
 Lazurio se rozšiřuje pomocí Workspace Modulů a samostatně vymezených integrací.
-Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
+Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
 upřednostňuje oficiální MCP servery nebo nástroje příkazové řádky a samostatně
 odvolatelné identity pro jednotlivá zařízení. To se hodí tam, kde práce
 vychází z repozitářů, prochází více službami nebo vyžaduje vlastní testy a

@@ -1,11 +1,11 @@
 ---
 title: Kdy dává Lazurio smysl
-description: Praktické scénáře a podmínky, za kterých dává nasazení Lazuria smysl.
+description: Praktické scénáře a podmínky, za kterých je Lazurio dobrá volba.
 stableId: lazurio-doc-use-cases
 locale: cs
-summary: Příklady využití Lazuria při vývoji, v provozu a při správě znalostí, včetně situací, kdy je vhodnější jiné řešení.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+summary: Kde Lazurio pomůže s vývojem, provozem, znalostmi, agentními postupy a prací pro více Organizací — a kde naopak ne.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -18,16 +18,16 @@ audience:
   - agent
 ---
 
-Lazurio dává největší smysl tam, kde AI nemá jen odpovídat v chatu, ale
-pomáhat s opakovatelnou firemní prací, kterou lze zkontrolovat a dohledat.
-Propojuje přitom oddělené firemní prostředí, verzované podklady, přístupy k
-nástrojům a jasné schvalování výsledků.
+Lazurio dává největší smysl tam, kde AI nemá jen odpovídat v chatu, ale pomáhat
+s opakovatelnou firemní prací, kterou lze zkontrolovat a dohledat. Spojuje
+oddělené firemní prostředí, verzované podklady, přístupy k nástrojům a jasné
+schvalování výsledků.
 
 ## Kde může Lazurio pomoci
 
 ### Vývoj produktů a softwaru
 
-AI agent může projít vybraný Modul, připravit jasně vymezenou změnu, spustit
+AI agent může projít vybraný modul, připravit jasně vymezenou změnu, spustit
 testy a založit pull request s výsledky ověření. Tým dál používá běžné postupy
 v Gitu, kontrolu změn a návrat k předchozí verzi; nemusí přebírat neprůhledný
 vygenerovaný výsledek.
@@ -54,9 +54,10 @@ postupu, nikoli z kopie zadání se skrytými předpoklady.
 ### Více firem na zařízení jednoho Principála
 
 Lazurio může na jednom zařízení zpřístupnit několik povolených Organizací a
-každou zachovat jako samostatnou hranici v GitHubu i v lokálních
-repozitářích. To je užitečné pro zakladatele, konzultanty a provozní role,
-které pracují pro více firem a nesmějí míchat jejich neveřejná data.
+každou zachovat jako samostatnou hranici v GitHubu i v lokálních repozitářích.
+To je užitečné pro zakladatele, konzultanty a provozní role, které pracují pro
+více firem a nesmějí míchat jejich neveřejná data. Nejde ale o tvrdé OS
+oddělení; kde je potřeba silnější izolace, použijte jinou hranici zařízení.
 
 ## Kde jsou nutná další opatření
 

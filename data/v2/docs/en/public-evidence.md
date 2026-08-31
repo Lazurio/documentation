@@ -2,6 +2,7 @@
 title: Security and control evidence
 description: The public source behind Lazurio's product, security and operational claims.
 stableId: lazurio-doc-public-evidence
+locale: en
 summary: See the current product form, trust boundaries, authority model, integrations, hosted surfaces and the limits of what the public source can prove.
 updatedAt: "2026-08-31"
 reviewedAt: "2026-08-31"

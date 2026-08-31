@@ -1,16 +1,17 @@
 ---
 title: Použité zdroje
-description: Veřejné podklady, ze kterých vycházejí technická a bezpečnostní tvrzení v dokumentaci.
+description: Veřejné podklady, na kterých stojí technická a bezpečnostní tvrzení dokumentace.
 stableId: lazurio-doc-reference
 locale: cs
-summary: Přehled konkrétních revizí zdrojů Lazuria a aktuálních stránek Microsoft Learn použitých při přípravě dokumentace.
-updatedAt: "2026-08-26"
-reviewedAt: "2026-08-26"
+summary: Přesná revize zdrojů Lazuria a aktuální stránky Microsoft Learn použité pro architektonická, bezpečnostní a srovnávací tvrzení.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-readme
+  - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -27,18 +28,19 @@ audience:
   - agent
 ---
 
-Dokumentace vychází z veřejně dostupných a ověřitelných podkladů. Odkazy na
-Lazurio vedou na přesnou revizi repozitáře, která byla při přípravě textu
-posouzena. Odkazy na Microsoft směřují na aktuální dokumentaci poskytovatele,
-protože se jeho služby průběžně mění a údaje je potřeba pravidelně ověřovat.
+Dokumentace stojí na veřejných a ověřitelných podkladech. Odkazy na Lazurio
+vedou na přesnou posouzenou revizi repozitáře. Odkazy na Microsoft míří do
+aktuální dokumentace poskytovatele, protože jeho služby se průběžně mění a
+vyžadují pravidelnou kontrolu.
 
 ## Zdrojové materiály Lazuria
 
-- [Přehled projektu](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/README.md)
-- [Architektura](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/ARCHITECTURE.md)
-- [Pravidla spolupráce, oprávnění a schvalování výsledků](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/AGENTS.md)
-- [Standard pro integrace externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/external-app-integrations.md)
-- [Standard lokální správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/69c53ec342124aef48cb9d04fd109f9886ec242e/manual/security/local-secret-custody.md)
+- [Přehled projektu](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
+- [Licence](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md)
+- [Architektura](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
+- [Pravidla spolupráce, oprávnění a schvalování výsledků](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
+- [Standard pro integrace externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
+- [Standard lokální správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
 
 ## Dokumentace Microsoftu
 
@@ -50,11 +52,11 @@ protože se jeho služby průběžně mění a údaje je potřeba pravidelně ov
 
 ## Kontrola aktuálnosti
 
-Strojově čitelná evidence zdrojů je uložená ve veřejném repozitáři v souboru
+Strojově čitelná mapa zdrojů leží ve veřejném repozitáři v souboru
 `data/v2/source-map.json`. U každého zdroje uvádí odpovědnou osobu, datum
 poslední kontroly a termín další kontroly. Jakmile platnost zdroje skončí,
-validace obsahu selže. Tím brání zveřejnění tvrzení založených na zdroji,
-jehož aktuálnost nebyla znovu ověřena.
+validace obsahu selže; tvrzení se tak nesmí zveřejnit, dokud se zdroj znovu
+neověří.
 
 Bezpečnostně významné stránky uvádějí Pabla AI jako druhého reviewera.
 Produkční zveřejnění je vázané na schválení konkrétního Git commitu; starší
