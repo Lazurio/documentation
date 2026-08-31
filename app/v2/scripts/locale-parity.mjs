@@ -4,7 +4,7 @@ export function findLocaleParityErrors(stableId, localizedDocuments, supportedLo
   for (const locale of supportedLocales) {
     if (!byLocale.has(locale)) errors.push(`${stableId}: missing ${locale} document`)
   }
-  if (byLocale.size !== supportedLocales.length) return errors
+  if (errors.length > 0 || byLocale.size !== supportedLocales.length) return errors
 
   const english = byLocale.get('en')
   const czech = byLocale.get('cs')
