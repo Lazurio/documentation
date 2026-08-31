@@ -43,39 +43,20 @@
     {
       "id": "issue-2026-08-27-010",
       "title": "Upgrade the Astro runtime family after dependency-alert reachability review",
-      "status": "open",
+      "status": "in_progress",
       "severity": "high",
       "owner": "matejsuchanek",
       "created_at": "2026-08-27",
-      "updated_at": "2026-08-27",
-      "question": "Which compatible Astro, Starlight and Cloudflare adapter versions should replace the current Astro 5 runtime without regressing the reviewed Documentation behavior?",
-      "impact": "GitHub reports 18 open dependency alerts on the default branch, including three high-severity Astro advisories. The current static Documentation does not use the vulnerable server-island or user-controlled slot patterns, and one high advisory explicitly excludes the Cloudflare adapter, but the direct runtime dependency remains on a vulnerable version and should not rely indefinitely on reachability assumptions.",
+      "updated_at": "2026-08-31",
+      "question": "Can one reviewed static-site upgrade remove all 18 current GitHub dependency alerts without regressing the deployed Cloudflare Pages contract?",
+      "impact": "Live GitHub readback on 2026-08-31 identifies 17 Astro advisories and one @astrojs/cloudflare advisory. The replacement draft moves to patched Astro 7.2.9 with its matching official integrations, removes the unused runtime adapter from this static site, preserves the existing accessibility Markdown transform and validates the Pages 302 redirect through local Pages emulation. It remains in progress until the replacement PR is reviewed and merged.",
       "options": [
-        "Recommended: prepare a separate reviewed runtime-family upgrade to a mutually compatible patched Astro, Starlight and Cloudflare adapter set, then rerun content, browser, Pages and production smokes.",
-        "If the compatible major upgrade cannot ship immediately, document an exact advisory-by-advisory reachability assessment and a short expiry for the temporary exception."
+        "Recommended: review and merge the prepared static-site upgrade, then verify that GitHub closes all 18 alerts on the default branch.",
+        "Keep the vulnerable runtime temporarily only with an advisory-by-advisory reachability assessment and an explicit short expiry."
       ],
       "decision_needed_for": [
         "Astro runtime-family upgrade",
         "Dependabot alert closeout"
-      ]
-    },
-    {
-      "id": "issue-2026-08-26-006",
-      "title": "Triage dependency vulnerabilities reported on the default branch",
-      "status": "open",
-      "severity": "high",
-      "owner": "matejsuchanek",
-      "created_at": "2026-08-26",
-      "updated_at": "2026-08-26",
-      "question": "Which dependencies account for the 18 open GitHub vulnerability alerts, and which upgrades can be applied without breaking the pinned documentation stack?",
-      "impact": "GitHub reported 3 high, 9 moderate and 6 low dependency vulnerabilities during the Czech documentation push. The current gh identity received HTTP 404 when requesting alert details, so affected packages, reachability and fixed versions remain unverified.",
-      "options": [
-        "Inspect the alerts with an identity that can read repository security events, then prepare a separate dependency-update PR with build and browser verification.",
-        "If GitHub's count is stale or refers only to unreachable development tooling, record the evidence and close or downgrade this issue without weakening the current security baseline."
-      ],
-      "decision_needed_for": [
-        "dependency vulnerability remediation",
-        "production dependency risk acceptance"
       ]
     }
   ]

@@ -84,6 +84,34 @@
         "open_ledger_path": "ISSUES.open.json",
         "previous_status": "open"
       }
+    },
+    {
+      "id": "issue-2026-08-26-006",
+      "title": "Triage dependency vulnerabilities reported on the default branch",
+      "status": "resolved",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-08-26",
+      "updated_at": "2026-08-31",
+      "question": "Which dependencies account for the 18 open GitHub vulnerability alerts, and which upgrades can be applied without breaking the pinned documentation stack?",
+      "impact": "GitHub reported 3 high, 9 moderate and 6 low dependency vulnerabilities during the Czech documentation push. The current gh identity received HTTP 404 when requesting alert details, so affected packages, reachability and fixed versions remained unverified.",
+      "options": [
+        "Inspect the alerts with an identity that can read repository security events, then prepare a separate dependency-update PR with build and browser verification.",
+        "If GitHub's count is stale or refers only to unreachable development tooling, record the evidence and close or downgrade this issue without weakening the current security baseline."
+      ],
+      "decision_needed_for": [],
+      "resolved_at": "2026-08-31",
+      "resolved_by": "matejsuchanek",
+      "resolution": {
+        "decision": "The 18 alerts are 17 Astro runtime advisories and one @astrojs/cloudflare adapter advisory; prepare one reviewed static-site upgrade instead of merging the individually incompatible Dependabot PRs.",
+        "rationale": "Live GitHub API readback made the affected packages and patched versions visible. The existing Documentation is static and contains no Cloudflare runtime API usage, so removing the adapter is simpler and preserves its Pages deployment contract while allowing the patched Astro 7 family.",
+        "selected_option": "Inspect the alerts with an identity that can read repository security events, then prepare a separate dependency-update PR with build and browser verification.",
+        "evidence": "GitHub Dependabot alert readback on 2026-08-31; local Bun 1.3.14 frozen-install, content, build and Pages browser checks on the replacement branch."
+      },
+      "resolved_from": {
+        "open_ledger_path": "ISSUES.open.json",
+        "previous_status": "open"
+      }
     }
   ]
 }

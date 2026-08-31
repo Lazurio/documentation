@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'astro/config'
-import cloudflare from '@astrojs/cloudflare'
+import { unified } from '@astrojs/markdown-remark'
 import starlight from '@astrojs/starlight'
 import { sidebar } from './src/sidebar'
 
@@ -24,16 +24,16 @@ function accessibleTables() {
 
 export default defineConfig({
   site: 'https://documentation.lazurio.ai',
-  // Keep the locale prefix explicit so future curated locales can share root selection.
-  redirects: {
-    '/': {
-      status: 302,
-      destination: '/en/',
-    },
-  },
   publicDir: fileURLToPath(new URL('../../data/v2/public', import.meta.url)),
+  // Astro 7 defaults to JSX-style whitespace compression. Retain the previous
+  // HTML-aware behavior so existing inline documentation copy keeps its spacing.
+  compressHTML: true,
   markdown: {
-    rehypePlugins: [accessibleTables],
+    // Preserve the existing accessibility transform while Astro 7 moves the
+    // default Markdown pipeline to Sätteri.
+    processor: unified({
+      rehypePlugins: [accessibleTables],
+    }),
   },
   vite: {
     server: { strictPort: true },
@@ -63,7 +63,4 @@ export default defineConfig({
       customCss: ['./src/styles/docs.css'],
     }),
   ],
-  adapter: cloudflare({
-    platformProxy: { enabled: false },
-  }),
 })
