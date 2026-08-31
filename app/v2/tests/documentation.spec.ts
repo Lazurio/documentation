@@ -58,7 +58,7 @@ test('the homepage offers a neutral route into every documentation section', asy
     'Lazurio vs Microsoft Copilot',
     'For agents',
     'FAQ',
-    'Control evidence in English',
+    'Security and control evidence',
     'Public references',
   ]) {
     await expect(directory.getByRole('link', { name: new RegExp(`^${title}`) })).toBeVisible()

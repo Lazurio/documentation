@@ -3,8 +3,8 @@ title: Public references
 description: The evidence set used by Lazurio documentation.
 stableId: lazurio-doc-reference
 summary: Inspect the pinned Lazurio source and current Microsoft Learn pages behind architectural, security, privacy, and comparison claims.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -32,7 +32,7 @@ Microsoft links point to current provider documentation and therefore use a
 shorter freshness window in the public source map.
 
 The pinned Lazurio source is written in Czech. English readers should begin
-with the reviewed [control evidence](/en/public-evidence/), which summarizes
+with the reviewed [security and control evidence](/en/public-evidence/), which summarizes
 the security-relevant meaning and links each claim to the exact source. It
 improves accessibility; it is not an independent certification or a controlled
 legal translation.

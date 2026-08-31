@@ -3,8 +3,8 @@ title: Lazurio vs Microsoft Copilot
 description: A fair, sourced decision guide for two products with overlapping AI value but different control planes.
 stableId: lazurio-doc-copilot-comparison
 summary: Compare Lazurio with Microsoft Copilot across purpose, context, permissions, execution, extensibility, governance, and deployment.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -57,8 +57,8 @@ and [data protection and auditing](https://learn.microsoft.com/en-us/microsoft-3
 
 Lazurio's public source defines GitHub as the access authority for repository
 work, separates Organizations, and treats agent output as a draft until an
-authorized publication decision. See the reviewed [English control evidence
-summary](/en/public-evidence/) and its exact source links.
+authorized publication decision. See the [security and control evidence](/en/public-evidence/)
+and its exact source links.
 
 ## Data and privacy questions
 

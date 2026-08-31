@@ -1,10 +1,10 @@
 ---
-title: Lazurio control evidence in English
-description: Reviewed English summaries of the public Lazurio source used for product, security and operational claims.
+title: Security and control evidence
+description: The public source behind Lazurio's product, security and operational claims.
 stableId: lazurio-doc-public-evidence
-summary: Verify the current product form, trust boundaries, authority model, integrations, hosted surfaces and evidence limits against one pinned public source revision.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+summary: See the current product form, trust boundaries, authority model, integrations, hosted surfaces and the limits of what the public source can prove.
+updatedAt: "2026-08-31"
+reviewedAt: "2026-08-31"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -22,11 +22,11 @@ audience:
   - agent
 ---
 
-This page is the reviewed English evidence layer for Lazurio source revision
+This page connects the claims in this documentation to Lazurio source revision
 [`3c5bda5d54c5556a0e54f3c339d988aa911fda60`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60).
-The canonical source documents are currently written in Czech. The summaries
-below make the security-relevant meaning inspectable to English readers without
-pretending that a translation is independent assurance.
+The canonical source documents are currently written in Czech. These English
+summaries make their security-relevant meaning accessible; they are a guide to
+the source, not independent assurance.
 
 ## Product form and maturity
 
