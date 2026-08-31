@@ -19,7 +19,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: `bun run build && wrangler pages dev dist --ip 127.0.0.1 --port ${port}`,
+    command: `wrangler pages dev dist --ip 127.0.0.1 --port ${port}`,
     url: `${baseURL}/en/`,
     env: {
       ...process.env,
