@@ -79,3 +79,13 @@ deployment model or a service-level agreement.
 The software and documentation in this repository are distributed under the
 terms in [LICENSE.md](LICENSE.md).
 Public, evidence-backed documentation for Lazurio — written for people and structured for agents.
+
+### Link previews
+
+`data/v2/public/social-preview-v1.png` is the unmodified approved Lazurio brand asset
+`content/brand/logo/profile-light-1024.png` from the Lazurio design system
+(SHA-256 `9985c6af7332c68c91667cc77116a8a7db0fc1206703ef7c0ea3b4693675d73e`). The PNG is served by this
+application, without a runtime dependency on another website. Square Twitter
+summary cards preserve the complete symbol; page titles and descriptions stay
+owned by the existing page metadata. Replace the versioned filename when updating
+the image so immutable or social crawler caches can fetch the new bytes.

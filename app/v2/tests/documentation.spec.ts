@@ -286,3 +286,23 @@ test('unknown documentation routes fail clearly', async ({ page }) => {
   expect(response?.status()).toBe(404)
   await expect(page.getByText(/Page not found|404/i).first()).toBeVisible()
 })
+
+for (const path of ['/en/', '/cs/', '/en/agents/', '/cs/agents/']) {
+  test(`link preview is present in crawler HTML at ${path}`, async ({ request }) => {
+    const response = await request.get(path)
+    expect(response.status()).toBe(200)
+    const html = await response.text()
+    expect(html.match(/name="twitter:card"/g)).toHaveLength(1)
+    expect(html).toContain('name="twitter:card" content="summary"')
+    for (const key of ['og:image', 'twitter:image']) {
+      expect(html).toMatch(new RegExp(`(?:property|name)="${key}" content="https://documentation.lazurio.ai/social-preview-v1.png"`))
+    }
+    const image = await request.get('/social-preview-v1.png')
+    expect(image.status()).toBe(200)
+    expect(image.headers()['content-type']).toContain('image/png')
+    const bytes = await image.body()
+    expect([...bytes.subarray(0, 8)]).toEqual([137, 80, 78, 71, 13, 10, 26, 10])
+    expect(bytes.readUInt32BE(16)).toBe(1024)
+    expect(bytes.readUInt32BE(20)).toBe(1024)
+  })
+}
