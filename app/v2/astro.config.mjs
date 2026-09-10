@@ -44,6 +44,17 @@ export default defineConfig({
       title: 'Lazurio documentation',
       description: 'How Lazurio works, what it is good for, and where its trust boundaries are.',
       favicon: '/favicon.svg',
+      // Starlight merges these defaults without duplicating its Twitter card tag.
+      head: [
+        { tag: 'meta', attrs: { property: 'og:image', content: 'https://documentation.lazurio.ai/social-preview-v1.png' } },
+        { tag: 'meta', attrs: { property: 'og:image:type', content: 'image/png' } },
+        { tag: 'meta', attrs: { property: 'og:image:width', content: '1024' } },
+        { tag: 'meta', attrs: { property: 'og:image:height', content: '1024' } },
+        { tag: 'meta', attrs: { property: 'og:image:alt', content: 'Lazurio' } },
+        { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary' } },
+        { tag: 'meta', attrs: { name: 'twitter:image', content: 'https://documentation.lazurio.ai/social-preview-v1.png' } },
+        { tag: 'meta', attrs: { name: 'twitter:image:alt', content: 'Lazurio' } },
+      ],
       defaultLocale: 'en',
       locales: {
         en: { label: 'English', lang: 'en' },
