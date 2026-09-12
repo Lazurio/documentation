@@ -35,6 +35,7 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
 
   await page.getByRole('button', { name: 'Allow analytics' }).click()
   await expect.poll(() => analyticsRequests.length).toBe(1)
+  const expectedCleanLocation = `${new URL(page.url()).origin}/en/guide/`
   const [config, pageView] = await page.evaluate(() => {
     const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
     return [
@@ -43,7 +44,7 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
     ]
   })
   expect(config?.[2]).toMatchObject({
-    page_location: 'http://127.0.0.1:4321/en/guide/',
+    page_location: expectedCleanLocation,
   })
   expect(JSON.stringify(config)).not.toContain('private')
   expect(JSON.stringify(config)).not.toContain('never-send')
