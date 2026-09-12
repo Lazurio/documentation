@@ -1,0 +1,9 @@
+---
+import DefaultFooter from '@astrojs/starlight/components/Footer.astro'
+import GoogleAnalyticsConsent from './GoogleAnalyticsConsent.astro'
+
+const locale = Astro.currentLocale === 'cs' ? 'cs' : 'en'
+---
+
+<DefaultFooter {...Astro.props} />
+<GoogleAnalyticsConsent locale={locale} />

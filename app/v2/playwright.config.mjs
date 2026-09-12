@@ -23,9 +23,11 @@ export default defineConfig({
     url: `${baseURL}/en/`,
     env: {
       ...process.env,
-      // Exercise the runtime hostname guard: the bootstrap is rendered on the
-      // test host, but it must never request Plausible outside production.
-      PUBLIC_PLAUSIBLE_SCRIPT_URL: 'https://plausible.io/js/pa-browser-test.js',
+      // Render the production-shaped consent bootstrap. Tests prove that the
+      // ordinary local host remains analytics-free and use an explicit fake
+      // documentation hostname when exercising consent behavior.
+      PUBLIC_GOOGLE_ANALYTICS_ID: 'G-TEST123456',
+      PUBLIC_ANALYTICS_TEST_HOST: 'true',
     },
     reuseExistingServer: false,
     timeout: 120_000,

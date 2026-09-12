@@ -1,0 +1,213 @@
+---
+interface Props {
+  locale: 'cs' | 'en'
+}
+
+const { locale } = Astro.props
+const measurementId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID?.trim()
+const allowTestHost = import.meta.env.PUBLIC_ANALYTICS_TEST_HOST === 'true'
+
+if (measurementId && !/^G-[A-Z0-9]+$/u.test(measurementId)) {
+  throw new Error('PUBLIC_GOOGLE_ANALYTICS_ID must be a valid GA4 measurement ID.')
+}
+
+const copy = locale === 'cs'
+  ? {
+      settings: 'Nastavení analytiky',
+      title: 'Pomůžete nám zlepšovat dokumentaci?',
+      body: 'Google Analytics nám po Vašem souhlasu ukáže pouze souhrnné návštěvy a používání dokumentace. Analytiku můžete odmítnout a volbu kdykoli změnit.',
+      accept: 'Povolit analytiku',
+      reject: 'Odmítnout',
+      privacy: 'Ochrana soukromí',
+      privacyUrl: 'https://lazurio.ai/cs/ochrana-soukromi/',
+    }
+  : {
+      settings: 'Analytics settings',
+      title: 'Help us improve the documentation?',
+      body: 'With your consent, Google Analytics shows us only aggregate visits and documentation usage. You can decline analytics and change your choice at any time.',
+      accept: 'Allow analytics',
+      reject: 'Decline',
+      privacy: 'Privacy policy',
+      privacyUrl: 'https://lazurio.ai/privacy/',
+    }
+---
+
+{measurementId && (
+  <div
+    class="lz-analytics-consent"
+    data-analytics-consent
+    data-measurement-id={measurementId}
+    data-locale={locale}
+    data-allow-test-host={allowTestHost ? 'true' : 'false'}
+    hidden
+  >
+    <div class="lz-analytics-consent__panel" role="dialog" aria-labelledby="lz-analytics-title" aria-describedby="lz-analytics-description">
+      <div>
+        <strong id="lz-analytics-title">{copy.title}</strong>
+        <p id="lz-analytics-description">{copy.body} <a href={copy.privacyUrl}>{copy.privacy}</a></p>
+      </div>
+      <div class="lz-analytics-consent__actions">
+        <button type="button" data-analytics-reject>{copy.reject}</button>
+        <button type="button" class="primary" data-analytics-accept>{copy.accept}</button>
+      </div>
+    </div>
+  </div>
+)}
+
+{measurementId && <button type="button" class="lz-analytics-settings" data-analytics-settings hidden>{copy.settings}</button>}
+
+{measurementId && (
+  <script is:inline data-ga-consent-bootstrap>
+    (() => {
+      const consent = document.querySelector('[data-analytics-consent]')
+      const settings = document.querySelector('[data-analytics-settings]')
+      if (!(consent instanceof HTMLElement) || !(settings instanceof HTMLButtonElement)) return
+
+      const measurementId = consent.dataset.measurementId
+      const locale = consent.dataset.locale === 'cs' ? 'cs' : 'en'
+      const productionHost = 'documentation.lazurio.ai'
+      const isTestHost = consent.dataset.allowTestHost === 'true'
+        && window.location.hostname === '127.0.0.1'
+        && new URLSearchParams(window.location.search).get('__analytics_test') === '1'
+      if (!measurementId || (window.location.hostname !== productionHost && !isTestHost)) return
+
+      const storageKey = 'lazurio_documentation_analytics_consent_v1'
+      const maxAgeMs = 180 * 24 * 60 * 60 * 1000
+      let analyticsLoaded = false
+
+      const readChoice = () => {
+        try {
+          const stored = JSON.parse(localStorage.getItem(storageKey) || 'null')
+          if (!stored || !['granted', 'denied'].includes(stored.choice)) return null
+          if (Date.now() - Number(stored.savedAt) > maxAgeMs) return null
+          return stored.choice
+        } catch {
+          return null
+        }
+      }
+
+      const saveChoice = (choice) => {
+        try {
+          localStorage.setItem(storageKey, JSON.stringify({ choice, savedAt: Date.now(), version: 1 }))
+        } catch {
+          // Consent still applies for the current page if storage is unavailable.
+        }
+      }
+
+      const safeCampaign = () => {
+        const params = new URLSearchParams(window.location.search)
+        return params.get('utm_source') === 'launchpad'
+          && params.get('utm_medium') === 'product'
+          && params.get('utm_campaign') === 'guide'
+      }
+
+      const contentGroup = window.location.pathname.includes('/guide/') ? 'guide' : 'documentation'
+      const cleanLocation = `${window.location.origin}${window.location.pathname}`
+
+      const loadAnalytics = () => {
+        if (analyticsLoaded) return
+        analyticsLoaded = true
+        window.dataLayer = window.dataLayer || []
+        window.gtag = window.gtag || function () { window.dataLayer.push(arguments) }
+        window.gtag('consent', 'default', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+        })
+        window.gtag('consent', 'update', {
+          analytics_storage: 'granted',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+        })
+        window.gtag('js', new Date())
+        window.gtag('config', measurementId, {
+          anonymize_ip: true,
+          allow_ad_personalization_signals: false,
+          allow_google_signals: false,
+          cookie_domain: window.location.hostname,
+          send_page_view: false,
+        })
+        const pageView = {
+          page_location: cleanLocation,
+          page_path: window.location.pathname,
+          language: locale,
+          content_group: contentGroup,
+          send_to: measurementId,
+        }
+        if (safeCampaign()) {
+          Object.assign(pageView, {
+            campaign_source: 'launchpad',
+            campaign_medium: 'product',
+            campaign_name: 'guide',
+            entry_point: 'launchpad',
+          })
+        }
+        window.gtag('event', 'page_view', pageView)
+
+        const script = document.createElement('script')
+        script.async = true
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`
+        script.dataset.ga4Loader = ''
+        document.head.append(script)
+      }
+
+      const clearCookies = () => {
+        const measurementSuffix = measurementId.replace(/^G-/, '').replace(/-/g, '_')
+        const names = new Set(['_ga', '_gid', '_gat', `_ga_${measurementSuffix}`])
+        const hostParts = window.location.hostname.split('.')
+        const domains = new Set(['', window.location.hostname, `.${window.location.hostname}`])
+        for (let index = 0; index < hostParts.length - 1; index += 1) {
+          domains.add(`.${hostParts.slice(index).join('.')}`)
+        }
+        for (const cookie of document.cookie.split(';')) {
+          const name = cookie.split('=')[0]?.trim()
+          if (name?.startsWith('_ga_')) names.add(name)
+        }
+        names.forEach((name) => domains.forEach((domain) => {
+          document.cookie = `${name}=; Max-Age=0; Path=/; SameSite=Lax${domain ? `; Domain=${domain}` : ''}`
+        }))
+      }
+
+      const applyChoice = (choice) => {
+        consent.hidden = true
+        settings.hidden = false
+        if (choice === 'granted') {
+          window[`ga-disable-${measurementId}`] = false
+          loadAnalytics()
+        } else {
+          window[`ga-disable-${measurementId}`] = true
+          window.gtag?.('consent', 'update', { analytics_storage: 'denied' })
+          clearCookies()
+        }
+      }
+
+      consent.querySelector('[data-analytics-accept]')?.addEventListener('click', () => {
+        saveChoice('granted')
+        applyChoice('granted')
+      })
+      consent.querySelector('[data-analytics-reject]')?.addEventListener('click', () => {
+        saveChoice('denied')
+        applyChoice('denied')
+      })
+      settings.addEventListener('click', () => {
+        consent.hidden = false
+        settings.hidden = true
+      })
+
+      document.addEventListener('click', (event) => {
+        if (readChoice() !== 'granted' || !analyticsLoaded || !(event.target instanceof Element)) return
+        const link = event.target.closest('a[data-analytics-event="Guide App Click"]')
+        if (!(link instanceof HTMLAnchorElement)) return
+        const app = link.dataset.analyticsApp
+        if (!['wispr-flow', 'codexbar', 'browser-use'].includes(app || '')) return
+        window.gtag('event', 'guide_app_click', { app, content_group: 'guide', send_to: measurementId })
+      })
+
+      const choice = readChoice()
+      if (choice) applyChoice(choice)
+      else consent.hidden = false
+    })()
+  </script>
+)}
