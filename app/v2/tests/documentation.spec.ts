@@ -35,10 +35,19 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
 
   await page.getByRole('button', { name: 'Allow analytics' }).click()
   await expect.poll(() => analyticsRequests.length).toBe(1)
-  const pageView = await page.evaluate(() => {
+  const [config, pageView] = await page.evaluate(() => {
     const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
-    return dataLayer.find((entry) => entry[0] === 'event' && entry[1] === 'page_view')
+    return [
+      dataLayer.find((entry) => entry[0] === 'config'),
+      dataLayer.find((entry) => entry[0] === 'event' && entry[1] === 'page_view'),
+    ]
   })
+  expect(config?.[2]).toMatchObject({
+    page_location: 'http://127.0.0.1:4321/en/guide/',
+  })
+  expect(JSON.stringify(config)).not.toContain('private')
+  expect(JSON.stringify(config)).not.toContain('never-send')
+  expect(JSON.stringify(config)).not.toContain('__analytics_test')
   expect(pageView?.[2]).toMatchObject({
     page_location: expect.not.stringContaining('?'),
     page_path: '/en/guide/',
