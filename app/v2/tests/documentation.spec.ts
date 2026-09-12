@@ -54,10 +54,18 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
 
   await page.getByRole('button', { name: 'Analytics settings' }).click()
   await page.getByRole('button', { name: 'Decline' }).click()
-  expect(await page.evaluate(() => (window as Window & Record<string, unknown>)['ga-disable-G-TEST123456'])).toBe(true)
+  expect(await page.evaluate(() => Reflect.get(window, 'ga-disable-G-TEST123456'))).toBe(true)
   expect(await page.evaluate(() => {
     const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
-    return dataLayer.some((entry) => entry[0] === 'consent' && entry[1] === 'update' && entry[2]?.analytics_storage === 'denied')
+    return dataLayer.some((entry) => {
+      const parameters = entry[2]
+      return entry[0] === 'consent'
+        && entry[1] === 'update'
+        && typeof parameters === 'object'
+        && parameters !== null
+        && 'analytics_storage' in parameters
+        && parameters.analytics_storage === 'denied'
+    })
   })).toBe(true)
 })
 
