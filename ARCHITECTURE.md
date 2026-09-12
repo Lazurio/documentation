@@ -43,8 +43,9 @@ Astro, Starlight, Bun and Cloudflare provide a small, well-supported static
 documentation stack with accessible navigation, deterministic builds and a
 portable deployment output. This repository intentionally excludes an editor,
 a private content import, migration history and unrelated assets. Production
-pages include aggregate Plausible pageviews; this is a narrow external
-measurement integration, not a second content store or analytics pipeline.
+pages can include consented aggregate GA4 pageviews in the existing Lazurio
+property; this is a narrow external measurement integration, not a second
+content store.
 
 A standalone documentation repository is preferable to embedding the docs in
 a marketing site: documentation needs its own information architecture,
@@ -97,11 +98,14 @@ Rollback redeploys the previous immutable Pages deployment. DNS changes are a
 separate reviewed operation and are not part of ordinary documentation
 publication.
 
-`app/v2/wrangler.jsonc#env.production.vars.PUBLIC_PLAUSIBLE_SCRIPT_URL` is the
+`app/v2/wrangler.jsonc#env.production.vars.PUBLIC_GOOGLE_ANALYTICS_ID` is the
 single production analytics configuration. `bun run build:production` loads
 that value into both Astro and the artifact verifier before deployment. Normal
-and preview builds deliberately omit it, and the browser bootstrap still
-requires the canonical documentation hostname before loading Plausible.
+and preview builds deliberately omit it. The browser bootstrap requires the
+canonical documentation hostname and affirmative visitor consent before it
+loads GA4. It sends the canonical origin and path without query or hash. A
+fixed Launchpad UTM triplet becomes bounded entry attribution; arbitrary URL,
+search, Organization and user data remain outside the analytics contract.
 
 ## Failure modes
 
@@ -114,8 +118,9 @@ requires the canonical documentation hostname before loading Plausible.
   validation.
 - A dirty build is allowed for local preview but rejected by the production
   deployment command.
-- A missing production Plausible script URL fails the production build before
-  any artifact can be deployed; normal and preview builds remain analytics-free.
+- A missing or invalid production GA4 measurement ID fails the production
+  build before any artifact can be deployed; normal and preview builds remain
+  analytics-free.
 - Missing Cloudflare access blocks deployment without weakening the
   DNS or review gate.
 

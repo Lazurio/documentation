@@ -1,6 +1,6 @@
 {
   "schema": "lazurio.documentation.source-map.v1",
-  "reviewedAt": "2026-08-27",
+  "reviewedAt": "2026-09-12",
   "sources": [
     {
       "id": "lazurio-readme",
@@ -61,6 +61,36 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-08-27",
       "reviewDueAt": "2026-11-27"
+    },
+    {
+      "id": "wispr-flow",
+      "title": "Wispr Flow downloads and product documentation",
+      "publisher": "Wispr Flow",
+      "kind": "provider-documentation",
+      "url": "https://wisprflow.ai/downloads",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-12",
+      "reviewDueAt": "2026-12-12"
+    },
+    {
+      "id": "codexbar",
+      "title": "CodexBar official website",
+      "publisher": "CodexBar",
+      "kind": "provider-documentation",
+      "url": "https://codexbar.app/",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-12",
+      "reviewDueAt": "2026-12-12"
+    },
+    {
+      "id": "browser-use",
+      "title": "Browser Use official website and documentation",
+      "publisher": "Browser Use",
+      "kind": "provider-documentation",
+      "url": "https://browser-use.com/",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-12",
+      "reviewDueAt": "2026-12-12"
     },
     {
       "id": "microsoft-copilot-architecture",

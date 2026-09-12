@@ -57,19 +57,19 @@ owner and review window used by public claims.
 
 ## Current release boundary
 
-This repository does not implement an MCP server, chatbot, write API,
-analytics pipeline or private knowledge import. Production pages load the
-site-specific Plausible script for the existing `lazurio.ai` property; local
-development and Cloudflare preview builds do not load analytics.
+This repository does not implement an MCP server, chatbot, write API or
+private knowledge import. Production pages can load the GA4 tag for the same
+Lazurio property as `lazurio.ai`, but only after a visitor explicitly accepts
+analytics. Local development and Cloudflare preview builds do not load it.
 
-The production script URL is owned by
-`app/v2/wrangler.jsonc#env.production.vars.PUBLIC_PLAUSIBLE_SCRIPT_URL`.
+The production measurement ID is owned by
+`app/v2/wrangler.jsonc#env.production.vars.PUBLIC_GOOGLE_ANALYTICS_ID`.
 `bun run build:production` reads that exact value into the Astro build and the
 artifact verifier; it fails closed when the production value is missing.
-The Starlight Head override in `app/v2/src/components/Head.astro` initializes
-it only on `documentation.lazurio.ai`. Pageviews contain the public
-documentation URL only; search text and other free-form values are not sent as
-custom properties.
+The consent component initializes it only on `documentation.lazurio.ai` after
+an affirmative choice. Pageviews contain only the public origin and path;
+query strings, hashes, search text and other free-form values are not sent.
+Launchpad entry is recognized only from one fixed UTM triplet.
 
 The repository does not claim certifications, legal compliance, a universal
 deployment model or a service-level agreement.

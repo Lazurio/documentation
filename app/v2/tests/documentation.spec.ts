@@ -10,18 +10,71 @@ test('the site root selects the accepted English locale', async ({ page }) => {
 })
 
 test('a configured local host still does not load production analytics', async ({ page }) => {
-  const plausibleRequests: string[] = []
+  const analyticsRequests: string[] = []
   page.on('request', (request) => {
-    if (request.url().startsWith('https://plausible.io/')) plausibleRequests.push(request.url())
+    if (request.url().includes('googletagmanager.com')) analyticsRequests.push(request.url())
   })
 
   await page.goto('/en/')
 
-  await expect(page.locator('script[data-plausible-script-url]')).toHaveAttribute(
-    'data-plausible-script-url',
-    'https://plausible.io/js/pa-browser-test.js',
-  )
-  expect(plausibleRequests).toEqual([])
+  await expect(page.locator('script[data-ga-consent-bootstrap]')).toHaveCount(1)
+  expect(analyticsRequests).toEqual([])
+})
+
+test('GA4 loads only after consent and strips arbitrary URL data', async ({ page }) => {
+  const analyticsRequests: string[] = []
+  await page.route('https://www.googletagmanager.com/**', async (route) => {
+    analyticsRequests.push(route.request().url())
+    await route.fulfill({ status: 204, body: '' })
+  })
+
+  await page.goto('/en/guide/?utm_source=launchpad&utm_medium=product&utm_campaign=guide&private=never-send&__analytics_test=1')
+
+  await expect(page.getByRole('dialog', { name: 'Help us improve the documentation?' })).toBeVisible()
+  expect(analyticsRequests).toEqual([])
+
+  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  await expect.poll(() => analyticsRequests.length).toBe(1)
+  const pageView = await page.evaluate(() => {
+    const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
+    return dataLayer.find((entry) => entry[0] === 'event' && entry[1] === 'page_view')
+  })
+  expect(pageView?.[2]).toMatchObject({
+    page_location: expect.not.stringContaining('?'),
+    page_path: '/en/guide/',
+    content_group: 'guide',
+    campaign_source: 'launchpad',
+    campaign_medium: 'product',
+    campaign_name: 'guide',
+    entry_point: 'launchpad',
+  })
+  expect(JSON.stringify(pageView)).not.toContain('private')
+  expect(JSON.stringify(pageView)).not.toContain('never-send')
+  expect(JSON.stringify(pageView)).not.toContain('__analytics_test')
+
+  await page.getByRole('button', { name: 'Analytics settings' }).click()
+  await page.getByRole('button', { name: 'Decline' }).click()
+  expect(await page.evaluate(() => (window as Window & Record<string, unknown>)['ga-disable-G-TEST123456'])).toBe(true)
+  expect(await page.evaluate(() => {
+    const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
+    return dataLayer.some((entry) => entry[0] === 'consent' && entry[1] === 'update' && entry[2]?.analytics_storage === 'denied')
+  })).toBe(true)
+})
+
+test('the Guide and real application visuals are available in both locales', async ({ page }) => {
+  for (const locale of ['en', 'cs']) {
+    await page.goto(`/${locale}/guide/`)
+    await expect(page.getByRole('heading', { level: 1, name: 'Guide' })).toBeVisible()
+
+    const glossaryName = locale === 'cs' ? 'Slovníček pojmů' : 'Glossary'
+    await page.getByRole('link', { name: new RegExp(`^${glossaryName}`) }).first().click()
+    await expect(page.getByText('MCP server', { exact: true })).toBeVisible()
+
+    await page.goto(`/${locale}/guide/recommended-apps/`)
+    for (const app of ['Wispr Flow', 'CodexBar', 'Browser Use']) {
+      await expect(page.getByRole('img', { name: app })).toBeVisible()
+    }
+  }
 })
 
 test('the IT decision path is readable and navigable', async ({ page }) => {
@@ -50,6 +103,7 @@ test('the homepage offers a neutral route into every documentation section', asy
   const directory = page.getByRole('navigation', { name: 'Documentation sections' })
 
   for (const title of [
+    'Guide',
     'How Lazurio works',
     'Use cases',
     'For IT administrators',
@@ -115,6 +169,7 @@ test('the Czech homepage gives every reader a clear way into the documentation',
   const directory = page.getByRole('navigation', { name: 'Části dokumentace' })
 
   for (const title of [
+    'Guide',
     'Jak Lazurio funguje',
     'Kdy dává Lazurio smysl',
     'Přehled pro správce IT',
