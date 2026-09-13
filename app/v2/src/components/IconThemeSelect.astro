@@ -1,0 +1,10 @@
+---
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro'
+import { Icon } from '@astrojs/starlight/components'
+---
+
+<div class="lz-icon-select" title={Astro.locals.t('themeSelect.accessibleLabel')}>
+  <ThemeSelect />
+  <Icon name="sun" class="lz-select-icon lz-theme-light" size="1.25rem" />
+  <Icon name="moon" class="lz-select-icon lz-theme-dark" size="1.25rem" />
+</div>

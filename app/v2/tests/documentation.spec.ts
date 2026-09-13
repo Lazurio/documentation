@@ -24,7 +24,7 @@ test('a configured local host still does not load production analytics', async (
   expect(plausibleRequests).toEqual([])
 })
 
-test('the IT decision path is readable and navigable', async ({ page }) => {
+test('the IT decision path is readable and navigable', async ({ page }, testInfo) => {
   await page.goto('/en/')
   await expect(
     page.getByRole('heading', { level: 1, name: 'What if you could run a company through GitHub?' }),
@@ -33,11 +33,14 @@ test('the IT decision path is readable and navigable', async ({ page }) => {
   await expect(page.getByRole('img', { name: /Company work is translated by Lazurio/ })).toBeVisible()
   await expect(page.getByRole('img', { name: /People direct the work/ })).toBeVisible()
 
-  await page.getByRole('link', { name: 'For IT administrators' }).first().click()
+  await page.locator('main').getByRole('link', { name: 'For IT administrators', exact: true }).click()
   await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
   await expect(page.getByRole('heading', { level: 1, name: 'A ten-minute IT briefing' })).toBeVisible()
 
-  await page.getByRole('link', { name: 'Lazurio vs Microsoft Copilot' }).first().click()
+  if (testInfo.project.name.startsWith('mobile')) {
+    await page.locator('button[aria-controls="starlight__sidebar"]').click()
+  }
+  await page.locator('#starlight__sidebar').getByRole('link', { name: 'Lazurio vs Microsoft Copilot', exact: true }).click()
   await expect(page).toHaveURL(/\/en\/lazurio-vs-microsoft-copilot\/$/)
 })
 
@@ -306,3 +309,58 @@ for (const path of ['/en/', '/cs/', '/en/agents/', '/cs/agents/']) {
     expect(bytes.readUInt32BE(20)).toBe(1024)
   })
 }
+
+for (const locale of ['en', 'cs']) {
+  test(`${locale} overview exposes topic navigation on desktop and mobile`, async ({ page }, testInfo) => {
+    await page.goto(`/${locale}/`)
+    if (testInfo.project.name.startsWith('mobile')) {
+      const toggle = page.locator('button[aria-controls="starlight__sidebar"]')
+      await toggle.click()
+      await expect(page.locator('#starlight__sidebar')).toBeVisible()
+    }
+    const sidebar = page.locator('#starlight__sidebar')
+    await expect(sidebar.getByRole('link', { name: locale === 'cs' ? 'Přehled' : 'Overview', exact: true })).toHaveAttribute('aria-current', 'page')
+    await sidebar.locator(`a[href="/${locale}/faq/"]`).click()
+    await expect(page).toHaveURL(new RegExp(`/${locale}/faq/$`))
+    await expect(page.locator('main h1')).toBeVisible()
+  })
+}
+
+test('icon controls retain labels, keyboard access and persistent theme choices', async ({ page }, testInfo) => {
+  await page.goto('/cs/')
+  const openMobileMenu = async () => {
+    if (testInfo.project.name.startsWith('mobile')) {
+      const toggle = page.locator('button[aria-controls="starlight__sidebar"]')
+      if (await toggle.getAttribute('aria-expanded') !== 'true') await toggle.click()
+    }
+  }
+  await openMobileMenu()
+  const theme = page.locator('starlight-theme-select:visible select')
+  await expect(theme).toHaveAccessibleName('Vyberte motiv')
+  await expect(page.locator('starlight-lang-select:visible select')).toHaveAccessibleName('Vyberte jazyk')
+  const size = await theme.boundingBox()
+  expect(size?.width).toBeGreaterThanOrEqual(44)
+  expect(size?.height).toBeGreaterThanOrEqual(44)
+  await theme.selectOption('dark')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await expect(page.locator('.lz-theme-dark:visible')).toHaveCount(1)
+  await expect(page.locator('.lz-theme-light:visible')).toHaveCount(0)
+  await page.reload()
+  await openMobileMenu()
+  await expect(theme).toHaveValue('dark')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await theme.focus()
+  await theme.press('Tab')
+  await expect(page.locator('starlight-lang-select:visible select')).toBeFocused()
+  await theme.selectOption('light')
+  await expect(theme).toHaveValue('light')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+  await expect(page.locator('.lz-theme-light:visible')).toHaveCount(1)
+  await page.emulateMedia({ colorScheme: 'dark' })
+  await theme.selectOption('auto')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await page.emulateMedia({ colorScheme: 'light' })
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+  const results = await new AxeBuilder({ page }).analyze()
+  expect(results.violations.filter((v) => ['serious', 'critical'].includes(v.impact ?? ''))).toEqual([])
+})

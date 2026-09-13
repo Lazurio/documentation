@@ -324,3 +324,72 @@ button,
     min-height: 0;
   }
 }
+
+/* Keep Starlight's native, labelled controls and behavior behind compact icons. */
+.lz-icon-select {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  color: var(--sl-color-gray-2);
+}
+
+.lz-icon-select label {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.lz-icon-select select {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: transparent;
+  text-overflow: clip;
+  background: transparent;
+}
+
+.lz-icon-select select:hover {
+  background: var(--sl-color-gray-6);
+}
+
+.lz-icon-select select:focus-visible {
+  outline: 2px solid var(--sl-color-text-accent) !important;
+  outline-offset: 2px !important;
+}
+
+.lz-icon-select option {
+  color: var(--sl-color-white);
+  background: var(--sl-color-bg-nav);
+}
+
+.lz-icon-select :is(.label-icon, .caret) {
+  display: none;
+}
+
+.lz-select-icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  pointer-events: none;
+}
+
+.lz-theme-light,
+:root[data-theme='light'] .lz-theme-dark {
+  display: none;
+}
+
+:root[data-theme='light'] .lz-theme-light {
+  display: block;
+}
+
+/* The overview shares the documentation sidebar without reserving a hero image column. */
+[data-has-sidebar] .hero {
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: clamp(1.5rem, 4vw, 3.5rem);
+}
+
+[data-has-sidebar] .hero h1 {
+  font-size: clamp(2.25rem, 4vw, 3.75rem);
+}
