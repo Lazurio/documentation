@@ -5,7 +5,7 @@ test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
   await expect(
-    page.getByRole('heading', { level: 1, name: 'What if you could run a company through GitHub?' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio documentation' }),
   ).toBeVisible()
 })
 
@@ -27,13 +27,13 @@ test('a configured local host still does not load production analytics', async (
 test('the IT decision path is readable and navigable', async ({ page }, testInfo) => {
   await page.goto('/en/')
   await expect(
-    page.getByRole('heading', { level: 1, name: 'What if you could run a company through GitHub?' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio documentation' }),
   ).toBeVisible()
 
   await expect(page.getByRole('img', { name: /Company work is translated by Lazurio/ })).toBeVisible()
   await expect(page.getByRole('img', { name: /People direct the work/ })).toBeVisible()
 
-  await page.locator('main').getByRole('link', { name: 'For IT administrators', exact: true }).click()
+  await page.getByRole('navigation', { name: 'Documentation sections' }).getByRole('link', { name: /^For IT administrators/ }).click()
   await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
   await expect(page.getByRole('heading', { level: 1, name: 'A ten-minute IT briefing' })).toBeVisible()
 
@@ -313,6 +313,10 @@ for (const path of ['/en/', '/cs/', '/en/agents/', '/cs/agents/']) {
 for (const locale of ['en', 'cs']) {
   test(`${locale} overview exposes topic navigation on desktop and mobile`, async ({ page }, testInfo) => {
     await page.goto(`/${locale}/`)
+    await expect(page.locator('main h1')).toHaveText(locale === 'cs' ? 'Dokumentace Lazuria' : 'Lazurio documentation')
+    const stones = page.locator('.lz-module-composition img')
+    await expect(stones).toHaveCount(5)
+    expect(await stones.evaluateAll((images) => images.every((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth === 96))).toBe(true)
     if (testInfo.project.name.startsWith('mobile')) {
       const toggle = page.locator('button[aria-controls="starlight__sidebar"]')
       await toggle.click()
