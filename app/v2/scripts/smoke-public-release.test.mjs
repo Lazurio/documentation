@@ -65,9 +65,17 @@ test('production smoke checks the Guide endpoint and source commit', async (t) =
     true,
     'production smoke must request the Czech Guide endpoint',
   )
-  assert.deepEqual(
-    requestedPaths.includes('/guide-assets/wispr-flow.svg'),
-    true,
-    'production smoke must request a Guide application asset',
-  )
+  for (const pathname of [
+    '/en/guide/recommended-apps/',
+    '/cs/guide/recommended-apps/',
+    '/guide-assets/wispr-flow.svg',
+    '/guide-assets/codexbar.svg',
+    '/guide-assets/browser-use.svg',
+  ]) {
+    assert.deepEqual(
+      requestedPaths.includes(pathname),
+      true,
+      `production smoke must request ${pathname}`,
+    )
+  }
 })
