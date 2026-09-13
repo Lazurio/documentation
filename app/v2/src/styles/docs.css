@@ -393,3 +393,42 @@ button,
 [data-has-sidebar] .hero h1 {
   font-size: clamp(2.25rem, 4vw, 3.75rem);
 }
+
+/* One compact row with equal hit areas and optically balanced icon sizes. */
+.header .right-group,
+.mobile-preferences {
+  gap: 0;
+}
+
+.header .social-icons::after {
+  display: none;
+}
+
+.mobile-preferences {
+  justify-content: flex-start;
+}
+
+.mobile-preferences .social-icons {
+  margin-inline-end: 0;
+  padding-block: 0;
+}
+
+:is(.header, .mobile-preferences) .social-icons a {
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border-radius: 6px;
+}
+
+:is(.header, .mobile-preferences) .social-icons svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.lz-select-icon:is(.lz-theme-light, .lz-theme-dark) {
+  width: 1.5rem;
+  height: 1.5rem;
+}
