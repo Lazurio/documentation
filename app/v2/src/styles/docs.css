@@ -325,64 +325,71 @@ button,
   }
 }
 
-/* Keep Starlight's native, labelled controls and behavior behind compact icons. */
-.lz-icon-select {
+/* Compact controls use native buttons/disclosure with Starlight-owned state and URLs. */
+lz-theme-toggle,
+lz-language-menu {
   position: relative;
   display: inline-flex;
   flex-shrink: 0;
-  color: var(--sl-color-gray-2);
 }
 
-.lz-icon-select label {
+.lz-preference-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
-}
-
-.lz-icon-select select {
-  width: 2.75rem;
-  height: 2.75rem;
-  margin: 0;
   padding: 0;
-  border: 1px solid transparent;
+  border: 0;
   border-radius: 6px;
-  color: transparent;
-  text-overflow: clip;
   background: transparent;
+  color: var(--sl-color-gray-2);
+  cursor: pointer;
+  list-style: none;
 }
 
-.lz-icon-select select:hover {
-  background: var(--sl-color-gray-6);
-}
-
-.lz-icon-select select:focus-visible {
-  outline: 2px solid var(--sl-color-text-accent) !important;
-  outline-offset: 2px !important;
-}
-
-.lz-icon-select option {
-  color: var(--sl-color-white);
-  background: var(--sl-color-bg-nav);
-}
-
-.lz-icon-select :is(.label-icon, .caret) {
-  display: none;
-}
-
-.lz-select-icon {
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  pointer-events: none;
+.lz-preference-button[hidden],
+lz-language-menu details[hidden] { display: none; }
+.lz-preference-button::-webkit-details-marker { display: none; }
+.lz-preference-button:hover { background: var(--sl-color-gray-6); }
+.lz-preference-button:focus-visible {
+  outline: 1px solid var(--sl-color-text-accent) !important;
+  outline-offset: -3px !important;
 }
 
 .lz-theme-light,
-:root[data-theme='light'] .lz-theme-dark {
-  display: none;
+:root[data-theme='light'] .lz-theme-dark { display: none; }
+:root[data-theme='light'] .lz-theme-light { display: block; }
+
+.lz-language-options {
+  position: absolute;
+  z-index: 10;
+  inset-inline-end: 0;
+  top: calc(100% + 0.375rem);
+  min-width: 10rem;
+  padding: 0.375rem;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 8px;
+  background: var(--sl-color-bg-nav);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
 }
 
-:root[data-theme='light'] .lz-theme-light {
-  display: block;
+.lz-language-options a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  color: var(--sl-color-gray-2);
+  font-size: 0.875rem;
+  text-decoration: none;
 }
+
+.lz-language-options a:hover,
+.lz-language-options a:focus-visible { background: var(--sl-color-gray-6); }
+.lz-language-options a[aria-current='true'] { color: var(--sl-color-text-accent); }
 
 /* The overview shares the documentation sidebar without reserving a hero image column. */
 [data-has-sidebar] .hero {
@@ -424,14 +431,11 @@ button,
 }
 
 :is(.header, .mobile-preferences) .social-icons svg {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.0625rem;
+  height: 1.0625rem;
 }
 
-.lz-select-icon:is(.lz-theme-light, .lz-theme-dark) {
-  width: 1.5rem;
-  height: 1.5rem;
-}
+
 
 /* Keep the existing generated ToC beside the article at laptop widths too. */
 @media (min-width: 60rem) {
@@ -511,4 +515,11 @@ button,
     margin-inline-start: max(0px, calc((100% - var(--sl-content-width)) / 4));
     margin-inline-end: auto;
   }
+}
+
+.mobile-preferences .lz-language-options {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  top: auto;
+  bottom: calc(100% + 0.375rem);
 }
