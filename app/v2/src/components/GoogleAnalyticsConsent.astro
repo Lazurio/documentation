@@ -202,7 +202,7 @@ const copy = locale === 'cs'
         const link = event.target.closest('a[data-analytics-event="Guide App Click"]')
         if (!(link instanceof HTMLAnchorElement)) return
         const app = link.dataset.analyticsApp
-        if (!['wispr-flow', 'codexbar', 'browser-use'].includes(app || '')) return
+        if (!['wispr-flow', 'codexbar', 'composio'].includes(app || '')) return
         window.gtag('event', 'guide_app_click', { app, content_group: 'guide', send_to: measurementId })
       })
 

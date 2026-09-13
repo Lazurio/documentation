@@ -79,7 +79,7 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
   })).toBe(true)
 })
 
-test('the Guide and real application visuals are available in both locales', async ({ page }) => {
+test('the Guide, work tips and real application visuals are available in both locales', async ({ page }) => {
   for (const locale of ['en', 'cs']) {
     await page.goto(`/${locale}/guide/`)
     await expect(page.getByRole('heading', { level: 1, name: 'Guide' })).toBeVisible()
@@ -88,11 +88,41 @@ test('the Guide and real application visuals are available in both locales', asy
     await page.getByRole('link', { name: new RegExp(`^${glossaryName}`) }).first().click()
     await expect(page.getByText('MCP server', { exact: true })).toBeVisible()
 
+    await page.goto(`/${locale}/guide/`)
+    const tipsName = locale === 'cs' ? 'Tipy pro práci' : 'Tips for working'
+    await page.getByRole('link', { name: new RegExp(`^${tipsName}`) }).first().click()
+    await expect(page).toHaveURL(new RegExp(`/${locale}/guide/work-tips/$`))
+    await expect(page.getByText('Browser Use', { exact: true })).toBeVisible()
+
     await page.goto(`/${locale}/guide/recommended-apps/`)
-    for (const app of ['Wispr Flow', 'CodexBar', 'Browser Use']) {
-      await expect(page.getByRole('img', { name: app })).toBeVisible()
+    for (const app of ['Wispr Flow', 'CodexBar', 'Composio']) {
+      const image = page.getByRole('img', { name: app })
+      await expect(image).toBeVisible()
+      await expect.poll(() => image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0)
     }
+    await expect(page.getByRole('heading', { name: 'Browser Use' })).toHaveCount(0)
   }
+})
+
+test('consented Guide app clicks include Composio but not Browser Use tips', async ({ page }) => {
+  await page.route('https://www.googletagmanager.com/**', (route) => route.fulfill({ status: 204, body: '' }))
+  await page.goto('/en/guide/recommended-apps/?__analytics_test=1')
+  await page.getByRole('button', { name: 'Allow analytics' }).click()
+
+  const composioEvent = await page.evaluate(() => {
+    const link = document.querySelector('a[data-analytics-app="composio"]')
+    if (!(link instanceof HTMLAnchorElement)) throw new Error('Composio link is missing')
+    link.addEventListener('click', (event) => event.preventDefault(), { once: true })
+    link.click()
+    const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
+    return dataLayer.find((entry) => entry[0] === 'event' && entry[1] === 'guide_app_click')
+  })
+  expect(composioEvent?.[2]).toMatchObject({ app: 'composio', content_group: 'guide' })
+
+  await page.goto('/en/guide/work-tips/?__analytics_test=1')
+  const browserUseLink = page.getByRole('link', { name: 'official Browser Use website' })
+  await expect(browserUseLink).toBeVisible()
+  await expect(browserUseLink).not.toHaveAttribute('data-analytics-event')
 })
 
 test('the IT decision path is readable and navigable', async ({ page }) => {
