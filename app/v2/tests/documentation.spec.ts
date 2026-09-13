@@ -368,3 +368,29 @@ test('icon controls retain labels, keyboard access and persistent theme choices'
   const results = await new AxeBuilder({ page }).analyze()
   expect(results.violations.filter((v) => ['serious', 'critical'].includes(v.impact ?? ''))).toEqual([])
 })
+
+test('article contents stay in a right column on laptops and collapse on mobile', async ({ page }, testInfo) => {
+  if (testInfo.project.name.startsWith('mobile')) {
+    await page.goto('/cs/agents/')
+    await expect(page.locator('.right-sidebar-panel')).not.toBeVisible()
+    await page.locator('#starlight__on-this-page--mobile').click()
+    await page.locator('mobile-starlight-toc').getByRole('link', { name: 'Plánovaný MCP server' }).click()
+    await expect(page.getByRole('heading', { name: 'Plánovaný MCP server', exact: true })).toBeInViewport()
+    return
+  }
+
+  for (const width of [1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/cs/agents/')
+    const toc = page.locator('.right-sidebar-panel')
+    await expect(toc).toBeVisible()
+    await expect(page.locator('mobile-starlight-toc')).not.toBeVisible()
+    const articleBox = await page.locator('main').boundingBox()
+    const tocBox = await toc.boundingBox()
+    expect(tocBox!.x).toBeGreaterThanOrEqual(articleBox!.x + articleBox!.width)
+    await toc.getByRole('link', { name: 'Jak obsah najít a načíst' }).click()
+    await expect(page.getByRole('heading', { name: 'Jak obsah najít a načíst', exact: true })).toBeInViewport()
+    await expect(toc.getByRole('link', { name: 'Jak obsah najít a načíst' })).toHaveAttribute('aria-current', 'true')
+    await expect(toc).toBeInViewport()
+  }
+})
