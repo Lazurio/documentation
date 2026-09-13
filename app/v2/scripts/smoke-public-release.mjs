@@ -21,6 +21,8 @@ if (root.status !== 302 || root.headers.get('location') !== '/en/') {
 for (const pathname of [
   '/en/',
   '/en/guide/',
+  '/cs/guide/',
+  '/guide-assets/wispr-flow.svg',
   '/en/it-administrators/',
   '/en/public-evidence/',
   '/diagrams/company-to-github.svg',
