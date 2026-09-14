@@ -1,4 +1,6 @@
 ---
+import { getCollection } from 'astro:content'
+
 interface Props {
   locale: 'cs' | 'en'
 }
@@ -6,6 +8,9 @@ interface Props {
 const { locale } = Astro.props
 const measurementId = import.meta.env.PUBLIC_GOOGLE_ANALYTICS_ID?.trim()
 const allowTestHost = import.meta.env.PUBLIC_ANALYTICS_TEST_HOST === 'true'
+// Build-time allowlist: the published documentation collection owns route names.
+const analyticsPaths = (await getCollection('docs', ({ data }) => !data.draft))
+  .map(({ id }) => `/${id.replace(/\/index$/, '')}/`)
 
 if (measurementId && !/^G-[A-Z0-9]+$/u.test(measurementId)) {
   throw new Error('PUBLIC_GOOGLE_ANALYTICS_ID must be a valid GA4 measurement ID.')
@@ -38,6 +43,7 @@ const copy = locale === 'cs'
     data-analytics-consent
     data-measurement-id={measurementId}
     data-locale={locale}
+    data-analytics-paths={JSON.stringify(analyticsPaths)}
     data-allow-test-host={allowTestHost ? 'true' : 'false'}
     hidden
   >
@@ -101,8 +107,24 @@ const copy = locale === 'cs'
           && params.get('utm_campaign') === 'guide'
       }
 
-      const contentGroup = window.location.pathname.includes('/guide/') ? 'guide' : 'documentation'
-      const cleanLocation = `${window.location.origin}${window.location.pathname}`
+      const normalizeAnalyticsPath = (pathname) => {
+        try {
+          const paths = JSON.parse(consent.dataset.analyticsPaths || '[]')
+          if (!Array.isArray(paths)) return '/404'
+          const candidate = pathname.endsWith('/') ? pathname : `${pathname}/`
+          // Return the allowlisted value, never arbitrary browser path text.
+          return paths.find((path) => path === candidate) || '/404'
+        } catch {
+          return '/404'
+        }
+      }
+      const analyticsPath = normalizeAnalyticsPath(window.location.pathname)
+      const contentGroup = analyticsPath.includes('/guide/') ? 'guide' : 'documentation'
+      const pageFields = {
+        page_location: `${window.location.origin}${analyticsPath}`,
+        page_path: analyticsPath,
+        page_referrer: '',
+      }
 
       const loadAnalytics = () => {
         if (analyticsLoaded) return
@@ -127,12 +149,11 @@ const copy = locale === 'cs'
           allow_ad_personalization_signals: false,
           allow_google_signals: false,
           cookie_domain: window.location.hostname,
-          page_location: cleanLocation,
+          ...pageFields,
           send_page_view: false,
         })
         const pageView = {
-          page_location: cleanLocation,
-          page_path: window.location.pathname,
+          ...pageFields,
           language: locale,
           content_group: contentGroup,
           send_to: measurementId,
@@ -203,7 +224,7 @@ const copy = locale === 'cs'
         if (!(link instanceof HTMLAnchorElement)) return
         const app = link.dataset.analyticsApp
         if (!['wispr-flow', 'codexbar', 'composio'].includes(app || '')) return
-        window.gtag('event', 'guide_app_click', { app, content_group: 'guide', send_to: measurementId })
+        window.gtag('event', 'guide_app_click', { ...pageFields, app, content_group: 'guide', send_to: measurementId })
       })
 
       const choice = readChoice()

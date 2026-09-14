@@ -103,9 +103,15 @@ single production analytics configuration. `bun run build:production` loads
 that value into both Astro and the artifact verifier before deployment. Normal
 and preview builds deliberately omit it. The browser bootstrap requires the
 canonical documentation hostname and affirmative visitor consent before it
-loads GA4. It sends the canonical origin and path without query or hash. A
-fixed Launchpad UTM triplet becomes bounded entry attribution; arbitrary URL,
+loads GA4. A build-time allowlist comes from the published documentation
+collection. One fail-closed normalizer returns a matching canonical path or
+`/404`; arbitrary path segments, query and hash never enter page payloads.
+Config, page-view and app-click payloads share these normalized page fields
+and explicitly clear `page_referrer`. A fixed Launchpad UTM triplet becomes bounded entry attribution; arbitrary URL,
 search, Organization and user data remain outside the analytics contract.
+The property owner must separately confirm that Enhanced Measurement page
+changes based on browser history events are disabled; source tests cannot
+prove this provider setting.
 
 ## Failure modes
 

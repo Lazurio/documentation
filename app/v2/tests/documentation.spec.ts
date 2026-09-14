@@ -45,6 +45,9 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
   })
   expect(config?.[2]).toMatchObject({
     page_location: expectedCleanLocation,
+    page_path: '/en/guide/',
+    page_referrer: '',
+    send_page_view: false,
   })
   expect(JSON.stringify(config)).not.toContain('private')
   expect(JSON.stringify(config)).not.toContain('never-send')
@@ -52,6 +55,7 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
   expect(pageView?.[2]).toMatchObject({
     page_location: expect.not.stringContaining('?'),
     page_path: '/en/guide/',
+    page_referrer: '',
     content_group: 'guide',
     campaign_source: 'launchpad',
     campaign_medium: 'product',
