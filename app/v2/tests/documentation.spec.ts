@@ -4,6 +4,9 @@ import { expect, test } from '@playwright/test'
 test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
+  const siteTitle = page.getByRole('link', { name: 'Lazurio Docs' })
+  await expect(siteTitle).toBeVisible()
+  await expect(siteTitle.getByRole('img', { name: 'Lazurio' })).toBeVisible()
   await expect(
     page.getByRole('heading', { level: 1, name: 'Lazurio documentation' }),
   ).toBeVisible()

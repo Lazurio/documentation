@@ -41,8 +41,13 @@ export default defineConfig({
   },
   integrations: [
     starlight({
-      title: 'Lazurio documentation',
+      title: 'Lazurio Docs',
       description: 'How Lazurio works, what it is good for, and where its trust boundaries are.',
+      logo: {
+        src: '../../data/v2/public/favicon.svg',
+        alt: 'Lazurio',
+        replacesTitle: false,
+      },
       favicon: '/favicon.svg',
       // Starlight merges these defaults without duplicating its Twitter card tag.
       head: [
