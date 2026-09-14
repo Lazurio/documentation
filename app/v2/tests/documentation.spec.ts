@@ -5,7 +5,7 @@ test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
   await expect(
-    page.getByRole('heading', { level: 1, name: 'What if you could run a company through GitHub?' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio documentation' }),
   ).toBeVisible()
 })
 
@@ -129,20 +129,23 @@ test('consented Guide app clicks include Composio but not Browser Use tips', asy
   await expect(browserUseLink).not.toHaveAttribute('data-analytics-event')
 })
 
-test('the IT decision path is readable and navigable', async ({ page }) => {
+test('the IT decision path is readable and navigable', async ({ page }, testInfo) => {
   await page.goto('/en/')
   await expect(
-    page.getByRole('heading', { level: 1, name: 'What if you could run a company through GitHub?' }),
+    page.getByRole('heading', { level: 1, name: 'Lazurio documentation' }),
   ).toBeVisible()
 
   await expect(page.getByRole('img', { name: /Company work is translated by Lazurio/ })).toBeVisible()
   await expect(page.getByRole('img', { name: /People direct the work/ })).toBeVisible()
 
-  await page.getByRole('link', { name: 'For IT administrators' }).first().click()
+  await page.getByRole('navigation', { name: 'Documentation sections' }).getByRole('link', { name: /^For IT administrators/ }).click()
   await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
   await expect(page.getByRole('heading', { level: 1, name: 'A ten-minute IT briefing' })).toBeVisible()
 
-  await page.getByRole('link', { name: 'Lazurio vs Microsoft Copilot' }).first().click()
+  if (testInfo.project.name.startsWith('mobile')) {
+    await page.locator('button[aria-controls="starlight__sidebar"]').click()
+  }
+  await page.locator('#starlight__sidebar').getByRole('link', { name: 'Lazurio vs Microsoft Copilot', exact: true }).click()
   await expect(page).toHaveURL(/\/en\/lazurio-vs-microsoft-copilot\/$/)
 })
 
@@ -181,9 +184,9 @@ test('the language switch keeps the current page and localizes navigation', asyn
   if (testInfo.project.name.startsWith('mobile')) {
     await page.locator('button[aria-controls="starlight__sidebar"]').click()
   }
-  const englishLanguageSelect = page.locator('starlight-lang-select:visible select')
-  await expect(englishLanguageSelect).toBeVisible()
-  await englishLanguageSelect.selectOption({ label: 'Čeština' })
+  const languageMenu = page.locator('lz-language-menu:visible')
+  await languageMenu.locator('summary').click()
+  await languageMenu.getByRole('link', { name: 'Čeština', exact: true }).click()
 
   await expect(page).toHaveURL(/\/cs\/it-administrators\/$/)
   await expect(page.locator('html')).toHaveAttribute('lang', 'cs')
@@ -199,9 +202,11 @@ test('the language switch keeps the current page and localizes navigation', asyn
   await expect(page.getByRole('link', { name: 'Přístup k datům a zabezpečení' }).first()).toBeVisible()
   await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
 
-  const czechLanguageSelect = page.locator('starlight-lang-select:visible select')
-  await expect(czechLanguageSelect).toHaveValue('/cs/it-administrators/')
-  await czechLanguageSelect.selectOption({ label: 'English' })
+  const czechMenu = page.locator('lz-language-menu:visible')
+  await czechMenu.locator('summary').click()
+  await expect(czechMenu.getByRole('link', { name: 'Čeština', exact: true })).toHaveAttribute('aria-current', 'true')
+  await czechMenu.getByRole('link', { name: 'English', exact: true }).click()
+
   await expect(page).toHaveURL(/\/en\/it-administrators\/$/)
 })
 
@@ -439,4 +444,89 @@ test('GA4 redacts unknown paths and referrers on synthetic 404 pages', async ({ 
   expect(view?.[2]).toMatchObject(safe)
   expect(JSON.stringify(entries)).not.toContain(marker)
   expect(JSON.stringify(entries)).not.toContain('person@example.invalid')
+})
+
+for (const locale of ['en', 'cs']) {
+  test(`${locale} overview exposes topic navigation on desktop and mobile`, async ({ page }, testInfo) => {
+    await page.goto(`/${locale}/`)
+    await expect(page.locator('main h1')).toHaveText(locale === 'cs' ? 'Dokumentace Lazuria' : 'Lazurio documentation')
+    const stones = page.locator('.lz-module-composition img')
+    await expect(stones).toHaveCount(5)
+    expect(await stones.evaluateAll((images) => images.every((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth === 96))).toBe(true)
+    if (testInfo.project.name.startsWith('mobile')) {
+      const toggle = page.locator('button[aria-controls="starlight__sidebar"]')
+      await toggle.click()
+      await expect(page.locator('#starlight__sidebar')).toBeVisible()
+    }
+    const sidebar = page.locator('#starlight__sidebar')
+    await expect(sidebar.getByRole('link', { name: locale === 'cs' ? 'Přehled' : 'Overview', exact: true })).toHaveAttribute('aria-current', 'page')
+    await sidebar.locator(`a[href="/${locale}/faq/"]`).click()
+    await expect(page).toHaveURL(new RegExp(`/${locale}/faq/$`))
+    await expect(page.locator('main h1')).toBeVisible()
+  })
+}
+
+test('theme toggles directly and language disclosure supports keyboard dismissal', async ({ page }, testInfo) => {
+  await page.emulateMedia({ colorScheme: 'light' })
+  await page.goto('/cs/')
+  const openMobileMenu = async () => {
+    if (testInfo.project.name.startsWith('mobile')) {
+      await page.locator('button[aria-controls="starlight__sidebar"]').click()
+    }
+  }
+  await openMobileMenu()
+  const theme = page.locator('lz-theme-toggle:visible button')
+  const language = page.locator('lz-language-menu:visible')
+  await expect(theme).toHaveAccessibleName('Přepnout na tmavý režim')
+  await expect(page.locator('starlight-theme-select:visible')).toHaveCount(0)
+  await theme.click()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await expect(theme).toHaveAccessibleName('Přepnout na světlý režim')
+  await expect(page.locator('.lz-theme-dark:visible')).toHaveCount(1)
+  await page.reload()
+  await openMobileMenu()
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark')
+  await theme.press('Enter')
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+  await theme.press('Tab')
+  await expect(language.locator('summary')).toBeFocused()
+  await language.locator('summary').press('Enter')
+  const selected = language.getByRole('link', { name: 'Čeština', exact: true })
+  await expect(selected).toHaveAttribute('aria-current', 'true')
+  await expect(selected).toBeInViewport()
+  await selected.focus()
+  await selected.press('Escape')
+  await expect(language.locator('details')).not.toHaveAttribute('open', '')
+  await expect(language.locator('summary')).toBeFocused()
+  await language.locator('summary').click()
+  await theme.click()
+  await expect(language.locator('details')).not.toHaveAttribute('open', '')
+  const results = await new AxeBuilder({ page }).analyze()
+  expect(results.violations.filter((v) => ['serious', 'critical'].includes(v.impact ?? ''))).toEqual([])
+})
+
+test('article contents stay in a right column on laptops and collapse on mobile', async ({ page }, testInfo) => {
+  if (testInfo.project.name.startsWith('mobile')) {
+    await page.goto('/cs/agents/')
+    await expect(page.locator('.right-sidebar-panel')).not.toBeVisible()
+    await page.locator('#starlight__on-this-page--mobile').click()
+    await page.locator('mobile-starlight-toc').getByRole('link', { name: 'Plánovaný MCP server' }).click()
+    await expect(page.getByRole('heading', { name: 'Plánovaný MCP server', exact: true })).toBeInViewport()
+    return
+  }
+
+  for (const width of [1024, 1440]) {
+    await page.setViewportSize({ width, height: 900 })
+    await page.goto('/cs/agents/')
+    const toc = page.locator('.right-sidebar-panel')
+    await expect(toc).toBeVisible()
+    await expect(page.locator('mobile-starlight-toc')).not.toBeVisible()
+    const articleBox = await page.locator('main').boundingBox()
+    const tocBox = await toc.boundingBox()
+    expect(tocBox!.x).toBeGreaterThanOrEqual(articleBox!.x + articleBox!.width)
+    await toc.getByRole('link', { name: 'Jak obsah najít a načíst' }).click()
+    await expect(page.getByRole('heading', { name: 'Jak obsah najít a načíst', exact: true })).toBeInViewport()
+    await expect(toc.getByRole('link', { name: 'Jak obsah najít a načíst' })).toHaveAttribute('aria-current', 'true')
+    await expect(toc).toBeInViewport()
+  }
 })

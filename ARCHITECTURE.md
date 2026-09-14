@@ -71,8 +71,10 @@ English (`en`) is the default locale and Czech (`cs`) is a curated peer, not a
 generated read model. Both locale trees use the same source-relative slugs and
 the same `stableId`, evidence references, audiences and trust-review metadata.
 Starlight owns locale routing, translated UI and the route-preserving language
-selector; the Module does not maintain a parallel router or custom locale
-component.
+selector options. A compact language disclosure uses those generated URLs and
+labels; the Module does not maintain a parallel locale router. The direct
+light/dark button delegates changes to the upstream theme selector, which
+remains the owner of persisted appearance preferences.
 
 Content validation fails when either locale is missing, when paired documents
 use different slugs or evidence metadata, or when a frontmatter locale does
