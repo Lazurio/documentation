@@ -9,7 +9,7 @@
   "env": {
     "production": {
       "vars": {
-        "PUBLIC_PLAUSIBLE_SCRIPT_URL": "https://plausible.io/js/pa-ltzsxuYqcCwGVNf3CSHxF.js"
+        "PUBLIC_GOOGLE_ANALYTICS_ID": "G-PBSK35RX41"
       }
     }
   }

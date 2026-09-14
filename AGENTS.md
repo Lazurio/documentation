@@ -46,7 +46,13 @@ bun run test:browser
 ```
 
 Use the local Astro application for browser checks and the deployed Cloudflare
-Pages site for the final production smoke. This repository is a read-only
+Pages site for the final production smoke.
+
+Before a production release that loads GA4, independently verify the current
+state of the GA4 web data stream: Enhanced Measurement "Page changes based on
+browser history events" must be disabled. `send_page_view: false` in code is
+not sufficient evidence; the release needs a readback from the property owner
+for the exact measurement ID. This repository is a read-only
 productionspace system in Launchpad, not a runnable Workspace module. Record
 new repository-specific uncertainties in `ISSUES.open.json`; broader roadmap
 state belongs in the owning Organization's private Mission Control.

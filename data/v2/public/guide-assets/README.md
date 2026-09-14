@@ -1,6 +1,6 @@
 # Guide assets
 
-- `wispr-flow.svg`, `codexbar.svg` — official marks of the
+- `wispr-flow.svg`, `codexbar.svg`, `composio.svg` — official marks of the
   recommended applications, used unchanged; sources are listed in
   `data/v2/source-map.json`.
 - `mattycus-idle.png` — Mattyčus, the approved default Guide companion from

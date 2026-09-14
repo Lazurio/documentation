@@ -12,7 +12,7 @@
     "test:agent-index": "node --test scripts/query-content-index.test.mjs",
     "check": "bun run prepare:data && bun run validate:content && astro check && bun run test:links && bun run test:public-safety && bun run test:agent-index && node --test scripts/smoke-public-release.test.mjs scripts/verify-brand-assets.test.mjs",
     "build": "bun run check && astro build && bun scripts/verify-redirect-artifact.mjs && bun scripts/verify-analytics-artifact.mjs",
-    "build:browser-test": "PUBLIC_PLAUSIBLE_SCRIPT_URL=https://plausible.io/js/pa-browser-test.js astro build && bun scripts/verify-redirect-artifact.mjs && PUBLIC_PLAUSIBLE_SCRIPT_URL=https://plausible.io/js/pa-browser-test.js bun scripts/verify-analytics-artifact.mjs",
+    "build:browser-test": "PUBLIC_GOOGLE_ANALYTICS_ID=G-TEST123456 PUBLIC_ANALYTICS_TEST_HOST=true astro build && bun scripts/verify-redirect-artifact.mjs && PUBLIC_GOOGLE_ANALYTICS_ID=G-TEST123456 bun scripts/verify-analytics-artifact.mjs",
     "build:production": "bun scripts/build-production.mjs",
     "test:browser": "bun run prepare:data && bun run build:browser-test && playwright test",
     "smoke:production": "bun scripts/smoke-public-release.mjs",
