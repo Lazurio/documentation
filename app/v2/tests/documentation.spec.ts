@@ -10,18 +10,123 @@ test('the site root selects the accepted English locale', async ({ page }) => {
 })
 
 test('a configured local host still does not load production analytics', async ({ page }) => {
-  const plausibleRequests: string[] = []
+  const analyticsRequests: string[] = []
   page.on('request', (request) => {
-    if (request.url().startsWith('https://plausible.io/')) plausibleRequests.push(request.url())
+    if (request.url().includes('googletagmanager.com')) analyticsRequests.push(request.url())
   })
 
   await page.goto('/en/')
 
-  await expect(page.locator('script[data-plausible-script-url]')).toHaveAttribute(
-    'data-plausible-script-url',
-    'https://plausible.io/js/pa-browser-test.js',
-  )
-  expect(plausibleRequests).toEqual([])
+  await expect(page.locator('script[data-ga-consent-bootstrap]')).toHaveCount(1)
+  expect(analyticsRequests).toEqual([])
+})
+
+test('GA4 loads only after consent and strips arbitrary URL data', async ({ page }) => {
+  const analyticsRequests: string[] = []
+  await page.route('https://www.googletagmanager.com/**', async (route) => {
+    analyticsRequests.push(route.request().url())
+    await route.fulfill({ status: 204, body: '' })
+  })
+
+  await page.goto('/en/guide/?utm_source=launchpad&utm_medium=product&utm_campaign=guide&private=never-send&__analytics_test=1')
+
+  await expect(page.getByRole('dialog', { name: 'Help us improve the documentation?' })).toBeVisible()
+  expect(analyticsRequests).toEqual([])
+
+  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  await expect.poll(() => analyticsRequests.length).toBe(1)
+  const expectedCleanLocation = `${new URL(page.url()).origin}/en/guide/`
+  const [config, pageView] = await page.evaluate(() => {
+    const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
+    return [
+      dataLayer.find((entry) => entry[0] === 'config'),
+      dataLayer.find((entry) => entry[0] === 'event' && entry[1] === 'page_view'),
+    ]
+  })
+  expect(config?.[2]).toMatchObject({
+    page_location: expectedCleanLocation,
+    page_path: '/en/guide/',
+    page_referrer: '',
+    send_page_view: false,
+  })
+  expect(JSON.stringify(config)).not.toContain('private')
+  expect(JSON.stringify(config)).not.toContain('never-send')
+  expect(JSON.stringify(config)).not.toContain('__analytics_test')
+  expect(pageView?.[2]).toMatchObject({
+    page_location: expect.not.stringContaining('?'),
+    page_path: '/en/guide/',
+    page_referrer: '',
+    content_group: 'guide',
+    campaign_source: 'launchpad',
+    campaign_medium: 'product',
+    campaign_name: 'guide',
+    entry_point: 'launchpad',
+  })
+  expect(JSON.stringify(pageView)).not.toContain('private')
+  expect(JSON.stringify(pageView)).not.toContain('never-send')
+  expect(JSON.stringify(pageView)).not.toContain('__analytics_test')
+
+  await page.getByRole('button', { name: 'Analytics settings' }).click()
+  await page.getByRole('button', { name: 'Decline' }).click()
+  expect(await page.evaluate(() => Reflect.get(window, 'ga-disable-G-TEST123456'))).toBe(true)
+  expect(await page.evaluate(() => {
+    const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
+    return dataLayer.some((entry) => {
+      const parameters = entry[2]
+      return entry[0] === 'consent'
+        && entry[1] === 'update'
+        && typeof parameters === 'object'
+        && parameters !== null
+        && 'analytics_storage' in parameters
+        && parameters.analytics_storage === 'denied'
+    })
+  })).toBe(true)
+})
+
+test('the Guide, work tips and real application visuals are available in both locales', async ({ page }) => {
+  for (const locale of ['en', 'cs']) {
+    await page.goto(`/${locale}/guide/`)
+    await expect(page.getByRole('heading', { level: 1, name: 'Guide' })).toBeVisible()
+
+    const glossaryName = locale === 'cs' ? 'Slovníček pojmů' : 'Glossary'
+    await page.getByRole('link', { name: new RegExp(`^${glossaryName}`) }).first().click()
+    await expect(page.getByText('MCP server', { exact: true })).toBeVisible()
+
+    await page.goto(`/${locale}/guide/`)
+    const tipsName = locale === 'cs' ? 'Tipy pro práci' : 'Tips for working'
+    await page.getByRole('link', { name: new RegExp(`^${tipsName}`) }).first().click()
+    await expect(page).toHaveURL(new RegExp(`/${locale}/guide/work-tips/$`))
+    await expect(page.getByText('Browser Use', { exact: true })).toBeVisible()
+
+    await page.goto(`/${locale}/guide/recommended-apps/`)
+    for (const app of ['Wispr Flow', 'CodexBar', 'Composio']) {
+      const image = page.getByRole('img', { name: app })
+      await expect(image).toBeVisible()
+      await expect.poll(() => image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0)
+    }
+    await expect(page.getByRole('heading', { name: 'Browser Use' })).toHaveCount(0)
+  }
+})
+
+test('consented Guide app clicks include Composio but not Browser Use tips', async ({ page }) => {
+  await page.route('https://www.googletagmanager.com/**', (route) => route.fulfill({ status: 204, body: '' }))
+  await page.goto('/en/guide/recommended-apps/?__analytics_test=1')
+  await page.getByRole('button', { name: 'Allow analytics' }).click()
+
+  const composioEvent = await page.evaluate(() => {
+    const link = document.querySelector('a[data-analytics-app="composio"]')
+    if (!(link instanceof HTMLAnchorElement)) throw new Error('Composio link is missing')
+    link.addEventListener('click', (event) => event.preventDefault(), { once: true })
+    link.click()
+    const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
+    return dataLayer.find((entry) => entry[0] === 'event' && entry[1] === 'guide_app_click')
+  })
+  expect(composioEvent?.[2]).toMatchObject({ app: 'composio', content_group: 'guide' })
+
+  await page.goto('/en/guide/work-tips/?__analytics_test=1')
+  const browserUseLink = page.getByRole('link', { name: 'official Browser Use website' })
+  await expect(browserUseLink).toBeVisible()
+  await expect(browserUseLink).not.toHaveAttribute('data-analytics-event')
 })
 
 test('the IT decision path is readable and navigable', async ({ page }, testInfo) => {
@@ -53,6 +158,7 @@ test('the homepage offers a neutral route into every documentation section', asy
   const directory = page.getByRole('navigation', { name: 'Documentation sections' })
 
   for (const title of [
+    'Guide',
     'How Lazurio works',
     'Use cases',
     'For IT administrators',
@@ -120,6 +226,7 @@ test('the Czech homepage gives every reader a clear way into the documentation',
   const directory = page.getByRole('navigation', { name: 'Části dokumentace' })
 
   for (const title of [
+    'Guide',
     'Jak Lazurio funguje',
     'Kdy dává Lazurio smysl',
     'Přehled pro správce IT',
@@ -311,6 +418,33 @@ for (const path of ['/en/', '/cs/', '/en/agents/', '/cs/agents/']) {
     expect(bytes.readUInt32BE(20)).toBe(1024)
   })
 }
+
+
+test('GA4 redacts unknown paths and referrers on synthetic 404 pages', async ({ page }) => {
+  const marker = 'person%40example.invalid'
+  const requests: string[] = []
+  await page.route('https://www.googletagmanager.com/**', async (route) => {
+    requests.push(route.request().url())
+    await route.fulfill({ status: 204, body: '' })
+  })
+  const response = await page.goto(`/en/guide/${marker}/?__analytics_test=1#${marker}`, {
+    referer: `https://example.invalid/private/${marker}`,
+  })
+  expect(response?.status()).toBe(404)
+  expect(requests).toEqual([])
+  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  await expect.poll(() => requests.length).toBe(1)
+  const entries = await page.evaluate(() =>
+    Array.from((window as Window & { dataLayer?: unknown[][] }).dataLayer ?? [], (entry) => Array.from(entry)),
+  )
+  const config = entries.find((entry) => entry[0] === 'config')
+  const view = entries.find((entry) => entry[0] === 'event' && entry[1] === 'page_view')
+  const safe = { page_location: `${new URL(page.url()).origin}/404`, page_path: '/404', page_referrer: '' }
+  expect(config?.[2]).toMatchObject({ ...safe, send_page_view: false })
+  expect(view?.[2]).toMatchObject(safe)
+  expect(JSON.stringify(entries)).not.toContain(marker)
+  expect(JSON.stringify(entries)).not.toContain('person@example.invalid')
+})
 
 for (const locale of ['en', 'cs']) {
   test(`${locale} overview exposes topic navigation on desktop and mobile`, async ({ page }, testInfo) => {

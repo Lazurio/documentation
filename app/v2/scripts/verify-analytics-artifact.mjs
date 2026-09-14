@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const distRoot = fileURLToPath(new URL('../dist/', import.meta.url))
-const configuredScriptUrl = process.env.PUBLIC_PLAUSIBLE_SCRIPT_URL?.trim()
+const configuredMeasurementId = process.env.PUBLIC_GOOGLE_ANALYTICS_ID?.trim()
 
 async function listHtmlFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true })
@@ -23,20 +23,28 @@ if (htmlFiles.length === 0) throw new Error('No built HTML files found for analy
 
 for (const path of htmlFiles) {
   const html = await readFile(path, 'utf8')
-  const hasPlausibleBootstrap = html.includes('window.plausible.init()')
-  const hasPlausibleScript = html.includes('plausible.io/js/pa-')
+  const hasGaBootstrap = html.includes('data-ga-consent-bootstrap')
+  const hasMeasurementId = configuredMeasurementId && html.includes(configuredMeasurementId)
+  const hasPlausible = html.includes('plausible.io') || html.includes('window.plausible')
+  const staticallyLoadsGoogle = /<script[^>]+src=["']https:\/\/www\.googletagmanager\.com/iu.test(html)
 
-  if (configuredScriptUrl) {
-    if (!html.includes(configuredScriptUrl) || !hasPlausibleBootstrap) {
-      throw new Error(`Configured Plausible bootstrap is missing from ${path}.`)
+  if (hasPlausible) throw new Error(`Plausible must not be present in ${path}.`)
+  if (staticallyLoadsGoogle) throw new Error(`Google Analytics must not load before consent in ${path}.`)
+
+  if (configuredMeasurementId) {
+    if (!hasGaBootstrap || !hasMeasurementId) {
+      throw new Error(`Configured consent-gated GA4 bootstrap is missing from ${path}.`)
     }
-  } else if (hasPlausibleScript || hasPlausibleBootstrap) {
-    throw new Error(`Plausible must not be present in a build without PUBLIC_PLAUSIBLE_SCRIPT_URL: ${path}.`)
+    if (!html.includes("window.location.pathname") || !html.includes("'launchpad'")) {
+      throw new Error(`Privacy-safe page attribution is missing from ${path}.`)
+    }
+  } else if (hasGaBootstrap || html.includes('googletagmanager.com/gtag/js')) {
+    throw new Error(`GA4 must not be present in a build without PUBLIC_GOOGLE_ANALYTICS_ID: ${path}.`)
   }
 }
 
 console.log(
-  configuredScriptUrl
-    ? `Plausible production bootstrap verified in ${htmlFiles.length} HTML files.`
-    : `Plausible correctly absent from ${htmlFiles.length} non-production HTML files.`,
+  configuredMeasurementId
+    ? `Consent-gated GA4 bootstrap verified in ${htmlFiles.length} HTML files.`
+    : `GA4 correctly absent from ${htmlFiles.length} non-production HTML files.`,
 )

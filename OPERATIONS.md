@@ -6,6 +6,14 @@ reviewed `main` commit through the gate in `app/v2/scripts/assert-production-gat
 Provider account identifiers and credentials remain operator environment values;
 they are not stored in this repository.
 
+Production analytics uses measurement ID `G-PBSK35RX41`, the existing Lazurio
+GA4 property used by the public website. The deploy artifact contains a
+consent-gated bootstrap; it does not contact Google before an affirmative
+choice and normal or preview builds contain no analytics configuration.
+Plausible is not part of the documentation artifact. Removing a property or
+cancelling a provider subscription is a separate operator decision, not part
+of this migration.
+
 ## Release smoke
 
 After every deployment or rollback, verify the canonical hostname, redirect,
