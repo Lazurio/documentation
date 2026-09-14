@@ -33,7 +33,7 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
   await expect(page.getByRole('dialog', { name: 'Help us improve the documentation?' })).toBeVisible()
   expect(analyticsRequests).toEqual([])
 
-  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  await page.getByRole('button', { name: 'Allow all' }).click()
   await expect.poll(() => analyticsRequests.length).toBe(1)
   const expectedCleanLocation = `${new URL(page.url()).origin}/en/guide/`
   const [config, pageView] = await page.evaluate(() => {
@@ -66,8 +66,8 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
   expect(JSON.stringify(pageView)).not.toContain('never-send')
   expect(JSON.stringify(pageView)).not.toContain('__analytics_test')
 
-  await page.getByRole('button', { name: 'Analytics settings' }).click()
-  await page.getByRole('button', { name: 'Decline' }).click()
+  await page.getByRole('button', { name: 'Cookie settings' }).click()
+  await page.getByRole('button', { name: 'Decline all' }).click()
   expect(await page.evaluate(() => Reflect.get(window, 'ga-disable-G-TEST123456'))).toBe(true)
   expect(await page.evaluate(() => {
     const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
@@ -81,6 +81,28 @@ test('GA4 loads only after consent and strips arbitrary URL data', async ({ page
         && parameters.analytics_storage === 'denied'
     })
   })).toBe(true)
+})
+
+test('the consent dialog offers three choices immediately and keeps cookie settings available', async ({ page }) => {
+  await page.goto('/en/guide/?__analytics_test=1')
+
+  const dialog = page.getByRole('dialog', { name: 'Help us improve the documentation?' })
+  await expect(dialog).toBeVisible()
+  await expect(dialog.getByRole('button', { name: 'Allow all' })).toBeVisible()
+  await expect(dialog.getByRole('button', { name: 'Only necessary' })).toBeVisible()
+  await expect(dialog.getByRole('button', { name: 'Decline all' })).toBeVisible()
+  await expect(dialog.getByText('Necessary cookies', { exact: true })).toBeVisible()
+  await expect(dialog.getByText('Analytics cookies', { exact: true })).toBeVisible()
+
+  await dialog.getByRole('button', { name: 'Only necessary' }).click()
+  await expect(dialog).toBeHidden()
+  await expect(page.getByRole('button', { name: 'Cookie settings' })).toBeVisible()
+
+  await page.getByRole('button', { name: 'Cookie settings' }).click()
+  await expect(dialog).toBeVisible()
+  await dialog.getByRole('button', { name: 'Decline all' }).click()
+  await expect(dialog).toBeHidden()
+  expect(await page.evaluate(() => localStorage.getItem('lazurio_documentation_analytics_consent_v1'))).toContain('rejected')
 })
 
 test('the Guide, work tips and real application visuals are available in both locales', async ({ page }) => {
@@ -111,7 +133,7 @@ test('the Guide, work tips and real application visuals are available in both lo
 test('consented Guide app clicks include Composio but not Browser Use tips', async ({ page }) => {
   await page.route('https://www.googletagmanager.com/**', (route) => route.fulfill({ status: 204, body: '' }))
   await page.goto('/en/guide/recommended-apps/?__analytics_test=1')
-  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  await page.getByRole('button', { name: 'Allow all' }).click()
 
   const composioEvent = await page.evaluate(() => {
     const link = document.querySelector('a[data-analytics-app="composio"]')
@@ -432,7 +454,7 @@ test('GA4 redacts unknown paths and referrers on synthetic 404 pages', async ({ 
   })
   expect(response?.status()).toBe(404)
   expect(requests).toEqual([])
-  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  await page.getByRole('button', { name: 'Allow all' }).click()
   await expect.poll(() => requests.length).toBe(1)
   const entries = await page.evaluate(() =>
     Array.from((window as Window & { dataLayer?: unknown[][] }).dataLayer ?? [], (entry) => Array.from(entry)),
