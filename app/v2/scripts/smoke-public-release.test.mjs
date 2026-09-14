@@ -66,14 +66,18 @@ test('production smoke checks the Guide endpoint and source commit', async (t) =
     'production smoke must request the Czech Guide endpoint',
   )
   for (const pathname of [
+    '/en/guide/glossary/',
+    '/cs/guide/glossary/',
     '/en/guide/recommended-apps/',
     '/cs/guide/recommended-apps/',
     '/en/guide/work-tips/',
     '/cs/guide/work-tips/',
     '/guide-assets/wispr-flow.svg',
     '/guide-assets/codexbar.svg',
-    '/guide-assets/composio.svg',
     '/guide-assets/mattycus-idle.png',
+    '/module-icons/knowledgebase-96.png',
+    '/module-icons/guide-96.png',
+    '/module-icons/settings-96.png',
   ]) {
     assert.deepEqual(
       requestedPaths.includes(pathname),

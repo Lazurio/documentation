@@ -83,16 +83,6 @@
       "reviewDueAt": "2026-12-12"
     },
     {
-      "id": "composio",
-      "title": "Composio official website and documentation",
-      "publisher": "Composio",
-      "kind": "provider-documentation",
-      "url": "https://composio.dev/",
-      "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-13",
-      "reviewDueAt": "2026-12-13"
-    },
-    {
       "id": "microsoft-copilot-architecture",
       "title": "Microsoft 365 Copilot architecture and how it works",
       "publisher": "Microsoft Learn",
