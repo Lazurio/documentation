@@ -29,7 +29,6 @@ for (const pathname of [
   '/guide-assets/wispr-flow.svg',
   '/guide-assets/codexbar.svg',
   '/guide-assets/composio.svg',
-  '/guide-assets/browser-use.svg',
   '/en/it-administrators/',
   '/en/public-evidence/',
   '/diagrams/company-to-github.svg',

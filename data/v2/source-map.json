@@ -83,16 +83,6 @@
       "reviewDueAt": "2026-12-12"
     },
     {
-      "id": "browser-use",
-      "title": "Browser Use official website and documentation",
-      "publisher": "Browser Use",
-      "kind": "provider-documentation",
-      "url": "https://browser-use.com/",
-      "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-12",
-      "reviewDueAt": "2026-12-12"
-    },
-    {
       "id": "composio",
       "title": "Composio official website and documentation",
       "publisher": "Composio",

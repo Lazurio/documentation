@@ -3,15 +3,15 @@ title: Tips for working
 description: Practical ways to make working with an AI Colleague easier.
 stableId: lazurio-doc-guide-work-tips
 locale: en
-summary: How to use Browser Use for an AI Colleague's web work while keeping control over access and important actions.
-updatedAt: "2026-09-13"
-reviewedAt: "2026-09-13"
+summary: How an AI Colleague uses the built-in browser of its own tool (Browser Use) for web work while you keep control over access and important actions.
+updatedAt: "2026-09-14"
+reviewedAt: "2026-09-14"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - browser-use
   - lazurio-collaboration-model
+  - lazurio-external-apps
 audience:
   - decision-maker
   - builder
@@ -20,12 +20,13 @@ audience:
 
 ## When an AI Colleague needs to work on the web
 
-**Browser Use** lets an AI Colleague open a web page, click, fill in forms,
-and work with web applications according to your request. Treat it as a tip
-for a specific task, not as part of Lazurio. Its use depends on availability
-and the rules of your work environment.
-
-<img src="/guide-assets/browser-use.svg" alt="Browser Use logo" width="64" height="64" />
+**Browser Use** is the way an AI Colleague works on the web: it drives the
+browser built into its own tool, such as Codex, Claude Code or Cursor, to
+open a web page, click, fill in forms and work with web applications
+according to your request. It is a capability of the tool the Colleague
+runs in, not a separate service you need to sign up for, and not part of
+Lazurio. Whether it is available depends on that tool and on the rules of
+your work environment.
 
 It can help when you want an AI Colleague to research information, work
 through an admin interface, or prepare a form. Describe the outcome you need,
@@ -34,5 +35,3 @@ and ask to see what the Colleague intends to do before important actions.
 **Keep in mind:** Signing in to a website does not increase the Colleague's
 permissions. Sensitive, destructive, and publishing steps still require your
 confirmation. Do not put passwords or secrets in an ordinary chat.
-
-Learn more on the [official Browser Use website](https://browser-use.com/).

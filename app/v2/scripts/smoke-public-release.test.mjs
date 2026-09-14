@@ -73,7 +73,6 @@ test('production smoke checks the Guide endpoint and source commit', async (t) =
     '/guide-assets/wispr-flow.svg',
     '/guide-assets/codexbar.svg',
     '/guide-assets/composio.svg',
-    '/guide-assets/browser-use.svg',
   ]) {
     assert.deepEqual(
       requestedPaths.includes(pathname),
