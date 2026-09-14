@@ -1,3 +1,5 @@
+import { smokePaths, verifyGuideCoverage } from './release-smoke-matrix.mjs'
+
 const baseUrl = new URL(process.env.LAZURIO_DOCUMENTATION_SMOKE_URL ?? 'https://documentation.lazurio.ai')
 const expectedCommit = process.env.LAZURIO_DOCUMENTATION_EXPECTED_SHA
 
@@ -18,29 +20,10 @@ if (root.status !== 302 || root.headers.get('location') !== '/en/') {
   throw new Error(`Expected 302 / -> /en/, got ${root.status} ${root.headers.get('location') ?? '<no location>'}.`)
 }
 
-for (const pathname of [
-  '/en/',
-  '/en/guide/',
-  '/cs/guide/',
-  '/en/guide/recommended-apps/',
-  '/cs/guide/recommended-apps/',
-  '/en/guide/work-tips/',
-  '/cs/guide/work-tips/',
-  '/guide-assets/wispr-flow.svg',
-  '/guide-assets/codexbar.svg',
-  '/guide-assets/composio.svg',
-  '/guide-assets/browser-use.svg',
-  '/en/it-administrators/',
-  '/en/public-evidence/',
-  '/diagrams/company-to-github.svg',
-  '/diagrams/company-to-github-mobile.svg',
-  '/diagrams/human-directed-work.svg',
-  '/diagrams/human-directed-work-mobile.svg',
-  '/diagrams/lazurio-data-flow.svg',
-  '/diagrams/draft-publication-flow.svg',
-  '/diagrams/draft-publication-flow-mobile.svg',
-]) {
+verifyGuideCoverage(smokePaths)
+for (const pathname of smokePaths) {
   await request(pathname)
+  console.log(`Verified ${pathname}`)
 }
 
 const index = await request('/content-index.json')

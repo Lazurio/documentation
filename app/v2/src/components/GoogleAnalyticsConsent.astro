@@ -18,20 +18,30 @@ if (measurementId && !/^G-[A-Z0-9]+$/u.test(measurementId)) {
 
 const copy = locale === 'cs'
   ? {
-      settings: 'Nastavení analytiky',
+      settings: 'Nastavení cookies',
       title: 'Pomůžete nám zlepšovat dokumentaci?',
-      body: 'Google Analytics nám po Vašem souhlasu ukáže pouze souhrnné návštěvy a používání dokumentace. Analytiku můžete odmítnout a volbu kdykoli změnit.',
-      accept: 'Povolit analytiku',
+      body: 'Používáme technicky nutné cookies a volitelnou analytiku. Vyberte si, co povolíte. Volbu můžete kdykoli změnit.',
+      necessaryTitle: 'Nutné cookies',
+      necessaryBody: 'Vždy aktivní. Bez nich web nemůže správně fungovat.',
+      analyticsTitle: 'Analytické cookies',
+      analyticsBody: 'Volitelné. Google Analytics nám po souhlasu ukáže pouze souhrnné návštěvy a používání dokumentace.',
+      accept: 'Povolit vše',
+      necessary: 'Jen nutné',
       reject: 'Odmítnout',
       privacy: 'Ochrana soukromí',
       privacyUrl: 'https://lazurio.ai/cs/ochrana-soukromi/',
     }
   : {
-      settings: 'Analytics settings',
+      settings: 'Cookie settings',
       title: 'Help us improve the documentation?',
-      body: 'With your consent, Google Analytics shows us only aggregate visits and documentation usage. You can decline analytics and change your choice at any time.',
-      accept: 'Allow analytics',
-      reject: 'Decline',
+      body: 'We use necessary cookies and optional analytics. Choose what you allow. You can change your choice at any time.',
+      necessaryTitle: 'Necessary cookies',
+      necessaryBody: 'Always active. The site cannot work correctly without them.',
+      analyticsTitle: 'Analytics cookies',
+      analyticsBody: 'Optional. With your consent, Google Analytics shows only aggregate visits and documentation usage.',
+      accept: 'Allow all',
+      necessary: 'Only necessary',
+      reject: 'Decline all',
       privacy: 'Privacy policy',
       privacyUrl: 'https://lazurio.ai/privacy/',
     }
@@ -47,12 +57,24 @@ const copy = locale === 'cs'
     data-allow-test-host={allowTestHost ? 'true' : 'false'}
     hidden
   >
-    <div class="lz-analytics-consent__panel" role="dialog" aria-labelledby="lz-analytics-title" aria-describedby="lz-analytics-description">
+    <div class="lz-analytics-consent__backdrop" aria-hidden="true"></div>
+    <div class="lz-analytics-consent__panel" role="dialog" aria-modal="true" aria-labelledby="lz-analytics-title" aria-describedby="lz-analytics-description">
       <div>
         <strong id="lz-analytics-title">{copy.title}</strong>
         <p id="lz-analytics-description">{copy.body} <a href={copy.privacyUrl}>{copy.privacy}</a></p>
+        <div class="lz-analytics-consent__categories">
+          <div>
+            <strong>{copy.necessaryTitle}</strong>
+            <span>{copy.necessaryBody}</span>
+          </div>
+          <div>
+            <strong>{copy.analyticsTitle}</strong>
+            <span>{copy.analyticsBody}</span>
+          </div>
+        </div>
       </div>
       <div class="lz-analytics-consent__actions">
+        <button type="button" data-analytics-necessary>{copy.necessary}</button>
         <button type="button" data-analytics-reject>{copy.reject}</button>
         <button type="button" class="primary" data-analytics-accept>{copy.accept}</button>
       </div>
@@ -76,17 +98,23 @@ const copy = locale === 'cs'
         && window.location.hostname === '127.0.0.1'
         && new URLSearchParams(window.location.search).get('__analytics_test') === '1'
       if (!measurementId || (window.location.hostname !== productionHost && !isTestHost)) return
+      // Starlight's footer sits below the fixed navigation stacking context.
+      // Portal the modal to body so the initial consent prompt covers the whole viewport.
+      if (consent.parentElement !== document.body) document.body.append(consent)
+      const panel = consent.querySelector('[role="dialog"]')
+      if (!(panel instanceof HTMLElement)) return
 
       const storageKey = 'lazurio_documentation_analytics_consent_v1'
       const maxAgeMs = 180 * 24 * 60 * 60 * 1000
       let analyticsLoaded = false
+      let returnFocus = null
 
       const readChoice = () => {
         try {
           const stored = JSON.parse(localStorage.getItem(storageKey) || 'null')
-          if (!stored || !['granted', 'denied'].includes(stored.choice)) return null
+          if (!stored || !['granted', 'necessary', 'rejected', 'denied'].includes(stored.choice)) return null
           if (Date.now() - Number(stored.savedAt) > maxAgeMs) return null
-          return stored.choice
+          return stored.choice === 'denied' ? 'rejected' : stored.choice
         } catch {
           return null
         }
@@ -192,9 +220,45 @@ const copy = locale === 'cs'
         }))
       }
 
+      const setConsentOpen = (open) => {
+        consent.hidden = !open
+        settings.hidden = open
+        document.documentElement.classList.toggle('lz-analytics-open', open)
+        if (open) {
+          const firstButton = consent.querySelector('button')
+          if (firstButton instanceof HTMLButtonElement) {
+            requestAnimationFrame(() => firstButton.focus())
+          }
+        } else if (returnFocus instanceof HTMLElement) {
+          returnFocus.focus()
+          returnFocus = null
+        }
+      }
+
+      const focusableElements = () => Array.from(
+        panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+      ).filter((element) => element instanceof HTMLElement && !element.hidden)
+
+      document.addEventListener('keydown', (event) => {
+        if (consent.hidden || event.key !== 'Tab') return
+        const focusable = focusableElements()
+        if (!focusable.length) {
+          event.preventDefault()
+          return
+        }
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && (document.activeElement === first || !panel.contains(document.activeElement))) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && (document.activeElement === last || !panel.contains(document.activeElement))) {
+          event.preventDefault()
+          first.focus()
+        }
+      })
+
       const applyChoice = (choice) => {
-        consent.hidden = true
-        settings.hidden = false
+        setConsentOpen(false)
         if (choice === 'granted') {
           window[`ga-disable-${measurementId}`] = false
           loadAnalytics()
@@ -209,13 +273,17 @@ const copy = locale === 'cs'
         saveChoice('granted')
         applyChoice('granted')
       })
+      consent.querySelector('[data-analytics-necessary]')?.addEventListener('click', () => {
+        saveChoice('necessary')
+        applyChoice('necessary')
+      })
       consent.querySelector('[data-analytics-reject]')?.addEventListener('click', () => {
-        saveChoice('denied')
-        applyChoice('denied')
+        saveChoice('rejected')
+        applyChoice('rejected')
       })
       settings.addEventListener('click', () => {
-        consent.hidden = false
-        settings.hidden = true
+        returnFocus = settings
+        setConsentOpen(true)
       })
 
       document.addEventListener('click', (event) => {
@@ -223,13 +291,13 @@ const copy = locale === 'cs'
         const link = event.target.closest('a[data-analytics-event="Guide App Click"]')
         if (!(link instanceof HTMLAnchorElement)) return
         const app = link.dataset.analyticsApp
-        if (!['wispr-flow', 'codexbar', 'composio'].includes(app || '')) return
+        if (!['wispr-flow', 'codexbar', 'amphetamine'].includes(app || '')) return
         window.gtag('event', 'guide_app_click', { ...pageFields, app, content_group: 'guide', send_to: measurementId })
       })
 
       const choice = readChoice()
       if (choice) applyChoice(choice)
-      else consent.hidden = false
+      else setConsentOpen(true)
     })()
   </script>
 )}

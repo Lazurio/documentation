@@ -83,24 +83,14 @@
       "reviewDueAt": "2026-12-12"
     },
     {
-      "id": "browser-use",
-      "title": "Browser Use official website and documentation",
-      "publisher": "Browser Use",
+      "id": "amphetamine",
+      "title": "Amphetamine on the Mac App Store",
+      "publisher": "William Gustafson",
       "kind": "provider-documentation",
-      "url": "https://browser-use.com/",
-      "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-12",
-      "reviewDueAt": "2026-12-12"
-    },
-    {
-      "id": "composio",
-      "title": "Composio official website and documentation",
-      "publisher": "Composio",
-      "kind": "provider-documentation",
-      "url": "https://composio.dev/",
-      "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-13",
-      "reviewDueAt": "2026-12-13"
+      "url": "https://apps.apple.com/app/amphetamine/id937984704",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-14",
+      "reviewDueAt": "2026-12-14"
     },
     {
       "id": "microsoft-copilot-architecture",

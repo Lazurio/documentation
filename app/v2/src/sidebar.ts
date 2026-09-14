@@ -1,4 +1,4 @@
 import type { StarlightUserConfig } from '@astrojs/starlight/types'
-import { sidebar as sidebarData } from '../../../data/v2/sidebar'
+import { sidebar as sidebarData } from '../../../data/v2/sidebar.mjs'
 
 export const sidebar = sidebarData satisfies StarlightUserConfig['sidebar']
