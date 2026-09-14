@@ -5,7 +5,7 @@ import { findPublicSafetyErrors, publicSafetyTargets } from './public-safety-sca
 
 test('public-safety targets include localized navigation copy', async () => {
   const targets = await publicSafetyTargets()
-  assert.ok(targets.some((target) => target.endsWith(path.join('data', 'v2', 'sidebar.ts'))))
+  assert.ok(targets.some((target) => target.endsWith(path.join('data', 'v2', 'sidebar.mjs'))))
 })
 
 test('public-safety rules reject unsupported English and Czech trust claims', () => {

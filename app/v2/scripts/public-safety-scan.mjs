@@ -40,7 +40,7 @@ export async function publicSafetyTargets() {
     ...(await walkDocumentation(path.join(moduleRoot, 'data/v2/docs'))),
     path.join(moduleRoot, 'data/v2/source-map.json'),
     path.join(moduleRoot, 'data/v2/documentation.json'),
-    path.join(moduleRoot, 'data/v2/sidebar.ts'),
+    path.join(moduleRoot, 'data/v2/sidebar.mjs'),
     path.join(moduleRoot, 'README.md'),
     path.join(moduleRoot, 'ARCHITECTURE.md'),
     path.join(moduleRoot, 'AGENTS.md'),

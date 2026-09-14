@@ -415,6 +415,7 @@ test('the Guide, work tips and real application visuals are available in both lo
     await expect(page.getByText('Browser Use', { exact: true })).toBeVisible()
 
     await page.goto(`/${locale}/guide/recommended-apps/`)
+    await expect(page.locator('.lz-guide-app')).toHaveCount(2)
     for (const app of ['Wispr Flow', 'CodexBar']) {
       const image = page.getByRole('img', { name: app })
       await expect(image).toBeVisible()
