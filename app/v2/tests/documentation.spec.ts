@@ -53,6 +53,7 @@ test('the homepage offers a neutral route into every documentation section', asy
   const directory = page.getByRole('navigation', { name: 'Documentation sections' })
 
   for (const title of [
+    'Guide',
     'How Lazurio works',
     'Use cases',
     'For IT administrators',
@@ -120,6 +121,7 @@ test('the Czech homepage gives every reader a clear way into the documentation',
   const directory = page.getByRole('navigation', { name: 'Části dokumentace' })
 
   for (const title of [
+    'Guide',
     'Jak Lazurio funguje',
     'Kdy dává Lazurio smysl',
     'Přehled pro správce IT',
@@ -394,5 +396,30 @@ test('article contents stay in a right column on laptops and collapse on mobile'
     await expect(page.getByRole('heading', { name: 'Jak obsah najít a načíst', exact: true })).toBeInViewport()
     await expect(toc.getByRole('link', { name: 'Jak obsah najít a načíst' })).toHaveAttribute('aria-current', 'true')
     await expect(toc).toBeInViewport()
+  }
+})
+
+test('the Guide, work tips and real application visuals are available in both locales', async ({ page }) => {
+  for (const locale of ['en', 'cs']) {
+    await page.goto(`/${locale}/guide/`)
+    await expect(page.getByRole('heading', { level: 1, name: 'Guide' })).toBeVisible()
+
+    const glossaryName = locale === 'cs' ? 'Slovníček pojmů' : 'Glossary'
+    await page.getByRole('link', { name: new RegExp(`^${glossaryName}`) }).first().click()
+    await expect(page.getByText('MCP server', { exact: true })).toBeVisible()
+
+    await page.goto(`/${locale}/guide/`)
+    const tipsName = locale === 'cs' ? 'Tipy pro práci' : 'Tips for working'
+    await page.getByRole('link', { name: new RegExp(`^${tipsName}`) }).first().click()
+    await expect(page).toHaveURL(new RegExp(`/${locale}/guide/work-tips/$`))
+    await expect(page.getByText('Browser Use', { exact: true })).toBeVisible()
+
+    await page.goto(`/${locale}/guide/recommended-apps/`)
+    for (const app of ['Wispr Flow', 'CodexBar', 'Composio']) {
+      const image = page.getByRole('img', { name: app })
+      await expect(image).toBeVisible()
+      await expect.poll(() => image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0)
+    }
+    await expect(page.getByRole('heading', { name: 'Browser Use' })).toHaveCount(0)
   }
 })

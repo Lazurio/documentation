@@ -315,7 +315,72 @@ button,
   }
 }
 
+.sl-markdown-content .lz-guide-apps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.75rem;
+}
+
+.sl-markdown-content .lz-guide-app {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 1.1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 10px;
+  background: var(--sl-color-black);
+}
+
+.sl-markdown-content .lz-guide-app > * {
+  margin-block: 0;
+}
+
+.sl-markdown-content .lz-guide-app__visual {
+  display: flex;
+  align-items: center;
+  height: 4.75rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--lz-white);
+}
+
+.sl-markdown-content .lz-guide-app__visual img {
+  width: min(100%, 13rem);
+  max-height: 2.9rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.sl-markdown-content .lz-guide-app__visual--icon img {
+  width: 3.25rem;
+  max-height: 3.25rem;
+}
+
+.sl-markdown-content .lz-guide-app__eyebrow {
+  color: var(--sl-color-text-accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sl-markdown-content .lz-guide-app h2 {
+  margin-top: 0.1rem;
+  font-size: 1.35rem;
+}
+
+.sl-markdown-content .lz-guide-app__link {
+  margin-top: auto;
+  font-weight: 650;
+}
+
 @media (max-width: 40rem) {
+  .sl-markdown-content .lz-guide-apps {
+    grid-template-columns: 1fr;
+  }
+
   .sl-markdown-content .lz-directory {
     grid-template-columns: 1fr;
   }

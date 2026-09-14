@@ -20,6 +20,16 @@ if (root.status !== 302 || root.headers.get('location') !== '/en/') {
 
 for (const pathname of [
   '/en/',
+  '/en/guide/',
+  '/cs/guide/',
+  '/en/guide/recommended-apps/',
+  '/cs/guide/recommended-apps/',
+  '/en/guide/work-tips/',
+  '/cs/guide/work-tips/',
+  '/guide-assets/wispr-flow.svg',
+  '/guide-assets/codexbar.svg',
+  '/guide-assets/composio.svg',
+  '/guide-assets/browser-use.svg',
   '/en/it-administrators/',
   '/en/public-evidence/',
   '/diagrams/company-to-github.svg',
