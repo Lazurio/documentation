@@ -409,3 +409,30 @@ for (const path of ['/en/', '/cs/', '/en/agents/', '/cs/agents/']) {
     expect(bytes.readUInt32BE(20)).toBe(1024)
   })
 }
+
+
+test('GA4 redacts unknown paths and referrers on synthetic 404 pages', async ({ page }) => {
+  const marker = 'person%40example.invalid'
+  const requests: string[] = []
+  await page.route('https://www.googletagmanager.com/**', async (route) => {
+    requests.push(route.request().url())
+    await route.fulfill({ status: 204, body: '' })
+  })
+  const response = await page.goto(`/en/guide/${marker}/?__analytics_test=1#${marker}`, {
+    referer: `https://example.invalid/private/${marker}`,
+  })
+  expect(response?.status()).toBe(404)
+  expect(requests).toEqual([])
+  await page.getByRole('button', { name: 'Allow analytics' }).click()
+  await expect.poll(() => requests.length).toBe(1)
+  const entries = await page.evaluate(() =>
+    Array.from((window as Window & { dataLayer?: unknown[][] }).dataLayer ?? [], (entry) => Array.from(entry)),
+  )
+  const config = entries.find((entry) => entry[0] === 'config')
+  const view = entries.find((entry) => entry[0] === 'event' && entry[1] === 'page_view')
+  const safe = { page_location: `${new URL(page.url()).origin}/404`, page_path: '/404', page_referrer: '' }
+  expect(config?.[2]).toMatchObject({ ...safe, send_page_view: false })
+  expect(view?.[2]).toMatchObject(safe)
+  expect(JSON.stringify(entries)).not.toContain(marker)
+  expect(JSON.stringify(entries)).not.toContain('person@example.invalid')
+})
