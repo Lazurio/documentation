@@ -90,21 +90,27 @@ li {
 /* Launchpad-style section dividers retain the document heading and anchor. */
 .sl-markdown-content .sl-heading-wrapper.level-h2 {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-bottom: 2px solid var(--lz-blue-500);
-  padding-inline-start: 0.75rem;
+  align-items: stretch;
+  gap: 12px;
+  border-bottom: 1px solid var(--lz-blue-500);
+  padding: 0 0 0 16px;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .sl-markdown-content .sl-heading-wrapper.level-h2 > h2 {
   margin: 0;
-  padding: 0.45rem 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
   border-radius: 6px 6px 0 0;
   background: var(--lz-blue-500);
   color: var(--lz-white);
-  font-size: 1.05rem;
-  line-height: 1.4;
-  letter-spacing: -0.015em;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: normal;
   overflow-wrap: anywhere;
 }
 
