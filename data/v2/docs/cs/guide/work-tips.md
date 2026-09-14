@@ -32,6 +32,9 @@ Hodí se například, když chcete, aby AI Kolega vyhledal informace, prošel
 administraci nebo připravil formulář. Řekněte mu, jaký výsledek potřebujete,
 a u důležitých kroků si nechte ukázat, co se chystá udělat.
 
-**Mějte na paměti:** Přihlášení do webu mu nezvyšuje oprávnění. Citlivé,
+:::note[Mějte na paměti]
+Přihlášení do webu mu nezvyšuje oprávnění. Citlivé,
 destruktivní a publikační kroky stále vyžadují Vaše potvrzení. Nezadávejte
 hesla ani tajné údaje do běžného chatu.
+
+:::

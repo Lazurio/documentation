@@ -342,8 +342,20 @@ button,
   align-items: center;
   height: 4.75rem;
   padding: 1rem;
+  border: 1px solid var(--lz-gray-100);
   border-radius: 8px;
   background: var(--lz-white);
+}
+
+.sl-markdown-content .lz-guide-app {
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.sl-markdown-content .lz-guide-app:hover {
+  border-color: var(--lz-blue-400);
+  transform: translateY(-2px);
 }
 
 .sl-markdown-content .lz-guide-app__visual img {
@@ -359,11 +371,9 @@ button,
 }
 
 .sl-markdown-content .lz-guide-app__eyebrow {
-  color: var(--sl-color-text-accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  color: var(--sl-color-gray-3);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .sl-markdown-content .lz-guide-app h2 {
@@ -376,9 +386,83 @@ button,
   font-weight: 650;
 }
 
+/* Guide entry: introduction beside Mattyčus, the approved Guide companion.
+   The raster is shown at an integer scale with pixelated rendering only. */
+.sl-markdown-content .lz-guide-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
+  margin-block: 0.5rem 2rem;
+}
+
+.sl-markdown-content .lz-guide-intro > p {
+  margin-block: 0;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.sl-markdown-content .lz-guide-mascot {
+  width: 192px;
+  height: 208px;
+  margin: 0;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 12px 18px color-mix(in srgb, var(--lz-ink) 14%, transparent));
+}
+
+/* Directory cards with a module stone: the stone reuses the public Launchpad
+   icon and clips only its opaque white canvas, like the overview hero. */
+.sl-markdown-content .lz-directory--stones a {
+  min-height: 9.5rem;
+  padding-top: 1.35rem;
+}
+
+.sl-markdown-content .lz-directory--stones img {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 0 0.25rem;
+  clip-path: polygon(42% 8%, 61% 8%, 68% 11%, 86% 36%, 90% 47%, 89% 66%, 61% 89%, 52% 94%, 43% 93%, 34% 89%, 18% 75%, 13% 64%, 16% 34%, 20% 27%);
+  transition: transform 160ms ease;
+}
+
+.sl-markdown-content .lz-directory--stones a:hover img {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+/* Glossary: each term becomes a scannable entry with the term on its own
+   line and a hairline separating the entries. */
+.sl-markdown-content .lz-glossary {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  gap: 0 2rem;
+  margin-block: 1rem 2.5rem;
+}
+
+.sl-markdown-content .lz-glossary > p {
+  margin: 0;
+  padding-block: 0.9rem;
+  border-top: 1px solid var(--sl-color-hairline);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--sl-color-gray-3);
+}
+
+.sl-markdown-content .lz-glossary > p > strong:first-child {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--sl-color-white);
+  font-size: 1.05rem;
+}
+
 @media (max-width: 40rem) {
   .sl-markdown-content .lz-guide-apps {
     grid-template-columns: 1fr;
+  }
+
+  .sl-markdown-content .lz-guide-intro {
+    grid-template-columns: 1fr;
+    justify-items: start;
   }
 
   .sl-markdown-content .lz-directory {
@@ -575,9 +659,11 @@ lz-language-menu details[hidden] { display: none; }
   }
 }
 
+/* On wide screens keep every article near the topic sidebar instead of
+   centering it in the remaining space; the free space stays on the right. */
 @media (min-width: 72rem) {
-  :root[data-has-hero] .content-panel > .sl-container {
-    margin-inline-start: max(0px, calc((100% - var(--sl-content-width)) / 4));
+  .content-panel > .sl-container {
+    margin-inline-start: max(0px, calc((100% - var(--sl-content-width)) / 6));
     margin-inline-end: auto;
   }
 }

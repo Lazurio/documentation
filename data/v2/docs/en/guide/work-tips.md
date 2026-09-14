@@ -32,6 +32,9 @@ It can help when you want an AI Colleague to research information, work
 through an admin interface, or prepare a form. Describe the outcome you need,
 and ask to see what the Colleague intends to do before important actions.
 
-**Keep in mind:** Signing in to a website does not increase the Colleague's
+:::note[Keep in mind]
+Signing in to a website does not increase the Colleague's
 permissions. Sensitive, destructive, and publishing steps still require your
 confirmation. Do not put passwords or secrets in an ordinary chat.
+
+:::
