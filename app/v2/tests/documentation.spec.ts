@@ -99,7 +99,7 @@ test('the Guide, work tips and real application visuals are available in both lo
     await expect(page.getByText('Browser Use', { exact: true })).toBeVisible()
 
     await page.goto(`/${locale}/guide/recommended-apps/`)
-    for (const app of ['Wispr Flow', 'CodexBar', 'Composio']) {
+    for (const app of ['Wispr Flow', 'CodexBar', 'Composio', 'Amphetamine']) {
       const image = page.getByRole('img', { name: app })
       await expect(image).toBeVisible()
       await expect.poll(() => image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0)

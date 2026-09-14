@@ -303,7 +303,7 @@ button,
 
 .sl-markdown-content .lz-guide-apps {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-block: 1.75rem;
 }
@@ -319,6 +319,9 @@ button,
   background: var(--sl-color-black);
 }
 
+/* Starlight adds a top margin to every sibling after the first; the cards
+   must all start on the same line. */
+.sl-markdown-content .lz-guide-apps > .lz-guide-app,
 .sl-markdown-content .lz-guide-app > * {
   margin-block: 0;
 }
@@ -328,8 +331,20 @@ button,
   align-items: center;
   height: 4.75rem;
   padding: 1rem;
+  border: 1px solid var(--lz-gray-100);
   border-radius: 8px;
   background: var(--lz-white);
+}
+
+.sl-markdown-content .lz-guide-app {
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.sl-markdown-content .lz-guide-app:hover {
+  border-color: var(--lz-blue-400);
+  transform: translateY(-2px);
 }
 
 .sl-markdown-content .lz-guide-app__visual img {
@@ -345,11 +360,9 @@ button,
 }
 
 .sl-markdown-content .lz-guide-app__eyebrow {
-  color: var(--sl-color-text-accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  color: var(--sl-color-gray-3);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .sl-markdown-content .lz-guide-app h2 {
@@ -726,9 +739,11 @@ lz-language-menu details[hidden] { display: none; }
   }
 }
 
+/* On wide screens keep every article near the topic sidebar instead of
+   centering it in the remaining space; the free space stays on the right. */
 @media (min-width: 72rem) {
-  :root[data-has-hero] .content-panel > .sl-container {
-    margin-inline-start: max(0px, calc((100% - var(--sl-content-width)) / 4));
+  .content-panel > .sl-container {
+    margin-inline-start: max(0px, calc((100% - var(--sl-content-width)) / 6));
     margin-inline-end: auto;
   }
 }
