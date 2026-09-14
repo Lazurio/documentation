@@ -99,7 +99,7 @@ test('the Guide, work tips and real application visuals are available in both lo
     await expect(page.getByText('Browser Use', { exact: true })).toBeVisible()
 
     await page.goto(`/${locale}/guide/recommended-apps/`)
-    for (const app of ['Wispr Flow', 'CodexBar', 'Composio', 'Amphetamine']) {
+    for (const app of ['Wispr Flow', 'CodexBar', 'Amphetamine']) {
       const image = page.getByRole('img', { name: app })
       await expect(image).toBeVisible()
       await expect.poll(() => image.evaluate((element) => (element as HTMLImageElement).naturalWidth)).toBeGreaterThan(0)
@@ -108,20 +108,20 @@ test('the Guide, work tips and real application visuals are available in both lo
   }
 })
 
-test('consented Guide app clicks include Composio but not Browser Use tips', async ({ page }) => {
+test('consented Guide app clicks include Amphetamine but not Browser Use tips', async ({ page }) => {
   await page.route('https://www.googletagmanager.com/**', (route) => route.fulfill({ status: 204, body: '' }))
   await page.goto('/en/guide/recommended-apps/?__analytics_test=1')
   await page.getByRole('button', { name: 'Allow analytics' }).click()
 
-  const composioEvent = await page.evaluate(() => {
-    const link = document.querySelector('a[data-analytics-app="composio"]')
-    if (!(link instanceof HTMLAnchorElement)) throw new Error('Composio link is missing')
+  const appEvent = await page.evaluate(() => {
+    const link = document.querySelector('a[data-analytics-app="amphetamine"]')
+    if (!(link instanceof HTMLAnchorElement)) throw new Error('Amphetamine link is missing')
     link.addEventListener('click', (event) => event.preventDefault(), { once: true })
     link.click()
     const dataLayer = (window as Window & { dataLayer?: unknown[][] }).dataLayer ?? []
     return dataLayer.find((entry) => entry[0] === 'event' && entry[1] === 'guide_app_click')
   })
-  expect(composioEvent?.[2]).toMatchObject({ app: 'composio', content_group: 'guide' })
+  expect(appEvent?.[2]).toMatchObject({ app: 'amphetamine', content_group: 'guide' })
 
   // Browser Use is a capability of the Colleague's own tool, not a product:
   // the work tip must not link out to a third-party site or carry a click event.

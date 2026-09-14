@@ -83,16 +83,6 @@
       "reviewDueAt": "2026-12-12"
     },
     {
-      "id": "composio",
-      "title": "Composio official website and documentation",
-      "publisher": "Composio",
-      "kind": "provider-documentation",
-      "url": "https://composio.dev/",
-      "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-13",
-      "reviewDueAt": "2026-12-13"
-    },
-    {
       "id": "amphetamine",
       "title": "Amphetamine on the Mac App Store",
       "publisher": "William Gustafson",
