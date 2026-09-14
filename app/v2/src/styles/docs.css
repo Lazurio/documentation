@@ -732,11 +732,8 @@ lz-language-menu details[hidden] { display: none; }
   }
 }
 
-@media (min-width: 72rem) {
-  :root[data-has-hero] .content-panel > .sl-container {
-    margin-inline-start: max(0px, calc((100% - var(--sl-content-width)) / 4));
-    margin-inline-end: auto;
-  }
+.content-panel > .sl-container {
+  margin-inline: 0 auto;
 }
 
 .mobile-preferences .lz-language-options {

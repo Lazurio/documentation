@@ -536,6 +536,25 @@ test('theme toggles directly and language disclosure supports keyboard dismissal
   expect(results.violations.filter((v) => ['serious', 'critical'].includes(v.impact ?? ''))).toEqual([])
 })
 
+test('articles align with the content edge across viewport sizes', async ({ page }) => {
+  for (const width of [320, 390, 768, 1024, 1440, 1920, 2560]) {
+    await page.setViewportSize({ width, height: 900 })
+    for (const route of ['/cs/', '/cs/guide/', '/cs/lazurio-vs-microsoft-copilot/', '/en/it-administrators/', '/cs/guide/recommended-apps/']) {
+      await page.goto(route)
+      const layout = await page.locator('.content-panel').first().evaluate((panel) => {
+        const container = panel.querySelector('.sl-container')!
+        return {
+          inset: container.getBoundingClientRect().left - panel.getBoundingClientRect().left,
+          padding: parseFloat(getComputedStyle(panel).paddingLeft),
+          overflow: document.documentElement.scrollWidth - window.innerWidth,
+        }
+      })
+      expect(Math.abs(layout.inset - layout.padding), `${width}: ${route}`).toBeLessThan(2)
+      expect(layout.overflow, `${width}: ${route}`).toBeLessThanOrEqual(1)
+    }
+  }
+})
+
 test('article contents stay in a right column on laptops and collapse on mobile', async ({ page }, testInfo) => {
   if (testInfo.project.name.startsWith('mobile')) {
     await page.goto('/cs/agents/')
