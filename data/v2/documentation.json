@@ -1,6 +1,6 @@
 {
   "schema": "lazurio.documentation.v1",
-  "title": "Lazurio documentation",
+  "title": "Lazurio Docs",
   "canonical_url": "https://documentation.lazurio.ai",
   "source_repository": "https://github.com/Lazurio/documentation",
   "default_locale": "en",
