@@ -1,0 +1,83 @@
+---
+import Hero from '@astrojs/starlight/components/Hero.astro'
+
+const isOverview = Astro.locals.starlightRoute.entry.data.stableId === 'lazurio-doc-overview'
+const modules = ['knowledgebase', 'content', 'mission-control', 'deals', 'brainstorm']
+---
+
+{isOverview ? (
+  <div class="lz-documentation-hero">
+    <Hero />
+    <div class="lz-module-composition" aria-hidden="true">
+      {modules.map((name) => (
+        <img src={`/module-icons/${name}-96.png`} alt="" width="96" height="96" class={`lz-module-stone lz-stone-${name}`} />
+      ))}
+    </div>
+  </div>
+) : <Hero />}
+
+<style>
+  .lz-documentation-hero {
+    display: grid;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 3rem 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--sl-color-hairline);
+  }
+
+  .lz-documentation-hero :global(.hero) {
+    padding: 0;
+    min-width: 0;
+  }
+
+  .lz-documentation-hero :global(.hero h1) {
+    max-width: 12ch;
+    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+    line-height: 1.05;
+  }
+
+  .lz-documentation-hero :global(.tagline) {
+    max-width: 34ch;
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+
+  .lz-documentation-hero :global(.stack) {
+    gap: 1.5rem;
+  }
+
+  .lz-module-composition {
+    position: relative;
+    width: 17rem;
+    height: 15rem;
+    margin-inline: auto;
+  }
+
+  .lz-module-stone {
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    /* Clip only the opaque white canvas around the original Launchpad stones. */
+    clip-path: polygon(42% 8%, 61% 8%, 68% 11%, 86% 36%, 90% 47%, 89% 66%, 61% 89%, 52% 94%, 43% 93%, 34% 89%, 18% 75%, 13% 64%, 16% 34%, 20% 27%);
+  }
+
+  .lz-stone-knowledgebase {
+    clip-path: polygon(44% 8%, 61% 8%, 69% 12%, 85% 33%, 90% 47%, 89% 65%, 62% 88%, 52% 94%, 43% 92%, 19% 76%, 13% 65%, 16% 34%, 20% 27%);
+    left: 0; top: 1.75rem; transform: rotate(-14deg); }
+  .lz-stone-content { right: 0.75rem; top: 0; transform: rotate(12deg); }
+  .lz-stone-mission-control {
+    clip-path: polygon(44% 8%, 61% 8%, 69% 12%, 85% 34%, 90% 47%, 89% 65%, 63% 88%, 53% 94%, 44% 93%, 20% 76%, 13% 65%, 16% 35%, 20% 28%);
+    left: 5.5rem; top: 4.5rem; z-index: 1; }
+  .lz-stone-deals { left: 1.5rem; bottom: 0; transform: rotate(-9deg); }
+  .lz-stone-brainstorm { right: 0; bottom: 1rem; transform: rotate(14deg); }
+
+  @media (min-width: 60rem) {
+    .lz-documentation-hero {
+      grid-template-columns: minmax(0, 1fr) 17rem;
+      gap: 2rem;
+      min-height: 25rem;
+      padding-block: 3.5rem;
+    }
+  }
+</style>

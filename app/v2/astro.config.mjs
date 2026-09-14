@@ -69,6 +69,9 @@ export default defineConfig({
       ],
       components: {
         Head: './src/components/Head.astro',
+        Hero: './src/components/DocumentationHero.astro',
+        LanguageSelect: './src/components/IconLanguageSelect.astro',
+        ThemeSelect: './src/components/IconThemeSelect.astro',
       },
       sidebar,
       customCss: ['./src/styles/docs.css'],
