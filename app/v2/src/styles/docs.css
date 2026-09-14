@@ -87,6 +87,27 @@ li {
   text-wrap: pretty;
 }
 
+/* Launchpad-style section dividers retain the document heading and anchor. */
+.sl-markdown-content .sl-heading-wrapper.level-h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px solid var(--lz-blue-500);
+  padding-inline-start: 0.75rem;
+}
+
+.sl-markdown-content .sl-heading-wrapper.level-h2 > h2 {
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px 6px 0 0;
+  background: var(--lz-blue-500);
+  color: var(--lz-white);
+  font-size: 1.05rem;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+}
+
 header.header {
   border-bottom-color: var(--sl-color-hairline-light);
   backdrop-filter: blur(16px);
