@@ -101,6 +101,8 @@ const copy = locale === 'cs'
       // Starlight's footer sits below the fixed navigation stacking context.
       // Portal the modal to body so the initial consent prompt covers the whole viewport.
       if (consent.parentElement !== document.body) document.body.append(consent)
+      const panel = consent.querySelector('[role="dialog"]')
+      if (!(panel instanceof HTMLElement)) return
 
       const storageKey = 'lazurio_documentation_analytics_consent_v1'
       const maxAgeMs = 180 * 24 * 60 * 60 * 1000
@@ -232,6 +234,28 @@ const copy = locale === 'cs'
           returnFocus = null
         }
       }
+
+      const focusableElements = () => Array.from(
+        panel.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+      ).filter((element) => element instanceof HTMLElement && !element.hidden)
+
+      document.addEventListener('keydown', (event) => {
+        if (consent.hidden || event.key !== 'Tab') return
+        const focusable = focusableElements()
+        if (!focusable.length) {
+          event.preventDefault()
+          return
+        }
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (event.shiftKey && (document.activeElement === first || !panel.contains(document.activeElement))) {
+          event.preventDefault()
+          last.focus()
+        } else if (!event.shiftKey && (document.activeElement === last || !panel.contains(document.activeElement))) {
+          event.preventDefault()
+          first.focus()
+        }
+      })
 
       const applyChoice = (choice) => {
         setConsentOpen(false)

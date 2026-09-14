@@ -97,6 +97,12 @@ test('the consent dialog offers three choices immediately and keeps cookie setti
   await expect(dialog.getByText('Necessary cookies', { exact: true })).toBeVisible()
   await expect(dialog.getByText('Analytics cookies', { exact: true })).toBeVisible()
 
+  await dialog.getByRole('button', { name: 'Allow all' }).focus()
+  await page.keyboard.press('Tab')
+  await expect(dialog.getByRole('link', { name: 'Privacy policy' })).toBeFocused()
+  await page.keyboard.press('Shift+Tab')
+  await expect(dialog.getByRole('button', { name: 'Allow all' })).toBeFocused()
+
   await dialog.getByRole('button', { name: 'Only necessary' }).click()
   await expect(dialog).toBeHidden()
   await expect(page.getByRole('button', { name: 'Cookie settings' })).toBeVisible()
