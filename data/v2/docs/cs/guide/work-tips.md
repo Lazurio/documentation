@@ -4,14 +4,15 @@ description: Praktické postupy, které Vám usnadní práci s AI Kolegou.
 stableId: lazurio-doc-guide-work-tips
 locale: cs
 summary: Jak AI Kolega používá vestavěný prohlížeč svého nástroje (Browser Use) pro práci na webu, zatímco Vy držíte kontrolu nad přístupy a důležitými kroky.
-updatedAt: "2026-09-14"
-reviewedAt: "2026-09-14"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - openai-browser
 audience:
   - decision-maker
   - builder
@@ -20,21 +21,61 @@ audience:
 
 ## Když má AI Kolega pracovat na webu
 
-**Browser Use** je způsob, jakým AI Kolega pracuje na webu: ovládá
-prohlížeč vestavěný ve svém vlastním nástroji, například Codexu, Claude Code
-nebo Cursoru, a v něm otevře webovou stránku, kliká, vyplňuje formuláře a
-pracuje s webovými aplikacemi podle Vašeho zadání. Je to schopnost nástroje,
-ve kterém Kolega běží, ne samostatná služba, do které byste se museli
-registrovat, a není to součást Lazuria. Dostupnost závisí na daném nástroji
-a na pravidlech Vašeho pracovního prostředí.
+**Browser Use** znamená práci přímo v rozhraní webové stránky: agent otevírá stránky,
+kliká a vyplňuje pole. Není to totéž jako pouhé vyhledávání odkazů a nejde
+o součást Lazuria. Dostupnost závisí na konkrétním AI nástroji.
 
-Hodí se například, když chcete, aby AI Kolega vyhledal informace, prošel
-administraci nebo připravil formulář. Řekněte mu, jaký výsledek potřebujete,
-a u důležitých kroků si nechte ukázat, co se chystá udělat.
+## Jak začít v ChatGPT
+
+V desktopové aplikaci ChatGPT můžete mít chat a vestavěný prohlížeč vedle sebe.
+Otevřete ho z lišty nebo zkratkou **Cmd + Shift + B** na Macu
+(**Ctrl + Shift + B** ve Windows). V zadání použijte **`@Browser`**
+a vyberte nabízenou zmínku prohlížeče. Stejné rozhraní nečekejte v Codex CLI
+nebo IDE rozšíření.
+
+1. **Zadejte adresu a cíl.** Co má agent najít nebo připravit?
+2. **Určete hranice.** Co může číst a co nesmí měnit nebo odeslat?
+3. **Sledujte otevřenou stránku.** Zkontrolujte web a případné žádosti o přístup.
+4. **Přihlaste se osobně.** Vestavěný prohlížeč má vlastní profil; vaše běžné přihlášení se automaticky nepřenáší.
+5. **Ověřte výsledek.** Nechte si ukázat zdroj nebo připravený formulář.
+
+## Prompt: najdi informace na webu
+
+Zkopírujte text do svého chatu a nahraďte hranaté závorky konkrétními údaji.
+
+```text
+@Browser Použij vestavěný prohlížeč a otevři [adresa webu].
+Na stránce zjisti [co potřebuji vědět].
+Pracuj přímo s otevřenou stránkou, ne jen s výsledky vyhledávání.
+Nic neodesílej, nenakupuj a neměň nastavení.
+Na konci shrň zjištění a přidej odkazy na použité stránky.
+Pokud Browser Use nemáš, řekni to. Nepředstírej ovládání stránky.
+```
+
+## Prompt: připrav formulář, ale neodesílej ho
+
+```text
+@Browser Otevři [adresa webu] a pomoz mi připravit [název formuláře].
+Nejprve prohlédni pole a řekni mi, jaké údaje potřebuješ.
+Pokud je nutné přihlášení, zastav se a nech mě přihlásit osobně.
+Vyplň pouze údaje, které ti pro tento úkol poskytnu.
+Před odesláním zastav a ukaž mi vyplněný formulář ke kontrole.
+Neodesílej ho bez mého výslovného souhlasu s tímto odesláním.
+Hesla ani ověřovací kódy po mně v chatu nechtěj.
+```
+
+## Jak agenta nasměrovat
+
+Pište konkrétně, například: **„Pracuj v právě otevřené kartě. Ukaž mi sekci
+Kontakty a zatím na nic neklikej.“** Pokud rozhraní nabízí komentáře ke stránce,
+označte přímo problematické místo. Když nástroj není dostupný, požádejte
+o vysvětlení podporované varianty; prompt sám chybějící nástroj nenainstaluje.
 
 :::note[Mějte na paměti]
-Přihlášení do webu mu nezvyšuje oprávnění. Citlivé,
-destruktivní a publikační kroky stále vyžadují Vaše potvrzení. Nezadávejte
-hesla ani tajné údaje do běžného chatu.
-
+Přístup na web není souhlas se všemi akcemi. Obsah stránky může obsahovat
+zavádějící pokyny a nemá přepsat vaše zadání. Citlivé, destruktivní a publikační
+kroky schvalujte zvlášť. Hesla a tajné údaje nezadávejte do běžného chatu.
 :::
+
+Podklad pro ovládání a dostupnost: [OpenAI — Browser](https://learn.chatgpt.com/docs/browser).
+Rozhraní se může měnit podle verze aplikace a nastavení pracovního prostředí.
