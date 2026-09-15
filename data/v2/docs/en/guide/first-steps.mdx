@@ -1,0 +1,142 @@
+---
+title: First steps with an agent
+description: Three short exercises using real work, plus help when things go wrong.
+stableId: lazurio-doc-guide-first-steps
+locale: en
+summary: Briefing and reviewing a task, recording a Knowledgebase procedure, working in threads and resolving uncertainty.
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
+reviewOwner: Anna Blazickova
+secondReviewOwner: Pablo AI
+trustCritical: true
+sourceRefs:
+  - lazurio-collaboration-model
+  - lazurio-external-apps
+audience:
+  - decision-maker
+  - builder
+  - agent
+---
+
+Start with [the new assistant analogy](/en/guide/start-here/), then choose a
+small real task. These examples are not a live chat; copy the prompts into
+your assistant and adapt them. Supply only materials you are permitted to
+use in that environment.
+
+## 1. Brief your first task and review the result
+
+Choose the correct organization and area of work in Launchpad. Open a task
+in the corresponding working context in your agent tool. Before starting,
+check with the agent which organization and materials it is working with.
+
+```text
+Use the attached notes to draft an agenda for a 30-minute team meeting.
+For each item, include its goal, proposed duration and the question to decide.
+Use only these notes. Flag missing information; do not invent it.
+Return a short list. Do not send anything or create calendar events.
+```
+
+<details class="lz-learning-chat"><summary>Show an example conversation</summary><p><strong>AI · illustration:</strong> The first item does not specify the decision you need. Are we choosing an option or just sharing progress?</p><p><strong>You:</strong> We need to choose an option. Allow 15 minutes for that item and shorten the others to keep the whole meeting within 30 minutes.</p></details>
+
+**Done means:** the agenda matches the notes, durations total 30 minutes,
+unconfirmed facts are marked and nothing was sent. The agent saying “done”
+is not enough — read the actual draft.
+
+## 2. Explain one recurring procedure
+
+Choose something you regularly explain at work. Describe it in your own
+words, by voice if you prefer. The agent can organize it; you check that it
+accurately reflects your work.
+
+```text
+I want to explain how we prepare team meetings.
+First ask me about the inputs, sequence of steps and finished result.
+Then draft a procedure for our organization's Knowledgebase.
+Check whether one already exists; do not propose an unnecessary duplicate.
+Show the changes, their location and who will have access. Do not publish yet.
+```
+
+<details class="lz-learning-chat"><summary>Show an example of feedback</summary><p><strong>AI · illustration:</strong> The draft does not cover unresolved items from the previous meeting. How do you handle them?</p><p><strong>You:</strong> First compare them with the current situation. Do not carry outdated items forward automatically. Add that to the draft and show the final wording.</p></details>
+
+**Done means:** the procedure is accurate and you know where it belongs.
+Approve publication as a separate step under your permissions and your
+organization's rules. If another colleague must approve it, ask for a handoff
+to that person.
+
+## 3. Use the approved procedure in a new task
+
+After the procedure is approved and published, start a new task in the same
+organization. You are checking that saved materials are actually loaded,
+not testing “chat memory”.
+
+```text
+Find the approved meeting preparation procedure in our organization's
+Knowledgebase. Show its source and summarize the rules. If you cannot find
+or access it, tell me; do not guess its contents. Then use it to draft an
+agenda from the new attached notes. Do not send anything.
+```
+
+**Done means:** you can see the actual source and the draft follows its rules.
+If the agent cannot find it, check the organization, location, publication
+and access.
+
+## When to start a new thread
+
+Stay in the same thread when refining the same result. Start a new task for
+a different goal: a meeting agenda and an unrelated document analysis can
+run in parallel. Give the new task its materials; do not assume it knows
+the neighboring chat. Do not have two agents edit the same document without
+coordination.
+
+## Outlook, SharePoint and other tools
+
+First verify an available **approved connection**, the correct account and
+the access scope. Being signed in through your regular browser is not proof
+that the agent has access.
+
+```text
+I need to work with Outlook. Check whether an approved connection is
+available in this environment and tell me which account and operations
+you can use. Do not read or change anything yet. If the connection is
+missing, explain the next step; do not switch to another service or browser
+control without discussing it with me.
+```
+
+After verification, try a small read-only task:
+
+```text
+In the specified SharePoint folder [link], find the document [name].
+Summarize it in five points and include the source. Search only that folder.
+Do not edit or share anything. If you lack access, stop and explain why.
+```
+
+Replace brackets with actual details. These are task instructions, not
+automatic access setup. See more examples in [Connect your tools](/en/guide/tool-connections/)
+and [working in the browser](/en/guide/work-tips/).
+
+## When a response is slow or misses the point
+
+If your tool offers reasoning intensity, try a lower setting for a simple
+task and a higher setting for more demanding analysis. This is a practical
+guideline, not a guarantee of speed or accuracy. The highest setting is not
+always needed. Exact controls depend on the application. Waiting can have
+causes other than reasoning.
+
+```text
+Summarize what you have verified, what you are waiting for and what is missing.
+Propose the smallest next step. Do not repeat the same unsuccessful approach.
+```
+
+When the result misses the point, describe the difference: “I need a decision,
+not a transcript of the notes.” If the problem persists, send support the
+application name, a short brief, expected and actual results, and a sanitized
+screenshot of the error. Do not include passwords, tokens or sensitive materials.
+
+## Your first two weeks, without a separate training project
+
+- **Day one:** finish a small task and improve the draft with specific feedback.
+- **Week one:** capture one recurring procedure in Knowledgebase and have it approved.
+- **Week two:** use the procedure in a new task and fill gaps exposed by real work.
+
+This is a suggested pace, not a deadline. Onboarding should help with your
+work, not create a second task list alongside it.

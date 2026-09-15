@@ -1,0 +1,90 @@
+---
+title: Jak přemýšlet o Lazuriu a agentech
+description: Představte si nového asistenta, který ještě nezná vaši firmu.
+stableId: lazurio-doc-guide-start-here
+locale: cs
+summary: Agent jako nový asistent, vaše role při zadávání práce a Knowledgebase jako společný notýsek.
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
+reviewOwner: Anna Blazickova
+secondReviewOwner: Pablo AI
+trustCritical: true
+sourceRefs:
+  - lazurio-collaboration-model
+  - lazurio-architecture
+audience:
+  - decision-maker
+  - builder
+  - agent
+---
+
+Představte si, že k vám první den přijde nový osobní asistent. Je schopný,
+umí psát, hledat informace a připravovat podklady. Ale přišel zvenku — neví,
+jak pracujete, co znamenají vaše zkratky ani jak u vás vypadá dobře odvedená práce.
+
+**Tak je užitečné přemýšlet o agentovi.** Nemusíte umět programovat ani psát
+dokonalé prompty. Potřebujete mu vysvětlit, čeho chcete dosáhnout, ukázat
+správné podklady a dát mu zpětnou vazbu. Lazurio dává této spolupráci pracovní
+prostředí, společné podklady a pravidla.
+
+## Vy zadáváte směr. Asistent připravuje práci.
+
+<figure class="lz-assistant-map">
+  <div class="lz-assistant-map__people">
+    <div><span class="lz-assistant-avatar" aria-hidden="true">👤</span><strong>Vy</strong><p>Znáte firmu, cíl a to, co je důležité.</p></div>
+    <div class="lz-assistant-map__exchange"><span>Zadání a podklady →</span><span>← Návrh ke kontrole</span></div>
+    <div><span class="lz-assistant-avatar" aria-hidden="true">👤</span><strong>Váš AI asistent</strong><p>Připravuje práci, ptá se a zapracovává připomínky.</p></div>
+  </div>
+  <div class="lz-assistant-map__notebook"><span aria-hidden="true">▤</span><strong>Knowledgebase · společný notýsek</strong><p>Ověřené postupy a souvislosti pro další práci. Zápis navrhnete, zkontrolujete a necháte schválit podle pravidel týmu.</p></div>
+  <figcaption>Ilustrace spolupráce: zadání → návrh → kontrola → schválený postup do společného notýsku. Oprávnění kolegové a jejich agenti z něj mohou čerpat, když mají přístup a načtou si ho.</figcaption>
+</figure>
+
+Přirovnání k člověku pomáhá se zadáváním práce, není ale doslovné. Agent není
+člověk, může se mýlit a nemá automaticky vaše zkušenosti ani přístup ke všemu.
+V tomto návodu mluvíme o **agentovi pro konkrétní úkol**, nikoli automaticky
+o dlouhodobém osobním Buddym nebo samostatném AI Kolegovi.
+
+## Co byste řekli novému asistentovi?
+
+Místo „Připrav schůzku“ mu vysvětlete, s čím potřebujete pomoct:
+
+```text
+Připravuji se na týmovou poradu. Z přiložených poznámek připrav
+jednostránkový přehled: co je hotové, co nás blokuje a co musíme rozhodnout.
+Piš stručně pro kolegy, kteří znají projekt. Nevymýšlej chybějící údaje;
+označ je jako otázky. Zatím jen připrav návrh, nikam ho neposílej.
+```
+
+<details class="lz-learning-chat"><summary>Podívejte se na příklad reakce asistenta</summary><p><strong>AI · ilustrační odpověď:</strong> Připravím přehled v těchto třech částech. U chybějícího termínu uvedu otázku, místo abych datum odhadoval. Nejdřív ale potřebuji poznámky, ze kterých mám vycházet.</p><p><strong>Vy:</strong> Tady jsou poznámky. U každého blokovaného bodu přidej, kdo nám může pomoci.</p></details>
+
+## Knowledgebase je váš společný notýsek
+
+Novému asistentovi byste dali firemní příručku. V Lazuriu tuto roli plní
+**Knowledgebase**: místo pro sdílené znalosti, postupy a souvislosti.
+Nemusíte stejnou věc vysvětlovat pokaždé od začátku — pokud je správně
+zapsaná, dostupná a agent si ji pro danou práci načte.
+
+**Chat je pracovní rozhovor. Knowledgebase je místo pro to, co má zůstat.**
+Věta „to si zapamatuj“ sama nedokazuje, že se pravidlo uložilo pro ostatní.
+Nechte si ukázat konkrétní zápis, jeho umístění a komu bude dostupný.
+Soukromé informace do společného notýsku nepatří.
+
+```text
+Z toho, co jsme si upřesnili, připrav návrh postupu do Knowledgebase
+naší organizace. Nejdřív ověř, zda už podobný postup existuje.
+Ukaž mi navržené změny, kam patří a kdo k nim má přístup.
+Zatím je nepublikuj. Pokud k Knowledgebase nemáš přístup, řekni to.
+```
+
+## Zaučujte při skutečné práci
+
+Nemusíte nejprve sepsat celou firmu. Začněte jedním malým úkolem. Opravte
+výsledek konkrétní připomínkou, například „Termín uváděj jen tam, kde je
+potvrzený ve zdroji“. Pokud se pravidlo bude hodit znovu, připravte jeho
+zápis do Knowledgebase. Zaučování zde znamená předávání kontextu a postupů,
+ne trénování samotného AI modelu.
+
+**Vaším cílem není dlouhý chat. Je jím užitečný výsledek a méně opakovaného vysvětlování.**
+
+Pokračujte na [První kroky s agentem](/cs/guide/first-steps/): tři krátká
+cvičení od prvního zadání po znovupoužití společného postupu.
