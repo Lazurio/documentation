@@ -8,6 +8,16 @@ const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const repositoryRoot = path.resolve(scriptDirectory, '../../..')
 const workflow = (name) => readFileSync(path.join(repositoryRoot, '.github/workflows', name), 'utf8')
 
+const workflowJob = (source, jobName) => {
+  const heading = `  ${jobName}:\n`
+  const start = source.indexOf(heading)
+  assert.notEqual(start, -1, `Missing workflow job ${jobName}.`)
+
+  const remainder = source.slice(start + heading.length)
+  const nextJob = remainder.search(/^  [a-zA-Z0-9_-]+:\n/m)
+  return nextJob === -1 ? remainder : remainder.slice(0, nextJob)
+}
+
 test('pull request verification cannot access deployment credentials', () => {
   const source = workflow('verify.yml')
 
@@ -33,4 +43,22 @@ test('trusted deployment consumes only the completed workflow artifact', () => {
   assert.match(source, /secrets\.CLOUDFLARE_API_TOKEN/)
   assert.match(source, /secrets\.CLOUDFLARE_ACCOUNT_ID/)
   assert.match(source, /bun install --frozen-lockfile/)
+})
+
+test('credentialed deployment jobs pin every action to an immutable commit', () => {
+  const source = workflow('deploy.yml')
+
+  for (const jobName of ['deploy-preview', 'deploy-production']) {
+    const references = [...workflowJob(source, jobName).matchAll(/^\s+(?:-\s+)?uses:\s*([^\s#]+)/gm)]
+      .map((match) => match[1])
+
+    assert.ok(references.length > 0, `Expected ${jobName} to use at least one action.`)
+    for (const reference of references) {
+      assert.match(
+        reference,
+        /^[^@\s]+@[0-9a-f]{40}$/,
+        `${jobName} must pin ${reference} to a full upstream commit SHA.`,
+      )
+    }
+  }
 })
