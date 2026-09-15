@@ -1,6 +1,26 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
+test('window dots stay level and centered with the title', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/cs/guide/tool-connections/')
+  const dots = page.locator('connection-guide .window-dots > i')
+  await expect(dots).toHaveCount(3)
+  const boxes = await dots.evaluateAll(items => items.map(item => {
+    const box = item.getBoundingClientRect()
+    return { x: box.x, y: box.y, width: box.width, height: box.height }
+  }))
+  for (const box of boxes) {
+    expect(box.width).toBe(9)
+    expect(box.height).toBe(9)
+    expect(box.y).toBeCloseTo(boxes[0].y, 1)
+  }
+  expect(boxes[1].x - boxes[0].x).toBe(15)
+  expect(boxes[2].x - boxes[1].x).toBe(15)
+  const title = await page.locator('connection-guide .chat-header > strong').boundingBox()
+  expect(Math.abs(title!.y + title!.height / 2 - boxes[0].y - 4.5)).toBeLessThan(1)
+})
+
 for (const locale of ['cs', 'en']) {
   test(`connection walkthrough: six scenarios, navigation and clipboard in ${locale}`, async ({ page }) => {
     const errors: string[] = []
