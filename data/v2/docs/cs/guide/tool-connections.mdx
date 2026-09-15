@@ -1,0 +1,116 @@
+---
+title: Propojení nástrojů
+description: Propojte AI s e-mailem nebo kalendářem. Vyberte aplikaci, projděte si ukázkový chat a zkopírujte prompt do svého asistenta.
+stableId: lazurio-doc-tool-connections
+locale: cs
+summary: Propojte AI s e-mailem nebo kalendářem. Vyberte aplikaci, projděte si ukázkový chat a zkopírujte prompt do svého asistenta.
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
+reviewOwner: Anna Blazickova
+secondReviewOwner: Pablo AI
+trustCritical: true
+sourceRefs:
+  - lazurio-external-apps
+  - composio-authentication
+  - mcp-local-servers
+  - google-third-party-connections
+audience:
+  - decision-maker
+  - builder
+  - agent
+---
+
+import ConnectionGuide from '@components/ConnectionGuide.astro';
+
+export const walkthrough = {
+  "appLabel": "Co chcete propojit?",
+  "methodLabel": "Jakým způsobem?",
+  "demo": "Interaktivní ukázka",
+  "title": "Váš chat s AI",
+  "you": "Vy · prompt ke zkopírování",
+  "assistant": "AI · příklad odpovědi",
+  "next": "Další krok →",
+  "back": "Zpět",
+  "restart": "Zkusit znovu",
+  "copy": "Zkopírovat prompt",
+  "copied": "Prompt je zkopírovaný. Vložte ho do svého AI chatu.",
+  "failed": "Kopírování se nezdařilo. Označený text zkopírujte ručně.",
+  "steps": [
+    "Připojení",
+    "Ověření",
+    "První úkol"
+  ],
+  "manual": "Co uděláte vy",
+  "note": "Toto je předem připravená ukázka, ne živý AI chat. Nic zde nepřipojujete ani neposíláte. Odpovědi vašeho asistenta se mohou lišit; dostupnost nástrojů a oprávnění musí skutečně ověřit.",
+  "apps": [
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "purpose": "Najděte důležité zprávy a připravte si přehled, aniž by AI něco odesílala.",
+      "test": "V připojeném Gmailu najdi nejvýše 5 zpráv za posledních 7 dní a shrň jejich předmět a hlavní sdělení. Neotevírej přílohy, neměň stav přečtení, nic nemaž ani neposílej. Pokud to dostupný nástroj neumí bez změn, zastav se a vysvětli proč."
+    },
+    {
+      "id": "calendar",
+      "name": "Google Calendar",
+      "purpose": "Získejte přehled svého dne. Vytváření pozvánek přijde až po samostatném schválení.",
+      "test": "V připojeném Google Calendar vypiš události na zítřek z mého hlavního kalendáře. Uveď použité datum a časové pásmo. Nevytvářej ani neupravuj události a nikomu neposílej pozvánky."
+    }
+  ],
+  "connectStart": "Chci v tomto AI chatu pracovat s aplikací ",
+  "connectEnd": ". Nejprve ověř, jaké nástroje a propojení tu skutečně podporuješ. ",
+  "methods": [
+    {
+      "id": "composio",
+      "name": "Composio",
+      "prerequisite": "Potřebujete účet Composio a AI prostředí, které má nástroje Composio již zpřístupněné. Samotný účet ani tento prompt propojení AI prostředí nenastaví.",
+      "connect": "Chci použít Composio. Pokud jeho nástroje nemáš, nic nepředstírej: zjisti název a verzi mé AI aplikace a naveď mě na její podporovaný postup instalace. Pokud je máš, zahaj připojení mého účtu a ukaž skutečný autorizační odkaz vrácený nástrojem. Předem vysvětli požadovaná oprávnění. Heslo ani token po mně v chatu nechtěj.",
+      "reply": "Nejdřív ověřím dostupnost Composio. Pokud je zde nastavené, mohu požádat o připojení účtu. Přihlášení a souhlas s oprávněními dokončíte vy; přístup není udělen tímto promptem.",
+      "action": "Ve své skutečné AI aplikaci otevřete autorizační odkaz z nástroje, ověřte doménu a správný účet. Přečtěte si oprávnění. Pokud jsou širší, než potřebujete, nepokračujte bez vyjasnění. Poté se vraťte do chatu."
+    },
+    {
+      "id": "plugin",
+      "name": "Plugin / vestavěné propojení",
+      "prerequisite": "Použijte jen propojení dostupné ve vaší konkrétní AI aplikaci a tarifu. Firemní správce ho může omezit. Samostatné předplatné není zárukou dostupnosti.",
+      "connect": "Chci použít plugin nebo vestavěné propojení mé AI aplikace. Pokud neznáš její název a tarif, nejprve se mě zeptej. Ukaž ověřený postup v jejím katalogu aplikací nebo nastavení a vysvětli oprávnění. Když propojení není dostupné, řekni to; nepřepínej bez souhlasu na jinou službu.",
+      "reply": "Nejdřív potřebujeme ověřit konkrétní AI aplikaci a dostupnost propojení. Instalaci doplňku a přihlášení provedete v jejím rozhraní. Ne každé propojení dovoluje stejné operace.",
+      "action": "V katalogu své AI aplikace zkontrolujte vydavatele doplňku a jeho funkce. Připojte správný účet, potvrďte přiměřená oprávnění a podle pokynů aplikace propojení zpřístupněte v chatu."
+    },
+    {
+      "id": "mcp",
+      "name": "MCP server",
+      "prerequisite": "Potřebujete AI klienta s podporou MCP a konkrétní důvěryhodný server pro danou aplikaci. MCP je způsob komunikace, ne automatický přístup ke všem účtům.",
+      "connect": "Chci použít schválený lokální MCP server. Nejprve zjisti můj AI klient, operační systém a doporučený server. Ověř oficiální zdroj nebo reviewovanou verzi, popiš instalaci, oprávnění a místo uložení přihlášení. Neinstaluj nic, dokud nepotvrdím konkrétní návrh. Nepřepisuj existující konfiguraci a nevkládej secrets do chatu.",
+      "reply": "Nejprve vybereme server kompatibilní s vaším klientem a ověříme jeho původ. Teprve po schválení následuje instalace a autorizace. Dokud klient nevypíše skutečně dostupné nástroje, připojení nepovažujeme za hotové.",
+      "action": "Schvalte konkrétní server a postup. Přidejte ho podle dokumentace klienta bez přepsání ostatních nastavení. Přihlaste se určeným způsobem a podle potřeby znovu načtěte klienta. Lokální běh neznamená, že data nikdy neopustí počítač."
+    }
+  ],
+  "verify": "Ověř aktuální stav připojení. Uveď, který účet používáš, pokud ho nástroj bezpečně identifikuje, a jaké operace máš skutečně k dispozici. Nevypisuj přihlašovací údaje. Nic neměň ani neposílej. Pokud připojení nebo oprávnění chybí, nepředstírej úspěch.",
+  "verifyReply": "Ověření musí vycházet z výsledku nástroje, ne z předchozí odpovědi v chatu. Pokud účet nelze určit nebo oprávnění nestačí, nejprve to vyřešíme. Až potom zkusíme malý úkol pouze pro čtení.",
+  "testReply": "Asistent by měl vrátit výsledek ze skutečně připojené aplikace nebo přesně popsat, proč úkol nemůže provést. Srovnejte výsledek s aplikací. Odeslání zprávy, změnu události nebo jiný zápis schvalujte zvlášť."
+};
+
+Propojte AI s e-mailem nebo kalendářem. Vyberte aplikaci, projděte si ukázkový chat a zkopírujte prompt do svého asistenta.
+
+<ConnectionGuide copy={walkthrough} />
+
+## Než začnete
+
+Ukázka vás vede od připojení přes ověření k prvnímu úkolu. Před použitím promptu si připravte název svého AI nástroje, tarif a účet, který chcete připojit. Začněte testovacími nebo necitlivými daty.
+
+**Ve firemním Lazuriu se řiďte pravidly organizace.** Jeho standard upřednostňuje schválené lokální MCP nebo CLI; Composio a vestavěná propojení zde vysvětlujeme i pro samostatné AI aplikace. Nejde o automatické schválení nového poskytovatele pro firemní data.
+
+## Když propojení nefunguje
+
+Ověřte správný účet, dostupnost funkce v tarifu, pravidla správce a platnost přihlášení. Prompt sám nedoplní chybějící plugin ani MCP server. Neposílejte do chatu hesla, tokeny nebo citlivé diagnostické výpisy.
+
+## Jak přístup odebrat
+
+Odpojte účet ve zvolené integrační službě nebo AI aplikaci a zkontrolujte také oprávnění třetích stran v účtu Google. U MCP zakažte server v klientovi a podle způsobu přihlášení zrušte jeho přístup u poskytovatele. Pouhé zavření chatu není odebrání oprávnění.
+
+## Podklady a rozsah ukázky
+
+Jde o průvodce zadáním a rozhodováním, ne o ověřený instalační návod pro každou kombinaci klienta a tarifu. Konkrétní obrazovky a dostupné operace je nutné ověřit při skutečném připojení.
+
+- [Composio: přihlašování a propojené účty](https://docs.composio.dev/docs/authentication)
+- [MCP: připojení lokálních serverů](https://modelcontextprotocol.io/docs/develop/connect-local-servers)
+- [Google: správa připojení třetích stran](https://support.google.com/accounts/answer/13533235)

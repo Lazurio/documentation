@@ -1,0 +1,116 @@
+---
+title: Connect your tools
+description: Connect AI to your email or calendar. Choose an app, walk through the example chat and copy the prompt into your assistant.
+stableId: lazurio-doc-tool-connections
+locale: en
+summary: Connect AI to your email or calendar. Choose an app, walk through the example chat and copy the prompt into your assistant.
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
+reviewOwner: Anna Blazickova
+secondReviewOwner: Pablo AI
+trustCritical: true
+sourceRefs:
+  - lazurio-external-apps
+  - composio-authentication
+  - mcp-local-servers
+  - google-third-party-connections
+audience:
+  - decision-maker
+  - builder
+  - agent
+---
+
+import ConnectionGuide from '@components/ConnectionGuide.astro';
+
+export const walkthrough = {
+  "appLabel": "What would you like to connect?",
+  "methodLabel": "Connection method",
+  "demo": "Interactive example",
+  "title": "Your chat with AI",
+  "you": "You · copy this prompt",
+  "assistant": "AI · example response",
+  "next": "Next step →",
+  "back": "Back",
+  "restart": "Start again",
+  "copy": "Copy prompt",
+  "copied": "Prompt copied. Paste it into your AI chat.",
+  "failed": "Copy failed. Copy the selected text manually.",
+  "steps": [
+    "Connect",
+    "Verify",
+    "First task"
+  ],
+  "manual": "Your part",
+  "note": "This is a scripted example, not a live AI chat. It does not connect accounts or send anything. Your assistant's replies may differ; it must verify real tools and permissions.",
+  "apps": [
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "purpose": "Find important messages and prepare a summary without sending anything.",
+      "test": "In the connected Gmail account, find up to 5 messages from the past 7 days and summarize their subjects and main points. Do not open attachments, change read status, delete or send anything. If the available tool cannot do this without changes, stop and explain why."
+    },
+    {
+      "id": "calendar",
+      "name": "Google Calendar",
+      "purpose": "See your day at a glance. Creating invitations requires separate approval.",
+      "test": "In the connected Google Calendar account, list tomorrow's events from my primary calendar. State the date and time zone used. Do not create or edit events or send invitations."
+    }
+  ],
+  "connectStart": "I want to use ",
+  "connectEnd": " in this AI chat. First verify which tools and connections you actually support here. ",
+  "methods": [
+    {
+      "id": "composio",
+      "name": "Composio",
+      "prerequisite": "You need a Composio account and an AI environment with Composio tools already available. An account or this prompt alone does not configure the AI environment.",
+      "connect": "I want to use Composio. If you do not have its tools, say so: ask for my AI app and version and guide me to its supported setup instructions. If you have them, initiate connecting my account and show the real authorization link returned by the tool. Explain the requested permissions first. Do not ask for passwords or tokens in chat.",
+      "reply": "First I will check whether Composio is available. If configured, I can request an account connection. You complete sign-in and permission approval; a prompt does not grant access.",
+      "action": "In your real AI app, open the authorization link returned by the tool and check the domain and account. Read the permissions. If they are broader than needed, clarify them before proceeding. Then return to chat."
+    },
+    {
+      "id": "plugin",
+      "name": "Plugin / built-in connection",
+      "prerequisite": "Use a connection supported by your specific AI app and plan. A workplace administrator may restrict it. A separate subscription does not guarantee availability.",
+      "connect": "I want to use a plugin or my AI app's built-in connection. If you do not know my app and plan, ask first. Show verified steps in its app directory or settings and explain permissions. If unavailable, say so; do not switch to another service without approval.",
+      "reply": "First we need to verify your AI app and whether the connection is available. You install the add-on and sign in through that app. Different connections support different operations.",
+      "action": "Check the add-on's publisher and capabilities in your AI app's directory. Connect the correct account, approve appropriate permissions and make the connection available in chat following the app's instructions."
+    },
+    {
+      "id": "mcp",
+      "name": "MCP server",
+      "prerequisite": "You need an MCP-compatible AI client and a trusted server for the selected app. MCP is a communication protocol, not automatic access to every account.",
+      "connect": "I want to use an approved local MCP server. First ask for my AI client, operating system and recommended server. Verify the official source or reviewed version; explain installation, permissions and credential storage. Do not install anything until I approve the specific proposal. Preserve existing configuration and do not put secrets in chat.",
+      "reply": "First we select a compatible server and verify its source. Installation and authorization follow approval. We do not consider the connection ready until the client lists real available tools.",
+      "action": "Approve the specific server and procedure. Add it using your client's documentation without replacing other settings. Authenticate as instructed and reload the client if required. Running locally does not mean data never leaves the computer."
+    }
+  ],
+  "verify": "Check the current connection state. State which account you are using if the tool can safely identify it, and which operations are actually available. Do not reveal credentials. Do not change or send anything. If the connection or permissions are missing, do not claim success.",
+  "verifyReply": "Verification must come from a tool result, not an earlier chat response. If the account is unclear or permissions are insufficient, resolve that first. Then try a small read-only task.",
+  "testReply": "The assistant should return a result from the connected app or explain exactly why it cannot. Compare the result with the app. Approve sending messages, changing events or other writes separately."
+};
+
+Connect AI to your email or calendar. Choose an app, walk through the example chat and copy the prompt into your assistant.
+
+<ConnectionGuide copy={walkthrough} />
+
+## Before you start
+
+The example takes you from connecting through verification to a first task. Have your AI app name, plan and intended account ready. Start with test or non-sensitive data.
+
+**Follow your organization's rules in workplace Lazurio.** Its standard favors approved local MCP or CLI integrations; Composio and built-in connections are also explained here for standalone AI apps. This does not approve a new provider for company data.
+
+## If the connection fails
+
+Check the account, plan availability, administrator restrictions and authentication state. A prompt cannot supply a missing plugin or MCP server. Never paste passwords, tokens or sensitive diagnostic output into chat.
+
+## Revoke access
+
+Disconnect the account in the chosen integration service or AI app and check third-party permissions in your Google account too. For MCP, disable the server in your client and revoke its provider access according to the authentication method. Closing a chat does not revoke permissions.
+
+## Sources and example scope
+
+This is a prompt and decision walkthrough, not a verified installation recipe for every client and plan combination. Verify specific screens and available operations during the real connection.
+
+- [Composio: authentication and connected accounts](https://docs.composio.dev/docs/authentication)
+- [MCP: connect local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers)
+- [Google: manage third-party connections](https://support.google.com/accounts/answer/13533235)

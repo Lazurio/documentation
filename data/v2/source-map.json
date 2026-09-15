@@ -3,6 +3,36 @@
   "reviewedAt": "2026-09-13",
   "sources": [
     {
+      "id": "composio-authentication",
+      "title": "Composio authentication",
+      "publisher": "Composio",
+      "kind": "public-source",
+      "url": "https://docs.composio.dev/docs/authentication",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-15",
+      "reviewDueAt": "2026-10-15"
+    },
+    {
+      "id": "mcp-local-servers",
+      "title": "Connect to local MCP servers",
+      "publisher": "Model Context Protocol",
+      "kind": "public-source",
+      "url": "https://modelcontextprotocol.io/docs/develop/connect-local-servers",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-15",
+      "reviewDueAt": "2026-10-15"
+    },
+    {
+      "id": "google-third-party-connections",
+      "title": "Manage third-party connections",
+      "publisher": "Google",
+      "kind": "public-source",
+      "url": "https://support.google.com/accounts/answer/13533235",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-15",
+      "reviewDueAt": "2026-10-15"
+    },
+    {
       "id": "lazurio-readme",
       "title": "Lazurio README",
       "publisher": "Lazurio",
