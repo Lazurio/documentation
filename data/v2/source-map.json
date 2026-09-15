@@ -181,6 +181,26 @@
       "reviewOwner": "Pablo AI",
       "reviewedAt": "2026-08-26",
       "reviewDueAt": "2026-09-26"
+    },
+    {
+      "id": "wispr-context-privacy",
+      "title": "Wispr Flow Context Awareness and privacy controls",
+      "publisher": "Wispr",
+      "kind": "public-source",
+      "url": "https://docs.wisprflow.ai/articles/4678293671-Context-Awareness",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-15",
+      "reviewDueAt": "2026-10-15"
+    },
+    {
+      "id": "codexbar-permissions",
+      "title": "CodexBar macOS permissions",
+      "publisher": "CodexBar",
+      "kind": "public-source",
+      "url": "https://github.com/steipete/CodexBar/blob/main/README.md#macos-permissions-why-theyre-needed",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-15",
+      "reviewDueAt": "2026-10-15"
     }
   ]
 }
