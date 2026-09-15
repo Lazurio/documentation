@@ -1,6 +1,27 @@
 import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
 
+test('connection dropdowns align and retain keyboard selection', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/cs/guide/tool-connections/')
+  const app = page.locator('connection-guide [data-app]')
+  const method = page.locator('connection-guide [data-method]')
+  const a = await app.boundingBox()
+  const b = await method.boundingBox()
+  expect(a!.y).toBeCloseTo(b!.y, 1)
+  expect(a!.height).toBeCloseTo(b!.height, 1)
+  await app.focus()
+  await page.keyboard.press('Space')
+  await page.keyboard.press('ArrowDown')
+  await page.keyboard.press('Enter')
+  await expect(app).toHaveValue('calendar')
+  await expect(page.locator('[data-scenario]:visible')).toHaveAttribute('data-app-id', 'calendar')
+  await app.focus()
+  await page.keyboard.press('Space')
+  await page.keyboard.press('Escape')
+  await expect(app).toBeFocused()
+})
+
 test('window dots stay level and centered with the title', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/cs/guide/tool-connections/')
