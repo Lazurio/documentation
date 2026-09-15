@@ -1,0 +1,91 @@
+---
+title: How to think about Lazurio and agents
+description: Picture a new assistant who does not know your company yet.
+stableId: lazurio-doc-guide-start-here
+locale: en
+summary: An agent as a new assistant, your role in delegating work, and Knowledgebase as a shared notebook.
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
+reviewOwner: Anna Blazickova
+secondReviewOwner: Pablo AI
+trustCritical: true
+sourceRefs:
+  - lazurio-collaboration-model
+  - lazurio-architecture
+audience:
+  - decision-maker
+  - builder
+  - agent
+---
+
+Imagine a new personal assistant arriving for their first day. They can write,
+research and prepare materials. But they have come from outside your company:
+they do not know your routines, abbreviations or what good work looks like to you.
+
+**This is a useful way to think about an agent.** You do not need to program
+or write perfect prompts. Explain the outcome you want, provide the right
+materials and give feedback. Lazurio provides a working environment, shared
+materials and rules for this collaboration.
+
+## You set the direction. Your assistant prepares the work.
+
+<figure class="lz-assistant-map">
+  <div class="lz-assistant-map__people">
+    <div><span class="lz-assistant-avatar" aria-hidden="true">👤</span><strong>You</strong><p>You know your company, the goal and what matters.</p></div>
+    <div class="lz-assistant-map__exchange"><span>Brief and materials →</span><span>← Draft for review</span></div>
+    <div><span class="lz-assistant-avatar" aria-hidden="true">👤</span><strong>Your AI assistant</strong><p>Prepares work, asks questions and incorporates feedback.</p></div>
+  </div>
+  <div class="lz-assistant-map__notebook"><span aria-hidden="true">▤</span><strong>Knowledgebase · a shared notebook</strong><p>Verified procedures and context for future work. Propose an entry, review it and have it approved under your team's rules.</p></div>
+  <figcaption>Collaboration illustrated: brief → draft → review → approved procedure in the shared notebook. Authorized colleagues and their agents can use it when they have access and load it.</figcaption>
+</figure>
+
+The human analogy helps with delegation; it is not literal. An agent is not
+a person, can make mistakes and does not automatically have your experience
+or access to everything. Here we mean an **agent working on a specific task**,
+not automatically a long-term personal Buddy or a separate AI Colleague.
+
+## What would you tell a new assistant?
+
+Instead of “Prepare the meeting”, explain what you need:
+
+```text
+I am preparing for a team meeting. Use the attached notes to create a
+one-page brief: what is done, what is blocked and what we need to decide.
+Keep it concise for colleagues who know the project. Do not invent missing
+facts; mark them as questions. Prepare a draft only; do not send it anywhere.
+```
+
+<details class="lz-learning-chat"><summary>See an example assistant response</summary><p><strong>AI · illustrative response:</strong> I will prepare those three sections. I will turn a missing deadline into a question rather than guess a date. First, I need the notes to work from.</p><p><strong>You:</strong> Here are the notes. For each blocked item, add who could help us.</p></details>
+
+## Knowledgebase is your shared notebook
+
+You would give a new assistant a company handbook. In Lazurio,
+**Knowledgebase** serves that purpose: a place for shared knowledge,
+procedures and context. You do not have to explain everything from scratch
+each time — provided it is recorded correctly, accessible and loaded by the
+agent for the task.
+
+**Chat is the working conversation. Knowledgebase holds what should last.**
+“Remember this” alone is not evidence that a rule was saved for other people.
+Ask to see the actual entry, its location and who can access it. Private
+information does not belong in the shared notebook.
+
+```text
+Turn what we clarified into a proposed procedure for our organization's
+Knowledgebase. First check whether a similar procedure already exists.
+Show the proposed changes, where they belong and who has access.
+Do not publish yet. If you cannot access Knowledgebase, tell me.
+```
+
+## Introduce your work through real tasks
+
+You do not need to document the entire company first. Start with one small
+task. Give specific feedback, such as “Include a deadline only when the
+source confirms it”. If the rule will be useful again, prepare a Knowledgebase
+entry. Here, onboarding means supplying context and procedures, not training
+the underlying AI model.
+
+**The goal is not a long chat. It is useful work and less repeated explanation.**
+
+Continue with [First steps with an agent](/en/guide/first-steps/): three short
+exercises from your first brief to reusing a shared procedure.

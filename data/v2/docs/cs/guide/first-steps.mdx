@@ -1,0 +1,134 @@
+---
+title: První kroky s agentem
+description: Tři krátká cvičení na skutečné práci a pomoc pro chvíle, kdy se nedaří.
+stableId: lazurio-doc-guide-first-steps
+locale: cs
+summary: Zadání a kontrola úkolu, zápis postupu do Knowledgebase, práce ve vláknech a řešení nejistoty.
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
+reviewOwner: Anna Blazickova
+secondReviewOwner: Pablo AI
+trustCritical: true
+sourceRefs:
+  - lazurio-collaboration-model
+  - lazurio-external-apps
+audience:
+  - decision-maker
+  - builder
+  - agent
+---
+
+Začněte [představou nového asistenta](/cs/guide/start-here/). Potom si vyberte
+malý skutečný úkol. Následující ukázky nejsou živý chat; prompty můžete
+zkopírovat do svého asistenta a upravit. Přiložte jen podklady, které smíte
+v daném prostředí použít.
+
+## 1. Zadejte první úkol a zkontrolujte výsledek
+
+V Launchpadu vyberte správnou organizaci a oblast práce. V agentním nástroji
+otevřete úkol v odpovídajícím pracovním kontextu. Než začnete, ověřte s agentem,
+pro kterou organizaci a s jakými podklady pracuje.
+
+```text
+Z přiložených poznámek připrav návrh agendy na 30minutovou týmovou poradu.
+U každého bodu uveď cíl, navržený čas a otázku, kterou potřebujeme rozhodnout.
+Použij jen tyto poznámky. Chybějící informace označ, nic si nedomýšlej.
+Výstup chci jako krátký seznam. Nic neposílej ani nevytvářej v kalendáři.
+```
+
+<details class="lz-learning-chat"><summary>Ukázat příklad pokračování chatu</summary><p><strong>AI · ilustrace:</strong> U prvního bodu chybí rozhodnutí, kterého chcete dosáhnout. Máme vybrat variantu, nebo jen sdílet stav?</p><p><strong>Vy:</strong> Potřebujeme vybrat variantu. Dej tomuto bodu 15 minut a ostatní body zkrať tak, aby celá porada měla 30 minut.</p></details>
+
+**Hotovo poznáte takto:** agenda odpovídá poznámkám, součet časů je 30 minut,
+nepotvrzené údaje jsou označené a nic se neodeslalo. Nestačí, že agent napíše
+„hotovo“ — přečtěte výsledný návrh.
+
+## 2. Předejte jeden opakovaný postup
+
+Vyberte něco, co v práci pravidelně vysvětlujete. Popište to vlastními slovy,
+klidně hlasem. Agent může pomoci s uspořádáním; vy ověříte, že výsledek sedí.
+
+```text
+Chci ti vysvětlit, jak u nás připravujeme týmovou poradu.
+Nejdřív se mě zeptej na vstupy, pořadí kroků a podobu hotového výsledku.
+Potom připrav návrh postupu do Knowledgebase naší organizace.
+Ověř, zda už takový postup existuje, a nenavrhuj zbytečnou duplicitu.
+Ukaž mi změny, jejich umístění a komu budou dostupné. Zatím nepublikuj.
+```
+
+<details class="lz-learning-chat"><summary>Ukázat příklad zpětné vazby</summary><p><strong>AI · ilustrace:</strong> V návrhu chybí pravidlo pro neuzavřené body z minulé porady. Jak s nimi pracujete?</p><p><strong>Vy:</strong> Nejdřív je porovnáme s aktuálním stavem. Neaktuální bod nepřenášej automaticky. Přidej to do návrhu a ukaž mi finální znění.</p></details>
+
+**Hotovo poznáte takto:** postup je správný a víte, kam patří. Publikaci
+schvalujte jako samostatný krok podle svých oprávnění a pravidel organizace.
+Pokud musí změnu schválit jiný kolega, nechte připravit předání jemu.
+
+## 3. Použijte schválený postup v novém úkolu
+
+Po schválení a zveřejnění postupu založte nový úkol ve stejné organizaci.
+Neověřujete „paměť chatu“, ale skutečné načtení uložených podkladů.
+
+```text
+Najdi v Knowledgebase naší organizace schválený postup pro přípravu porady.
+Ukaž mi zdroj a stručně shrň pravidla. Pokud ho nenajdeš nebo nemáš přístup,
+řekni to a neodhaduj jeho obsah. Pak podle něj připrav návrh agendy
+z nových přiložených poznámek. Nic neposílej.
+```
+
+**Hotovo poznáte takto:** vidíte konkrétní zdroj a návrh používá jeho pravidla.
+Pokud agent zdroj nenašel, zkontrolujte organizaci, umístění, publikaci a přístup.
+
+## Kdy založit nové vlákno
+
+Ve stejném vlákně pokračujte, když upravujete tentýž výsledek. Pro jiný cíl
+založte nový úkol: například agenda porady a rozbor jiného dokumentu mohou
+běžet souběžně. Novému úkolu dejte potřebné podklady; nepředpokládejte, že zná
+vedlejší chat. Dva agenty nenechávejte bez koordinace upravovat stejný dokument.
+
+## Outlook, SharePoint a další nástroje
+
+Nejdřív ověřte dostupné **schválené propojení**, správný účet a rozsah přístupu.
+Samotné přihlášení v běžném prohlížeči není důkaz, že má agent přístup.
+
+```text
+Potřebuji pracovat s Outlookem. Ověř, zda máš v tomto prostředí dostupné
+schválené propojení, a řekni, který účet a jaké operace můžeš použít.
+Zatím nic nečti ani neměň. Pokud propojení chybí, vysvětli další postup;
+nepřecházej bez domluvy na jinou službu nebo ovládání prohlížeče.
+```
+
+Po ověření můžete zadat malý čtecí úkol:
+
+```text
+V určené složce SharePointu [odkaz] najdi dokument [název].
+Shrň ho do pěti bodů a připoj zdroj. Hledej pouze v této složce.
+Nic neupravuj ani nesdílej. Pokud nemáš přístup, zastav se a řekni proč.
+```
+
+Hranaté závorky nahraďte konkrétními údaji. Jde o zadání, ne automatické
+zprovoznění přístupu. Další ukázky najdete v [Propojení nástrojů](/cs/guide/tool-connections/)
+a [práci v prohlížeči](/cs/guide/work-tips/).
+
+## Když odpověď trvá dlouho nebo nesedí
+
+Pokud váš nástroj nabízí intenzitu přemýšlení, pro jednoduchý úkol vyzkoušejte
+nižší nastavení; pro náročnější rozbor vyšší. Je to praktické vodítko, nikoli
+záruka rychlosti nebo správnosti. Nejvyšší nastavení není vždy potřeba.
+Přesné ovládání závisí na aplikaci. Čekání může mít i jiné příčiny než přemýšlení.
+
+```text
+Shrň, co už máš ověřené, na co právě čekáš a co ti chybí.
+Navrhni nejmenší další krok. Neopakuj neúspěšný postup stále dokola.
+```
+
+Když výsledek nesedí, pojmenujte konkrétní rozdíl: „Potřebuji rozhodnutí,
+ne přepis poznámek.“ Když problém přetrvává, pošlete podpoře název aplikace,
+stručné zadání, očekávaný a skutečný výsledek a očištěný screenshot chyby.
+Hesla, tokeny ani citlivé podklady nepřikládejte.
+
+## První dva týdny bez dalšího školení navíc
+
+- **První den:** dokončete jeden malý úkol a opravte návrh konkrétní připomínkou.
+- **První týden:** zachyťte jeden opakovaný postup do Knowledgebase a nechte ho schválit.
+- **Druhý týden:** použijte postup v novém úkolu a doplňte, co při skutečné práci chybělo.
+
+Je to doporučené tempo, ne povinná lhůta. Zaučování má pomáhat s vaší prací,
+ne vytvářet další seznam úkolů vedle ní.

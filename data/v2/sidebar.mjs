@@ -5,6 +5,8 @@ export const sidebar = [
     translations: { cs: 'Guide' },
     items: [
       { label: 'Guide overview', translations: { cs: 'Přehled Guidu' }, slug: 'guide' },
+      { label: 'Start here: understand agents', translations: { cs: 'Začněte tady: jak chápat agenty' }, slug: 'guide/start-here' },
+      { label: 'First steps with an agent', translations: { cs: 'První kroky s agentem' }, slug: 'guide/first-steps' },
       { label: 'Glossary', translations: { cs: 'Slovníček pojmů' }, slug: 'guide/glossary' },
       { label: 'Tips for working', translations: { cs: 'Tipy pro práci' }, slug: 'guide/work-tips' },
       { label: 'Connect your tools', translations: { cs: 'Propojení nástrojů' }, slug: 'guide/tool-connections' },
