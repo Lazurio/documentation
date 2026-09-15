@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add credential-isolated Cloudflare Pages previews for same-repository pull
+  requests and automatic production deployment with immutable and canonical
+  smoke checks after protected `main` updates.
 - Establish the public Lazurio Documentation repository and Cloudflare Pages
   site.
 - Add the English IT trust briefing, system guide and Microsoft Copilot

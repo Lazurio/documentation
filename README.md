@@ -29,10 +29,15 @@ bun run build
 bun run test:browser
 ```
 
-Deployment uses the operator's authenticated Wrangler session and an explicit
-`CLOUDFLARE_ACCOUNT_ID`; the public repository does not own an account ID or
-credential. The reviewed deployment, release-smoke and immutable rollback
-procedure lives in [OPERATIONS.md](OPERATIONS.md).
+The protected GitHub workflow chain builds every same-repository pull request without
+credentials, publishes its static artifact as a Cloudflare Pages preview and
+adds the immutable URL to the pull request. Merging a reviewed pull request to
+`main` automatically deploys the production build and smokes both the immutable
+deployment and `documentation.lazurio.ai`. The dedicated Pages token and account
+ID are secrets of a GitHub Environment restricted to protected `main`; they are
+exposed only to trusted artifact upload jobs, never to pull-request code or the
+application build. The reviewed release-smoke, credential and immutable
+rollback procedure lives in [OPERATIONS.md](OPERATIONS.md).
 
 ## Source of truth
 

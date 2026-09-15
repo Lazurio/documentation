@@ -94,11 +94,30 @@ Pages project and its custom hostname remain the natural owners of the public
 documentation deployment while the Git repository remains the content and
 review authority.
 
-Preview and production are separate branches of the Pages project. The public
-domain is connected only after exact-head content review and provider readback.
-Rollback redeploys the previous immutable Pages deployment. DNS changes are a
-separate reviewed operation and are not part of ordinary documentation
-publication.
+The existing `lazurio-documentation` project is a Direct Upload Pages project.
+GitHub Actions is therefore the single automated deployment seam; replacing the
+project with a Git-integrated Pages or Workers project would require an
+unnecessary provider and custom-domain migration. The unprivileged `Verify`
+workflow runs source builds and tests without Cloudflare credentials. After it
+succeeds, a `workflow_run` deployment defined by the default branch downloads
+only that run's static artifact, verifies its embedded source commit and uploads
+it with the credential. Both upload jobs bind to the
+`cloudflare-pages-credentials` GitHub Environment, whose deployment branch
+policy admits only protected `main`. Pull-request code therefore cannot modify
+the trusted deployment workflow before merge or request the Cloudflare token
+from its own workflow. Each successful upload creates a GitHub Deployment.
+
+Same-repository pull requests deploy to an isolated `pr-<number>` preview
+branch and receive an updated comment with immutable and branch-alias URLs.
+Fork pull requests still run verification but cannot receive a preview because
+GitHub correctly withholds repository secrets. Production accepts only a
+protected `refs/heads/main` push whose event SHA matches the checked-out and
+explicitly approved source and is still the live `main` tip when upload begins;
+late completion of an older run cannot roll production back. Merging the exact
+reviewed pull request is the publication instruction and deterministically
+triggers production; no second manual deploy decision exists in the normal
+path. Rollback promotes a previous immutable Pages deployment. DNS changes
+remain a separate reviewed operation.
 
 `app/v2/wrangler.jsonc#env.production.vars.PUBLIC_GOOGLE_ANALYTICS_ID` is the
 single production analytics configuration. `bun run build:production` loads
