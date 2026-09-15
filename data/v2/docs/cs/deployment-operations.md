@@ -26,6 +26,19 @@ lokální pracovní kopie a jednotlivé moduly. Nejdřív proto sestavte seznam
 zařízení, repozitářů, AI nástrojů, poskytovatelů modelů a připojených služeb.
 U každé položky určete, kdo ji spravuje.
 
+## Dostupné součásti a budoucí cíle
+
+Následující stav odpovídá odkazované revizi zdrojů, ne automaticky nejnovější
+verzi produktu.
+
+| Součást | Stav | Co to znamená pro provoz |
+| --- | --- | --- |
+| Zdrojová pracovní kopie s Gitem a Bunem | Dostupná | Provozovatel spravuje přístupy k repozitářům, závislosti a aktualizace. |
+| Launchpad, Guide a Doctor | Dostupné | Lokální nástroje pro hledání a spouštění aplikací, návody a kontrolu instalace. Naslouchání na loopback adrese samo neověřuje identitu volajícího. |
+| CLI v0 | Experimentální | Používejte pevně určené verze a otestujte produkční automatizaci, která na CLI závisí. |
+| Balíčkované CLI a generovaný root bez Gitu | Budoucí cíl | Nezahrnujte je do seznamu dnes nasazovaných součástí. |
+| Dashboard, hostovaný workspace a Resident/Buddy | Volitelné, samostatně nasazované | U každé zapnuté služby evidujte vlastní identitu, síť, úložiště a provozovatele. |
+
 ## Součásti nasazení
 
 1. **Zařízení Principála:** koncové zařízení, na kterém pracuje Kolega nebo AI
@@ -45,7 +58,8 @@ U každé položky určete, kdo ji spravuje.
 
 Ne každý modul musí běžet na veřejném serveru. Některé jsou lokální nástroje,
 jiné interní služby a další zpřístupňují veřejný web, například tuto
-dokumentaci. O způsobu provozu se rozhoduje pro každý modul samostatně.
+dokumentaci. O způsobu provozu a návratu k předchozí verzi se rozhoduje pro
+každý modul samostatně.
 
 ## Postup zavedení
 
@@ -63,6 +77,7 @@ Rozumným výchozím bodem je jedna Organizace na zařízení. Více Organizací
 jednom zařízení je vědomá výjimka uvnitř jedné domény důvěry, ne tvrdé oddělení
 tenantů. I zařízení vlastněné Principálem musí při práci s firemními daty
 splňovat pravidla Organizace.
+Přihlášení k poskytovatelům musí být samostatně pojmenovaná a odvolatelná.
 
 ### 3. Vyberte klienta a poskytovatele modelu
 
@@ -86,8 +101,9 @@ uveďte, že schválení musí zajistit pracovní postup, nikoli software.
 
 ### 6. Proveďte přejímací testy
 
-Ověřte běžný průběh úkolu, zamítnutý přístup, odvolání přihlašovacího údaje,
-selhání CI, návrat k předchozí verzi, odebrání přístupů a eskalaci incidentu.
+Ověřte běžný průběh úkolu, zamítnutý přístup k repozitáři, hranici přístupu
+klienta k lokálním souborům, odvolání přihlašovacího údaje, selhání CI, návrat
+k předchozí verzi, odebrání přístupů a eskalaci incidentu.
 Výsledky testů uložte spolu s rozhodnutím o nasazení.
 
 ## Aktualizace a návrat k předchozí verzi
@@ -101,12 +117,13 @@ zastaralá oprávnění.
 
 ## Otázky, které musí zodpovědět provozovatel
 
-- Kdo spravuje koncová zařízení, Teamy v GitHubu a externí integrace?
+- Kdo spravuje koncová zařízení, Teamy v GitHubu, závislosti a externí integrace?
 - Který poskytovatel modelu a jaké podmínky účtu platí?
 - Kde běží jednotlivé moduly a ze kterých sítí jsou dostupné?
-- Jaké auditní záznamy vznikají a jak dlouho se uchovávají?
+- Jaké auditní záznamy vznikají, jak dlouho se uchovávají a kdo řeší incidenty?
 - Jak se lokální data a přihlašovací údaje zálohují, mažou a obnovují?
-- Jaká doba reakce je případně smluvně přislíbená?
+- Které součásti jsou stabilní, experimentální, volitelné nebo zatím pouze plánované?
+- Kdo poskytuje podporu a jaká doba reakce je případně smluvně přislíbená?
 
 Odpovědi uložte k podkladům pro schválení nasazení. Pokud některá chybí,
 určete, kdo ji doplní, ještě před zahájením produkčního provozu.

@@ -36,6 +36,18 @@ Při posuzování proto nestačí otázka „Vidí AI naše data?“ Ptejte se r
 **Která identita pracuje, na jakém zařízení, v jaké Organizaci, přes který
 schválený nástroj, s jakými daty a kdo smí výsledek zveřejnit?**
 
+Volitelné hostované služby jsou samostatné služby; do seznamu součástí patří
+jen tehdy, když je konkrétní nasazení zapne.
+
+## Podklady pro rozhodnutí
+
+| Položka | Stav podle odkazované revize veřejných zdrojů |
+| --- | --- |
+| Podoba produktu | Zdrojová pracovní kopie s Gitem a Bunem spravovaná technickým provozovatelem. Balíčkovaná instalace je budoucí cíl. |
+| Vyspělost prostředí | Launchpad, Doctor a vybrané postupy modulů jsou dostupné; CLI v0 zůstává experimentální. |
+| Licence | Zdrojový kód je dostupný pod [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md). Na každou vydanou verzi se po dvou letech začne vztahovat Apache 2.0. |
+| Záruky | Nepřislibujeme certifikaci, univerzální úroveň služby, dobu uchování dat ani jednotné uspořádání nasazení. Podpora a hosting se řeší pro konkrétní nasazení. |
+
 ## Stručně
 
 | Oblast | Jak je Lazurio navržené | Co má IT ověřit v konkrétním nasazení |
@@ -59,9 +71,9 @@ Principála, použitém zařízení, oprávněních k repozitářům a zapnutýc
 Před nasazením zmapujte těchto pět míst:
 
 1. Git repozitáře a Teamy dostupné přihlášené identitě.
-2. Lokální soubory záměrně vložené do aktivního pracovního prostředí.
+2. Lokální soubory v aktivním pracovním prostředí i jiné soubory, které klient dokáže přečíst.
 3. Externí aplikace připojené přes schválený MCP server nebo nástroj příkazové
-   řádky.
+   řádky nebo schválený postup v prohlížeči.
 4. Poskytovatele modelu a hostingu, které využívá zvolený klient a jednotlivé
    Moduly.
 5. Volitelné hostované služby Lazuria, například Dashboard, týmový workspace
@@ -86,11 +98,23 @@ umožňuje. V rámci přejímacího testu proto ověřte také zamítnutý pří
 repozitáři, neschválený externí nástroj, pokus o sloučení do chráněné větve a
 použití odvolaného přihlašovacího údaje. Samotné přečtení pravidel nestačí.
 
+### Kde se jednotlivé akce skutečně omezují
+
+Lazurio nemění text pravidel v univerzální technickou zábranu. Rozhoduje
+systém, který daný přístup poskytuje:
+
+| Akce | Účinná kontrola |
+| --- | --- |
+| Čtení lokálního souboru | Oprávnění operačního systému, výběr pracovního prostředí a případný sandbox klienta. Čitelný soubor může klient odeslat poskytovateli modelu jako kontext úkolu. |
+| Push větve nebo otevření pull requestu | Právo zápisu v GitHubu. Jde o návrh určený ke kontrole, ale soubory už byly přeneseny do GitHubu. |
+| Sloučení nebo nasazení přesné revize | Pravidla větví, povinné kontroly, review, právo sloučit změny a schvalovací podmínky nasazení daného modulu. |
+| Vytvoření nebo odeslání obsahu v externí službě | Přihlašovací údaj, rozsahy oprávnění a potvrzení u poskytovatele. Už návrh uložený u poskytovatele může znamenat přenos dat; pokud poskytovatel omezení technicky nevynucuje, výslovný souhlas zůstává procesním pravidlem. |
+
 ## Co si vyžádat před schválením
 
 Před produkčním nasazením by měl provozovatel doložit:
 
-- seznam Organizací, repozitářů a Teamů zahrnutých do nasazení;
+- seznam Organizací, repozitářů, Teamů a zapnutých služeb zahrnutých do nasazení;
 - konkrétní lidské nebo servisní identity a jejich oprávnění v GitHubu;
 - minimální požadavky na zabezpečení zařízení a lokálních dat;
 - poskytovatele modelu a podmínky zpracování dat pro zvoleného klienta;
@@ -98,7 +122,7 @@ Před produkčním nasazením by měl provozovatel doložit:
 - postupy pro správu citlivých údajů, zálohy, mazání dat a ukončení přístupu;
 - pravidla chráněných větví a určení osob oprávněných ke schválení výsledku;
 - zdroje auditních záznamů, dobu jejich uchování a kontakt pro incidenty;
-- omezený pilot na datech a úkolech, které odpovídají zamýšlenému použití.
+- postup návratu k předchozí verzi a omezený pilot, který ověří běžný úkol i skutečné zamítnutí nepovolených akcí.
 
 Pokud některý z těchto bodů není známý, patří mezi otevřené otázky konkrétního
 nasazení. Architektonický záměr sám o sobě není důkazem, že je opatření opravdu
@@ -108,6 +132,8 @@ zapnuté.
 
 Začněte omezeným pilotem, pokud lze jednoznačně určit a otestovat identity,
 repozitáře, integrace, poskytovatele modelu a schvalování výsledků. Plošné
-nasazení neschvalujte pouze na základě tohoto přehledu. Podrobnosti najdete na
+nasazení neschvalujte pouze na základě tohoto přehledu. Pilot ze zdrojové
+pracovní kopie má jiná rizika podpory a správy změn než spravovaný produkt.
+Podrobnosti najdete na
 stránkách [Přístup k datům a bezpečnost](/cs/data-access-security/) a
 [Nasazení a provoz](/cs/deployment-operations/).
