@@ -61,9 +61,9 @@ const { copy: c } = Astro.props;
       const restart = this.querySelector<HTMLButtonElement>('[data-restart]')!;
       const status = this.querySelector<HTMLElement>('[data-status]')!;
       let step = 0;
-      let revision = 0;
+      let copyAttempt = 0;
       const render = () => {
-        revision++;
+        copyAttempt++;
         this.querySelectorAll<HTMLElement>('[data-scenario]').forEach(scenario => {
           scenario.hidden = scenario.dataset.appId !== app.value || scenario.dataset.methodId !== method.value;
           scenario.querySelectorAll<HTMLElement>('[data-step]').forEach(item => item.hidden = Number(item.dataset.step) !== step);
@@ -84,12 +84,13 @@ const { copy: c } = Astro.props;
       restart.addEventListener('click', () => { step = 0; render(); next.focus(); });
       this.querySelector('[data-copy]')!.addEventListener('click', async () => {
         const prompt = this.querySelector<HTMLElement>('[data-scenario]:not([hidden]) [data-step]:not([hidden]) [data-prompt]')!;
-        const copiedRevision = revision;
+        const attempt = ++copyAttempt;
+        status.textContent = '';
         try {
           await navigator.clipboard.writeText(prompt.textContent?.trim() || '');
-          if (revision === copiedRevision) status.textContent = this.dataset.copied!;
+          if (copyAttempt === attempt) status.textContent = this.dataset.copied!;
         } catch {
-          if (revision !== copiedRevision) return;
+          if (copyAttempt !== attempt) return;
           const range = document.createRange();
           range.selectNodeContents(prompt);
           const selection = window.getSelection();

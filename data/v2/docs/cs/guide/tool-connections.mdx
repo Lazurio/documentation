@@ -60,9 +60,17 @@ export const walkthrough = {
   "connectEnd": ". Nejprve ověř, jaké nástroje a propojení tu skutečně podporuješ. ",
   "methods": [
     {
+      "id": "mcp",
+      "name": "Schválený lokální MCP server",
+      "prerequisite": "Potřebujete AI klienta s podporou MCP a konkrétní důvěryhodný server pro danou aplikaci. MCP je způsob komunikace, ne automatický přístup ke všem účtům.",
+      "connect": "Chci použít schválený lokální MCP server. Nejprve zjisti můj AI klient, operační systém a doporučený server. Ověř oficiální zdroj nebo zkontrolovanou verzi, popiš instalaci, oprávnění a místo uložení přihlášení. Neinstaluj nic, dokud nepotvrdím konkrétní návrh. Nepřepisuj existující konfiguraci a nevkládej hesla ani tokeny do chatu.",
+      "reply": "Nejprve vybereme server kompatibilní s vaším klientem a ověříme jeho původ. Teprve po schválení následuje instalace a autorizace. Dokud klient nevypíše skutečně dostupné nástroje, připojení nepovažujeme za hotové.",
+      "action": "Schvalte konkrétní server a postup. Přidejte ho podle dokumentace klienta bez přepsání ostatních nastavení. Přihlaste se určeným způsobem a podle potřeby znovu načtěte klienta. Lokální běh neznamená, že data nikdy neopustí počítač."
+    },
+    {
       "id": "composio",
-      "name": "Composio",
-      "prerequisite": "Potřebujete účet Composio a AI prostředí, které má nástroje Composio již zpřístupněné. Samotný účet ani tento prompt propojení AI prostředí nenastaví.",
+      "name": "Composio · mimo standard Lazuria",
+      "prerequisite": "Pouze pro samostatné nefiremní použití, mimo standard Lazuria. Nepřipojujte zde firemní data. Potřebujete účet Composio a AI prostředí, které má nástroje Composio již zpřístupněné. Samotný účet ani tento prompt propojení AI prostředí nenastaví.",
       "connect": "Chci použít Composio. Pokud jeho nástroje nemáš, nic nepředstírej: zjisti název a verzi mé AI aplikace a naveď mě na její podporovaný postup instalace. Pokud je máš, zahaj připojení mého účtu a ukaž skutečný autorizační odkaz vrácený nástrojem. Předem vysvětli požadovaná oprávnění. Heslo ani token po mně v chatu nechtěj.",
       "reply": "Nejdřív ověřím dostupnost Composio. Pokud je zde nastavené, mohu požádat o připojení účtu. Přihlášení a souhlas s oprávněními dokončíte vy; přístup není udělen tímto promptem.",
       "action": "Ve své skutečné AI aplikaci otevřete autorizační odkaz z nástroje, ověřte doménu a správný účet. Přečtěte si oprávnění. Pokud jsou širší, než potřebujete, nepokračujte bez vyjasnění. Poté se vraťte do chatu."
@@ -74,14 +82,6 @@ export const walkthrough = {
       "connect": "Chci použít vestavěné propojení mé AI aplikace. Pokud neznáš její název a tarif, nejprve se mě zeptej. Ukaž ověřený postup v jejím katalogu aplikací nebo nastavení a vysvětli oprávnění. Když propojení není dostupné, řekni to; nepřepínej bez souhlasu na jinou službu.",
       "reply": "Nejdřív potřebujeme ověřit konkrétní AI aplikaci a dostupnost propojení. Instalaci doplňku a přihlášení provedete v jejím rozhraní. Ne každé propojení dovoluje stejné operace.",
       "action": "V katalogu své AI aplikace zkontrolujte vydavatele doplňku a jeho funkce. Připojte správný účet, potvrďte přiměřená oprávnění a podle pokynů aplikace propojení zpřístupněte v chatu."
-    },
-    {
-      "id": "mcp",
-      "name": "MCP server",
-      "prerequisite": "Potřebujete AI klienta s podporou MCP a konkrétní důvěryhodný server pro danou aplikaci. MCP je způsob komunikace, ne automatický přístup ke všem účtům.",
-      "connect": "Chci použít schválený lokální MCP server. Nejprve zjisti můj AI klient, operační systém a doporučený server. Ověř oficiální zdroj nebo zkontrolovanou verzi, popiš instalaci, oprávnění a místo uložení přihlášení. Neinstaluj nic, dokud nepotvrdím konkrétní návrh. Nepřepisuj existující konfiguraci a nevkládej hesla ani tokeny do chatu.",
-      "reply": "Nejprve vybereme server kompatibilní s vaším klientem a ověříme jeho původ. Teprve po schválení následuje instalace a autorizace. Dokud klient nevypíše skutečně dostupné nástroje, připojení nepovažujeme za hotové.",
-      "action": "Schvalte konkrétní server a postup. Přidejte ho podle dokumentace klienta bez přepsání ostatních nastavení. Přihlaste se určeným způsobem a podle potřeby znovu načtěte klienta. Lokální běh neznamená, že data nikdy neopustí počítač."
     }
   ],
   "verify": "Ověř aktuální stav připojení. Uveď, který účet používáš, pokud ho nástroj bezpečně identifikuje, a jaké operace máš skutečně k dispozici. Nevypisuj přihlašovací údaje. Nic neměň ani neposílej. Pokud připojení nebo oprávnění chybí, nepředstírej úspěch.",

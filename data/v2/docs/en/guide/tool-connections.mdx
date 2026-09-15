@@ -60,9 +60,17 @@ export const walkthrough = {
   "connectEnd": " in this AI chat. First verify which tools and connections you actually support here. ",
   "methods": [
     {
+      "id": "mcp",
+      "name": "Approved local MCP server",
+      "prerequisite": "You need an MCP-compatible AI client and a trusted server for the selected app. MCP is a communication protocol, not automatic access to every account.",
+      "connect": "I want to use an approved local MCP server. First ask for my AI client, operating system and recommended server. Verify the official source or reviewed version; explain installation, permissions and credential storage. Do not install anything until I approve the specific proposal. Preserve existing configuration and do not put secrets in chat.",
+      "reply": "First we select a compatible server and verify its source. Installation and authorization follow approval. We do not consider the connection ready until the client lists real available tools.",
+      "action": "Approve the specific server and procedure. Add it using your client's documentation without replacing other settings. Authenticate as instructed and reload the client if required. Running locally does not mean data never leaves the computer."
+    },
+    {
       "id": "composio",
-      "name": "Composio",
-      "prerequisite": "You need a Composio account and an AI environment with Composio tools already available. An account or this prompt alone does not configure the AI environment.",
+      "name": "Composio · outside Lazurio",
+      "prerequisite": "For standalone non-work use only, outside the Lazurio standard. Do not connect company data here. You need a Composio account and an AI environment with Composio tools already available. An account or this prompt alone does not configure the AI environment.",
       "connect": "I want to use Composio. If you do not have its tools, say so: ask for my AI app and version and guide me to its supported setup instructions. If you have them, initiate connecting my account and show the real authorization link returned by the tool. Explain the requested permissions first. Do not ask for passwords or tokens in chat.",
       "reply": "First I will check whether Composio is available. If configured, I can request an account connection. You complete sign-in and permission approval; a prompt does not grant access.",
       "action": "In your real AI app, open the authorization link returned by the tool and check the domain and account. Read the permissions. If they are broader than needed, clarify them before proceeding. Then return to chat."
@@ -74,14 +82,6 @@ export const walkthrough = {
       "connect": "I want to use my AI app's built-in connection. If you do not know my app and plan, ask first. Show verified steps in its app directory or settings and explain permissions. If unavailable, say so; do not switch to another service without approval.",
       "reply": "First we need to verify your AI app and whether the connection is available. You install the add-on and sign in through that app. Different connections support different operations.",
       "action": "Check the add-on's publisher and capabilities in your AI app's directory. Connect the correct account, approve appropriate permissions and make the connection available in chat following the app's instructions."
-    },
-    {
-      "id": "mcp",
-      "name": "MCP server",
-      "prerequisite": "You need an MCP-compatible AI client and a trusted server for the selected app. MCP is a communication protocol, not automatic access to every account.",
-      "connect": "I want to use an approved local MCP server. First ask for my AI client, operating system and recommended server. Verify the official source or reviewed version; explain installation, permissions and credential storage. Do not install anything until I approve the specific proposal. Preserve existing configuration and do not put secrets in chat.",
-      "reply": "First we select a compatible server and verify its source. Installation and authorization follow approval. We do not consider the connection ready until the client lists real available tools.",
-      "action": "Approve the specific server and procedure. Add it using your client's documentation without replacing other settings. Authenticate as instructed and reload the client if required. Running locally does not mean data never leaves the computer."
     }
   ],
   "verify": "Check the current connection state. State which account you are using if the tool can safely identify it, and which operations are actually available. Do not reveal credentials. Do not change or send anything. If the connection or permissions are missing, do not claim success.",
