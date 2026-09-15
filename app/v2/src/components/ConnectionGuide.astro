@@ -1,0 +1,159 @@
+---
+// Localized MDX owns every instructional string. This component only presents
+// the scripted lesson: no account state, network calls or persisted settings.
+interface Props {
+  copy: {
+    appLabel: string; methodLabel: string; demo: string; title: string; you: string; assistant: string;
+    next: string; back: string; restart: string; copy: string; copied: string; failed: string;
+    steps: string[]; note: string; manual: string;
+    apps: { id: string; name: string; purpose: string; test: string }[];
+    methods: { id: string; name: string; prerequisite: string; connect: string; reply: string; action: string }[];
+    connectStart: string; connectEnd: string; verify: string; verifyReply: string; testReply: string;
+  }
+}
+const { copy: c } = Astro.props;
+---
+<connection-guide data-copied={c.copied} data-failed={c.failed}>
+  <div class="guide-controls" hidden>
+    <label>{c.appLabel}<select data-app>{c.apps.map(a => <option value={a.id}>{a.name}</option>)}</select></label>
+    <label>{c.methodLabel}<select data-method>{c.methods.map(m => <option value={m.id}>{m.name}</option>)}</select></label>
+  </div>
+  <div class="chat-window">
+    <header class="chat-header">
+      <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+      <strong>{c.title}</strong><span class="demo-label">{c.demo}</span>
+    </header>
+    <div class="step-track" hidden>{c.steps.map((name, index) => <span data-progress={index}><b>{index + 1}</b>{name}</span>)}</div>
+    {c.apps.flatMap(app => c.methods.map(method => {
+      const prompts = [
+        c.connectStart + app.name + c.connectEnd + method.connect,
+        c.verify,
+        app.test,
+      ];
+      const replies = [method.reply, c.verifyReply, c.testReply];
+      return <section data-scenario data-app-id={app.id} data-method-id={method.id} aria-label={app.name + ' · ' + method.name}>
+        <div class="scenario-intro"><strong>{app.name} · {method.name}</strong><p>{app.purpose}</p><p>{method.prerequisite}</p></div>
+        {prompts.map((prompt, index) => <div class="conversation-step" data-step={index}>
+          <p class="step-caption">{index + 1}. {c.steps[index]}</p>
+          <div class="user-message"><span class="speaker">{c.you}</span><p data-prompt>{prompt}</p></div>
+          <div class="assistant-message"><span class="avatar" aria-hidden="true">L</span><div><span class="speaker">{c.assistant}</span><p>{replies[index]}</p></div></div>
+          {index === 0 && <div role="note" class="your-action"><strong>{c.manual}</strong><p>{method.action}</p></div>}
+        </div>)}
+      </section>;
+    }))}
+    <footer class="chat-footer" hidden>
+      <button type="button" data-copy>{c.copy}</button>
+      <div class="navigation"><button type="button" data-back>{c.back}</button><button type="button" data-next>{c.next}</button><button type="button" data-restart hidden>{c.restart}</button></div>
+      <span data-status role="status" aria-live="polite"></span>
+    </footer>
+  </div>
+  <p class="demo-note">{c.note}</p>
+</connection-guide>
+<script>
+  class ConnectionGuide extends HTMLElement {
+    connectedCallback() {
+      if (this.dataset.ready) return;
+      this.dataset.ready = 'true';
+      const app = this.querySelector<HTMLSelectElement>('[data-app]')!;
+      const method = this.querySelector<HTMLSelectElement>('[data-method]')!;
+      const next = this.querySelector<HTMLButtonElement>('[data-next]')!;
+      const back = this.querySelector<HTMLButtonElement>('[data-back]')!;
+      const restart = this.querySelector<HTMLButtonElement>('[data-restart]')!;
+      const status = this.querySelector<HTMLElement>('[data-status]')!;
+      let step = 0;
+      let revision = 0;
+      const render = () => {
+        revision++;
+        this.querySelectorAll<HTMLElement>('[data-scenario]').forEach(scenario => {
+          scenario.hidden = scenario.dataset.appId !== app.value || scenario.dataset.methodId !== method.value;
+          scenario.querySelectorAll<HTMLElement>('[data-step]').forEach(item => item.hidden = Number(item.dataset.step) !== step);
+        });
+        this.querySelectorAll<HTMLElement>('[data-progress]').forEach(item => {
+          if (Number(item.dataset.progress) === step) item.setAttribute('aria-current', 'step');
+          else item.removeAttribute('aria-current');
+        });
+        back.disabled = step === 0;
+        next.hidden = step === 2;
+        restart.hidden = step !== 2;
+        status.textContent = '';
+      };
+      app.addEventListener('change', () => { step = 0; render(); });
+      method.addEventListener('change', () => { step = 0; render(); });
+      next.addEventListener('click', () => { step = Math.min(2, step + 1); render(); if (next.hidden) restart.focus(); });
+      back.addEventListener('click', () => { step = Math.max(0, step - 1); render(); if (back.disabled) next.focus(); });
+      restart.addEventListener('click', () => { step = 0; render(); next.focus(); });
+      this.querySelector('[data-copy]')!.addEventListener('click', async () => {
+        const prompt = this.querySelector<HTMLElement>('[data-scenario]:not([hidden]) [data-step]:not([hidden]) [data-prompt]')!;
+        const copiedRevision = revision;
+        try {
+          await navigator.clipboard.writeText(prompt.textContent?.trim() || '');
+          if (revision === copiedRevision) status.textContent = this.dataset.copied!;
+        } catch {
+          if (revision !== copiedRevision) return;
+          const range = document.createRange();
+          range.selectNodeContents(prompt);
+          const selection = window.getSelection();
+          selection?.removeAllRanges();
+          selection?.addRange(range);
+          status.textContent = this.dataset.failed!;
+        }
+      });
+      render();
+      this.querySelectorAll<HTMLElement>('.guide-controls, .step-track, .chat-footer').forEach(el => el.hidden = false);
+    }
+  }
+  if (!customElements.get('connection-guide')) customElements.define('connection-guide', ConnectionGuide);
+</script>
+<style>
+  connection-guide { display: block; margin-block: 2rem; min-width: 0; }
+  connection-guide [hidden] { display: none !important; }
+  .guide-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  label { display: grid; gap: 8px; font-size: 14px; font-weight: 600; }
+  select, button { font: inherit; color: inherit; border: 1px solid var(--sl-color-hairline); background: var(--sl-color-bg); border-radius: 8px; padding: 10px 14px; min-height: 44px; }
+  select { width: 100%; min-width: 0; }
+  button { cursor: pointer; font-size: 14px; font-weight: 600; }
+  button:hover { border-color: var(--sl-color-text-accent); }
+  button:focus-visible, select:focus-visible { outline: 3px solid var(--sl-color-text-accent); outline-offset: 3px; }
+  button:disabled { opacity: .5; cursor: default; }
+  .chat-window { border: 1px solid var(--sl-color-hairline); border-radius: 16px; background: var(--sl-color-bg); overflow: hidden; box-shadow: 0 16px 48px -32px #09090955; }
+  .chat-header { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; padding: 18px 24px; border-bottom: 1px solid var(--sl-color-hairline-light); font-size: 14px; }
+  .window-dots { display: flex; gap: 6px; }
+  .window-dots i { width: 9px; height: 9px; border-radius: 50%; background: #ff5f57; }
+  .window-dots i:nth-child(2) { background: #febc2e; }
+  .window-dots i:nth-child(3) { background: #28c840; }
+  .demo-label { margin-left: auto; font-size: 12px; color: var(--sl-color-text-accent); }
+  .step-track { display: flex; gap: 16px; padding: 18px 24px; border-bottom: 1px solid var(--sl-color-hairline-light); flex-wrap: wrap; }
+  .step-track span { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--sl-color-gray-3); }
+  .step-track b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--sl-color-hairline); }
+  .step-track [aria-current] { color: var(--sl-color-text-accent); font-weight: 600; }
+  .step-track [aria-current] b { background: var(--sl-color-bg-accent); color: var(--sl-color-text-invert); border-color: transparent; }
+  section { padding: 24px; }
+  .scenario-intro { margin-bottom: 24px; }
+  p { margin: 0; font-size: 15px; line-height: 1.65; overflow-wrap: anywhere; }
+  .scenario-intro p { color: var(--sl-color-gray-3); font-size: 14px; margin-top: 6px; }
+  .step-caption { font-size: 12px; margin-bottom: 12px; color: var(--sl-color-gray-3); }
+  .user-message { max-width: 90%; margin-left: auto; padding: 20px 24px; border-radius: 22px 22px 4px 22px; background: var(--lz-ink); color: var(--lz-white); }
+  .speaker { display: block; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+  .assistant-message { display: flex; gap: 14px; margin-top: 26px; }
+  .avatar { display: grid; place-items: center; flex: none; width: 30px; height: 30px; background: var(--sl-color-bg-accent); color: var(--sl-color-text-invert); border-radius: 10px; font-weight: 600; }
+  .your-action { margin: 24px 0 0 44px; padding: 16px; border-left: 2px solid var(--sl-color-text-accent); background: var(--sl-color-gray-7, var(--sl-color-gray-6)); }
+  .your-action strong { display: block; font-size: 13px; margin-bottom: 6px; }
+  .your-action p { font-size: 14px; }
+  .chat-footer { display: flex; flex-wrap: wrap; gap: 12px; padding: 20px 24px; border-top: 1px solid var(--sl-color-hairline-light); }
+  [data-copy] { background: var(--sl-color-bg-accent); color: var(--sl-color-text-invert); border-color: transparent; }
+  .navigation { margin-left: auto; display: flex; flex-wrap: wrap; gap: 8px; }
+  [data-status] { flex-basis: 100%; font-size: 13px; min-height: 1.4em; }
+  .demo-note { margin-top: 16px; font-size: 13px; color: var(--sl-color-gray-3); }
+  .conversation-step { animation: appear .22s ease-out; }
+  @keyframes appear { from { transform: translateY(6px); } to { transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .conversation-step { animation: none; } }
+  @media (max-width: 520px) {
+    .guide-controls { grid-template-columns: 1fr; }
+    section, .chat-header, .chat-footer, .step-track { padding: 16px; }
+    .step-track { gap: 10px; }
+    .user-message { max-width: 100%; padding: 16px; }
+    .your-action { margin-left: 0; }
+    .navigation { margin-left: 0; }
+    .window-dots { display: none; }
+  }
+</style>

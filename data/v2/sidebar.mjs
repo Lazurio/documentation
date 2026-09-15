@@ -7,6 +7,7 @@ export const sidebar = [
       { label: 'Guide overview', translations: { cs: 'Přehled Guidu' }, slug: 'guide' },
       { label: 'Glossary', translations: { cs: 'Slovníček pojmů' }, slug: 'guide/glossary' },
       { label: 'Tips for working', translations: { cs: 'Tipy pro práci' }, slug: 'guide/work-tips' },
+      { label: 'Connect your tools', translations: { cs: 'Propojení nástrojů' }, slug: 'guide/tool-connections' },
       { label: 'Recommended applications', translations: { cs: 'Doporučené aplikace' }, slug: 'guide/recommended-apps' },
     ],
   },
