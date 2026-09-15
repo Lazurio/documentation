@@ -1,10 +1,37 @@
 # Production operations
 
-The public site is a Cloudflare Pages project named
-`lazurio-documentation`. Production changes are accepted only from a clean,
-reviewed `main` commit through the gate in `app/v2/scripts/assert-production-gate.mjs`.
-Provider account identifiers and credentials remain operator environment values;
-they are not stored in this repository.
+The public site is the existing Direct Upload Cloudflare Pages project named
+`lazurio-documentation`. `.github/workflows/verify.yml` builds and verifies
+without secrets. After a successful run, the default-branch-owned
+`.github/workflows/deploy.yml` downloads that exact run's static artifact,
+checks its embedded source commit, publishes previews for same-repository
+branches, or deploys production after a reviewed merge reaches protected
+`main`. The production source gate in
+`app/v2/scripts/assert-production-gate.mjs` binds the protected push event,
+checked-out source and approved SHA. The credentialed workflow also reads the
+live protected branch immediately before upload and rejects a completed run
+that is no longer the current `main` tip.
+
+The build and browser-test jobs never receive Cloudflare credentials. They
+upload only the generated `dist` artifact. Both trusted `workflow_run` upload
+jobs bind to the `cloudflare-pages-credentials` GitHub Environment, which must
+admit only the selected `main` branch (which is protected), and use its two
+environment secrets. Configure the branch policy before storing either secret:
+
+- `CLOUDFLARE_API_TOKEN`: a dedicated token scoped to `Account / Cloudflare
+  Pages / Edit` for the HumanAndMachine Platform account;
+- `CLOUDFLARE_ACCOUNT_ID`: the HumanAndMachine Platform account identifier.
+
+The token is a CI capability, not publication authorization. Branch protection,
+exact-head review and the explicit instruction to merge the reviewed pull
+request remain the publication gate. Pull requests from forks are verified but
+do not receive a deployment. A same-repository pull request cannot read the
+Cloudflare credential because its ref is rejected by the environment deployment
+branch policy; do not move these values to repository or Organization secrets.
+
+An operator's authenticated Wrangler session is reserved for readback,
+rollback and break-glass recovery; it is not a parallel routine deployment
+path. Provider identifiers and credentials are never stored in Git.
 
 Production analytics uses measurement ID `G-PBSK35RX41`, the existing Lazurio
 GA4 property used by the public website. The deploy artifact contains a
