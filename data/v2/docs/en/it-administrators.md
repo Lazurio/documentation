@@ -4,8 +4,8 @@ description: The questions an IT administrator should ask before approving Lazur
 stableId: lazurio-doc-it-administrators
 locale: en
 summary: A concise IT review of Lazurio's purpose, identity, access, data, integrations, operations, and approval boundaries.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -22,12 +22,13 @@ audience:
   - agent
 ---
 
-Lazurio makes AI-assisted work governable by keeping company work in versioned
-repositories and separating preparation from publication. People and agents
-can work across source and approved tools without inventing a second identity
-or permission system.
+Use this briefing to prepare a Lazurio pilot and decide what the operator
+must demonstrate before deployment. Lazurio uses Git repositories for company
+materials and change history. Agents prepare drafts; publication is approved
+separately. GitHub, the operating system and connected services still control
+access.
 
-Today the supported setup is a public source checkout run with Git and Bun. It
+The setup described in the linked source revision runs from source with Git and Bun. It
 includes Launchpad, diagnostics, operating contracts and an experimental CLI
 v0. It is not a vendor-managed AI service, a stable packaged installer or an
 additional sandbox around the selected agent client.
@@ -39,7 +40,7 @@ result?**
 
 ![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
 
-The diagram is a reference model. Optional hosted surfaces are separate
+The diagram is a reference model. Optional hosted services are separate
 services and belong in the inventory only when a deployment enables them.
 
 ## Decision snapshot
@@ -51,9 +52,8 @@ services and belong in the inventory only when a deployment enables them.
 | License | Source-available under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each published version after two years. |
 | Assurance | No certification, universal service level, retention period or deployment topology is claimed. Support and hosting terms belong to the concrete deployment. |
 
-The [security and control evidence](/en/public-evidence/) contains the detailed
-license meaning, exact source links and evidence limits. Keeping that detail in
-one place prevents every reader-facing page from becoming a legal appendix.
+See [security and control evidence](/en/public-evidence/) for the license,
+source links and limits of these claims.
 
 ## The short version
 
@@ -68,9 +68,8 @@ one place prevents every reader-facing page from becoming a legal appendix.
 
 ## What data can be reached?
 
-There is no honest universal list. Reach depends on the operating identity,
-machine, repository grants, agent client and enabled tools. Inventory these
-five surfaces for the proposed deployment:
+Access depends on the account, machine, repository permissions, AI client and
+enabled tools. Check these five areas for your deployment:
 
 1. Git repositories and teams visible to the operating identity.
 2. Local files placed inside the active workspace or readable by the client.
@@ -85,7 +84,7 @@ Ask for a live list with provider, scopes, owner and revocation instructions.
 
 ## Where enforcement lives
 
-Lazurio does not turn policy prose into a universal technical interlock.
+Lazurio does not turn policy prose into a universal technical restriction.
 Controls remain with the system that owns the capability:
 
 | Action | Effective control |
@@ -93,7 +92,7 @@ Controls remain with the system that owns the capability:
 | Read a local file | OS permissions, workspace selection and any client sandbox. A readable file may be sent to the model provider as task context. |
 | Push a branch or open a pull request | GitHub write permission. This is reviewable Draft work, but the source has already reached GitHub. |
 | Merge or deploy an exact revision | Branch rules, required checks, reviews, merge rights and the module's deployment gate. |
-| Create or send something in an external provider | That provider's credential, scopes and confirmations. A provider draft may already transmit data; where no provider interlock exists, explicit authorization remains a process control. |
+| Create or send something in an external provider | That provider's credential, scopes and confirmations. A provider draft may already transmit data; where no provider-enforced restriction exists, explicit authorization remains a process control. |
 
 In plain language, an Agent can prepare a proposed change, but making it
 effective still depends on both the signed-in account and the person responsible

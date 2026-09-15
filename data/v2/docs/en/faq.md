@@ -4,8 +4,8 @@ description: Direct answers to the first questions people and IT administrators 
 stableId: lazurio-doc-faq
 locale: en
 summary: Answers about what Lazurio is, whether it replaces Copilot, data access, local deployment, approval, audits, and the future MCP server.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -28,10 +28,9 @@ audience:
 
 <summary>Is Lazurio an AI model?</summary>
 
-No. Lazurio is the working environment and operating model around people,
-agents, repositories, modules and approved tools. Each installation uses a
-selected agent client and model provider whose terms must be reviewed
-separately.
+No. Lazurio is the working environment for company materials and applications.
+The selected AI client and model provider supply the AI. Review their pricing,
+security and data terms separately.
 
 </details>
 
@@ -63,10 +62,10 @@ comparison](/en/lazurio-vs-microsoft-copilot/).
 
 <summary>Can an agent access everything the user can?</summary>
 
-Do not assume either extreme. A prompt creates no new grant, but policy text
-does not remove access already available to the client process. Effective reach
-depends on OS permissions, client sandboxing, workspace selection, repository
-grants and provider credentials. Test both allowed and denied paths.
+It depends on the setup. An agent may use files, accounts and tools available
+to its running process. OS permissions, the AI tool's sandbox, the workspace
+and service credentials determine access. A prompt neither grants new rights
+nor removes existing ones. Test what should be allowed and what should be denied.
 
 </details>
 
@@ -108,7 +107,7 @@ interlock exists.
 
 <summary>Are Organizations isolated from each other on one machine?</summary>
 
-They are separate GitHub and repository boundaries, not hard OS tenants. One
+They are separate GitHub and repository boundaries, not isolated operating-system environments. One
 machine is one trust domain. Use separate machines or equivalent infrastructure
 when a process compromise must not cross company boundaries.
 

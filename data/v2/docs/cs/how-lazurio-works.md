@@ -4,8 +4,8 @@ description: Základní provozní model Lazuria — od Principála a Organizace 
 stableId: lazurio-doc-how-it-works
 locale: cs
 summary: Seznamte se s Principály, agenty, Organizacemi, repozitáři, moduly, Návrhy, review a cestou ke zveřejnění.
-updatedAt: "2026-08-30"
-reviewedAt: "2026-08-30"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -18,10 +18,10 @@ audience:
   - agent
 ---
 
-Lazurio bere práci s AI jako běžnou firemní práci s jasným vlastníkem. Člověk
-nejdřív určí výsledek. Agent si projde povolený kontext, připraví upravitelný
-výstup, ověří ho a předloží ke kontrole. Pravomoc nevzniká z jistoty agenta;
-plyne z přihlášené identity a ze systémů, které vlastní jednotlivé akce.
+V Lazuriu zadáte agentovi úkol, dáte mu potřebné podklady a zkontrolujete
+výsledek. Agent může připravit dokument, změnu aplikace nebo jinou práci.
+Zveřejnění či nasazení pak schvaluje ten, kdo k tomu má oprávnění.
+Agent si tuto pravomoc nemůže udělit sám.
 
 Současný veřejný model popisuje [architektura Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
 a [pravidla spolupráce s Agenty](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md).
@@ -38,11 +38,11 @@ něj administrátora neudělá.
 **Organizace** je hranice repozitářů a přístupů jedné firmy. V popsaném modelu
 odpovídá GitHub organizaci a samostatnému kořeni repozitářů. Více Organizací
 může být na jednom zařízení, zařízení je však stále jedna sdílená doména
-důvěry, nikoli sada tvrdě oddělených OS tenantů.
+důvěry, nikoli sada oddělených operačních prostředí.
 
 **Workspace modul** je aplikace nebo jasně vymezená pracovní oblast uvnitř
-Organizace. Vlastní svůj runtime kontrakt a lze jej samostatně vyvíjet,
-kontrolovat, nasazovat i vrátit na předchozí verzi.
+Organizace. Má vlastní pravidla pro spuštění, testy a nasazení. Lze jej
+samostatně upravovat a vrátit na předchozí verzi.
 
 **Personalspace** je soukromý prostor jednoho Principála. Neslouží ke sdílení
 firemních informací ani k obcházení hranic mezi Organizacemi.
@@ -61,25 +61,28 @@ firemních informací ani k obcházení hranic mezi Organizacemi.
 7. **Uzavřete práci:** aktualizujte zdroj pravdy, zapište, co zbývá, a ukliďte
    dočasné pracovní prostředí.
 
-Bez provozního slovníku je to stejné: člověk určí cíl, agent připraví změnu a
-než se něco projeví, musí přesnou akci dovolit jak cílový systém, tak člověk,
-který za ni nese odpovědnost.
+I příprava návrhu může přenášet data. Například odeslání pracovní větve do
+GitHubu zpřístupní její obsah lidem s přístupem k repozitáři, přestože změna
+ještě není v hlavní větvi. Schvalování výsledku nenahrazuje kontrolu toho,
+kam během práce posíláte podklady.
 
 ## Zdroje pravdy místo jedné obří databáze
 
-Lazurio nevyžaduje kopírovat všechny informace do jediného úložiště pro AI.
-Kód zůstává v repozitářích, plány v Mission Control dané Organizace, trvalé
-znalosti v její Knowledgebase a data poskytovatelů za konkrétními integracemi.
-Pracovní prostředí pro konkrétní úkol propojí potřebné části a zachová jejich
-přirozené vlastníky.
+Podklady mají své určené místo:
 
-Tento rozdíl je důležitý v provozu. Odebrání přístupu k repozitáři nebo
-odvolání integrace změní, k čemu Principál a jeho Agent dosáhnou; úprava názvu
-role v dokumentaci nikoli.
+- kód v repozitářích;
+- plány v Mission Control organizace;
+- firemní znalosti v její Knowledgebase;
+- e-maily a další data v původních službách, dostupných přes schválená propojení.
+
+Agent si pro úkol načte potřebné podklady. Nemusíte vše kopírovat do jedné
+AI databáze. Přístupy měňte v systému, který je spravuje: odeberte oprávnění
+k repozitáři nebo odvolejte připojený účet. Přejmenování role v dokumentu
+samo nic neomezí.
 
 ## Co běží dnes
 
-Dnes podporované nasazení je veřejná zdrojová pracovní kopie s Gitem a Bunem.
+Verze popsaná v odkazovaných zdrojích běží ze zdrojové pracovní kopie s Gitem a Bunem.
 Obsahuje Launchpad, CLI/Core v0, Doctor, provozní manuály a kontrakty pro
 připojené Organizace a moduly. CLI v0 je experimentální; balíčkované CLI a
 automaticky generovaný root bez Gitu jsou cíle do budoucna.

@@ -4,8 +4,8 @@ description: Strojově čitelné rozhraní pro vyhledání a načtení veřejné
 stableId: lazurio-doc-agents
 locale: cs
 summary: Jak z llms.txt a content-index.json získat zkontrolovaný obsah včetně zdrojů, cílových skupin a dat revize.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -15,8 +15,8 @@ audience:
   - agent
 ---
 
-AI agenti mají vycházet ze stejného zkontrolovaného obsahu jako lidé. Tento
-web proto neudržuje samostatnou ani skrytou verzi dokumentace jen pro AI.
+Agenti čtou stejné stránky jako lidé. Pro automatické vyhledávání je obsah
+dostupný také v textovém a JSON indexu.
 
 ## Jak obsah najít a načíst
 
@@ -54,7 +54,6 @@ který neprošel požadovaným schválením.
 
 ## Plánovaný MCP server
 
-Do budoucna může stejné rozhraní doplnit MCP server pouze pro čtení. Umožní
-agentům dokumentaci vyhledat a načíst, ale nebude umožňovat zápis, pracovat se
-soukromými vrstvami ani udržovat vlastní kopii obsahu. Současný JSON index je
-připravený jako základ tohoto rozhraní; web na budoucím MCP serveru nezávisí.
+MCP server pro tuto dokumentaci zatím není dostupný. Pokud vznikne, má
+zpřístupnit stejný obsah jako JSON index, pouze pro čtení. Nemá zapisovat do
+dokumentace ani číst soukromá data. Do té doby používejte odkazy uvedené výše.

@@ -42,6 +42,10 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Lazurio Docs',
+      expressiveCode: {
+        // Prompts are prose: keep them readable without horizontal scrolling.
+        defaultProps: { overridesByLang: { text: { wrap: true } } },
+      },
       description: 'How Lazurio works, what it is good for, and where its trust boundaries are.',
       logo: {
         src: '../../data/v2/public/favicon.svg',

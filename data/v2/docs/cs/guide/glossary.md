@@ -4,8 +4,8 @@ description: Praktická vysvětlení základních a pokročilých pojmů v Lazur
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: Jednoduchá a praktická vysvětlení pojmů, které potkáte při používání, správě nebo vývoji Lazuria.
-updatedAt: "2026-09-14"
-reviewedAt: "2026-09-14"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -20,14 +20,14 @@ audience:
   - agent
 ---
 
-Začněte základními pojmy. Do pokročilé části se podívejte, když řešíte
-správu, vývoj nebo schvalování změn.
+Základní pojmy potkáte při běžné práci. Pokročilá část vysvětluje správu,
+vývoj a schvalování změn.
 
 ## Základní pojmy
 
 <div class="lz-glossary">
 
-**Lazurio** Společné pracovní prostředí pro lidi a AI Kolegy. Pomáhá Vám
+**Lazurio** Společné pracovní prostředí pro lidi a AI Kolegy. Pomáhá vám
 najít aplikace, práci a potřebné informace.
 
 **Launchpad** Domovská obrazovka Lazuria. Odtud si vyberete Organizaci a
@@ -40,7 +40,7 @@ jak pokračovat, začněte tady.
 kterých Organizací a projektů máte přístup a co v nich smíte dělat.
 
 **Předplatné** Určuje, kolik AI služeb můžete využívat a kolik tokenů máte
-k dispozici. Nemusí být propojené s Vaším GitHub účtem — přihlášení a placení
+k dispozici. Nemusí být propojené s vaším GitHub účtem — přihlášení a placení
 jsou dvě oddělené věci.
 
 **Tokeny** Jednotky, podle kterých se počítá využití AI. Spotřebovávají se
@@ -63,10 +63,11 @@ Lazurio.
 **Mission Control** Místo pro řízení práce. Uvidíte zde, co se řeší, kdo za
 to odpovídá a co má následovat.
 
-**Knowledgebase** Firemní knihovna znalostí. Obsahuje postupy, rozhodnutí,
-zkušenosti a další informace důležité pro Organizaci.
+**Knowledgebase** Společný firemní notýsek s postupy a souvislostmi pro další
+práci. Agent z něj může čerpat, pokud k němu má přístup a načte si příslušný
+zápis. Obsah chatu se do něj neukládá automaticky.
 
-**Personalspace** Váš soukromý prostor. Patří pouze Vám a případně Vašemu
+**Personalspace** Váš soukromý prostor. Patří pouze vám a případně vašemu
 Buddymu.
 
 **Kolega** Člověk, který pracuje v Organizaci.
@@ -74,7 +75,7 @@ Buddymu.
 **AI Kolega** Digitální člen týmu s vlastní pracovní rolí, odpovědností a
 přístupy.
 
-**Buddy** Váš osobní AI pomocník. Může Vám pomáhat nebo Vás zastupovat pouze
+**Buddy** Váš osobní AI pomocník. Může vám pomáhat nebo vás zastupovat pouze
 v rozsahu, který mu dovolíte.
 
 **Prompt** Zadání, které napíšete AI. Například: „Připravte mi přehled
@@ -114,17 +115,13 @@ má poslední slovo.
 **Task Agent** Dočasný AI pomocník pro konkrétní úkol nebo konverzaci. Nemá
 vlastní oprávnění a pracuje pouze v rámci přístupů svého Principála.
 
-**Skill** Ověřený pracovní postup pro určitý typ úkolu. Pomáhá AI postupovat
-správně a opakovatelně, například při tvorbě prezentace, práci s dokumenty
-nebo kontrole změn.
+**Skill** Uložený návod pro agenta k určitému typu práce, například přípravě
+prezentace nebo kontrole změn. Může obsahovat instrukce, šablony a skripty.
+Nenahrazuje kontrolu výsledku.
 
 **MCP server** Spojení, přes které může AI používat konkrétní nástroj nebo
 pracovat s jeho daty, například s GitHubem. Sám AI nedává další oprávnění —
 použije jen přístupy dostupné na dané Mašině.
-
-**Plugin** Instalovatelný balíček, který rozšíří Codex o nové možnosti. Může
-obsahovat Skilly, MCP servery nebo napojení na aplikace; instalací ale
-automaticky nezíská přístup do Vašich účtů.
 
 **Opatrovník** Určený člověk, který může pomoci s obnovou nebo servisním
 zásahem u AI Kolegy. Neřídí jeho každodenní práci.
@@ -157,6 +154,6 @@ aplikací. Pokud nejste vývojář, obvykle s ním nemusíte pracovat přímo.
 běží. Tvoří také hranici pro zabezpečení, přístupy a obnovu.
 
 **Přístup** Skutečné oprávnění něco zobrazit nebo změnit. V pracovních
-Organizacích ho určuje GitHub, nikoli pouze název Vaší role.
+Organizacích ho určuje GitHub, nikoli pouze název vaší role.
 
 </div>

@@ -1,11 +1,11 @@
 ---
 title: Lazurio vs Microsoft Copilot
-description: A fair, sourced decision guide for two products with overlapping AI value but different control planes.
+description: Compare the work, administration and access requirements of Lazurio and Microsoft Copilot.
 stableId: lazurio-doc-copilot-comparison
 locale: en
 summary: Compare Lazurio with Microsoft Copilot across purpose, context, permissions, execution, extensibility, governance, and deployment.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -25,13 +25,14 @@ audience:
   - agent
 ---
 
-Lazurio and Microsoft Copilot both help people use AI in real work, but they
-govern different layers and are not direct substitutes.
+The choice depends on the work you want AI to do and who will manage it.
+Microsoft Copilot mainly assists with work in Microsoft 365. Lazurio focuses
+on company repositories and connected tools, including change review and
+approval. An organization may use both.
 
-**Microsoft Copilot** is Microsoft's AI experience embedded across Microsoft
-365 and grounded in the signed-in user's permitted work data. **Lazurio** is a
-source-controlled working environment for turning work across repositories,
-modules and approved tools into reviewable organizational outcomes.
+Permissions matter in either case. Copilot uses work data available to the
+signed-in Microsoft 365 user. An agent in Lazurio works with selected
+repositories and tools it can actually access.
 
 This page uses “Microsoft Copilot” for the current product family while the
 linked provider pages may use “Microsoft 365 Copilot.” Microsoft product facts
@@ -47,7 +48,7 @@ the recommendations are our assessment.
 | Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in principal's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
 | Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Reviewable changes, plans, knowledge, applications and tool actions prepared through a defined draft-to-publication flow. |
 | Control plane | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, machines, module contracts and each connected provider's own administration. |
-| Extensibility | Microsoft agents, Graph connectors, Copilot APIs and SDKs. | Modules, agent competence packages, MCP servers, official CLIs and browser workflows under local curation. |
+| Extensibility | Microsoft agents, Graph connectors, Copilot APIs and SDKs. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
 | Deployment | Microsoft-managed cloud service with published tenant requirements. | Framework and module deployment chosen per Organization; current public model begins with local checkouts and independently deployed modules. |
 | Best fit | Productivity and knowledge work already centered on Microsoft 365. | Work that must cross repositories or tools while remaining source-controlled, testable and explicitly publishable. |
 
@@ -90,7 +91,7 @@ integrations. It offers more direct control of the working source and
 publication process, while leaving more operational choices to the
 organization.
 
-## Extensibility is strong in both, but different
+## Extending the tools
 
 Microsoft Copilot can be extended through agents, Microsoft Graph connectors,
 Copilot APIs and SDKs documented in its [extensibility overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/).
@@ -109,9 +110,9 @@ different providers or needs custom verification and publication gates.
 
 - most valuable work already happens in Outlook, Teams, Word, Excel,
   PowerPoint and SharePoint;
-- the tenant's Microsoft 365 permission hygiene and governance are mature;
-- you want a vendor-managed productivity experience with Microsoft's admin
-  and compliance surfaces;
+- the tenant's Microsoft 365 permissions and administration are well managed;
+- you want a vendor-managed productivity experience with Microsoft's administration
+  and compliance tools;
 - custom work can stay within Microsoft's agent and connector ecosystem.
 
 ### Choose Lazurio first when
@@ -133,9 +134,7 @@ boundary in one automatically applies to the other.
 
 ## Bottom line
 
-Microsoft Copilot is usually the simpler answer for Microsoft 365-centered
-personal and team productivity. Lazurio is aimed at a broader operational
-problem: turning agent-assisted work across repositories and tools into
-reviewable, owned and publishable organizational outcomes. A pilot should test
-the real workflow, the permission model and the operational burden—not just
-compare chat quality.
+Try the options on a real task. Compare not only the result, but also the
+required access, change review and administration time. Start with Copilot
+if most work happens in Microsoft 365. Try Lazurio if you need to version and
+approve work across repositories and tools.

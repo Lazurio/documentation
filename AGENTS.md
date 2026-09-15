@@ -24,6 +24,21 @@ This is the public documentation repository for Lazurio.
 
 ## Content contract
 
+### Editorial style
+
+- Write for the reader's task: lead with the answer or next action, then explain.
+- Use direct sentences and concrete subjects. Cut stock introductions, repeated
+  conclusions and abstract phrases that do not tell the reader anything new.
+- Explain necessary technical terms on first use. Preserve exact identifiers,
+  commands, access restrictions, source links and distinctions between a rule
+  and a technically enforced control.
+- In Czech, use lowercase reader pronouns. Use “agent” for a task session;
+  reserve “AI Kolega” and “Buddy” for those specific roles.
+- Match the meaning and level of detail across English and curated Czech.
+  Keep illustrative responses labeled and never present a prompt as proof of access.
+- Date product-status claims against their evidence. An editorial revision is
+  not a new provider verification, security audit or publication approval.
+
 Every document requires a stable ID, locale, summary, update date, fact review
 date, review owner and source references. Stable IDs remain the same across
 localized versions.

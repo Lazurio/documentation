@@ -4,8 +4,8 @@ description: The core operating model, from principal and Organization to draft 
 stableId: lazurio-doc-how-it-works
 locale: en
 summary: Understand Lazurio's principals, agents, Organizations, repositories, workspace modules, drafts, reviews, and publication flow.
-updatedAt: "2026-08-30"
-reviewedAt: "2026-08-30"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -18,11 +18,10 @@ audience:
   - agent
 ---
 
-Lazurio treats AI-assisted work as normal organizational work with explicit
-ownership. A person starts with an outcome; an agent can inspect the authorized
-context, prepare an editable result, verify it and put it up for review.
-Authority does not come from the agent's confidence. It comes from the
-signed-in identity and the systems that own each action.
+In Lazurio, you give an agent a task and the materials it needs, then review
+the result. The agent may prepare a document, an application change or other
+work. Publishing or deploying that result requires approval from someone
+authorized to make the decision. The agent cannot authorize itself.
 
 ## Five useful concepts
 
@@ -36,11 +35,11 @@ an administrator.
 **Organization** is one company's repository and access boundary. In the
 documented model it maps to a GitHub organization and a separate repository
 root. Several Organizations can be mounted on one machine, but that machine
-remains one shared trust domain rather than a set of hard OS tenants.
+remains one shared trust domain rather than a set of isolated operating-system environments.
 
 **Workspace module** is an application or bounded work area inside an
-Organization. A module owns its runtime contract and can be developed,
-reviewed, deployed and rolled back independently.
+Organization. It has its own rules for running, testing and deployment.
+You can change it or restore a previous version independently.
 
 **Personalspace** is private to one principal. It is not an organizational
 collaboration store and is never a shortcut for moving company data across
@@ -59,9 +58,8 @@ access boundaries.
 7. **Closeout:** update the source of truth, record what remains and clean
    temporary workspaces.
 
-Here is the same flow without the operating vocabulary: a person defines the
-outcome, the Agent prepares a proposed change, and before anything takes effect
-both the target system and the responsible person must allow the exact action.
+Preparing a draft can already transfer data. The diagram shows approval of
+the result; it does not mean that all preceding work stays on your machine.
 
 <figure class="lz-diagram">
   <picture>
@@ -76,28 +74,31 @@ write access may push a branch and open a pull request; at that point the
 source has already reached GitHub, but the protected branch has not changed.
 Branch rules, checks, reviews and merge permission can then block publication.
 Email, chat and other providers need their own controls. Where a provider
-offers no equivalent interlock, explicit authorization remains a process rule.
+offers no equivalent restriction, explicit authorization remains a process rule.
 
 ## Source of truth, not one giant AI database
 
-Code stays in repositories, plans stay in the Organization's Mission Control,
-durable knowledge stays in its Knowledgebase, and provider data stays behind
-the relevant integration. Lazurio brings the pieces needed for a task into one
-working context without changing their natural owners.
+Each kind of material has a home:
 
-That distinction matters. Revoking repository access or an app credential
-changes what the principal and its agent can reach; editing a role name in a
-document does not.
+- code in repositories;
+- plans in the Organization's Mission Control;
+- company knowledge in its Knowledgebase;
+- email and other service data in the original applications, accessed through approved connections.
+
+The agent loads what the task needs. You do not have to copy everything into
+one AI database. Change access in the system that manages it: revoke a
+repository permission or an app credential. Renaming a role in a document
+does not restrict anything by itself.
 
 ## What runs today
 
-The current supported setup is a public source checkout using Git and Bun. It
+The setup described in the linked source revision uses a source checkout with Git and Bun. It
 contains Launchpad, CLI/Core v0, Doctor, operating manuals and the contracts
 used by connected Organizations and modules. CLI v0 is experimental. A
 packaged CLI and automatically generated non-Git root are future targets.
 
 The selected agent client and model provider carry the model request under
 their own terms. Dashboard, hosted team workspaces and per-owner Resident/Buddy
-services are optional surfaces, not hidden parts of every installation. The
+services are optional services, not hidden parts of every installation. The
 [IT briefing](/en/it-administrators/) explains what a concrete deployment must
 prove.

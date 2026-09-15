@@ -4,8 +4,8 @@ description: Praktické scénáře a podmínky, za kterých je Lazurio dobrá vo
 stableId: lazurio-doc-use-cases
 locale: cs
 summary: Kde Lazurio pomůže s vývojem, provozem, znalostmi, agentními postupy a prací pro více Organizací — a kde naopak ne.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -18,19 +18,17 @@ audience:
   - agent
 ---
 
-Lazurio dává největší smysl tam, kde AI nemá jen odpovídat v chatu, ale pomáhat
-s opakovatelnou firemní prací, kterou lze zkontrolovat a dohledat. Spojuje
-oddělené firemní prostředí, verzované podklady, přístupy k nástrojům a jasné
-schvalování výsledků.
+Lazurio se hodí pro práci, jejíž výsledek potřebujete uchovat, zkontrolovat
+a sdílet: změnu aplikace, pracovní postup nebo podklady k rozhodnutí.
+Následující příklady ukazují, co může připravit agent a co dál zůstává na týmu.
 
 ## Kde může Lazurio pomoci
 
 ### Vývoj produktů a softwaru
 
-AI agent může projít vybraný modul, připravit jasně vymezenou změnu, spustit
-testy a založit pull request s výsledky ověření. Tým dál používá běžné postupy
-v Gitu, kontrolu změn a návrat k předchozí verzi; nemusí přebírat neprůhledný
-vygenerovaný výsledek.
+Zadejte agentovi konkrétní změnu aplikace. Může projít vybraný modul,
+upravit kód, spustit testy a připravit pull request. Tým před přijetím změny
+zkontroluje rozdíly a výsledky testů. Historie zůstává v Gitu.
 
 ### Provozní postupy napříč nástroji
 
@@ -41,9 +39,9 @@ prostřednickou cloudovou službu se souhrnným přístupem ke všem nástrojům
 
 ### Trvalé organizační znalosti
 
-Rozhodnutí, plány, otevřené otázky a znovu použitelné znalosti lze ukládat na
-určená místa v Organizaci. Chat slouží k práci, ale není jediným místem, kde
-důležitý kontext zůstává.
+Z rozhovoru s agentem může vzniknout pracovní postup, plán nebo návrh
+rozhodnutí. Nechte ho uložit na odpovídající místo v organizaci a projít
+schválením. Ostatní pak nemusí hledat důležité informace ve vašem chatu.
 
 ### Opakované agentní role
 

@@ -4,8 +4,8 @@ description: Bezpečnostní hranice Lazuria a kontroly, které musí projít kon
 stableId: lazurio-doc-data-access-security
 locale: cs
 summary: Identity, oddělení Organizací, lokální soubory, integrace, tajné údaje, poskytovatelé modelů, auditní podklady a zbytková rizika.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -20,13 +20,17 @@ audience:
   - agent
 ---
 
-Bezpečnost Lazuria začíná úmyslně omezeným tvrzením: formulace promptu sama
-agenta nezabezpečí. Rozhoduje identita, zařízení, práva k repozitářům,
-vymezené nástroje, úschova tajných údajů a kontroly před zveřejněním. Lazurio
-tyto hranice zpřehledňuje; nepřidává univerzální sandbox kolem vybraného
-klienta agenta.
+Před nasazením ověřte, pod jakým účtem agent pracuje, které soubory a služby
+může použít a kdo schvaluje jeho výsledky. Samotné pokyny v chatu přístup
+neomezí. Technickou ochranu zajišťují oprávnění operačního systému,
+repozitářů a služeb a případný sandbox AI nástroje. Lazurio k nim nepřidává
+vlastní univerzální sandbox.
 
 ## Hranice důvěry
+
+Hranice důvěry určuje, kam může dosáhnout přístup nebo napadený proces.
+Oddělené složky například pomáhají uspořádat práci, ale samy nezabrání
+programu se stejnými právy číst jejich obsah.
 
 ### Principál a Task Agent
 
@@ -94,12 +98,12 @@ od poskytovatele automaticky nepřenášejí na Lazurio jako celek.
 
 ## Požadavky na auditní stopu
 
-Historie v Gitu, pull requesty, schválení konkrétního commitu a záznamy o
-nasazení dobře dokládají změny ve zdrojových souborech. Automaticky však
-nezachytí každý požadavek na model, přečtení lokálního souboru ani volání API
-třetí strany. Pro každou zapnutou oblast proto pojmenujte systém, který
-zaznamenává identitu, akci, cíl, výsledek a dobu uchování; chybějící logy
-zapište jako chybějící, ne jako předpokládané.
+V Gitu dohledáte změny souborů, pull requesty a schválení. Záznamy o nasazení
+ukážou, která verze byla uvedena do provozu. Tyto záznamy ale samy nepokrývají
+přečtení lokálních souborů, požadavky na model ani volání externích API.
+
+U každého typu akce určete, kde se zaznamenává účet, cíl a výsledek a jak
+dlouho záznam zůstane dostupný. Pokud log chybí, uveďte to v posouzení nasazení.
 
 ## Zbytkové riziko
 

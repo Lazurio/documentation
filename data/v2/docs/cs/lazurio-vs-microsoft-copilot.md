@@ -4,8 +4,8 @@ description: Věcné srovnání dvou řešení, která využívají AI při prá
 stableId: lazurio-doc-copilot-comparison
 locale: cs
 summary: Věcné srovnání Lazuria a Microsoft Copilotu podle účelu, kontextu, oprávnění, provádění práce, rozšiřitelnosti, správy a nasazení.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -25,15 +25,14 @@ audience:
   - agent
 ---
 
-Lazurio i Microsoft Copilot pomáhají lidem využívat AI při běžné práci. Tím
-ale podobnost z velké části končí. Produkty mají jiné těžiště a ve většině
-organizací nejsou přímými náhradami.
+Volba záleží na tom, jakou práci chcete s AI dělat a kdo ji bude spravovat.
+Microsoft Copilot pomáhá především v Microsoft 365. Lazurio se zaměřuje na
+práci nad firemními repozitáři a propojenými nástroji, včetně kontroly změn
+a jejich schvalování. V jedné firmě se mohou doplňovat.
 
-**Microsoft Copilot** je prostředí Microsoftu pro práci s AI v ekosystému
-Microsoft 365. Využívá pracovní data, ke kterým má přihlášený uživatel
-oprávnění. **Lazurio** je otevřený provozní model a pracovní prostředí pro
-řízenou spolupráci lidí s AI agenty nad repozitáři, Moduly a výslovně
-připojenými nástroji.
+V obou případech záleží na oprávněních. Copilot používá pracovní data dostupná
+přihlášenému uživateli Microsoft 365. Agent v Lazuriu pracuje s vybranými
+repozitáři a nástroji, ke kterým má skutečný přístup.
 
 Na této stránce používáme obecné označení „Microsoft Copilot“, přestože
 odkazovaná dokumentace dodavatele místy mluví konkrétně o produktu „Microsoft
@@ -139,9 +138,7 @@ datové hranice jednoho řešení se automaticky nepřenášejí do druhého.
 
 ## Závěr
 
-Pro osobní a týmovou produktivitu soustředěnou v Microsoft 365 bývá Microsoft
-Copilot jednodušší volbou. Lazurio řeší širší provozní potřebu: pomáhá převést
-práci AI agentů napříč repozitáři a nástroji do podoby, kterou organizace
-vlastní, může ji zkontrolovat a následně schválit. Pilot by měl ověřit
-konkrétní pracovní postup, skutečná oprávnění a provozní náročnost — nejen
-porovnat kvalitu odpovědí v chatu.
+Vyzkoušejte obě možnosti na konkrétním úkolu. Vedle kvality výsledku porovnejte
+potřebné přístupy, kontrolu změn a čas na správu. Pokud pracujete hlavně
+v Microsoft 365, začněte Copilotem. Pokud potřebujete verzovat a schvalovat
+práci napříč repozitáři a nástroji, vyzkoušejte Lazurio.

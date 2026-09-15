@@ -4,8 +4,8 @@ description: Practical explanations of basic and advanced Lazurio terms.
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: Plain and practical explanations of terms you will encounter when using, administering, or developing Lazurio.
-updatedAt: "2026-09-14"
-reviewedAt: "2026-09-14"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -20,8 +20,8 @@ audience:
   - agent
 ---
 
-Start with the basic terms. Use the advanced section when you work with
-administration, development, or change approvals.
+The basic terms cover everyday work. The advanced section explains
+administration, development and change approval.
 
 ## Basic terms
 
@@ -64,8 +64,9 @@ for Lazurio.
 **Mission Control** The place for managing work. It shows what is being
 addressed, who is responsible, and what should happen next.
 
-**Knowledgebase** The company's knowledge library. It contains procedures,
-decisions, experience, and other information important to the Organization.
+**Knowledgebase** A shared company notebook with procedures and context for
+future work. An agent can use an entry if it has access and loads it. Chat
+content is not saved there automatically.
 
 **Personalspace** Your private space. It belongs only to you and,
 optionally, your Buddy.
@@ -118,17 +119,13 @@ working and who has the final say.
 **Task Agent** A temporary AI assistant for a specific task or conversation.
 It has no permissions of its own and works only within its Principal's access.
 
-**Skill** A verified procedure for a particular type of task. It helps AI
-work correctly and repeatably, for example when creating a presentation,
-working with documents, or reviewing changes.
+**Skill** A saved guide for an agent doing a particular kind of work, such as
+preparing a presentation or reviewing changes. It may contain instructions,
+templates and scripts. You still need to check the result.
 
 **MCP server** A connection through which AI can use a specific tool or work
 with its data, such as GitHub. It does not grant AI extra permission — it uses
 only the access available on that Machine.
-
-**Plugin** An installable package that extends Codex with new capabilities.
-It may contain Skills, MCP servers, or application integrations, but
-installation does not automatically grant access to your accounts.
 
 **Guardian** A designated person who can help with recovery or a service
 intervention for an AI Colleague. They do not manage its day-to-day work.

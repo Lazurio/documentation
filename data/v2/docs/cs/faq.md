@@ -4,8 +4,8 @@ description: Přímé odpovědi na první otázky lidí a IT administrátorů o 
 stableId: lazurio-doc-faq
 locale: cs
 summary: Odpovědi o tom, co Lazurio je, zda nahrazuje Copilot, jak fungují data, lokální nasazení, schvalování, audit a budoucí MCP server.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -26,10 +26,9 @@ audience:
 
 ## Je Lazurio vlastní AI model?
 
-Ne. Lazurio je pracovní prostředí a provozní model pro lidi, agenty,
-repozitáře, moduly a schválené nástroje. Každá instalace používá konkrétního
-klienta agenta a poskytovatele modelu; jejich obchodní, bezpečnostní a datové
-podmínky je potřeba posoudit samostatně.
+Ne. Lazurio poskytuje prostředí pro práci s firemními podklady a aplikacemi.
+Samotnou AI zajišťuje zvolený nástroj a poskytovatel modelu. Jejich ceny,
+zabezpečení a podmínky zpracování dat posuzujte samostatně.
 
 ## Je Lazurio hotový balíčkovaný produkt?
 
@@ -50,11 +49,10 @@ Microsoft Copilotu](/cs/lazurio-vs-microsoft-copilot/).
 
 ## Dostane se agent ke všemu, kam se dostane uživatel?
 
-Nepředpokládejte ani jednu krajnost. Prompt nevytváří nové oprávnění, ale
-pravidlo v textu samo neodebere přístup, který už vidí proces klienta. Skutečný
-dosah závisí na oprávněních operačního systému, sandboxu klienta, vybraném
-pracovním prostoru, právech k repozitářům a přihlašovacích údajích u
-poskytovatelů. Otestujte povolené i zamítnuté cesty.
+Záleží na nastavení. Agent může použít soubory, účty a nástroje dostupné
+jeho běžícímu procesu. Rozhodují oprávnění operačního systému, sandbox AI
+nástroje, pracovní prostor a přístupy ke službám. Prompt nová práva neudělí
+a sám ani neodebere ta existující. Otestujte, co agent smí i co má být zamítnuto.
 
 ## Jsou všechna data Lazuria uložená lokálně?
 
@@ -94,8 +92,7 @@ zaznamenává každou důležitou akci a jak dlouho se záznam uchovává.
 
 ## Jsou Organizace na jednom zařízení od sebe izolované?
 
-Jsou to samostatné hranice repozitářů a GitHubu, nikoli tvrdě oddělené OS
-tenancy. Jedno zařízení je jedna doména důvěry. Pokud kompromitovaný proces
+Jsou to samostatné hranice repozitářů a GitHubu, nikoli oddělená prostředí operačního systému. Jedno zařízení je jedna doména důvěry. Pokud kompromitovaný proces
 nesmí přejít z jedné firmy do druhé, použijte oddělená zařízení nebo
 rovnocennou infrastrukturu.
 

@@ -4,8 +4,8 @@ description: What is fixed by Lazurio and what must be decided for a concrete ro
 stableId: lazurio-doc-deployment-operations
 locale: en
 summary: Plan a Lazurio rollout across identity, devices, repositories, modules, integrations, logs, backup, updates, and offboarding.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -21,10 +21,10 @@ audience:
   - agent
 ---
 
-Lazurio is developer-operated software with local workspaces and independently
-owned modules, not one universal hosted topology. A rollout record must name
-the actual machines, repositories, agent client, model provider, integrations
-and hosted services used by the Organization.
+Lazurio deployments vary. In the version described here, the operator manages
+local working copies and individual modules. Start by listing the machines,
+repositories, AI tools, model providers and connected services you will use.
+Name an owner for each.
 
 ![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
 
@@ -32,8 +32,8 @@ and hosted services used by the Organization.
 
 | Surface | Status | Operational meaning |
 | --- | --- | --- |
-| Source checkout with Git and Bun | Supported today | The operator owns repository, dependency and update hygiene. |
-| Launchpad, Guide and Doctor | Available today | These are local discovery, guidance, lifecycle and diagnostic surfaces. Loopback listeners are not caller authentication. |
+| Source checkout with Git and Bun | Supported today | The operator owns repository access, dependencies and updates. |
+| Launchpad, Guide and Doctor | Available today | These are local tools for finding applications, reading guidance, running applications and checking the installation. Loopback listeners are not caller authentication. |
 | CLI v0 | Experimental | Pin versions and test any production automation that depends on it. |
 | Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |
 | Dashboard, hosted workspace and Resident/Buddy | Optional, separately deployed | Inventory each enabled service with its own identity, network, storage and operating owner. |
@@ -41,7 +41,7 @@ and hosted services used by the Organization.
 The basic installation still includes several owners: the principal machine,
 the local Lazurio root, Organization repositories, workspace modules, GitHub,
 the agent client and model provider, and every enabled external application.
-Some modules remain local; others run internally or publish a public surface.
+Some modules remain local; others run internally or publish a public website or service.
 Their deployment and rollback contracts stay module-owned.
 
 ## Rollout sequence
@@ -102,5 +102,5 @@ Before production use, close the remaining deployment-specific questions:
 - Which components are stable, experimental, optional or target-only?
 - Who provides support, and what response time—if any—is promised?
 
-These answers belong to the concrete acceptance package. Public documentation
-cannot honestly invent them for every deployment.
+Keep these answers with the deployment approval. Assign an owner to resolve
+any missing answer before production use.
