@@ -4,8 +4,8 @@ description: Practical use cases and the conditions under which Lazurio is a goo
 stableId: lazurio-doc-use-cases
 locale: en
 summary: See where Lazurio helps with product delivery, operations, knowledge, agent workflows, and multi-organization work—and where it does not.
-updatedAt: "2026-08-29"
-reviewedAt: "2026-08-29"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -18,18 +18,17 @@ audience:
   - agent
 ---
 
-Lazurio is most useful when AI assistance must become repeatable, reviewable
-organizational work rather than a sequence of private chat answers. It combines
-company boundaries, versioned sources of truth, tool access and explicit
-publication decisions.
+Lazurio fits work whose results need to be kept, reviewed and shared: an
+application change, a procedure or material for a decision. These examples
+show what an agent can prepare and what remains the team's responsibility.
 
 ## Strong-fit use cases
 
 ### Product and software delivery
 
-An agent can inspect a module, implement a bounded change, run its tests and
-prepare a pull request with evidence. The team keeps normal Git ownership,
-review and rollback instead of accepting an opaque generated artifact.
+Give the agent a specific application change. It can inspect the module,
+edit the code, run tests and prepare a pull request. The team reviews the diff
+and test results before accepting the change. Git keeps the history.
 
 ### Operational workflows across tools
 
@@ -39,15 +38,14 @@ than disappearing behind a universal integration broker.
 
 ### Durable organizational knowledge
 
-Decisions, plans, issues and reusable knowledge can return to the
-Organization's named source of truth. Chat remains a working surface, not the
-only place where context lives.
+A conversation can produce a procedure, plan or proposed decision. Have it
+saved to the right place in the Organization and reviewed. Other people can
+then find the information without searching your chat.
 
 ### Repeated agent roles
 
 Organizations can package scoped instructions, tools, tests and publication
-gates for recurring work. The next run starts from a reviewed competence
-boundary rather than a copied prompt with hidden assumptions.
+gates for recurring work. The next run starts from a reviewed procedure rather than a copied prompt with hidden assumptions.
 
 ### Work across several companies
 

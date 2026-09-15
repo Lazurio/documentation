@@ -1,11 +1,11 @@
 ---
 title: Data access and security
-description: A threat-aware explanation of Lazurio's trust boundaries and the checks a real deployment needs.
+description: Which data agents can access and what to test before deployment.
 stableId: lazurio-doc-data-access-security
 locale: en
 summary: Review identity, Organization isolation, local files, integrations, secrets, model providers, audit evidence, and residual risks.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -20,13 +20,17 @@ audience:
   - agent
 ---
 
-Lazurio begins with a deliberately limited security claim: prompt wording
-cannot make an agent safe. Security comes from the identity, machine,
-repository permissions, scoped tools, secret custody and publication controls
-around the session. Lazurio makes those boundaries inspectable; it does not add
-a universal sandbox around the selected agent client.
+Before deployment, check which account the agent uses, which files and
+services it can access, and who approves its results. Chat instructions alone
+do not restrict access. Technical protection comes from OS, repository and
+service permissions, plus any sandbox provided by the AI tool. Lazurio does
+not add a universal sandbox of its own.
 
 ## Boundary map
+
+A trust boundary limits how far access or a compromised process can reach.
+Separate folders organize work, but do not by themselves stop a program with
+the same permissions from reading their contents.
 
 ### Identity and session
 
@@ -97,11 +101,13 @@ service is active.
 
 ## Audit and residual risk
 
-Git commits, pull requests, approvals and deployment records provide strong
-evidence for source changes. They do not automatically record every local file
-read, model request or third-party API call. Build an audit map that names the
-system recording identity, action, target, result and retention for each
-surface—and record missing logs as missing.
+Git records file changes, pull requests and approvals. Deployment records
+show which version went live. These records do not automatically cover local
+file reads, model requests or external API calls.
+
+For each type of action, identify where the account, target and result are
+logged and how long the record is kept. Note any missing logs in the deployment
+review.
 
 An authorized identity can still expose data or approve a harmful change. A
 model can follow malicious content. A machine can be compromised, and a Draft

@@ -4,8 +4,8 @@ description: The public source behind Lazurio's product, security and operationa
 stableId: lazurio-doc-public-evidence
 locale: en
 summary: See the current product form, trust boundaries, authority model, integrations, hosted surfaces and the limits of what the public source can prove.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -25,16 +25,19 @@ audience:
 
 This page connects the claims in this documentation to Lazurio source revision
 [`3c5bda5d54c5556a0e54f3c339d988aa911fda60`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60).
-The canonical source documents are currently written in Czech. These English
-summaries make their security-relevant meaning accessible; they are a guide to
-the source, not independent assurance.
+The source documents at that revision are written in Czech. The summaries
+below explain their security implications and link to the originals. They are
+not an independent audit or confirmation that a particular installation is safe.
+
+The product description below applies to that revision, not automatically to
+the latest release. Compare it with the version you actually deploy.
 
 ## Product form and maturity
 
 The [README](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
 describes Lazurio as a local working system and coordination layer, not an AI
 model or shared cloud data store. It explicitly marks the project as active
-development. Today developers run it from a source checkout using Git and Bun;
+development. At that revision, developers run it from a source checkout using Git and Bun;
 CLI v0 is experimental, while a simple packaged installation and generated
 non-Git root are target architecture. The repository uses
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md).
@@ -57,10 +60,9 @@ done. A task agent is a temporary execution session and owns no independent
 rights. A prompt cannot grant a provider or repository capability; live
 GitHub, OS and provider permissions remain authoritative.
 
-This does not mean the task agent has no capability. A credential, repository
-or file already exposed to its process can be used according to the execution
-client and OS boundary. Lazurio policy narrows intended use; the selected
-client sandbox and provider controls determine technical enforcement.
+The agent may use credentials and files available to its process. Lazurio's
+rules specify when that use is permitted. The operating system, AI tool's
+sandbox and provider controls enforce technical restrictions.
 
 ## Machine and Organization boundaries
 
@@ -69,7 +71,7 @@ and [architecture](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5
 state that one machine is one trust domain. An Organization represents one
 company, one GitHub organization and a separate repository/access boundary.
 Multiple Organizations can coexist on one endpoint, but their folders are not
-hard OS tenants. A process with the same effective filesystem access can cross
+isolated operating-system environments. A process with the same effective filesystem access can cross
 that directory boundary. Stronger isolation requires separate machines or
 equivalent infrastructure.
 
@@ -86,7 +88,7 @@ commits and pull requests when their repository grant permits it. Protected
 branch publication can be mechanically controlled by GitHub permissions,
 required checks and reviews. Non-Git publication—such as sending a message or
 changing a provider—depends on the actual provider and client controls; an
-explicit-authorization rule is process-only where no technical interlock
+explicit-authorization rule is process-only where no technical restriction
 exists.
 
 ## External applications and credentials
@@ -108,14 +110,15 @@ keeps real credentials outside Git in ignored, scoped custody paths or approved
 provider stores. It does not claim that Lazurio itself encrypts the endpoint,
 rotates every secret or replaces backup and incident controls.
 
-## Local and hosted surfaces
+## Local and hosted services
 
 The source checkout contains the local root, Launchpad, Guide, CLI/Core, Doctor
 and mounted Organization modules. Launchpad and runnable modules use local
 loopback HTTP listeners with dynamically selected or module-owned port leases.
 Loopback binding is not caller authentication: other processes on the endpoint
-may still reach those surfaces. Guide is a pedagogical application with local
-file-writing flows, not a security control. Current Doctor tooling expects Git,
+may still reach those services. The local Guide included in that Lazurio revision
+also writes files; it is not this public documentation website or a security
+control. Doctor tooling at the described revision expects Git,
 GitHub CLI and Codex CLI; a rollout using another agent client must test its
 actual Doctor and repair path rather than assuming equivalence.
 The checkout also ships bridge and provisioning code for separately deployed

@@ -1,9 +1,9 @@
 ---
 title: Tipy pro práci
-description: Praktické postupy, které Vám usnadní práci s AI Kolegou.
+description: Praktické postupy, které vám usnadní práci s agentem.
 stableId: lazurio-doc-guide-work-tips
 locale: cs
-summary: Jak AI Kolega používá vestavěný prohlížeč svého nástroje (Browser Use) pro práci na webu, zatímco Vy držíte kontrolu nad přístupy a důležitými kroky.
+summary: Jak agent používá vestavěný prohlížeč svého nástroje (Browser Use) pro práci na webu, zatímco Vy držíte kontrolu nad přístupy a důležitými kroky.
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
@@ -19,11 +19,11 @@ audience:
   - agent
 ---
 
-## Když má AI Kolega pracovat na webu
+## Když má agent pracovat na webu
 
-**Browser Use** znamená práci přímo v rozhraní webové stránky: agent otevírá stránky,
-kliká a vyplňuje pole. Není to totéž jako pouhé vyhledávání odkazů a nejde
-o součást Lazuria. Dostupnost závisí na konkrétním AI nástroji.
+S funkcí **Browser Use** může agent otevřít web, přečíst stránku, klikat a
+vyplňovat formuláře. Zadávejte ji, když potřebujete práci přímo na webu,
+ne jen seznam odkazů. Funkci poskytuje váš AI nástroj, nikoli Lazurio.
 
 <figure>
   <a href="/guide-assets/chatgpt-browser-illustration-cs.png" aria-label="Otevřít ilustrační maketu v plné velikosti">

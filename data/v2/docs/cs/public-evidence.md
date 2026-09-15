@@ -4,8 +4,8 @@ description: Veřejné zdroje, na nichž stojí tvrzení dokumentace o produktu,
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: Aktuální podoba produktu, hranice důvěry, oprávnění, integrace, hostované služby a limity toho, co lze z veřejných zdrojů doložit.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -25,15 +25,18 @@ audience:
 
 Tato stránka propojuje tvrzení dokumentace s revizí zdrojů Lazuria
 [`3c5bda5d54c5556a0e54f3c339d988aa911fda60`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60).
-Kanonické dokumenty jsou dnes v češtině. Tady je jejich srozumitelný průvodce
-po bezpečnostně důležitých důsledcích — ne samostatný bezpečnostní audit ani
-záruka pro konkrétní nasazení.
+Zdrojové dokumenty této revize jsou v češtině. Níže najdete jejich shrnutí
+a odkazy pro kontrolu. Nejde o nezávislý audit ani potvrzení bezpečnosti
+konkrétní instalace.
+
+Popis produktu níže se vztahuje k uvedené revizi, ne automaticky k nejnovějšímu
+vydání. Při nasazení porovnejte tyto podklady s verzí, kterou skutečně používáte.
 
 ## Podoba produktu a jeho zralost
 
 [README](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
 popisuje Lazurio jako lokální pracovní systém a koordinační vrstvu, nikoli jako
-AI model nebo sdílené cloudové úložiště dat. Projekt je ve vývoji. Dnes se
+AI model nebo sdílené cloudové úložiště dat. Projekt je ve vývoji. V této revizi se
 spouští ze zdrojové pracovní kopie pomocí Gitu a Bunu; CLI v0 je experimentální
 a jednoduchá balíčkovaná instalace i generovaný root bez Gitu patří do cílové
 architektury.
@@ -59,10 +62,9 @@ oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost pos
 rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
 službách.
 
-To neznamená, že Task Agent nic nezmůže. Přihlašovací údaj, repozitář nebo
-soubor, který už jeho proces vidí, může využít v mezích zvoleného klienta a
-operačního systému. Pravidla Lazuria vymezují zamýšlené použití; technické
-vynucení zajišťuje sandbox klienta a kontroly poskytovatele.
+Agent může použít přihlašovací údaje a soubory dostupné jeho procesu.
+Pravidla Lazuria říkají, kdy je použít smí. Technicky tento přístup omezují
+operační systém, sandbox AI nástroje a kontroly poskytovatele.
 
 ## Hranice zařízení a Organizace
 
@@ -71,7 +73,7 @@ a [architektura](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c555
 pracují s jedním zařízením jako s jednou doménou důvěry. Organizace představuje
 jednu firmu, jednu GitHub organizaci a samostatnou hranici repozitářů a
 přístupů. Na jednom zařízení může být více Organizací, jejich adresáře však
-nejsou samostatné OS tenancy: proces se stejným účinným přístupem k souborům
+nejsou oddělená prostředí operačního systému: proces se stejným účinným přístupem k souborům
 může hranici adresářů překročit. Kde firmy nemají sdílet hranici operačního
 systému, je potřeba oddělené zařízení nebo rovnocenná infrastruktura.
 
@@ -108,14 +110,15 @@ podle vlastníka nebo v povoleném úložišti poskytovatele. Netvrdí, že Lazu
 samo šifruje zařízení, obměňuje každý secret nebo nahrazuje zálohování a reakci
 na incident.
 
-## Lokální a hostované plochy
+## Lokální a hostované služby
 
 Zdrojová pracovní kopie obsahuje lokální root, Launchpad, Guide, CLI/Core,
 Doctor a připojené moduly Organizací. Launchpad a spustitelné moduly používají
 lokální HTTP listenery na loopbacku s dynamicky zvoleným nebo modulem vlastněným
 portem. Vazba na loopback není ověření volajícího: jiné procesy na stejném
-zařízení se k této ploše mohou dostat. Guide je výuková aplikace s lokálním
-zápisem souborů, nikoli bezpečnostní kontrola. Současný Doctor předpokládá Git,
+zařízení se k těmto službám mohou dostat. Lokální Guide obsažený v této revizi
+Lazuria nabízí i zápis souborů; nejde o tento veřejný web dokumentace ani
+o bezpečnostní kontrolu. Doctor v popsané revizi předpokládá Git,
 GitHub CLI a Codex CLI; nasazení s jiným klientem agenta musí otestovat vlastní
 cestu přes Doctor a repair, nemá předpokládat stejnou funkčnost.
 

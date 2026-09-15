@@ -5,8 +5,8 @@ template: doc
 tableOfContents: false
 stableId: lazurio-doc-overview
 summary: Start with the human-directed operating model, then follow the evidence, security and evaluation paths.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 locale: en
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -29,19 +29,14 @@ hero:
       variant: primary
 ---
 
-**Not only its code.** Its projects, tickets, TODOs, decisions, documentation,
-approvals—and the evidence of who changed what and why.
+Lazurio is a working environment for people and AI agents. It keeps company
+procedures, plans and applications where the team can find them and review
+changes.
 
-Surprisingly, much of a company's work can live there. Not its bank account,
-payroll or every SaaS application. But the part that benefits from clear
-ownership, version history, scoped access, review and deliberate publication
-can.
-
-Lazurio is a framework for translating that part of a company into private,
-GitHub-native processes. Repositories hold the work. GitHub permissions define
-the boundaries. People set the direction and retain authority. Task Agents
-coordinate inside those boundaries, turning human intent into Drafts, checks
-and evidence that people can review before Publication.
+It builds on GitHub, which can hold tasks, documentation and decisions as well
+as code. Version history shows who changed what. Permissions control who can
+read, edit and approve the work. You do not need to move accounting, email or
+every other existing service into GitHub.
 
 <figure class="lz-diagram">
   <picture>
@@ -51,10 +46,9 @@ and evidence that people can review before Publication.
   <figcaption>The business remains more than GitHub. Lazurio brings into it the work that benefits from versioning, access control and review.</figcaption>
 </figure>
 
-Lazurio does not ask you to hand your company over to AI. It gives people and
-Agents the same operating context: visible, versioned and reviewable.
-Agents can move work forward, but they do not choose the company's direction or
-gain authority from a prompt.
+The agent works with the materials and tools available for the task. It
+prepares a draft, checks it and presents it for review. You define the goal;
+an authorized person decides whether to publish or deploy the result.
 
 <figure class="lz-diagram">
   <picture>
@@ -66,21 +60,21 @@ gain authority from a prompt.
 
 ## What Lazurio is today
 
-Today Lazurio runs from a public source checkout using Git and Bun. It includes
+The version described in the linked sources runs from source with Git and Bun. It includes
 Launchpad, diagnostics, an experimental CLI v0 and the operating contracts used
 by connected Organizations and modules. A simple packaged installation is a
 target, not a released distribution.
 
-It is not an AI model, a managed SaaS tenant or a universal security sandbox
-around the agent client. Its value is narrower and more practical: it makes
-authority, context, work and publication boundaries visible enough to govern.
+You choose the AI model and client separately. Lazurio itself is not a
+managed SaaS service or a universal security sandbox for AI tools. Review
+the selected providers' terms before deployment.
 The [security and control evidence](/en/public-evidence/) shows where those claims
 come from and what they do not prove.
 
 ## Browse the documentation
 
-Start with the question you have. You do not need to choose a role or an
-evaluation path before you can enter the documentation.
+If you are new to Lazurio, open the Guide. The other sections cover technical
+requirements, access and operations.
 
 <nav className="lz-directory" aria-label="Documentation sections">
   <a href="/en/guide/">

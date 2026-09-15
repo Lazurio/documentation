@@ -4,8 +4,8 @@ description: Co je v Lazuriu dané a co musí rozhodnout provozovatel konkrétn�
 stableId: lazurio-doc-deployment-operations
 locale: cs
 summary: Postup zavedení Lazuria přes identity, zařízení, repozitáře, moduly, integrace, logy, zálohy, aktualizace a odebírání přístupů.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -21,11 +21,10 @@ audience:
   - agent
 ---
 
-Lazurio je software provozovaný vývojářem nad lokálními pracovními kopiemi a
-samostatně vlastněnými moduly, nikoli jedna univerzální hostovaná topologie.
-Záznam o nasazení proto musí pojmenovat skutečná zařízení, repozitáře, klienta
-agenta, poskytovatele modelu, integrace a hostované služby, které Organizace
-opravdu používá.
+Nasazení Lazuria nemá jedinou podobu. V popsané verzi provozovatel spravuje
+lokální pracovní kopie a jednotlivé moduly. Nejdřív proto sestavte seznam
+zařízení, repozitářů, AI nástrojů, poskytovatelů modelů a připojených služeb.
+U každé položky určete, kdo ji spravuje.
 
 ## Součásti nasazení
 
@@ -83,7 +82,7 @@ a vyzkoušejte také odebrání přístupu.
 Pro každý repozitář nastavte ochranu větví, povinné kontroly a review. U zpráv,
 infrastruktury, plateb, tajných údajů a nevratných operací pojmenujte skutečné
 oprávnění nebo potvrzení na straně poskytovatele. Pokud žádné neexistuje,
-označte pravidlo poctivě jako procesní.
+uveďte, že schválení musí zajistit pracovní postup, nikoli software.
 
 ### 6. Proveďte přejímací testy
 
@@ -96,7 +95,7 @@ Výsledky testů uložte spolu s rozhodnutím o nasazení.
 Zdrojové soubory Lazuria, konfigurace Organizace a jednotlivé moduly se
 verzují nezávisle. Aktualizace mají posouvat čisté primární pracovní kopie,
 projít deklarovanými kontrolami a vstoupit do produkce z přesně určeného
-reviewovaného commitu. Návrat k předchozí verzi se týká jen dotčeného
+zkontrolovaného commitu. Návrat k předchozí verzi se týká jen dotčeného
 repozitáře nebo nasazení; nesmí obnovit odvolané přihlašovací údaje ani
 zastaralá oprávnění.
 
@@ -109,5 +108,5 @@ zastaralá oprávnění.
 - Jak se lokální data a přihlašovací údaje zálohují, mažou a obnovují?
 - Jaká doba reakce je případně smluvně přislíbená?
 
-Odpovědi patří do podkladů ke schválení konkrétního nasazení. Veřejná
-dokumentace je nemůže poctivě vymyslet za každého provozovatele.
+Odpovědi uložte k podkladům pro schválení nasazení. Pokud některá chybí,
+určete, kdo ji doplní, ještě před zahájením produkčního provozu.

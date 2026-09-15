@@ -4,8 +4,8 @@ description: Veřejné podklady, na kterých stojí technická a bezpečnostní 
 stableId: lazurio-doc-reference
 locale: cs
 summary: Přesná revize zdrojů Lazuria a aktuální stránky Microsoft Learn použité pro architektonická, bezpečnostní a srovnávací tvrzení.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -28,10 +28,9 @@ audience:
   - agent
 ---
 
-Dokumentace stojí na veřejných a ověřitelných podkladech. Odkazy na Lazurio
-vedou na přesnou posouzenou revizi repozitáře. Odkazy na Microsoft míří do
-aktuální dokumentace poskytovatele, protože jeho služby se průběžně mění a
-vyžadují pravidelnou kontrolu.
+Odkazy na Lazurio vedou na konkrétní revizi repozitáře, ze které dokumentace
+vychází. Stránky Microsoftu se průběžně mění; datum jejich posledního
+ověření najdete v mapě zdrojů. Jazyková úprava stránky sama toto datum nemění.
 
 ## Zdrojové materiály Lazuria
 

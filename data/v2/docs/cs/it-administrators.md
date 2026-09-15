@@ -4,8 +4,8 @@ description: Otázky, které by si IT mělo položit před schválením Lazuria.
 stableId: lazurio-doc-it-administrators
 locale: cs
 summary: Stručný přehled účelu Lazuria, identity, přístupů, dat, integrací, provozu a hranic pro schvalování výsledků.
-updatedAt: "2026-08-31"
-reviewedAt: "2026-08-31"
+updatedAt: "2026-09-15"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -22,12 +22,12 @@ audience:
   - agent
 ---
 
-Lazurio dělá práci s AI řiditelnější: firemní práci drží ve verzovaných
-repozitářích a odděluje přípravu výsledku od jeho zveřejnění. Lidé i agenti tak
-mohou pracovat nad zdrojovými podklady a schválenými nástroji bez vymýšlení
-druhé identity nebo dalšího systému oprávnění.
+Tento přehled vám pomůže připravit pilot Lazuria a určit, co musí provozovatel
+doložit před nasazením. Lazurio používá Git repozitáře pro firemní podklady
+a historii změn. Agent připravuje návrhy, jejich zveřejnění se schvaluje
+zvlášť. Přístupy dál určují GitHub, operační systém a připojené služby.
 
-Dnes podporované nasazení běží z veřejné zdrojové pracovní kopie s Gitem a
+Verze popsaná v odkazovaných zdrojích běží ze zdrojové pracovní kopie s Gitem a
 Bunem. Obsahuje Launchpad, diagnostiku, provozní pravidla a experimentální CLI
 v0. Není to spravovaná AI služba dodavatele, stabilní balíčkovaný instalátor ani
 další sandbox kolem vybraného klienta agenta.
@@ -48,10 +48,9 @@ schválený nástroj, s jakými daty a kdo smí výsledek zveřejnit?**
 | Přihlašovací a tajné údaje | Citlivé údaje patří do vyhrazených úložišť mimo Git a veřejnou dokumentaci. | Zvolené úložiště, obměna údajů, reakce na incident a kontrola úniků fungují i v praxi. |
 | Audit | Commity, pull requesty, schválení a záznamy o nasazení dobře dokládají změny zdrojů; jejich pokrytí závisí na použitých nástrojích. | Potřebné záznamy existují v GitHubu, na koncových zařízeních, u poskytovatele modelu, v připojených aplikacích i v infrastruktuře pro nasazení. |
 
-Jde o popis návrhových a procesních hranic, nikoli o bezpečnostní certifikaci.
-Přesnou podobu produktu, zdroje a limity tvrzení drží na jednom místě
-[Bezpečnost a podklady k ověření](/cs/public-evidence/), aby z každé
-čtenářské stránky nevznikl právní dodatek.
+Tabulka popisuje pravidla a kontroly, které je třeba ověřit; není bezpečnostní
+certifikací. Odkazy na zdroje a omezení tohoto popisu najdete v části
+[Bezpečnost a podklady k ověření](/cs/public-evidence/).
 
 ## Ke kterým datům může Lazurio přistupovat?
 

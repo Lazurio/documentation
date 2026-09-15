@@ -1,9 +1,9 @@
 ---
 title: Tips for working
-description: Practical ways to make working with an AI Colleague easier.
+description: Practical ways to make working with an agent easier.
 stableId: lazurio-doc-guide-work-tips
 locale: en
-summary: How an AI Colleague uses the built-in browser of its own tool (Browser Use) for web work while you keep control over access and important actions.
+summary: How an agent uses the built-in browser of its own tool (Browser Use) for web work while you keep control over access and important actions.
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
@@ -19,11 +19,11 @@ audience:
   - agent
 ---
 
-## When an AI Colleague needs to work on the web
+## When an agent needs to work on the web
 
-**Browser Use** means working directly in a website's interface: an agent opens
-pages, clicks and fills fields. This is different from simply searching for
-links and is not a Lazurio feature. Availability depends on the AI tool.
+With **Browser Use**, an agent can open a website, read a page, click and
+fill forms. Ask for it when the task needs work on the site, not just a list
+of links. Your AI tool provides this feature, not Lazurio.
 
 <figure>
   <a href="/guide-assets/chatgpt-browser-illustration-cs.png" aria-label="Open the illustrative mockup at full size">
