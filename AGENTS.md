@@ -48,7 +48,8 @@ Add Czech only as a curated document with the same stable ID and evidence map.
 
 Pablo AI is the second reviewer of security-critical statements. Production
 deployment requires his exact-head approval, green checks and the explicit
-publication instruction for the current release.
+publication instruction to merge the current reviewed pull request. The merge
+to protected `main` then triggers the production deployment automatically.
 
 ## Verification
 
