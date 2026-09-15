@@ -25,9 +25,14 @@ environment secrets. Configure the branch policy before storing either secret:
 The token is a CI capability, not publication authorization. Branch protection,
 exact-head review and the explicit instruction to merge the reviewed pull
 request remain the publication gate. Pull requests from forks are verified but
-do not receive a deployment. A same-repository pull request cannot read the
-Cloudflare credential because its ref is rejected by the environment deployment
-branch policy; do not move these values to repository or Organization secrets.
+do not receive a deployment. For a same-repository pull request, the trusted
+`workflow_run` job is evaluated from the default branch and is therefore
+admitted by the selected-`main` Environment policy. The pull request source
+still cannot read the Cloudflare credential: verification is unprivileged, the
+credentialed job never checks out or executes pull request code, it accepts
+only a same-repository triggering run, downloads only that run's static
+artifact, verifies its embedded source SHA and rejects symlinks before upload.
+Do not move these values to repository or Organization secrets.
 
 An operator's authenticated Wrangler session is reserved for readback,
 rollback and break-glass recovery; it is not a parallel routine deployment

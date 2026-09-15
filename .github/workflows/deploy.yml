@@ -31,7 +31,7 @@ jobs:
       deployments: write
       pull-requests: write
     steps:
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
           name: pages-preview
           path: ${{ runner.temp }}/pages
@@ -52,7 +52,7 @@ jobs:
           NODE
       - name: Deploy preview to Cloudflare Pages
         id: deploy
-        uses: cloudflare/wrangler-action@v4
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -63,7 +63,7 @@ jobs:
             --branch=pr-${{ github.event.workflow_run.pull_requests[0].number }}
             --commit-hash=${{ github.event.workflow_run.head_sha }}
       - name: Publish preview deployment and pull request link
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
           ALIAS_URL: ${{ steps.deploy.outputs.pages-deployment-alias-url }}
@@ -164,7 +164,7 @@ jobs:
       source-sha: ${{ github.event.workflow_run.head_sha }}
     steps:
       - name: Verify source is the current protected main tip
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
         with:
@@ -180,7 +180,7 @@ jobs:
             if (branch.data.commit.sha !== process.env.SOURCE_SHA) {
               throw new Error(`Refusing stale production artifact ${process.env.SOURCE_SHA}; current main is ${branch.data.commit.sha}.`)
             }
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
         with:
           name: pages-production
           path: ${{ runner.temp }}/pages
@@ -201,7 +201,7 @@ jobs:
           NODE
       - name: Deploy production to Cloudflare Pages
         id: deploy
-        uses: cloudflare/wrangler-action@v4
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -212,7 +212,7 @@ jobs:
             --branch=main
             --commit-hash=${{ github.event.workflow_run.head_sha }}
       - name: Publish production deployment
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
           SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}

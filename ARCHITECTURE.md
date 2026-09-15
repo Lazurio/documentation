@@ -103,9 +103,14 @@ succeeds, a `workflow_run` deployment defined by the default branch downloads
 only that run's static artifact, verifies its embedded source commit and uploads
 it with the credential. Both upload jobs bind to the
 `cloudflare-pages-credentials` GitHub Environment, whose deployment branch
-policy admits only protected `main`. Pull-request code therefore cannot modify
-the trusted deployment workflow before merge or request the Cloudflare token
-from its own workflow. Each successful upload creates a GitHub Deployment.
+policy admits only protected `main`. A `workflow_run` job is evaluated from that
+default branch, so the Environment admits the trusted deploy job even when its
+triggering artifact came from a same-repository pull request. Pull-request code
+cannot request the token from its own workflow: verification is unprivileged,
+the credentialed job never checks out or executes pull-request code, accepts
+only a same-repository triggering run, downloads only that run's static
+artifact, verifies its embedded source commit and rejects symlinks before
+upload. Each successful upload creates a GitHub Deployment.
 
 Same-repository pull requests deploy to an isolated `pr-<number>` preview
 branch and receive an updated comment with immutable and branch-alias URLs.
