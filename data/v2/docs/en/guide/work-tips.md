@@ -25,6 +25,13 @@ audience:
 pages, clicks and fills fields. This is different from simply searching for
 links and is not a Lazurio feature. Availability depends on the AI tool.
 
+<figure>
+  <a href="/guide-assets/chatgpt-browser-illustration-cs.png" aria-label="Open the illustrative mockup at full size">
+    <img src="/guide-assets/chatgpt-browser-illustration-cs.png" alt="Illustrative mockup with Czech example text: ChatGPT and an @Browser prompt on the left, a Browser panel with a fictional contact page on the right." width="1605" height="980" loading="lazy" />
+  </a>
+  <figcaption>AI-generated illustrative mockup, not an actual screenshot. Enter the task on the left and watch the website on the right. The website and details are fictional; the real interface may differ. Click to enlarge. The Czech prompt asks to find contact details without sending anything.</figcaption>
+</figure>
+
 ## Get started in ChatGPT
 
 In the ChatGPT desktop app, chat and the built-in browser can appear side by side.

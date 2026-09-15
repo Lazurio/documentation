@@ -25,6 +25,13 @@ audience:
 kliká a vyplňuje pole. Není to totéž jako pouhé vyhledávání odkazů a nejde
 o součást Lazuria. Dostupnost závisí na konkrétním AI nástroji.
 
+<figure>
+  <a href="/guide-assets/chatgpt-browser-illustration-cs.png" aria-label="Otevřít ilustrační maketu v plné velikosti">
+    <img src="/guide-assets/chatgpt-browser-illustration-cs.png" alt="Ilustrační maketa: vlevo chat ChatGPT s promptem @Browser, vpravo panel Browser s fiktivní kontaktní stránkou." width="1605" height="980" loading="lazy" />
+  </a>
+  <figcaption>Ilustrační maketa vytvořená pomocí AI, nikoli skutečný screenshot. Vlevo zadáváte úkol, vpravo sledujete otevřený web. Údaje i web jsou smyšlené; skutečné rozhraní se může lišit. Kliknutím obrázek zvětšíte.</figcaption>
+</figure>
+
 ## Jak začít v ChatGPT
 
 V desktopové aplikaci ChatGPT můžete mít chat a vestavěný prohlížeč vedle sebe.
