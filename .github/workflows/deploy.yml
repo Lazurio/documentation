@@ -253,7 +253,7 @@ jobs:
       run:
         working-directory: app/v2
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ needs.deploy-production.outputs.source-sha }}
       - uses: oven-sh/setup-bun@v2
