@@ -46,6 +46,30 @@ Plausible is not part of the documentation artifact. Removing a property or
 cancelling a provider subscription is a separate operator decision, not part
 of this migration.
 
+## Pull request preview acceptance
+
+For every same-repository pull request, wait for both the unprivileged `Verify`
+run and its trusted `Deploy / preview` follower to succeed. The deploy workflow
+creates a GitHub Deployment and adds or updates one Cloudflare Pages preview
+comment on the pull request. Treat the immutable URL in that comment as the
+acceptance target; the `pr-<number>` branch alias is only a convenience pointer
+to the latest successful preview for that pull request.
+
+Verify that the comment identifies the exact pull request HEAD, then smoke the
+immutable URL against the same full commit:
+
+```sh
+cd app/v2
+LAZURIO_DOCUMENTATION_EXPECTED_SHA=<exact-40-character-pr-head> \
+LAZURIO_DOCUMENTATION_SMOKE_URL=<immutable-preview-url> \
+  bun run smoke:production
+```
+
+The preview artifact intentionally contains no production analytics
+configuration. A fork pull request must stop after `Verify`; the absence of a
+preview for a fork is the expected credential boundary, not a deployment
+failure.
+
 ## Release smoke
 
 After every deployment or rollback, verify the canonical hostname, redirect,
