@@ -123,6 +123,16 @@
       "reviewDueAt": "2026-12-12"
     },
     {
+      "id": "wacli",
+      "title": "wacli documentation",
+      "publisher": "wacli",
+      "kind": "provider-documentation",
+      "url": "https://wacli.sh/",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-22",
+      "reviewDueAt": "2026-12-22"
+    },
+    {
       "id": "amphetamine",
       "title": "Amphetamine on the Mac App Store",
       "publisher": "William Gustafson",
