@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="wacli">
-  <rect x="4" y="8" width="56" height="48" rx="10" fill="#111827"/>
-  <path d="M16 22l8 7-8 7" fill="none" stroke="#34d399" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M29 37h13" fill="none" stroke="#f9fafb" stroke-width="4" stroke-linecap="round"/>
-  <path d="M42 15h7a5 5 0 015 5v8" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
-  <path d="M54 28l-5-4v8z" fill="#34d399"/>
-</svg>

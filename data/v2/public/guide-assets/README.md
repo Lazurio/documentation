@@ -3,8 +3,9 @@
 - `wispr-flow.svg`, `codexbar.svg`, `amphetamine.svg` — official marks of the
   recommended applications, used unchanged; sources are listed in
   `data/v2/source-map.json`.
-- `wacli.svg` — a documentation-owned terminal and chat glyph for wacli; it
-  avoids presenting a third-party WhatsApp mark as an official integration.
+- `wacli.png` — the wacli/WhatsApp connection icon supplied for this Guide
+  card; it is presentation artwork, not evidence of an official Meta or
+  WhatsApp integration.
 - `mattycus-idle.png` — Mattyčus, the approved default Guide companion from
   the Lazurio design system (`content/brand/buddy/mattycus-idle.png`,
   192 × 208 px, SHA-256
