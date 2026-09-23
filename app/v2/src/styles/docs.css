@@ -382,6 +382,10 @@ button,
   object-position: left center;
 }
 
+.sl-markdown-content .lz-guide-app__visual--wordmark img {
+  width: 4.875rem;
+}
+
 .sl-markdown-content .lz-guide-app__eyebrow {
   color: var(--sl-color-gray-3);
   font-size: 0.9rem;
