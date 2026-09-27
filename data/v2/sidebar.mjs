@@ -29,6 +29,7 @@ export const sidebar = [
       { label: 'How Lazurio works', translations: { cs: 'Princip fungování' }, slug: 'how-lazurio-works' },
       { label: 'Data access and security', translations: { cs: 'Přístup k datům a zabezpečení' }, slug: 'data-access-security' },
       { label: 'Deployment and operations', translations: { cs: 'Nasazení a provoz' }, slug: 'deployment-operations' },
+      { label: 'Connecting an Environment to apps', translations: { cs: 'Napojení prostředí na aplikace' }, slug: 'environment-app-connections' },
     ],
   },
   {
