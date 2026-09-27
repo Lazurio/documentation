@@ -12,7 +12,7 @@ const routes = readdirSync(root, { recursive: true, withFileTypes: true })
 
 test('every edited documentation page remains readable at phone and laptop widths', async ({ page }) => {
   test.setTimeout(120_000)
-  expect(routes).toHaveLength(36)
+  expect(routes).toHaveLength(38)
   for (const width of [375, 1280]) {
     await page.setViewportSize({ width, height: 900 })
     for (const route of routes) {

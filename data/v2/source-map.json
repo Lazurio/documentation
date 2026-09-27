@@ -201,6 +201,96 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-09-15",
       "reviewDueAt": "2026-10-15"
+    },
+    {
+      "id": "lazurio-decision-0162",
+      "title": "Lazurio decision register, decision 0162: connecting an Environment to external apps",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-external-apps-0162",
+      "title": "External application integration standard after decision 0162",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/external-app-integrations.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-tools-decisions",
+      "title": "LazurioPlatform decisions F17 and F18: operator tools and enabled tools of the Environment",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/3926999cc186d7388565a0c570748012c8b253bb/docs/decisions.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-environment-tools",
+      "title": "LazurioPlatform environment tools and operator sign-ins",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/3926999cc186d7388565a0c570748012c8b253bb/docs/environment-tools.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-6",
+      "title": "LazurioPlatform release v0.1.6",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.6",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-tools-screen-review",
+      "title": "LazurioPlatform open pull request: Launchpad Tools section",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/pull/51",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-composio-custody-question",
+      "title": "LazurioPlatform open question: Composio data custody, log retention and hosting region",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/40",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-composio-shared-connections-question",
+      "title": "LazurioPlatform open question: do two Machines signed in to the same Composio account and organization share connections",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/45",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "composio-token-custody",
+      "title": "Composio token custody architecture",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs/security/token-custody",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
     }
   ]
 }
