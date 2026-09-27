@@ -3,7 +3,7 @@ title: Connecting an Environment to external apps
 description: How an operator connects a Lazurio Environment to email, calendars and other apps, what agents can then do, and which trade-offs come with it.
 stableId: lazurio-doc-environment-app-connections
 locale: en
-summary: The operator decides which apps an Environment reaches. Composio is the recommended route, a sign-in reaches wherever its account reaches, and several parts of the setup are not released yet.
+summary: The operator decides which apps an Environment reaches. Composio is the recommended route, a sign-in reaches wherever its account reaches, and the curated setup released in v0.1.7 has not yet run against the real services.
 updatedAt: "2026-09-28"
 reviewedAt: "2026-09-28"
 reviewOwner: Matej Suchanek
@@ -14,8 +14,11 @@ sourceRefs:
   - lazurio-external-apps-0162
   - lazurio-platform-tools-decisions
   - lazurio-platform-environment-tools
+  - lazurio-platform-decision-f19
   - lazurio-platform-release-v0-1-6
+  - lazurio-platform-release-v0-1-7
   - lazurio-platform-tools-screen-review
+  - lazurio-platform-curated-login-pull-request
   - lazurio-platform-composio-custody-question
   - lazurio-platform-composio-shared-connections-question
   - composio-authentication
@@ -80,14 +83,42 @@ The catalog lists the tools that agents can be told to use. Each has a
 | gogcli | `gog` | Optional | Agent |
 | Neon CLI | `neon` | Optional | Agent |
 
-- **Launchpad setup** is meant to get a curated install and sign-in flow in the
-  Launchpad.
-- **Agent setup** gives you a prepared prompt. An agent installs the tool and
-  guides your sign-in.
+- **Launchpad setup** has a curated installation and sign-in, both in the
+  Launchpad and on the command line. See
+  [installing and signing in](#installing-and-signing-in-to-a-tool).
+- **Agent setup** gives you a prepared prompt. You copy it into a new agent
+  chat; the agent installs the tool and guides your sign-in.
 
 Every catalog entry describes the target state of its installation. That
-description is the agent's manual: when a curated installer fails, an agent is
-meant to finish the installation from it.
+description is the agent's manual: when a curated installation fails, Lazurio
+offers the prepared prompt, and an agent finishes the installation from it.
+
+## Installing and signing in to a tool
+
+For `gh`, `composio` and `wacli`, the card of the tool in the Tools section of
+the Launchpad settings shows **Install and sign in** when the tool is missing,
+**Sign in** when it is installed but not signed in, and **Sign out** when it is
+signed in. The same flow runs on the command line with
+`lazurio tools install <tool>`, `lazurio tools login <tool>` and
+`lazurio tools logout <tool>`.
+
+The installation is for the current user, without administrator rights, from
+the tool's official source. A tool that already works is left as it is. You
+never copy an API key, and you can finish the sign-in on any device:
+
+- **`gh`** shows a one-time code and the GitHub device page. Open the page and
+  enter the code.
+- **`composio`** shows a link. Open it and sign in; then choose the Composio
+  organization of this Environment.
+- **`wacli`** shows a QR code to scan in WhatsApp, or pairs with your phone
+  number instead.
+
+Signing out of `gh` or `composio` forgets the sign-in on this Machine only. If
+the access must end at the provider too, revoke it there. Signing out of
+`wacli` unlinks the device.
+
+The curated flows run on Linux and macOS. On Windows they are refused and the
+prepared agent prompt is offered instead.
 
 ## What enabling a tool does
 
@@ -102,23 +133,36 @@ signs in nowhere and pins no version. Disabling removes the tool from the
 instructions. It does not sign you out or disconnect any app: to remove access,
 disconnect the app in Composio or sign out of the tool.
 
-You will be able to add a short note per tool, for example "read-only for
-customer mail". Agents read it in the Folder manual. The note is instruction
-for agents, not a technical limit, and it is still in review.
+You can add a short note to an enabled tool, for example "read-only for
+customer mail", in the Tools section or with `lazurio tools note`. Agents read
+it in the Folder manual. The note is instruction for agents, not a technical
+limit. Disabling the tool removes its note.
+
+The Tools section also shows for each tool whether it is installed, whether it
+is enabled and whether it is signed in, with the account when the tool reports
+one.
 
 ## Connecting apps through Composio
 
-This is the intended flow. Check [what is available today](#what-is-available-today)
-before you rely on it.
+The flow below needs v0.1.7 on your Environment. Check
+[what is available today](#what-is-available-today) before you rely on it.
 
 1. Decide which Environment you connect and which Composio account and
    Composio organization belong to it.
-2. Enable Composio for that Environment.
-3. Sign in with `composio login` and open the returned link in your browser.
-4. Connect each app with `composio link <toolkit>`. Open the returned link and
-   sign in directly at the app.
-5. Confirm with `composio whoami` that the intended account is signed in.
-6. If agents should not have all of an app, narrow the connection before you
+2. Enable Composio for that Environment in the Tools section, or with
+   `lazurio tools enable composio`.
+3. Sign in: choose **Install and sign in** or **Sign in** on the Composio card,
+   or run `lazurio tools login composio`. Open the link it shows and sign in to
+   Composio. No key is shown or copied.
+4. Choose the Composio organization of this Environment. The Launchpad offers
+   the choice after the sign-in; on the command line, use
+   `lazurio tools composio-org` to list the organizations and
+   `lazurio tools composio-org switch <id>` to change it.
+5. Connect each app with Composio's own `composio link <toolkit>`. Open the
+   returned link and sign in directly at the app.
+6. Confirm that the intended account and organization are signed in. The
+   Composio card shows them, and so does `composio whoami`.
+7. If agents should not have all of an app, narrow the connection before you
    hand them work.
 
 ### The account of the Environment
@@ -193,23 +237,43 @@ Status on 2026-09-28, from the public
 | Capability | Status | Evidence |
 | --- | --- | --- |
 | `lazurio tools status` and `lazurio tools update <tool>`: report the operator's tools (Codex, Claude Code, `gh`, Git, Node.js, npm, Bun) and run one tool's official updater on request | Released in v0.1.6 (2026-09-26) | [Release v0.1.6](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.6) |
-| Catalog with tiers and setup modes; `lazurio tools list`, `enable`, `disable` and `prompt`; enabled tools in the Folder instructions; the warning on shared Environments; `tools status` for Composio, wacli, gog and Neon | Merged to `main` on 2026-09-27, not in a release yet | [Decision F18](https://github.com/Lazurio/LazurioPlatform/blob/3926999cc186d7388565a0c570748012c8b253bb/docs/decisions.md#f18--enabled-tools-of-the-environment) |
-| Tools section in the Launchpad settings: groups, status, enable and disable, prepared agent prompts; the operator's note per tool; the sign-in state of each tool | In review, not merged | [Open pull request](https://github.com/Lazurio/LazurioPlatform/pull/51) |
-| Installing and signing in to catalog tools from the Launchpad; handing a prepared prompt directly to an agent chat; managing per-Machine permissions from the Dashboard | Planned, not built | [Decision 0162](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/decision-register.md) |
+| Catalog with tiers and setup modes; `lazurio tools list`, `enable`, `disable` and `prompt`; enabled tools in the Folder instructions; the warning on shared Environments; `tools status` for Composio, wacli, gog and Neon | Released in v0.1.7 (2026-09-27) | [Decision F18](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f18--enabled-tools-of-the-environment), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
+| Tools section in the Launchpad settings: groups, status, enable and disable, prepared agent prompts for copying; the operator's note per tool (`lazurio tools note`); the sign-in state of each tool | Released in v0.1.7 (2026-09-27) | [Tools section](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/launchpad-development.md#tools-section), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
+| Curated installation and sign-in of `gh`, `composio` and `wacli` on Linux and macOS: `lazurio tools install`, `login` and `logout`, `lazurio tools composio-org`, and the Launchpad buttons Install and sign in, Sign in and Sign out | Released in v0.1.7 (2026-09-27); not yet run against the real services | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
+| Handing a prepared prompt directly into an agent chat (today it is shown for copying); the curated flows on Windows; managing per-Machine permissions from the Dashboard | Planned, not built | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [decision 0162](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/decision-register.md) |
 
-Until the Launchpad Tools section is released, Composio is set up only in a
-limited pilot. Outside it, agents do not set up Composio on their own and use
-the other routes of the
+A release is not yet the state of your Environment. A Remote Environment gets
+v0.1.7 when its provider installs that release there; a Local Environment gets
+it when its operator updates Lazurio.
+
+The curated installation and sign-in have not yet run against the real
+services. According to the
+[pull request that added them](https://github.com/Lazurio/LazurioPlatform/pull/54),
+they were verified with automated tests and a browser run against stand-in
+tools; at release time no real download from a vendor and no real sign-in had
+been run. The first real run is planned as a pilot.
+
+Decision 0162 kept Composio in a limited pilot until the Launchpad Tools
+section is released. The section is released in v0.1.7, and an Environment has
+it once that release is installed there. Until the first pilot run is done,
+the real Composio sign-in through Lazurio is unproven. Where v0.1.7 is not
+installed yet, agents do not set up Composio on their own and use the other
+routes of the
 [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/external-app-integrations.md).
 
-When enabled tools reach a release, keep one limit in mind: older releases
-cannot read a Folder that has enabled tools. Disable the tools before you roll
-the product back below that release.
+Enabled tools and tool notes arrive with v0.1.7. Releases before v0.1.7 cannot
+read a Folder that has enabled tools or a note: the Folder operations and the
+Launchpad start fail, and nothing is rewritten. Before you roll the product
+back below v0.1.7, disable the tools and remove the notes with v0.1.7, or
+update forward to v0.1.7 again.
 
 ## Sources
 
 - [Lazurio decision 0162](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/decision-register.md): the model, the routes and the accepted trade-offs.
 - [External application integration standard](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/external-app-integrations.md): the order of routes and what stays excluded.
-- [LazurioPlatform decisions F17 and F18](https://github.com/Lazurio/LazurioPlatform/blob/3926999cc186d7388565a0c570748012c8b253bb/docs/decisions.md#f17--operator-tools-belong-to-the-operator-the-rollout-pins-the-baseline-and-repairs): operator tools, the catalog and the Folder instructions.
-- [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/3926999cc186d7388565a0c570748012c8b253bb/docs/environment-tools.md): the `lazurio tools` commands.
+- [LazurioPlatform decisions F17 and F18](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f17--operator-tools-belong-to-the-operator-the-rollout-pins-the-baseline-and-repairs): operator tools, the catalog, the Folder instructions, the operator's note and the sign-in state.
+- [LazurioPlatform decision F19](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools): the curated installation and sign-in, and what it defers.
+- [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/environment-tools.md): the `lazurio tools` commands.
+- [Launchpad Tools section](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/launchpad-development.md#tools-section): what the section shows and its buttons.
+- [LazurioPlatform release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) and the [pull request of the curated installation and sign-in](https://github.com/Lazurio/LazurioPlatform/pull/54), including what it did not verify.
 - [Composio authentication](https://docs.composio.dev/docs/authentication) and [token custody](https://docs.composio.dev/docs/security/token-custody): Composio's own description of sign-in and credential custody.

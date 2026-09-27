@@ -224,20 +224,30 @@
     },
     {
       "id": "lazurio-platform-tools-decisions",
-      "title": "LazurioPlatform decisions F17 and F18: operator tools and enabled tools of the Environment",
+      "title": "LazurioPlatform decisions F17 and F18 with its addendum: operator tools, enabled tools of the Environment, the operator's note and sign-in state (release v0.1.7)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/3926999cc186d7388565a0c570748012c8b253bb/docs/decisions.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-decision-f19",
+      "title": "LazurioPlatform decision F19: curated installation and login of catalog tools (release v0.1.7)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-09-28",
       "reviewDueAt": "2026-10-28"
     },
     {
       "id": "lazurio-platform-environment-tools",
-      "title": "LazurioPlatform environment tools and operator sign-ins",
+      "title": "LazurioPlatform environment tools and operator sign-ins (release v0.1.7)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/3926999cc186d7388565a0c570748012c8b253bb/docs/environment-tools.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/environment-tools.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-09-28",
       "reviewDueAt": "2026-10-28"
@@ -253,11 +263,31 @@
       "reviewDueAt": "2026-10-28"
     },
     {
-      "id": "lazurio-platform-tools-screen-review",
-      "title": "LazurioPlatform open pull request: Launchpad Tools section",
+      "id": "lazurio-platform-release-v0-1-7",
+      "title": "LazurioPlatform release v0.1.7 (published 2026-09-27, commit fde0eb83a990f54a1e7624ce011a3f226233dad2)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/pull/51",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-tools-screen-review",
+      "title": "LazurioPlatform Launchpad Tools section, merged through pull request 51 and released in v0.1.7",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/launchpad-development.md#tools-section",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-09-28",
+      "reviewDueAt": "2026-10-28"
+    },
+    {
+      "id": "lazurio-platform-curated-login-pull-request",
+      "title": "LazurioPlatform merged pull request 54: curated installation and login, with its statement of what was not verified",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/pull/54",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-09-28",
       "reviewDueAt": "2026-10-28"
