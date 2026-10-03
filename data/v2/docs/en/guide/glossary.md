@@ -4,8 +4,8 @@ description: Practical explanations of basic and advanced Lazurio terms.
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: Plain and practical explanations of terms you will encounter when using, administering, or developing Lazurio.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-03"
+reviewedAt: "2026-10-03"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -30,8 +30,12 @@ administration, development and change approval.
 **Lazurio** A shared work environment for people and AI Colleagues. It helps
 you find applications, work, and the information you need.
 
-**Launchpad** Lazurio's home screen. From here, you choose an Organization
-and open the application you want to work in.
+**Launchpad** The overview of your Organization's applications in your
+Environment, the place where you work. From here, you open or start an
+application. In the upcoming version of Lazurio it is called Apps in the
+Chat · Apps · Automate switch and shows modules in two sections,
+Organization and Workspace. You switch between Environments in the rail, the
+vertical strip on the left edge.
 
 **Guide** Practical help for Lazurio. When you are unsure what something
 means or how to continue, start here.
@@ -76,8 +80,10 @@ optionally, your Buddy.
 **AI Colleague** A digital team member with its own work role,
 responsibilities, and access.
 
-**Buddy** Your personal AI assistant. It may help or represent you only
-within the scope you allow.
+**Buddy** Your personal AI assistant. It lives in your personal Environment
+and operates it for you; it is not a separate app. It may help or represent
+you only within the scope you allow. In the upcoming version of Lazurio you
+talk to it in a floating chat at the bottom right of every screen.
 
 **Prompt** A request you write for AI. For example: “Prepare an overview of
 unpaid invoices and explain what I should address first.”

@@ -4,8 +4,8 @@ description: Praktická vysvětlení základních a pokročilých pojmů v Lazur
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: Jednoduchá a praktická vysvětlení pojmů, které potkáte při používání, správě nebo vývoji Lazuria.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-03"
+reviewedAt: "2026-10-03"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -30,8 +30,11 @@ vývoj a schvalování změn.
 **Lazurio** Společné pracovní prostředí pro lidi a AI Kolegy. Pomáhá vám
 najít aplikace, práci a potřebné informace.
 
-**Launchpad** Domovská obrazovka Lazuria. Odtud si vyberete Organizaci a
-otevřete aplikaci, ve které chcete pracovat.
+**Launchpad** Přehled aplikací Organizace ve vašem Environmentu, tedy
+v prostředí, ve kterém pracujete. Odtud aplikaci otevřete nebo spustíte.
+V připravované podobě Lazuria se v přepínači Chat · Apps · Automate jmenuje
+Apps a moduly ukazuje ve dvou sekcích, Organizace a Workspace. Mezi
+Environmenty přepínáte v railu, svislém pruhu na levém okraji.
 
 **Guide** Praktická nápověda k Lazuriu. Když nevíte, co něco znamená nebo
 jak pokračovat, začněte tady.
@@ -75,8 +78,10 @@ Buddymu.
 **AI Kolega** Digitální člen týmu s vlastní pracovní rolí, odpovědností a
 přístupy.
 
-**Buddy** Váš osobní AI pomocník. Může vám pomáhat nebo vás zastupovat pouze
-v rozsahu, který mu dovolíte.
+**Buddy** Váš osobní AI pomocník. Bydlí ve vašem osobním Environmentu
+a obsluhuje ho za vás; není to samostatná aplikace. Může vám pomáhat nebo vás
+zastupovat pouze v rozsahu, který mu dovolíte. V připravované podobě Lazuria
+s ním mluvíte v plovoucím chatu vpravo dole na každé obrazovce.
 
 **Prompt** Zadání, které napíšete AI. Například: „Připravte mi přehled
 nezaplacených faktur a vysvětlete, co mám řešit jako první.“
