@@ -10,6 +10,7 @@ reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-platform-shell-target
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -32,10 +33,11 @@ najít aplikace, práci a potřebné informace.
 
 **Launchpad** Přehled aplikací Organizace ve vašem Environmentu, tedy
 v prostředí, ve kterém pracujete. Odtud aplikaci otevřete nebo spustíte.
-V připravované podobě Lazuria se v přepínači Chat · Apps · Automate jmenuje
-Apps a moduly ukazuje ve třech sekcích: Organizace, Workspace
-a Productionspace. Podle Teamů je neseskupuje. Mezi Environmenty přepínáte
-v railu, svislém pruhu na levém okraji.
+Dnes v něm vybíráte Organizaci a moduly jsou seskupené po Organizacích.
+V připravované podobě Lazuria se bude v přepínači Chat · Apps · Automate
+jmenovat Apps, moduly ukáže ve třech sekcích (Organizace, Workspace
+a Productionspace) a podle Teamů je seskupovat nebude. Mezi Environmenty pak
+budete přepínat v railu, svislém pruhu na levém okraji.
 
 **Guide** Praktická nápověda k Lazuriu. Když nevíte, co něco znamená nebo
 jak pokračovat, začněte tady.

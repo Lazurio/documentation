@@ -10,6 +10,7 @@ reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-platform-shell-target
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -32,11 +33,12 @@ you find applications, work, and the information you need.
 
 **Launchpad** The overview of your Organization's applications in your
 Environment, the place where you work. From here, you open or start an
-application. In the upcoming version of Lazurio it is called Apps in the
-Chat · Apps · Automate switch and shows modules in three sections:
-Organization, Workspace and Productionspace. It does not group them by Team.
-You switch between Environments in the rail, the vertical strip on the left
-edge.
+application. Today you choose an Organization in it and modules are grouped
+by Organization. In the upcoming version of Lazurio it will be called Apps in
+the Chat · Apps · Automate switch, show modules in three sections
+(Organization, Workspace and Productionspace) and not group them by Team. You
+will then switch between Environments in the rail, the vertical strip on the
+left edge.
 
 **Guide** Practical help for Lazurio. When you are unsure what something
 means or how to continue, start here.
