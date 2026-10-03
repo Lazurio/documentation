@@ -33,9 +33,10 @@ you find applications, work, and the information you need.
 **Launchpad** The overview of your Organization's applications in your
 Environment, the place where you work. From here, you open or start an
 application. In the upcoming version of Lazurio it is called Apps in the
-Chat · Apps · Automate switch and shows modules in two sections,
-Organization and Workspace. You switch between Environments in the rail, the
-vertical strip on the left edge.
+Chat · Apps · Automate switch and shows modules in three sections:
+Organization, Workspace and Productionspace. It does not group them by Team.
+You switch between Environments in the rail, the vertical strip on the left
+edge.
 
 **Guide** Practical help for Lazurio. When you are unsure what something
 means or how to continue, start here.
@@ -80,10 +81,11 @@ optionally, your Buddy.
 **AI Colleague** A digital team member with its own work role,
 responsibilities, and access.
 
-**Buddy** Your personal AI assistant. It lives in your personal Environment
-and operates it for you; it is not a separate app. It may help or represent
-you only within the scope you allow. In the upcoming version of Lazurio you
-talk to it in a floating chat at the bottom right of every screen.
+**Buddy** Buddy is Buddy: on your behalf he coordinates your Agents and has
+the same authority over them as you. He is neither an Agent nor an app.
+Beyond that, he represents you only within the scope you allow. He lives in
+your personal Environment, and in the upcoming version of Lazurio you talk to
+him in a floating chat at the bottom right of every screen.
 
 **Prompt** A request you write for AI. For example: “Prepare an overview of
 unpaid invoices and explain what I should address first.”

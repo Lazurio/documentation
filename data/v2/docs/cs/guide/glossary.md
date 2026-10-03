@@ -33,8 +33,9 @@ najít aplikace, práci a potřebné informace.
 **Launchpad** Přehled aplikací Organizace ve vašem Environmentu, tedy
 v prostředí, ve kterém pracujete. Odtud aplikaci otevřete nebo spustíte.
 V připravované podobě Lazuria se v přepínači Chat · Apps · Automate jmenuje
-Apps a moduly ukazuje ve dvou sekcích, Organizace a Workspace. Mezi
-Environmenty přepínáte v railu, svislém pruhu na levém okraji.
+Apps a moduly ukazuje ve třech sekcích: Organizace, Workspace
+a Productionspace. Podle Teamů je neseskupuje. Mezi Environmenty přepínáte
+v railu, svislém pruhu na levém okraji.
 
 **Guide** Praktická nápověda k Lazuriu. Když nevíte, co něco znamená nebo
 jak pokračovat, začněte tady.
@@ -78,10 +79,11 @@ Buddymu.
 **AI Kolega** Digitální člen týmu s vlastní pracovní rolí, odpovědností a
 přístupy.
 
-**Buddy** Váš osobní AI pomocník. Bydlí ve vašem osobním Environmentu
-a obsluhuje ho za vás; není to samostatná aplikace. Může vám pomáhat nebo vás
-zastupovat pouze v rozsahu, který mu dovolíte. V připravované podobě Lazuria
-s ním mluvíte v plovoucím chatu vpravo dole na každé obrazovce.
+**Buddy** Buddy je Buddy: vaším jménem koordinuje vaše Agenty a má vůči nim
+stejnou pravomoc jako vy. Není to Agent ani aplikace. V ostatním vás
+zastupuje jen v rozsahu, který mu dovolíte. Bydlí ve vašem osobním Environmentu
+a v připravované podobě Lazuria s ním mluvíte v plovoucím chatu vpravo dole
+na každé obrazovce.
 
 **Prompt** Zadání, které napíšete AI. Například: „Připravte mi přehled
 nezaplacených faktur a vysvětlete, co mám řešit jako první.“
