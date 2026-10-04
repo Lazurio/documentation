@@ -4,8 +4,8 @@ description: Compare the work, administration and access requirements of Lazurio
 stableId: lazurio-doc-copilot-comparison
 locale: en
 summary: Compare Lazurio with Microsoft Copilot across purpose, context, permissions, execution, extensibility, governance, and deployment.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -34,10 +34,12 @@ Permissions matter in either case. Copilot uses work data available to the
 signed-in Microsoft 365 user. An agent in Lazurio works with selected
 repositories and tools it can actually access.
 
-This page uses “Microsoft Copilot” for the current product family while the
-linked provider pages may use “Microsoft 365 Copilot.” Microsoft product facts
-below come from current Microsoft Learn documentation. Lazurio positioning and
-the recommendations are our assessment.
+Microsoft has renamed Microsoft 365 Copilot to Microsoft Copilot and
+Microsoft 365 Copilot Chat to Microsoft Copilot Chat. Some licenses,
+experiences and linked pages, such as the extensibility documentation, still
+use the earlier name during the transition. Microsoft product facts below come
+from current Microsoft Learn documentation. Lazurio positioning and the
+recommendations are our assessment.
 
 ## Side-by-side
 
@@ -48,7 +50,7 @@ the recommendations are our assessment.
 | Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in principal's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
 | Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Reviewable changes, plans, knowledge, applications and tool actions prepared through a defined draft-to-publication flow. |
 | Control plane | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, machines, module contracts and each connected provider's own administration. |
-| Extensibility | Microsoft agents, Graph connectors, Copilot APIs and SDKs. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
+| Extensibility | Plugins that bring together declarative agents, skills, Copilot connectors and MCP servers. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
 | Deployment | Microsoft-managed cloud service with published tenant requirements. | Framework and module deployment chosen per Organization; current public model begins with local checkouts and independently deployed modules. |
 | Best fit | Productivity and knowledge work already centered on Microsoft 365. | Work that must cross repositories or tools while remaining source-controlled, testable and explicitly publishable. |
 
@@ -64,11 +66,12 @@ and its exact source links.
 
 ## Data and privacy questions
 
-Microsoft states that prompts, responses and Microsoft Graph data used by
-Microsoft 365 Copilot are not used to train its foundation models. It also
-documents stored interaction history, Purview controls and the need to assess
-terms for third-party agents, connectors or model providers. Read the current
-[Microsoft privacy and security statement](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
+Microsoft states that prompts, responses and data accessed through Microsoft
+Graph are not used to train foundation models, including those used by
+Microsoft Copilot. It also documents stored interaction history, Purview
+controls, the need to check the terms of agents and the additional terms that
+may apply when an administrator enables third-party AI models, such as
+Anthropic or OpenAI models. Read the current [Microsoft privacy and security statement](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
 for the exact product and tenant terms.
 
 Lazurio cannot give one equivalent model-provider statement because it is not
@@ -80,10 +83,12 @@ toolchain, but it creates more configuration responsibility.
 
 ## Administration and prerequisites
 
-Microsoft publishes tenant prerequisites including eligible licensing,
-Microsoft Entra ID accounts, supported update channels and network endpoints;
-SharePoint and Microsoft Purview are part of its recommended preparation. See
-the current [Microsoft requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-minimum-requirements).
+Microsoft publishes tenant prerequisites including an eligible Microsoft 365
+subscription with a Microsoft Copilot license, Microsoft Entra ID work
+accounts, an Exchange Online mailbox for mailbox-grounded experiences and
+network access to the `*.cloud.microsoft` domain. It strongly recommends a
+secure and governed data foundation built with SharePoint Advanced Management
+and Microsoft Purview. See the current [Microsoft requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements).
 
 Lazurio instead requires the organization to own its GitHub structure,
 endpoint baseline, execution provider, repository rules and enabled
@@ -93,8 +98,9 @@ organization.
 
 ## Extending the tools
 
-Microsoft Copilot can be extended through agents, Microsoft Graph connectors,
-Copilot APIs and SDKs documented in its [extensibility overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/).
+Microsoft Copilot is extended through plugins. A plugin brings declarative
+agents, skills, Copilot connectors and MCP servers together in one package
+that is then published and governed, as described in Microsoft's [extensibility documentation](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/).
 That is the natural route when the workflow should live inside Microsoft's
 product and governance ecosystem.
 
