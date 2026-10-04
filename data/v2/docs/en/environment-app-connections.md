@@ -4,8 +4,8 @@ description: How an operator connects a Lazurio Environment to email, calendars 
 stableId: lazurio-doc-environment-app-connections
 locale: en
 summary: The operator decides which apps an Environment reaches. Composio is the recommended route, a sign-in reaches wherever its account reaches, and the curated setup released in v0.1.7 has not yet run against the real services.
-updatedAt: "2026-09-28"
-reviewedAt: "2026-09-28"
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -37,9 +37,9 @@ centrally. Before you connect the first app, read
 [what is released today](#what-is-available-today).
 
 An **Environment** is the place where agents work for you. A **Remote
-Environment** is a hosted virtual machine, either a personal VM or an
-Organization's work VM. A **Local Environment** is the computer you are sitting
-at. The **Machine** is the computer or virtual machine under an Environment.
+Environment** is a hosted Environment: your personal Remote Environment, or a
+work or Team Remote Environment of an Organization. A **Local Environment** is
+the computer you are sitting at. The **Machine** is the computer or virtual machine under an Environment.
 The rules on this page apply to both kinds.
 
 ## The model in one paragraph
@@ -198,8 +198,9 @@ and Composio; it is not built.
 A connected app is available to agents in full, including writing and
 deleting, until you narrow it. A capability to write is not consent to
 publish. An agent makes an externally visible write, such as sending an email
-or changing a shared calendar, only on the Principal's instruction. The
-**Principal** is the one an agent works for.
+or changing a shared calendar, only on the operator's instruction. The
+**operator** is the person who controls the Environment and, with it, the
+agents that run there.
 
 Today this is a working rule that agents follow. No Lazurio mechanism blocks a
 write through a connected app.

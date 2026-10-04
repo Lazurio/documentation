@@ -1,11 +1,11 @@
 ---
-title: Napojení prostředí na externí aplikace
-description: Jak provozovatel napojí prostředí Lazuria na e-mail, kalendář a další aplikace, co s nimi pak agenti smějí dělat a jaké kompromisy s tím přijímá.
+title: Napojení Environmentu na externí aplikace
+description: Jak operátor napojí Environment Lazuria na e-mail, kalendář a další aplikace, co s nimi pak agenti smějí dělat a jaké kompromisy s tím přijímá.
 stableId: lazurio-doc-environment-app-connections
 locale: cs
-summary: O tom, kam prostředí dosáhne, rozhoduje jeho provozovatel. Doporučenou cestou je Composio, přihlášení sahá všude, kam sahá účet, a připravené nastavení vydané ve verzi v0.1.7 zatím neproběhlo proti skutečným službám.
-updatedAt: "2026-09-28"
-reviewedAt: "2026-09-28"
+summary: O tom, kam Environment dosáhne, rozhoduje jeho operátor. Doporučenou cestou je Composio, přihlášení sahá všude, kam sahá účet, a připravené nastavení vydané ve verzi v0.1.7 zatím neproběhlo proti skutečným službám.
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -30,32 +30,32 @@ audience:
   - agent
 ---
 
-Na které externí aplikace vaše prostředí dosáhne, rozhodujete vy. Agenti
-v prostředí jednají všude, kam sahají přihlášení na jeho Mašině. Centrálně se
+Na které externí aplikace váš Environment dosáhne, rozhodujete vy. Agenti
+v Environmentu jednají všude, kam sahají přihlášení na jeho Mašině. Centrálně se
 nic nevynucuje. Než připojíte první aplikaci, přečtěte si,
 [co tím přijímáte](#co-přijímáte-před-prvním-připojením), a ověřte si,
 [co je dnes vydané](#co-je-dostupné-dnes).
 
-**Prostředí** je místo, kde pro vás pracují agenti. **Vzdálené prostředí**
-(Remote Environment) je hostovaný virtuální počítač: osobní VM, nebo pracovní
-VM Organizace. **Místní prostředí** (Local Environment) je počítač, u kterého
-právě sedíte. **Mašina** je počítač nebo virtuální počítač, na kterém
-prostředí běží. Pravidla na této stránce platí pro oba druhy.
+**Environment** je místo, kde pro vás pracují agenti. **Remote Environment**
+je hostovaný Environment: váš osobní Remote Environment, nebo pracovní či
+týmový Remote Environment Organizace. **Místní Environment** (Local
+Environment) je počítač, u kterého právě sedíte. **Mašina** je počítač nebo
+virtuální počítač, na kterém Environment běží. Pravidla na této stránce platí pro oba druhy.
 
 ## Model v kostce
 
 Lazurio stojí na příkazové řádce. Příkaz `lazurio` a Launchpad jsou jeden
-produkt nad jedním jádrem: starají se o nástroje prostředí a říkají agentům,
+produkt nad jedním jádrem: starají se o nástroje Environmentu a říkají agentům,
 jak se v něm pohybovat. Codex, Claude Code, `gh`, Composio i další nástroje
-jsou programy příkazové řádky nainstalované a přihlášené na Mašině. Prostředí
-proto zrcadlí svého provozovatele: pracujete-li pro více Organizací, pracuje
-pro ně i vaše prostředí. Potřebujete-li oddělit kontexty nebo přístupy,
-založte další prostředí a přihlaste v něm jiné účty.
+jsou programy příkazové řádky nainstalované a přihlášené na Mašině.
+Environment proto zrcadlí svého operátora: pracujete-li pro více Organizací,
+pracuje pro ně i váš Environment. Potřebujete-li oddělit kontexty nebo
+přístupy, založte další Environment a přihlaste v něm jiné účty.
 
 ## Tři cesty k napojení aplikace
 
-Cestu volíte vy. GitHub CLI `gh` volitelný není; potřebuje ho každé
-prostředí.
+Cestu volíte vy. GitHub CLI `gh` volitelný není; potřebuje ho každý
+Environment.
 
 | Cesta | Co to je | Jak se přihlásíte |
 | --- | --- | --- |
@@ -110,7 +110,7 @@ klíč nikdy nekopírujete a přihlášení můžete dokončit na libovolném za
 - **`gh`** ukáže jednorázový kód a stránku GitHubu pro přihlášení zařízení.
   Otevřete stránku a kód zadejte.
 - **`composio`** ukáže odkaz. Otevřete ho a přihlaste se; potom zvolte
-  organizaci v Composiu, která k tomuto prostředí patří.
+  organizaci v Composiu, která k tomuto Environmentu patří.
 - **`wacli`** ukáže QR kód, který naskenujete ve WhatsAppu, nebo se místo toho
   spáruje přes vaše telefonní číslo.
 
@@ -144,18 +144,18 @@ zapnutý a zda je přihlášený, a pokud to nástroj prozradí, i pod jakým ú
 
 ## Napojení aplikací přes Composio
 
-Postup níže potřebuje ve vašem prostředí verzi v0.1.7. Než se na něj
+Postup níže potřebuje ve vašem Environmentu verzi v0.1.7. Než se na něj
 spolehnete, ověřte si, [co je dostupné dnes](#co-je-dostupné-dnes).
 
-1. Rozhodněte, které prostředí napojujete a jaký účet a jaká organizace
+1. Rozhodněte, který Environment napojujete a jaký účet a jaká organizace
    v Composiu k němu patří.
-2. Zapněte pro toto prostředí Composio v sekci Nástroje nebo příkazem
+2. Zapněte pro tento Environment Composio v sekci Nástroje nebo příkazem
    `lazurio tools enable composio`.
 3. Přihlaste se: na kartě Composia zvolte **Nainstalovat a přihlásit** nebo
    **Přihlásit**, případně spusťte `lazurio tools login composio`. Otevřete
    zobrazený odkaz a přihlaste se do Composia. Žádný klíč se nezobrazí ani
    nekopíruje.
-4. Zvolte organizaci v Composiu, která k tomuto prostředí patří. Launchpad
+4. Zvolte organizaci v Composiu, která k tomuto Environmentu patří. Launchpad
    vám volbu nabídne po přihlášení; na příkazové řádce organizace vypíše
    `lazurio tools composio-org` a přepne je
    `lazurio tools composio-org switch <id>`.
@@ -167,31 +167,31 @@ spolehnete, ověřte si, [co je dostupné dnes](#co-je-dostupné-dnes).
 7. Pokud agenti nemají mít k aplikaci plný přístup, omezte připojení dřív,
    než jim svěříte práci.
 
-### Účet prostředí
+### Účet Environmentu
 
 U Composia patří připojené aplikace účtu a jeho organizaci v Composiu, ne
 Mašině. Dvě Mašiny přihlášené stejným účtem a stejnou organizací by měly vidět
 stejná připojení. Dokumentace Composia tomu nasvědčuje; Lazurio to zatím
 neověřilo testem (viz [otevřená otázka](https://github.com/Lazurio/LazurioPlatform/issues/45)).
-Berte proto přihlášení jako účet prostředí. Má-li Mašina dosáhnout na méně,
+Berte proto přihlášení jako účet Environmentu. Má-li Mašina dosáhnout na méně,
 přihlaste na ní jiný účet nebo jinou organizaci v Composiu.
 
-### Sdílená prostředí
+### Sdílené Environmenty
 
-V prostředí, které používá více provozovatelů, například ve Vzdáleném prostředí
-Teamu, patří přihlášené účty celému prostředí. Může je použít každý
-provozovatel a každý agent v něm. Lazurio při zapnutí nástroje v takovém
-prostředí upozorní. Přihlašujte jen účty, které smí používat každý, kdo v něm
+V Environmentu, který používá více operátorů, například v Remote Environmentu
+Teamu, patří přihlášené účty celému Environmentu. Může je použít každý
+operátor a každý agent v něm. Lazurio při zapnutí nástroje v takovém
+Environmentu upozorní. Přihlašujte jen účty, které smí používat každý, kdo v něm
 pracuje.
 
 ## Doporučení pro správce Organizace
 
-Lazurio nevynucuje ani nesleduje, jak provozovatel prostředí napojí. Organizace,
+Lazurio nevynucuje ani nesleduje, jak operátor Environment napojí. Organizace,
 která chce přehled, si založí vlastní organizaci v Composiu, podobně jako
-zakládá organizaci na GitHubu, a požádá své provozovatele, aby se přihlašovali
+zakládá organizaci na GitHubu, a požádá své operátory, aby se přihlašovali
 do ní. Taková organizace v Composiu je samostatně spravovaná služba mimo
 Lazurio Dashboard. Centrální přehled připojených účtů není cílem Lazuria,
-protože provozovatelé mohou aplikace napojit i jinými cestami. Správa
+protože operátoři mohou aplikace napojit i jinými cestami. Správa
 oprávnění jednotlivých Mašin z Dashboardu je pozdější záměr pro `gh`
 i Composio; zatím neexistuje.
 
@@ -200,7 +200,8 @@ i Composio; zatím neexistuje.
 Připojená aplikace je agentům k dispozici celá, včetně zápisu a mazání, dokud
 ji neomezíte. Možnost zapisovat ale není souhlas s Publikací. Navenek viditelný
 zápis, například odeslání e-mailu nebo změnu sdíleného kalendáře, provede agent
-jen na pokyn Principála. **Principál** je ten, pro koho agent pracuje.
+jen na pokyn operátora. **Operátor** je člověk, který Environment ovládá,
+a tím i agenty, kteří v něm pracují.
 
 Dnes je to pravidlo práce, které agenti dodržují. Zápis přes připojenou
 aplikaci nezablokuje žádný mechanismus Lazuria.
@@ -221,12 +222,12 @@ Tyto kompromisy jsou součástí modelu a jsou přijaté vědomě.
   na které Lazurio zatím neodpovědělo.
 - **Přihlášení sahá všude, kam sahá účet.** Agenti mohou použít všechno, co
   přihlášený účet smí, nejen to, co potřebuje aktuální úkol.
-- **Více Organizací na jedné Mašině je jedno prostředí.** Agenti volí nástroj
+- **Více Organizací na jedné Mašině je jeden Environment.** Agenti volí nástroj
   Organizace, pro kterou pracují, a nepřenášejí data mezi Organizacemi. Je to
   pravidlo práce, ne technická hranice. Kde hranice držet musí, použijte
-  oddělená prostředí.
+  oddělené Environmenty.
 - **Organizace nemá vynucený přehled.** Vidí jen to, co ukáže její vlastní
-  organizace v Composiu, a to jen tehdy, když se do ní její provozovatelé
+  organizace v Composiu, a to jen tehdy, když se do ní její operátoři
   přihlásí.
 
 ## Co je dostupné dnes
@@ -236,15 +237,15 @@ Stav k 28. 9. 2026 podle veřejného repozitáře
 
 | Schopnost | Stav | Doklad |
 | --- | --- | --- |
-| `lazurio tools status` a `lazurio tools update <tool>`: přehled nástrojů provozovatele (Codex, Claude Code, `gh`, Git, Node.js, npm, Bun) a na požádání spuštění oficiální aktualizace jednoho nástroje | Vydáno ve verzi v0.1.6 (26. 9. 2026) | [Vydání v0.1.6](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.6) |
-| Katalog s úrovněmi a způsoby nastavení; `lazurio tools list`, `enable`, `disable` a `prompt`; zapnuté nástroje v návodech Folderu; upozornění ve sdílených prostředích; `tools status` i pro Composio, wacli, gog a Neon | Vydáno ve verzi v0.1.7 (27. 9. 2026) | [Rozhodnutí F18](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f18--enabled-tools-of-the-environment), [vydání v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
-| Sekce Nástroje v nastavení Launchpadu: skupiny, stav, zapnutí a vypnutí, připravené prompty pro agenta ke zkopírování; poznámka provozovatele ke každému nástroji (`lazurio tools note`); stav přihlášení jednotlivých nástrojů | Vydáno ve verzi v0.1.7 (27. 9. 2026) | [Sekce Nástroje](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/launchpad-development.md#tools-section), [vydání v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
+| `lazurio tools status` a `lazurio tools update <tool>`: přehled nástrojů operátora (Codex, Claude Code, `gh`, Git, Node.js, npm, Bun) a na požádání spuštění oficiální aktualizace jednoho nástroje | Vydáno ve verzi v0.1.6 (26. 9. 2026) | [Vydání v0.1.6](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.6) |
+| Katalog s úrovněmi a způsoby nastavení; `lazurio tools list`, `enable`, `disable` a `prompt`; zapnuté nástroje v návodech Folderu; upozornění ve sdílených Environmentech; `tools status` i pro Composio, wacli, gog a Neon | Vydáno ve verzi v0.1.7 (27. 9. 2026) | [Rozhodnutí F18](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f18--enabled-tools-of-the-environment), [vydání v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
+| Sekce Nástroje v nastavení Launchpadu: skupiny, stav, zapnutí a vypnutí, připravené prompty pro agenta ke zkopírování; poznámka operátora ke každému nástroji (`lazurio tools note`); stav přihlášení jednotlivých nástrojů | Vydáno ve verzi v0.1.7 (27. 9. 2026) | [Sekce Nástroje](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/launchpad-development.md#tools-section), [vydání v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
 | Připravená instalace a přihlášení nástrojů `gh`, `composio` a `wacli` na Linuxu a macOS: `lazurio tools install`, `login` a `logout`, `lazurio tools composio-org` a tlačítka Launchpadu Nainstalovat a přihlásit, Přihlásit a Odhlásit | Vydáno ve verzi v0.1.7 (27. 9. 2026); zatím neproběhlo proti skutečným službám | [Rozhodnutí F19](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [vydání v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
 | Předání připraveného promptu rovnou do chatu s agentem (dnes se zobrazí ke zkopírování); připravené postupy na Windows; správa oprávnění jednotlivých Mašin z Dashboardu | Plánováno, zatím nevzniklo | [Rozhodnutí F19](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [rozhodnutí 0162](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/decision-register.md) |
 
-Vydání ještě neznamená stav vašeho prostředí. Vzdálené prostředí dostane
-v0.1.7, až mu toto vydání nainstaluje jeho poskytovatel; místní prostředí ho
-dostane, až Lazurio aktualizuje jeho provozovatel.
+Vydání ještě neznamená stav vašeho Environmentu. Remote Environment dostane
+v0.1.7, až mu toto vydání nainstaluje jeho poskytovatel; místní Environment ho
+dostane, až Lazurio aktualizuje jeho operátor.
 
 Připravená instalace a přihlášení zatím neproběhly proti skutečným službám.
 Podle [pull requestu, který je přidal](https://github.com/Lazurio/LazurioPlatform/pull/54),
@@ -253,7 +254,7 @@ v době vydání neproběhlo žádné skutečné stažení od dodavatele ani sku
 přihlášení. První skutečný běh je naplánovaný jako pilot.
 
 Rozhodnutí 0162 omezilo zřizování Composia na pilot, dokud nevyjde sekce
-Nástroje v Launchpadu. Ta vyšla ve verzi v0.1.7 a prostředí ji má, jakmile je
+Nástroje v Launchpadu. Ta vyšla ve verzi v0.1.7 a Environment ji má, jakmile je
 v něm toto vydání nainstalované. Dokud neproběhne první běh pilotu, zůstává
 skutečné přihlášení do Composia přes Lazurio neověřené. Kde v0.1.7 ještě
 nainstalovaná není, agenti Composio sami nezřizují a použijí ostatní cesty
@@ -269,9 +270,9 @@ odeberte, nebo se na v0.1.7 znovu aktualizujte.
 
 - [Rozhodnutí Lazuria 0162](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/decision-register.md): model, cesty napojení a přijaté kompromisy.
 - [Standard napojení externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/12497f462fbdc0eece31be88b5bc2e3d155d5171/manual/external-app-integrations.md): pořadí cest a co zůstává vyloučené.
-- [Rozhodnutí F17 a F18 v LazurioPlatform](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f17--operator-tools-belong-to-the-operator-the-rollout-pins-the-baseline-and-repairs): nástroje provozovatele, katalog, návody ve Folderu, poznámka provozovatele a stav přihlášení.
+- [Rozhodnutí F17 a F18 v LazurioPlatform](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f17--operator-tools-belong-to-the-operator-the-rollout-pins-the-baseline-and-repairs): nástroje operátora, katalog, návody ve Folderu, poznámka operátora a stav přihlášení.
 - [Rozhodnutí F19 v LazurioPlatform](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools): připravená instalace a přihlášení a co odkládá na později.
-- [Nástroje prostředí](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/environment-tools.md): příkazy `lazurio tools`.
+- [Nástroje Environmentu](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/environment-tools.md): příkazy `lazurio tools`.
 - [Sekce Nástroje v Launchpadu](https://github.com/Lazurio/LazurioPlatform/blob/fde0eb83a990f54a1e7624ce011a3f226233dad2/docs/launchpad-development.md#tools-section): co sekce ukazuje a jaká má tlačítka.
 - [Vydání LazurioPlatform v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) a [pull request připravené instalace a přihlášení](https://github.com/Lazurio/LazurioPlatform/pull/54) včetně toho, co neověřil.
 - [Přihlášení v Composiu](https://docs.composio.dev/docs/authentication) a [správa tokenů](https://docs.composio.dev/docs/security/token-custody): jak přihlášení a správu přihlašovacích údajů popisuje samo Composio.
