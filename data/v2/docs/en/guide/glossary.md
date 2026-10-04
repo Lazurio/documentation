@@ -4,8 +4,8 @@ description: Practical explanations of basic and advanced Lazurio terms.
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: Plain and practical explanations of terms you will encounter when using, administering, or developing Lazurio.
-updatedAt: "2026-10-03"
-reviewedAt: "2026-10-03"
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -35,10 +35,13 @@ you find applications, work, and the information you need.
 Environment, the place where you work. From here, you open or start an
 application. Today you choose an Organization in it and modules are grouped
 by Organization. In the upcoming version of Lazurio it will be called Apps in
-the Chat · Apps · Automate switch, show modules in three sections
-(Organization, Workspace and Productionspace) and not group them by Team. You
-will then switch between Environments in the rail, the vertical strip on the
-left edge.
+the Chat · Apps · Automate switch and show two sections: Workspace, with every
+module your Environment's GitHub identity can reach, and Productionspace, with
+the Organization's production repositories, read-only. It will not group
+modules by Team. You will then choose the Environment in the picker at the top
+of the left column, with the Settings gear beside it, while the rail, the
+vertical strip on the left edge, switches between your personal space and
+your Organizations.
 
 **Guide** Practical help for Lazurio. When you are unsure what something
 means or how to continue, start here.
@@ -85,9 +88,9 @@ responsibilities, and access.
 
 **Buddy** Buddy is Buddy: on your behalf he coordinates your Agents and has
 the same authority over them as you. He is neither an Agent nor an app.
-Beyond that, he represents you only within the scope you allow. He lives in
-your personal Environment, and in the upcoming version of Lazurio you talk to
-him in a floating chat at the bottom right of every screen.
+Beyond that, he represents you only within the scope you allow. He runs in
+your personal Remote Environment, and in the upcoming version of Lazurio you
+talk to him in a floating chat at the bottom right of every screen.
 
 **Prompt** A request you write for AI. For example: “Prepare an overview of
 unpaid invoices and explain what I should address first.”

@@ -204,13 +204,13 @@
     },
     {
       "id": "lazurio-platform-shell-target",
-      "title": "Lazurio Platform Launchpad: target shell (decided 2026-10-03)",
+      "title": "Lazurio Platform Launchpad: target shell (decided 2026-10-03, second iteration 2026-10-04)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8e86e4a9a25a613f7baf1e11401b1ea68ab74bbd/docs/launchpad-development.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fd9b0f0133758f305e5becae8539cfee9f919967/docs/launchpad-development.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-03",
-      "reviewDueAt": "2027-01-03"
+      "reviewedAt": "2026-10-04",
+      "reviewDueAt": "2027-01-04"
     }
   ]
 }
