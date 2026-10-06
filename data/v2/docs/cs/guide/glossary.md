@@ -4,12 +4,13 @@ description: Praktická vysvětlení základních a pokročilých pojmů v Lazur
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: Jednoduchá a praktická vysvětlení pojmů, které potkáte při používání, správě nebo vývoji Lazuria.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-platform-shell-target
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -30,8 +31,16 @@ vývoj a schvalování změn.
 **Lazurio** Společné pracovní prostředí pro lidi a AI Kolegy. Pomáhá vám
 najít aplikace, práci a potřebné informace.
 
-**Launchpad** Domovská obrazovka Lazuria. Odtud si vyberete Organizaci a
-otevřete aplikaci, ve které chcete pracovat.
+**Launchpad** Přehled aplikací Organizace ve vašem Environmentu, tedy tam,
+kde pracujete. Odtud aplikaci otevřete nebo spustíte. Dnes v něm vybíráte
+Organizaci a moduly jsou seskupené po Organizacích. V připravované podobě
+Lazuria se bude v přepínači Chat · Apps · Automate jmenovat Apps a ukáže dvě
+sekce: Workspace se všemi moduly, na které dosáhne GitHub identita vašeho
+Environmentu, a Productionspace s produkčními repozitáři Organizace jen ke
+čtení. Podle Teamů moduly seskupovat nebude. Environment pak vyberete
+v hlavičce levého sloupce, kde je hned vedle ozubené kolo Nastavení, a rail,
+svislý pruh na levém okraji, bude přepínat mezi vaším osobním prostorem
+a Organizacemi.
 
 **Guide** Praktická nápověda k Lazuriu. Když nevíte, co něco znamená nebo
 jak pokračovat, začněte tady.
@@ -75,8 +84,11 @@ Buddymu.
 **AI Kolega** Digitální člen týmu s vlastní pracovní rolí, odpovědností a
 přístupy.
 
-**Buddy** Váš osobní AI pomocník. Může vám pomáhat nebo vás zastupovat pouze
-v rozsahu, který mu dovolíte.
+**Buddy** Buddy je Buddy: vaším jménem koordinuje vaše Agenty a má vůči nim
+stejnou pravomoc jako vy. Není to Agent ani aplikace. V ostatním vás
+zastupuje jen v rozsahu, který mu dovolíte. Bydlí ve vašem osobním Remote
+Environmentu a v připravované podobě Lazuria s ním mluvíte v plovoucím chatu
+vpravo dole na každé obrazovce.
 
 **Prompt** Zadání, které napíšete AI. Například: „Připravte mi přehled
 nezaplacených faktur a vysvětlete, co mám řešit jako první.“

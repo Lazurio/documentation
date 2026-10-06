@@ -201,6 +201,16 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-09-15",
       "reviewDueAt": "2026-10-15"
+    },
+    {
+      "id": "lazurio-platform-shell-target",
+      "title": "Lazurio Platform Launchpad: target shell (decided 2026-10-03, second iteration 2026-10-04)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fd9b0f0133758f305e5becae8539cfee9f919967/docs/launchpad-development.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-04",
+      "reviewDueAt": "2027-01-04"
     }
   ]
 }
