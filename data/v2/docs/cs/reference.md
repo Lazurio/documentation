@@ -4,8 +4,8 @@ description: Veřejné podklady, na kterých stojí technická a bezpečnostní 
 stableId: lazurio-doc-reference
 locale: cs
 summary: Přesná revize zdrojů Lazuria a aktuální stránky Microsoft Learn použité pro architektonická, bezpečnostní a srovnávací tvrzení.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -43,11 +43,11 @@ ověření najdete v mapě zdrojů. Jazyková úprava stránky sama toto datum n
 
 ## Dokumentace Microsoftu
 
-- [Architektura Microsoft 365 Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
+- [Architektura Microsoft Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
 - [Ochrana dat a audit](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing)
 - [Data, soukromí a bezpečnost](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
-- [Technické požadavky](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-minimum-requirements)
-- [Možnosti rozšíření](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
+- [Technické požadavky](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements)
+- [Rozšíření pomocí pluginů](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
 
 ## Kontrola aktuálnosti
 

@@ -134,53 +134,53 @@
     },
     {
       "id": "microsoft-copilot-architecture",
-      "title": "Microsoft 365 Copilot architecture and how it works",
+      "title": "Microsoft Copilot architecture and how it works",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-09-26"
+      "reviewedAt": "2026-10-04",
+      "reviewDueAt": "2026-11-04"
     },
     {
       "id": "microsoft-copilot-data-protection",
-      "title": "Data protection and auditing for Microsoft 365 Copilot",
+      "title": "How data is protected and audited in Microsoft 365 and Microsoft Copilot",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-09-26"
+      "reviewedAt": "2026-10-04",
+      "reviewDueAt": "2026-11-04"
     },
     {
       "id": "microsoft-copilot-privacy",
-      "title": "Data, privacy, and security for Microsoft 365 Copilot",
+      "title": "Data, privacy, and security for Microsoft Copilot",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-09-26"
+      "reviewedAt": "2026-10-04",
+      "reviewDueAt": "2026-11-04"
     },
     {
       "id": "microsoft-copilot-requirements",
-      "title": "Microsoft 365 Copilot requirements",
+      "title": "Microsoft Copilot requirements",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
-      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-minimum-requirements",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-09-26"
+      "reviewedAt": "2026-10-04",
+      "reviewDueAt": "2026-11-04"
     },
     {
       "id": "microsoft-copilot-extensibility",
-      "title": "Microsoft 365 Copilot extensibility",
+      "title": "Extending Microsoft 365 Copilot with plugins",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-08-26",
-      "reviewDueAt": "2026-09-26"
+      "reviewedAt": "2026-10-04",
+      "reviewDueAt": "2026-11-04"
     },
     {
       "id": "wispr-context-privacy",

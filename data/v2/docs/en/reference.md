@@ -4,8 +4,8 @@ description: The evidence set used by Lazurio documentation.
 stableId: lazurio-doc-reference
 locale: en
 summary: Inspect the pinned Lazurio source and current Microsoft Learn pages behind architectural, security, privacy, and comparison claims.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -50,11 +50,11 @@ legal translation.
 
 ## Microsoft provider documentation
 
-- [Microsoft 365 Copilot architecture](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
+- [Microsoft Copilot architecture](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
 - [Data protection and auditing](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing)
 - [Data, privacy, and security](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
-- [Requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-minimum-requirements)
-- [Extensibility](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
+- [Requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements)
+- [Extensibility with plugins](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
 
 ## Review contract
 
