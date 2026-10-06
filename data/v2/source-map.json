@@ -201,6 +201,136 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-09-15",
       "reviewDueAt": "2026-10-15"
+    },
+    {
+      "id": "lazurio-decision-0162",
+      "title": "Lazurio decision register: decision 0162 with its addendum of 2026-10-02, and decisions 0170, 0172 and 0175",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-external-apps-0162",
+      "title": "External application integration standard: order of routes, Composio as the approved broker and the Organization integration catalog",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/external-app-integrations.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-composio-runbook",
+      "title": "Composio runbook: the recommended route for connecting apps",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/integrations/composio.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-tools-decisions",
+      "title": "LazurioPlatform decisions F17, F18 and F19 with their addenda: operator tools, enabled tools of the Environment, the curated sign-in and team accounts on a Team Environment",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-decision-f19",
+      "title": "LazurioPlatform decision F19: curated installation and login of catalog tools",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-environment-tools",
+      "title": "LazurioPlatform environment tools and operator sign-ins",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-7",
+      "title": "LazurioPlatform release v0.1.7 (published 2026-09-27, the latest final release on 2026-10-06)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-8-rc-35",
+      "title": "LazurioPlatform release candidate v0.1.8-rc.35 (published 2026-10-06, commit 1a4a99b2c586359e80e1663a3d66ee3d61730f2f)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-tools-screen-review",
+      "title": "LazurioPlatform Launchpad Settings, Tools section",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/launchpad-development.md#tools-section",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-composio-write-gate-question",
+      "title": "LazurioPlatform open question: Composio write gate and whether tool filters hold on every execution path",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/39",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-composio-custody-question",
+      "title": "LazurioPlatform open question: Composio data custody, log retention and hosting region",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/40",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-platform-composio-shared-connections-question",
+      "title": "LazurioPlatform open question: do two Machines signed in to the same Composio account and organization share connections",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/45",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "composio-token-custody",
+      "title": "Composio token custody architecture",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs/security/token-custody",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-06",
+      "reviewDueAt": "2026-11-06"
     }
   ]
 }
