@@ -39,6 +39,22 @@ This is the public documentation repository for Lazurio.
 - Date product-status claims against their evidence. An editorial revision is
   not a new provider verification, security audit or publication approval.
 
+### Voice
+
+Write the documentation in Matěj Suchánek's tone of voice (Lazurio
+co-founder), in both English and Czech:
+
+- a calm technical partner: smart, direct and human;
+- start from the reader's concrete situation or the practical impact, not
+  from theory;
+- plain language without needless jargon; every sentence has a job;
+- translate each technical point into what it changes for the reader's work;
+- no guru tone, grand visions, marketing claims or overpromising.
+
+The canonical guide is `company/agents/voice/MATEJ_TONE_OF_VOICE.md` in the
+HumanAndMachine-ai Organization. Agents with access read it before writing;
+this summary is its public core. The editorial rules above still apply.
+
 Every document requires a stable ID, locale, summary, update date, fact review
 date, review owner and source references. Stable IDs remain the same across
 localized versions.
