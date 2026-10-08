@@ -331,6 +331,106 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-10-06",
       "reviewDueAt": "2026-11-06"
+    },
+    {
+      "id": "lazurio-environment-network-decisions",
+      "title": "Lazurio decision register: decisions 0146 (names of hosted Environments, reachable only from the tailnet), 0154 (a personal Remote Environment only through the tailnet) and 0192 (Tailscale, Headscale and an Admin-approved device)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/25d62a7045a77b7d522cb4603cc778777667bd2f/manual/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "lazurio-environment-access-model",
+      "title": "Lazurio Environment access model: the network condition of entry and the approval of devices (approved 2026-10-06)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/25d62a7045a77b7d522cb4603cc778777667bd2f/manual/environment-access-model.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "lazurio-platform-decision-f41",
+      "title": "LazurioPlatform decision F41: the offline guide on an Environment's addresses, and why its service worker is always updatable",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/9bdf1db23ef9d0b54bbf3dbeb829c8614390dcc8/docs/decisions.md#f41--the-offline-guide-a-service-worker-on-the-shells-origins-shows-how-to-reach-the-environment-and-is-always-updatable",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "headscale-project",
+      "title": "Headscale: an open source, self-hosted implementation of the Tailscale control server",
+      "publisher": "Headscale project",
+      "kind": "public-source",
+      "url": "https://github.com/juanfont/headscale",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "tailscale-fast-user-switching",
+      "title": "Tailscale: Fast user switching (one active account per device, switching on macOS, Windows, iOS and Android)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/kb/1225/fast-user-switching",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "tailscale-install-windows",
+      "title": "Tailscale: Install Tailscale on Windows (the system tray icon and its menu)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/kb/1022/install-windows",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "google-chrome-secure-dns",
+      "title": "Google Chrome Help: Manage Chrome safety and security (Use secure DNS, no fallback with a custom provider)",
+      "publisher": "Google",
+      "kind": "provider-documentation",
+      "url": "https://support.google.com/chrome/answer/10468685",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "tailscale-android-private-dns-request",
+      "title": "Tailscale issue 17655: Android Private DNS cannot be used together with MagicDNS (public feature request)",
+      "publisher": "Tailscale public issue tracker",
+      "kind": "public-source",
+      "url": "https://github.com/tailscale/tailscale/issues/17655",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "webkit-storage-cap",
+      "title": "WebKit: Full Third-Party Cookie Blocking and More (the 7-day cap on script-writable storage, service worker registrations included)",
+      "publisher": "WebKit",
+      "kind": "provider-documentation",
+      "url": "https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-8-rc-41",
+      "title": "LazurioPlatform release candidate v0.1.8-rc.41 (published 2026-10-08, commit 9bdf1db23ef9d0b54bbf3dbeb829c8614390dcc8): the offline guide of decision F41",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.41",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
     }
   ]
 }
