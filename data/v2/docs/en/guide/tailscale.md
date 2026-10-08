@@ -27,25 +27,28 @@ audience:
   - agent
 ---
 
-When an Environment's address does not open, your device is not connected to
-the private network the Environment is in. **Turn on Tailscale and choose the
-tailnet the Environment needs.** The address then opens. If your browser shows
-the Lazurio page **Turn on Tailscale**, that page continues by itself.
+When an Environment's address does not open, the most common reason is that
+your device is not connected to the private network the Environment is in.
+**Turn on Tailscale, choose the tailnet the Environment needs and open the
+address again.** If your browser shows the Lazurio page **Turn on Tailscale**,
+that page continues to the address by itself once the address answers. If it
+still does not open, see [Still not working?](#still-not-working)
 
 ## Why Tailscale
 
 A **tailnet** is a private network of devices connected with
 [Tailscale](https://tailscale.com/). The apps of a Remote Environment, such as
 its Launchpad, Chat or Automate, have addresses that work only inside the
-tailnet that serves them. No public route leads to them, so outside that
-tailnet your browser cannot even find the address. It shows an error such as
-"This site can't be reached".
+tailnet that serves them. No public route leads to them: outside that tailnet
+your browser cannot open them, and usually cannot even find the address. It
+shows an error such as "This site can't be reached".
 
 To reach an Environment, your device needs three things:
 
 1. the Tailscale app, turned on;
 2. the right tailnet chosen in it;
-3. an Admin's approval of this device.
+3. access for this device to that tailnet, which an Admin of your Organization
+   arranges.
 
 Lazurio runs its tailnets on [Headscale](https://github.com/juanfont/headscale),
 an open-source server that the Tailscale app connects to. That is why the
@@ -95,15 +98,19 @@ again unless the device's key for that tailnet has expired.
 
 ## Still not working?
 
-The Lazurio page appears whenever the address cannot be reached, whatever the
-reason. With Tailscale on and the right tailnet chosen, check these causes in
-order:
+Where your browser keeps the Lazurio page (see
+[When Lazurio shows its own page](#when-lazurio-shows-its-own-page)), it shows
+that page whenever the address cannot be reached, for any reason, not only when
+Tailscale is off. With Tailscale on and the right tailnet chosen, check these
+causes in order:
 
 1. **This device is not in the tailnet, or not approved yet.** If the tailnet
    is missing from your account list, the device has never joined it. If it is
    there and active but no Environment of the Organization opens, the device
-   may still be waiting for approval. An Admin approves every device before it
-   reaches an Organization's Environments. Ask the Admin of your Organization.
+   may not have access yet. Ask the Admin of your Organization to add or
+   approve it. Lazurio's approved access model has an Admin approve each device
+   for each Organization (decision 0192 of 6 October 2026); how a device gets
+   in today can still differ between tailnets.
 2. **The Environment does not answer.** If other Environments in the same
    tailnet open, this one may be stopped or restarting. Wait a few minutes and
    try again. If it does not come back, tell the Admin of its Organization. For
@@ -115,16 +122,18 @@ order:
    lookup. Turn the setting off, or select your current service provider.
    Other browsers have similar settings.
 4. **Android uses its own Private DNS.** If **Private DNS** is set to a
-   provider's hostname, Tailscale's names may not work. This conflict is
-   known and reported to Tailscale. In your phone's network settings, set
-   Private DNS to **Off** or **Automatic**.
+   provider's hostname, Tailscale's names may not work; a user has reported
+   this conflict to Tailscale in a public issue. As a troubleshooting step,
+   set Private DNS to **Off** or **Automatic** in your phone's network
+   settings and try again.
 5. **There is no internet connection.** Tailscale needs the internet. If other
    websites do not open either, fix the connection first.
 
 ## When Lazurio shows its own page
 
-Once you have opened an Environment's Launchpad, Chat or Automate in a browser,
-the browser keeps the Lazurio page **Turn on Tailscale** for that address. When
+Once you have opened the Launchpad, Chat or Automate of an Environment that
+runs Lazurio Platform v0.1.8-rc.41 or later, the browser keeps the Lazurio page
+**Turn on Tailscale** for that address. When
 the address cannot be reached later, the browser shows that page at the same
 address instead of its own error. The page names the Environment, its
 Organization and the tailnet, and continues to the address by itself once the
@@ -135,8 +144,8 @@ apply all the same:
 
 - the first time you open an Environment in a browser, and in private windows;
 - for apps of modules, which have addresses of their own;
-- in Safari, after seven days of Safari use without a visit, when Safari
-  removes the website data it keeps;
+- in Safari, after seven days of Safari use without interacting with the
+  Environment's pages, when Safari removes the website data it keeps;
 - after 30 days in which this browser has not reached the Environment. The page
   then removes itself, so a renamed or removed Environment leaves nothing
   behind.
