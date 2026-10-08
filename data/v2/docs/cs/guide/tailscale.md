@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-environment-network-decisions
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
+  - lazurio-platform-release-v0-1-8-rc-41
   - headscale-project
   - tailscale-fast-user-switching
   - tailscale-install-windows
@@ -140,5 +141,6 @@ stejně:
 
 Stránka patří k vlastní adrese Environmentu a komunikuje jen s ní. Při každém
 otevření Environmentu ověří, jestli nemá novou verzi, sama se aktualizuje
-a odstraní se, jakmile ji Environment přestane nabízet. Environmenty ji dostanou
-s vydáním Lazurio Platform, které zavádí rozhodnutí F41 (říjen 2026).
+a odstraní se, jakmile ji Environment přestane nabízet. Lazurio Platform tuto
+stránku přidala ve verzi v0.1.8-rc.41 (kandidát vydání z 8. října 2026).
+Environment ji ukáže, jakmile běží na této nebo novější verzi.

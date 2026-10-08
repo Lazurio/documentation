@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-environment-network-decisions
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
+  - lazurio-platform-release-v0-1-8-rc-41
   - headscale-project
   - tailscale-fast-user-switching
   - tailscale-install-windows
@@ -142,5 +143,6 @@ apply all the same:
 
 The page belongs to the Environment's own address and talks only to it. It
 checks for a new version whenever you open the Environment, updates itself, and
-removes itself when the Environment stops offering it. Environments get it with
-the Lazurio Platform release that implements decision F41 (October 2026).
+removes itself when the Environment stops offering it. Lazurio Platform added
+the page in release candidate v0.1.8-rc.41 (8 October 2026). An Environment
+shows it once it runs that version or a later one.

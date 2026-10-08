@@ -357,7 +357,7 @@
       "title": "LazurioPlatform decision F41: the offline guide on an Environment's addresses, and why its service worker is always updatable",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/eb52ef2d96b911c4a4c0f811f6fc1661924df769/docs/decisions.md#f41--the-offline-guide-a-service-worker-on-the-shells-origins-shows-how-to-reach-the-environment-and-is-always-updatable",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/9bdf1db23ef9d0b54bbf3dbeb829c8614390dcc8/docs/decisions.md#f41--the-offline-guide-a-service-worker-on-the-shells-origins-shows-how-to-reach-the-environment-and-is-always-updatable",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-10-08",
       "reviewDueAt": "2026-11-08"
@@ -418,6 +418,16 @@
       "publisher": "WebKit",
       "kind": "provider-documentation",
       "url": "https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-10-08",
+      "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-8-rc-41",
+      "title": "LazurioPlatform release candidate v0.1.8-rc.41 (published 2026-10-08, commit 9bdf1db23ef9d0b54bbf3dbeb829c8614390dcc8): the offline guide of decision F41",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.41",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-10-08",
       "reviewDueAt": "2026-11-08"
