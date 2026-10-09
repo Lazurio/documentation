@@ -1,5 +1,9 @@
 # Guide assets
 
+- `composio.svg` — official black Composio logomark, downloaded unchanged
+  from https://brand.composio.dev/logos/Logomark-Black.svg; also referenced
+  by ComposioHQ/composio's README.
+
 - `wispr-flow.svg`, `codexbar.svg`, `amphetamine.svg` — official marks of the
   recommended applications, used unchanged; sources are listed in
   `data/v2/source-map.json`.
