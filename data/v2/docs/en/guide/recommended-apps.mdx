@@ -3,9 +3,9 @@ title: Recommended applications
 description: External tools that can make work with Lazurio and AI more comfortable.
 stableId: lazurio-doc-guide-recommended-apps
 locale: en
-summary: Four practical tools for dictation, AI limits, a WhatsApp connection, and keeping a Mac awake.
-updatedAt: "2026-09-22"
-reviewedAt: "2026-09-22"
+summary: Five practical tools for dictation, AI limits, connecting apps and WhatsApp, and keeping a Mac awake.
+updatedAt: "2026-10-09"
+reviewedAt: "2026-10-09"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -16,17 +16,29 @@ sourceRefs:
   - codexbar-permissions
   - wacli
   - amphetamine
+  - composio-overview
+  - composio-token-custody
+  - lazurio-composio-runbook
 audience:
   - decision-maker
   - builder
   - agent
 ---
 
-Want to dictate a task, check your remaining AI allowance, connect an Agent
-to WhatsApp or keep your Mac awake while work runs? These four applications can help. They are not part
-of Lazurio; check your organization's rules before installing them.
+Want to dictate a task, check your remaining AI allowance, connect an agent
+to apps or WhatsApp, or keep your Mac awake while work runs? These five external
+tools can help. When working for an organization, follow its rules for
+installation and connecting work accounts.
 
 <div class="lz-guide-apps">
+  <article class="lz-guide-app">
+    <div class="lz-guide-app__visual"><strong style="color: #111; font-size: 1.5rem">Composio</strong></div>
+    <div><p class="lz-guide-app__eyebrow">Connecting applications</p><h2>Composio</h2></div>
+    <p>A service that lets an agent work with connected applications such as Gmail, Slack, or a calendar. Composio manages authentication and account connections.</p>
+    <p><strong>Useful when:</strong> You want an agent to find an email, work with a calendar, or prepare a task in another app without manually transferring information. For Lazurio, follow the <a href="/en/environment-app-connections/">application connection guide</a>.</p>
+    <p><strong>Privacy and permissions:</strong> Composio is a third-party service that holds access tokens for connected accounts and processes tool calls. Review the requested permissions before connecting. Connecting an account does not itself authorize sending messages or other Publication.</p>
+    <a class="lz-guide-app__link" href="https://composio.dev/" data-analytics-event="Guide App Click" data-analytics-app="composio">Open Composio →</a>
+  </article>
   <article class="lz-guide-app">
     <div class="lz-guide-app__visual lz-guide-app__visual--wordmark"><img src="/guide-assets/wispr-flow.svg" alt="Wispr Flow" /></div>
     <div><p class="lz-guide-app__eyebrow">Voice input</p><h2>Wispr Flow</h2></div>

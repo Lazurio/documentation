@@ -3,6 +3,16 @@
   "reviewedAt": "2026-09-13",
   "sources": [
     {
+      "id": "composio-overview",
+      "title": "Composio official documentation",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-09",
+      "reviewDueAt": "2027-01-09"
+    },
+    {
       "id": "openai-browser",
       "title": "ChatGPT Browser",
       "publisher": "OpenAI",
