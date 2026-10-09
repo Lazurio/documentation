@@ -4,8 +4,8 @@ description: Praktické postupy, které vám usnadní práci s agentem.
 stableId: lazurio-doc-guide-work-tips
 locale: cs
 summary: Jak agent používá vestavěný prohlížeč svého nástroje (Browser Use) pro práci na webu, zatímco Vy držíte kontrolu nad přístupy a důležitými kroky.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-09"
+reviewedAt: "2026-10-09"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -35,8 +35,9 @@ ne jen seznam odkazů. Funkci poskytuje váš AI nástroj, nikoli Lazurio.
 ## Jak začít v ChatGPT
 
 V desktopové aplikaci ChatGPT můžete mít chat a vestavěný prohlížeč vedle sebe.
-Otevřete ho z lišty nebo zkratkou **Cmd + Shift + B** na Macu
-(**Ctrl + Shift + B** ve Windows). V zadání použijte **`@Browser`**
+Otevřete ho volbou **New tab** a zadáním adresy, nebo zkratkou **Cmd + T**
+na Macu (**Ctrl + T** ve Windows). Zkratkou **Cmd + Shift + B**
+(**Ctrl + Shift + B** ve Windows) zobrazíte nebo skryjete karty vedle chatu. V zadání použijte **`@Browser`**
 a vyberte nabízenou zmínku prohlížeče. Stejné rozhraní nečekejte v Codex CLI
 nebo IDE rozšíření.
 
@@ -86,3 +87,16 @@ kroky schvalujte zvlášť. Hesla a tajné údaje nezadávejte do běžného cha
 
 Podklad pro ovládání a dostupnost: [OpenAI — Browser](https://learn.chatgpt.com/docs/browser).
 Rozhraní se může měnit podle verze aplikace a nastavení pracovního prostředí.
+
+## Jak smazat vlákno s agentem
+
+V desktopové aplikaci ChatGPT se trvalé smazání vlákna nabízí jen v režimu
+**Codex**:
+
+1. Vlevo nahoře přepněte přepínač z **ChatGPT** na **Codex**.
+2. Na vlákno v seznamu klikněte pravým tlačítkem.
+3. Zvolte **Permanently delete**.
+
+V režimu ChatGPT nabídka vlákna nabízí jen **Archive**. Archivované vlákno
+zůstává uložené, nesmaže se. Ověřeno 9. 10. 2026 v aplikaci ChatGPT pro
+Windows; v jiné verzi aplikace se rozhraní může lišit.

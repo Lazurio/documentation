@@ -4,8 +4,8 @@ description: Practical ways to make working with an agent easier.
 stableId: lazurio-doc-guide-work-tips
 locale: en
 summary: How an agent uses the built-in browser of its own tool (Browser Use) for web work while you keep control over access and important actions.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-09"
+reviewedAt: "2026-10-09"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -35,8 +35,9 @@ of links. Your AI tool provides this feature, not Lazurio.
 ## Get started in ChatGPT
 
 In the ChatGPT desktop app, chat and the built-in browser can appear side by side.
-Open it from the toolbar or with **Cmd + Shift + B** on Mac
-(**Ctrl + Shift + B** on Windows). Use **`@Browser`** in your request
+Open it with **New tab** and a URL, or with **Cmd + T** on Mac
+(**Ctrl + T** on Windows). **Cmd + Shift + B** (**Ctrl + Shift + B** on
+Windows) shows or hides the tabs beside the chat. Use **`@Browser`** in your request
 and select the suggested browser mention. Do not expect the same interface
 in Codex CLI or the IDE extension.
 
@@ -87,3 +88,16 @@ in an ordinary chat.
 
 Source for controls and availability: [OpenAI — Browser](https://learn.chatgpt.com/docs/browser).
 The interface may change with the app version and workplace settings.
+
+## Delete an agent thread
+
+In the ChatGPT desktop app, permanent deletion of a thread is offered only in
+**Codex** mode:
+
+1. At the top left, switch the selector from **ChatGPT** to **Codex**.
+2. Right-click the thread in the sidebar.
+3. Choose **Permanently delete**.
+
+In ChatGPT mode the thread menu only offers **Archive**. An archived thread
+stays stored; it is not deleted. Observed on 9 October 2026 in the ChatGPT app
+for Windows; the interface may differ in other app versions.
