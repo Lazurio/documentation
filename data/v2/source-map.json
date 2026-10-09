@@ -3,6 +3,16 @@
   "reviewedAt": "2026-09-13",
   "sources": [
     {
+      "id": "composio-multiple-accounts",
+      "title": "Composio: managing multiple connected accounts",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs/authentication/managing-multiple-connected-accounts",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-09",
+      "reviewDueAt": "2027-01-09"
+    },
+    {
       "id": "composio-brand",
       "title": "Composio official black logomark",
       "publisher": "Composio",
