@@ -3,6 +3,36 @@
   "reviewedAt": "2026-09-13",
   "sources": [
     {
+      "id": "composio-multiple-accounts",
+      "title": "Composio: managing multiple connected accounts",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs/authentication/managing-multiple-connected-accounts",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-09",
+      "reviewDueAt": "2027-01-09"
+    },
+    {
+      "id": "composio-brand",
+      "title": "Composio official black logomark",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://brand.composio.dev/logos/Logomark-Black.svg",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-09",
+      "reviewDueAt": "2027-01-09"
+    },
+    {
+      "id": "composio-overview",
+      "title": "Composio official documentation",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-09",
+      "reviewDueAt": "2027-01-09"
+    },
+    {
       "id": "openai-browser",
       "title": "ChatGPT Browser",
       "publisher": "OpenAI",
@@ -121,6 +151,16 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-09-12",
       "reviewDueAt": "2026-12-12"
+    },
+    {
+      "id": "wacli",
+      "title": "wacli documentation",
+      "publisher": "wacli",
+      "kind": "provider-documentation",
+      "url": "https://wacli.sh/",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-09-22",
+      "reviewDueAt": "2026-12-22"
     },
     {
       "id": "amphetamine",

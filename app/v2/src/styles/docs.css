@@ -376,15 +376,14 @@ button,
 }
 
 .sl-markdown-content .lz-guide-app__visual img {
-  width: min(100%, 13rem);
-  max-height: 2.9rem;
+  width: 3.25rem;
+  height: 3.25rem;
   object-fit: contain;
   object-position: left center;
 }
 
-.sl-markdown-content .lz-guide-app__visual--icon img {
-  width: 3.25rem;
-  max-height: 3.25rem;
+.sl-markdown-content .lz-guide-app__visual--wordmark img {
+  width: 4.875rem;
 }
 
 .sl-markdown-content .lz-guide-app__eyebrow {

@@ -3,9 +3,9 @@ title: Doporučené aplikace
 description: Externí nástroje, které mohou zpříjemnit práci s Lazuriem a AI.
 stableId: lazurio-doc-guide-recommended-apps
 locale: cs
-summary: Tři praktické nástroje pro diktování, kontrolu AI limitů a Mac, který neusne.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+summary: Pět praktických nástrojů pro diktování, AI limity, propojení aplikací a WhatsAppu a Mac, který neusne.
+updatedAt: "2026-10-09"
+reviewedAt: "2026-10-09"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -14,20 +14,35 @@ sourceRefs:
   - wispr-context-privacy
   - codexbar
   - codexbar-permissions
+  - wacli
   - amphetamine
+  - composio-overview
+  - composio-brand
+  - composio-multiple-accounts
+  - composio-token-custody
+  - lazurio-composio-runbook
 audience:
   - decision-maker
   - builder
   - agent
 ---
 
-Chcete zadání raději diktovat, vidět zbývající AI limity nebo zabránit uspání
-Macu během práce? K tomu slouží tyto tři aplikace. Nejsou součástí Lazuria;
-před instalací ověřte, že je vaše organizace dovoluje.
+Chcete zadání raději diktovat, vidět zbývající AI limity, propojit agenta
+s aplikacemi či WhatsAppem nebo zabránit uspání Macu během práce? K tomu slouží
+těchto pět externích nástrojů. Při práci pro organizaci dodržujte její pravidla
+pro instalaci a připojování pracovních účtů.
 
 <div class="lz-guide-apps">
   <article class="lz-guide-app">
-    <div class="lz-guide-app__visual"><img src="/guide-assets/wispr-flow.svg" alt="Wispr Flow" /></div>
+    <div class="lz-guide-app__visual lz-guide-app__visual--icon"><img src="/guide-assets/composio.svg" alt="Composio" /></div>
+    <div><p class="lz-guide-app__eyebrow">Propojení s aplikacemi</p><h2>Composio</h2></div>
+    <p>Služba, přes kterou může agent pracovat s připojenými aplikacemi, například Gmailem, Slackem nebo kalendářem. Přihlášení a připojení účtů spravuje Composio.</p>
+    <p><strong>Kdy se hodí:</strong> Například když používáte více Gmail účtů a chcete, aby agent dohledal e-mail nebo připravil odpověď v konkrétní schránce. Composio umí připojit více účtů stejné aplikace; pro každý úkol určete, se kterým má agent pracovat. Hodí se také pro práci s kalendářem nebo úkoly v dalších aplikacích. Postup pro Lazurio najdete v <a href="/cs/environment-app-connections/">návodu k připojení aplikací</a>.</p>
+    <p><strong>Soukromí a oprávnění:</strong> Composio je služba třetí strany, která drží přístupové tokeny připojených účtů a zpracovává volání nástrojů. Před připojením zkontrolujte požadovaná oprávnění. Připojení účtu samo o sobě není souhlas s odesíláním zpráv nebo jinou Publikací.</p>
+    <a class="lz-guide-app__link" href="https://composio.dev/" data-analytics-event="Guide App Click" data-analytics-app="composio">Otevřít Composio →</a>
+  </article>
+  <article class="lz-guide-app">
+    <div class="lz-guide-app__visual lz-guide-app__visual--wordmark"><img src="/guide-assets/wispr-flow.svg" alt="Wispr Flow" /></div>
     <div><p class="lz-guide-app__eyebrow">Hlasové zadávání</p><h2>Wispr Flow</h2></div>
     <p>Diktování, které funguje v textových polích napříč aplikacemi. Mluvte přirozeně a Wispr Flow z řeči připraví upravený text.</p>
     <p><strong>Kdy se hodí:</strong> Když chcete rychle nadiktovat delší prompt, e-mail nebo zprávu a nechcete vše psát na klávesnici.</p>
@@ -41,6 +56,14 @@ před instalací ověřte, že je vaše organizace dovoluje.
     <p><strong>Kdy se hodí:</strong> Než zadáte delší práci agentovi, rychle uvidíte, kolik kapacity zbývá a kdy se limit obnoví.</p>
     <p><strong>Oprávnění:</strong> Podle připojené služby může CodexBar používat cookies prohlížeče, Keychain nebo OAuth údaje. Čtení Safari cookies může vyžadovat Full Disk Access (úplný přístup k disku). Tato oprávnění nejsou pouhým zobrazením limitů: před připojením pracovního účtu nechte konkrétní přístup schválit a zvolte nejmenší potřebný rozsah. Cookies ani tokeny neposílejte do chatu. <a href="https://github.com/steipete/CodexBar/blob/main/README.md#macos-permissions-why-theyre-needed">Dokumentace oprávnění</a>.</p>
     <a class="lz-guide-app__link" href="https://codexbar.app/" data-analytics-event="Guide App Click" data-analytics-app="codexbar">Otevřít CodexBar →</a>
+  </article>
+  <article class="lz-guide-app">
+    <div class="lz-guide-app__visual lz-guide-app__visual--icon"><img src="/guide-assets/wacli.png" alt="wacli" /></div>
+    <div><p class="lz-guide-app__eyebrow">Propojení na WhatsApp</p><h2>wacli</h2></div>
+    <p>Open-source nástroj pro příkazovou řádku, který se připojí jako propojené zařízení WhatsApp Web. Zprávy ukládá do lokální databáze a umožňuje je vyhledávat nebo s nimi pracovat ze skriptů a přes Agenty.</p>
+    <p><strong>Kdy se hodí:</strong> Když má Agent dohledat informace ve WhatsApp konverzacích nebo připravit automatizaci bez ručního přepisování zpráv.</p>
+    <p><strong>Soukromí a omezení:</strong> wacli je neoficiální nástroj třetí strany a WhatsApp Web není veřejné API, takže se propojení může po změnách WhatsAppu dočasně rozbít. Synchronizované zprávy zůstávají v lokální SQLite databázi; chraňte ji stejně jako samotné konverzace. Pro Agenta začněte režimem <code>--read-only</code> a odesílání povolte jen tehdy, když je součástí výslovně zadaného úkolu.</p>
+    <a class="lz-guide-app__link" href="https://wacli.sh/" data-analytics-event="Guide App Click" data-analytics-app="wacli">Otevřít wacli →</a>
   </article>
   <article class="lz-guide-app">
     <div class="lz-guide-app__visual lz-guide-app__visual--icon"><img src="/guide-assets/amphetamine.svg" alt="Amphetamine" /></div>

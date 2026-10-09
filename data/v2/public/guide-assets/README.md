@@ -1,8 +1,15 @@
 # Guide assets
 
+- `composio.svg` — official black Composio logomark, downloaded unchanged
+  from https://brand.composio.dev/logos/Logomark-Black.svg; also referenced
+  by ComposioHQ/composio's README.
+
 - `wispr-flow.svg`, `codexbar.svg`, `amphetamine.svg` — official marks of the
   recommended applications, used unchanged; sources are listed in
   `data/v2/source-map.json`.
+- `wacli.png` — the wacli/WhatsApp connection icon supplied for this Guide
+  card; it is presentation artwork, not evidence of an official Meta or
+  WhatsApp integration.
 - `mattycus-idle.png` — Mattyčus, the approved default Guide companion from
   the Lazurio design system (`content/brand/buddy/mattycus-idle.png`,
   192 × 208 px, SHA-256
