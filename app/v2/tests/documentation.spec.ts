@@ -432,6 +432,40 @@ test('unknown documentation routes fail clearly', async ({ page }) => {
   await expect(page.getByText(/Page not found|404/i).first()).toBeVisible()
 })
 
+test('Czech unknown routes get the Czech not-found page and the closest topic', async ({ page }) => {
+  const response = await page.goto('/cs/guide/glosary/')
+  expect(response?.status()).toBe(404)
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Toto téma v dokumentaci zatím nenajdete.')
+  await expect(page.locator('[data-lz-404-path]')).toHaveText('/cs/guide/glosary/')
+  await expect(page.locator('[data-lz-404-matches] a').first()).toHaveAttribute('href', '/cs/guide/glossary/')
+  const feedback = page.getByRole('link', { name: 'Poslat zpětnou vazbu' })
+  await expect(feedback).toHaveAttribute('href', /^https:\/\/github\.com\/Lazurio\/documentation\/issues\/new\?/)
+  // The requested address never leaves the browser through the public issue link.
+  expect(await feedback.getAttribute('href')).not.toContain('glosary')
+})
+
+test('an unrelated unknown route offers starting points instead of a guess', async ({ page }) => {
+  await page.goto('/en/pricing/')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('You will not find this topic in the docs yet.')
+  await expect(page.locator('[data-lz-404-matches] a')).toHaveCount(3)
+  await expect(page.locator('[data-lz-404-matches] a').first()).toHaveAttribute('href', '/en/guide/start-here/')
+})
+
+test('a shared folder alone is not a close topic', async ({ page }) => {
+  await page.goto('/en/guide/ai/')
+  await expect(page.locator('[data-lz-404-matches] a')).toHaveCount(3)
+  await expect(page.locator('[data-lz-404-matches] a').first()).toHaveAttribute('href', '/en/guide/start-here/')
+})
+
+test('not-found search hands the address words to the docs search dialog', async ({ page }) => {
+  await page.goto('/en/guide/glossry/')
+  await expect(page.locator('#lz-404-query')).toHaveValue('guide glossry')
+  await page.locator('[data-lz-404-search] button[type="submit"]').click()
+  const dialogInput = page.locator('site-search dialog input')
+  await expect(dialogInput).toBeVisible()
+  await expect(dialogInput).toHaveValue('guide glossry')
+})
+
 for (const path of ['/en/', '/cs/', '/en/agents/', '/cs/agents/']) {
   test(`link preview is present in crawler HTML at ${path}`, async ({ request }) => {
     const response = await request.get(path)

@@ -1,0 +1,364 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro'
+import { sidebar as sidebarData } from '../../../../data/v2/sidebar.mjs'
+
+// The documentation's own not-found page (approved by Anna 2026-10-11).
+// Cloudflare Pages serves the closest 404.html with HTTP 404, so /en/404.html
+// and /cs/404.html answer unknown pages in their own language.
+//
+// The missing topic is an empty row in a list of documentation topics: an
+// obvious typo finds its topic right under the empty row, and anything that is
+// really missing can be reported as a public GitHub issue. The requested
+// address is read in the browser only; it never goes into the issue link or
+// analytics (GA keeps redacting it to /404).
+interface Props { locale: 'en' | 'cs' }
+const { locale } = Astro.props
+
+const copy = {
+  en: {
+    title: 'You will not find this topic in the docs yet.',
+    lead: 'If something is missing here, we would be glad to hear your feedback.',
+    list: 'Documentation',
+    error: 'Error 404',
+    wanted: 'The topic you were looking for',
+    empty: 'Not written yet · 0 words',
+    search: 'Search the docs',
+    searchButton: 'Search',
+    feedback: 'Send feedback',
+    contents: 'Docs contents',
+    issueTitle: 'Missing documentation topic',
+    issueBody: 'What were you looking for?\n\n\nWhere did the link come from (optional)?\n',
+  },
+  cs: {
+    title: 'Toto téma v dokumentaci zatím nenajdete.',
+    lead: 'Pokud vám tu něco chybí, budeme rádi za vaši zpětnou vazbu.',
+    list: 'Dokumentace',
+    error: 'Chyba 404',
+    wanted: 'Téma, které hledáte',
+    empty: 'Zatím nenapsané · 0 slov',
+    search: 'Prohledat dokumentaci',
+    searchButton: 'Hledat',
+    feedback: 'Poslat zpětnou vazbu',
+    contents: 'Obsah dokumentace',
+    issueTitle: 'Chybějící téma v dokumentaci',
+    issueBody: 'Co jste hledali?\n\n\nOdkud odkaz vedl (nepovinné)?\n',
+  },
+}[locale]
+
+type SidebarLink = { label: string; translations?: { cs?: string }; slug: string }
+type SidebarGroup = { label: string; items: SidebarLink[] }
+const links = (sidebarData as (SidebarLink | SidebarGroup)[])
+  .flatMap((item) => ('items' in item ? item.items : [item]))
+  .map((item) => ({
+    label: locale === 'cs' ? (item.translations?.cs ?? item.label) : item.label,
+    href: item.slug === 'index' ? `/${locale}/` : `/${locale}/${item.slug}/`,
+  }))
+// Starting points shown when no topic is close to the requested address.
+const starters = ['guide/start-here', 'how-lazurio-works', 'faq'].map(
+  (slug) => links.find((link) => link.href === `/${locale}/${slug}/`)!,
+)
+const issueUrl = `https://github.com/Lazurio/documentation/issues/new?${new URLSearchParams({ title: copy.issueTitle, body: copy.issueBody })}`
+---
+
+<StarlightPage
+  frontmatter={{
+    title: copy.title,
+    description: copy.lead,
+    // The docs schema requires these on every page; the not-found page states
+    // no product facts, so it cites only the public repository README.
+    stableId: 'lazurio-doc-not-found',
+    locale,
+    summary: 'The documentation page shown for an address that leads to no topic.',
+    updatedAt: '2026-10-11',
+    reviewedAt: '2026-10-11',
+    reviewOwner: 'Anna Blažíčková',
+    sourceRefs: ['lazurio-readme'],
+    audience: ['decision-maker', 'it-admin', 'builder', 'agent'],
+    pagefind: false,
+    tableOfContents: false,
+    editUrl: false,
+    lastUpdated: false,
+    prev: false,
+    next: false,
+    head: [
+      { tag: 'title', content: '404 | Lazurio Docs' },
+      { tag: 'meta', attrs: { name: 'robots', content: 'noindex, follow' } },
+    ],
+  }}
+>
+  <p class="lz-404-lead">{copy.lead}</p>
+
+  <div class="lz-404-list not-content" data-lz-topics={JSON.stringify(links)}>
+    <div class="lz-404-list__head"><strong>{copy.list}</strong><span>{copy.error}</span></div>
+    <div class="lz-404-list__rows">
+      <div class="lz-404-row lz-404-row--empty">
+        <span class="lz-404-row__path" data-lz-404-path>{copy.wanted}</span>
+        <small>{copy.empty}</small>
+      </div>
+      <div data-lz-404-matches>
+        {starters.map((link) => (
+          <a class="lz-404-row" href={link.href}><span>{link.label}</span><small>{link.href}</small></a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <form class="lz-404-search not-content" data-lz-404-search>
+    <label class="sr-only" for="lz-404-query">{copy.search}</label>
+    <input id="lz-404-query" name="q" type="search" autocomplete="off" />
+    <button type="submit">{copy.searchButton}</button>
+  </form>
+
+  <div class="lz-404-links not-content">
+    <a class="lz-404-link lz-404-link--accent" href={issueUrl} rel="noopener">{copy.feedback}<span aria-hidden="true">→</span></a>
+    <a class="lz-404-link" href={`/${locale}/`}>{copy.contents}<span aria-hidden="true">→</span></a>
+  </div>
+</StarlightPage>
+
+<script>
+  type Topic = { label: string; href: string }
+
+  const distance = (a: string, b: string) => {
+    let previous = Array.from({ length: b.length + 1 }, (_, j) => j)
+    for (let i = 1; i <= a.length; i++) {
+      const current = [i]
+      for (let j = 1; j <= b.length; j++) {
+        current[j] = Math.min(previous[j] + 1, current[j - 1] + 1, previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1))
+      }
+      previous = current
+    }
+    return previous[b.length]
+  }
+  const fold = (text: string) => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  const words = (text: string) => fold(text).split(/[^a-z0-9]+/).filter((word) => word.length > 1)
+  const lastSegment = (path: string) => fold(path).replace(/\/+$/, '').split('/').pop() ?? ''
+  // Only the topic's own name counts: the last segment of the address against
+  // the last segment of each topic. A shared folder such as "guide" alone is
+  // never a match, so /en/guide/ai/ offers the starting points, not every Guide page.
+  const score = (wanted: string, topic: Topic) => {
+    const own = lastSegment(topic.href)
+    if (!wanted || !own) return 0
+    return 1 - distance(wanted, own) / Math.max(wanted.length, own.length)
+  }
+
+  const list = document.querySelector<HTMLElement>('[data-lz-topics]')
+  let pathname = window.location.pathname
+  try {
+    pathname = decodeURIComponent(pathname)
+  } catch {
+    // Keep the raw address when it is not valid percent-encoding.
+  }
+  const wanted = lastSegment(pathname)
+
+  const path = document.querySelector('[data-lz-404-path]')
+  if (path) path.textContent = pathname
+
+  const query = document.querySelector<HTMLInputElement>('#lz-404-query')
+  if (query) query.value = words(pathname.replace(/^\/(en|cs)\//, '/')).join(' ')
+
+  if (list && wanted.length > 1) {
+    const topics = JSON.parse(list.dataset.lzTopics ?? '[]') as Topic[]
+    const close = topics
+      .map((topic) => ({ topic, score: score(wanted, topic) }))
+      .filter((entry) => entry.score >= 0.75)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+    const matches = list.querySelector('[data-lz-404-matches]')
+    if (matches && close.length) {
+      matches.replaceChildren(
+        ...close.map(({ topic }) => {
+          const row = document.createElement('a')
+          row.className = 'lz-404-row'
+          row.href = topic.href
+          const label = document.createElement('span')
+          label.textContent = topic.label
+          const href = document.createElement('small')
+          href.textContent = topic.href
+          row.append(label, href)
+          return row
+        }),
+      )
+    }
+  }
+
+  // Search hands the words to Starlight's own search dialog.
+  document.querySelector('[data-lz-404-search]')?.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const text = query?.value.trim() ?? ''
+    document.querySelector<HTMLButtonElement>('site-search button[data-open-modal]')?.click()
+    const fill = (attempt = 0) => {
+      const input = document.querySelector<HTMLInputElement>('site-search dialog input')
+      if (input) {
+        input.value = text
+        input.dispatchEvent(new Event('input', { bubbles: true }))
+        input.focus()
+      } else if (attempt < 20) {
+        setTimeout(() => fill(attempt + 1), 50)
+      }
+    }
+    fill()
+  })
+</script>
+
+<!-- Global: the script builds the matching rows after load, outside Astro scoping. Every class is lz-404 prefixed. -->
+<style is:global>
+  .lz-404-lead {
+    max-width: 36rem;
+    color: var(--sl-color-gray-3);
+    font-size: var(--sl-text-lg);
+  }
+
+  .lz-404-list {
+    max-width: 40rem;
+    margin-top: 2rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .lz-404-list__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.9rem 1.15rem 0.8rem;
+    border-bottom: 1px solid var(--sl-color-hairline-light);
+  }
+
+  .lz-404-list__head strong {
+    color: var(--sl-color-white);
+    font-weight: 600;
+  }
+
+  .lz-404-list__head span {
+    color: var(--sl-color-gray-3);
+    font-family: var(--sl-font-mono);
+    font-size: var(--sl-text-xs);
+  }
+
+  .lz-404-list__rows,
+  [data-lz-404-matches] {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .lz-404-list__rows {
+    padding: 0.85rem;
+  }
+
+  .lz-404-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    min-height: 3.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--sl-color-hairline-light);
+    border-radius: 10px;
+    color: var(--sl-color-white);
+    text-decoration: none;
+  }
+
+  a.lz-404-row:hover {
+    border-color: var(--sl-color-white);
+  }
+
+  .lz-404-row span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-weight: 600;
+  }
+
+  .lz-404-row small {
+    flex-shrink: 0;
+    color: var(--sl-color-gray-3);
+    font-family: var(--sl-font-mono);
+    font-size: var(--sl-text-xs);
+  }
+
+  .lz-404-row--empty {
+    background: var(--sl-color-gray-6);
+    border-color: var(--sl-color-white);
+  }
+
+  .lz-404-row--empty .lz-404-row__path {
+    font-family: var(--sl-font-mono);
+    font-size: var(--sl-text-sm);
+    font-weight: 500;
+  }
+
+  .lz-404-row--empty small {
+    font-family: var(--sl-font);
+  }
+
+  .lz-404-search {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 30rem;
+    margin-top: 1.5rem;
+  }
+
+  .lz-404-search input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 3px;
+    background: transparent;
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+
+  .lz-404-search button {
+    padding: 0 1rem;
+    border: 0;
+    border-radius: 6px;
+    background: var(--sl-color-white);
+    color: var(--sl-color-black);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .lz-404-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .lz-404-link {
+    display: inline-flex;
+    gap: 0.4rem;
+    color: var(--sl-color-white);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .lz-404-link--accent {
+    color: var(--sl-color-text-accent);
+  }
+
+  .lz-404-link span {
+    transition: transform 200ms cubic-bezier(0.2, 0.8, 0.25, 1);
+  }
+
+  .lz-404-link:hover span {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 40rem) {
+    .lz-404-row {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.15rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lz-404-link span {
+      transition: none;
+    }
+  }
+</style>
