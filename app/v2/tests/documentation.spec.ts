@@ -451,6 +451,21 @@ test('an unrelated unknown route offers starting points instead of a guess', asy
   await expect(page.locator('[data-lz-404-matches] a').first()).toHaveAttribute('href', '/en/guide/start-here/')
 })
 
+test('a shared folder alone is not a close topic', async ({ page }) => {
+  await page.goto('/en/guide/ai/')
+  await expect(page.locator('[data-lz-404-matches] a')).toHaveCount(3)
+  await expect(page.locator('[data-lz-404-matches] a').first()).toHaveAttribute('href', '/en/guide/start-here/')
+})
+
+test('not-found search hands the address words to the docs search dialog', async ({ page }) => {
+  await page.goto('/en/guide/glossry/')
+  await expect(page.locator('#lz-404-query')).toHaveValue('guide glossry')
+  await page.locator('[data-lz-404-search] button[type="submit"]').click()
+  const dialogInput = page.locator('site-search dialog input')
+  await expect(dialogInput).toBeVisible()
+  await expect(dialogInput).toHaveValue('guide glossry')
+})
+
 for (const path of ['/en/', '/cs/', '/en/agents/', '/cs/agents/']) {
   test(`link preview is present in crawler HTML at ${path}`, async ({ request }) => {
     const response = await request.get(path)

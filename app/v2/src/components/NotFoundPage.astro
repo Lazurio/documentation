@@ -129,14 +129,16 @@ const issueUrl = `https://github.com/Lazurio/documentation/issues/new?${new URLS
     }
     return previous[b.length]
   }
-  const words = (text: string) =>
-    text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').split(/[^a-z0-9]+/).filter((word) => word.length > 2)
-  const similarity = (a: string, b: string) => 1 - distance(a, b) / Math.max(a.length, b.length)
-  // Each word of the address against the best word of the topic's address.
-  const score = (wanted: string[], topic: Topic) => {
-    const own = words(topic.href)
-    if (!wanted.length || !own.length) return 0
-    return wanted.reduce((sum, word) => sum + Math.max(...own.map((candidate) => similarity(word, candidate))), 0) / wanted.length
+  const fold = (text: string) => text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  const words = (text: string) => fold(text).split(/[^a-z0-9]+/).filter((word) => word.length > 1)
+  const lastSegment = (path: string) => fold(path).replace(/\/+$/, '').split('/').pop() ?? ''
+  // Only the topic's own name counts: the last segment of the address against
+  // the last segment of each topic. A shared folder such as "guide" alone is
+  // never a match, so /en/guide/ai/ offers the starting points, not every Guide page.
+  const score = (wanted: string, topic: Topic) => {
+    const own = lastSegment(topic.href)
+    if (!wanted || !own) return 0
+    return 1 - distance(wanted, own) / Math.max(wanted.length, own.length)
   }
 
   const list = document.querySelector<HTMLElement>('[data-lz-topics]')
@@ -146,15 +148,15 @@ const issueUrl = `https://github.com/Lazurio/documentation/issues/new?${new URLS
   } catch {
     // Keep the raw address when it is not valid percent-encoding.
   }
-  const wanted = words(pathname.replace(/^\/(en|cs)\//, '/'))
+  const wanted = lastSegment(pathname)
 
   const path = document.querySelector('[data-lz-404-path]')
   if (path) path.textContent = pathname
 
   const query = document.querySelector<HTMLInputElement>('#lz-404-query')
-  if (query) query.value = wanted.join(' ')
+  if (query) query.value = words(pathname.replace(/^\/(en|cs)\//, '/')).join(' ')
 
-  if (list && wanted.length) {
+  if (list && wanted.length > 1) {
     const topics = JSON.parse(list.dataset.lzTopics ?? '[]') as Topic[]
     const close = topics
       .map((topic) => ({ topic, score: score(wanted, topic) }))
