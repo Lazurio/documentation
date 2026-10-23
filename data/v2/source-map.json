@@ -9,8 +9,8 @@
       "kind": "public-source",
       "url": "https://learn.chatgpt.com/docs/browser",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "composio-authentication",
@@ -19,8 +19,8 @@
       "kind": "public-source",
       "url": "https://docs.composio.dev/docs/authentication",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "mcp-local-servers",
@@ -29,8 +29,8 @@
       "kind": "public-source",
       "url": "https://modelcontextprotocol.io/docs/develop/connect-local-servers",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "google-third-party-connections",
@@ -39,8 +39,8 @@
       "kind": "public-source",
       "url": "https://support.google.com/accounts/answer/13533235",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "lazurio-readme",
@@ -189,8 +189,8 @@
       "kind": "public-source",
       "url": "https://docs.wisprflow.ai/articles/4678293671-Context-Awareness",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "codexbar-permissions",
@@ -199,8 +199,8 @@
       "kind": "public-source",
       "url": "https://github.com/steipete/CodexBar/blob/main/README.md#macos-permissions-why-theyre-needed",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "lazurio-decision-0162",
@@ -431,6 +431,26 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-10-08",
       "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "swatchfin",
+      "title": "Swatchfin: brand guides from a public website",
+      "publisher": "Ankan Chowdhury",
+      "kind": "provider-documentation",
+      "url": "https://swatchfin.onrender.com/",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2027-01-23"
+    },
+    {
+      "id": "swatchfin-source",
+      "title": "Swatchfin README, MIT licence and official brand assets",
+      "publisher": "Ankan Chowdhury",
+      "kind": "public-source",
+      "url": "https://github.com/ankanhq/swatchfin/tree/f391ab74bc0e5e8f0e54513a84d0b2130a7bb879",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2027-01-23"
     }
   ]
 }

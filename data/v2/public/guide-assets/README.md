@@ -10,3 +10,8 @@
   It is shown only on Guide surfaces, at an integer scale with
   `image-rendering: pixelated`, and is never redrawn or resampled.
   `app/v2/scripts/verify-brand-assets.test.mjs` checks the digest at build.
+
+- `swatchfin.svg` — unchanged official Swatchfin logo from
+  `ankanhq/swatchfin` at commit `f391ab74bc0e5e8f0e54513a84d0b2130a7bb879`,
+  `frontend/assets/brand/swatchfin-logo.svg` (MIT); evidence is listed in
+  `data/v2/source-map.json`.

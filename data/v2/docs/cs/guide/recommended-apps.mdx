@@ -3,9 +3,9 @@ title: Doporučené aplikace
 description: Externí nástroje, které mohou zpříjemnit práci s Lazuriem a AI.
 stableId: lazurio-doc-guide-recommended-apps
 locale: cs
-summary: Tři praktické nástroje pro diktování, kontrolu AI limitů a Mac, který neusne.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+summary: Nástroje pro diktování, kontrolu AI limitů, Mac bez uspání a tvorbu design systému.
+updatedAt: "2026-10-23"
+reviewedAt: "2026-10-23"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -15,15 +15,16 @@ sourceRefs:
   - codexbar
   - codexbar-permissions
   - amphetamine
+  - swatchfin
+  - swatchfin-source
 audience:
   - decision-maker
   - builder
   - agent
 ---
 
-Chcete zadání raději diktovat, vidět zbývající AI limity nebo zabránit uspání
-Macu během práce? K tomu slouží tyto tři aplikace. Nejsou součástí Lazuria;
-před instalací ověřte, že je vaše organizace dovoluje.
+Tyto aplikace vám mohou usnadnit práci s AI i přípravu vlastního design
+systému. Před použitím s pracovními daty si ověřte pravidla své Organizace.
 
 <div class="lz-guide-apps">
   <article class="lz-guide-app">
@@ -31,7 +32,7 @@ před instalací ověřte, že je vaše organizace dovoluje.
     <div><p class="lz-guide-app__eyebrow">Hlasové zadávání</p><h2>Wispr Flow</h2></div>
     <p>Diktování, které funguje v textových polích napříč aplikacemi. Mluvte přirozeně a Wispr Flow z řeči připraví upravený text.</p>
     <p><strong>Kdy se hodí:</strong> Když chcete rychle nadiktovat delší prompt, e-mail nebo zprávu a nechcete vše psát na klávesnici.</p>
-    <p><strong>Soukromí:</strong> Zapnuté Context Awareness může číst okolní text, screenshot a historii konverzace. Nejde tedy jen o to, co nadiktujete. Před použitím s pracovními daty nechte schválit zpracování a oprávnění; pro citlivé prostředí vypněte Context awareness v Settings → Data and Privacy. Nastavení uchování a použití dat pro trénink ověřte zvlášť. <a href="https://docs.wisprflow.ai/articles/4678293671-Context-Awareness">Co může Wispr číst</a>.</p>
+    <p><strong>Soukromí:</strong> Zapnuté Context Awareness může číst okolní text i historii konverzace. Podle aktuální dokumentace nepořizuje screenshoty. Nejde tedy jen o to, co nadiktujete. Před použitím s pracovními daty nechte schválit zpracování a oprávnění; pro citlivé prostředí vypněte Context awareness v Settings → Data and Privacy. Nastavení uchování a použití dat pro trénink ověřte zvlášť. <a href="https://docs.wisprflow.ai/articles/4678293671-Context-Awareness">Co může Wispr číst</a>.</p>
     <a class="lz-guide-app__link" href="https://wisprflow.ai/downloads" data-analytics-event="Guide App Click" data-analytics-app="wispr-flow">Stáhnout Wispr Flow →</a>
   </article>
   <article class="lz-guide-app">
@@ -48,5 +49,14 @@ před instalací ověřte, že je vaše organizace dovoluje.
     <p>Bezplatná aplikace pro macOS z Mac App Storu, která zabrání uspání počítače. S připojeným napájením umí udržet MacBook v chodu i se zavřeným víkem.</p>
     <p><strong>Kdy se hodí:</strong> Když agent pracuje na delším úkolu a vy notebook zavřete nebo odejdete; práce mezitím neusne.</p>
     <a class="lz-guide-app__link" href="https://apps.apple.com/app/amphetamine/id937984704" data-analytics-event="Guide App Click" data-analytics-app="amphetamine">Otevřít Amphetamine v App Storu →</a>
+  </article>
+  <article class="lz-guide-app">
+    <div class="lz-guide-app__visual"><img src="/guide-assets/swatchfin.svg" alt="Swatchfin" /></div>
+    <div><p class="lz-guide-app__eyebrow">Tvorba design systému</p><h2>Swatchfin</h2></div>
+    <p>Swatchfin z vašeho webu získá logo, barvy, písma a tón komunikace. Hodí se, když zakládáte vlastní design systém a chcete vyjít z toho, co už používáte.</p>
+    <p><strong>Jak začít:</strong> Zadejte adresu svého veřejného webu. Výsledek projděte a předejte agentovi jako podklad pro modul design systému v Lazuriu. Barvy a písma lze stáhnout jako CSS nebo pojmenované hodnoty pro použití v aplikacích.</p>
+    <p>Swatchfin je open source pod licencí MIT. Pomůže vám se základem; pravidla, komponenty a příklady použití pak doplníte ve svém design systému.</p>
+    <p><a href="https://github.com/ankanhq/swatchfin">Zdrojový kód a návod na GitHubu</a></p>
+    <a class="lz-guide-app__link" href="https://swatchfin.onrender.com/" data-analytics-event="Guide App Click" data-analytics-app="swatchfin">Otevřít Swatchfin →</a>
   </article>
 </div>
