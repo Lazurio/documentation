@@ -431,6 +431,26 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-10-08",
       "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "swatchfin",
+      "title": "Swatchfin: brand guides from a public website",
+      "publisher": "Ankan Chowdhury",
+      "kind": "provider-documentation",
+      "url": "https://swatchfin.onrender.com/",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2027-01-23"
+    },
+    {
+      "id": "swatchfin-source",
+      "title": "Swatchfin README, MIT licence and official brand assets",
+      "publisher": "Ankan Chowdhury",
+      "kind": "public-source",
+      "url": "https://github.com/ankanhq/swatchfin/tree/f391ab74bc0e5e8f0e54513a84d0b2130a7bb879",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2027-01-23"
     }
   ]
 }
