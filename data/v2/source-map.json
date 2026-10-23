@@ -9,8 +9,8 @@
       "kind": "public-source",
       "url": "https://learn.chatgpt.com/docs/browser",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "composio-authentication",
@@ -19,8 +19,8 @@
       "kind": "public-source",
       "url": "https://docs.composio.dev/docs/authentication",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "mcp-local-servers",
@@ -29,8 +29,8 @@
       "kind": "public-source",
       "url": "https://modelcontextprotocol.io/docs/develop/connect-local-servers",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "google-third-party-connections",
@@ -39,8 +39,8 @@
       "kind": "public-source",
       "url": "https://support.google.com/accounts/answer/13533235",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "lazurio-readme",
@@ -189,8 +189,8 @@
       "kind": "public-source",
       "url": "https://docs.wisprflow.ai/articles/4678293671-Context-Awareness",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "codexbar-permissions",
@@ -199,8 +199,8 @@
       "kind": "public-source",
       "url": "https://github.com/steipete/CodexBar/blob/main/README.md#macos-permissions-why-theyre-needed",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-23",
+      "reviewDueAt": "2026-11-23"
     },
     {
       "id": "lazurio-decision-0162",

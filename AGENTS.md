@@ -29,6 +29,8 @@ This is the public documentation repository for Lazurio.
 - Write for the reader's task: lead with the answer or next action, then explain.
 - Use direct sentences and concrete subjects. Cut stock introductions, repeated
   conclusions and abstract phrases that do not tell the reader anything new.
+- Avoid em dashes and formulaic AI phrasing. Prefer short, natural sentences
+  that say what the reader can do and why it helps.
 - Explain necessary technical terms on first use. Preserve exact identifiers,
   commands, access restrictions, source links and distinctions between a rule
   and a technically enforced control.
