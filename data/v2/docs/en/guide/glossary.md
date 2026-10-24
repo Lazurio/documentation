@@ -1,9 +1,9 @@
 ---
-title: Glossary
-description: Practical explanations of basic and advanced Lazurio terms.
+title: "Glossary"
+description: "Terms for everyday work, administration and development in Lazurio."
 stableId: lazurio-doc-guide-glossary
 locale: en
-summary: Plain and practical explanations of terms you will encounter when using, administering, or developing Lazurio.
+summary: "Terms for everyday work, administration and development in Lazurio."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
@@ -30,7 +30,7 @@ administration, development and change approval.
 **Lazurio** A shared work environment for people and AI Colleagues. It helps
 you find applications, work, and the information you need.
 
-**Launchpad** Lazurio's home screen. From here, you choose an Organization
+**Apps (Launchpad)** Lazurio's home screen. From here, you choose an Organization
 and open the application you want to work in.
 
 **Guide** Practical help for Lazurio. When you are unsure what something
@@ -105,9 +105,8 @@ normally change their source code or Organization settings.
 **Builder** An Organization member who creates and changes applications.
 Their exact capabilities are determined by actual GitHub permissions.
 
-**Steward** A custodian of quality and order in an Organization. They review
-changes, help complete them, and may publish them when their permissions allow
-it.
+**Steward** Reviews changes, helps complete them and may publish them
+within their permissions. This role looks after quality in an Organization.
 
 **Admin** An Organization administrator with extended permissions. They
 manage access and important settings, but this does not grant access to

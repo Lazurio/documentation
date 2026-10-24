@@ -1,9 +1,9 @@
 ---
-title: Connecting an Environment to external apps
-description: How an operator connects a Lazurio Environment to email, calendars and other apps, what agents can then do, and which trade-offs come with it.
+title: "Connecting an Environment to apps"
+description: "Choose a connection, approve its permissions and revoke access when needed."
 stableId: lazurio-doc-environment-app-connections
 locale: en
-summary: The operator decides which apps an Environment reaches. Composio is part of Lazurio wherever the operator turns it on in Settings, a sign-in reaches wherever its account reaches, and a capability to write is not consent to publish.
+summary: "Choose a connection, approve its permissions and revoke access when needed."
 updatedAt: "2026-10-06"
 reviewedAt: "2026-10-06"
 reviewOwner: Matej Suchanek
@@ -47,20 +47,17 @@ apply to every kind of Environment.
 
 ## The model in one paragraph
 
-Lazurio is CLI-first. The `lazurio` command and the Launchpad are one product
-over one core: they care for the tools of an Environment and tell agents how to
-move in it. Codex, Claude Code, `gh`, Composio and other tools are command-line
-programs installed and signed in on the Machine. An Environment therefore
-mirrors its operator: if you work across several Organizations, your
-Environment does too. Agents work there with full access: whatever the
+The `lazurio` command and Apps (called Launchpad in the sources) use the
+same core. They manage the Environment's tools and prepare agent instructions. Codex, Claude Code, `gh`, Composio and other tools are command-line
+programs installed and signed in on the Machine. If you work across several Organizations, the same Environment can serve
+them. Agents work there with full access: whatever the
 Environment allows, they may do, without a sandbox or approval of single
 commands. If you need narrower rights or separate contexts, create another
 Environment and sign in other accounts there.
 
 ## Which route to choose
 
-You choose the route and have the last word. The GitHub CLI `gh` is not
-optional; every Environment needs it.
+You choose the connection method. Every Environment requires GitHub CLI `gh`.
 
 For a new connection, the Lazurio integration standard proposes this order;
 the first route that works wins:
@@ -101,9 +98,9 @@ The catalog lists the tools that agents can be told to use. Each has a
 - **Agent setup** gives you a prepared prompt. You copy it into a new agent
   chat; the agent installs the tool and guides your sign-in.
 
-Every catalog entry describes the target state of its installation. That
-description is the agent's manual: when a curated installation fails, Lazurio
-offers the prepared prompt, and an agent finishes the installation from it.
+Each catalog entry tells the agent how the installed tool should be set up.
+If the prepared installation fails, Lazurio offers a prompt to finish it
+with an agent.
 
 ## Connecting a tool
 
@@ -150,15 +147,14 @@ Lazurio Folder on that Machine. The **Lazurio Folder** is the directory whose
 generated instructions and manual agents read when they start. MCP servers are
 never recorded in the Folder; agents discover them in their own harness.
 
-The switch is context, not permission. It grants no access, installs nothing,
-signs in nowhere and pins no version. Turning it off removes the tool from the
+The switch changes agent instructions. It does not grant access, install
+a tool, sign in an account or pin a version. Turning it off removes the tool from the
 instructions. It does not sign you out or disconnect any app: to remove access,
 disconnect the app in Composio or disconnect the tool.
 
 You can add a short note to a tool that agents use, for example "read-only
 for customer mail", under the tool's details or with `lazurio tools note`.
-Agents read it in the Folder manual. The note is instruction for agents, not a
-technical limit. Turning the tool off removes its note.
+Agents read it in the Folder manual. The note instructs agents but does not technically restrict access. Turning the tool off removes its note.
 
 ## Connecting apps through Composio
 
@@ -239,7 +235,7 @@ path is an [open question](https://github.com/Lazurio/LazurioPlatform/issues/39)
 
 ## What you accept before the first connection
 
-These are the accepted trade-offs of the model.
+Review these conditions and risks before connecting:
 
 - **A third party holds tokens and call content.** With Composio, app tokens
   and the content of calls are held by Composio unless an Organization runs its
@@ -276,7 +272,7 @@ latest final release is v0.1.7; v0.1.8 is in release candidates.
 | **Settings → Tools** with Connect and Disconnect, a sign-in that turns **Used by agents** on, `gh` linking the Machine's SSH key, `gh` on a Team Environment through Lazurio for GitHub, the team-accounts notice on a Team Environment | In v0.1.8 release candidates (v0.1.8-rc.35, 2026-10-06); final v0.1.8 not yet released | [Tools section](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/launchpad-development.md#tools-section), [gh on a Team Environment](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md#gh-on-a-team-environment), [v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35) |
 | Handing a tool's prepared prompt directly into an agent chat (today it is shown for copying); the curated flows on Windows; managing per-Machine permissions from the Dashboard | Planned, not built | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [decision 0162](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md) |
 
-A release is not yet the state of your Environment. A release candidate
+Check which version your Environment actually runs. A release candidate
 reaches only the Environments that ask for its exact version; a Local
 Environment updated with `lazurio update` gets the latest final release. The
 labels above are those of v0.1.8; v0.1.7 names the same actions **Install and

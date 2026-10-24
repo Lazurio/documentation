@@ -1,9 +1,9 @@
 ---
-title: Bezpečnost a podklady k ověření
-description: Veřejné zdroje, na nichž stojí tvrzení dokumentace o produktu, bezpečnosti a provozu Lazuria.
+title: "Bezpečnost a podklady k ověření"
+description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
 stableId: lazurio-doc-public-evidence
 locale: cs
-summary: Aktuální podoba produktu, hranice důvěry, oprávnění, integrace, hostované služby a limity toho, co lze z veřejných zdrojů doložit.
+summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -62,9 +62,9 @@ oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost pos
 rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
 službách.
 
-Agent může použít přihlašovací údaje a soubory dostupné jeho procesu.
-Pravidla Lazuria říkají, kdy je použít smí. Technicky tento přístup omezují
-operační systém, sandbox AI nástroje a kontroly poskytovatele.
+Agent může použít soubory a přihlášení dostupné jeho procesu. Pravidla
+Lazuria určují, kdy je to dovoleno; technická omezení zajišťují operační
+systém, sandbox AI nástroje a poskytovatel.
 
 ## Hranice zařízení a Organizace
 

@@ -1,9 +1,9 @@
 ---
-title: Reach an Environment through Tailscale
-description: What to do when an Environment's address does not open, how to turn on Tailscale and choose the right tailnet on macOS, Windows, iPhone and Android, and what else to check.
+title: "Reach an Environment through Tailscale"
+description: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
 stableId: lazurio-doc-guide-tailscale
 locale: en
-summary: A Remote Environment's address opens only inside the tailnet that serves it. Turn on Tailscale and choose the tailnet the Lazurio page names, and the address continues by itself. If it still does not open, check the device's approval, the Environment, your browser's own secure DNS and the internet connection.
+summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
 updatedAt: "2026-10-08"
 reviewedAt: "2026-10-08"
 reviewOwner: Matej Suchanek
@@ -27,11 +27,11 @@ audience:
   - agent
 ---
 
-When an Environment's address does not open, the most common reason is that
-your device is not connected to the private network the Environment is in.
+If an Environment's address will not open, first check that your device
+is connected to the right private network.
 **Turn on Tailscale, choose the tailnet the Environment needs and open the
 address again.** If your browser shows the Lazurio page **Turn on Tailscale**,
-that page continues to the address by itself once the address answers. If it
+it redirects automatically once the Environment responds. If it
 still does not open, see [Still not working?](#still-not-working)
 
 ## Why Tailscale

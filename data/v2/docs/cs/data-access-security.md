@@ -1,9 +1,9 @@
 ---
-title: Přístup k datům a bezpečnost
-description: Bezpečnostní hranice Lazuria a kontroly, které musí projít konkrétní nasazení.
+title: "Přístup k datům a bezpečnost"
+description: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
 stableId: lazurio-doc-data-access-security
 locale: cs
-summary: Identity, oddělení Organizací, lokální soubory, integrace, tajné údaje, poskytovatelé modelů, auditní podklady a zbytková rizika.
+summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -81,10 +81,9 @@ k poskytovateli.
 [Standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
 udržuje skutečné přihlašovací údaje mimo Git. Lokální úložiště jsou oddělená
 podle vlastníka nebo Organizace a verzované soubory obsahují pouze schémata,
-názvy proměnných a pokyny. Ochranu lokálních údajů, zařízení a záloh musí
-zajistit pravidla konkrétní organizace; samotný standard ji negarantuje.
-Skutečné úložiště musí chránit zabezpečení zařízení, zálohy, obměna
-přihlašovacích údajů a postup při incidentu. Vedle vyhrazených cest mimo Git
+názvy proměnných a pokyny. Konkrétní nasazení musí zajistit zabezpečení zařízení, ochranu záloh,
+obměnu přihlašovacích údajů a postup při incidentu. Samotný standard
+tato opatření nezaručuje. Vedle vyhrazených cest mimo Git
 lze použít schválené úložiště poskytovatele.
 
 ## Hrozby, které je potřeba otestovat

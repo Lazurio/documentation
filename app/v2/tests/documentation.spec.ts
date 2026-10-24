@@ -234,7 +234,7 @@ test('the language switch keeps the current page and localizes navigation', asyn
   }
   const sidebar = page.locator('#starlight__sidebar .top-level')
   await sidebar.locator('summary').filter({ hasText: 'Jak Lazurio funguje' }).click()
-  await expect(sidebar.getByRole('link', { name: 'Přístup k datům a zabezpečení' })).toBeVisible()
+  await expect(sidebar.getByRole('link', { name: 'Přístup k datům a bezpečnost' })).toBeVisible()
   await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
 
   const czechMenu = page.locator('lz-language-menu:visible')
@@ -265,7 +265,7 @@ test('the Czech homepage gives every reader a clear way into the documentation',
     'Jak Lazurio funguje',
     'Kdy dává Lazurio smysl',
     'Přehled pro správce IT',
-    'Přístup k datům a zabezpečení',
+    'Přístup k datům a bezpečnost',
     'Nasazení a provoz',
     'Lazurio a Microsoft Copilot',
     'Pro AI agenty',

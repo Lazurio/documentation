@@ -1,9 +1,9 @@
 ---
-title: Lazurio a Microsoft Copilot
-description: Věcné srovnání dvou řešení, která využívají AI při práci, ale liší se účelem i způsobem správy.
+title: "Lazurio a Microsoft Copilot"
+description: "Porovnejte účel, přístupy a nároky na správu obou řešení."
 stableId: lazurio-doc-copilot-comparison
 locale: cs
-summary: Věcné srovnání Lazuria a Microsoft Copilotu podle účelu, kontextu, oprávnění, provádění práce, rozšiřitelnosti, správy a nasazení.
+summary: "Porovnejte účel, přístupy a nároky na správu obou řešení."
 updatedAt: "2026-10-04"
 reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
@@ -79,8 +79,7 @@ U Lazuria nelze stejné tvrzení vztáhnout na všechny instalace, protože nen�
 vázané na jediný účet ani jediného poskytovatele AI. Datové toky závisejí na
 zvoleném klientovi, poskytovateli modelu, oprávněních Organizace a připojených
 integracích. Před schválením je proto nutné vytvořit seznam poskytovatelů a
-rozsahů oprávnění pro konkrétní nasazení. Možnost volby přináší větší
-přizpůsobitelnost, ale také větší odpovědnost za správné nastavení.
+rozsahů oprávnění pro konkrétní nasazení. Za správné nastavení odpovídá Organizace.
 
 ## Správa a technické předpoklady
 
@@ -102,8 +101,7 @@ výsledků, ale více provozních rozhodnutí zůstává na ní.
 Microsoft Copilot se rozšiřuje pomocí pluginů. Plugin spojí deklarativní
 agenty, dovednosti (skills), konektory Copilotu a MCP servery do jednoho
 balíčku, který se pak zveřejňuje a spravuje. Postup popisuje [dokumentace k rozšiřitelnosti](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/).
-Tato cesta je přirozená, pokud má pracovní postup zůstat uvnitř produktového a
-správního prostředí Microsoftu.
+Tato cesta se hodí pro postupy spravované v produktech Microsoftu.
 
 Lazurio se rozšiřuje pomocí Workspace Modulů a samostatně vymezených integrací.
 Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
@@ -144,7 +142,5 @@ datové hranice jednoho řešení se automaticky nepřenášejí do druhého.
 
 ## Závěr
 
-Vyzkoušejte obě možnosti na konkrétním úkolu. Vedle kvality výsledku porovnejte
-potřebné přístupy, kontrolu změn a čas na správu. Pokud pracujete hlavně
-v Microsoft 365, začněte Copilotem. Pokud potřebujete verzovat a schvalovat
-práci napříč repozitáři a nástroji, vyzkoušejte Lazurio.
+Vyzkoušejte obě možnosti na stejném úkolu. Porovnejte výsledek, potřebná
+oprávnění, kontrolu změn a čas na správu.

@@ -1,9 +1,9 @@
 ---
-title: Data access and security
-description: Which data agents can access and what to test before deployment.
+title: "Data access and security"
+description: "Which data an agent can use and how to test access restrictions."
 stableId: lazurio-doc-data-access-security
 locale: en
-summary: Review identity, Organization isolation, local files, integrations, secrets, model providers, audit evidence, and residual risks.
+summary: "Which data an agent can use and how to test access restrictions."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -88,8 +88,8 @@ promoting one repository's test into a product-wide claim.
 
 ## Model and hosted-service boundaries
 
-The agent client and model provider—not Lazurio—carry selected prompts, files
-and tool results. The operator must name the client, provider, account tier,
+The agent client sends selected prompts, files and tool results to the
+model provider. Lazurio does not handle those model requests itself. The operator must name the client, provider, account tier,
 authentication, telemetry, retention and region where relevant. This site
 makes no universal training or retention claim across providers.
 

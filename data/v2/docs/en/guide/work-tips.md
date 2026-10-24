@@ -1,9 +1,9 @@
 ---
-title: Tips for working
-description: Practical ways to make working with an agent easier.
+title: "Tips for working"
+description: "Assign work in the browser and review the result."
 stableId: lazurio-doc-guide-work-tips
 locale: en
-summary: How an agent uses the built-in browser of its own tool (Browser Use) for web work while you keep control over access and important actions.
+summary: "Assign work in the browser and review the result."
 updatedAt: "2026-10-09"
 reviewedAt: "2026-10-09"
 reviewOwner: Anna Blazickova
@@ -29,7 +29,10 @@ of links. Your AI tool provides this feature, not Lazurio.
   <a href="/guide-assets/chatgpt-browser-illustration-cs.png" aria-label="Open the illustrative mockup at full size">
     <img src="/guide-assets/chatgpt-browser-illustration-cs.png" alt="Illustrative mockup with Czech example text: ChatGPT and an @Browser prompt on the left, a Browser panel with a fictional contact page on the right." width="1605" height="980" loading="lazy" />
   </a>
-  <figcaption>AI-generated illustrative mockup, not an actual screenshot. Enter the task on the left and watch the website on the right. The website and details are fictional; the real interface may differ. Click to enlarge. The Czech prompt asks to find contact details without sending anything.</figcaption>
+  <figcaption>AI-generated mockup, not a screenshot: the task is on the left, the website
+on the right. The site and details are fictional; the real interface may
+differ. The Czech prompt asks for contact details without sending anything.
+Click to enlarge.</figcaption>
 </figure>
 
 ## Get started in ChatGPT

@@ -1,9 +1,9 @@
 ---
-title: Jak Lazurio funguje
-description: Základní provozní model Lazuria — od Principála a Organizace až po Návrh a zveřejnění.
+title: "Jak Lazurio funguje"
+description: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje zveřejnění."
 stableId: lazurio-doc-how-it-works
 locale: cs
-summary: Seznamte se s Principály, agenty, Organizacemi, repozitáři, moduly, Návrhy, review a cestou ke zveřejnění.
+summary: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje zveřejnění."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -75,8 +75,7 @@ Podklady mají své určené místo:
 - firemní znalosti v její Knowledgebase;
 - e-maily a další data v původních službách, dostupných přes schválená propojení.
 
-Agent si pro úkol načte potřebné podklady. Nemusíte vše kopírovat do jedné
-AI databáze. Přístupy měňte v systému, který je spravuje: odeberte oprávnění
+Agent si načte podklady pro daný úkol; nemusíte je kopírovat do jedné AI databáze. Přístupy měňte v systému, který je spravuje: odeberte oprávnění
 k repozitáři nebo odvolejte připojený účet. Přejmenování role v dokumentu
 samo nic neomezí.
 

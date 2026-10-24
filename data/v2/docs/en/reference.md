@@ -1,9 +1,9 @@
 ---
-title: Public references
-description: The evidence set used by Lazurio documentation.
+title: "Public references"
+description: "Lazurio and Microsoft source links and how their review dates are tracked."
 stableId: lazurio-doc-reference
 locale: en
-summary: Inspect the pinned Lazurio source and current Microsoft Learn pages behind architectural, security, privacy, and comparison claims.
+summary: "Lazurio and Microsoft source links and how their review dates are tracked."
 updatedAt: "2026-10-04"
 reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
@@ -58,8 +58,8 @@ legal translation.
 
 ## Review contract
 
-The source map names an owner, review date and expiry for every reference;
-validation fails when evidence is stale. Trust-critical pages also require an
+The source map records an owner, review date and expiry for each reference.
+Expired evidence fails content validation. Trust-critical pages also require an
 exact-commit review before production publication. Pablo AI is the
 Organization Steward automation used for that review, not an independent
 auditor or certification of a customer's deployment. The deploy script checks

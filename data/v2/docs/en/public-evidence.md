@@ -1,9 +1,9 @@
 ---
-title: Security and control evidence
-description: The public source behind Lazurio's product, security and operational claims.
+title: "Security and control evidence"
+description: "Public sources behind product and security claims, and the limits of that evidence."
 stableId: lazurio-doc-public-evidence
 locale: en
-summary: See the current product form, trust boundaries, authority model, integrations, hosted surfaces and the limits of what the public source can prove.
+summary: "Public sources behind product and security claims, and the limits of that evidence."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -56,9 +56,9 @@ not itself promise hosting, support or a service level for a concrete rollout.
 
 The [collaboration model](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
 defines a principal as the person or longer-lived AI identity for whom work is
-done. A task agent is a temporary execution session and owns no independent
-rights. A prompt cannot grant a provider or repository capability; live
-GitHub, OS and provider permissions remain authoritative.
+done. A task agent is a temporary work session with no permissions of its own.
+Access comes from GitHub, the operating system and connected services.
+A prompt cannot grant it.
 
 The agent may use credentials and files available to its process. Lazurio's
 rules specify when that use is permitted. The operating system, AI tool's

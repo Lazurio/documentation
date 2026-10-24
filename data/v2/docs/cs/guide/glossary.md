@@ -1,9 +1,9 @@
 ---
-title: Slovníček pojmů
-description: Praktická vysvětlení základních a pokročilých pojmů v Lazuriu.
+title: "Slovníček pojmů"
+description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
-summary: Jednoduchá a praktická vysvětlení pojmů, které potkáte při používání, správě nebo vývoji Lazuria.
+summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
@@ -30,7 +30,7 @@ vývoj a schvalování změn.
 **Lazurio** Společné pracovní prostředí pro lidi a AI Kolegy. Pomáhá vám
 najít aplikace, práci a potřebné informace.
 
-**Launchpad** Domovská obrazovka Lazuria. Odtud si vyberete Organizaci a
+**Apps (Launchpad)** Domovská obrazovka Lazuria. Odtud si vyberete Organizaci a
 otevřete aplikaci, ve které chcete pracovat.
 
 **Guide** Praktická nápověda k Lazuriu. Když nevíte, co něco znamená nebo
@@ -121,7 +121,7 @@ Nenahrazuje kontrolu výsledku.
 
 **MCP server** Spojení, přes které může AI používat konkrétní nástroj nebo
 pracovat s jeho daty, například s GitHubem. Sám AI nedává další oprávnění —
-použije jen přístupy dostupné na dané Mašině.
+použije jen přístupy dostupné na daném zařízení.
 
 **Opatrovník** Určený člověk, který může pomoci s obnovou nebo servisním
 zásahem u AI Kolegy. Neřídí jeho každodenní práci.
@@ -150,8 +150,8 @@ které nejsou běžnými pracovními aplikacemi.
 **Bun** Technický nástroj používaný k instalaci, spouštění a testování
 aplikací. Pokud nejste vývojář, obvykle s ním nemusíte pracovat přímo.
 
-**Mašina** Zařízení nebo oddělené pracovní prostředí, ve kterém Lazurio
-běží. Tvoří také hranici pro zabezpečení, přístupy a obnovu.
+**Zařízení (Machine)** Zařízení nebo izolované prostředí operačního systému,
+ve kterém Lazurio běží. Tvoří hranici pro zabezpečení, přístupy a obnovu.
 
 **Přístup** Skutečné oprávnění něco zobrazit nebo změnit. V pracovních
 Organizacích ho určuje GitHub, nikoli pouze název vaší role.

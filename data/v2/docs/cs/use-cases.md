@@ -1,9 +1,9 @@
 ---
-title: Kdy dává Lazurio smysl
-description: Praktické scénáře a podmínky, za kterých je Lazurio dobrá volba.
+title: "Kdy dává Lazurio smysl"
+description: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné řešení."
 stableId: lazurio-doc-use-cases
 locale: cs
-summary: Kde Lazurio pomůže s vývojem, provozem, znalostmi, agentními postupy a prací pro více Organizací — a kde naopak ne.
+summary: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné řešení."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -20,7 +20,7 @@ audience:
 
 Lazurio se hodí pro práci, jejíž výsledek potřebujete uchovat, zkontrolovat
 a sdílet: změnu aplikace, pracovní postup nebo podklady k rozhodnutí.
-Následující příklady ukazují, co může připravit agent a co dál zůstává na týmu.
+V příkladech níže agent připravuje práci a tým kontroluje výsledek.
 
 ## Kde může Lazurio pomoci
 
@@ -45,9 +45,9 @@ schválením. Ostatní pak nemusí hledat důležité informace ve vašem chatu.
 
 ### Opakované agentní role
 
-Pro opakovanou práci lze připravit vymezenou sadu instrukcí, nástrojů, testů a
-schvalovacích podmínek. Další úkol pak vychází z předem zkontrolovaného
-postupu, nikoli z kopie zadání se skrytými předpoklady.
+Pro opakovanou práci uložte instrukce, nástroje, testy a podmínky schválení
+do zkontrolovaného postupu. Další úkol z něj může vycházet bez předpokladů
+skrytých v kopii starého zadání.
 
 ### Více firem na zařízení jednoho Principála
 
