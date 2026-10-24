@@ -829,7 +829,7 @@ lz-language-menu details[hidden] { display: none; }
 /* Match the public website without changing Starlight's document navigation. */
 ::selection { background: var(--lz-blue-100); color: var(--lz-ink); }
 .sl-markdown-content { line-height: var(--lz-leading-body); }
-.sl-markdown-content > :is(p, ul, ol) { max-width: 65ch; }
+.sl-markdown-content > :is(p, ul, ol) { max-width: min(65ch, 36rem); }
 .sl-markdown-content h3 { font-size: var(--lz-size-title); line-height: var(--lz-leading-title); }
 .sl-markdown-content .sl-heading-wrapper.level-h2 > h2 { font-size: clamp(28px, 3vw, 34px); }
 .header site-search button { border-radius: var(--lz-radius-pill); background: var(--sl-color-bg); }

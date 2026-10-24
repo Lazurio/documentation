@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/test'
 test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
-  const siteTitle = page.getByRole('link', { name: 'Lazurio Docs' })
+  const siteTitle = page.getByRole('link', { name: 'Lazurio Documentation' })
   await expect(siteTitle).toBeVisible()
   await expect(siteTitle.getByRole('img', { name: 'Lazurio' })).toBeVisible()
   await expect(
@@ -483,6 +483,7 @@ for (const locale of ['en', 'cs']) {
   test(`${locale} overview exposes topic navigation on desktop and mobile`, async ({ page }, testInfo) => {
     await page.goto(`/${locale}/`)
     await expect(page.locator('main h1')).toHaveText(locale === 'cs' ? 'Dokumentace Lazuria' : 'Lazurio documentation')
+    await expect(page.getByRole('link', { name: locale === 'cs' ? 'Lazurio Dokumentace' : 'Lazurio Documentation', exact: true })).toBeVisible()
     await expect(page.locator('.lz-documentation-hero .sl-link-button')).toBeVisible()
     if (testInfo.project.name.startsWith('mobile')) {
       const toggle = page.locator('button[aria-controls="starlight__sidebar"]')

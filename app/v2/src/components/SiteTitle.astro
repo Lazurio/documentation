@@ -2,7 +2,7 @@
 const locale = Astro.locals.starlightRoute.locale === 'cs' ? 'cs' : 'en'
 const label = locale === 'cs' ? 'Dokumentace' : 'Documentation'
 ---
-<a class="lz-docs-title" href={`/${locale}/`} aria-label="Lazurio Docs">
+<a class="lz-docs-title" href={`/${locale}/`} aria-label={`Lazurio ${label}`}>
   <img class="lz-docs-title__light" src="/brand/lockup-color.svg" alt="Lazurio" width="92" height="24" />
   <img class="lz-docs-title__dark" src="/brand/lockup-color-dark.svg" alt="" width="92" height="24" />
   <span>{label}</span>
