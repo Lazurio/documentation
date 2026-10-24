@@ -4,8 +4,8 @@ description: "Jak zadat práci v prohlížeči a zkontrolovat výsledek."
 stableId: lazurio-doc-guide-work-tips
 locale: cs
 summary: "Jak zadat práci v prohlížeči a zkontrolovat výsledek."
-updatedAt: "2026-10-09"
-reviewedAt: "2026-10-09"
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

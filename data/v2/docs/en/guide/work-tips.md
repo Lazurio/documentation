@@ -4,8 +4,8 @@ description: "Assign work in the browser and review the result."
 stableId: lazurio-doc-guide-work-tips
 locale: en
 summary: "Assign work in the browser and review the result."
-updatedAt: "2026-10-09"
-reviewedAt: "2026-10-09"
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

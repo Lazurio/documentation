@@ -23,8 +23,11 @@ výsledek. Agent může připravit dokument, změnu aplikace nebo jinou práci.
 Zveřejnění či nasazení pak schvaluje ten, kdo k tomu má oprávnění.
 Agent si tuto pravomoc nemůže udělit sám.
 
-Současný veřejný model popisuje [architektura Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
+Model v odkazované revizi popisuje [architektura Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
 a [pravidla spolupráce s Agenty](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md).
+
+Níže jsou pojmy ze staršího modelu zdrojů. Aktuální názvy Prostředí, Buddyho
+a Apps najdete ve [slovníčku](/cs/guide/glossary/).
 
 ## Základní pojmy
 

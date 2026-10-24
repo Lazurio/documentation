@@ -1,5 +1,9 @@
 # Editorial review — 24 October 2026
 
+This record describes the editorial pass at commit `09182d0`. Subsequent
+publication preparation and factual source updates are recorded in
+[source-review-2026-10-24.md](source-review-2026-10-24.md).
+
 Reviewed all 40 source pages (20 Czech/English pairs), including frontmatter,
 navigation labels, directory descriptions, figure captions and scripted tutorial
 copy. The pass uses the Impeccable Clarify approach: read the whole task,
@@ -82,7 +86,8 @@ Existing findings remain open:
 - [#38](https://github.com/Lazurio/documentation/issues/38): six provider evidence
   windows have expired. The normal check/build gate remains in force.
 
-Those source inconsistencies need to be resolved before this draft is published.
+The publication-preparation follow-up addresses these source inconsistencies;
+see the dated source review record for the evidence and remaining release gates.
 
 ## Validation
 

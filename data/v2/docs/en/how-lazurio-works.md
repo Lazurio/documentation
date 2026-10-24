@@ -23,6 +23,9 @@ the result. The agent may prepare a document, an application change or other
 work. Publishing or deploying that result requires approval from someone
 authorized to make the decision. The agent cannot authorize itself.
 
+The terms below describe the older source model. For current Environment,
+Buddy and Apps names, see the [glossary](/en/guide/glossary/).
+
 ## Five useful concepts
 
 **Principal** is the person or longer-lived AI colleague for whom work is

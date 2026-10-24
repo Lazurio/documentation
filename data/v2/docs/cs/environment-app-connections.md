@@ -4,12 +4,13 @@ description: "Jak vybrat propojení, schválit oprávnění a později přístup
 stableId: lazurio-doc-environment-app-connections
 locale: cs
 summary: "Jak vybrat propojení, schválit oprávnění a později přístup odvolat."
-updatedAt: "2026-10-06"
-reviewedAt: "2026-10-06"
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-external-apps-current
   - lazurio-decision-0162
   - lazurio-external-apps-0162
   - lazurio-composio-runbook
@@ -74,9 +75,9 @@ nebo znovu používají cookie relace prohlížeče, jiní sdílení zprostředk
 než Composio, klíče a tokeny v chatu, Gitu nebo logu a nové konektory ChatGPT
 nebo claude.ai. Konektor, který už je nainstalovaný, se používat smí.
 
-Při práci agenti nejdřív použijí nástroje z katalogu, které jsou pro
-Prostředí zapnuté, tak jak jim to říkají návody Folderu, a teprve potom MCP
-servery.
+Při práci s již připojenou aplikací agenti použijí její nástroj, Executor
+nebo Composio podle evidované cesty, v tomto pořadí. Vlastní MCP servery
+v Lazuriu patří do Executoru a přidávají se jen na pokyn uživatele.
 
 ## Katalog nástrojů
 
@@ -142,8 +143,9 @@ a `lazurio tools disable`.
 
 Nástroj, který agenti používají, se zapíše do návodů pro agenty v Lazurio
 Folderu daného zařízení. **Lazurio Folder** je složka, jejíž vygenerované
-instrukce a manuál agenti čtou při startu. MCP servery se do Folderu nikdy
-nezapisují; agenti je zjišťují ve svém vlastním nástroji.
+instrukce a manuál agenti čtou při startu. MCP servery spravuje Executor a agenti je zjišťují přes jeho nástroje.
+Pokud Executor v daném nasazení ještě neběží, použijí MCP servery dostupné
+v jejich klientovi podle pravidel dané verze.
 
 Přepínač mění instrukce pro agenty. Neuděluje oprávnění, neinstaluje
 nástroj, nepřihlašuje účet ani neurčuje verzi. Vypnutí nástroj z návodů odebere.
@@ -157,9 +159,9 @@ agenty, ne technické omezení. Vypnutím nástroje se jeho poznámka odebere.
 
 ## Napojení aplikací přes Composio
 
-Composio je součástí Lazuria na každém Prostředí, kde ho jeho operátor
-zapne. Kde zapnuté není, agenti ho sami nezřizují: nabídnou vám jeho zapnutí,
-nebo použijí ostatní cesty.
+Composio používejte jen tam, kde je povolené. V Pracovním a Týmovém
+Prostředí rozhodují pravidla Organizace, v Osobním Prostředí uživatel.
+Agent nové propojení nezřizuje bez vašeho pokynu; přihlášení dokončujete vy.
 
 1. Rozhodněte, které Prostředí napojujete a jaký účet a jaká organizace
    v Composiu k němu patří.
@@ -184,12 +186,12 @@ nebo použijí ostatní cesty.
 
 ### Účet Prostředí
 
-U Composia patří připojené aplikace účtu a jeho organizaci v Composiu, ne
-zařízení. Dvě zařízení přihlášená ke stejnému účtu a organizaci by měla vidět
-stejná připojení. Dokumentace Composia tomu nasvědčuje; Lazurio to zatím
-neověřilo testem (viz [otevřená otázka](https://github.com/Lazurio/LazurioPlatform/issues/45)).
-Berte proto přihlášení jako účet Prostředí. Má-li zařízení dosáhnout na méně,
-přihlaste na něm jiný účet nebo jinou organizaci v Composiu.
+Podle standardu Lazuria patří připojení účtu a organizaci v Composiu,
+nikoli automaticky jednomu zařízení. Dokumentace Composia váže propojené
+účty na `userID`. Zda konkrétní nástroje Lazuria na dvou zařízeních použijí
+stejnou sadu připojení, zůstává [otázkou k ověření](https://github.com/Lazurio/LazurioPlatform/issues/45).
+Nepovažujte odlišné zařízení samo o sobě za izolaci připojených účtů.
+Pro odlišná oprávnění použijte samostatný účet Composia.
 
 <span id="týmové-environmenty"></span>
 
@@ -210,12 +212,11 @@ v něm.
 
 Lazurio nevynucuje ani nesleduje, jak operátor Prostředí napojí.
 
-- **Přehled o Composiu.** Organizace, která ho chce, si založí vlastní
-  organizaci v Composiu, podobně jako zakládá organizaci na GitHubu, a požádá
-  své operátory, aby se přihlašovali do ní. Taková organizace v Composiu je
-  samostatně spravovaná služba mimo Lazurio Dashboard. Centrální přehled
-  připojených účtů není cílem Lazuria, protože operátoři mohou aplikace
-  napojit i jinými cestami.
+- **Účty a organizace v Composiu.** Standard počítá s vlastním účtem
+  uživatele a jeho samostatnou organizací v Composiu pro každou Organizaci
+  Lazuria, se stejným jménem a bez zvaných uživatelů. Týmové Prostředí
+  používá týmový účet. Názvy pomáhají zvolit správné připojení; skutečný
+  rozsah přístupu ověřte u poskytovatele.
 - **Integrace sdílené celou Organizací** patří do jejího verzovaného katalogu
   integrací, a to přes pull request s kontrolou. Katalog drží příkazy, adresy
   a jména proměnných prostředí, nikdy jejich hodnoty. Je to doporučení
@@ -261,11 +262,13 @@ Před připojením posuďte tyto podmínky a rizika:
   organizace v Composiu, a to jen tehdy, když se do ní její operátoři
   přihlásí.
 
-## Co je dostupné dnes
+<span id="co-je-dostupné-dnes"></span>
 
-Stav k 6. 10. 2026 podle veřejného repozitáře
-[LazurioPlatform](https://github.com/Lazurio/LazurioPlatform). Poslední
-finální vydání je v0.1.7; verze v0.1.8 je ve fázi kandidátů na vydání.
+## Stav vydání k 6. říjnu 2026
+
+Následující tabulka zachycuje stav k 6. 10. 2026 podle veřejného repozitáře
+[LazurioPlatform](https://github.com/Lazurio/LazurioPlatform). Posledním
+finálním vydáním tehdy bylo v0.1.7; verze v0.1.8 byla ve fázi kandidátů na vydání.
 
 | Schopnost | Stav | Doklad |
 | --- | --- | --- |
@@ -281,14 +284,13 @@ výše jsou z verze v0.1.8; verze v0.1.7 tytéž akce jmenuje **Nainstalovat
 a přihlásit**, **Přihlásit** a **Odhlásit** a přepínač sama nezapíná.
 
 Pilot Composia, který rozhodnutí 0162 stanovilo do vydání sekce Nástroje,
-skončil 2. 10. 2026. Composio je teď aktivní součástí Lazuria na každém
-Prostředí, kde ho jeho operátor zapne; kde zapnuté není, platí ostatní cesty
-[standardu integrací](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/external-app-integrations.md).
+skončil 2. 10. 2026. Composio je od té doby možností v povolených Prostředích; kde zapnuté není, platí ostatní cesty
+[standardu integrací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md).
 
 ## Zdroje
 
 - [Registr rozhodnutí Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md): rozhodnutí 0162 s dodatkem z 2. 10. 2026 (model, cesty, kompromisy a konec pilotu), 0170 (Prostředí), 0172 (plný přístup uvnitř Prostředí) a 0175 (operátor).
-- [Standard napojení externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/external-app-integrations.md): pořadí cest, co zůstává vyloučené, a katalog integrací Organizace.
+- [Standard napojení externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md): pořadí cest, co zůstává vyloučené, a katalog integrací Organizace.
 - [Runbook Composia](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/integrations/composio.md): co agent s Composiem smí.
 - [Rozhodnutí F17, F18 a F19 v LazurioPlatform](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f18--enabled-tools-of-the-environment) s jejich dodatky: nástroje operátora, katalog, návody ve Folderu, poznámka, připravené přihlášení, `gh` v týmovém Prostředí a týmové účty v týmovém Prostředí.
 - [Nástroje Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md): příkazy `lazurio tools`.

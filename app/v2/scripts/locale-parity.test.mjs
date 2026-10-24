@@ -6,16 +6,26 @@ import { findLocaleParityErrors } from './locale-parity.mjs'
 import { readFileSync } from 'node:fs'
 const safetyClaims = [
   [
+    "data-access-security", "conditional Composio permission",
+    "Composio is an approved broker only where the Organization or Personal Environment user permits it.",
+    "Composio je povolený zprostředkovatel jen tam, kde jeho použití dovoluje Organizace nebo uživatel Osobního Prostředí."
+  ],
+  [
+    "data-access-security", "Composio custody",
+    "Composio holds credentials and processes call content.",
+    "Composio uchovává přihlašovací údaje a zpracovává obsah volání."
+  ],
+  [
     "data-access-security",
     "broker boundary",
-    "New ChatGPT or claude.ai connectors and shared hosted brokers sit outside that per-machine custody model.",
-    "Nové konektory ChatGPT nebo claude.ai a sdílené hostované zprostředkovatele tento model správy přístupů pro jednotlivá zařízení nepokrývá."
+    "The standard excludes new ChatGPT or claude.ai connectors, other shared brokers, and scraping or browser-session servers.",
+    "Nové konektory ChatGPT nebo claude.ai, jiné sdílené brokery a servery založené na scrapingu nebo opětovném použití relace prohlížeče standard nepovoluje."
   ],
   [
     "data-access-security",
     "remote MCP",
     "A provider-operated remote MCP can fit when its configuration and token remain separately revocable for the machine.",
-    "Vzdálený MCP provozovaný poskytovatelem může model splnit, pokud lze jeho konfiguraci a token pro dané zařízení samostatně odvolat."
+    "Vzdálený MCP přímo od poskytovatele je přípustný, pokud jeho konfiguraci a token pro dané zařízení lze samostatně odvolat."
   ],
   [
     "data-access-security",

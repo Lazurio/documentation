@@ -7,7 +7,9 @@ for (const locale of ['cs', 'en']) {
     await expect(page.locator('[data-method] option').first()).toHaveValue('mcp')
     await page.locator('[data-method]').selectOption('composio')
     await expect(page.locator('[data-scenario]:visible .scenario-intro')).toContainText(
-      locale === 'cs' ? 'mimo standard Lazuria' : 'outside the Lazurio standard')
+      locale === 'cs' ? 'kde je Composio povolené' : 'only where the Organization or Personal Environment user permits it')
+    await expect(page.locator('[data-scenario]:visible .scenario-intro')).toContainText(
+      locale === 'cs' ? 'Composio uchovává přihlašovací údaje' : 'Composio holds credentials')
   })
 }
 

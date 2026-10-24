@@ -4,12 +4,13 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -27,21 +28,36 @@ vývoj a schvalování změn.
 
 <div class="lz-glossary">
 
-**Lazurio** Společné pracovní prostředí pro lidi a AI Kolegy. Pomáhá vám
+**Lazurio** Společné pracovní prostředí pro lidi a AI agenty. Pomáhá vám
 najít aplikace, práci a potřebné informace.
 
-**Apps (Launchpad)** Domovská obrazovka Lazuria. Odtud si vyberete Organizaci a
-otevřete aplikaci, ve které chcete pracovat.
+**Prostředí** Místo, kde pro vás pracují agenti. U hostovaných Prostředí
+rozlišujeme tři druhy: Osobní, Pracovní a Týmové.
+
+**Osobní Prostředí** Vaše Prostředí s Buddym a Osobním Workspace.
+
+**Pracovní Prostředí** Prostředí Organizace přiřazené konkrétnímu uživateli.
+Mohou v něm běžet automatizace; ty netvoří samostatný čtvrtý druh.
+
+**Týmové Prostředí** Sdílené Prostředí členů Teamu. Připojené účty v něm
+smějí používat všichni oprávnění členové, proto do něj patří týmová přihlášení.
+
+**Váš počítač** Vlastní zařízení s místním Lazuriem. Není čtvrtým druhem
+hostovaného Prostředí.
+
+**Apps (ve starších zdrojích Launchpad)** Část Lazuria, kde otevíráte
+aplikace Organizace. Uvnitř Prostředí mezi částmi přepínáte přes Chat,
+Apps a Automate.
 
 **Guide** Praktická nápověda k Lazuriu. Když nevíte, co něco znamená nebo
 jak pokračovat, začněte tady.
 
-**GitHub** Účet, kterým se přihlašujete do Lazuria. Zároveň určuje, do
-kterých Organizací a projektů máte přístup a co v nich smíte dělat.
+**GitHub** Služba pro repozitáře a jejich oprávnění. Určuje, které
+repozitáře můžete číst a upravovat. Přihlášení k AI poskytovateli a jeho
+předplatné se řeší samostatně.
 
-**Předplatné** Určuje, kolik AI služeb můžete využívat a kolik tokenů máte
-k dispozici. Nemusí být propojené s vaším GitHub účtem — přihlášení a placení
-jsou dvě oddělené věci.
+**Předplatné AI služby** Tarif zvoleného poskytovatele určuje dostupné
+modely a limity. Je oddělený od oprávnění k repozitářům v GitHubu.
 
 **Tokeny** Jednotky, podle kterých se počítá využití AI. Spotřebovávají se
 při čtení zadání i vytváření odpovědi; nejde o hesla ani přístupové klíče.
@@ -49,7 +65,7 @@ při čtení zadání i vytváření odpovědi; nejde o hesla ani přístupové 
 **Organizace** Oddělený pracovní prostor jedné firmy. Má vlastní lidi,
 aplikace, data a přístupy.
 
-**Team** Skupina lidí a AI Kolegů, kteří společně pracují na určité oblasti,
+**Team** Skupina lidí, kteří společně pracují na určité oblasti,
 například na obchodu nebo produktu.
 
 **Workspace** Část Organizace s aplikacemi pro každodenní práci.
@@ -67,16 +83,21 @@ to odpovídá a co má následovat.
 práci. Agent z něj může čerpat, pokud k němu má přístup a načte si příslušný
 zápis. Obsah chatu se do něj neukládá automaticky.
 
-**Personalspace** Váš soukromý prostor. Patří pouze vám a případně vašemu
-Buddymu.
+**Osobní Workspace** Váš soukromý pracovní obsah v Osobním Prostředí.
+Slouží vám a vašemu Buddymu; není sdíleným úložištěm Organizace.
+Ve starších technických zdrojích se objevuje název Personalspace.
 
 **Kolega** Člověk, který pracuje v Organizaci.
 
-**AI Kolega** Digitální člen týmu s vlastní pracovní rolí, odpovědností a
-přístupy.
+**AI Kolega** Starší označení dlouhodobé AI role. Automatizace dnes
+popisujeme jako práci agentů v Pracovním Prostředí, za kterou odpovídá
+uživatel. Název role sám žádná oprávnění neuděluje.
 
-**Buddy** Váš osobní AI pomocník. Může vám pomáhat nebo vás zastupovat pouze
-v rozsahu, který mu dovolíte.
+**Buddy** Jméno osobního produktu Lazuria a vašeho osobního AI zástupce.
+Schválený model nového osobního produktu počítá s Buddym vždy a se vstupem
+přes web s účtem Lazuria, bez tailnetu a SSH. Dostupnost ověřte ve své instalaci.
+Starší osobní instalace v tailnetu si mohou zachovat původní přístup. Buddy
+jedná jen v rozsahu vašich oprávnění a uděleného zadání.
 
 **Prompt** Zadání, které napíšete AI. Například: „Připravte mi přehled
 nezaplacených faktur a vysvětlete, co mám řešit jako první.“
@@ -109,11 +130,12 @@ je dotahovat a podle svých oprávnění je může publikovat.
 **Admin** Správce Organizace s rozšířenými oprávněními. Řídí přístupy a
 důležitá nastavení; tím ale nezískává přístup do cizího Personalspace.
 
-**Principál** Člověk nebo AI Kolega, pro kterého Agent právě pracuje a který
-má poslední slovo.
+**Principál** Označení odpovědné identity ve starších zdrojích Lazuria.
+Aktuální texty mluví o uživateli jako o člověku, který práci zadává a má
+poslední slovo.
 
-**Task Agent** Dočasný AI pomocník pro konkrétní úkol nebo konverzaci. Nemá
-vlastní oprávnění a pracuje pouze v rámci přístupů svého Principála.
+**Task Agent** Pracovní relace AI nástroje pro konkrétní úkol. Nemá vlastní
+oprávnění; používá přístupy dostupné v Prostředí a řídí se zadáním uživatele.
 
 **Skill** Uložený návod pro agenta k určitému typu práce, například přípravě
 prezentace nebo kontrole změn. Může obsahovat instrukce, šablony a skripty.
@@ -123,14 +145,14 @@ Nenahrazuje kontrolu výsledku.
 pracovat s jeho daty, například s GitHubem. Sám AI nedává další oprávnění —
 použije jen přístupy dostupné na daném zařízení.
 
-**Opatrovník** Určený člověk, který může pomoci s obnovou nebo servisním
-zásahem u AI Kolegy. Neřídí jeho každodenní práci.
+**Opatrovník** Ve starších zdrojích určený člověk, který pomáhá s obnovou
+nebo servisním zásahem u AI Kolegy. Tato role sama neuděluje obecný přístup.
 
 **Draft** Rozpracovaný návrh, který ještě není oficiální. Můžete ho
 kontrolovat, měnit nebo zahodit.
 
 **Publikace** Okamžik, kdy se Draft stane oficiálním nebo viditelným
-ostatním. Agent ji provede pouze po výslovném souhlasu oprávněného Principála.
+ostatním. Agent ji provede pouze po výslovném souhlasu oprávněného uživatele.
 
 **Release** Oficiální vydání označené verze produktu nebo aplikace,
 například nové verze pro zákazníky.
@@ -153,7 +175,11 @@ aplikací. Pokud nejste vývojář, obvykle s ním nemusíte pracovat přímo.
 **Zařízení (Machine)** Zařízení nebo izolované prostředí operačního systému,
 ve kterém Lazurio běží. Tvoří hranici pro zabezpečení, přístupy a obnovu.
 
-**Přístup** Skutečné oprávnění něco zobrazit nebo změnit. V pracovních
-Organizacích ho určuje GitHub, nikoli pouze název vaší role.
+**Přístup** Skutečné oprávnění něco zobrazit nebo změnit. Oprávnění
+k repozitářům určuje GitHub. Samotný název role přístup neuděluje.
 
 </div>
+
+Pojmenování odpovídá veřejným [rozhodnutím Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/decision-register.md),
+zejména 0170 a 0207 s jejich dodatky. Konkrétní instalace může používat starší
+popisky; technické názvy a příkazy zůstávají přesné.

@@ -4,12 +4,13 @@ description: "Which data an agent can use and how to test access restrictions."
 stableId: lazurio-doc-data-access-security
 locale: en
 summary: "Which data an agent can use and how to test access restrictions."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-external-apps-current
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -56,18 +57,29 @@ truth rather than another person's private context.
 
 ### External tools and secrets
 
-The [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-prefers an official machine-local MCP server, then an official CLI, then a
-reviewed pinned implementation, with browser interaction as fallback. New
-ChatGPT or claude.ai connectors and shared hosted brokers sit outside that
-per-machine custody model. A provider-operated remote MCP can fit when its
-configuration and token remain separately revocable for the machine.
+For a new connection, the [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
+prefers an official MCP server, then an official CLI, permitted Composio,
+a reviewed open-source implementation and finally supervised browser use.
+Executor manages custom MCP servers in Lazurio. For an existing connection,
+agents use the app's tool, Executor or Composio according to its recorded
+route, in that order.
 
-A workflow that needs writes may require read-and-write provider scopes. That
-grant is a real capability; calling the output a Draft does not stop data from
-reaching the provider. Real credentials stay outside Git in scoped ignored
-paths or approved provider stores. Endpoint, backup, rotation and incident
-controls must protect the actual custody location.
+Composio is an approved broker only where the Organization or Personal
+Environment user permits it. Composio holds credentials and processes call
+content. Connected accounts belong to the Composio account and organization;
+do not assume that separate machines isolate them. Use team accounts in a
+Team Environment.
+
+The standard excludes new ChatGPT or claude.ai connectors, other shared
+brokers, and scraping or browser-session servers. A provider-operated remote
+MCP can fit when its configuration and token remain separately revocable for
+the machine.
+
+A workflow that writes may need read-and-write provider scopes. A draft stored
+at the provider can already transfer data. Check account scope, token custody
+and write restrictions in [Connecting an Environment to apps](/en/environment-app-connections/).
+Real credentials stay outside Git in scoped ignored paths or approved provider
+stores. Endpoint, backup, rotation and incident controls must protect them.
 
 ## Threats to test
 
