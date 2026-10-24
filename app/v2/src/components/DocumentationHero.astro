@@ -10,7 +10,7 @@ const modules = ['knowledgebase', 'content', 'mission-control', 'deals', 'brains
   {isOverview && (
     <div class="lz-module-composition" aria-hidden="true">
       {modules.map((name) => (
-        <img src={`/module-icons/${name}-96.png`} alt="" width="96" height="96" class={`lz-module-stone lz-stone-${name}`} />
+        <img src={`/module-icons/transparent/${name}-96.png`} alt="" width="96" height="96" class={`lz-module-stone lz-stone-${name}`} />
       ))}
     </div>
   )}
@@ -25,15 +25,11 @@ const modules = ['knowledgebase', 'content', 'mission-control', 'deals', 'brains
   .lz-documentation-hero :global(.copy) { align-items: flex-start; }
   .lz-documentation-hero :global(.actions) { justify-content: flex-start; }
   .lz-documentation-hero--overview { display: grid; align-items: center; gap: var(--lz-space-24); }
-  /* Keep the original assets whole, upright and still. The paper backing also
-     preserves their opaque canvas when the reader chooses the dark theme. */
   .lz-module-composition {
     display: grid;
     grid-template-columns: repeat(5, 3rem);
     width: max-content;
     padding: var(--lz-space-16);
-    border-radius: var(--lz-radius-lg);
-    background: var(--lz-paper);
   }
   .lz-module-stone { display: block; width: 3rem; height: 3rem; }
   @media (min-width: 64rem) {
