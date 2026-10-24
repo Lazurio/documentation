@@ -3,6 +3,7 @@
 @import '../vendor/lazurio/tokens.css';
 
 :root {
+  --sl-sidebar-width: 16.25rem;
   --sl-font: var(--lz-font-sans);
   --sl-font-mono: var(--lz-font-mono);
   --sl-color-accent-low: var(--lz-blue-900);
@@ -105,6 +106,12 @@ header.header {
   background: var(--sl-color-gray-6);
   color: var(--sl-color-white);
   font-weight: var(--lz-weight-medium);
+}
+
+.sidebar-content .top-level > li + li { margin-top: var(--lz-space-4); }
+.sidebar-content summary { min-height: var(--lz-space-32); }
+@media (pointer: coarse) {
+  .sidebar-content :is(summary, a) { min-height: 44px; }
 }
 
 .sl-markdown-content a:not([class]) {

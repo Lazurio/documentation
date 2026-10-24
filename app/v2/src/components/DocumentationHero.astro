@@ -1,8 +1,20 @@
 ---
 import Hero from '@astrojs/starlight/components/Hero.astro'
+
+const isOverview = Astro.locals.starlightRoute.entry.data.stableId === 'lazurio-doc-overview'
+const modules = ['knowledgebase', 'content', 'mission-control', 'deals', 'brainstorm']
 ---
 
-<div class="lz-documentation-hero"><Hero /></div>
+<div class:list={['lz-documentation-hero', { 'lz-documentation-hero--overview': isOverview }]}>
+  <Hero />
+  {isOverview && (
+    <div class="lz-module-composition" aria-hidden="true">
+      {modules.map((name) => (
+        <img src={`/module-icons/${name}-96.png`} alt="" width="96" height="96" class={`lz-module-stone lz-stone-${name}`} />
+      ))}
+    </div>
+  )}
+</div>
 
 <style>
   .lz-documentation-hero { padding-block: var(--lz-space-32) var(--lz-space-48); margin-bottom: var(--lz-space-32); border-bottom: 1px solid var(--sl-color-hairline); }
@@ -12,6 +24,28 @@ import Hero from '@astrojs/starlight/components/Hero.astro'
   .lz-documentation-hero :global(.stack) { gap: var(--lz-space-24); text-align: left; }
   .lz-documentation-hero :global(.copy) { align-items: flex-start; }
   .lz-documentation-hero :global(.actions) { justify-content: flex-start; }
+  .lz-documentation-hero--overview { display: grid; align-items: center; gap: var(--lz-space-24); }
+  /* Keep the original assets whole, upright and still. The paper backing also
+     preserves their opaque canvas when the reader chooses the dark theme. */
+  .lz-module-composition {
+    display: grid;
+    grid-template-columns: repeat(5, 3rem);
+    width: max-content;
+    padding: var(--lz-space-16);
+    border-radius: var(--lz-radius-lg);
+    background: var(--lz-paper);
+  }
+  .lz-module-stone { display: block; width: 3rem; height: 3rem; }
+  @media (min-width: 64rem) {
+    .lz-documentation-hero--overview { grid-template-columns: minmax(0, 1fr) auto; gap: var(--lz-space-32); }
+    .lz-module-composition { grid-template-columns: repeat(3, 4.5rem); grid-template-rows: repeat(3, 3.5rem); padding-bottom: var(--lz-space-32); }
+    .lz-module-stone { width: 4.5rem; height: 4.5rem; }
+    .lz-stone-knowledgebase { grid-area: 1 / 1; }
+    .lz-stone-content { grid-area: 1 / 3; }
+    .lz-stone-mission-control { grid-area: 2 / 2; }
+    .lz-stone-deals { grid-area: 3 / 1; }
+    .lz-stone-brainstorm { grid-area: 3 / 3; }
+  }
   @media (max-width: 40rem) {
     .lz-documentation-hero { padding-top: var(--lz-space-24); }
     .lz-documentation-hero :global(.tagline) { font-size: var(--lz-size-body); }
