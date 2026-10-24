@@ -1,53 +1,44 @@
+@import '@fontsource-variable/inter';
 @import '@fontsource-variable/inter-tight';
+@import '../vendor/lazurio/tokens.css';
 
 :root {
-  --lz-white: #ffffff;
-  --lz-paper: #ffffff;
-  --lz-gray-50: #f5f4f3;
-  --lz-gray-100: #ecebea;
-  --lz-gray-200: #dddcdb;
-  --lz-gray-500: #707070;
-  --lz-gray-800: #262626;
-  --lz-ink: #090909;
-  --lz-blue-50: #ebf1fe;
-  --lz-blue-100: #d2ddfd;
-  --lz-blue-400: #3a48ef;
-  --lz-blue-500: #0d12db;
-  --lz-blue-600: #0b0eb4;
-  --lz-blue-900: #0c0c53;
-  --lz-font-sans: 'Inter Tight Variable', 'Inter Tight', Inter, system-ui, sans-serif;
-  --lz-font-mono: 'Geist Mono', ui-monospace, monospace;
-
   --sl-font: var(--lz-font-sans);
   --sl-font-mono: var(--lz-font-mono);
   --sl-color-accent-low: var(--lz-blue-900);
-  --sl-color-accent: #6f77ff;
+  --sl-color-accent: var(--lz-blue-300);
   --sl-color-accent-high: var(--lz-blue-100);
   --sl-color-white: var(--lz-white);
   --sl-color-gray-1: var(--lz-gray-50);
   --sl-color-gray-2: var(--lz-gray-100);
-  --sl-color-gray-3: var(--lz-gray-200);
-  --sl-color-gray-4: #c3c2c1;
-  --sl-color-gray-5: var(--lz-gray-500);
-  --sl-color-gray-6: var(--lz-gray-800);
-  --sl-color-black: var(--lz-ink);
+  --sl-color-gray-3: var(--lz-gray-300);
+  --sl-color-gray-4: var(--lz-gray-400);
+  --sl-color-gray-5: var(--lz-gray-700);
+  --sl-color-gray-6: var(--lz-gray-900);
+  --sl-color-black: var(--lz-gray-950);
+  --sl-color-bg: var(--lz-gray-950);
+  --sl-color-bg-nav: var(--lz-gray-900);
+  --sl-color-bg-sidebar: var(--lz-gray-900);
+  --sl-color-hairline-light: var(--lz-gray-800);
+  --sl-color-hairline: var(--lz-gray-700);
+  --sl-color-text-accent: var(--lz-blue-200);
 }
 
 :root[data-theme='light'] {
   --sl-color-white: var(--lz-ink);
   --sl-color-gray-1: var(--lz-gray-800);
-  --sl-color-gray-2: #3f3f3f;
-  --sl-color-gray-3: #5a5a5a;
+  --sl-color-gray-2: var(--lz-gray-700);
+  --sl-color-gray-3: var(--lz-gray-600);
   --sl-color-gray-4: var(--lz-gray-500);
-  --sl-color-gray-5: #c3c2c1;
+  --sl-color-gray-5: var(--lz-gray-300);
   --sl-color-gray-6: var(--lz-gray-100);
   --sl-color-gray-7: var(--lz-gray-50);
   --sl-color-black: var(--lz-white);
   --sl-color-accent-low: var(--lz-blue-100);
   --sl-color-accent: var(--lz-blue-500);
   --sl-color-accent-high: var(--lz-blue-600);
-  --sl-color-bg: var(--lz-paper);
-  --sl-color-bg-nav: color-mix(in srgb, var(--lz-white) 94%, transparent);
+  --sl-color-bg: var(--lz-white);
+  --sl-color-bg-nav: var(--lz-white);
   --sl-color-bg-sidebar: var(--lz-paper);
   --sl-color-hairline-light: var(--lz-gray-100);
   --sl-color-hairline: var(--lz-gray-200);
@@ -62,7 +53,7 @@ html {
 }
 
 body {
-  letter-spacing: -0.005em;
+  letter-spacing: var(--lz-track-body);
 }
 
 h1,
@@ -71,15 +62,16 @@ h3,
 h4,
 .site-title {
   color: var(--sl-color-white);
-  font-weight: 600;
-  letter-spacing: -0.035em;
+  font-family: var(--lz-font-heading);
+  font-weight: var(--lz-weight-title);
+  letter-spacing: var(--lz-track-display);
   text-wrap: balance;
 }
 
 h2,
 h3,
 h4 {
-  letter-spacing: -0.02em;
+  letter-spacing: var(--lz-track-display);
 }
 
 p,
@@ -87,42 +79,32 @@ li {
   text-wrap: pretty;
 }
 
-/* Launchpad-style section dividers retain the document heading and anchor. */
+/* Document headings follow the website's type hierarchy and remain anchors. */
 .sl-markdown-content .sl-heading-wrapper.level-h2 {
-  display: flex;
-  align-items: stretch;
-  gap: 12px;
-  border-bottom: 1px solid var(--lz-blue-500);
+  margin-top: var(--lz-space-48);
   padding: 0;
-  font-size: 14px;
-  line-height: 1.6;
+  border: 0;
 }
-
 .sl-markdown-content .sl-heading-wrapper.level-h2 > h2 {
   margin: 0;
-  display: inline-flex;
-  align-items: center;
-  min-height: 30px;
-  padding: 0 12px;
-  border-radius: 6px 6px 0 0;
-  background: var(--lz-blue-500);
-  color: var(--lz-white);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.6;
-  letter-spacing: normal;
+  color: var(--sl-color-white);
+  font-size: var(--lz-size-display);
+  font-weight: var(--lz-weight-title);
+  letter-spacing: var(--lz-track-display);
+  line-height: var(--lz-leading-display);
   overflow-wrap: anywhere;
 }
 
 header.header {
   border-bottom-color: var(--sl-color-hairline-light);
-  backdrop-filter: blur(16px);
+  background: var(--sl-color-bg-nav);
 }
 
 .sidebar-content a[aria-current='page'] {
-  border-inline-start-color: var(--lz-blue-500);
-  background: var(--lz-blue-50);
-  color: var(--lz-blue-900);
+  border-inline-start-color: transparent;
+  background: var(--sl-color-gray-6);
+  color: var(--sl-color-white);
+  font-weight: var(--lz-weight-medium);
 }
 
 .sl-markdown-content a:not([class]) {
@@ -137,7 +119,7 @@ header.header {
   width: 100%;
   overflow-x: auto;
   border: 1px solid var(--sl-color-gray-5);
-  border-radius: 6px;
+  border-radius: var(--lz-radius-md);
   border-spacing: 0;
   background: var(--sl-color-black);
   font-size: 0.95rem;
@@ -172,15 +154,15 @@ header.header {
   margin-block: 0 0.625rem;
   padding: 0.85rem 1rem;
   border: 1px solid var(--sl-color-gray-5);
-  border-radius: 6px;
-  background: color-mix(in srgb, var(--sl-color-black) 94%, var(--sl-color-white));
+  border-radius: var(--lz-radius-md);
+  background: var(--sl-color-bg-sidebar);
   /* Keep the surface and text in sync when switching light/dark themes. */
   transition: border-color 160ms ease;
 }
 
 .sl-markdown-content details:hover,
 .sl-markdown-content details[open] {
-  border-color: var(--lz-blue-400);
+  border-color: var(--sl-color-gray-4);
 }
 
 .sl-markdown-content details summary {
@@ -189,7 +171,7 @@ header.header {
   justify-content: space-between;
   gap: 1rem;
   color: var(--sl-color-white);
-  font-weight: 650;
+  font-weight: var(--lz-weight-title);
   cursor: pointer;
   list-style: none;
 }
@@ -221,13 +203,13 @@ header.header {
 
 .sl-markdown-content .card {
   border-color: var(--lz-gray-200);
-  border-radius: 6px;
+  border-radius: var(--lz-radius-md);
   background: var(--sl-color-black);
   box-shadow: none;
 }
 
 .sl-markdown-content .card:hover {
-  border-color: var(--lz-blue-400);
+  border-color: var(--sl-color-gray-4);
 }
 
 .sl-markdown-content .lz-directory {
@@ -244,8 +226,8 @@ header.header {
   min-height: 8.5rem;
   padding: 1.25rem 3rem 1.25rem 1.25rem;
   border: 1px solid var(--sl-color-gray-5);
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--sl-color-black) 95%, var(--sl-color-white));
+  border-radius: var(--lz-radius-md);
+  background: var(--sl-color-bg-sidebar);
   color: var(--sl-color-text);
   text-decoration: none;
   transition:
@@ -264,8 +246,8 @@ header.header {
 }
 
 .sl-markdown-content .lz-directory a:hover {
-  border-color: var(--lz-blue-400);
-  transform: translateY(-2px);
+  border-color: var(--sl-color-gray-4);
+
 }
 
 .sl-markdown-content .lz-directory strong {
@@ -286,11 +268,12 @@ button,
 [class*='badge'],
 .group-label span {
   text-transform: none !important;
-  letter-spacing: -0.005em !important;
+  letter-spacing: var(--lz-track-body) !important;
 }
 
 .sl-link-button {
-  border-radius: 4px;
+  border-radius: var(--lz-radius-pill);
+  font-weight: var(--lz-weight-medium);
 }
 
 .sl-link-button.primary {
@@ -315,8 +298,8 @@ button,
   display: block;
   width: 100%;
   border: 1px solid var(--sl-color-gray-5);
-  border-radius: 12px;
-  background: var(--lz-ink);
+  border-radius: var(--lz-radius-lg);
+  background: var(--sl-color-bg);
 }
 
 .sl-markdown-content .lz-diagram figcaption {
@@ -342,7 +325,7 @@ button,
   margin-block: 0;
   padding: 1.1rem;
   border: 1px solid var(--sl-color-gray-5);
-  border-radius: 10px;
+  border-radius: var(--lz-radius-md);
   background: var(--sl-color-black);
 }
 
@@ -360,7 +343,7 @@ button,
   height: 4.75rem;
   padding: 1rem;
   border: 1px solid var(--lz-gray-100);
-  border-radius: 8px;
+  border-radius: var(--lz-radius-md);
   background: var(--lz-white);
 }
 
@@ -371,8 +354,8 @@ button,
 }
 
 .sl-markdown-content .lz-guide-app:hover {
-  border-color: var(--lz-blue-400);
-  transform: translateY(-2px);
+  border-color: var(--sl-color-gray-4);
+
 }
 
 .sl-markdown-content .lz-guide-app__visual img {
@@ -400,7 +383,7 @@ button,
 
 .sl-markdown-content .lz-guide-app__link {
   margin-top: auto;
-  font-weight: 650;
+  font-weight: var(--lz-weight-title);
 }
 
 .lz-analytics-consent {
@@ -427,9 +410,9 @@ button,
   align-items: center;
   padding: 1.1rem 1.25rem;
   border: 1px solid var(--sl-color-gray-4);
-  border-radius: 10px;
+  border-radius: var(--lz-radius-md);
   background: var(--sl-color-bg);
-  box-shadow: 0 16px 48px rgb(0 0 0 / 32%);
+  box-shadow: var(--lz-shadow-float);
 }
 
 .lz-analytics-consent__panel strong {
@@ -483,7 +466,7 @@ button,
 .lz-analytics-settings {
   padding: 0.55rem 0.8rem;
   border: 1px solid var(--sl-color-gray-4);
-  border-radius: 5px;
+  border-radius: var(--lz-radius-pill);
   background: var(--sl-color-bg);
   color: var(--sl-color-text);
   font: inherit;
@@ -492,9 +475,9 @@ button,
 }
 
 .lz-analytics-consent button.primary {
-  border-color: var(--lz-blue-500);
-  background: var(--lz-blue-500);
-  color: var(--lz-white);
+  border-color: var(--sl-color-white);
+  background: var(--sl-color-white);
+  color: var(--sl-color-black);
 }
 
 .lz-analytics-settings {
@@ -548,11 +531,11 @@ button,
   height: 208px;
   margin: 0;
   image-rendering: pixelated;
-  filter: drop-shadow(0 12px 18px color-mix(in srgb, var(--lz-ink) 14%, transparent));
+
 }
 
 /* Directory cards with a module stone: the stone reuses the public Launchpad
-   icon and clips only its opaque white canvas, like the overview hero. */
+   icon, shown whole and unchanged. */
 .sl-markdown-content .lz-directory--stones a {
   min-height: 9.5rem;
   padding-top: 1.35rem;
@@ -562,12 +545,8 @@ button,
   width: 3.5rem;
   height: 3.5rem;
   margin: 0 0 0.25rem;
-  clip-path: polygon(42% 8%, 61% 8%, 68% 11%, 86% 36%, 90% 47%, 89% 66%, 61% 89%, 52% 94%, 43% 93%, 34% 89%, 18% 75%, 13% 64%, 16% 34%, 20% 27%);
-  transition: transform 160ms ease;
-}
 
-.sl-markdown-content .lz-directory--stones a:hover img {
-  transform: rotate(-6deg) scale(1.06);
+  transition: transform 160ms ease;
 }
 
 /* Glossary: each term becomes a scannable entry with the term on its own
@@ -649,7 +628,7 @@ lz-language-menu {
   height: 2.75rem;
   padding: 0;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--lz-radius-md);
   background: transparent;
   color: var(--sl-color-gray-2);
   cursor: pointer;
@@ -677,9 +656,9 @@ lz-language-menu details[hidden] { display: none; }
   min-width: 10rem;
   padding: 0.375rem;
   border: 1px solid var(--sl-color-hairline);
-  border-radius: 8px;
+  border-radius: var(--lz-radius-md);
   background: var(--sl-color-bg-nav);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+  box-shadow: var(--lz-shadow-float);
 }
 
 .lz-language-options a {
@@ -735,7 +714,7 @@ lz-language-menu details[hidden] { display: none; }
   height: 2.75rem;
   margin: 0;
   padding: 0;
-  border-radius: 6px;
+  border-radius: var(--lz-radius-md);
 }
 
 :is(.header, .mobile-preferences) .social-icons svg {
@@ -813,7 +792,7 @@ lz-language-menu details[hidden] { display: none; }
   }
 
   .right-sidebar-panel a[aria-current='true'] {
-    border-inline-start: 2px solid var(--sl-color-text-accent);
+    border-inline-start: 1px solid var(--sl-color-hairline);
     color: var(--sl-color-text-accent);
   }
 }
@@ -835,14 +814,28 @@ lz-language-menu details[hidden] { display: none; }
 .lz-assistant-avatar { display: block; font-size: 3rem; line-height: 1.5; }
 .lz-assistant-map__people strong { display: block; }
 .lz-assistant-map__exchange { display: grid; gap: .75rem; color: var(--sl-color-text-accent); font-size: 1rem; }
-.lz-assistant-map__notebook { margin-block: 1.5rem; padding: 1rem; border-left: 3px solid var(--sl-color-text-accent); background: var(--sl-color-gray-6); }
+.lz-assistant-map__notebook { margin-block: 1.5rem; padding: 1rem; border: 1px solid var(--sl-color-hairline); background: var(--sl-color-gray-6); }
 .lz-assistant-map__notebook > span { margin-right: .5rem; }
 .lz-assistant-map__notebook p { margin-top: .5rem; }
 .lz-assistant-map figcaption { font-size: 1rem; }
 .lz-learning-chat { border: 1px solid var(--sl-color-gray-5); border-radius: .75rem; padding: 1rem 1.25rem; }
 .lz-learning-chat summary { cursor: pointer; font-weight: 600; }
-.lz-learning-chat p { padding-inline-start: 1rem; border-inline-start: 2px solid var(--sl-color-text-accent); }
+.lz-learning-chat p { padding-inline-start: 1rem; border-inline-start: 1px solid var(--sl-color-hairline); }
 @media (max-width: 40rem) {
   .lz-assistant-map__people { grid-template-columns: 1fr; }
   .lz-assistant-map__exchange { border-block: 1px solid var(--sl-color-gray-5); padding-block: 1rem; }
+}
+
+/* Match the public website without changing Starlight's document navigation. */
+::selection { background: var(--lz-blue-100); color: var(--lz-ink); }
+.sl-markdown-content { line-height: var(--lz-leading-body); }
+.sl-markdown-content > :is(p, ul, ol) { max-width: 65ch; }
+.sl-markdown-content h3 { font-size: var(--lz-size-title); line-height: var(--lz-leading-title); }
+.sl-markdown-content .sl-heading-wrapper.level-h2 > h2 { font-size: clamp(28px, 3vw, 34px); }
+.header site-search button { border-radius: var(--lz-radius-pill); background: var(--sl-color-bg); }
+.sl-link-button { min-height: 44px; padding-inline: var(--lz-space-24); }
+.sl-markdown-content .pagination-links a { border-radius: var(--lz-radius-md); box-shadow: none; }
+@media (hover: hover) and (pointer: fine) {
+  .sl-markdown-content .lz-directory a:hover,
+  .sl-markdown-content .lz-guide-app:hover { background: var(--sl-color-gray-6); }
 }

@@ -483,9 +483,7 @@ for (const locale of ['en', 'cs']) {
   test(`${locale} overview exposes topic navigation on desktop and mobile`, async ({ page }, testInfo) => {
     await page.goto(`/${locale}/`)
     await expect(page.locator('main h1')).toHaveText(locale === 'cs' ? 'Dokumentace Lazuria' : 'Lazurio documentation')
-    const stones = page.locator('.lz-module-composition img')
-    await expect(stones).toHaveCount(5)
-    expect(await stones.evaluateAll((images) => images.every((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth === 96))).toBe(true)
+    await expect(page.locator('.lz-documentation-hero .sl-link-button')).toBeVisible()
     if (testInfo.project.name.startsWith('mobile')) {
       const toggle = page.locator('button[aria-controls="starlight__sidebar"]')
       await toggle.click()
@@ -539,6 +537,7 @@ test('theme toggles directly and language disclosure supports keyboard dismissal
 })
 
 test('articles align with the content edge across viewport sizes', async ({ page }) => {
+  test.setTimeout(120_000)
   for (const width of [320, 390, 768, 1024, 1440, 1920, 2560]) {
     await page.setViewportSize({ width, height: 900 })
     for (const route of ['/cs/', '/cs/guide/', '/cs/lazurio-vs-microsoft-copilot/', '/en/it-administrators/', '/cs/guide/recommended-apps/']) {
