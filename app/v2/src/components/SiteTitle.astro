@@ -1,0 +1,18 @@
+---
+const locale = Astro.locals.starlightRoute.locale === 'cs' ? 'cs' : 'en'
+const label = locale === 'cs' ? 'Dokumentace' : 'Documentation'
+---
+<a class="lz-docs-title" href={`/${locale}/`} aria-label={`Lazurio ${label}`}>
+  <img class="lz-docs-title__light" src="/brand/lockup-color.svg" alt="Lazurio" width="92" height="24" />
+  <img class="lz-docs-title__dark" src="/brand/lockup-color-dark.svg" alt="" width="92" height="24" />
+  <span>{label}</span>
+</a>
+<style>
+  .lz-docs-title { display: flex; align-items: center; gap: var(--lz-space-16); width: fit-content; min-height: 44px; color: var(--sl-color-white); text-decoration: none; }
+  .lz-docs-title img { width: 92px; height: 24px; flex: none; }
+  .lz-docs-title span { padding-left: var(--lz-space-16); border-left: 1px solid var(--sl-color-hairline); font-family: var(--lz-font-sans); font-size: var(--lz-size-meta); font-weight: var(--lz-weight-medium); letter-spacing: var(--lz-track-body); }
+  .lz-docs-title__light { display: none; }
+  :global([data-theme='light']) .lz-docs-title__light { display: block; }
+  :global([data-theme='light']) .lz-docs-title__dark { display: none; }
+  @media (max-width: 24rem) { .lz-docs-title span { display: none; } }
+</style>

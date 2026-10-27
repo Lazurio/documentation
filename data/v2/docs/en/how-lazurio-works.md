@@ -1,9 +1,9 @@
 ---
-title: How Lazurio works
-description: The core operating model, from principal and Organization to draft and publication.
+title: "How Lazurio works"
+description: "Who assigns work, how an agent prepares a draft and who approves publication."
 stableId: lazurio-doc-how-it-works
 locale: en
-summary: Understand Lazurio's principals, agents, Organizations, repositories, workspace modules, drafts, reviews, and publication flow.
+summary: "Who assigns work, how an agent prepares a draft and who approves publication."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -22,6 +22,9 @@ In Lazurio, you give an agent a task and the materials it needs, then review
 the result. The agent may prepare a document, an application change or other
 work. Publishing or deploying that result requires approval from someone
 authorized to make the decision. The agent cannot authorize itself.
+
+The terms below describe the older source model. For current Environment,
+Buddy and Apps names, see the [glossary](/en/guide/glossary/).
 
 ## Five useful concepts
 
@@ -78,7 +81,7 @@ offers no equivalent restriction, explicit authorization remains a process rule.
 
 ## Source of truth, not one giant AI database
 
-Each kind of material has a home:
+Keep each kind of material in its designated place:
 
 - code in repositories;
 - plans in the Organization's Mission Control;
@@ -97,8 +100,8 @@ contains Launchpad, CLI/Core v0, Doctor, operating manuals and the contracts
 used by connected Organizations and modules. CLI v0 is experimental. A
 packaged CLI and automatically generated non-Git root are future targets.
 
-The selected agent client and model provider carry the model request under
-their own terms. Dashboard, hosted team workspaces and per-owner Resident/Buddy
+The agent client sends model requests to the selected provider under their
+respective terms. Dashboard, hosted team workspaces and per-owner Resident/Buddy
 services are optional services, not hidden parts of every installation. The
 [IT briefing](/en/it-administrators/) explains what a concrete deployment must
 prove.

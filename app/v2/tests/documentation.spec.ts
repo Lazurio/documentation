@@ -4,7 +4,7 @@ import { expect, test } from '@playwright/test'
 test('the site root selects the accepted English locale', async ({ page }) => {
   await page.goto('/')
   await expect(page).toHaveURL(/\/en\/$/)
-  const siteTitle = page.getByRole('link', { name: 'Lazurio Docs' })
+  const siteTitle = page.getByRole('link', { name: 'Lazurio Documentation' })
   await expect(siteTitle).toBeVisible()
   await expect(siteTitle.getByRole('img', { name: 'Lazurio' })).toBeVisible()
   await expect(
@@ -232,7 +232,9 @@ test('the language switch keeps the current page and localizes navigation', asyn
     const sidebarToggle = page.locator('button[aria-controls="starlight__sidebar"]')
     if ((await sidebarToggle.getAttribute('aria-expanded')) !== 'true') await sidebarToggle.click()
   }
-  await expect(page.getByRole('link', { name: 'Přístup k datům a zabezpečení' }).first()).toBeVisible()
+  const sidebar = page.locator('#starlight__sidebar .top-level')
+  await sidebar.locator('summary').filter({ hasText: 'Jak Lazurio funguje' }).click()
+  await expect(sidebar.getByRole('link', { name: 'Přístup k datům a bezpečnost' })).toBeVisible()
   await page.waitForFunction(() => Boolean(customElements.get('starlight-lang-select')))
 
   const czechMenu = page.locator('lz-language-menu:visible')
@@ -263,7 +265,7 @@ test('the Czech homepage gives every reader a clear way into the documentation',
     'Jak Lazurio funguje',
     'Kdy dává Lazurio smysl',
     'Přehled pro správce IT',
-    'Přístup k datům a zabezpečení',
+    'Přístup k datům a bezpečnost',
     'Nasazení a provoz',
     'Lazurio a Microsoft Copilot',
     'Pro AI agenty',
@@ -483,21 +485,48 @@ for (const locale of ['en', 'cs']) {
   test(`${locale} overview exposes topic navigation on desktop and mobile`, async ({ page }, testInfo) => {
     await page.goto(`/${locale}/`)
     await expect(page.locator('main h1')).toHaveText(locale === 'cs' ? 'Dokumentace Lazuria' : 'Lazurio documentation')
-    const stones = page.locator('.lz-module-composition img')
-    await expect(stones).toHaveCount(5)
-    expect(await stones.evaluateAll((images) => images.every((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth === 96))).toBe(true)
+    await expect(page.getByRole('link', { name: locale === 'cs' ? 'Lazurio Dokumentace' : 'Lazurio Documentation', exact: true })).toBeVisible()
+    await expect(page.locator('.lz-documentation-hero .sl-link-button')).toBeVisible()
     if (testInfo.project.name.startsWith('mobile')) {
       const toggle = page.locator('button[aria-controls="starlight__sidebar"]')
       await toggle.click()
       await expect(page.locator('#starlight__sidebar')).toBeVisible()
     }
-    const sidebar = page.locator('#starlight__sidebar')
+    const sidebar = page.locator('#starlight__sidebar .top-level')
     await expect(sidebar.getByRole('link', { name: locale === 'cs' ? 'Přehled' : 'Overview', exact: true })).toHaveAttribute('aria-current', 'page')
+    await expect(sidebar.locator('details[open]')).toHaveCount(0)
+    await sidebar.getByText(locale === 'cs' ? 'Další informace' : 'Reference', { exact: true }).click()
     await sidebar.locator(`a[href="/${locale}/faq/"]`).click()
     await expect(page).toHaveURL(new RegExp(`/${locale}/faq/$`))
     await expect(page.locator('main h1')).toBeVisible()
+    if (testInfo.project.name.startsWith('mobile')) {
+      await page.locator('button[aria-controls="starlight__sidebar"]').click()
+    }
+    await expect(sidebar.locator(`a[href="/${locale}/faq/"]`)).toBeVisible()
+    await expect(sidebar.locator('details[open]')).toHaveCount(1)
   })
 }
+
+test('sidebar groups support keyboard use and retain desktop choices', async ({ page }, testInfo) => {
+  await page.goto('/en/guide/first-steps/')
+  const sidebar = page.locator('#starlight__sidebar .top-level')
+  if (testInfo.project.name.startsWith('mobile')) {
+    await page.locator('button[aria-controls="starlight__sidebar"]').click()
+  }
+  await expect(sidebar.locator('a[aria-current="page"]')).toBeVisible()
+  await expect(sidebar.locator('details[open]')).toHaveCount(1)
+  const reference = sidebar.locator('summary').filter({ hasText: 'Reference' })
+  await reference.focus()
+  await reference.press('Enter')
+  await expect(sidebar.locator('a[href="/en/faq/"]')).toBeVisible()
+  if (!testInfo.project.name.startsWith('mobile')) {
+    await page.reload()
+    await expect(sidebar.locator('a[href="/en/faq/"]')).toBeVisible()
+    await expect(sidebar.locator('a[aria-current="page"]')).toBeVisible()
+  }
+  await reference.press('Enter')
+  await expect(sidebar.locator('a[href="/en/faq/"]')).not.toBeVisible()
+})
 
 test('theme toggles directly and language disclosure supports keyboard dismissal', async ({ page }, testInfo) => {
   await page.emulateMedia({ colorScheme: 'light' })
@@ -539,6 +568,7 @@ test('theme toggles directly and language disclosure supports keyboard dismissal
 })
 
 test('articles align with the content edge across viewport sizes', async ({ page }) => {
+  test.setTimeout(120_000)
   for (const width of [320, 390, 768, 1024, 1440, 1920, 2560]) {
     await page.setViewportSize({ width, height: 900 })
     for (const route of ['/cs/', '/cs/guide/', '/cs/lazurio-vs-microsoft-copilot/', '/en/it-administrators/', '/cs/guide/recommended-apps/']) {

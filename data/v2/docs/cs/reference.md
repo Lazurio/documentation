@@ -1,9 +1,9 @@
 ---
-title: Použité zdroje
-description: Veřejné podklady, na kterých stojí technická a bezpečnostní tvrzení dokumentace.
+title: "Použité zdroje"
+description: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřování."
 stableId: lazurio-doc-reference
 locale: cs
-summary: Přesná revize zdrojů Lazuria a aktuální stránky Microsoft Learn použité pro architektonická, bezpečnostní a srovnávací tvrzení.
+summary: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřování."
 updatedAt: "2026-10-04"
 reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
@@ -51,9 +51,8 @@ ověření najdete v mapě zdrojů. Jazyková úprava stránky sama toto datum n
 
 ## Kontrola aktuálnosti
 
-Strojově čitelná mapa zdrojů leží ve veřejném repozitáři v souboru
-`data/v2/source-map.json`. U každého zdroje uvádí odpovědnou osobu, datum
-poslední kontroly a termín další kontroly. Jakmile platnost zdroje skončí,
+Soubor `data/v2/source-map.json` ve veřejném repozitáři uvádí u každého
+zdroje odpovědnou osobu a data poslední i příští kontroly. Jakmile platnost zdroje skončí,
 validace obsahu selže; tvrzení se tak nesmí zveřejnit, dokud se zdroj znovu
 neověří.
 

@@ -1,9 +1,9 @@
 ---
-title: A ten-minute IT briefing
-description: The questions an IT administrator should ask before approving Lazurio.
+title: "A ten-minute IT briefing"
+description: "What to verify before a Lazurio pilot and production deployment."
 stableId: lazurio-doc-it-administrators
 locale: en
-summary: A concise IT review of Lazurio's purpose, identity, access, data, integrations, operations, and approval boundaries.
+summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -33,10 +33,8 @@ includes Launchpad, diagnostics, operating contracts and an experimental CLI
 v0. It is not a vendor-managed AI service, a stable packaged installer or an
 additional sandbox around the selected agent client.
 
-The right approval question is not simply “Can the AI see data?” It is:
-**which identity is operating, on which machine, in which Organization,
-through which approved tool, against which data, and who may publish the
-result?**
+Before approval, identify **the account, machine, Organization, tool and
+available data**. Separately verify who may publish the result.
 
 ![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
 
@@ -94,9 +92,8 @@ Controls remain with the system that owns the capability:
 | Merge or deploy an exact revision | Branch rules, required checks, reviews, merge rights and the module's deployment gate. |
 | Create or send something in an external provider | That provider's credential, scopes and confirmations. A provider draft may already transmit data; where no provider-enforced restriction exists, explicit authorization remains a process control. |
 
-In plain language, an Agent can prepare a proposed change, but making it
-effective still depends on both the signed-in account and the person responsible
-for the exact decision.
+An agent prepares the change. Publication requires both the account's
+permission and approval from the person responsible for that decision.
 
 <figure class="lz-diagram">
   <picture>

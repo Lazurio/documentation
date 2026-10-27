@@ -9,8 +9,8 @@
       "kind": "public-source",
       "url": "https://learn.chatgpt.com/docs/browser",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
     },
     {
       "id": "composio-authentication",
@@ -19,18 +19,18 @@
       "kind": "public-source",
       "url": "https://docs.composio.dev/docs/authentication",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
     },
     {
       "id": "mcp-local-servers",
       "title": "Connect to local MCP servers",
       "publisher": "Model Context Protocol",
       "kind": "public-source",
-      "url": "https://modelcontextprotocol.io/docs/develop/connect-local-servers",
+      "url": "https://modelcontextprotocol.io/docs/2026-07-28/develop/connect-local-servers",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
     },
     {
       "id": "google-third-party-connections",
@@ -39,8 +39,8 @@
       "kind": "public-source",
       "url": "https://support.google.com/accounts/answer/13533235",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
     },
     {
       "id": "lazurio-readme",
@@ -189,18 +189,18 @@
       "kind": "public-source",
       "url": "https://docs.wisprflow.ai/articles/4678293671-Context-Awareness",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
     },
     {
       "id": "codexbar-permissions",
       "title": "CodexBar macOS permissions",
       "publisher": "CodexBar",
       "kind": "public-source",
-      "url": "https://github.com/steipete/CodexBar/blob/main/README.md#macos-permissions-why-theyre-needed",
+      "url": "https://github.com/steipete/CodexBar/blob/d34fbb47afe73f81dd591bae28a60f72c39a9fe4/README.md#macos-permissions-why-theyre-needed",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-09-15",
-      "reviewDueAt": "2026-10-15"
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
     },
     {
       "id": "lazurio-decision-0162",
@@ -431,6 +431,26 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-10-08",
       "reviewDueAt": "2026-11-08"
+    },
+    {
+      "id": "lazurio-external-apps-current",
+      "title": "External application standard: Executor routing, optional Composio and publication controls",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
+    },
+    {
+      "id": "lazurio-product-vocabulary",
+      "title": "Lazurio product vocabulary: decisions 0170, 0175, 0179, 0185 and 0207 with their addenda",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/decision-register.md",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-24",
+      "reviewDueAt": "2026-11-24"
     }
   ]
 }

@@ -1,9 +1,9 @@
 ---
-title: Časté otázky
-description: Přímé odpovědi na první otázky lidí a IT administrátorů o Lazuriu.
+title: "Časté otázky"
+description: "Odpovědi k produktu, přístupům, datům a schvalování výsledků."
 stableId: lazurio-doc-faq
 locale: cs
-summary: Odpovědi o tom, co Lazurio je, zda nahrazuje Copilot, jak fungují data, lokální nasazení, schvalování, audit a budoucí MCP server.
+summary: "Odpovědi k produktu, přístupům, datům a schvalování výsledků."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -32,9 +32,8 @@ zabezpečení a podmínky zpracování dat posuzujte samostatně.
 
 ## Je Lazurio hotový balíčkovaný produkt?
 
-Ne. Lazurio je ve vývoji. Dnes podporované nasazení je veřejná zdrojová
-pracovní kopie s Gitem a Bunem a CLI v0 je experimentální. Balíčkovaná
-instalace je cíl do budoucna. Lazurio je momentálně dostupné pod licencí
+Ne. V odkazované revizi se Lazurio spouští ze zdrojové pracovní kopie
+s Gitem a Bunem. CLI v0 je experimentální a balíčkovaná instalace je plánovaná. Lazurio je momentálně dostupné pod licencí
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
 podrobnosti o licenci a zralosti produktu najdete v části [Bezpečnost a
 podklady k ověření](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).
@@ -86,8 +85,8 @@ použité dodavatele, zavedená opatření a vlastní právní povinnosti.
 ## Existuje auditní stopa?
 
 Pro změny v Gitu ano: lze je spojit s commity, pull requesty, schváleními a
-záznamy o nasazení. Akce provedené u poskytovatelů nebo na koncových zařízeních
-vyžadují vlastní auditní záznamy. Organizace by proto měla určit, který systém
+záznamy o nasazení. Akce u poskytovatelů a na zařízeních vyžadují vlastní logy. Lazurio
+automaticky nezaznamenává přečtení lokálních souborů ani požadavky na model. Organizace by proto měla určit, který systém
 zaznamenává každou důležitou akci a jak dlouho se záznam uchovává.
 
 ## Jsou Organizace na jednom zařízení od sebe izolované?

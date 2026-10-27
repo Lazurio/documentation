@@ -1,9 +1,9 @@
 ---
-title: Připojení k Environmentu přes Tailscale
-description: Co dělat, když se adresa Environmentu neotevře, jak na macOS, Windows, iPhonu a Androidu zapnout Tailscale a vybrat správný tailnet a co ověřit dál.
+title: "Připojení k Prostředí přes Tailscale"
+description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
 stableId: lazurio-doc-guide-tailscale
 locale: cs
-summary: Adresa Remote Environmentu se otevře jen v tailnetu, který ji obsluhuje. Zapněte Tailscale, vyberte tailnet, který jmenuje stránka Lazuria, a adresa sama pokračuje. Když se ani pak neotevře, ověřte schválení zařízení, samotný Environment, vlastní zabezpečené DNS prohlížeče a připojení k internetu.
+summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
 updatedAt: "2026-10-08"
 reviewedAt: "2026-10-08"
 reviewOwner: Matej Suchanek
@@ -27,23 +27,23 @@ audience:
   - agent
 ---
 
-Když se adresa Environmentu neotevře, nejčastějším důvodem je, že vaše
-zařízení není připojené do soukromé sítě, ve které Environment je. **Zapněte
-Tailscale, vyberte tailnet, který Environment potřebuje, a otevřete adresu
-znovu.** Ukazuje-li prohlížeč stránku Lazuria **Zapni Tailscale**, ta na adresu
-pokračuje sama, jakmile adresa odpoví. Když se ani pak neotevře, pokračujte
+Pokud se adresa Prostředí neotevírá, ověřte nejdřív připojení zařízení
+do správné soukromé sítě. **Zapněte
+Tailscale, vyberte tailnet, který Prostředí potřebuje, a otevřete adresu
+znovu.** Stránka Lazuria **Zapni Tailscale** vás přesměruje automaticky,
+jakmile Prostředí odpoví. Když se adresa ani pak neotevře, pokračujte
 částí [Pořád to nejde?](#pořád-to-nejde)
 
 ## Proč Tailscale
 
 **Tailnet** je soukromá síť zařízení propojených přes
-[Tailscale](https://tailscale.com/). Aplikace Remote Environmentu, třeba jeho
+[Tailscale](https://tailscale.com/). Aplikace Prostředí na serveru, třeba jeho
 Launchpad, Chat nebo Automate, mají adresy, které fungují jen uvnitř tailnetu,
 který je obsluhuje. Žádná veřejná cesta k nim nevede: mimo tento tailnet je
 prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Tento web
 není dostupný“.
 
-K Environmentu tak vaše zařízení potřebuje tři věci:
+K Prostředí tak vaše zařízení potřebuje tři věci:
 
 1. zapnutou aplikaci Tailscale;
 2. v ní vybraný správný tailnet;
@@ -90,9 +90,9 @@ Když tailnet v seznamu není, zařízení se do něj ještě nepřipojilo. Pokr
 
 ## Víc tailnetů
 
-Pracujete-li pro víc Organizací, jejich Environmenty mohou být v různých
+Pracujete-li pro víc Organizací, jejich Prostředí mohou být v různých
 tailnetech. Aplikace Tailscale má na zařízení aktivní vždy jen jeden účet, takže
-dokud je aktivní jeden tailnet, Environmenty jiného se neotevřou. Přepněte,
+dokud je aktivní jeden tailnet, Prostředí jiného se neotevřou. Přepněte,
 kdykoli mezi nimi přecházíte. Přepnutí nevyžaduje nové přihlášení, pokud klíči
 zařízení pro daný tailnet nevypršela platnost.
 
@@ -106,15 +106,15 @@ v tomto pořadí:
 
 1. **Zařízení v tailnetu není, nebo ještě není schválené.** Když tailnet
    v seznamu účtů chybí, zařízení se do něj nikdy nepřipojilo. Když tam je a je
-   aktivní, ale žádný Environment Organizace se neotevře, zařízení možná ještě
+   aktivní, ale žádné Prostředí Organizace se neotevře, zařízení možná ještě
    nemá přístup. Požádejte Admina své Organizace, aby ho přidal nebo schválil.
    Schválený model přístupu Lazuria počítá s tím, že každé zařízení pro každou
    Organizaci schvaluje Admin (rozhodnutí 0192 ze 6. října 2026); jak se
    zařízení do tailnetu dostane dnes, se ale může mezi tailnety ještě lišit.
-2. **Environment neodpovídá.** Když se jiné Environmenty ve stejném tailnetu
-   otevřou, tento je možná zastavený nebo se restartuje. Počkejte pár minut
+2. **Prostředí neodpovídá.** Když se jiná Prostředí ve stejném tailnetu
+   otevřou, toto je možná zastavené nebo se restartuje. Počkejte pár minut
    a zkuste to znovu. Když se nevrátí, dejte vědět Adminovi jeho Organizace.
-   U svého osobního Remote Environmentu se obraťte na podporu svého týmu.
+   U svého Osobního Prostředí na serveru se obraťte na podporu svého týmu.
 3. **Prohlížeč používá vlastní zabezpečené DNS.** Prohlížeč může adresy
    vyhledávat u vlastního poskytovatele DNS místo vašeho zařízení. Ten jména
    tailnetu nezná. Když má Chrome v nastavení zabezpečeného DNS (Use secure
@@ -132,24 +132,24 @@ v tomto pořadí:
 ## Kdy Lazurio ukáže vlastní stránku
 
 Jakmile v prohlížeči jednou otevřete Launchpad, Chat nebo Automate
-Environmentu, který běží na Lazurio Platform v0.1.8-rc.41 nebo novější,
+Prostředí, které běží na Lazurio Platform v0.1.8-rc.41 nebo novější,
 prohlížeč si pro tuto adresu podrží stránku Lazuria **Zapni Tailscale**. Když
 pak adresa není dostupná, prohlížeč na téže adrese ukáže tuto
-stránku místo vlastní chyby. Stránka jmenuje Environment, jeho Organizaci
+stránku místo vlastní chyby. Stránka jmenuje Prostředí, jeho Organizaci
 a tailnet a sama na adresu pokračuje, jakmile adresa odpoví.
 
 Vlastní chybu prohlížeče v těchto případech uvidíte i tak a postup výše platí
 stejně:
 
-- když Environment v prohlížeči otevíráte poprvé, a v anonymním okně;
+- když Prostředí v prohlížeči otevíráte poprvé, a v anonymním okně;
 - u aplikací modulů, které mají vlastní adresy;
 - v Safari po sedmi dnech používání Safari bez interakce se stránkami
-  Environmentu, kdy Safari uložená data webu smaže;
-- po 30 dnech, kdy se prohlížeč k Environmentu nedostal. Stránka se pak sama
-  odstraní, takže po přejmenovaném nebo zrušeném Environmentu nic nezůstane.
+  Prostředí, kdy Safari uložená data webu smaže;
+- po 30 dnech, kdy se prohlížeč k Prostředí nedostal. Stránka se pak sama
+  odstraní, takže po přejmenovaném nebo zrušeném Prostředí nic nezůstane.
 
-Stránka patří k vlastní adrese Environmentu a komunikuje jen s ní. Při každém
-otevření Environmentu ověří, jestli nemá novou verzi, sama se aktualizuje
-a odstraní se, jakmile ji Environment přestane nabízet. Lazurio Platform tuto
+Stránka patří k vlastní adrese Prostředí a komunikuje jen s ní. Při každém
+otevření Prostředí ověří, jestli nemá novou verzi, sama se aktualizuje
+a odstraní se, jakmile ji Prostředí přestane nabízet. Lazurio Platform tuto
 stránku přidala ve verzi v0.1.8-rc.41 (kandidát vydání z 8. října 2026).
-Environment ji ukáže, jakmile běží na této nebo novější verzi.
+Prostředí ji ukáže, jakmile běží na této nebo novější verzi.

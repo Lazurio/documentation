@@ -1,0 +1,8 @@
+{
+  "description": "Lazurio design values and unmodified approved wordmarks, matching lazurio.ai. Token source comments omitted for this public distribution; declarations are unchanged.",
+  "tokensSha256": "3f8fea47e89f222d80ddd8497db26062cac92fc71e668635c4b5933a5a96b7ef",
+  "assets": {
+    "lockup-color.svg": "56148f482211a3bdb62311ccabb9f943f61440c7b2c23101f120fb1e0f02aefe",
+    "lockup-color-dark.svg": "8e24452ed062dd35649d0a5a5561a524836584607e1e63f8991f7457d2bc21c8"
+  }
+}

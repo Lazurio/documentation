@@ -1,15 +1,16 @@
 ---
-title: Glossary
-description: Practical explanations of basic and advanced Lazurio terms.
+title: "Glossary"
+description: "Terms for everyday work, administration and development in Lazurio."
 stableId: lazurio-doc-guide-glossary
 locale: en
-summary: Plain and practical explanations of terms you will encounter when using, administering, or developing Lazurio.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+summary: "Terms for everyday work, administration and development in Lazurio."
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -27,21 +28,36 @@ administration, development and change approval.
 
 <div class="lz-glossary">
 
-**Lazurio** A shared work environment for people and AI Colleagues. It helps
+**Lazurio** A shared work environment for people and AI agents. It helps
 you find applications, work, and the information you need.
 
-**Launchpad** Lazurio's home screen. From here, you choose an Organization
-and open the application you want to work in.
+**Environment** The place where agents work for you. Hosted Environments
+have three kinds: Personal, Work and Team.
+
+**Personal Environment** Your Environment with Buddy and a Personal Workspace.
+
+**Work Environment** An Organization Environment assigned to a particular
+user. It may run automations; these do not create a separate fourth kind.
+
+**Team Environment** An Environment shared by Team members. Every authorized
+member can use its connected accounts, so connect team accounts there.
+
+**Your computer** Your own device running Lazurio locally. It is not a fourth
+kind of hosted Environment.
+
+**Apps (called Launchpad in older sources)** The part of Lazurio where
+you open Organization applications. Within an Environment, switch between
+Chat, Apps and Automate.
 
 **Guide** Practical help for Lazurio. When you are unsure what something
 means or how to continue, start here.
 
-**GitHub** The account you use to sign in to Lazurio. It also determines
-which Organizations and projects you can access and what you may do in them.
+**GitHub** The service that hosts repositories and manages their
+permissions. It determines which repositories you can read or change.
+Your AI provider account and subscription are separate.
 
-**Subscription** Determines how much you can use AI services and how many
-tokens are available. It does not have to be linked to your GitHub account —
-signing in and paying are separate concerns.
+**AI subscription** Your provider's plan determines available models and
+usage limits. It is separate from GitHub repository permissions.
 
 **Tokens** Units used to measure AI usage. They are consumed when reading
 requests and generating responses; they are not passwords or access keys.
@@ -49,7 +65,7 @@ requests and generating responses; they are not passwords or access keys.
 **Organization** A separate workspace for one company. It has its own
 people, applications, data, and access.
 
-**Team** A group of people and AI Colleagues who work together in a specific
+**Team** A group of people who work together in a specific
 area, such as sales or product.
 
 **Workspace** The part of an Organization that contains applications for
@@ -68,16 +84,22 @@ addressed, who is responsible, and what should happen next.
 future work. An agent can use an entry if it has access and loads it. Chat
 content is not saved there automatically.
 
-**Personalspace** Your private space. It belongs only to you and,
-optionally, your Buddy.
+**Personal Workspace** Your private working content in a Personal
+Environment. It serves you and your Buddy, rather than the Organization.
+Older technical sources call it Personalspace.
 
 **Colleague** A person who works in an Organization.
 
-**AI Colleague** A digital team member with its own work role,
-responsibilities, and access.
+**AI Colleague** An older name for a long-running AI role. Current
+documentation describes automation as agents working in a Work Environment
+with a responsible user. A role name grants no permissions by itself.
 
-**Buddy** Your personal AI assistant. It may help or represent you only
-within the scope you allow.
+**Buddy** The name of Lazurio's personal product and your personal AI
+representative. The approved design of the new personal product always includes Buddy,
+with web access through a Lazurio account and no tailnet or SSH. Check
+availability in your installation. Older personal installations in a
+tailnet may retain their earlier access. Buddy acts only within your
+permissions and the task you authorize.
 
 **Prompt** A request you write for AI. For example: “Prepare an overview of
 unpaid invoices and explain what I should address first.”
@@ -105,19 +127,19 @@ normally change their source code or Organization settings.
 **Builder** An Organization member who creates and changes applications.
 Their exact capabilities are determined by actual GitHub permissions.
 
-**Steward** A custodian of quality and order in an Organization. They review
-changes, help complete them, and may publish them when their permissions allow
-it.
+**Steward** Reviews changes, helps complete them and may publish them
+within their permissions. This role looks after quality in an Organization.
 
 **Admin** An Organization administrator with extended permissions. They
 manage access and important settings, but this does not grant access to
 another person's Personalspace.
 
-**Principal** The person or AI Colleague for whom the Agent is currently
-working and who has the final say.
+**Principal** A term for the responsible identity in older Lazurio sources.
+Current copy uses “user” for the person who assigns work and has the final say.
 
-**Task Agent** A temporary AI assistant for a specific task or conversation.
-It has no permissions of its own and works only within its Principal's access.
+**Task Agent** An AI tool session for a particular task. It has no
+permissions of its own; it uses access available in the Environment and
+follows the user's instructions.
 
 **Skill** A saved guide for an agent doing a particular kind of work, such as
 preparing a presentation or reviewing changes. It may contain instructions,
@@ -127,14 +149,14 @@ templates and scripts. You still need to check the result.
 with its data, such as GitHub. It does not grant AI extra permission — it uses
 only the access available on that Machine.
 
-**Guardian** A designated person who can help with recovery or a service
-intervention for an AI Colleague. They do not manage its day-to-day work.
+**Guardian** In older sources, a designated person who helps with recovery
+or a service intervention for an AI Colleague. This does not grant general access.
 
 **Draft** Work in progress that is not official yet. You can review, change,
 or discard it.
 
 **Publication** The moment a Draft becomes official or visible to others.
-An Agent publishes only with the explicit approval of an authorized Principal.
+An agent publishes only with the explicit approval of an authorized user.
 
 **Release** An official, labeled version of a product or application, such
 as a new version for customers.
@@ -157,7 +179,11 @@ are not a developer, you usually do not need to use it directly.
 **Machine** A device or isolated work environment in which Lazurio runs. It
 also forms a boundary for security, access, and recovery.
 
-**Access** Actual permission to view or change something. In work
-Organizations, GitHub determines it — a role name alone does not.
+**Access** Actual permission to view or change something. GitHub determines
+repository permissions. A role name alone grants no access.
 
 </div>
+
+These names follow the public [Lazurio decisions](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/decision-register.md),
+especially 0170 and 0207 with their addenda. A particular installation may
+still show older labels; technical names and commands stay unchanged.

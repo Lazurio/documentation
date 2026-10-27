@@ -1,15 +1,16 @@
 ---
-title: Propojení nástrojů
-description: Propojte AI s e-mailem nebo kalendářem. Vyberte aplikaci, projděte si ukázkový chat a zkopírujte prompt do svého asistenta.
+title: "Propojení nástrojů"
+description: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu agenta."
 stableId: lazurio-doc-tool-connections
 locale: cs
-summary: Propojte AI s e-mailem nebo kalendářem. Vyberte aplikaci, projděte si ukázkový chat a zkopírujte prompt do svého asistenta.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+summary: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu agenta."
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-external-apps-current
   - lazurio-external-apps
   - composio-authentication
   - mcp-local-servers
@@ -41,7 +42,7 @@ export const walkthrough = {
     "První úkol"
   ],
   "manual": "Co uděláte vy",
-  "note": "Toto je předem připravená ukázka, ne živý AI chat. Nic zde nepřipojujete ani neposíláte. Odpovědi vašeho asistenta se mohou lišit; dostupnost nástrojů a oprávnění musí skutečně ověřit.",
+  "note": "Předem připravená ukázka: účty zde nepřipojujete a nic neposíláte. Váš asistent musí nástroje a oprávnění ověřit; jeho odpovědi se mohou lišit.",
   "apps": [
     {
       "id": "gmail",
@@ -62,15 +63,15 @@ export const walkthrough = {
     {
       "id": "mcp",
       "name": "Schválený lokální MCP server",
-      "prerequisite": "Potřebujete AI klienta s podporou MCP a konkrétní důvěryhodný server pro danou aplikaci. MCP je způsob komunikace, ne automatický přístup ke všem účtům.",
-      "connect": "Chci použít schválený lokální MCP server. Nejprve zjisti můj AI klient, operační systém a doporučený server. Ověř oficiální zdroj nebo zkontrolovanou verzi, popiš instalaci, oprávnění a místo uložení přihlášení. Neinstaluj nic, dokud nepotvrdím konkrétní návrh. Nepřepisuj existující konfiguraci a nevkládej hesla ani tokeny do chatu.",
+      "prerequisite": "Potřebujete důvěryhodný MCP server a klienta, který ho umí použít. V Lazuriu MCP servery spravuje Executor; u starší verze ověřte podporovaný postup. MCP samo nezpřístupní žádný účet.",
+      "connect": "Chci použít schválený lokální MCP server. Nejprve zjisti můj AI klient, operační systém a doporučený server. V Lazuriu ověř cestu přes Executor; v jiném klientovi postupuj podle jeho dokumentace. Ověř oficiální zdroj nebo zkontrolovanou verzi, popiš instalaci, oprávnění a místo uložení přihlášení. Neinstaluj nic, dokud nepotvrdím konkrétní návrh. Nepřepisuj existující konfiguraci a nevkládej hesla ani tokeny do chatu.",
       "reply": "Nejprve vybereme server kompatibilní s vaším klientem a ověříme jeho původ. Teprve po schválení následuje instalace a autorizace. Dokud klient nevypíše skutečně dostupné nástroje, připojení nepovažujeme za hotové.",
       "action": "Schvalte konkrétní server a postup. Přidejte ho podle dokumentace klienta bez přepsání ostatních nastavení. Přihlaste se určeným způsobem a podle potřeby znovu načtěte klienta. Lokální běh neznamená, že data nikdy neopustí počítač."
     },
     {
       "id": "composio",
-      "name": "Composio · mimo standard Lazuria",
-      "prerequisite": "Pouze pro samostatné nefiremní použití, mimo standard Lazuria. Nepřipojujte zde firemní data. Potřebujete účet Composio a AI prostředí, které má nástroje Composio již zpřístupněné. Samotný účet ani tento prompt propojení AI prostředí nenastaví.",
+      "name": "Composio",
+      "prerequisite": "V Lazuriu jen tam, kde je Composio povolené Organizací nebo uživatelem Osobního Prostředí. Composio uchovává přihlašovací údaje a zpracovává obsah volání. Před připojením pracovního účtu ověřte oprávnění a podmínky zpracování dat. Účet ani prompt samy nezpřístupní nástroje Composio vašemu AI klientovi.",
       "connect": "Chci použít Composio. Pokud jeho nástroje nemáš, nic nepředstírej: zjisti název a verzi mé AI aplikace a naveď mě na její podporovaný postup instalace. Pokud je máš, zahaj připojení mého účtu a ukaž skutečný autorizační odkaz vrácený nástrojem. Předem vysvětli požadovaná oprávnění. Heslo ani token po mně v chatu nechtěj.",
       "reply": "Nejdřív ověřím dostupnost Composio. Pokud je zde nastavené, mohu požádat o připojení účtu. Přihlášení a souhlas s oprávněními dokončíte vy; přístup není udělen tímto promptem.",
       "action": "Ve své skutečné AI aplikaci otevřete autorizační odkaz z nástroje, ověřte doménu a správný účet. Přečtěte si oprávnění. Pokud jsou širší, než potřebujete, nepokračujte bez vyjasnění. Poté se vraťte do chatu."
@@ -78,7 +79,7 @@ export const walkthrough = {
     {
       "id": "plugin",
       "name": "Vestavěné propojení",
-      "prerequisite": "Použijte jen propojení dostupné ve vaší konkrétní AI aplikaci a tarifu. Firemní správce ho může omezit. Samostatné předplatné není zárukou dostupnosti.",
+      "prerequisite": "Tato možnost ukazuje propojení v samostatné AI aplikaci. V Lazuriu nezřizujte nové konektory ChatGPT ani claude.ai; už připojený konektor smíte používat podle pravidel Organizace. Dostupnost závisí na aplikaci, tarifu a nastavení správce.",
       "connect": "Chci použít vestavěné propojení mé AI aplikace. Pokud neznáš její název a tarif, nejprve se mě zeptej. Ukaž ověřený postup v jejím katalogu aplikací nebo nastavení a vysvětli oprávnění. Když propojení není dostupné, řekni to; nepřepínej bez souhlasu na jinou službu.",
       "reply": "Nejdřív potřebujeme ověřit konkrétní AI aplikaci a dostupnost propojení. Instalaci doplňku a přihlášení provedete v jejím rozhraní. Ne každé propojení dovoluje stejné operace.",
       "action": "V katalogu své AI aplikace zkontrolujte vydavatele doplňku a jeho funkce. Připojte správný účet, potvrďte přiměřená oprávnění a podle pokynů aplikace propojení zpřístupněte v chatu."
@@ -95,9 +96,14 @@ Propojte AI s e-mailem nebo kalendářem. Vyberte aplikaci, projděte si ukázko
 
 ## Než začnete
 
-Ukázka vás vede od připojení přes ověření k prvnímu úkolu. Před použitím promptu si připravte název svého AI nástroje, tarif a účet, který chcete připojit. Začněte testovacími nebo necitlivými daty.
+Připravte si název AI nástroje, tarif a účet, který chcete připojit.
+Začněte testovacími nebo necitlivými daty.
 
-**Ve firemním Lazuriu se řiďte pravidly organizace.** Jeho standard upřednostňuje schválené lokální MCP nebo CLI; Composio a vestavěná propojení zde vysvětlujeme i pro samostatné AI aplikace. Nejde o automatické schválení nového poskytovatele pro firemní data.
+**V Lazuriu se řiďte pravidly své Organizace.** Nové propojení vybírejte
+podle [standardu připojených aplikací](/cs/environment-app-connections/).
+Composio je povolená možnost za podmínek tohoto standardu. Vestavěné
+konektory zde ukazujeme i pro samostatné AI aplikace; ukázka sama
+neschvaluje nového poskytovatele pro pracovní data.
 
 ## Když propojení nefunguje
 

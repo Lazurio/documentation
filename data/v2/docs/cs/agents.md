@@ -1,9 +1,9 @@
 ---
-title: Dokumentace pro AI agenty
-description: Strojově čitelné rozhraní pro vyhledání a načtení veřejné dokumentace Lazuria.
+title: "Dokumentace pro AI agenty"
+description: "Jak najít a načíst dokumentaci přes llms.txt a JSON index."
 stableId: lazurio-doc-agents
 locale: cs
-summary: Jak z llms.txt a content-index.json získat zkontrolovaný obsah včetně zdrojů, cílových skupin a dat revize.
+summary: "Jak najít a načíst dokumentaci přes llms.txt a JSON index."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -15,8 +15,8 @@ audience:
   - agent
 ---
 
-Agenti čtou stejné stránky jako lidé. Pro automatické vyhledávání je obsah
-dostupný také v textovém a JSON indexu.
+Pro automatické vyhledávání použijte textový nebo JSON index. Oba vycházejí
+ze stejných stránek, které čtou lidé.
 
 ## Jak obsah najít a načíst
 

@@ -1,15 +1,16 @@
 ---
-title: Connecting an Environment to external apps
-description: How an operator connects a Lazurio Environment to email, calendars and other apps, what agents can then do, and which trade-offs come with it.
+title: "Connecting an Environment to apps"
+description: "Choose a connection, approve its permissions and revoke access when needed."
 stableId: lazurio-doc-environment-app-connections
 locale: en
-summary: The operator decides which apps an Environment reaches. Composio is part of Lazurio wherever the operator turns it on in Settings, a sign-in reaches wherever its account reaches, and a capability to write is not consent to publish.
-updatedAt: "2026-10-06"
-reviewedAt: "2026-10-06"
+summary: "Choose a connection, approve its permissions and revoke access when needed."
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-external-apps-current
   - lazurio-decision-0162
   - lazurio-external-apps-0162
   - lazurio-composio-runbook
@@ -37,30 +38,25 @@ centrally. Before you connect the first app, read
 [what you accept](#what-you-accept-before-the-first-connection) and check
 [what is available today](#what-is-available-today).
 
-An **Environment** is the place where agents work for you. A **Remote
-Environment** is a hosted Environment: your personal Remote Environment, or a
-work or Team Remote Environment of an Organization. A **Local Environment** is
-the computer you are sitting at. The **Machine** is the computer or virtual
+An **Environment** is the place where agents work for you. It can run on
+your own computer or be hosted as a Personal, Work or Team Environment. The **Machine** is the computer or virtual
 machine under an Environment. The **operator** is the person who controls the
 Environment and, with it, the agents that run there. The rules on this page
 apply to every kind of Environment.
 
 ## The model in one paragraph
 
-Lazurio is CLI-first. The `lazurio` command and the Launchpad are one product
-over one core: they care for the tools of an Environment and tell agents how to
-move in it. Codex, Claude Code, `gh`, Composio and other tools are command-line
-programs installed and signed in on the Machine. An Environment therefore
-mirrors its operator: if you work across several Organizations, your
-Environment does too. Agents work there with full access: whatever the
+The `lazurio` command and Apps (called Launchpad in the sources) use the
+same core. They manage the Environment's tools and prepare agent instructions. Codex, Claude Code, `gh`, Composio and other tools are command-line
+programs installed and signed in on the Machine. If you work across several Organizations, the same Environment can serve
+them. Agents work there with full access: whatever the
 Environment allows, they may do, without a sandbox or approval of single
 commands. If you need narrower rights or separate contexts, create another
 Environment and sign in other accounts there.
 
 ## Which route to choose
 
-You choose the route and have the last word. The GitHub CLI `gh` is not
-optional; every Environment needs it.
+You choose the connection method. Every Environment requires GitHub CLI `gh`.
 
 For a new connection, the Lazurio integration standard proposes this order;
 the first route that works wins:
@@ -79,8 +75,9 @@ cookie sessions, shared brokers other than Composio, keys or tokens in a chat,
 Git or a log, and new ChatGPT or claude.ai connectors. A connector that is
 already installed may still be used.
 
-While they work, agents use the catalog tools turned on for the Environment
-first, as the Folder instructions tell them, and MCP servers second.
+For an existing connection, agents use the app's tool, Executor or Composio
+according to its recorded route, in that order. Custom MCP servers belong
+in Executor and are added only on the user's instruction.
 
 ## The tool catalog
 
@@ -101,9 +98,9 @@ The catalog lists the tools that agents can be told to use. Each has a
 - **Agent setup** gives you a prepared prompt. You copy it into a new agent
   chat; the agent installs the tool and guides your sign-in.
 
-Every catalog entry describes the target state of its installation. That
-description is the agent's manual: when a curated installation fails, Lazurio
-offers the prepared prompt, and an agent finishes the installation from it.
+Each catalog entry tells the agent how the installed tool should be set up.
+If the prepared installation fails, Lazurio offers a prompt to finish it
+with an agent.
 
 ## Connecting a tool
 
@@ -147,24 +144,25 @@ On the command line the switch is `lazurio tools enable` and
 
 A tool that is used by agents is written into the agent instructions of the
 Lazurio Folder on that Machine. The **Lazurio Folder** is the directory whose
-generated instructions and manual agents read when they start. MCP servers are
-never recorded in the Folder; agents discover them in their own harness.
+generated instructions and manual agents read when they start. Executor manages MCP servers and exposes them to agents. If a deployment
+does not yet run Executor, agents use the MCP servers available in their
+client under that version's rules.
 
-The switch is context, not permission. It grants no access, installs nothing,
-signs in nowhere and pins no version. Turning it off removes the tool from the
+The switch changes agent instructions. It does not grant access, install
+a tool, sign in an account or pin a version. Turning it off removes the tool from the
 instructions. It does not sign you out or disconnect any app: to remove access,
 disconnect the app in Composio or disconnect the tool.
 
 You can add a short note to a tool that agents use, for example "read-only
 for customer mail", under the tool's details or with `lazurio tools note`.
-Agents read it in the Folder manual. The note is instruction for agents, not a
-technical limit. Turning the tool off removes its note.
+Agents read it in the Folder manual. The note instructs agents but does not technically restrict access. Turning the tool off removes its note.
 
 ## Connecting apps through Composio
 
-Composio is part of Lazurio on every Environment where its operator turns it
-on. Where it is off, agents do not set it up on their own: they offer to turn
-it on, or they use the other routes.
+Use Composio only where it is permitted. Organization rules apply in Work
+and Team Environments; the user decides in a Personal Environment. Agents
+do not create a new connection without your instruction, and you complete
+the sign-in.
 
 1. Decide which Environment you connect and which Composio account and
    Composio organization belong to it.
@@ -185,13 +183,13 @@ it on, or they use the other routes.
 
 ### The account of the Environment
 
-With Composio, connected apps belong to the Composio account and its
-Composio organization, not to the Machine. Two Machines signed in with the same
-account and organization are expected to see the same connections. Composio's
-documentation points to this; Lazurio has not yet confirmed it by a test (see
-the [open question](https://github.com/Lazurio/LazurioPlatform/issues/45)).
-Treat the sign-in as the account of the Environment. If a Machine should reach
-less, sign in another account or another Composio organization there.
+Under Lazurio's standard, connections belong to the Composio account and
+organization, not automatically to one machine. Composio's documentation
+associates connected accounts with a `userID`. Whether the specific Lazurio
+tools on two machines use the same connections remains an
+[open verification question](https://github.com/Lazurio/LazurioPlatform/issues/45).
+Do not treat a separate machine alone as isolation of connected accounts.
+Use a separate Composio account when access must differ.
 
 ### Team Environments
 
@@ -211,12 +209,11 @@ agent there can use them.
 
 Lazurio does not enforce or monitor how an operator connects an Environment.
 
-- **An overview of Composio.** An Organization that wants one creates its own
-  Composio organization, much as it creates a GitHub organization, and asks
-  its operators to sign in to it. That Composio organization is a separately
-  managed service outside the Lazurio Dashboard. A central overview of
-  connected accounts is not a Lazurio goal, because operators may also connect
-  apps by other routes.
+- **Composio accounts and organizations.** The standard uses a user's own
+  Composio account, with a separately named Composio organization for each
+  Lazurio Organization and no invited users. A Team Environment uses a team
+  account. Names help select the right connection; verify actual access
+  with the provider.
 - **Integrations the whole Organization shares** go into the Organization's
   tracked integration catalog, through a reviewed pull request. The catalog
   holds commands, addresses and the names of environment variables, never
@@ -239,7 +236,7 @@ path is an [open question](https://github.com/Lazurio/LazurioPlatform/issues/39)
 
 ## What you accept before the first connection
 
-These are the accepted trade-offs of the model.
+Review these conditions and risks before connecting:
 
 - **A third party holds tokens and call content.** With Composio, app tokens
   and the content of calls are held by Composio unless an Organization runs its
@@ -263,11 +260,13 @@ These are the accepted trade-offs of the model.
 - **An Organization has no enforced overview.** It sees only what its own
   Composio organization shows, and only if its operators sign in to it.
 
-## What is available today
+<span id="what-is-available-today"></span>
 
-Status on 2026-10-06, from the public
-[LazurioPlatform](https://github.com/Lazurio/LazurioPlatform) repository. The
-latest final release is v0.1.7; v0.1.8 is in release candidates.
+## Release status on 6 October 2026
+
+The following table records the status on 2026-10-06, from the public
+[LazurioPlatform](https://github.com/Lazurio/LazurioPlatform) repository. At that date, the
+latest final release was v0.1.7; v0.1.8 was in release candidates.
 
 | Capability | Status | Evidence |
 | --- | --- | --- |
@@ -276,7 +275,7 @@ latest final release is v0.1.7; v0.1.8 is in release candidates.
 | **Settings → Tools** with Connect and Disconnect, a sign-in that turns **Used by agents** on, `gh` linking the Machine's SSH key, `gh` on a Team Environment through Lazurio for GitHub, the team-accounts notice on a Team Environment | In v0.1.8 release candidates (v0.1.8-rc.35, 2026-10-06); final v0.1.8 not yet released | [Tools section](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/launchpad-development.md#tools-section), [gh on a Team Environment](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md#gh-on-a-team-environment), [v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35) |
 | Handing a tool's prepared prompt directly into an agent chat (today it is shown for copying); the curated flows on Windows; managing per-Machine permissions from the Dashboard | Planned, not built | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [decision 0162](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md) |
 
-A release is not yet the state of your Environment. A release candidate
+Check which version your Environment actually runs. A release candidate
 reaches only the Environments that ask for its exact version; a Local
 Environment updated with `lazurio update` gets the latest final release. The
 labels above are those of v0.1.8; v0.1.7 names the same actions **Install and
@@ -284,16 +283,15 @@ sign in**, **Sign in** and **Sign out**, and does not turn the switch on by
 itself.
 
 The Composio pilot that decision 0162 set until the Tools section was
-released ended on 2026-10-02. Composio is now an active part of Lazurio on
-every Environment where its operator turns it on; where it is off, the other
+released ended on 2026-10-02. Composio has since been an option in permitted Environments; where it is off, the other
 routes of the
-[integration standard](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/external-app-integrations.md)
+[integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
 apply.
 
 ## Sources
 
 - [Lazurio decision register](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md): decision 0162 with its addendum of 2026-10-02 (the model, the routes, the trade-offs and the end of the pilot), 0170 (Environment), 0172 (full access inside the Environment) and 0175 (the operator).
-- [External application integration standard](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/external-app-integrations.md): the order of routes, what stays excluded and the Organization's integration catalog.
+- [External application integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md): the order of routes, what stays excluded and the Organization's integration catalog.
 - [Composio runbook](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/integrations/composio.md): what an agent may do with Composio.
 - [LazurioPlatform decisions F17, F18 and F19](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f18--enabled-tools-of-the-environment), with their addenda: operator tools, the catalog, the Folder instructions, the note, the curated sign-in, `gh` on a Team Environment and team accounts on a Team Environment.
 - [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md): the `lazurio tools` commands.

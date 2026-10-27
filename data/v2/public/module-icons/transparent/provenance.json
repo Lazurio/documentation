@@ -1,0 +1,33 @@
+{
+  "operation": "Remove edge-connected canvas; retain interior whites and dimensions.",
+  "files": {
+    "brainstorm-96.png": {
+      "sourceSha256": "9dadbe8fc531ecbde2b72bcaaf4dbf7ef863065534df8b00a096b49014ae2453",
+      "transparentSha256": "ddcf7760d1d52c0dfb91d31437adec726ce221261b114ac1609aa5fb618735d6"
+    },
+    "content-96.png": {
+      "sourceSha256": "655fd8310b1094cb5c3e434071bbdc0b4b263cca15803ca6c03fcf8b8f13754d",
+      "transparentSha256": "968c4e60910653e7530435c3e7144166b7f5f2b6cf9507f708595994bf493f52"
+    },
+    "deals-96.png": {
+      "sourceSha256": "54f89c003d5155a25b1ee4e04ef45c1a73c7fa7ca49928b539b1f20861da3aa6",
+      "transparentSha256": "1596efeef691bb4ad79b645c0fcd146b167ad1762b11e2eeac824baaa45c4677"
+    },
+    "guide-96.png": {
+      "sourceSha256": "e228601424c4f630d0bb2a556f806467203bc1891b97abff3d1e762ecb804836",
+      "transparentSha256": "b25882cf9e22c30644220f384890ea81a0e794adde2824941535f42957874b61"
+    },
+    "knowledgebase-96.png": {
+      "sourceSha256": "5ddbc3c440af249093b497ba08b449ead6c306dd0ff7f608e5a21e44ad04af74",
+      "transparentSha256": "da8df41a2944027d011a0c6c88a21f7cf7dd884c4ab1159b402e5432fe506703"
+    },
+    "mission-control-96.png": {
+      "sourceSha256": "1e91a80054049ac0a3dfa984a105536b37ddf34f47726ed00d09559a76b7ac1a",
+      "transparentSha256": "a0e956f9b475bfa6b1ad7bc3ce4018c4573277c87d2be91a257463346a4ea851"
+    },
+    "settings-96.png": {
+      "sourceSha256": "79b0857e7cbdcd6137e13ad1751ed2353a523378aa29c5b5592b77f6700afd1f",
+      "transparentSha256": "b8c5f99df7d98cb2122694f11c4a00a33056ad277535f72890637e0bcf6ea340"
+    }
+  }
+}

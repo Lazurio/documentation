@@ -1,15 +1,16 @@
 ---
-title: Přístup k datům a bezpečnost
-description: Bezpečnostní hranice Lazuria a kontroly, které musí projít konkrétní nasazení.
+title: "Přístup k datům a bezpečnost"
+description: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
 stableId: lazurio-doc-data-access-security
 locale: cs
-summary: Identity, oddělení Organizací, lokální soubory, integrace, tajné údaje, poskytovatelé modelů, auditní podklady a zbytková rizika.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-external-apps-current
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -59,32 +60,36 @@ mezi přístupovými hranicemi.
 
 ### Externí aplikace
 
-[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-upřednostňuje oficiální MCP server spravovaný lokálně, poté oficiální nástroj
-příkazové řádky a následně zkontrolované open-source řešení s pevně určenou
-verzí. Ovládání přes webový prohlížeč je až náhradní možnost. Každé
-zařízení má používat samostatně odvolatelné přihlášení. Evidence nasazení smí
-obsahovat názvy integrací a požadované rozsahy oprávnění, nikdy však skutečné
-tajné údaje.
+[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
+pro nové propojení upřednostňuje oficiální MCP server, potom oficiální CLI,
+povolené Composio, prověřené open-source řešení a nakonec prohlížeč pod
+dohledem uživatele. Vlastní MCP servery v Lazuriu spravuje Executor.
+Při práci s již připojenou aplikací agent použije její nástroj, Executor nebo
+Composio podle evidované cesty, v tomto pořadí.
 
-Nové konektory ChatGPT nebo claude.ai a sdílené hostované zprostředkovatele
-tento model správy přístupů pro jednotlivá zařízení nepokrývá. Vzdálený MCP
-provozovaný poskytovatelem může model splnit, pokud lze jeho konfiguraci a
-token pro dané zařízení samostatně odvolat.
+Composio je povolený zprostředkovatel jen tam, kde jeho použití dovoluje
+Organizace nebo uživatel Osobního Prostředí. Composio uchovává přihlašovací
+údaje a zpracovává obsah volání. Připojené účty patří účtu a organizaci
+v Composiu; nepředpokládejte jejich oddělení podle zařízení. V Týmovém
+Prostředí připojujte jen týmové účty.
 
-Úkol se zápisem může vyžadovat oprávnění ke čtení i zápisu u poskytovatele.
-Jde o skutečný přístup: označení výstupu jako návrhu nezabrání přenosu dat
-k poskytovateli.
+Nové konektory ChatGPT nebo claude.ai, jiné sdílené brokery a servery založené
+na scrapingu nebo opětovném použití relace prohlížeče standard nepovoluje.
+Vzdálený MCP přímo od poskytovatele je přípustný, pokud jeho konfiguraci
+a token pro dané zařízení lze samostatně odvolat.
+
+Zápis může vyžadovat oprávnění ke čtení i zápisu u poskytovatele. Už návrh
+uložený v připojené aplikaci může přenášet data. Podmínky účtů, uložení tokenů
+a omezení zápisu ověřte podle [návodu k propojení aplikací](/cs/environment-app-connections/).
 
 ### Tajné a přihlašovací údaje
 
 [Standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
 udržuje skutečné přihlašovací údaje mimo Git. Lokální úložiště jsou oddělená
 podle vlastníka nebo Organizace a verzované soubory obsahují pouze schémata,
-názvy proměnných a pokyny. Ochranu lokálních údajů, zařízení a záloh musí
-zajistit pravidla konkrétní organizace; samotný standard ji negarantuje.
-Skutečné úložiště musí chránit zabezpečení zařízení, zálohy, obměna
-přihlašovacích údajů a postup při incidentu. Vedle vyhrazených cest mimo Git
+názvy proměnných a pokyny. Konkrétní nasazení musí zajistit zabezpečení zařízení, ochranu záloh,
+obměnu přihlašovacích údajů a postup při incidentu. Samotný standard
+tato opatření nezaručuje. Vedle vyhrazených cest mimo Git
 lze použít schválené úložiště poskytovatele.
 
 ## Hrozby, které je potřeba otestovat

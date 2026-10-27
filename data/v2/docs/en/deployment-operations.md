@@ -1,9 +1,9 @@
 ---
-title: Deployment and operations
-description: What is fixed by Lazurio and what must be decided for a concrete rollout.
+title: "Deployment and operations"
+description: "Plan the deployment, assign owners and test recovery and access revocation."
 stableId: lazurio-doc-deployment-operations
 locale: en
-summary: Plan a Lazurio rollout across identity, devices, repositories, modules, integrations, logs, backup, updates, and offboarding.
+summary: "Plan the deployment, assign owners and test recovery and access revocation."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -38,9 +38,9 @@ Name an owner for each.
 | Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |
 | Dashboard, hosted workspace and Resident/Buddy | Optional, separately deployed | Inventory each enabled service with its own identity, network, storage and operating owner. |
 
-The basic installation still includes several owners: the principal machine,
-the local Lazurio root, Organization repositories, workspace modules, GitHub,
-the agent client and model provider, and every enabled external application.
+Assign an owner to each part of the installation: the principal's machine,
+the local Lazurio root, Organization repositories, modules, GitHub, the
+agent client, model provider and each connected application.
 Some modules remain local; others run internally or publish a public website or service.
 Their deployment and rollback contracts stay module-owned.
 

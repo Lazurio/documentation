@@ -1,11 +1,11 @@
 ---
-title: Tipy pro práci
-description: Praktické postupy, které vám usnadní práci s agentem.
+title: "Tipy pro práci"
+description: "Jak zadat práci v prohlížeči a zkontrolovat výsledek."
 stableId: lazurio-doc-guide-work-tips
 locale: cs
-summary: Jak agent používá vestavěný prohlížeč svého nástroje (Browser Use) pro práci na webu, zatímco Vy držíte kontrolu nad přístupy a důležitými kroky.
-updatedAt: "2026-10-09"
-reviewedAt: "2026-10-09"
+summary: "Jak zadat práci v prohlížeči a zkontrolovat výsledek."
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -29,7 +29,9 @@ ne jen seznam odkazů. Funkci poskytuje váš AI nástroj, nikoli Lazurio.
   <a href="/guide-assets/chatgpt-browser-illustration-cs.png" aria-label="Otevřít ilustrační maketu v plné velikosti">
     <img src="/guide-assets/chatgpt-browser-illustration-cs.png" alt="Ilustrační maketa: vlevo chat ChatGPT s promptem @Browser, vpravo panel Browser s fiktivní kontaktní stránkou." width="1605" height="980" loading="lazy" />
   </a>
-  <figcaption>Ilustrační maketa vytvořená pomocí AI, nikoli skutečný screenshot. Vlevo zadáváte úkol, vpravo sledujete otevřený web. Údaje i web jsou smyšlené; skutečné rozhraní se může lišit. Kliknutím obrázek zvětšíte.</figcaption>
+  <figcaption>Ilustrační maketa vytvořená pomocí AI: zadání vlevo, web vpravo. Nejde
+o skutečný screenshot; web i údaje jsou smyšlené a rozhraní se může lišit.
+Kliknutím obrázek zvětšíte.</figcaption>
 </figure>
 
 ## Jak začít v ChatGPT

@@ -1,9 +1,9 @@
 ---
-title: Nasazení a provoz
-description: Co je v Lazuriu dané a co musí rozhodnout provozovatel konkrétního nasazení.
+title: "Nasazení a provoz"
+description: "Jak připravit nasazení, určit správce a ověřit obnovu i odebrání přístupu."
 stableId: lazurio-doc-deployment-operations
 locale: cs
-summary: Postup zavedení Lazuria přes identity, zařízení, repozitáře, moduly, integrace, logy, zálohy, aktualizace a odebírání přístupů.
+summary: "Jak připravit nasazení, určit správce a ověřit obnovu i odebrání přístupu."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -22,9 +22,8 @@ audience:
 ---
 
 Nasazení Lazuria nemá jedinou podobu. V popsané verzi provozovatel spravuje
-lokální pracovní kopie a jednotlivé moduly. Nejdřív proto sestavte seznam
-zařízení, repozitářů, AI nástrojů, poskytovatelů modelů a připojených služeb.
-U každé položky určete, kdo ji spravuje.
+lokální pracovní kopie a jednotlivé moduly. Sepište zařízení, repozitáře, AI nástroje, poskytovatele modelů a připojené
+služby. U každé položky určete správce.
 
 ## Dostupné součásti a budoucí cíle
 

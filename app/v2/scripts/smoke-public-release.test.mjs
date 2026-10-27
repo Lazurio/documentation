@@ -33,7 +33,7 @@ test('derived matrix preserves the minimum public Guide contract', () => {
   }
   for (const asset of [
     '/guide-assets/wispr-flow.svg', '/guide-assets/codexbar.svg', '/guide-assets/mattycus-idle.png',
-    '/module-icons/knowledgebase-96.png', '/module-icons/guide-96.png', '/module-icons/settings-96.png',
+    '/module-icons/transparent/knowledgebase-96.png', '/module-icons/transparent/guide-96.png', '/module-icons/transparent/settings-96.png',
   ]) assert.ok(guideAssets.includes(asset), `Missing required asset ${asset}`)
   for (const omitted of guideMatrix) {
     assert.throws(() => verifyGuideCoverage(smokePaths.filter((path) => path !== omitted)),

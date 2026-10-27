@@ -1,9 +1,9 @@
 ---
-title: Frequently asked questions
-description: Direct answers to the first questions people and IT administrators ask about Lazurio.
+title: "Frequently asked questions"
+description: "Answers about the product, access, data and approval of results."
 stableId: lazurio-doc-faq
 locale: en
-summary: Answers about what Lazurio is, whether it replaces Copilot, data access, local deployment, approval, audits, and the future MCP server.
+summary: "Answers about the product, access, data and approval of results."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -38,9 +38,8 @@ security and data terms separately.
 
 <summary>Is Lazurio a finished, packaged product?</summary>
 
-No. Lazurio is in active development. The supported setup is a public source
-checkout using Git and Bun, and CLI v0 is experimental. A packaged installation
-is a future target. Lazurio is currently source-available under
+No. At the referenced revision, Lazurio runs from a source checkout using
+Git and Bun. CLI v0 is experimental; a packaged installation is planned. Lazurio is currently source-available under
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
 the [security and control evidence](/en/public-evidence/#product-form-and-maturity) explains
 the license and maturity details.
@@ -51,9 +50,9 @@ the license and maturity details.
 
 <summary>Does Lazurio replace Microsoft Copilot?</summary>
 
-Not categorically. Microsoft Copilot is a natural fit for assistance grounded
-in Microsoft 365. Lazurio focuses on governed, source-controlled work across
-repositories and tools. Many organizations may use both. See the [full
+The tools serve different needs. Microsoft Copilot mainly assists with work
+in Microsoft 365. Lazurio focuses on reviewing and approving versioned work
+across repositories and tools. An Organization may use both. See the [full
 comparison](/en/lazurio-vs-microsoft-copilot/).
 
 </details>

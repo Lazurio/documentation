@@ -1,15 +1,16 @@
 ---
-title: Security and control evidence
-description: The public source behind Lazurio's product, security and operational claims.
+title: "Security and control evidence"
+description: "Public sources behind product and security claims, and the limits of that evidence."
 stableId: lazurio-doc-public-evidence
 locale: en
-summary: See the current product form, trust boundaries, authority model, integrations, hosted surfaces and the limits of what the public source can prove.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+summary: "Public sources behind product and security claims, and the limits of that evidence."
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
   - lazurio-architecture
@@ -23,7 +24,7 @@ audience:
   - agent
 ---
 
-This page connects the claims in this documentation to Lazurio source revision
+The product and architecture sections below use Lazurio source revision
 [`3c5bda5d54c5556a0e54f3c339d988aa911fda60`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60).
 The source documents at that revision are written in Czech. The summaries
 below explain their security implications and link to the originals. They are
@@ -56,9 +57,9 @@ not itself promise hosting, support or a service level for a concrete rollout.
 
 The [collaboration model](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
 defines a principal as the person or longer-lived AI identity for whom work is
-done. A task agent is a temporary execution session and owns no independent
-rights. A prompt cannot grant a provider or repository capability; live
-GitHub, OS and provider permissions remain authoritative.
+done. A task agent is a temporary work session with no permissions of its own.
+Access comes from GitHub, the operating system and connected services.
+A prompt cannot grant it.
 
 The agent may use credentials and files available to its process. Lazurio's
 rules specify when that use is permitted. The operating system, AI tool's
@@ -93,22 +94,28 @@ exists.
 
 ## External applications and credentials
 
-The [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-prefers an official machine-local MCP server, then an official CLI, then a
-reviewed pinned implementation, with browser interaction as fallback. Each
-machine should use separately revocable provider credentials. New ChatGPT or
-claude.ai connectors and shared hosted brokers are outside the standard;
-an already deployed connector can be recorded as a transition state.
-Provider-operated remote MCP remains acceptable when configuration and token
-custody are per-machine. The default scope for a workflow that needs writes is
-read+write, while read-only is optional tightening. An OAuth token is a
-machine/session capability, and MCP approval settings do not automatically
-constrain CLI or shell access.
+This section uses the newer [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md),
+checked on 24 October 2026. For new connections it prefers official MCP,
+official CLI, permitted Composio, a reviewed open-source implementation and
+browser fallback. Executor manages Environment MCP servers. For existing
+connections, the app's tool takes precedence over Executor and Composio.
+
+Composio is the sole approved exception to the shared-broker ban and must be
+permitted for the Environment. It holds tokens and processes call content;
+connections belong to the Composio account and organization, not automatically
+to one machine. The standard excludes new cloud connectors, other shared
+brokers, and scraping or browser-session servers. An existing connector may
+remain as a transition state.
+
+Write access is not approval to publish. An OAuth token can be used by a
+process that can reach it; MCP approvals do not automatically constrain CLI
+or shell access. See [Connecting an Environment to apps](/en/environment-app-connections/)
+for account scope and open questions.
 
 The [secret custody standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
-keeps real credentials outside Git in ignored, scoped custody paths or approved
-provider stores. It does not claim that Lazurio itself encrypts the endpoint,
-rotates every secret or replaces backup and incident controls.
+keeps real credentials outside Git. It does not claim that Lazurio itself
+encrypts the endpoint, rotates every secret or replaces backup and incident
+controls.
 
 ## Local and hosted services
 

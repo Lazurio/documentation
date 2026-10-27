@@ -1,15 +1,16 @@
 ---
-title: Bezpečnost a podklady k ověření
-description: Veřejné zdroje, na nichž stojí tvrzení dokumentace o produktu, bezpečnosti a provozu Lazuria.
+title: "Bezpečnost a podklady k ověření"
+description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
 stableId: lazurio-doc-public-evidence
 locale: cs
-summary: Aktuální podoba produktu, hranice důvěry, oprávnění, integrace, hostované služby a limity toho, co lze z veřejných zdrojů doložit.
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
+updatedAt: "2026-10-24"
+reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
   - lazurio-architecture
@@ -23,7 +24,7 @@ audience:
   - agent
 ---
 
-Tato stránka propojuje tvrzení dokumentace s revizí zdrojů Lazuria
+Části o produktu a architektuře vycházejí z revize zdrojů Lazuria
 [`3c5bda5d54c5556a0e54f3c339d988aa911fda60`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60).
 Zdrojové dokumenty této revize jsou v češtině. Níže najdete jejich shrnutí
 a odkazy pro kontrolu. Nejde o nezávislý audit ani potvrzení bezpečnosti
@@ -62,9 +63,9 @@ oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost pos
 rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
 službách.
 
-Agent může použít přihlašovací údaje a soubory dostupné jeho procesu.
-Pravidla Lazuria říkají, kdy je použít smí. Technicky tento přístup omezují
-operační systém, sandbox AI nástroje a kontroly poskytovatele.
+Agent může použít soubory a přihlášení dostupné jeho procesu. Pravidla
+Lazuria určují, kdy je to dovoleno; technická omezení zajišťují operační
+systém, sandbox AI nástroje a poskytovatel.
 
 ## Hranice zařízení a Organizace
 
@@ -95,20 +96,26 @@ je výslovné schválení pouze procesní pravidlo.
 
 ## Externí aplikace a přihlašovací údaje
 
-[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-upřednostňuje oficiální MCP server běžící lokálně na zařízení, potom oficiální
-CLI a následně prověřenou implementaci s pevně určenou verzí; prohlížeč je
-záložní cesta. Každé zařízení má mít samostatně odvolatelné přihlašovací údaje
-u poskytovatele. Nové konektory ChatGPT či claude.ai a sdílení přes hostovaný
-broker do standardu nepatří, dříve nasazený konektor ale může být zaznamenán
-jako přechodový stav. OAuth token je schopnost dané relace či zařízení a
-schválení v MCP samo neomezuje přístup přes CLI ani shell.
+Tato část vychází z novějšího [standardu integrací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md),
+ověřeného 24. 10. 2026. Pro nové propojení stanovuje pořadí: oficiální MCP,
+oficiální CLI, povolené Composio, prověřené open-source řešení a prohlížeč.
+Executor spravuje MCP servery Prostředí; při práci s již připojenou aplikací
+má její nástroj přednost před Executorem a Composiem.
+
+Composio je jedinou povolenou výjimkou ze zákazu sdílených brokerů a musí být
+pro dané Prostředí povolené. Uchovává tokeny a zpracovává obsah volání;
+propojení patří účtu a organizaci v Composiu, nikoli automaticky jednomu
+zařízení. Nové cloudové konektory, jiné sdílené brokery a scraping či
+cookie-session servery standard nepovoluje. Už nasazený konektor může zůstat
+přechodovým stavem.
+
+Přístup k zápisu není souhlas se zveřejněním. OAuth token může použít proces,
+který na něj dosáhne; schvalování v MCP neomezuje automaticky CLI ani shell.
+Podrobnosti a otevřené otázky uvádí [návod k propojení aplikací](/cs/environment-app-connections/).
 
 [Standard úschovy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
-udržuje skutečné přihlašovací údaje mimo Git, v ignorovaných cestách vymezených
-podle vlastníka nebo v povoleném úložišti poskytovatele. Netvrdí, že Lazurio
-samo šifruje zařízení, obměňuje každý secret nebo nahrazuje zálohování a reakci
-na incident.
+udržuje skutečné přihlašovací údaje mimo Git. Netvrdí, že Lazurio samo šifruje
+zařízení, obměňuje všechny údaje nebo nahrazuje zálohy a reakci na incident.
 
 ## Lokální a hostované služby
 

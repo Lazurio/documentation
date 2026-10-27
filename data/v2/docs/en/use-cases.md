@@ -1,9 +1,9 @@
 ---
-title: What Lazurio is good for
-description: Practical use cases and the conditions under which Lazurio is a good fit.
+title: "What Lazurio is good for"
+description: "Work that suits Lazurio, the controls it needs and when to choose another tool."
 stableId: lazurio-doc-use-cases
 locale: en
-summary: See where Lazurio helps with product delivery, operations, knowledge, agent workflows, and multi-organization work—and where it does not.
+summary: "Work that suits Lazurio, the controls it needs and when to choose another tool."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -19,8 +19,7 @@ audience:
 ---
 
 Lazurio fits work whose results need to be kept, reviewed and shared: an
-application change, a procedure or material for a decision. These examples
-show what an agent can prepare and what remains the team's responsibility.
+application change, a procedure or material for a decision. In the examples below, the agent prepares the work and the team reviews it.
 
 ## Strong-fit use cases
 
@@ -32,9 +31,9 @@ and test results before accepting the change. Git keeps the history.
 
 ### Operational workflows across tools
 
-A task may need repository context plus an approved external application. Each
-provider connection remains an explicit, revocable part of the machine rather
-than disappearing behind a universal integration broker.
+A task may need both repository files and an approved external application.
+Each connection is configured for the machine and can be revoked separately.
+The setup does not rely on a single cloud broker with access to every tool.
 
 ### Durable organizational knowledge
 
@@ -44,8 +43,9 @@ then find the information without searching your chat.
 
 ### Repeated agent roles
 
-Organizations can package scoped instructions, tools, tests and publication
-gates for recurring work. The next run starts from a reviewed procedure rather than a copied prompt with hidden assumptions.
+For recurring work, save the instructions, tools, tests and approval
+requirements as a reviewed procedure. The next task can use that procedure
+without relying on assumptions hidden in a copied prompt.
 
 ### Work across several companies
 

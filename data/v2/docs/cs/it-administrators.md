@@ -1,9 +1,9 @@
 ---
-title: Deset minut pro IT
-description: Otázky, které by si IT mělo položit před schválením Lazuria.
+title: "Deset minut pro IT"
+description: "Co ověřit před pilotem a produkčním nasazením Lazuria."
 stableId: lazurio-doc-it-administrators
 locale: cs
-summary: Stručný přehled účelu Lazuria, identity, přístupů, dat, integrací, provozu a hranic pro schvalování výsledků.
+summary: "Přehled pro správce IT: hranice přístupu, podmínky poskytovatelů a schvalování výsledků před nasazením."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -32,9 +32,8 @@ Bunem. Obsahuje Launchpad, diagnostiku, provozní pravidla a experimentální CL
 v0. Není to spravovaná AI služba dodavatele, stabilní balíčkovaný instalátor ani
 další sandbox kolem vybraného klienta agenta.
 
-Při posuzování proto nestačí otázka „Vidí AI naše data?“ Ptejte se raději:
-**Která identita pracuje, na jakém zařízení, v jaké Organizaci, přes který
-schválený nástroj, s jakými daty a kdo smí výsledek zveřejnit?**
+Před schválením určete **účet, zařízení, Organizaci, nástroj a dostupná data**.
+Zvlášť ověřte, kdo smí výsledek zveřejnit.
 
 Volitelné hostované služby jsou samostatné služby; do seznamu součástí patří
 jen tehdy, když je konkrétní nasazení zapne.

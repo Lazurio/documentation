@@ -1,9 +1,9 @@
 ---
-title: Documentation for agents
-description: Text and JSON indexes for agents reading Lazurio documentation.
+title: "Documentation for agents"
+description: "Find and read documentation through llms.txt and the JSON index."
 stableId: lazurio-doc-agents
 locale: en
-summary: Use llms.txt and the content index to discover reviewed Lazurio pages, evidence links, audiences, review dates, and stable identities.
+summary: "Find and read documentation through llms.txt and the JSON index."
 updatedAt: "2026-09-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
@@ -15,8 +15,8 @@ audience:
   - agent
 ---
 
-Agents read the same pages as people. Text and JSON indexes also make that
-content available for automated search.
+Use the text or JSON index for automated search. Both contain the same
+documentation that people read on this site.
 
 ## Where to find the content
 
