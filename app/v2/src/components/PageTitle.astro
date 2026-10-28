@@ -1,26 +1,7 @@
 ---
 import DefaultPageTitle from '@astrojs/starlight/components/PageTitle.astro'
-
-const { updatedAt, reviewedAt } = Astro.locals.starlightRoute.entry.data
-const locale = Astro.currentLocale === 'cs' ? 'cs-CZ' : 'en-GB'
-const format = (date: string) => new Intl.DateTimeFormat(locale, {
-  day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
-}).format(new Date(`${date}T00:00:00Z`))
+import PageDates from './PageDates.astro'
 ---
 
 <DefaultPageTitle {...Astro.props} />
-<p class="page-dates">
-  <span>{locale === 'cs-CZ' ? 'Aktualizováno' : 'Updated'}: <time data-updated datetime={updatedAt}>{format(updatedAt)}</time></span>
-  <span>{locale === 'cs-CZ' ? 'Věcně ověřeno' : 'Facts checked'}: <time data-reviewed datetime={reviewedAt}>{format(reviewedAt)}</time></span>
-</p>
-
-<style>
-  .page-dates {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 1.25rem;
-    margin-top: 0.75rem;
-    color: var(--sl-color-gray-2);
-    font-size: var(--sl-text-sm);
-  }
-</style>
+<PageDates />

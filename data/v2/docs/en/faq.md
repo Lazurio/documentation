@@ -4,9 +4,9 @@ description: "Answers about the product, access, data and approval of results."
 stableId: lazurio-doc-faq
 locale: en
 summary: "Answers about the product, access, data and approval of results."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -17,6 +17,8 @@ sourceRefs:
   - lazurio-external-apps
   - lazurio-secret-custody
   - microsoft-copilot-architecture
+  - lazurio-platform-release-current
+  - lazurio-platform-vault-current
 audience:
   - it-admin
   - decision-maker
@@ -38,11 +40,12 @@ security and data terms separately.
 
 <summary>Is Lazurio a finished, packaged product?</summary>
 
-No. At the referenced revision, Lazurio runs from a source checkout using
-Git and Bun. CLI v0 is experimental; a packaged installation is planned. Lazurio is currently source-available under
-[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
-the [security and control evidence](/en/public-evidence/#product-form-and-maturity) explains
-the license and maturity details.
+Yes. The current Platform is distributed as installable releases. Version
+v0.1.14 was published on 27 October 2026 and includes CLI, Apps and generated
+agent instructions. A released package does not imply a universal SLA or a
+certified deployment. The Platform uses [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE),
+with separate terms for legacy code, third-party parts and optional services.
+See the [license and product evidence](/en/public-evidence/#product-form-and-maturity).
 
 </details>
 
@@ -83,8 +86,7 @@ data-flow and processor map belongs to the deployment.
 
 <summary>How are secrets handled?</summary>
 
-Real secrets stay outside Git in scoped ignored paths or approved provider
-stores. Tracked files contain only schemas, required variable names and
+Real secrets stay outside Git. In a supported configured Environment, use Apps → Vault and its secret-request page; do not put values in chat. Other approved custody paths depend on the deployment. Tracked files contain only schemas, required variable names and
 instructions. Endpoint, backup, rotation and incident controls must protect the
 actual custody location.
 
