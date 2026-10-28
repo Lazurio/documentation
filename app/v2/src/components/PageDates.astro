@@ -1,16 +1,18 @@
 ---
 
 const { updatedAt, reviewedAt } = Astro.locals.starlightRoute.entry.data
+// Starlight's generated 404 also uses the hero but has no authored dates.
+const hasDates = typeof updatedAt === 'string' && typeof reviewedAt === 'string'
 const locale = Astro.currentLocale === 'cs' ? 'cs-CZ' : 'en-GB'
 const format = (date: string) => new Intl.DateTimeFormat(locale, {
   day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC',
 }).format(new Date(`${date}T00:00:00Z`))
 ---
 
-<p class="page-dates">
+{hasDates && <p class="page-dates">
   <span>{locale === 'cs-CZ' ? 'Aktualizováno' : 'Updated'}: <time data-updated datetime={updatedAt}>{format(updatedAt)}</time></span>
   <span>{locale === 'cs-CZ' ? 'Věcně ověřeno' : 'Facts checked'}: <time data-reviewed datetime={reviewedAt}>{format(reviewedAt)}</time></span>
-</p>
+</p>}
 
 <style>
   .page-dates {
