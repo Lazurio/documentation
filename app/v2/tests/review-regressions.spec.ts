@@ -5,6 +5,9 @@ for (const locale of ['cs', 'en']) {
     await page.goto(`/${locale}/guide/tool-connections/`)
     await expect(page.locator('[data-method]')).toHaveValue('catalog')
     await expect(page.locator('[data-method] option').first()).toHaveValue('catalog')
+    const revocation = page.getByRole('heading', { name: locale === 'cs' ? 'Jak přístup odebrat' : 'Revoke access' })
+    await expect(revocation.locator('xpath=following-sibling::p[1]')).toContainText(
+      locale === 'cs' ? 'odeberte server v Executoru' : 'remove the server in Executor')
     await expect(page.locator('[data-scenario]:visible [data-prompt]').first()).toContainText(
       locale === 'cs' ? 'Nezahajuj přihlášení' : 'Do not initiate sign-in')
     await page.locator('[data-method]').selectOption('composio')
