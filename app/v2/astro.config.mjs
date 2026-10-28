@@ -77,6 +77,7 @@ export default defineConfig({
         },
       ],
       components: {
+        PageTitle: './src/components/PageTitle.astro',
         SiteTitle: './src/components/SiteTitle.astro',
         Head: './src/components/Head.astro',
         Footer: './src/components/Footer.astro',
