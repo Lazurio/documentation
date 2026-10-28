@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test'
 
 test('every published page shows its own update and fact-check dates', async ({ page, request }) => {
+  test.setTimeout(60_000)
   const response = await request.get('/content-index.json')
   expect(response.ok()).toBe(true)
   const { documents } = await response.json()

@@ -4,9 +4,9 @@ description: "What to verify before a Lazurio pilot and production deployment."
 stableId: lazurio-doc-it-administrators
 locale: en
 summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -16,6 +16,8 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-platform-release-current
+  - lazurio-platform-integrations-current
 audience:
   - it-admin
   - decision-maker
@@ -28,10 +30,10 @@ materials and change history. Agents prepare drafts; publication is approved
 separately. GitHub, the operating system and connected services still control
 access.
 
-The setup described in the linked source revision runs from source with Git and Bun. It
-includes Launchpad, diagnostics, operating contracts and an experimental CLI
-v0. It is not a vendor-managed AI service, a stable packaged installer or an
-additional sandbox around the selected agent client.
+The current baseline is installable Platform v0.1.14, released on 27 October
+2026. CLI and Apps share one installed program; the product generates the
+Lazurio Folder's agent instructions. This does not supply an AI subscription
+or a universal sandbox. Inventory optional hosted services separately.
 
 Before approval, identify **the account, machine, Organization, tool and
 available data**. Separately verify who may publish the result.
@@ -45,9 +47,9 @@ services and belong in the inventory only when a deployment enables them.
 
 | Item | Current public position |
 | --- | --- |
-| Product form | Developer-operated source checkout using Git and Bun. A packaged installation is a future target. |
-| Runtime maturity | Launchpad, Doctor and selected module flows work today; CLI v0 remains experimental. |
-| License | Source-available under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each published version after two years. |
+| Product form | Installable CLI and Apps, with generated instructions; source checkout is not required for daily use. |
+| Runtime maturity | Verify the installed release and enabled services; a release is not a promise that every optional service is deployed. |
+| License | [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE) for the current Platform; no automatic Apache transition. Legacy and third-party licenses remain separate. |
 | Assurance | No certification, universal service level, retention period or deployment topology is claimed. Support and hosting terms belong to the concrete deployment. |
 
 See [security and control evidence](/en/public-evidence/) for the license,
@@ -61,7 +63,7 @@ source links and limits of these claims.
 | Company boundary | One company maps to one Organization and GitHub access boundary. One machine remains one trust domain. | Only intended repositories are mounted; use separate machines or equivalent isolation when companies must not share an OS boundary. |
 | Working context | Work begins in checked-out source and explicitly enabled tools. | Endpoint protection, local data scope and provider terms meet policy. |
 | Publication | Agent output stays editable until an authorized merge, deployment, send or provider action. | Branch rules, reviews and provider permissions enforce the intended gate. |
-| Integrations | Connections are locally curated and separately revocable; official MCP or CLI paths are preferred. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
+| Integrations | Apps → Integrations lists the configured routes and accounts; verify the actual revocation boundary. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
 | Evidence | Git and provider records can show who changed what, but coverage depends on the tools actually used. | Required endpoint, model, app and deployment logs exist and have named retention. |
 
 ## What data can be reached?
@@ -100,7 +102,7 @@ permission and approval from the person responsible for that decision.
     <source media="(max-width: 80rem)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
     <img src="/diagrams/draft-publication-flow.svg" alt="A person defines the outcome, an Agent prepares a proposed change and proof, and the change takes effect only when the account is allowed to perform it and the responsible person approves it." />
   </picture>
-  <figcaption>The Agent prepares; it does not self-authorize. Lazurio calls the identity responsible for the decision the Principal.</figcaption>
+  <figcaption>The Agent prepares; it does not self-authorize. Older sources call the responsible identity the Principal.</figcaption>
 </figure>
 
 ## Minimum approval package
@@ -122,7 +124,6 @@ Unknowns should become implementation issues, not security claims.
 
 Approve a scoped pilot when the identities, repositories, endpoint boundary,
 providers, integrations and action-by-action gates are concrete and testable.
-A source-checkout pilot carries different support and change-control risk from
-a managed product. Continue with [data access and
+Record whether the deployment is self-hosted or managed, and who supplies support. Continue with [data access and
 security](/en/data-access-security/) and [deployment and
 operations](/en/deployment-operations/) before approving production use.

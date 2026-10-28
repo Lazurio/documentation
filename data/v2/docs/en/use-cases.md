@@ -4,13 +4,14 @@ description: "Work that suits Lazurio, the controls it needs and when to choose 
 stableId: lazurio-doc-use-cases
 locale: en
 summary: "Work that suits Lazurio, the controls it needs and when to choose another tool."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-platform-integrations-current
 audience:
   - it-admin
   - decision-maker
@@ -32,7 +33,7 @@ and test results before accepting the change. Git keeps the history.
 ### Operational workflows across tools
 
 A task may need both repository files and an approved external application.
-Each connection is configured for the machine and can be revoked separately.
+Apps → Integrations shows each route and account. Verify the actual revocation boundary: an account or project may share connections across devices.
 The setup does not rely on a single cloud broker with access to every tool.
 
 ### Durable organizational knowledge

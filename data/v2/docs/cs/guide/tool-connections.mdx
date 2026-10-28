@@ -4,16 +4,16 @@ description: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu a
 stableId: lazurio-doc-tool-connections
 locale: cs
 summary: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu agenta."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-external-apps-current
-  - lazurio-external-apps
-  - composio-authentication
-  - mcp-local-servers
+  - lazurio-platform-integrations-current
+  - lazurio-platform-chatgpt-apps-policy
+  - lazurio-platform-chatgpt-apps-main
   - google-third-party-connections
 audience:
   - decision-maker
@@ -61,28 +61,28 @@ export const walkthrough = {
   "connectEnd": ". Nejprve ověř, jaké nástroje a propojení tu skutečně podporuješ. ",
   "methods": [
     {
-      "id": "mcp",
-      "name": "Schválený lokální MCP server",
-      "prerequisite": "Potřebujete důvěryhodný MCP server a klienta, který ho umí použít. V Lazuriu MCP servery spravuje Executor; u starší verze ověřte podporovaný postup. MCP samo nezpřístupní žádný účet.",
-      "connect": "Chci použít schválený lokální MCP server. Nejprve zjisti můj AI klient, operační systém a doporučený server. V Lazuriu ověř cestu přes Executor; v jiném klientovi postupuj podle jeho dokumentace. Ověř oficiální zdroj nebo zkontrolovanou verzi, popiš instalaci, oprávnění a místo uložení přihlášení. Neinstaluj nic, dokud nepotvrdím konkrétní návrh. Nepřepisuj existující konfiguraci a nevkládej hesla ani tokeny do chatu.",
-      "reply": "Nejprve vybereme server kompatibilní s vaším klientem a ověříme jeho původ. Teprve po schválení následuje instalace a autorizace. Dokud klient nevypíše skutečně dostupné nástroje, připojení nepovažujeme za hotové.",
-      "action": "Schvalte konkrétní server a postup. Přidejte ho podle dokumentace klienta bez přepsání ostatních nastavení. Přihlaste se určeným způsobem a podle potřeby znovu načtěte klienta. Lokální běh neznamená, že data nikdy neopustí počítač."
+      "id": "catalog",
+      "name": "Katalog Integrací Lazuria",
+      "prerequisite": "Otevřete Apps → Integrace v Prostředí, kde chcete pracovat. Katalog ukáže podporovanou cestu a připojené účty. Samotný prompt aplikaci nepřipojí.",
+      "connect": "Ověř dostupné Integrace a účet této aplikace. Pokud připojení chybí, předej mi skutečný odkaz na její kartu v Apps → Integrace. Nezahajuj přihlášení ani sám nepřipojuj účet. Připojení dokončím na kartě.",
+      "reply": "Nejprve načtu katalog Integrací. Je-li potřeba přihlášení, předám odkaz na kartu aplikace. Dokončíte ho zde vy; potom ověřím skutečný účet a dostupné operace.",
+      "action": "Otevřete kartu v Apps → Integrace. Zkontrolujte doménu, účet a oprávnění a přihlášení dokončete sami. Potom se vraťte do chatu k ověření. Hesla ani tokeny do chatu neposílejte."
     },
     {
       "id": "composio",
       "name": "Composio",
       "prerequisite": "V Lazuriu jen tam, kde je Composio povolené Organizací nebo uživatelem Osobního Prostředí. Composio uchovává přihlašovací údaje a zpracovává obsah volání. Před připojením pracovního účtu ověřte oprávnění a podmínky zpracování dat. Účet ani prompt samy nezpřístupní nástroje Composio vašemu AI klientovi.",
-      "connect": "Chci použít Composio. Pokud jeho nástroje nemáš, nic nepředstírej: zjisti název a verzi mé AI aplikace a naveď mě na její podporovaný postup instalace. Pokud je máš, zahaj připojení mého účtu a ukaž skutečný autorizační odkaz vrácený nástrojem. Předem vysvětli požadovaná oprávnění. Heslo ani token po mně v chatu nechtěj.",
-      "reply": "Nejdřív ověřím dostupnost Composio. Pokud je zde nastavené, mohu požádat o připojení účtu. Přihlášení a souhlas s oprávněními dokončíte vy; přístup není udělen tímto promptem.",
-      "action": "Ve své skutečné AI aplikaci otevřete autorizační odkaz z nástroje, ověřte doménu a správný účet. Přečtěte si oprávnění. Pokud jsou širší, než potřebujete, nepokračujte bez vyjasnění. Poté se vraťte do chatu."
+      "connect": "Ověř, zda má tato aplikace v Prostředí cestu přes povolené Composio. Předej skutečný odkaz na její kartu v Apps → Integrace a vysvětli případné chybějící nastavení. Nespouštěj příkaz pro připojení ani nezahajuj autorizaci. Přihlásím se na kartě.",
+      "reply": "Nejprve ověřím nastavenou cestu a povolení Composia. Vy připojíte účet na kartě aplikace a potom ověřím výsledek.",
+      "action": "Otevřete kartu v Apps → Integrace. Případné nastavení Composia i přihlášení do aplikace dokončete sami. Před pokračováním ověřte účet a požadovaná oprávnění."
     },
     {
       "id": "plugin",
-      "name": "Vestavěné propojení",
-      "prerequisite": "Tato možnost ukazuje propojení v samostatné AI aplikaci. V Lazuriu nezřizujte nové konektory ChatGPT ani claude.ai; už připojený konektor smíte používat podle pravidel Organizace. Dostupnost závisí na aplikaci, tarifu a nastavení správce.",
-      "connect": "Chci použít vestavěné propojení mé AI aplikace. Pokud neznáš její název a tarif, nejprve se mě zeptej. Ukaž ověřený postup v jejím katalogu aplikací nebo nastavení a vysvětli oprávnění. Když propojení není dostupné, řekni to; nepřepínej bez souhlasu na jinou službu.",
-      "reply": "Nejdřív potřebujeme ověřit konkrétní AI aplikaci a dostupnost propojení. Instalaci doplňku a přihlášení provedete v jejím rozhraní. Ne každé propojení dovoluje stejné operace.",
-      "action": "V katalogu své AI aplikace zkontrolujte vydavatele doplňku a jeho funkce. Připojte správný účet, potvrďte přiměřená oprávnění a podle pokynů aplikace propojení zpřístupněte v chatu."
+      "name": "Existující propojení mimo Lazurio",
+      "prerequisite": "Tato ukázka se týká vaší samostatné AI aplikace. Uvnitř Prostředí Lazuria platí pro aplikace z ChatGPT pravidlo výchozího vypnutí a omezení podle verze; existující konektor není obecným povolením. Nové konektory ChatGPT nebo claude.ai v Lazuriu nezakládejte.",
+      "connect": "Používám vlastní samostatnou AI aplikaci mimo Prostředí Lazuria. Ověř její název, tarif a dostupné schválené existující propojení. Nezakládej nové připojení ani nepřepínej službu. Vysvětli, kde zkontroluji účet a oprávnění.",
+      "reply": "Nejprve ověřím aplikaci a existující propojení. Pokud chybí nebo není schválené, řeknu, co je potřeba, a před nastavováním se zastavím.",
+      "action": "V nastavení své AI aplikace prohlédněte existující propojení, účet a oprávnění. V Prostředí Lazuria použijte cestu z katalogu nebo nejprve vyřešte pravidlo aplikací z ChatGPT s příslušným Adminem."
     }
   ],
   "verify": "Ověř aktuální stav připojení. Uveď, který účet používáš, pokud ho nástroj bezpečně identifikuje, a jaké operace máš skutečně k dispozici. Nevypisuj přihlašovací údaje. Nic neměň ani neposílej. Pokud připojení nebo oprávnění chybí, nepředstírej úspěch.",

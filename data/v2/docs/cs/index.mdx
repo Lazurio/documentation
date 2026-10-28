@@ -6,14 +6,15 @@ tableOfContents: false
 stableId: lazurio-doc-overview
 locale: cs
 summary: "První kroky, návody a podklady pro nasazení Lazuria."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 sourceRefs:
   - lazurio-readme
   - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-platform-release-current
 audience:
   - it-admin
   - decision-maker
@@ -43,16 +44,17 @@ zveřejnění nebo nasazení schvaluje oprávněná osoba.
 
 ## Co je Lazurio dnes
 
-Verze Lazuria popsaná v odkazovaných zdrojích se spouští pomocí Gitu a Bunu. Obsahuje
-Launchpad, diagnostiku, experimentální CLI v0 a provozní pravidla pro
-připojené Organizace a moduly. Jednoduchá balíčkovaná instalace je cíl do
-budoucna, nikoli hotová distribuce.
+Lazurio Platform v0.1.14 je instalovatelné vydání z 27. října 2026. Obsahuje
+nástroj příkazové řádky, Apps a diagnostiku. Připravuje také instrukce, které
+agenti čtou v pracovní složce Lazuria. Pro každodenní práci nepotřebujete kopii
+zdrojového kódu Platformu. Podrobnosti najdete v [nasazení a
+aktualizacích](/cs/deployment-operations/).
 
-AI model i nástroj pro práci s ním si vybíráte samostatně. Lazurio samo
-neposkytuje spravovanou SaaS službu ani bezpečnostní sandbox pro všechny
-AI nástroje. Před nasazením proto ověřte i podmínky vybraných poskytovatelů.
-[Bezpečnost a podklady k ověření](/cs/public-evidence/) ukazují, odkud tato
-tvrzení vycházejí a co naopak nedokazují.
+Klienta AI a poskytovatele modelu si vybíráte zvlášť. Vlastní instalace
+nevyžaduje volitelné služby Lazurio účtu a spravovaného hostingu. Lazurio
+nepřidává univerzální bezpečnostní sandbox pro AI nástroje; ověřte poskytovatele
+a přístupy používané ve vašem nasazení. [Bezpečnost a podklady k
+ověření](/cs/public-evidence/) vysvětlují tyto hranice.
 
 ## Kde začít
 
@@ -110,7 +112,6 @@ přístupy a provoz najdete v navazujících částech.
   </a>
 </nav>
 
-Lazurio je dnes dostupné pod licencí
-[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md).
-Podrobnosti o licenci, zralosti produktu a mezích těchto podkladů najdete v
-části [Bezpečnost a podklady k ověření](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).
+Současný Platform používá [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE).
+Starší kód, cizí součásti a volitelné služby mají vlastní licenční hranice;
+vysvětluje je [přehled licence](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).

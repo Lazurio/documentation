@@ -4,9 +4,9 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-10-08"
-reviewedAt: "2026-10-08"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -20,12 +20,20 @@ sourceRefs:
   - google-chrome-secure-dns
   - tailscale-android-private-dns-request
   - webkit-storage-cap
+  - lazurio-platform-offline-current
+  - lazurio-platform-public-current
 audience:
   - builder
   - decision-maker
   - it-admin
   - agent
 ---
+
+Tento návod platí pro **soukromá Prostředí přístupná přes tailnet**.
+Není podmínkou vstupu do každého hostovaného Prostředí. Veřejná nasazení
+a schválený nový osobní produkt Buddy používají vlastní přihlášení účtem;
+ověřte cestu, kterou skutečně nabízí vaše instalace. Starší osobní instalace
+v tailnetu mohou tento návod dál potřebovat.
 
 Pokud se adresa Prostředí neotevírá, ověřte nejdřív připojení zařízení
 do správné soukromé sítě. **Zapněte
@@ -37,8 +45,8 @@ jakmile Prostředí odpoví. Když se adresa ani pak neotevře, pokračujte
 ## Proč Tailscale
 
 **Tailnet** je soukromá síť zařízení propojených přes
-[Tailscale](https://tailscale.com/). Aplikace Prostředí na serveru, třeba jeho
-Launchpad, Chat nebo Automate, mají adresy, které fungují jen uvnitř tailnetu,
+[Tailscale](https://tailscale.com/). Aplikace tohoto soukromého Prostředí, třeba
+Apps, Chat nebo Automate, mají adresy, které fungují jen uvnitř tailnetu,
 který je obsluhuje. Žádná veřejná cesta k nim nevede: mimo tento tailnet je
 prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Tento web
 není dostupný“.
@@ -131,8 +139,9 @@ v tomto pořadí:
 
 ## Kdy Lazurio ukáže vlastní stránku
 
-Jakmile v prohlížeči jednou otevřete Launchpad, Chat nebo Automate
-Prostředí, které běží na Lazurio Platform v0.1.8-rc.41 nebo novější,
+Jakmile v prohlížeči jednou otevřete Apps, Chat nebo Automate
+soukromého Prostředí, které běží na Lazurio Platform v0.1.8-rc.41 nebo novější
+a má v konfiguraci údaje o tailnetu,
 prohlížeč si pro tuto adresu podrží stránku Lazuria **Zapni Tailscale**. Když
 pak adresa není dostupná, prohlížeč na téže adrese ukáže tuto
 stránku místo vlastní chyby. Stránka jmenuje Prostředí, jeho Organizaci
@@ -152,4 +161,4 @@ Stránka patří k vlastní adrese Prostředí a komunikuje jen s ní. Při kaž
 otevření Prostředí ověří, jestli nemá novou verzi, sama se aktualizuje
 a odstraní se, jakmile ji Prostředí přestane nabízet. Lazurio Platform tuto
 stránku přidala ve verzi v0.1.8-rc.41 (kandidát vydání z 8. října 2026).
-Prostředí ji ukáže, jakmile běží na této nebo novější verzi.
+Prostředí ji udržuje pouze tehdy, když jeho konfigurace uvádí tailnet.

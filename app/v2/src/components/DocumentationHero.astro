@@ -1,5 +1,6 @@
 ---
 import Hero from '@astrojs/starlight/components/Hero.astro'
+import PageDates from './PageDates.astro'
 
 const isOverview = Astro.locals.starlightRoute.entry.data.stableId === 'lazurio-doc-overview'
 const modules = ['knowledgebase', 'content', 'mission-control', 'deals', 'brainstorm']
@@ -15,6 +16,8 @@ const modules = ['knowledgebase', 'content', 'mission-control', 'deals', 'brains
     </div>
   )}
 </div>
+
+<PageDates />
 
 <style>
   .lz-documentation-hero { padding-block: var(--lz-space-32) var(--lz-space-48); margin-bottom: var(--lz-space-32); border-bottom: 1px solid var(--sl-color-hairline); }

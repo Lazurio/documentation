@@ -4,9 +4,9 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-10-08"
-reviewedAt: "2026-10-08"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -20,12 +20,20 @@ sourceRefs:
   - google-chrome-secure-dns
   - tailscale-android-private-dns-request
   - webkit-storage-cap
+  - lazurio-platform-offline-current
+  - lazurio-platform-public-current
 audience:
   - builder
   - decision-maker
   - it-admin
   - agent
 ---
+
+This guide is for **private Environments reached through a tailnet**.
+It is not a prerequisite for every hosted Environment. Public deployments and
+the approved new Buddy personal product use their own account-entry model;
+check which access path your installation actually offers. Older personal
+tailnet installations may still use this guide.
 
 If an Environment's address will not open, first check that your device
 is connected to the right private network.
@@ -37,7 +45,7 @@ still does not open, see [Still not working?](#still-not-working)
 ## Why Tailscale
 
 A **tailnet** is a private network of devices connected with
-[Tailscale](https://tailscale.com/). The apps of a Remote Environment, such as
+[Tailscale](https://tailscale.com/). The apps of a private tailnet Environment, such as
 its Launchpad, Chat or Automate, have addresses that work only inside the
 tailnet that serves them. No public route leads to them: outside that tailnet
 your browser cannot open them, and usually cannot even find the address. It
@@ -132,7 +140,7 @@ causes in order:
 ## When Lazurio shows its own page
 
 Once you have opened the Launchpad, Chat or Automate of an Environment that
-runs Lazurio Platform v0.1.8-rc.41 or later, the browser keeps the Lazurio page
+runs Lazurio Platform v0.1.8-rc.41 or later and has tailnet details in its configuration, the browser keeps the Lazurio page
 **Turn on Tailscale** for that address. When
 the address cannot be reached later, the browser shows that page at the same
 address instead of its own error. The page names the Environment, its
@@ -154,4 +162,4 @@ The page belongs to the Environment's own address and talks only to it. It
 checks for a new version whenever you open the Environment, updates itself, and
 removes itself when the Environment stops offering it. Lazurio Platform added
 the page in release candidate v0.1.8-rc.41 (8 October 2026). An Environment
-shows it once it runs that version or a later one.
+keeps it only when its configuration identifies a tailnet; a deployment without one retires the guide.
