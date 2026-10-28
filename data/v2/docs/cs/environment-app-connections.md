@@ -98,8 +98,7 @@ Připojení Composia patří účtu a projektu, nikoli názvu zařízení. Veře
 výzkum zdrojů CLI zjistil sdílení consumer připojení mezi dvěma zařízeními se
 stejným účtem a organizací Composia. Jde o závěr ze zdrojů a dokumentace,
 **nikoli o živý test izolace**. Připojení vývojářských projektů a consumer
-projektu jsou samostatné prostory. Mají-li se přístupy lišit, použijte oddělené
-účty poskytovatele nebo schválený model projektů.
+projektu jsou samostatné prostory. Mají-li se přístupy lišit, použijte oddělené účty Composia a ověřte přihlášení každého Prostředí. Samostatná zařízení přihlášená ke stejné identitě Composia tato připojení neoddělují.
 
 ### Týmové Prostředí
 

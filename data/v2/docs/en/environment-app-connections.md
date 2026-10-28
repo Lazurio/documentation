@@ -100,7 +100,7 @@ Public CLI-source research found that two Machines with the same account and
 Composio organization share consumer connections. That answer is based on
 source and documentation, **not a live isolation test**. Developer-project
 connections and the consumer project's connections are separate surfaces.
-Use separate provider accounts or the approved project model when access must differ.
+When access must differ, use separate Composio accounts and verify the credentials in each Environment. Separate devices signed in to the same Composio identity do not isolate those connections.
 
 ### Team Environments
 
