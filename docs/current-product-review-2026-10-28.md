@@ -4,7 +4,7 @@ This change brings the public guidance up to Platform v0.1.14 and the approved i
 
 ## What the reader sees
 
-Every published page displays its own `updatedAt` and `reviewedAt` dates near the title, including the overview hero. Dates come from authored frontmatter, not Git timestamps or build time. Unchanged pages keep their previous dates. The update date describes a content change; the fact-check date describes the recorded source review, not an independent certification or approval to publish.
+Every published page displays one “Last updated” date from its own `updatedAt` metadata near the title, including the overview hero. Dates come from authored frontmatter, not Git timestamps or build time. Unchanged pages keep their previous dates. The fact-review date remains in the source metadata and content index for traceability; it is not displayed as a second date or presented as independent certification or approval to publish.
 
 The refreshed pages explain the installed product, Elastic-2.0 boundaries, content synchronization and forward recovery. Connection examples send users to their app card in Apps → Integrations. They do not ask an agent to initiate OAuth or configure MCP separately for each client. Security copy distinguishes an agent-resumable Executor pause from human consent. Composio guidance gives established retention facts and preserves the remaining account, region and live-verification limits. The Tailscale guide is scoped to private tailnet deployments. Existing pages now introduce the Environment vault and its secret requests.
 
