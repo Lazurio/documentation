@@ -4,10 +4,11 @@ description: "Work that suits Lazurio, the controls it needs and when to choose 
 stableId: lazurio-doc-use-cases
 locale: en
 summary: "Work that suits Lazurio, the controls it needs and when to choose another tool."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model

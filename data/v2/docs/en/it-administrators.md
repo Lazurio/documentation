@@ -5,7 +5,7 @@ stableId: lazurio-doc-it-administrators
 locale: en
 summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-09-15"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

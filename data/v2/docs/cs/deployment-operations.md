@@ -5,7 +5,7 @@ stableId: lazurio-doc-deployment-operations
 locale: cs
 summary: "Jak připravit nasazení, určit správce a ověřit obnovu i odebrání přístupu."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-09-15"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

@@ -5,7 +5,7 @@ stableId: lazurio-doc-how-it-works
 locale: en
 summary: "Who assigns work, how an agent prepares a draft and who approves publication."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-09-15"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-user-roles-current

@@ -5,7 +5,7 @@ stableId: lazurio-doc-how-it-works
 locale: cs
 summary: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje zveřejnění."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-09-15"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-user-roles-current

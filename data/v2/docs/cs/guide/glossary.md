@@ -5,7 +5,7 @@ stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-10-24"
+reviewedAt: "2026-10-29"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

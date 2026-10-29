@@ -5,7 +5,7 @@ stableId: lazurio-doc-copilot-comparison
 locale: cs
 summary: "Porovnejte účel, přístupy a nároky na správu obou řešení."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-10-04"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

@@ -5,7 +5,7 @@ stableId: lazurio-doc-it-administrators
 locale: cs
 summary: "Přehled pro správce IT: hranice přístupu, podmínky poskytovatelů a schvalování výsledků před nasazením."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-09-15"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

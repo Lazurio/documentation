@@ -5,7 +5,7 @@ stableId: lazurio-doc-public-evidence
 locale: en
 summary: "Public sources behind product and security claims, and the limits of that evidence."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-10-24"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -58,7 +58,8 @@ not itself promise hosting, support or a service level for a concrete rollout.
 
 The current [user and agent terminology](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
 names the user as the person agents work with and for. The user has the final
-say; Buddy represents that user within their permissions and mandate. A task agent is a temporary work session with no permissions of its own.
+say; Buddy represents that user within their permissions and mandate.
+A task agent is a temporary work session with no permissions of its own.
 Access comes from GitHub, the operating system and connected services.
 A prompt cannot grant it.
 

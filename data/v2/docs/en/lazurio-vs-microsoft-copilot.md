@@ -5,7 +5,7 @@ stableId: lazurio-doc-copilot-comparison
 locale: en
 summary: "Compare the work, access and administration each tool requires."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-10-04"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
