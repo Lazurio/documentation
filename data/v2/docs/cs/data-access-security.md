@@ -5,7 +5,7 @@ stableId: lazurio-doc-data-access-security
 locale: cs
 summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
 updatedAt: "2026-10-29"
-reviewedAt: "2026-10-24"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
