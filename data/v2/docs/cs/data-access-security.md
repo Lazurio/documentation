@@ -4,12 +4,13 @@ description: "Která data může agent použít a jak otestovat skutečná omeze
 stableId: lazurio-doc-data-access-security
 locale: cs
 summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-external-apps-current
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -33,9 +34,9 @@ Hranice důvěry určuje, kam může dosáhnout přístup nebo napadený proces.
 Oddělené složky například pomáhají uspořádat práci, ale samy nezabrání
 programu se stejnými právy číst jejich obsah.
 
-### Principál a Task Agent
+### Uživatel a agent
 
-Task Agent pracuje jménem přihlášeného Principála a nemá vlastní oprávnění.
+Task Agent pracuje jménem přihlášeného uživatele a nemá vlastní oprávnění.
 Prompt mu nevytvoří přístup k repozitáři ani ke službě. Text pravidel zároveň
 neodebere schopnost, kterou už proces klienta má: čitelný soubor, aktivní
 relace nebo zpřístupněný přihlašovací údaj mohou být pro klienta použitelné.
@@ -53,7 +54,7 @@ zařízení nebo rovnocennou infrastrukturu.
 
 ### Personalspace
 
-Personalspace je soukromý prostor jednoho Principála, nikoli sdílené firemní
+Personalspace je soukromý prostor jednoho uživatele, nikoli sdílené firemní
 úložiště. Firemní informace, které potřebují další Kolegové, patří do
 schváleného úložiště Organizace. Personalspace nesmí sloužit k přenosu dat
 mezi přístupovými hranicemi.
@@ -97,7 +98,7 @@ lze použít schválené úložiště poskytovatele.
 | Hrozba | Navržená ochrana | Přejímací test |
 | --- | --- | --- |
 | Zadání požaduje data jiné firmy | Oddělení Organizací a přístup pouze k vybranému kontextu | Ověřte zamítnutí v GitHubu pro identitu bez oprávnění a zvlášť otestujte hranici přístupu zvoleného klienta k lokálním souborům. |
-| Agent se pokusí zveřejnit nebo nasadit neschválenou změnu | Oprávnění v GitHubu nebo jiné službě a výslovný souhlas Principála | Pokuste se změnu sloučit nebo nasadit bez potřebného oprávnění či kontroly. |
+| Agent se pokusí zveřejnit nebo nasadit neschválenou změnu | Oprávnění v GitHubu nebo jiné službě a výslovný souhlas uživatele | Pokuste se změnu sloučit nebo nasadit bez potřebného oprávnění či kontroly. |
 | Přihlašovací údaj se dostane do repozitáře | Vyhrazená úložiště mimo Git a skutečně zapnuté kontroly | Ověřte, které skenování je aktivní, a ve schváleném testovacím repozitáři vyzkoušejte neškodný testovací řetězec. |
 | Integrace má příliš široká oprávnění | Rozsah oprávnění nastavený u poskytovatele a samostatné odvolání každého přístupu | Načtěte aktuální oprávnění OAuth nebo aplikace a jedno z nich odvolejte, aniž ovlivníte ostatní. |
 | Prompt se pokusí změnit rozsah práce | Omezený kontext, skutečná oprávnění a schvalovací brány | Vložte neškodný canary a ověřte, že agent nerozšíří kontext ani nic nezveřejní bez příslušné brány. |

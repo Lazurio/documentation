@@ -4,10 +4,11 @@ description: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje z
 stableId: lazurio-doc-how-it-works
 locale: cs
 summary: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje zveřejnění."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -26,16 +27,21 @@ Agent si tuto pravomoc nemůže udělit sám.
 Model v odkazované revizi popisuje [architektura Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
 a [pravidla spolupráce s Agenty](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md).
 
-Níže jsou pojmy ze staršího modelu zdrojů. Aktuální názvy Prostředí, Buddyho
+Níže jsou role podle současného názvosloví uživatele a agentů. Názvy Prostředí
 a Apps najdete ve [slovníčku](/cs/guide/glossary/).
 
-## Základní pojmy
+## Kdo co dělá
 
-**Principál** je člověk nebo dlouhodobější AI Kolega, pro něhož se práce dělá.
-Drží skutečná oprávnění a má poslední slovo.
+**Uživatel** je člověk, se kterým a pro kterého agenti pracují. Drží skutečná
+oprávnění a má poslední slovo. V Organizaci je **Kolegou**. Tento vztah
+k agentům je oddělený od role Organization User: uživatel může mít oprávnění
+User, Builder, Steward nebo Admin. Samotný název role přístup neuděluje.
+
+**Buddy** je osobní AI zástupce uživatele. Jedná jeho jménem v jeho
+oprávněních a mandátu; sám není dalším uživatelem.
 
 **Task Agent** je právě běžící pracovní relace s AI nástrojem. Pracuje pro
-Principála a nemá vlastní oprávnění. Umí navrhnout a připravit práci; prompt z
+uživatele a nemá vlastní oprávnění. Umí navrhnout a připravit práci; prompt z
 něj administrátora neudělá.
 
 **Organizace** je hranice repozitářů a přístupů jedné firmy. V popsaném modelu
@@ -47,18 +53,18 @@ důvěry, nikoli sada oddělených operačních prostředí.
 Organizace. Má vlastní pravidla pro spuštění, testy a nasazení. Lze jej
 samostatně upravovat a vrátit na předchozí verzi.
 
-**Personalspace** je soukromý prostor jednoho Principála. Neslouží ke sdílení
+**Personalspace** je soukromý prostor jednoho uživatele. Neslouží ke sdílení
 firemních informací ani k obcházení hranic mezi Organizacemi.
 
 ## Od zadání ke zveřejněnému výsledku
 
 1. **Vymezte práci:** určete Organizaci, modul a očekávaný výsledek.
-2. **Ověřte oprávnění:** pracujte se skutečným přístupem Principála. Textové
+2. **Ověřte oprávnění:** pracujte se skutečným přístupem uživatele. Textové
    zadání nová práva nevytváří.
 3. **Vyberte kontext:** načtěte jen repozitáře a nástroje potřebné pro úkol.
 4. **Připravte Návrh a podklady:** práce zůstává vratná a upravitelná, obvykle
    na větvi v Gitu; zároveň přibývají kontroly a důkazy pro review.
-5. **Rozhodněte:** oprávněný Principál schválí nebo odmítne přesný výsledek.
+5. **Rozhodněte:** oprávněný uživatel schválí nebo odmítne přesný výsledek.
 6. **Zveřejněte:** až potom lze změnu sloučit, nasadit, odeslat nebo jinak
    uvést v účinnost.
 7. **Uzavřete práci:** aktualizujte zdroj pravdy, zapište, co zbývá, a ukliďte

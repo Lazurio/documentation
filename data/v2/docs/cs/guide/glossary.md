@@ -4,12 +4,13 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -87,7 +88,11 @@ zápis. Obsah chatu se do něj neukládá automaticky.
 Slouží vám a vašemu Buddymu; není sdíleným úložištěm Organizace.
 Ve starších technických zdrojích se objevuje název Personalspace.
 
-**Kolega** Člověk, který pracuje v Organizaci.
+**Uživatel** Člověk, se kterým a pro kterého agenti pracují. Má poslední
+slovo; agenti jednají jeho jménem v jeho živých oprávněních a zadaném rozsahu.
+Je to vztah k agentům, nikoli role User v Organizaci.
+
+**Kolega** Uživatel, který pracuje v Organizaci.
 
 **AI Kolega** Starší označení dlouhodobé AI role. Automatizace dnes
 popisujeme jako práci agentů v Pracovním Prostředí, za kterou odpovídá
@@ -118,8 +123,9 @@ pracovali s nejnovějšími změnami.
 
 <div class="lz-glossary">
 
-**User** Uživatel Organizace. Používá zpřístupněné aplikace, ale běžně
-nemění jejich zdrojový kód ani nastavení Organizace.
+**Organization User** Role v Organizaci pro používání zpřístupněných aplikací
+bez běžných změn jejich zdrojového kódu či nastavení Organizace. Uživatel,
+pro kterého pracuje agent, může mít také oprávnění Buildera, Stewarda či Admina.
 
 **Builder** Člen Organizace, který vytváří a upravuje aplikace. Jeho přesné
 možnosti určují skutečná oprávnění na GitHubu.
@@ -129,10 +135,6 @@ je dotahovat a podle svých oprávnění je může publikovat.
 
 **Admin** Správce Organizace s rozšířenými oprávněními. Řídí přístupy a
 důležitá nastavení; tím ale nezískává přístup do cizího Personalspace.
-
-**Principál** Označení odpovědné identity ve starších zdrojích Lazuria.
-Aktuální texty mluví o uživateli jako o člověku, který práci zadává a má
-poslední slovo.
 
 **Task Agent** Pracovní relace AI nástroje pro konkrétní úkol. Nemá vlastní
 oprávnění; používá přístupy dostupné v Prostředí a řídí se zadáním uživatele.

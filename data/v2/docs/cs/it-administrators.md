@@ -4,12 +4,13 @@ description: "Co ověřit před pilotem a produkčním nasazením Lazuria."
 stableId: lazurio-doc-it-administrators
 locale: cs
 summary: "Přehled pro správce IT: hranice přístupu, podmínky poskytovatelů a schvalování výsledků před nasazením."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-license
   - lazurio-architecture
@@ -51,9 +52,9 @@ jen tehdy, když je konkrétní nasazení zapne.
 
 | Oblast | Jak je Lazurio navržené | Co má IT ověřit v konkrétním nasazení |
 | --- | --- | --- |
-| Identita | Agent pracuje s oprávněními přihlášeného Principála; samotným zadáním žádná další práva nezíská. | Správnost lidské nebo servisní identity, členství v repozitářích a vlastníka zařízení. |
+| Identita | Agent pracuje s oprávněními přihlášeného uživatele; samotným zadáním žádná další práva nezíská. | Správnost lidské nebo servisní identity, členství v repozitářích a vlastníka zařízení. |
 | Oddělení firem | Jedna firma odpovídá jedné Organizaci a hranici přístupů v GitHubu; jedno zařízení je však stále jedna doména důvěry. | Připojené jsou jen zamýšlené repozitáře. Kde firmy nemají sdílet hranici operačního systému, použijte oddělená zařízení nebo rovnocennou izolaci. |
-| Lokální pracovní prostředí | Práce vychází z lokálně stažených, verzovaných podkladů na zařízení Principála. | Zabezpečení zařízení, šifrování disku, dohled nad koncovými zařízeními, zálohování a odebrání přístupů odpovídají interním pravidlům. |
+| Lokální pracovní prostředí | Práce vychází z lokálně stažených, verzovaných podkladů na zařízení uživatele. | Zabezpečení zařízení, šifrování disku, dohled nad koncovými zařízeními, zálohování a odebrání přístupů odpovídají interním pravidlům. |
 | Schválení výsledku | Výstup agenta je nejprve vratný návrh. Sloučení změny, nasazení, odeslání nebo jiné zveřejnění vyžaduje příslušné oprávnění. | Pravidla repozitářů, povinné kontroly a oprávnění k nasazení skutečně vynucují zamýšlený schvalovací postup. |
 | Externí aplikace | Integrace se nastavují pro konkrétní zařízení, procházejí kontrolou a lze je samostatně odvolat. Přednost mají oficiální MCP servery a následně oficiální nástroje příkazové řádky. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
 | Přihlašovací a tajné údaje | Citlivé údaje patří do vyhrazených úložišť mimo Git a veřejnou dokumentaci. | Zvolené úložiště, obměna údajů, reakce na incident a kontrola úniků fungují i v praxi. |
@@ -66,7 +67,7 @@ certifikací. Odkazy na zdroje a omezení tohoto popisu najdete v části
 ## Ke kterým datům může Lazurio přistupovat?
 
 Rozsah přístupu není pro všechna nasazení stejný. Závisí na identitě
-Principála, použitém zařízení, oprávněních k repozitářům a zapnutých nástrojích.
+uživatele, použitém zařízení, oprávněních k repozitářům a zapnutých nástrojích.
 Před nasazením zmapujte těchto pět míst:
 
 1. Git repozitáře a Teamy dostupné přihlášené identitě.

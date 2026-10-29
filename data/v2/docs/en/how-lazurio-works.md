@@ -4,10 +4,11 @@ description: "Who assigns work, how an agent prepares a draft and who approves p
 stableId: lazurio-doc-how-it-works
 locale: en
 summary: "Who assigns work, how an agent prepares a draft and who approves publication."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -23,15 +24,21 @@ the result. The agent may prepare a document, an application change or other
 work. Publishing or deploying that result requires approval from someone
 authorized to make the decision. The agent cannot authorize itself.
 
-The terms below describe the older source model. For current Environment,
-Buddy and Apps names, see the [glossary](/en/guide/glossary/).
+The roles below follow the current user and agent vocabulary. For Environment
+and Apps names, see the [glossary](/en/guide/glossary/).
 
-## Five useful concepts
+## Who does what
 
-**Principal** is the person or longer-lived AI colleague for whom work is
-being done. The principal holds real permissions and the last word.
+**User** is the person agents work with and for. The user holds real
+permissions and has the final say. In an Organization, that person is a
+**Colleague**. This is separate from the Organization User role: a user may
+hold User, Builder, Steward or Admin permissions. The role name alone does
+not grant access.
 
-**Task agent** is the active tool session. It works for the principal and has
+**Buddy** is the user's personal AI representative. It acts on the user's
+behalf within their permissions and mandate; it is not a separate user.
+
+**Task agent** is the active tool session. It works for the user and has
 no independent authority. It can propose and prepare; a prompt does not make it
 an administrator.
 
@@ -44,19 +51,19 @@ remains one shared trust domain rather than a set of isolated operating-system e
 Organization. It has its own rules for running, testing and deployment.
 You can change it or restore a previous version independently.
 
-**Personalspace** is private to one principal. It is not an organizational
+**Personalspace** is private to one user. It is not an organizational
 collaboration store and is never a shortcut for moving company data across
 access boundaries.
 
 ## From request to published result
 
 1. **Scope:** identify the Organization, module and intended outcome.
-2. **Authority:** use the principal's live access; do not invent permissions
+2. **Authority:** use the user's live access; do not invent permissions
    in prose.
 3. **Context:** load only the repositories and tools needed for the task.
 4. **Draft + evidence:** make the work reversible and editable, commonly on a
    Git branch; run checks and gather review evidence as the Draft changes.
-5. **Decision:** an authorized principal approves or rejects the exact result.
+5. **Decision:** an authorized user approves or rejects the exact result.
 6. **Publication:** merge, deploy, send or otherwise make it effective.
 7. **Closeout:** update the source of truth, record what remains and clean
    temporary workspaces.
@@ -69,7 +76,7 @@ the result; it does not mean that all preceding work stays on your machine.
     <source media="(max-width: 80rem)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
     <img src="/diagrams/draft-publication-flow.svg" alt="A person defines the outcome, an Agent prepares a proposed change and proof, and the change takes effect only when the account is allowed to perform it and the responsible person approves it." />
   </picture>
-  <figcaption>The Agent prepares; it does not self-authorize. Lazurio calls the identity responsible for the decision the Principal.</figcaption>
+  <figcaption>The agent prepares the result. The authorized user decides whether to publish it.</figcaption>
 </figure>
 
 Git provides the clearest mechanical version of this flow. A task agent with

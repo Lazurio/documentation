@@ -4,12 +4,13 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -88,7 +89,11 @@ content is not saved there automatically.
 Environment. It serves you and your Buddy, rather than the Organization.
 Older technical sources call it Personalspace.
 
-**Colleague** A person who works in an Organization.
+**User** The person agents work with and for. The user has the final say;
+agents act on their behalf within their live permissions and authorized task.
+This describes the relationship with agents, not the Organization User role.
+
+**Colleague** A user who works in an Organization.
 
 **AI Colleague** An older name for a long-running AI role. Current
 documentation describes automation as agents working in a Work Environment
@@ -121,8 +126,9 @@ with the latest changes.
 
 <div class="lz-glossary">
 
-**User** An Organization user. They use available applications but do not
-normally change their source code or Organization settings.
+**Organization User** The Organization role for using available applications
+without normally changing their source code or Organization settings. A user
+working with agents can instead hold Builder, Steward or Admin permissions.
 
 **Builder** An Organization member who creates and changes applications.
 Their exact capabilities are determined by actual GitHub permissions.
@@ -133,9 +139,6 @@ within their permissions. This role looks after quality in an Organization.
 **Admin** An Organization administrator with extended permissions. They
 manage access and important settings, but this does not grant access to
 another person's Personalspace.
-
-**Principal** A term for the responsible identity in older Lazurio sources.
-Current copy uses “user” for the person who assigns work and has the final say.
 
 **Task Agent** An AI tool session for a particular task. It has no
 permissions of its own; it uses access available in the Environment and

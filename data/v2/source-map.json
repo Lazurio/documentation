@@ -451,6 +451,16 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-10-24",
       "reviewDueAt": "2026-11-24"
+    },
+    {
+      "id": "lazurio-user-roles-current",
+      "title": "User and agent terminology: F30 with the 20 and 21 October addenda",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-10-29",
+      "reviewDueAt": "2026-11-29"
     }
   ]
 }

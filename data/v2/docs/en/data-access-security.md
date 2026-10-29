@@ -4,12 +4,13 @@ description: "Which data an agent can use and how to test access restrictions."
 stableId: lazurio-doc-data-access-security
 locale: en
 summary: "Which data an agent can use and how to test access restrictions."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-10-29"
+reviewedAt: "2026-10-29"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-external-apps-current
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -35,7 +36,7 @@ the same permissions from reading their contents.
 
 ### Identity and session
 
-A task agent works for the signed-in principal and owns no separate rights. A
+A task agent works for the signed-in user and owns no separate rights. A
 prompt creates no repository or provider grant. At the same time, policy text
 cannot remove a capability already available to the process: a readable file,
 active session or exposed credential may be usable by the client.
@@ -51,7 +52,7 @@ cross company boundaries.
 
 ### Personalspace
 
-Personalspace is private to one principal, not a shared company store. Company
+Personalspace is private to one user, not a shared company store. Company
 knowledge needed by colleagues belongs in an authorized Organization source of
 truth rather than another person's private context.
 
