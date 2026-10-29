@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-user-roles-current
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -218,9 +219,6 @@ for one Environment.
 
 **Persona** An Organization's agent account, such as Henry's. It never names
 a person's role.
-
-**Principal** A term for the responsible identity in older Lazurio sources.
-Current copy uses “user” for the person who assigns work and has the final say.
 
 **Task Agent** An AI tool session for a particular task. It has no
 permissions of its own; it uses access available in the Environment and
