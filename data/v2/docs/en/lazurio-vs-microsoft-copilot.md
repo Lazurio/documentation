@@ -10,6 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -47,7 +48,7 @@ recommendations are our assessment.
 | --- | --- | --- |
 | Primary purpose | AI assistance inside the Microsoft 365 productivity environment. | Prepare, review and approve versioned work across repositories and tools. |
 | Natural context | With a Premium license, Microsoft Graph and the user's permitted Microsoft 365 content. Copilot Chat (Basic) and Microsoft 365 Copilot (Basic) ground in web data, plus content the user supplies or a pay-as-you-go agent. Configured agents and connectors add more. | Selected Organization repositories, local workspace context and individually approved external tools. |
-| Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in principal's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
+| Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in user's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
 | Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Changes, plans, reference material and app actions prepared for review and approval. |
 | Administration | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, devices, module requirements and each provider's administration. |
 | Extensibility | Plugins: installable packages that can include declarative agents, skills, and configuration or references for Copilot connectors and MCP servers. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |

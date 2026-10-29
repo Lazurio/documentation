@@ -10,6 +10,7 @@ reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -202,10 +203,6 @@ Prostředí.
 
 **Persona** Účet agenta Organizace, třeba Henryho. Nikdy neoznačuje roli
 člověka.
-
-**Principál** Označení odpovědné identity ve starších zdrojích Lazuria.
-Aktuální texty mluví o uživateli jako o člověku, který práci zadává a má
-poslední slovo.
 
 **Task Agent** Pracovní relace AI nástroje pro konkrétní úkol. Nemá vlastní
 oprávnění; používá přístupy dostupné v Prostředí a řídí se zadáním uživatele.

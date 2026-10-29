@@ -4,10 +4,11 @@ description: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné
 stableId: lazurio-doc-use-cases
 locale: cs
 summary: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné řešení."
-updatedAt: "2026-09-15"
+updatedAt: "2026-10-29"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -49,7 +50,7 @@ Pro opakovanou práci uložte instrukce, nástroje, testy a podmínky schválen�
 do zkontrolovaného postupu. Další úkol z něj může vycházet bez předpokladů
 skrytých v kopii starého zadání.
 
-### Více firem na zařízení jednoho Principála
+### Více firem na zařízení jednoho uživatele
 
 Lazurio může na jednom zařízení zpřístupnit několik povolených Organizací a
 každou zachovat jako samostatnou hranici v GitHubu i v lokálních repozitářích.
