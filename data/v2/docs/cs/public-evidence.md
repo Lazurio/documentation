@@ -59,7 +59,8 @@ služeb pro konkrétní nasazení.
 
 Současné [názvosloví uživatele a agentů](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
 označuje jako uživatele člověka, se kterým a pro kterého agenti pracují. Má
-poslední slovo; Buddy ho zastupuje v jeho oprávněních a mandátu. Task Agent je dočasná pracovní relace a nemá vlastní nezávislá
+poslední slovo; Buddy ho zastupuje v jeho oprávněních a mandátu.
+Task Agent je dočasná pracovní relace a nemá vlastní nezávislá
 oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost poskytovatele:
 rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
 službách.
