@@ -4,12 +4,13 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-10-24"
+updatedAt: "2026-10-29"
 reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
@@ -56,9 +57,9 @@ služeb pro konkrétní nasazení.
 
 ## Identita a oprávnění
 
-[Model spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-označuje jako Principála člověka nebo dlouhodobější AI identitu, pro niž se
-práce vykonává. Task Agent je dočasná pracovní relace a nemá vlastní nezávislá
+Současné [názvosloví uživatele a agentů](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
+označuje jako uživatele člověka, se kterým a pro kterého agenti pracují. Má
+poslední slovo; Buddy ho zastupuje v jeho oprávněních a mandátu. Task Agent je dočasná pracovní relace a nemá vlastní nezávislá
 oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost poskytovatele:
 rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
 službách.
@@ -78,7 +79,7 @@ nejsou oddělená prostředí operačního systému: proces se stejným účinn�
 může hranici adresářů překročit. Kde firmy nemají sdílet hranici operačního
 systému, je potřeba oddělené zařízení nebo rovnocenná infrastruktura.
 
-Personalspace patří jednomu Principálovi. Není to společné úložiště Organizace
+Personalspace patří jednomu uživateli. Není to společné úložiště Organizace
 ani zkratka pro přesun firemních dat přes přístupové hranice. Jde o hranici
 přístupu a procesu; bez dalšího opatření konkrétního nasazení se nemá popisovat
 jako kryptografické oddělení.

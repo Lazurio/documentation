@@ -4,12 +4,13 @@ description: "Jak připravit nasazení, určit správce a ověřit obnovu i odeb
 stableId: lazurio-doc-deployment-operations
 locale: cs
 summary: "Jak připravit nasazení, určit správce a ověřit obnovu i odebrání přístupu."
-updatedAt: "2026-09-15"
+updatedAt: "2026-10-29"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -40,8 +41,8 @@ verzi produktu.
 
 ## Součásti nasazení
 
-1. **Zařízení Principála:** koncové zařízení, na kterém pracuje Kolega nebo AI
-   Kolega.
+1. **Zařízení uživatele:** koncové zařízení, ze kterého uživatel pracuje
+   s Lazuriem a agenty.
 2. **Lokální root Lazuria:** rozhraní a spouštěcí prostředí nad povolenými
    pracovními kopiemi Organizací.
 3. **Repozitář Organizace:** hranice jedné firmy, její konfigurace a sdílené
@@ -74,7 +75,7 @@ Zdokumentujte vlastnictví zařízení, šifrování, aktualizace, dohled nad
 koncovými zařízeními, lokální zálohy, vzdálené smazání a reakci na incident.
 Rozumným výchozím bodem je jedna Organizace na zařízení. Více Organizací na
 jednom zařízení je vědomá výjimka uvnitř jedné domény důvěry, ne tvrdé oddělení
-tenantů. I zařízení vlastněné Principálem musí při práci s firemními daty
+tenantů. I zařízení vlastněné uživatelem musí při práci s firemními daty
 splňovat pravidla Organizace.
 Přihlášení k poskytovatelům musí být samostatně pojmenovaná a odvolatelná.
 
@@ -86,7 +87,7 @@ vlastníka. Posouzení zopakujte při změně klienta, poskytovatele nebo typu �
 
 ### 4. Povolte jen potřebné repozitáře a integrace
 
-Začněte jedním jasně vymezeným scénářem. Principál má mít přístup pouze k
+Začněte jedním jasně vymezeným scénářem. Uživatel má mít přístup pouze k
 repozitářům a rozsahům oprávnění, které pro něj potřebuje. Postupujte podle
 veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
 a vyzkoušejte také odebrání přístupu.

@@ -4,12 +4,13 @@ description: "Porovnejte účel, přístupy a nároky na správu obou řešení.
 stableId: lazurio-doc-copilot-comparison
 locale: cs
 summary: "Porovnejte účel, přístupy a nároky na správu obou řešení."
-updatedAt: "2026-10-04"
+updatedAt: "2026-10-29"
 reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -47,7 +48,7 @@ zdrojů; závěry a doporučení jsou naším hodnocením.
 | --- | --- | --- |
 | Hlavní účel | Pomoc s prací v aplikacích a službách Microsoft 365. | Řízená práce lidí a AI agentů nad verzovanými firemními podklady a nástroji. |
 | Běžně dostupný kontext | Microsoft Graph a obsah Microsoft 365, ke kterému má uživatel oprávnění; další zdroje lze připojit pomocí agentů a konektorů. | Vybrané repozitáře Organizace, lokální pracovní prostředí a jednotlivě schválené externí nástroje. |
-| Oprávnění | Vycházejí z identity a oprávnění přihlášeného uživatele v Microsoft 365 a z pravidel služby. | Vycházejí z oprávnění přihlášeného Principála v GitHubu a dalších systémech. Samotné zadání žádná práva neuděluje. |
+| Oprávnění | Vycházejí z identity a oprávnění přihlášeného uživatele v Microsoft 365 a z pravidel služby. | Vycházejí z oprávnění přihlášeného uživatele v GitHubu a dalších systémech. Samotné zadání žádná práva neuděluje. |
 | Typický výstup | Odpověď, souhrn, návrh nebo akce v aplikacích Microsoftu a v prostředích Copilotu. | Zkontrolovatelná změna, plán, znalostní podklad, aplikace nebo akce připravená k výslovnému schválení. |
 | Správa | Cloudová služba spravovaná Microsoftem, doplněná o licence, Entra, Purview a administraci Microsoft 365. | Git repozitáře vlastněné Organizací, její zařízení, pravidla Modulů a samostatná správa každého připojeného poskytovatele. |
 | Rozšíření | Pluginy, které spojují deklarativní agenty, dovednosti (skills), konektory Copilotu a MCP servery. | Workspace Moduly, připravené role pro agenty, MCP servery, oficiální nástroje příkazové řádky a řízené postupy v prohlížeči. |
