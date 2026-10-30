@@ -4,13 +4,15 @@ description: "Who assigns work, how an agent prepares a draft and who approves p
 stableId: lazurio-doc-how-it-works
 locale: en
 summary: "Who assigns work, how an agent prepares a draft and who approves publication."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-platform-release-current
+  - lazurio-platform-content-sync
 audience:
   - it-admin
   - decision-maker
@@ -23,15 +25,13 @@ the result. The agent may prepare a document, an application change or other
 work. Publishing or deploying that result requires approval from someone
 authorized to make the decision. The agent cannot authorize itself.
 
-The terms below describe the older source model. For current Environment,
-Buddy and Apps names, see the [glossary](/en/guide/glossary/).
+The [glossary](/en/guide/glossary/) explains Environment, Buddy and Apps. Older technical sources also use Principal and Personalspace.
 
 ## Five useful concepts
 
-**Principal** is the person or longer-lived AI colleague for whom work is
-being done. The principal holds real permissions and the last word.
+**User** is the person for whom work is done. Their actual permissions and instructions define what the agent may do. Older sources call this identity the Principal.
 
-**Task agent** is the active tool session. It works for the principal and has
+**Task agent** is the active tool session. It works for the user and has
 no independent authority. It can propose and prepare; a prompt does not make it
 an administrator.
 
@@ -44,19 +44,19 @@ remains one shared trust domain rather than a set of isolated operating-system e
 Organization. It has its own rules for running, testing and deployment.
 You can change it or restore a previous version independently.
 
-**Personalspace** is private to one principal. It is not an organizational
+**Personal Workspace** is private to one user in a Personal Environment. Older technical sources call it Personalspace. It is not an organizational
 collaboration store and is never a shortcut for moving company data across
 access boundaries.
 
 ## From request to published result
 
 1. **Scope:** identify the Organization, module and intended outcome.
-2. **Authority:** use the principal's live access; do not invent permissions
+2. **Authority:** use the user's live access; do not invent permissions
    in prose.
 3. **Context:** load only the repositories and tools needed for the task.
 4. **Draft + evidence:** make the work reversible and editable, commonly on a
    Git branch; run checks and gather review evidence as the Draft changes.
-5. **Decision:** an authorized principal approves or rejects the exact result.
+5. **Decision:** an authorized user approves or rejects the exact result.
 6. **Publication:** merge, deploy, send or otherwise make it effective.
 7. **Closeout:** update the source of truth, record what remains and clean
    temporary workspaces.
@@ -69,7 +69,7 @@ the result; it does not mean that all preceding work stays on your machine.
     <source media="(max-width: 80rem)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
     <img src="/diagrams/draft-publication-flow.svg" alt="A person defines the outcome, an Agent prepares a proposed change and proof, and the change takes effect only when the account is allowed to perform it and the responsible person approves it." />
   </picture>
-  <figcaption>The Agent prepares; it does not self-authorize. Lazurio calls the identity responsible for the decision the Principal.</figcaption>
+  <figcaption>The Agent prepares; it does not self-authorize. Older sources call the responsible identity the Principal.</figcaption>
 </figure>
 
 Git provides the clearest mechanical version of this flow. A task agent with
@@ -95,13 +95,13 @@ does not restrict anything by itself.
 
 ## What runs today
 
-The setup described in the linked source revision uses a source checkout with Git and Bun. It
-contains Launchpad, CLI/Core v0, Doctor, operating manuals and the contracts
-used by connected Organizations and modules. CLI v0 is experimental. A
-packaged CLI and automatically generated non-Git root are future targets.
+Platform v0.1.14 ships CLI, Apps, diagnostics and the component that generates
+agent instructions in the Lazurio Folder. Users install a release rather than
+clone the product's source. Organization repositories and modules remain
+separate versioned content. `lazurio update` synchronizes clean content, builds
+changed modules and updates the product; each part reports its own result.
 
-The agent client sends model requests to the selected provider under their
-respective terms. Dashboard, hosted team workspaces and per-owner Resident/Buddy
-services are optional services, not hidden parts of every installation. The
-[IT briefing](/en/it-administrators/) explains what a concrete deployment must
-prove.
+Model requests follow the selected AI client's and provider's terms. Lazurio
+Account, the Organization overview, hosted services and Buddy have their own
+availability and operating requirements. They are not hidden dependencies of
+every self-hosted installation. See [deployment](/en/deployment-operations/).

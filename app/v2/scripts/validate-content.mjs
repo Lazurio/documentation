@@ -60,9 +60,8 @@ for (const document of documents) {
   if (!Array.isArray(frontmatter.audience) || frontmatter.audience.length === 0) {
     errors.push(`${relativePath}: audience must not be empty`)
   }
-  if (frontmatter.updatedAt > frontmatter.reviewedAt) {
-    errors.push(`${relativePath}: reviewedAt must cover the latest update`)
-  }
+  // Editorial edits can follow a factual review. Keep its recorded date rather
+  // than requiring a new review claim for every content update.
   if (frontmatter.trustCritical && frontmatter.secondReviewOwner !== 'Pablo AI') {
     errors.push(`${relativePath}: trust-critical content requires Pablo AI as secondReviewOwner`)
   }

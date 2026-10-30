@@ -4,9 +4,9 @@ description: "Porovnejte účel, přístupy a nároky na správu obou řešení.
 stableId: lazurio-doc-copilot-comparison
 locale: cs
 summary: "Porovnejte účel, přístupy a nároky na správu obou řešení."
-updatedAt: "2026-10-04"
-reviewedAt: "2026-10-04"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -19,6 +19,8 @@ sourceRefs:
   - microsoft-copilot-privacy
   - microsoft-copilot-requirements
   - microsoft-copilot-extensibility
+  - lazurio-platform-release-current
+  - lazurio-platform-integrations-current
 audience:
   - it-admin
   - decision-maker
@@ -47,11 +49,11 @@ zdrojů; závěry a doporučení jsou naším hodnocením.
 | --- | --- | --- |
 | Hlavní účel | Pomoc s prací v aplikacích a službách Microsoft 365. | Řízená práce lidí a AI agentů nad verzovanými firemními podklady a nástroji. |
 | Běžně dostupný kontext | Microsoft Graph a obsah Microsoft 365, ke kterému má uživatel oprávnění; další zdroje lze připojit pomocí agentů a konektorů. | Vybrané repozitáře Organizace, lokální pracovní prostředí a jednotlivě schválené externí nástroje. |
-| Oprávnění | Vycházejí z identity a oprávnění přihlášeného uživatele v Microsoft 365 a z pravidel služby. | Vycházejí z oprávnění přihlášeného Principála v GitHubu a dalších systémech. Samotné zadání žádná práva neuděluje. |
+| Oprávnění | Vycházejí z identity a oprávnění přihlášeného uživatele v Microsoft 365 a z pravidel služby. | Vycházejí z oprávnění přihlášeného uživatele v GitHubu a dalších systémech. Samotné zadání žádná práva neuděluje. |
 | Typický výstup | Odpověď, souhrn, návrh nebo akce v aplikacích Microsoftu a v prostředích Copilotu. | Zkontrolovatelná změna, plán, znalostní podklad, aplikace nebo akce připravená k výslovnému schválení. |
 | Správa | Cloudová služba spravovaná Microsoftem, doplněná o licence, Entra, Purview a administraci Microsoft 365. | Git repozitáře vlastněné Organizací, její zařízení, pravidla Modulů a samostatná správa každého připojeného poskytovatele. |
 | Rozšíření | Pluginy, které spojují deklarativní agenty, dovednosti (skills), konektory Copilotu a MCP servery. | Workspace Moduly, připravené role pro agenty, MCP servery, oficiální nástroje příkazové řádky a řízené postupy v prohlížeči. |
-| Nasazení | Cloudová služba Microsoftu s publikovanými požadavky na tenant. | Konkrétní podobu nasazení volí každá Organizace. Veřejně popsaný model vychází z lokálních repozitářů a samostatně nasazovaných Modulů. |
+| Nasazení | Cloudová služba Microsoftu s publikovanými požadavky na tenant. | Instalovatelné vydání Platformu na vašem počítači nebo v hostovaném Prostředí. Moduly a volitelné služby mají vlastní podmínky nasazení. |
 | Kdy dává největší smysl | Když je většina kancelářské a znalostní práce soustředěná v Microsoft 365. | Když práce prochází více repozitáři nebo nástroji a má zůstat verzovaná, testovatelná a výslovně schvalovaná. |
 
 Microsoft uvádí, že Copilot pracuje uvnitř hranice služby Microsoft 365,
@@ -62,8 +64,8 @@ a na stránce věnované [ochraně dat a auditu](https://learn.microsoft.com/en-
 
 Veřejná pravidla Lazuria určují GitHub jako autoritu pro přístup k
 repozitářům, oddělují jednotlivé Organizace a považují výstup agenta za návrh,
-dokud jej oprávněná osoba neschválí. Viz [pravidla spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-a [architekturu Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md).
+dokud jej oprávněná osoba neschválí. Viz [pravidla spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/AGENTS.md)
+a [architekturu Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/ARCHITECTURE.md).
 
 ## Data a soukromí
 
@@ -104,9 +106,8 @@ balíčku, který se pak zveřejňuje a spravuje. Postup popisuje [dokumentace k
 Tato cesta se hodí pro postupy spravované v produktech Microsoftu.
 
 Lazurio se rozšiřuje pomocí Workspace Modulů a samostatně vymezených integrací.
-Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-upřednostňuje oficiální MCP servery nebo nástroje příkazové řádky a samostatně
-odvolatelné identity pro jednotlivá zařízení. To se hodí tam, kde práce
+Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md)
+používá Apps → Integrace pro zobrazení podporované cesty a účtu; ověřte jejich skutečný přístup a rozsah odvolání. To se hodí tam, kde práce
 vychází z repozitářů, prochází více službami nebo vyžaduje vlastní testy a
 schválení.
 

@@ -4,9 +4,9 @@ description: "Which data an agent can use and how to test access restrictions."
 stableId: lazurio-doc-data-access-security
 locale: en
 summary: "Which data an agent can use and how to test access restrictions."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -15,6 +15,10 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-platform-integrations-current
+  - lazurio-platform-vault-current
+  - lazurio-platform-chatgpt-apps-policy
+  - lazurio-platform-chatgpt-apps-main
 audience:
   - it-admin
   - decision-maker
@@ -57,7 +61,7 @@ truth rather than another person's private context.
 
 ### External tools and secrets
 
-For a new connection, the [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
+For a new connection, the [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md)
 prefers an official MCP server, then an official CLI, permitted Composio,
 a reviewed open-source implementation and finally supervised browser use.
 Executor manages custom MCP servers in Lazurio. For an existing connection,
@@ -80,6 +84,38 @@ at the provider can already transfer data. Check account scope, token custody
 and write restrictions in [Connecting an Environment to apps](/en/environment-app-connections/).
 Real credentials stay outside Git in scoped ignored paths or approved provider
 stores. Endpoint, backup, rotation and incident controls must protect them.
+
+### Connect through the catalog
+
+Open Apps → Integrations and the app's card. You sign in there; the agent
+returns the card link and verifies the account afterwards. Custom MCP servers
+belong in Executor on your explicit instruction. A separate AI-client setup is
+not the current Lazurio route.
+
+The approved ChatGPT-app policy is default-off inside an Environment, with
+Admin/user permission and only for gaps in the catalog. Its implementation is
+newer than v0.1.14; an older installation is not proof of technical enforcement.
+An existing connector on your own computer is a separate transition case.
+See the [version and policy details](/en/environment-app-connections/#chatgpt-apps).
+
+Executor pauses certain calls, but in the default mode the agent resumes them.
+This is not a universal human-approval gate and does not cover every CLI or
+management API path. [Integration controls](/en/environment-app-connections/)
+explain the exact scope.
+
+### Use the Environment vault
+
+For a supported configured Environment, use Apps → Vault. Agents use the
+Environment's technical account, not your personal master account. The
+Organization vault for people is separate: give agents only the selected
+items copied into their Environment vault. Personal Environments connect a
+separate agent account in the user's chosen Bitwarden service.
+
+If an agent needs a secret, it can prepare a `lazurio vault request`. Enter
+the value on the request page in Apps → Vault, not in chat or a tracked file.
+A deployment without a configured vault needs its supported setup first;
+the feature's presence does not prove that any particular vault is connected.
+Protect the endpoint, backups, rotation and the higher host-administration boundary.
 
 ## Threats to test
 

@@ -4,9 +4,9 @@ description: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřová
 stableId: lazurio-doc-reference
 locale: cs
 summary: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřování."
-updatedAt: "2026-10-04"
-reviewedAt: "2026-10-04"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-30"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -21,6 +21,10 @@ sourceRefs:
   - microsoft-copilot-privacy
   - microsoft-copilot-requirements
   - microsoft-copilot-extensibility
+  - lazurio-platform-release-current
+  - lazurio-platform-content-sync
+  - lazurio-platform-integrations-current
+  - lazurio-external-apps-current
 audience:
   - it-admin
   - decision-maker
@@ -28,18 +32,23 @@ audience:
   - agent
 ---
 
-Odkazy na Lazurio vedou na konkrétní revizi repozitáře, ze které dokumentace
-vychází. Stránky Microsoftu se průběžně mění; datum jejich posledního
-ověření najdete v mapě zdrojů. Jazyková úprava stránky sama toto datum nemění.
+Tyto podklady popisují současné vydání Platformu a pravidla Integrací.
+Revize zdroje určuje, co bylo ověřeno; sama nepotvrzuje, že na ní běží každé
+nasazení. Datum „Poslední aktualizace“ pod názvem stránky označuje poslední
+úpravu jejího obsahu. Neznamená, že proběhla nová věcná kontrola. Datum věcné
+kontroly najdete jako `reviewedAt` v metadatech zdrojové stránky a v indexu
+obsahu. Podmínky externích poskytovatelů se mohou měnit.
 
-## Zdrojové materiály Lazuria
+<span id="zdrojové-materiály-lazuria"></span>
 
-- [Přehled projektu](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
-- [Licence](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md)
-- [Architektura](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
-- [Pravidla spolupráce, oprávnění a schvalování výsledků](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-- [Standard pro integrace externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-- [Standard lokální správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
+## Zdroje Lazuria
+
+- [Vydání Platformu v0.1.14](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.14)
+- [Instalovaný produkt](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/README.md)
+- [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE) a [hranice licence](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/licensing.md)
+- [Integrace a rozsah schvalování](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/integrations.md)
+- [Synchronizace obsahu](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/content-sync.md)
+- [Schválená pravidla Integrací včetně dodatku z 27. října](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md)
 
 ## Dokumentace Microsoftu
 

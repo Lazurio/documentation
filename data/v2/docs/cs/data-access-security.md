@@ -4,9 +4,9 @@ description: "Která data může agent použít a jak otestovat skutečná omeze
 stableId: lazurio-doc-data-access-security
 locale: cs
 summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -15,6 +15,10 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-platform-integrations-current
+  - lazurio-platform-vault-current
+  - lazurio-platform-chatgpt-apps-policy
+  - lazurio-platform-chatgpt-apps-main
 audience:
   - it-admin
   - decision-maker
@@ -33,9 +37,11 @@ Hranice důvěry určuje, kam může dosáhnout přístup nebo napadený proces.
 Oddělené složky například pomáhají uspořádat práci, ale samy nezabrání
 programu se stejnými právy číst jejich obsah.
 
-### Principál a Task Agent
+<span id="principál-a-task-agent"></span>
 
-Task Agent pracuje jménem přihlášeného Principála a nemá vlastní oprávnění.
+### Uživatel a agent
+
+Agent pracuje jménem přihlášeného uživatele a nemá vlastní oprávnění.
 Prompt mu nevytvoří přístup k repozitáři ani ke službě. Text pravidel zároveň
 neodebere schopnost, kterou už proces klienta má: čitelný soubor, aktivní
 relace nebo zpřístupněný přihlašovací údaj mohou být pro klienta použitelné.
@@ -60,7 +66,7 @@ mezi přístupovými hranicemi.
 
 ### Externí aplikace
 
-[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
+[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md)
 pro nové propojení upřednostňuje oficiální MCP server, potom oficiální CLI,
 povolené Composio, prověřené open-source řešení a nakonec prohlížeč pod
 dohledem uživatele. Vlastní MCP servery v Lazuriu spravuje Executor.
@@ -84,7 +90,7 @@ a omezení zápisu ověřte podle [návodu k propojení aplikací](/cs/environme
 
 ### Tajné a přihlašovací údaje
 
-[Standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
+[Standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/security/local-secret-custody.md)
 udržuje skutečné přihlašovací údaje mimo Git. Lokální úložiště jsou oddělená
 podle vlastníka nebo Organizace a verzované soubory obsahují pouze schémata,
 názvy proměnných a pokyny. Konkrétní nasazení musí zajistit zabezpečení zařízení, ochranu záloh,
@@ -92,12 +98,43 @@ obměnu přihlašovacích údajů a postup při incidentu. Samotný standard
 tato opatření nezaručuje. Vedle vyhrazených cest mimo Git
 lze použít schválené úložiště poskytovatele.
 
+### Připojujte přes katalog
+
+Otevřete Apps → Integrace a kartu aplikace. Přihlásíte se zde vy; agent vám
+předá odkaz a potom ověří účet. Vlastní MCP servery patří na váš výslovný
+pokyn do Executoru. Nastavování zvlášť v každém AI klientu není současnou
+cestou Lazuria.
+
+Schválené pravidlo vypíná aplikace z ChatGPT uvnitř Prostředí ve výchozím
+stavu. Povolit je může příslušný Admin či uživatel, jen pro mezery v katalogu.
+Implementace je novější než v0.1.14; starší instalace není důkazem technického
+vynucování. Existující konektor na vašem počítači je samostatný přechodný případ.
+Podrobnosti uvádí [pravidlo a omezení podle verze](/cs/environment-app-connections/#aplikace-z-chatgpt).
+
+Executor některá volání pozastaví, ale ve výchozím režimu je obnoví agent.
+Není to obecná záruka schválení člověkem a netýká se všech cest přes CLI nebo
+řídicí API. Přesný rozsah popisují [kontroly Integrací](/cs/environment-app-connections/).
+
+### Použijte Trezor Prostředí
+
+V podporovaném nastaveném Prostředí otevřete Apps → Trezor. Agenti používají
+technický účet Prostředí, nikoli váš hlavní osobní účet. Trezor Organizace pro
+lidi je oddělený: agentům předejte jen vybrané položky zkopírované do Trezoru
+Prostředí. Osobní Prostředí připojuje samostatný účet agentů ve službě Bitwarden
+zvolené uživatelem.
+
+Potřebuje-li agent tajný údaj, může připravit `lazurio vault request`.
+Hodnotu vyplňte na stránce žádosti v Apps → Trezor, nikoli v chatu nebo
+verzovaném souboru. Nasazení bez nastaveného trezoru nejprve potřebuje podporované
+připojení; samotná existence funkce nedokazuje připojení konkrétního trezoru.
+Zabezpečte zařízení, zálohy, obměnu údajů i vyšší hranici správy hostitele.
+
 ## Hrozby, které je potřeba otestovat
 
 | Hrozba | Navržená ochrana | Přejímací test |
 | --- | --- | --- |
 | Zadání požaduje data jiné firmy | Oddělení Organizací a přístup pouze k vybranému kontextu | Ověřte zamítnutí v GitHubu pro identitu bez oprávnění a zvlášť otestujte hranici přístupu zvoleného klienta k lokálním souborům. |
-| Agent se pokusí zveřejnit nebo nasadit neschválenou změnu | Oprávnění v GitHubu nebo jiné službě a výslovný souhlas Principála | Pokuste se změnu sloučit nebo nasadit bez potřebného oprávnění či kontroly. |
+| Agent se pokusí zveřejnit nebo nasadit neschválenou změnu | Oprávnění v GitHubu nebo jiné službě a výslovný souhlas uživatele | Pokuste se změnu sloučit nebo nasadit bez potřebného oprávnění či kontroly. |
 | Přihlašovací údaj se dostane do repozitáře | Vyhrazená úložiště mimo Git a skutečně zapnuté kontroly | Ověřte, které skenování je aktivní, a ve schváleném testovacím repozitáři vyzkoušejte neškodný testovací řetězec. |
 | Integrace má příliš široká oprávnění | Rozsah oprávnění nastavený u poskytovatele a samostatné odvolání každého přístupu | Načtěte aktuální oprávnění OAuth nebo aplikace a jedno z nich odvolejte, aniž ovlivníte ostatní. |
 | Prompt se pokusí změnit rozsah práce | Omezený kontext, skutečná oprávnění a schvalovací brány | Vložte neškodný canary a ověřte, že agent nerozšíří kontext ani nic nezveřejní bez příslušné brány. |

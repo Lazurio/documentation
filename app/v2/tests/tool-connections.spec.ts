@@ -55,7 +55,7 @@ for (const locale of ['cs', 'en']) {
     const guide = page.locator('connection-guide')
     await expect(guide.locator('[data-app]')).toBeVisible()
     for (const app of ['gmail', 'calendar']) {
-      for (const method of ['composio', 'plugin', 'mcp']) {
+      for (const method of ['composio', 'plugin', 'catalog']) {
         await guide.locator('[data-app]').selectOption(app)
         await guide.locator('[data-method]').selectOption(method)
         await expect(guide.locator('[data-scenario]:visible')).toHaveCount(1)

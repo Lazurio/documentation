@@ -53,15 +53,15 @@ const safetyClaims = [
   ],
   [
     "deployment-operations",
-    "experimental CLI",
-    "| CLI v0 | Experimental | Pin versions and test any production automation that depends on it. |",
-    "| CLI v0 | Experimentální | Používejte pevně určené verze a otestujte produkční automatizaci, která na CLI závisí. |"
+    "installed release",
+    "The baseline is Platform v0.1.14, released on 27 October 2026.",
+    "Výchozím bodem je Platform v0.1.14 z 27. října 2026."
   ],
   [
     "deployment-operations",
-    "target only",
-    "| Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |",
-    "| Balíčkované CLI a generovaný root bez Gitu | Budoucí cíl | Nezahrnujte je do seznamu dnes nasazovaných součástí. |"
+    "forward recovery",
+    "after activation there is no `lazurio update rollback`.",
+    "po aktivaci neexistuje `lazurio update rollback`."
   ],
   [
     "deployment-operations",

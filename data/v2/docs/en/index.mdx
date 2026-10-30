@@ -5,15 +5,16 @@ template: doc
 tableOfContents: false
 stableId: lazurio-doc-overview
 summary: "First steps, practical guides and deployment information for Lazurio."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
 locale: en
-reviewOwner: Matej Suchanek
+reviewOwner: Anna Blazickova
 sourceRefs:
   - lazurio-readme
   - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-platform-release-current
 audience:
   - it-admin
   - decision-maker
@@ -59,16 +60,17 @@ an authorized person decides whether to publish or deploy the result.
 
 ## What Lazurio is today
 
-The version described in the linked sources runs from source with Git and Bun. It includes
-Launchpad, diagnostics, an experimental CLI v0 and the operating contracts used
-by connected Organizations and modules. A simple packaged installation is a
-target, not a released distribution.
+Lazurio Platform v0.1.14 is an installable release, published on 27 October
+2026. It includes the command-line tool, Apps and diagnostics. It also prepares
+the instructions agents read in your Lazurio Folder. You do not need a checkout
+of the Platform source code for everyday work. See [deployment and
+updates](/en/deployment-operations/).
 
-You choose the AI model and client separately. Lazurio itself is not a
-managed SaaS service or a universal security sandbox for AI tools. Review
-the selected providers' terms before deployment.
-The [security and control evidence](/en/public-evidence/) shows where those claims
-come from and what they do not prove.
+You choose the AI client and model provider separately. A self-hosted
+installation does not require Lazurio's optional account and managed-hosting
+services. Lazurio does not add a universal security sandbox around AI tools;
+check the providers and access used by your deployment.
+The [security and control evidence](/en/public-evidence/) explains these boundaries.
 
 ## Browse the documentation
 
@@ -126,7 +128,6 @@ requirements, access and operations.
   </a>
 </nav>
 
-Lazurio is currently source-available under
-[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md).
-See the [security and control evidence](/en/public-evidence/#product-form-and-maturity) for the
-license, maturity and assurance details relevant to an approval decision.
+The current Platform uses [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE).
+Legacy code, third-party components and optional services have separate license
+boundaries; see the [license explanation](/en/public-evidence/#product-form-and-maturity).

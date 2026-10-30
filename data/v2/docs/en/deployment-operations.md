@@ -4,9 +4,9 @@ description: "Plan the deployment, assign owners and test recovery and access re
 stableId: lazurio-doc-deployment-operations
 locale: en
 summary: "Plan the deployment, assign owners and test recovery and access revocation."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -15,14 +15,16 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-platform-release-current
+  - lazurio-platform-content-sync
+  - lazurio-platform-recovery-current
 audience:
   - it-admin
   - builder
   - agent
 ---
 
-Lazurio deployments vary. In the version described here, the operator manages
-local working copies and individual modules. Start by listing the machines,
+Lazurio can run on your computer or in a hosted Environment. The operator manages the installed product, working copies and modules. Start by listing the machines,
 repositories, AI tools, model providers and connected services you will use.
 Name an owner for each.
 
@@ -30,19 +32,17 @@ Name an owner for each.
 
 ## Current and target state
 
-| Surface | Status | Operational meaning |
-| --- | --- | --- |
-| Source checkout with Git and Bun | Supported today | The operator owns repository access, dependencies and updates. |
-| Launchpad, Guide and Doctor | Available today | These are local tools for finding applications, reading guidance, running applications and checking the installation. Loopback listeners are not caller authentication. |
-| CLI v0 | Experimental | Pin versions and test any production automation that depends on it. |
-| Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |
-| Dashboard, hosted workspace and Resident/Buddy | Optional, separately deployed | Inventory each enabled service with its own identity, network, storage and operating owner. |
+The baseline is Platform v0.1.14, released on 27 October 2026. Check the
+installed version and enabled services before applying the instructions.
 
-Assign an owner to each part of the installation: the principal's machine,
-the local Lazurio root, Organization repositories, modules, GitHub, the
-agent client, model provider and each connected application.
-Some modules remain local; others run internally or publish a public website or service.
-Their deployment and rollback contracts stay module-owned.
+| Surface | Available behavior | What to verify |
+| --- | --- | --- |
+| Installed CLI and Apps | One released program, with diagnostics and generated agent instructions. | Supported OS and architecture, release verification and startup. |
+| Organization repositories and modules | Separate versioned content; clean declared checkouts can be synchronized. | Repository grants, declared modules, build and data-migration requirements. |
+| Local listeners | Apps and modules can listen on loopback. Loopback listeners are not caller authentication. | Hosted entry or local access controls for the concrete deployment. |
+| Account, hosted services and Buddy | Separate services with their own availability. | Operator, identity, network, storage and service terms. |
+
+The installed product does not require a Platform source checkout for daily work.
 
 ## Rollout sequence
 
@@ -69,7 +69,7 @@ or account tier changes.
 
 Begin with one bounded use case. Grant only the repositories and provider
 scopes it needs, follow the [external application
-standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md),
+standard](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md),
 and test revocation.
 
 ### 5. Enforce publication
@@ -87,11 +87,20 @@ escalation. Keep the evidence with the approval decision.
 
 ## Updates, rollback and ownership
 
-Lazurio source, Organization configuration and modules are versioned
-independently. Updates should advance clean primary checkouts, run their
-declared checks and reach production from a reviewed exact commit. Rollback
-returns only the affected source or deployment to a previously verified
-revision; it must not revive revoked credentials or obsolete access.
+Use `lazurio update` for the installed product and current declared content.
+It synchronizes clean primary checkouts first, obtains the Bun version moved
+modules pin, builds what changed and then updates Lazurio. The parts report
+separately: failure of one does not prove failure or success of the others.
+Dirty repositories are left intact. `lazurio organization sync` runs the content
+synchronization explicitly; the product's background content sync does not
+silently update the product itself.
+
+Product updates move forward. A failed preparation preserves the active
+version; after activation there is no `lazurio update rollback`. If Apps cannot
+start normally, use [Recovery mode](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/recovery-mode.md)
+and the diagnosed repair or a newer release. Returning a module's source or
+its deployment to a verified revision is a separate, module-owned procedure;
+it must not restore revoked credentials or obsolete access.
 
 Before production use, close the remaining deployment-specific questions:
 
@@ -102,5 +111,5 @@ Before production use, close the remaining deployment-specific questions:
 - Which components are stable, experimental, optional or target-only?
 - Who provides support, and what response time—if any—is promised?
 
-Keep these answers with the deployment approval. Assign an owner to resolve
-any missing answer before production use.
+Keep the answers with the deployment approval. See the [content-sync contract](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/content-sync.md)
+for exactly which repositories and operations are included.

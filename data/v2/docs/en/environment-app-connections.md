@@ -4,27 +4,24 @@ description: "Choose a connection, approve its permissions and revoke access whe
 stableId: lazurio-doc-environment-app-connections
 locale: en
 summary: "Choose a connection, approve its permissions and revoke access when needed."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-external-apps-current
-  - lazurio-decision-0162
-  - lazurio-external-apps-0162
-  - lazurio-composio-runbook
-  - lazurio-platform-tools-decisions
-  - lazurio-platform-environment-tools
-  - lazurio-platform-decision-f19
-  - lazurio-platform-release-v0-1-7
-  - lazurio-platform-release-v0-1-8-rc-35
-  - lazurio-platform-tools-screen-review
+  - lazurio-platform-release-current
+  - lazurio-platform-integrations-current
+  - lazurio-platform-chatgpt-apps-policy
+  - lazurio-platform-chatgpt-apps-main
+  - composio-token-custody
+  - composio-retention-current
+  - composio-zdr-current
+  - composio-consumer-boundaries
   - lazurio-platform-composio-write-gate-question
   - lazurio-platform-composio-custody-question
   - lazurio-platform-composio-shared-connections-question
-  - composio-authentication
-  - composio-token-custody
 audience:
   - builder
   - it-admin
@@ -32,269 +29,160 @@ audience:
   - agent
 ---
 
-You decide which external apps your Environment reaches. Agents in that
-Environment act wherever the sign-ins on its Machine reach. Nothing is enforced
-centrally. Before you connect the first app, read
-[what you accept](#what-you-accept-before-the-first-connection) and check
-[what is available today](#what-is-available-today).
+Open **Apps → Integrations** to connect email, a calendar or another service.
+Choose the app's card, check the account and requested permissions, and complete
+sign-in yourself. The agent can find the card and explain what is missing;
+it does not create the connection for you.
 
-An **Environment** is the place where agents work for you. It can run on
-your own computer or be hosted as a Personal, Work or Team Environment. The **Machine** is the computer or virtual
-machine under an Environment. The **operator** is the person who controls the
-Environment and, with it, the agents that run there. The rules on this page
-apply to every kind of Environment.
+An **Environment** is where agents work for you. It can run on your computer or
+be a hosted Personal, Work or Team Environment. Accounts available there may
+be used by its agents within your instructions and actual provider permissions.
+Check whose data the account reaches before connecting it.
 
 ## The model in one paragraph
 
-The `lazurio` command and Apps (called Launchpad in the sources) use the
-same core. They manage the Environment's tools and prepare agent instructions. Codex, Claude Code, `gh`, Composio and other tools are command-line
-programs installed and signed in on the Machine. If you work across several Organizations, the same Environment can serve
-them. Agents work there with full access: whatever the
-Environment allows, they may do, without a sandbox or approval of single
-commands. If you need narrower rights or separate contexts, create another
-Environment and sign in other accounts there.
+Each app has one recorded route: its installed CLI tool, the Environment's
+Executor, or permitted Composio. People see the routes and accounts in
+Apps → Integrations. Agents read the same catalog with
+`lazurio integrations list --json` and use an existing connection in the order
+**app tool → Executor → Composio**. An unavailable source is not evidence that
+nothing is connected. Ask the agent to state what it could actually verify.
 
 ## Which route to choose
 
-You choose the connection method. Every Environment requires GitHub CLI `gh`.
+Start with the app's catalog card. Lazurio chooses its supported route for the
+Environment. For a new route outside the catalog, the integration standard
+prefers an official MCP server, official CLI, permitted Composio, a reviewed
+pinned open-source implementation, and finally supervised browser use.
+Do not treat that order as permission for an agent to initiate sign-in.
 
-For a new connection, the Lazurio integration standard proposes this order;
-the first route that works wins:
-
-1. the provider's **official MCP server**, remote or self-hosted;
-2. the provider's **official CLI**;
-3. **Composio**, the one approved broker, when the provider has no suitable
-   official MCP server or CLI and you have turned Composio on for the
-   Environment;
-4. a **reviewed open-source MCP server or CLI**, pinned to an exact release or
-   commit, with a verified publisher and licence;
-5. **the browser**, under your supervision, when none of the above exists.
-
-Never allowed, at any step: servers that scrape a website or reuse browser
-cookie sessions, shared brokers other than Composio, keys or tokens in a chat,
-Git or a log, and new ChatGPT or claude.ai connectors. A connector that is
-already installed may still be used.
-
-For an existing connection, agents use the app's tool, Executor or Composio
-according to its recorded route, in that order. Custom MCP servers belong
-in Executor and are added only on the user's instruction.
+A custom MCP server is added only on your explicit instruction, under
+**Apps → Integrations → Custom**, into Executor. You enter any key there.
+Do not configure a separate server for each AI client or paste credentials into chat.
+Other shared brokers, scraping and browser-session servers remain outside
+the standard. See [ChatGPT apps](#chatgpt-apps) for the separate policy.
 
 ## The tool catalog
 
-The catalog lists the tools that agents can be told to use. Each has a
-**tier** and a **setup mode**.
-
-| Tool | Command | Tier | Setup mode |
-| --- | --- | --- | --- |
-| GitHub CLI | `gh` | Required: always on, cannot be turned off | Launchpad |
-| Composio | `composio` | Recommended | Launchpad |
-| wacli | `wacli` | Optional | Launchpad |
-| gogcli | `gog` | Optional | Agent |
-| Neon CLI | `neon` | Optional | Agent |
-
-- **Launchpad setup** has a curated installation and sign-in, both in the
-  Launchpad and on the command line. See
-  [connecting a tool](#connecting-a-tool).
-- **Agent setup** gives you a prepared prompt. You copy it into a new agent
-  chat; the agent installs the tool and guides your sign-in.
-
-Each catalog entry tells the agent how the installed tool should be set up.
-If the prepared installation fails, Lazurio offers a prompt to finish it
-with an agent.
+**Settings → Tools** installs and signs in command-line tools such as GitHub
+CLI (`gh`). It is distinct from Apps → Integrations, which lists the connected
+applications. A tool's “Used by agents” switch changes instructions; turning
+it off does not revoke an account or disconnect an app. Revoke access through
+the connection and, where required, at its provider.
 
 ## Connecting a tool
 
-Open **Settings → Tools** in the Launchpad. Each tool has a row with its real
-name, one sentence on what it is for and its state: **Connected as** an
-account, or **Not connected**. The row offers one action:
-
-- **Add and connect** when the tool is not installed yet;
-- **Connect** when it is installed but not signed in;
-- **Disconnect** when it is signed in;
-- **Connect with an agent** for a tool an agent sets up.
-
-The same flow runs on the command line with `lazurio tools install <tool>`,
-`lazurio tools login <tool>` and `lazurio tools logout <tool>`.
-
-The installation is for the current user, without administrator rights, from
-the tool's official source. A tool that already works is left as it is. You
-never copy an API key, and you can finish the sign-in on any device:
-
-- **`gh`** shows a one-time code and the GitHub device page. Open the page and
-  enter the code. Lazurio then links the Machine's SSH key to your account.
-- **`composio`** shows a link. Open it and sign in; then choose the Composio
-  organization of this Environment.
-- **`wacli`** shows a QR code to scan in WhatsApp, or pairs with your phone
-  number instead.
-
-Disconnecting `gh` or `composio` forgets the sign-in on this Machine only. If
-the access must end at the provider too, revoke it there. Disconnecting
-`wacli` unlinks the device. Every sign-in on a Machine can be ended on its
-own.
-
-The curated flows run on Linux and macOS. On Windows they are refused and the
-prepared agent prompt is offered instead.
-
-## What "Used by agents" does
-
-Each row has a switch, **Used by agents**. A tool you connect in the Launchpad
-turns it on, so agents can use the tool right away; you can turn it off again.
-On the command line the switch is `lazurio tools enable` and
-`lazurio tools disable`.
-
-A tool that is used by agents is written into the agent instructions of the
-Lazurio Folder on that Machine. The **Lazurio Folder** is the directory whose
-generated instructions and manual agents read when they start. Executor manages MCP servers and exposes them to agents. If a deployment
-does not yet run Executor, agents use the MCP servers available in their
-client under that version's rules.
-
-The switch changes agent instructions. It does not grant access, install
-a tool, sign in an account or pin a version. Turning it off removes the tool from the
-instructions. It does not sign you out or disconnect any app: to remove access,
-disconnect the app in Composio or disconnect the tool.
-
-You can add a short note to a tool that agents use, for example "read-only
-for customer mail", under the tool's details or with `lazurio tools note`.
-Agents read it in the Folder manual. The note instructs agents but does not technically restrict access. Turning the tool off removes its note.
+If an app uses a CLI, its card points to the required setup. Follow the tool's
+sign-in in Settings → Tools; the supported CLI equivalents are
+`lazurio tools install <tool>`, `login <tool>` and `logout <tool>`.
+You complete the provider sign-in. Do not send passwords, keys or one-time
+codes to an agent. Installing a tool is not proof that its app connection works.
 
 ## Connecting apps through Composio
 
-Use Composio only where it is permitted. Organization rules apply in Work
-and Team Environments; the user decides in a Personal Environment. Agents
-do not create a new connection without your instruction, and you complete
-the sign-in.
+Use Composio only where your Organization, or you in a Personal Environment,
+permits it. Open the app card and check that its route is Composio. If the
+Composio account needs sign-in, follow the card's setup first; then connect
+the app on its card. Agents return the card link rather than running
+`composio link` for you.
 
-1. Decide which Environment you connect and which Composio account and
-   Composio organization belong to it.
-2. In **Settings → Tools**, choose **Add and connect** or **Connect** on the
-   Composio row, or run `lazurio tools login composio`. Open the link it shows
-   and sign in to Composio. No key is shown or copied.
-3. Choose the Composio organization of this Environment. The Launchpad offers
-   the choice after the sign-in; on the command line, use
-   `lazurio tools composio-org` to list the organizations and
-   `lazurio tools composio-org switch <id>` to change it.
-4. Check that **Used by agents** is on for Composio.
-5. Connect each app. Ask an agent, who returns a link, or run Composio's own
-   `composio link <toolkit>`. Open the link and sign in directly at the app.
-6. Confirm that the intended account and organization are signed in. The
-   Composio row shows them, and so does `composio whoami`.
-7. If agents should not have all of an app, narrow the connection before you
-   hand them work.
+The Composio organization depends on the Environment. In v0.1.14 a Personal
+Environment can select the oldest/default organization with the supported
+Composio CLI data. When those data are missing or ambiguous, it retains the
+user-choice flow. Work/Team Environments follow their Organization rule;
+your own computer retains its choice. Check the account and organization
+actually shown instead of assuming each device has separate connections.
 
 ### The account of the Environment
 
-Under Lazurio's standard, connections belong to the Composio account and
-organization, not automatically to one machine. Composio's documentation
-associates connected accounts with a `userID`. Whether the specific Lazurio
-tools on two machines use the same connections remains an
-[open verification question](https://github.com/Lazurio/LazurioPlatform/issues/45).
-Do not treat a separate machine alone as isolation of connected accounts.
-Use a separate Composio account when access must differ.
+Composio connections belong to an account and project, not to a device name.
+Public CLI-source research found that two Machines with the same account and
+Composio organization share consumer connections. That answer is based on
+source and documentation, **not a live isolation test**. Developer-project
+connections and the consumer project's connections are separate surfaces.
+When access must differ, use separate Composio accounts and verify the credentials in each Environment. Separate devices signed in to the same Composio identity do not isolate those connections.
 
 ### Team Environments
 
-A Team Remote Environment is shared by the members of a Team, so the accounts
-signed in there belong to the whole Environment. Every Team member and every
-agent there can use them.
-
-- **GitHub.** A Team Environment works in GitHub through the Organization's
-  GitHub App, Lazurio for GitHub. Personal GitHub accounts are not signed in
-  there.
-- **Other apps.** Sign in only team accounts, such as a shared mailbox or
-  calendar, that everyone in the Team may use. Connect personal accounts in
-  your own Environment. The Launchpad warns about this before a sign-in, and
-  an agent asks which team account to connect before it connects an app.
+A Team Environment is shared: every authorized Team member and agent there
+may use its connected accounts. Connect team accounts that everyone may use;
+keep personal mail and calendars in the appropriate individual Environment.
+The Team's GitHub route uses the Organization's GitHub App rather than a
+member's personal GitHub session.
 
 ## Guidance for Organization admins
 
-Lazurio does not enforce or monitor how an operator connects an Environment.
-
-- **Composio accounts and organizations.** The standard uses a user's own
-  Composio account, with a separately named Composio organization for each
-  Lazurio Organization and no invited users. A Team Environment uses a team
-  account. Names help select the right connection; verify actual access
-  with the provider.
-- **Integrations the whole Organization shares** go into the Organization's
-  tracked integration catalog, through a reviewed pull request. The catalog
-  holds commands, addresses and the names of environment variables, never
-  their values. It is a recommendation and a shared definition, not a gate:
-  a tool an operator uses only on their own Environment is not written there.
-- **Permissions of single Machines.** Managing them from the Dashboard is a
-  later intent for `gh` and Composio; it is not built.
+Record the permitted providers, scopes, account owner, credential custody and
+revocation procedure. Organization settings govern whether Composio is allowed;
+a local tool switch is not a substitute. Test actual provider access and
+revocation. Lazurio's configured route does not prevent a process with broader
+OS credentials from using another path.
 
 ## Writes and Publication
 
-A connected app is available to agents in full, including writing and
-deleting, until you narrow it. A capability to write is not consent to
-publish. An agent makes an externally visible write, such as sending an email
-or changing a shared calendar, only on the operator's instruction. Full access
-inside the Environment does not change this.
+An account may permit reads, writes and deletion. Those capabilities are not
+consent to publish. The agent prepares work; an authorized user explicitly
+approves sending, merging or otherwise making it effective. A provider draft
+can already transfer data.
 
-Today this is a working rule that agents follow. No Lazurio mechanism blocks a
-write through a connected app; whether Composio's own filters hold on every
-path is an [open question](https://github.com/Lazurio/LazurioPlatform/issues/39).
+Executor can pause calls through its execution path: explicitly destructive
+MCP tools, OpenAPI writes, GraphQL mutations and applicable approval policies.
+It returns `waiting_for_interaction`. In the default `model` mode, **the agent
+itself resumes or declines the call**; no human confirmation is automatically
+requested. MCP tools without the relevant annotation may run immediately.
+The typed management API and other CLI paths are not covered by this pause.
+It is not a universal human-consent gate. Whether Composio filters hold on
+every path remains a [separate open question](https://github.com/Lazurio/LazurioPlatform/issues/39).
 
 ## What you accept before the first connection
 
-Review these conditions and risks before connecting:
+With cloud Composio, a third party holds app credentials and processes call
+content. Its current [retention documentation](https://docs.composio.dev/docs/security/data-retention)
+says default tool logs can contain arguments and results and remain for up to
+one year; staged tool files are deleted after 24 hours. Link expiry does not
+itself delete a file.
 
-- **A third party holds tokens and call content.** With Composio, app tokens
-  and the content of calls are held by Composio unless an Organization runs its
-  own installation. Composio's
-  [token custody documentation](https://docs.composio.dev/docs/security/token-custody),
-  read on 2026-10-06, says that Composio has custody of the credentials in its
-  default cloud deployment. It describes private VPC, self-hosted and
-  customer-managed-key deployments as alternatives, and says that with your own
-  OAuth app Composio still stores the connected-account tokens. Lazurio has not
-  verified these options, their terms or their price. Log retention, hosting
-  region and data processing terms are
-  [open questions](https://github.com/Lazurio/LazurioPlatform/issues/40) that
-  Lazurio has not answered.
-- **A sign-in reaches wherever its account reaches.** Agents can use
-  everything the signed-in account can use, not only what the current task
-  needs.
-- **Several Organizations on one Machine are one Environment.** Agents choose
-  the tool of the Organization they work for and do not move data between
-  Organizations. That is a working rule, not a technical boundary. Where a
-  boundary must hold, use separate Environments.
-- **An Organization has no enforced overview.** It sees only what its own
-  Composio organization shows, and only if its operators sign in to it.
+[Zero Data Retention](https://docs.composio.dev/docs/security/zero-data-retention)
+is available on paid plans and included on Enterprise, with feature and
+managed-app exceptions. Some legacy Hobby projects retain an existing ZDR
+setting; enabling it anew requires a paid plan. Do not assume that your project
+has ZDR, or that ZDR means no data is stored anywhere. Read the actual setting
+and terms. Region and contractual approval still require evidence for your
+chosen deployment.
+
+Issues [#40](https://github.com/Lazurio/LazurioPlatform/issues/40) and
+[#45](https://github.com/Lazurio/LazurioPlatform/issues/45) already contain
+research; remaining decisions and live-verification gaps do not make all their
+questions unanswered. Provider pages here were checked on 28 October 2026.
+
+## ChatGPT apps
+
+The approved policy of 27 October disables ChatGPT account apps, plugins and
+connectors by default inside an Environment. The Organization Admin may allow
+them for Work/Team; the user decides for Personal. Even when allowed, they fill
+only gaps in the Integrations catalog. An existing connector on your own
+computer has a separate transition rule; it is not blanket permission inside
+an Environment. New ChatGPT or claude.ai connector setup remains excluded.
+
+**Version limit:** the policy's implementation is in Platform main after
+v0.1.14, not in that final release. Do not assume an older deployment technically
+blocks those tools. The newer implementation also preserves named exceptions
+and does not remove tools from already running chats.
 
 <span id="what-is-available-today"></span>
 
-## Release status on 6 October 2026
+## Release status on 28 October 2026
 
-The following table records the status on 2026-10-06, from the public
-[LazurioPlatform](https://github.com/Lazurio/LazurioPlatform) repository. At that date, the
-latest final release was v0.1.7; v0.1.8 was in release candidates.
-
-| Capability | Status | Evidence |
-| --- | --- | --- |
-| Catalog with tiers and setup modes; `lazurio tools list`, `enable`, `disable`, `note` and `prompt`; tools in the Folder instructions; the Tools section with status, the switch, the note and prepared agent prompts for copying | Released in v0.1.7 (2026-09-27) | [Decision F18](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f18--enabled-tools-of-the-environment), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
-| Curated installation and sign-in of `gh`, `composio` and `wacli` on Linux and macOS: `lazurio tools install`, `login`, `logout` and `composio-org` | Released in v0.1.7 (2026-09-27); in use on Remote Environments | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [environment tools](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md#curated-installation-and-login-decision-f19) |
-| **Settings → Tools** with Connect and Disconnect, a sign-in that turns **Used by agents** on, `gh` linking the Machine's SSH key, `gh` on a Team Environment through Lazurio for GitHub, the team-accounts notice on a Team Environment | In v0.1.8 release candidates (v0.1.8-rc.35, 2026-10-06); final v0.1.8 not yet released | [Tools section](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/launchpad-development.md#tools-section), [gh on a Team Environment](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md#gh-on-a-team-environment), [v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35) |
-| Handing a tool's prepared prompt directly into an agent chat (today it is shown for copying); the curated flows on Windows; managing per-Machine permissions from the Dashboard | Planned, not built | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [decision 0162](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md) |
-
-Check which version your Environment actually runs. A release candidate
-reaches only the Environments that ask for its exact version; a Local
-Environment updated with `lazurio update` gets the latest final release. The
-labels above are those of v0.1.8; v0.1.7 names the same actions **Install and
-sign in**, **Sign in** and **Sign out**, and does not turn the switch on by
-itself.
-
-The Composio pilot that decision 0162 set until the Tools section was
-released ended on 2026-10-02. Composio has since been an option in permitted Environments; where it is off, the other
-routes of the
-[integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
-apply.
+Platform v0.1.14 is the current final release. Apps → Integrations, the shared
+catalog, Executor routing and the agent-resumable pauses above are in its
+released contract. ChatGPT-app controls described above are a newer accepted
+change. Check your installed version and enabled sources before following a
+version-specific instruction.
 
 ## Sources
 
-- [Lazurio decision register](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md): decision 0162 with its addendum of 2026-10-02 (the model, the routes, the trade-offs and the end of the pilot), 0170 (Environment), 0172 (full access inside the Environment) and 0175 (the operator).
-- [External application integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md): the order of routes, what stays excluded and the Organization's integration catalog.
-- [Composio runbook](https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/integrations/composio.md): what an agent may do with Composio.
-- [LazurioPlatform decisions F17, F18 and F19](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f18--enabled-tools-of-the-environment), with their addenda: operator tools, the catalog, the Folder instructions, the note, the curated sign-in, `gh` on a Team Environment and team accounts on a Team Environment.
-- [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md): the `lazurio tools` commands.
-- [Launchpad Tools section](https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/launchpad-development.md#tools-section): what the section shows and its actions.
-- LazurioPlatform [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) and [release candidate v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35).
-- [Composio authentication](https://docs.composio.dev/docs/authentication) and [token custody](https://docs.composio.dev/docs/security/token-custody): Composio's own description of sign-in and credential custody.
+- [Released integration contract, including approvals](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/integrations.md)
+- [Current final release](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.14)
+- [Approved integration standard](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md)
+- [Newer ChatGPT-app implementation](https://github.com/Lazurio/LazurioPlatform/blob/c94cf947a8c7b388f75a12e5f0e3e0f9338426cd/docs/integrations.md#chatgpt-apps-aplikace-z-chatgpt)
+- [Composio token custody](https://docs.composio.dev/docs/security/token-custody) and [consumer/developer boundaries](https://docs.composio.dev/kb/guide/consumer-project-boundaries-and-auth-selection)

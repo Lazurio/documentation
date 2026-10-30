@@ -4,19 +4,22 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
   - lazurio-architecture
   - lazurio-collaboration-model
-  - lazurio-external-apps
-  - lazurio-secret-custody
+  - lazurio-external-apps-current
+  - lazurio-platform-release-current
+  - lazurio-platform-integrations-current
+  - lazurio-platform-content-sync
+  - lazurio-platform-vault-current
+  - lazurio-platform-chatgpt-apps-main
 audience:
   - it-admin
   - decision-maker
@@ -24,127 +27,105 @@ audience:
   - agent
 ---
 
-Části o produktu a architektuře vycházejí z revize zdrojů Lazuria
-[`3c5bda5d54c5556a0e54f3c339d988aa911fda60`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60).
-Zdrojové dokumenty této revize jsou v češtině. Níže najdete jejich shrnutí
-a odkazy pro kontrolu. Nejde o nezávislý audit ani potvrzení bezpečnosti
-konkrétní instalace.
-
-Popis produktu níže se vztahuje k uvedené revizi, ne automaticky k nejnovějšímu
-vydání. Při nasazení porovnejte tyto podklady s verzí, kterou skutečně používáte.
+Tato stránka vysvětluje veřejné podklady k současnému produktu. Vychází
+z **Platformu v0.1.14, vydaného 27. října 2026**. Zdrojový kontrakt dokládá
+návrh a implementaci funkce. Sám nepotvrzuje její zapnutí ani nezávislý audit
+konkrétního nasazení.
 
 ## Podoba produktu a jeho zralost
 
-[README](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
-popisuje Lazurio jako lokální pracovní systém a koordinační vrstvu, nikoli jako
-AI model nebo sdílené cloudové úložiště dat. Projekt je ve vývoji. V této revizi se
-spouští ze zdrojové pracovní kopie pomocí Gitu a Bunu; CLI v0 je experimentální
-a jednoduchá balíčkovaná instalace i generovaný root bez Gitu patří do cílové
-architektury.
+[Vydání](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.14)
+obsahuje instalovatelné CLI a Apps. [README](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/README.md)
+popisuje instalovaný produkt a součást, která připravuje instrukce v pracovní
+složce Lazuria. Uživatel ke každodenní práci nepotřebuje kopii zdrojového kódu
+Platformu. Volitelné služby účtu a spravovaného hostingu mají vlastní podmínky.
+Označené vydání samo nepřislibuje certifikaci, podporu ani SLA.
 
-Repozitář používá licenci
-[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md).
-Povoluje interní použití, nekomerční vzdělávání a výzkum i profesionální služby
-pro držitele odpovídající licence. Při povoleném použití lze software kopírovat,
-měnit a šířit, pokud zůstane odkaz na licenci a autorská oznámení. „Competing
-Use“ znamená komerční produkt nebo službu, která Lazurio, jiný produkt či službu
-poskytovatele nahrazuje nebo nabízí stejnou či podstatně podobnou funkci.
-Každá vydaná verze přechází po dvou letech na Apache 2.0 a software je
-poskytován bez záruky. Licenční oznámení uvádí HumanAndMachine s.r.o. jako
-držitele autorských práv. Samotná licence neslibuje hosting, podporu ani úroveň
-služeb pro konkrétní nasazení.
+Současný Platform má dostupný zdrojový kód pod [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE),
+nejde o open source podle OSI. **Po dvou letech automaticky nepřechází pod Apache.**
+Osobní a interní firemní použití dovoluje za podmínek licence. Nabízet třetím
+stranám hostovanou či spravovanou službu s podstatnou částí jeho funkcí vyžaduje
+samostatnou dohodu. Není to zákaz veškerého hostingu.
+
+[Vysvětlení licence](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/licensing.md)
+rozlišuje vlastní nový kód, výjimku MIT pro kontrakt prohlížeče, cizí součásti,
+šablony a volitelné neveřejné služby. Generátor nemění licenci obsahu, který
+vytvoří uživatel. Podmínky FSL staršího zdrojového kódu Lazuria platí pro tento
+historický kód; nejsou současnou licencí Platformu. Poskytovatelem licence
+současného Platformu je Human and Machine s.r.o.
 
 ## Identita a oprávnění
 
-[Model spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-označuje jako Principála člověka nebo dlouhodobější AI identitu, pro niž se
-práce vykonává. Task Agent je dočasná pracovní relace a nemá vlastní nezávislá
-oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost poskytovatele:
-rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
-službách.
+Agent používá identitu a nástroje dostupné v Prostředí. Instrukce nevytvářejí
+oprávnění k repozitáři ani poskytovateli. Ověřte přihlášený účet a jeho živý
+přístup. GitHub určuje možnosti práce s repozitáři, operační systém a připojené
+služby přístup ke svým prostředkům.
 
-Agent může použít soubory a přihlášení dostupné jeho procesu. Pravidla
-Lazuria určují, kdy je to dovoleno; technická omezení zajišťují operační
-systém, sandbox AI nástroje a poskytovatel.
+Nový model účtu a vstupu do Prostředí má vlastní podmínky zavedení. Schválený
+návrh přístupů není důkazem, že na něj přešla každá starší instalace.
 
 ## Hranice zařízení a Organizace
 
-[README](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
-a [architektura](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
-pracují s jedním zařízením jako s jednou doménou důvěry. Organizace představuje
-jednu firmu, jednu GitHub organizaci a samostatnou hranici repozitářů a
-přístupů. Na jednom zařízení může být více Organizací, jejich adresáře však
-nejsou oddělená prostředí operačního systému: proces se stejným účinným přístupem k souborům
-může hranici adresářů překročit. Kde firmy nemají sdílet hranici operačního
-systému, je potřeba oddělené zařízení nebo rovnocenná infrastruktura.
+Repozitáře a oprávnění Organizace oddělují firemní práci. Složky na jednom
+zařízení ale nejsou oddělené operační systémy: proces se stejným přístupem
+k souborům může číst napříč nimi. Kde kompromitace nesmí zasáhnout jinou
+Organizaci, použijte oddělená zařízení nebo rovnocennou infrastrukturu.
 
-Personalspace patří jednomu Principálovi. Není to společné úložiště Organizace
-ani zkratka pro přesun firemních dat přes přístupové hranice. Jde o hranici
-přístupu a procesu; bez dalšího opatření konkrétního nasazení se nemá popisovat
-jako kryptografické oddělení.
+Osobní Workspace patří jednomu uživateli v Osobním Prostředí. Firemní podklady,
+které potřebují kolegové, patří do povoleného zdroje Organizace. Samotný název
+složky není kryptografické omezení přístupu.
 
 ## Návrh a zveřejnění
 
-[Model spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-rozlišuje Návrh — vratnou, upravitelnou práci — a Zveřejnění, tedy okamžik, kdy
-se výsledek stává účinným navenek nebo se těžko vrací. Agent smí vytvořit větev,
-commit a pull request, pokud mu to dovolují práva repozitáře. Zveřejnění do
-chráněné větve může GitHub technicky bránit pomocí oprávnění, povinných kontrol
-a review. Odeslání zprávy nebo změna nastavení u jiného poskytovatele závisí na
-jeho skutečných kontrolách a na klientovi; tam, kde technická závora neexistuje,
-je výslovné schválení pouze procesní pravidlo.
+Agent připravuje upravitelnou práci, o Publikaci rozhoduje oprávněný uživatel.
+Už odeslání větve ke kontrole přenese její obsah do GitHubu. Hlavní větev mohou
+chránit pravidla větví, kontroly, review a právo sloučit změnu. Také návrh
+uložený u poskytovatele může přenášet data před odesláním zprávy nebo uvedením
+změny v účinnost. Ověřte skutečné kontroly každého poskytovatele.
 
 ## Externí aplikace a přihlašovací údaje
 
-Tato část vychází z novějšího [standardu integrací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md),
-ověřeného 24. 10. 2026. Pro nové propojení stanovuje pořadí: oficiální MCP,
-oficiální CLI, povolené Composio, prověřené open-source řešení a prohlížeč.
-Executor spravuje MCP servery Prostředí; při práci s již připojenou aplikací
-má její nástroj přednost před Executorem a Composiem.
+[Vydaný integrační kontrakt](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/integrations.md)
+zavádí jeden katalog v Apps → Integrace. Agent zjistí stejné nastavené cesty
+příkazem `lazurio integrations list --json`. Aplikace připojuje uživatel na
+jejich kartách; agent připojení nezahajuje. Vlastní MCP server patří na výslovný
+pokyn uživatele do Executoru. Nastavení → Nástroje dál spravuje nástroje CLI.
 
-Composio je jedinou povolenou výjimkou ze zákazu sdílených brokerů a musí být
-pro dané Prostředí povolené. Uchovává tokeny a zpracovává obsah volání;
-propojení patří účtu a organizaci v Composiu, nikoli automaticky jednomu
-zařízení. Nové cloudové konektory, jiné sdílené brokery a scraping či
-cookie-session servery standard nepovoluje. Už nasazený konektor může zůstat
-přechodovým stavem.
+Executor umí některá volání pozastavit, například výslovně destruktivně
+popsané MCP nástroje a zápisy přes API. Ve výchozím režimu `model` ale
+**pokračování potvrzuje agent**. Není to obecná záruka souhlasu člověka.
+Přímé řídicí API a jiné cesty přes CLI nejsou automaticky pokryté. Podrobnosti
+uvádí [kontroly integrací](/cs/environment-app-connections/).
 
-Přístup k zápisu není souhlas se zveřejněním. OAuth token může použít proces,
-který na něj dosáhne; schvalování v MCP neomezuje automaticky CLI ani shell.
-Podrobnosti a otevřené otázky uvádí [návod k propojení aplikací](/cs/environment-app-connections/).
+Composio lze používat pouze podle pravidel daného Prostředí. Uchovává
+přihlašovací údaje a zpracovává obsah volání. Hranice účtů a projektů,
+uchovávání logů i podmínky Zero Data Retention vysvětluje stejná stránka.
+Samostatné zařízení samo nedokládá oddělený účet Composia.
 
-[Standard úschovy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
-udržuje skutečné přihlašovací údaje mimo Git. Netvrdí, že Lazurio samo šifruje
-zařízení, obměňuje všechny údaje nebo nahrazuje zálohy a reakci na incident.
+[Aktuální integrační standard](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md)
+zahrnuje také schválené pravidlo aplikací z ChatGPT z 27. října. Jeho technická
+implementace je novější než v0.1.14; pravidlo a instalované vynucování se musí
+rozlišovat. Již existující konektor není obecnou výjimkou uvnitř Prostředí.
 
 ## Lokální a hostované služby
 
-Zdrojová pracovní kopie obsahuje lokální root, Launchpad, Guide, CLI/Core,
-Doctor a připojené moduly Organizací. Launchpad a spustitelné moduly používají
-lokální HTTP listenery na loopbacku s dynamicky zvoleným nebo modulem vlastněným
-portem. Vazba na loopback není ověření volajícího: jiné procesy na stejném
-zařízení se k těmto službám mohou dostat. Lokální Guide obsažený v této revizi
-Lazuria nabízí i zápis souborů; nejde o tento veřejný web dokumentace ani
-o bezpečnostní kontrolu. Doctor v popsané revizi předpokládá Git,
-GitHub CLI a Codex CLI; nasazení s jiným klientem agenta musí otestovat vlastní
-cestu přes Doctor a repair, nemá předpokládat stejnou funkčnost.
+Apps a spustitelné moduly mohou používat lokální loopback adresy. Samotný
+loopback neověřuje volajícího. Vstup do hostovaného Prostředí, síťovou
+dostupnost a oprávnění účtu ověřte pro konkrétní nasazení. Tailscale se týká
+soukromých nasazení v tailnetu, ne všech možných Prostředí.
 
-Zdrojová kopie obsahuje i kód pro bridge a provisionování samostatně
-nasazovaných profilů; samotná přítomnost ve zdroji neznamená aktivaci. Mezi
-volitelné části architektury patří Dashboard, hostované týmové workspaces a
-služby Resident/Buddy pro jednotlivé vlastníky. Nasazení, které některou z
-těchto služeb zapne, ji musí uvést jako samostatnou službu s vlastním
-provozovatelem, identitou, úložištěm, sítí, zpracovateli, logy, retencí,
-zálohami a pravidly mazání.
+Vydaný model trezoru dává podporovaným Prostředím vlastní trezor pro agenty.
+Firemní trezor lidí a osobní účty mají samostatné hranice. Použijte Apps →
+Trezor a podporovanou žádost o tajný údaj v Prostředí, nikoli chat. Trezor
+neodstraňuje rizika správy hostitele, záloh ani incidentů.
 
 ## Co tyto podklady nedokazují
 
-- Nepotvrzují konkrétní nasazení zákazníka ani to, že má kontroly skutečně
-  zapnuté.
-- Nedávají univerzální příslib retence, trénování modelů ani regionu zpracování.
-- Nezaznamenávají každé přečtení lokálního souboru, prompt ani volání API.
-- Nemění adresáře Organizací na jednom zařízení v tvrdě oddělené tenancy.
-- Neztotožňují procesní schválení s technickou kontrolou poskytovatele.
+- Zapnutí kontrol ani nezávislou certifikaci zákaznického nasazení.
+- Stejné podmínky trénování, uchovávání a regionu u všech poskytovatelů modelů.
+- Záznam každého lokálního čtení, požadavku na model nebo volání externího API.
+- Izolaci Organizací jako samostatných tenantů na jednom zařízení.
+- Rovnost mezi pozastavením, které obnoví agent, a pokynem uživatele k Publikaci.
 
-Pro promítnutí těchto podkladů do schválení konkrétního nasazení použijte
-[přehled pro správce IT](/cs/it-administrators/).
+[Přehled pro IT](/cs/it-administrators/) pomůže určit, co má zamýšlené nasazení
+ještě doložit.
