@@ -4,7 +4,7 @@ description: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřová
 stableId: lazurio-doc-reference
 locale: cs
 summary: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřování."
-updatedAt: "2026-10-28"
+updatedAt: "2026-10-30"
 reviewedAt: "2026-10-28"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -34,8 +34,10 @@ audience:
 
 Tyto podklady popisují současné vydání Platformu a pravidla Integrací.
 Revize zdroje určuje, co bylo ověřeno; sama nepotvrzuje, že na ní běží každé
-nasazení. Data pod názvem stránky rozlišují poslední úpravu a věcnou kontrolu.
-Podmínky externích poskytovatelů se mohou měnit.
+nasazení. Datum „Poslední aktualizace“ pod názvem stránky označuje poslední
+úpravu jejího obsahu. Neznamená, že proběhla nová věcná kontrola. Datum věcné
+kontroly najdete jako `reviewedAt` v metadatech zdrojové stránky a v indexu
+obsahu. Podmínky externích poskytovatelů se mohou měnit.
 
 <span id="zdrojové-materiály-lazuria"></span>
 

@@ -4,7 +4,7 @@ description: "Lazurio and Microsoft source links and how their review dates are 
 stableId: lazurio-doc-reference
 locale: en
 summary: "Lazurio and Microsoft source links and how their review dates are tracked."
-updatedAt: "2026-10-28"
+updatedAt: "2026-10-30"
 reviewedAt: "2026-10-28"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -34,8 +34,10 @@ audience:
 
 These sources describe the current Platform release and its integration
 rules. A source revision identifies what was checked; it does not prove
-that every deployment runs it. Dates under each page title distinguish the
-last content update from its factual review. External provider terms can change.
+that every deployment runs it. The “Last updated” date under each page title
+shows when its content last changed. It does not mean the facts were reviewed
+again. The factual review date is recorded as `reviewedAt` in the page's source
+metadata and the content index. External provider terms can change.
 
 ## Lazurio source
 
