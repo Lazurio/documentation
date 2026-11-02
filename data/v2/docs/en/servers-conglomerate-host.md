@@ -19,8 +19,6 @@ audience:
   - agent
 ---
 
-# Servers and the Conglomerate Host
-
 This page is for the Owners and IT of an Organization that runs its own servers for Lazurio. A **Conglomerate Host** is the server that runs the private network (Headscale) and the vault (Vaultwarden) for the Remote Environments of one or more Organizations.
 
 Where a rule below is a convention, nothing checks it: it grants nothing, and existing servers are not renamed or renumbered for it.
@@ -78,3 +76,7 @@ Handing over a Remote Environment has two results, and each is proven separately
 - verified real work. A successful web sign-in proves neither SSH, Git access, every module nor an application's restore.
 
 Waiting for a person's sign-in is `onboarding pending`, not a provisioning failure. A report never merges the infrastructure, the base Lazurio and the user's acceptance into one green field.
+
+## Sources
+
+- Lazurio: the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (decisions 0155, 0202 and 0209) and three GEN3 manuals, in Czech: [access between one person's Environments](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), the full text of decision 0155 with the names, the services Environment and the IPv4 ranges; [administration of a Conglomerate Host by the Organization's Owners](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); and [handover of a hosted Environment and the user's onboarding](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) with the two separate outcomes.

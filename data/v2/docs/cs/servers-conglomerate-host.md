@@ -19,8 +19,6 @@ audience:
   - agent
 ---
 
-# Servery a Conglomerate Host
-
 Tato stránka je pro Ownery a IT Organizace, která pro Lazurio provozuje vlastní servery. **Conglomerate Host** je server, na kterém běží soukromá síť (Headscale) a trezor (Vaultwarden) pro Prostředí na serveru jedné nebo více Organizací.
 
 Kde je níže pravidlo jen konvence, nic ho nekontroluje: nic neuděluje a kvůli němu se existující servery nepřejmenovávají ani nepřečíslují.
@@ -78,3 +76,7 @@ Předání Prostředí na serveru má dva výsledky a každý se prokazuje zvlá
 - má ověřenou skutečnou práci. Úspěšné přihlášení na web nedokazuje SSH, přístup do Gitu, funkci každého modulu ani obnovu aplikace.
 
 Čekání na přihlášení člověka je `onboarding pending`, ne porucha zřizování. Report nikdy nesloučí infrastrukturu, základní Lazurio a přijetí uživatelem do jednoho zeleného políčka.
+
+## Zdroje
+
+- Lazurio: [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0155, 0202 a 0209, anglicky) a tři manuály GEN3: [přístupy mezi Prostředími jednoho uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), plné znění rozhodnutí 0155 se jmény, Prostředím služeb a IPv4 rozsahy; [správa Conglomerate Hostu Ownery Organizace](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); a [předání Prostředí na serveru a onboarding uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) se dvěma samostatnými výsledky.
