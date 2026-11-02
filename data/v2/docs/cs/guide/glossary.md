@@ -4,8 +4,8 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-11-01"
+reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -14,6 +14,11 @@ sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-onboarding-decision-register
+  - lazurio-platform-folder-manual
+  - lazurio-platform-launchpad-texts
+  - github-about-pull-requests
+  - github-protected-branches
 audience:
   - it-admin
   - decision-maker
@@ -49,6 +54,14 @@ hostovaného Prostředí.
 aplikace Organizace. Uvnitř Prostředí mezi částmi přepínáte přes Chat,
 Apps a Automate.
 
+**Chat** Část Prostředí pro práci s agenty, na každý úkol jedno vlákno.
+V Prostředí je to T3 Code.
+
+**Automate** Část Prostředí pro pravidelné úkoly a automatizaci.
+
+**Začínáme** První oddíl Nastavení Prostředí. Ukazuje kroky, které Prostředí
+připraví k práci: AI, GitHub a obsah Organizace, v tomto pořadí.
+
 **Guide** Praktická nápověda k Lazuriu. Když nevíte, co něco znamená nebo
 jak pokračovat, začněte tady.
 
@@ -83,21 +96,30 @@ to odpovídá a co má následovat.
 práci. Agent z něj může čerpat, pokud k němu má přístup a načte si příslušný
 zápis. Obsah chatu se do něj neukládá automaticky.
 
+**Integrace** Aplikace nebo služba připojená k Prostředí, třeba pošta nebo
+kalendář. Připojujete ji vy v Apps → Integrace; potom ji může používat každý
+agent tohoto Prostředí. Odeslání nebo Publikace přes ni dál potřebuje váš
+souhlas.
+
 **Osobní Workspace** Váš soukromý pracovní obsah v Osobním Prostředí.
 Slouží vám a vašemu Buddymu; není sdíleným úložištěm Organizace.
 Ve starších technických zdrojích se objevuje název Personalspace.
 
-**Kolega** Člověk, který pracuje v Organizaci.
+**Kolega** Uživatel v Organizaci. Co smí, určují jeho role a Teamy.
 
 **AI Kolega** Starší označení dlouhodobé AI role. Automatizace dnes
 popisujeme jako práci agentů v Pracovním Prostředí, za kterou odpovídá
 uživatel. Název role sám žádná oprávnění neuděluje.
 
+**Henry** Jméno Pracovního Prostředí Organizace s automatizacemi. Pracuje
+v něm tým botů pod personou Organizace a odpovídá za něj jeden odpovědný
+uživatel. Není to samostatný druh Prostředí.
+
 **Buddy** Jméno osobního produktu Lazuria a vašeho osobního AI zástupce.
-Schválený model nového osobního produktu počítá s Buddym vždy a se vstupem
-přes web s účtem Lazuria, bez tailnetu a SSH. Dostupnost ověřte ve své instalaci.
-Starší osobní instalace v tailnetu si mohou zachovat původní přístup. Buddy
-jedná jen v rozsahu vašich oprávnění a uděleného zadání.
+Buddy patří k vašemu Osobnímu Prostředí a jedná jen ve vašich právech
+a v rámci mandátů, které mu dáte. Platby, tajné údaje, změny přístupů
+a merge nebo Publikace mimo výslovný mandát vždy potřebují váš souhlas
+s přesně tímto krokem.
 
 **Prompt** Zadání, které napíšete AI. Například: „Připravte mi přehled
 nezaplacených faktur a vysvětlete, co mám řešit jako první.“
@@ -152,13 +174,25 @@ nebo servisním zásahem u AI Kolegy. Tato role sama neuděluje obecný přístu
 kontrolovat, měnit nebo zahodit.
 
 **Publikace** Okamžik, kdy se Draft stane oficiálním nebo viditelným
-ostatním. Agent ji provede pouze po výslovném souhlasu oprávněného uživatele.
+ostatním, třeba merge pull requestu nebo odeslání e-mailu či zprávy. Agent ji
+provede pouze po výslovném souhlasu uživatele; co smí publikovat, určují jeho
+živá práva.
+
+**Handoff** Závěr práce agenta: odkaz na ni, co Publikace zavede, co agent
+ověřil, a otázka, kdo změny publikuje.
 
 **Release** Oficiální vydání označené verze produktu nebo aplikace,
 například nové verze pro zákazníky.
 
 **Pull request (PR)** Návrh změn čekající na kontrolu a schválení před
 zařazením do oficiální verze.
+
+**Draft pull request** Pull request, který je ještě rozpracovaný. GitHub ho
+nikomu nedovolí mergnout, dokud ho někdo nepřepne na Ready for review.
+Agenti v Lazuriu ho otevírají hned, jak začnou na změně pracovat.
+
+**Review** Kontrola pull requestu někým jiným než autorem, než se mergne.
+U chráněné větve může GitHub schvalující review vyžadovat.
 
 **Main** Hlavní, aktuálně platná verze projektu. Rozpracované změny se do ní
 dostanou až po potřebných kontrolách.
@@ -168,6 +202,11 @@ bezpečně připravovat změny bez zásahu do hlavní verze.
 
 **Productionspace** Technická část Organizace pro zdrojové kódy a systémy,
 které nejsou běžnými pracovními aplikacemi.
+
+**Folder (Lazurio Folder)** Složka v Prostředí, ve které Lazurio drží
+instrukce, manuály a skilly pro agenty, vedle vašich Organizací. Každé nové
+vlákno v Chatu začíná v ní. Soubory v ní generuje Lazurio, takže ruční
+úprava v nich zablokuje jejich aktualizace.
 
 **Bun** Technický nástroj používaný k instalaci, spouštění a testování
 aplikací. Pokud nejste vývojář, obvykle s ním nemusíte pracovat přímo.
@@ -180,6 +219,7 @@ k repozitářům určuje GitHub. Samotný název role přístup neuděluje.
 
 </div>
 
-Pojmenování odpovídá veřejným [rozhodnutím Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/decision-register.md),
-zejména 0170 a 0207 s jejich dodatky. Konkrétní instalace může používat starší
-popisky; technické názvy a příkazy zůstávají přesné.
+Pojmenování odpovídá veřejným [rozhodnutím Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md),
+zejména 0170 a 0207 s jejich dodatky, 0169 pro Henryho a 0089 pro Buddyho.
+Konkrétní instalace může používat starší popisky; technické názvy a příkazy
+zůstávají přesné. Pojmy krok za krokem používá [Úvodní kurz](/cs/guide/course/).

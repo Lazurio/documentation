@@ -6,6 +6,25 @@ export const sidebar = [
     items: [
       { label: 'Guide overview', translations: { cs: 'Přehled Guidu' }, slug: 'guide' },
       { label: 'Start here: understand agents', translations: { cs: 'Začněte tady: jak chápat agenty' }, slug: 'guide/start-here' },
+      {
+        label: 'Onboarding course',
+        translations: { cs: 'Úvodní kurz' },
+        // A nested group is not collapsed by src/sidebar.ts, which closes only
+        // top-level groups. Starlight still opens it on the course's own pages.
+        collapsed: true,
+        items: [
+          { label: 'Course overview', translations: { cs: 'Přehled kurzu' }, slug: 'guide/course' },
+          { label: '1. Sign in', translations: { cs: '1. Přihlášení' }, slug: 'guide/course/first-sign-in' },
+          { label: '2. Getting started', translations: { cs: '2. Začínáme' }, slug: 'guide/course/getting-started' },
+          { label: '3. Chat, Apps and Automate', translations: { cs: '3. Chat, Apps a Automate' }, slug: 'guide/course/find-your-way' },
+          { label: '4. Who works with you', translations: { cs: '4. Kdo s vámi pracuje' }, slug: 'guide/course/who-works-with-you' },
+          { label: '5. Where things belong', translations: { cs: '5. Kam co patří' }, slug: 'guide/course/where-things-belong' },
+          { label: '6. Connected apps', translations: { cs: '6. Připojené aplikace' }, slug: 'guide/course/connected-apps' },
+          { label: '7. Your first task', translations: { cs: '7. První úkol' }, slug: 'guide/course/first-task' },
+          { label: '8. Review and Publication', translations: { cs: '8. Kontrola a Publikace' }, slug: 'guide/course/review' },
+          { label: '9. When something does not work', translations: { cs: '9. Když něco nefunguje' }, slug: 'guide/course/when-stuck' },
+        ],
+      },
       { label: 'First steps with an agent', translations: { cs: 'První kroky s agentem' }, slug: 'guide/first-steps' },
       { label: 'Glossary', translations: { cs: 'Slovníček pojmů' }, slug: 'guide/glossary' },
       { label: 'Tips for working', translations: { cs: 'Tipy pro práci' }, slug: 'guide/work-tips' },

@@ -514,7 +514,7 @@
     },
     {
       "id": "lazurio-decision-register-gen4",
-      "title": "Lazurio decision register for GEN3 and GEN4, as proposed in LazurioPlatform pull request 791 at commit 14bf9ea: the decisions cited by the IT and Admin pages",
+      "title": "Lazurio decision register for GEN3 and GEN4 in LazurioPlatform: the decisions cited by the IT and Admin pages",
       "publisher": "Lazurio",
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md",
@@ -1091,6 +1091,106 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-01",
       "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-onboarding-decision-register",
+      "title": "Lazurio decision register: decisions 0062, 0089, 0103, 0162, 0169, 0170, 0172, 0175, 0179, 0185, 0188, 0189, 0192, 0201, 0207 and 0211 (roles, Buddy, pull requests and Publication, Integrations, Henry, vocabulary, full access, the shell, the first start, entry and questions)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-folder-agent-rules",
+      "title": "LazurioPlatform Folder generator: the agent instructions (AGENTS.md) on worktrees, Draft pull requests, Publication only with the user's consent, the question tool, Files links and Integrations",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/render.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-folder-manual",
+      "title": "LazurioPlatform Folder generator: the agents' manual (glossary, roles, the handoff, Publication, where knowledge belongs, work-only Work Environments)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/manual.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-launchpad-texts",
+      "title": "LazurioPlatform Apps and Settings texts in English and Czech: Getting started, the tour, Apps, Files, Integrations, Vault and Recovery",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/launchpad/messages.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-getting-started",
+      "title": "LazurioPlatform Getting started: the steps checked from the Environment's own state, AI before GitHub, the Organization's download after GitHub",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/launchpad/start-view.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-shell-column-head",
+      "title": "LazurioPlatform shell: the header of the left column with the Environment, its Settings gear, the Chat, Apps and Automate switch and the setup prompt",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/shell/view.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-shell-texts",
+      "title": "LazurioPlatform shell texts in English and Czech: the Settings of each kind of Environment and Finish setting up",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/shell/messages.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-onboarding-decisions",
+      "title": "LazurioPlatform decisions F24, F35, F36, F42, F51 and F56: Organization applications as Modules, Files, the shell, Integrations, Chat starting in the Folder and the page guide",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-about-pull-requests",
+      "title": "GitHub Docs: About pull requests (draft pull requests, ready for review, the Files changed tab)",
+      "publisher": "GitHub",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2027-02-01"
+    },
+    {
+      "id": "github-reviewing-pull-requests",
+      "title": "GitHub Docs: Reviewing proposed changes in a pull request",
+      "publisher": "GitHub",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2027-02-01"
     }
   ]
 }

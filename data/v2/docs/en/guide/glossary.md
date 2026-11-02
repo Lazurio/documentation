@@ -4,8 +4,8 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-11-01"
+reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -14,6 +14,11 @@ sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-onboarding-decision-register
+  - lazurio-platform-folder-manual
+  - lazurio-platform-launchpad-texts
+  - github-about-pull-requests
+  - github-protected-branches
 audience:
   - it-admin
   - decision-maker
@@ -48,6 +53,15 @@ kind of hosted Environment.
 **Apps (called Launchpad in older sources)** The part of Lazurio where
 you open Organization applications. Within an Environment, switch between
 Chat, Apps and Automate.
+
+**Chat** The part of an Environment where you work with agents, one thread
+per task. In an Environment it is T3 Code.
+
+**Automate** The part of an Environment for regular tasks and automation.
+
+**Getting started** The first section of an Environment's Settings. It shows
+the steps that make the Environment ready for work: AI, GitHub and the
+Organization's content, in this order.
 
 **Guide** Practical help for Lazurio. When you are unsure what something
 means or how to continue, start here.
@@ -84,22 +98,31 @@ addressed, who is responsible, and what should happen next.
 future work. An agent can use an entry if it has access and loads it. Chat
 content is not saved there automatically.
 
+**Integration** An app or service connected to an Environment, such as mail
+or a calendar. You connect it yourself in Apps → Integrations; every agent
+of that Environment can then use it. Sending or publishing through it still
+needs your consent.
+
 **Personal Workspace** Your private working content in a Personal
 Environment. It serves you and your Buddy, rather than the Organization.
 Older technical sources call it Personalspace.
 
-**Colleague** A person who works in an Organization.
+**Colleague (Kolega)** A user in an Organization. Their roles and Teams
+decide what they may do.
 
 **AI Colleague** An older name for a long-running AI role. Current
 documentation describes automation as agents working in a Work Environment
 with a responsible user. A role name grants no permissions by itself.
 
-**Buddy** The name of Lazurio's personal product and your personal AI
-representative. The approved design of the new personal product always includes Buddy,
-with web access through a Lazurio account and no tailnet or SSH. Check
-availability in your installation. Older personal installations in a
-tailnet may retain their earlier access. Buddy acts only within your
-permissions and the task you authorize.
+**Henry** The name of an Organization's Work Environment with automations.
+A team of bots works in it under the Organization's persona, and one
+responsible user answers for it. It is not a separate kind of Environment.
+
+**Buddy** The name of Lazurio's personal product and of your personal AI
+representative. Buddy belongs to your Personal Environment and acts only
+within your rights and the mandates you give. Billing, secrets, access
+changes, and a merge or publication outside an explicit mandate always need
+your consent to that exact step.
 
 **Prompt** A request you write for AI. For example: “Prepare an overview of
 unpaid invoices and explain what I should address first.”
@@ -155,14 +178,27 @@ or a service intervention for an AI Colleague. This does not grant general acces
 **Draft** Work in progress that is not official yet. You can review, change,
 or discard it.
 
-**Publication** The moment a Draft becomes official or visible to others.
-An agent publishes only with the explicit approval of an authorized user.
+**Publication** The moment a Draft becomes official or visible to others,
+such as merging a pull request or sending an email or a message. An agent
+publishes only with the explicit approval of the user, whose live rights
+decide what may be published.
+
+**Handoff** How an agent ends a piece of work: the link to it, what
+Publication would introduce, what the agent verified and the question who
+publishes it.
 
 **Release** An official, labeled version of a product or application, such
 as a new version for customers.
 
 **Pull request (PR)** A proposed set of changes awaiting review and approval
 before it enters the official version.
+
+**Draft pull request** A pull request that is still in progress. GitHub does
+not let anyone merge it until it is marked ready for review. Agents in
+Lazurio open one as soon as they start a change.
+
+**Review** A check of a pull request by someone other than its author before
+it is merged. On a protected branch, GitHub can require an approving review.
 
 **Main** The project's primary, currently valid version. Work in progress
 enters it only after the required checks.
@@ -172,6 +208,11 @@ safely prepare changes there without affecting the main version.
 
 **Productionspace** The technical part of an Organization for source code
 and systems that are not ordinary work applications.
+
+**Folder (Lazurio Folder)** The folder in an Environment where Lazurio keeps
+the agents' instructions, manuals and skills, next to your Organizations.
+Every new Chat thread starts there. Lazurio generates these files, so a
+change made in them by hand blocks Lazurio's updates of them.
 
 **Bun** A technical tool used to install, run, and test applications. If you
 are not a developer, you usually do not need to use it directly.
@@ -184,6 +225,8 @@ repository permissions. A role name alone grants no access.
 
 </div>
 
-These names follow the public [Lazurio decisions](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/decision-register.md),
-especially 0170 and 0207 with their addenda. A particular installation may
-still show older labels; technical names and commands stay unchanged.
+These names follow the public [Lazurio decisions](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md),
+especially 0170 and 0207 with their addenda, 0169 for Henry and 0089 for
+Buddy. A particular installation may still show older labels; technical
+names and commands stay unchanged. The [onboarding course](/en/guide/course/)
+uses these terms step by step.
