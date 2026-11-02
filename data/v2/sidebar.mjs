@@ -49,6 +49,7 @@ export const sidebar = [
       { label: 'GitHub baseline for a new Organization', translations: { cs: 'GitHub pro novou Organizaci' }, slug: 'github-baseline' },
       { label: 'Microsoft 365 for IT and the Admin', translations: { cs: 'Microsoft 365 pro IT a Admina' }, slug: 'microsoft-365' },
       { label: 'Verified provider notes', translations: { cs: 'Ověřené poznatky o poskytovatelích' }, slug: 'provider-notes' },
+      { label: 'Servers and the Conglomerate Host', translations: { cs: 'Servery a Conglomerate Host' }, slug: 'servers-conglomerate-host' },
     ],
   },
   {

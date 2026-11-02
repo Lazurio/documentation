@@ -1191,6 +1191,36 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-11-01",
       "reviewDueAt": "2027-02-01"
+    },
+    {
+      "id": "lazurio-root-operator-machine-access",
+      "title": "Lazurio Root, access between one person's Machines (Czech): device and server names, the services Environment per server and IPv4 ranges per Conglomerate Host",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-02",
+      "reviewDueAt": "2026-12-02"
+    },
+    {
+      "id": "lazurio-root-conglomerate-owner-administration",
+      "title": "Lazurio Root, administration of a Conglomerate Host by the Organization's Owners (Czech)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-02",
+      "reviewDueAt": "2026-12-02"
+    },
+    {
+      "id": "lazurio-root-hosted-machine-handover",
+      "title": "Lazurio Root, handover of a hosted Machine and the user's onboarding (Czech): the two separate outcomes",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-02",
+      "reviewDueAt": "2026-12-02"
     }
   ]
 }
