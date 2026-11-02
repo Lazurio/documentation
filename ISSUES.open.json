@@ -58,6 +58,42 @@
         "Astro runtime-family upgrade",
         "Dependabot alert closeout"
       ]
+    },
+    {
+      "id": "issue-2026-11-02-001",
+      "title": "Re-verify the five Microsoft 365 Copilot sources before their review date",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-02",
+      "updated_at": "2026-11-02",
+      "question": "Who re-verifies microsoft-copilot-architecture, -data-protection, -privacy, -requirements and -extensibility against current Microsoft Learn before 2026-11-04?",
+      "impact": "Their reviewDueAt is 2026-11-04. From 2026-11-05 `bun run check` fails on every pull request until the sources are re-verified and their dates moved.",
+      "options": [
+        "Re-verify the five sources against Microsoft Learn and move reviewedAt and reviewDueAt in one pull request.",
+        "Retire a source the documentation no longer needs and remove its citations."
+      ],
+      "decision_needed_for": [
+        "keeping the documentation check green after 2026-11-04"
+      ]
+    },
+    {
+      "id": "issue-2026-11-02-002",
+      "title": "Return the browser test job to ubuntu-latest once Playwright supports Ubuntu 26.04",
+      "status": "open",
+      "severity": "low",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-02",
+      "updated_at": "2026-11-02",
+      "question": "When does the repository upgrade Playwright to a release that installs Chromium on Ubuntu 26.04?",
+      "impact": "ubuntu-latest became Ubuntu 26.04 and `bunx playwright install --with-deps chromium` fails there with Playwright 1.55, so the verify job's test is pinned to ubuntu-24.04.",
+      "options": [
+        "Upgrade Playwright and unpin the runner in one pull request with green browser tests.",
+        "Keep the pin while ubuntu-24.04 runners remain available."
+      ],
+      "decision_needed_for": [
+        "the runner image of the verify job"
+      ]
     }
   ]
 }
