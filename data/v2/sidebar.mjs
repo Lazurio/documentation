@@ -24,6 +24,15 @@ export const sidebar = [
     ],
   },
   {
+    label: 'IT and administration',
+    translations: { cs: 'Pro IT a Admina' },
+    items: [
+      { label: 'GitHub baseline for a new Organization', translations: { cs: 'GitHub pro novou Organizaci' }, slug: 'github-baseline' },
+      { label: 'Microsoft 365 for IT and the Admin', translations: { cs: 'Microsoft 365 pro IT a Admina' }, slug: 'microsoft-365' },
+      { label: 'Verified provider notes', translations: { cs: 'Ověřené poznatky o poskytovatelích' }, slug: 'provider-notes' },
+    ],
+  },
+  {
     label: 'Understand the system',
     translations: { cs: 'Jak Lazurio funguje' },
     items: [

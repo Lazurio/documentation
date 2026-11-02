@@ -451,6 +451,646 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-10-24",
       "reviewDueAt": "2026-11-24"
+    },
+    {
+      "id": "lazurio-microsoft-365-company-app",
+      "title": "Microsoft 365 company app runbook (Czech): one single-tenant public client with delegated Graph permissions, the IT procedure, Conditional Access, revocation and the verification on a real tenant that is still open",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-microsoft-365-for-it",
+      "title": "Microsoft 365 page for an Organization's IT (Czech): permissions, data path, Conditional Access, revocation and audit",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-microsoft-365-company-app",
+      "title": "LazurioPlatform Integrations: the Microsoft 365 company app, its pinned specs and scopes, where the user signs in, Executor's approvals and the IT consent",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/integrations.md#the-microsoft-365-company-app",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-decision-f45",
+      "title": "LazurioPlatform decision F45: Organization settings reach the Environment through its relay or from Git and are recorded in the Folder",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-9",
+      "title": "LazurioPlatform release v0.1.9 (published 2026-10-19), the first final release with the Microsoft 365 company app",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-manifest-family-settings",
+      "title": "Lazurio manifest family: the Microsoft 365 setting settings.integrations.microsoft365 and the rule that readers ship first",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/lazurio-manifest-family.md#microsoft-365-company-app-settingsintegrationsmicrosoft365",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-decision-register-gen4",
+      "title": "Lazurio decision register for GEN3 and GEN4, as proposed in LazurioPlatform pull request 791 at commit 14bf9ea: the decisions cited by the IT and Admin pages",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-first-organization-rollout",
+      "title": "First Organization rollout runbook (Czech): the GitHub access baseline and its read-back before the first Builder",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/first-client-organization-rollout.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-organization-install",
+      "title": "Organization install runbook (Czech): Lazurio for GitHub with All repositories, the access baseline, Read on Design Systems and role-scoped installation",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/organization-install.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-root-agent-rules",
+      "title": "Lazurio Root rules for agents (Czech): Publication, Release, issues and Design System access",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/AGENTS.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-folder-roles",
+      "title": "LazurioPlatform Folder manual: the Organization roles Admin, Steward, Builder and User",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/manual.ts#L888-L904",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-decision-f31",
+      "title": "LazurioPlatform decision F31 with its addendum of 2026-10-05: a named person publishes from a Team Environment",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f31--a-team-environment-publishes-under-the-teams-identity",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-platform-team-github",
+      "title": "LazurioPlatform environment tools: gh on a Team Environment works through Lazurio for GitHub and refuses personal sign-ins",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/environment-tools.md#gh-on-a-team-environment",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-github-app-broker",
+      "title": "Lazurio for GitHub broker 0.14.0: one-repository installation tokens, permission tiers chosen by the Team's live grant, and the public-issue limitation",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-github-app-public-issues",
+      "title": "Lazurio for GitHub issue 23: any installation token can open issues in public repositories, whatever permissions it asks for (observed 2026-10-17)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/github-app/issues/23",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-external-apps-org-steps",
+      "title": "External application standard (Czech), revision of 2026-11-01: order of routes, organization-side admin steps and the live standard",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/external-app-integrations.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "lazurio-provider-runbooks",
+      "title": "Lazurio provider runbooks (Czech): Google Workspace (2026-08-07), Slack, Atlassian and Canva (2026-09-02), LinkedIn (2026-07-24) and Composio (2026-10-09 with addenda)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/tree/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "composio-create-organization-request",
+      "title": "Composio issue 4949: create and rename an organization from the CLI (opened 2026-10-17, open on 2026-11-01)",
+      "publisher": "Composio public issue tracker",
+      "kind": "public-source",
+      "url": "https://github.com/ComposioHQ/composio/issues/4949",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-permissions-consent",
+      "title": "Overview of permissions and consent in the Microsoft identity platform",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-graph-permissions-reference",
+      "title": "Microsoft Graph permissions reference",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/graph/permissions-reference",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-app-consent-policies",
+      "title": "Manage app consent policies: the Microsoft-managed default consent setting and its excluded permissions",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-grant-admin-consent",
+      "title": "Grant tenant-wide admin consent to an application",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-delegate-app-roles",
+      "title": "Delegate application management administrator permissions: who can register applications",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-register-app",
+      "title": "How to register an app in Microsoft Entra ID",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-add-redirect-uri",
+      "title": "How to add a redirect URI to your application",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-enterprise-app-properties",
+      "title": "Properties of an enterprise application: Enabled for users to sign in and Assignment required",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-redirect-uri",
+      "title": "Redirect URI (reply URL) best practices and limitations",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/reply-url",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-desktop-app-configuration",
+      "title": "Configure desktop apps that call web APIs: Allow public client flows",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-auth-code-flow",
+      "title": "Microsoft identity platform and OAuth 2.0 authorization code flow",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-access-tokens",
+      "title": "Access tokens in the Microsoft identity platform: default lifetime",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-refresh-tokens",
+      "title": "Refresh tokens in the Microsoft identity platform: lifetime and revocation",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/refresh-tokens",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-revoke-user-access",
+      "title": "Revoke user access in an emergency in Microsoft Entra ID",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-graph-revoke-sign-in-sessions",
+      "title": "user: revokeSignInSessions (Microsoft Graph v1.0)",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/graph/api/user-revokesigninsessions",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-session-lifetime",
+      "title": "Conditional Access adaptive session lifetime policies: sign-in frequency",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-session-lifetime",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-error-codes",
+      "title": "Microsoft Entra authentication and authorization error codes",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-noninteractive-sign-ins",
+      "title": "Non-interactive sign-in logs in Microsoft Entra ID",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-noninteractive-sign-ins",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-purview-audit",
+      "title": "Learn about auditing solutions in Microsoft Purview",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/purview/audit-solutions-overview",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-entra-publisher-verification",
+      "title": "Publisher verification overview",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity-platform/publisher-verification-overview",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-graph-create-event",
+      "title": "Create event (Microsoft Graph v1.0): invitations to attendees",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/graph/api/user-post-events",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-graph-event-cancel",
+      "title": "event: cancel (Microsoft Graph v1.0)",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/graph/api/event-cancel",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-graph-driveitem-createlink",
+      "title": "Share a file with a link (Microsoft Graph v1.0)",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-createlink",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-graph-driveitem-invite",
+      "title": "driveItem: invite (Microsoft Graph v1.0)",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-invite",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-work-iq-permissions",
+      "title": "Work IQ API permissions reference",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/permissions",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "microsoft-work-iq-overview",
+      "title": "Work IQ overview",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-organization-roles",
+      "title": "Roles in an organization",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-base-permissions",
+      "title": "Setting base permissions for an organization",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-install-app",
+      "title": "Installing a GitHub App from a third party",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-protected-branches",
+      "title": "About protected branches",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-rulesets",
+      "title": "About rulesets",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-code-owners",
+      "title": "About code owners",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-repository-collaborators",
+      "title": "REST API endpoints for collaborators",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/rest/collaborators/collaborators",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "github-rest-pull-requests",
+      "title": "REST API endpoints for pull requests: availability of draft pull requests by plan",
+      "publisher": "GitHub Docs",
+      "kind": "provider-documentation",
+      "url": "https://docs.github.com/en/rest/pulls/pulls",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "google-oauth-audience",
+      "title": "Manage App Audience: user type, publishing status and the seven-day expiry in Testing",
+      "publisher": "Google",
+      "kind": "provider-documentation",
+      "url": "https://support.google.com/cloud/answer/15549945",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "google-oauth2-refresh-token-expiration",
+      "title": "Using OAuth 2.0 to Access Google APIs: refresh token expiration",
+      "publisher": "Google",
+      "kind": "provider-documentation",
+      "url": "https://developers.google.com/identity/protocols/oauth2#expiration",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "google-workspace-mcp-servers",
+      "title": "Configure the Google Workspace MCP servers (Developer Preview)",
+      "publisher": "Google",
+      "kind": "provider-documentation",
+      "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "slack-mcp-server",
+      "title": "Slack MCP server: endpoint, app identity, confidential OAuth and admin approval",
+      "publisher": "Slack",
+      "kind": "provider-documentation",
+      "url": "https://docs.slack.dev/ai/slack-mcp-server/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "atlassian-mcp-get-started",
+      "title": "Get started with the Atlassian MCP server",
+      "publisher": "Atlassian",
+      "kind": "provider-documentation",
+      "url": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "atlassian-mcp-settings",
+      "title": "Control Atlassian MCP server settings: domains, API tokens and IP allowlists",
+      "publisher": "Atlassian",
+      "kind": "provider-documentation",
+      "url": "https://support.atlassian.com/security-and-access-policies/docs/control-atlassian-mcp-server-settings/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "canva-mcp-access",
+      "title": "Canva MCP: access and permissions",
+      "publisher": "Canva",
+      "kind": "provider-documentation",
+      "url": "https://www.canva.dev/docs/apps/mcp/access/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "canva-mcp-tools",
+      "title": "Canva MCP: tools and rate limits",
+      "publisher": "Canva",
+      "kind": "provider-documentation",
+      "url": "https://www.canva.dev/docs/apps/mcp/tools/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "linkedin-api-access",
+      "title": "Getting Access to LinkedIn APIs: open permissions and partner programs",
+      "publisher": "LinkedIn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "linkedin-authorization-code-flow",
+      "title": "LinkedIn 3-Legged OAuth Flow: access token lifetime",
+      "publisher": "LinkedIn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "linkedin-share-api",
+      "title": "Share on LinkedIn: w_member_social and daily rate limits",
+      "publisher": "LinkedIn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/share-on-linkedin",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
+    },
+    {
+      "id": "linkedin-user-agreement",
+      "title": "LinkedIn User Agreement: prohibition of scraping and automated access",
+      "publisher": "LinkedIn",
+      "kind": "provider-documentation",
+      "url": "https://www.linkedin.com/legal/user-agreement",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-01",
+      "reviewDueAt": "2026-12-01"
     }
   ]
 }
