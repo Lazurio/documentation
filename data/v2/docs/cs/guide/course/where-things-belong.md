@@ -4,8 +4,8 @@ description: "Kam ukládat práci, aby ji Kolegové i agenti našli: Knowledgeba
 stableId: lazurio-doc-guide-course-where-things-belong
 locale: cs
 summary: "Kam ukládat práci, aby ji Kolegové i agenti našli: Knowledgebase, Mission Control, issues, repozitáře a Soubory."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-02"
+reviewedAt: "2026-11-02"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -42,13 +42,15 @@ vlastních instrukcích a dokumentech.
 ## Váš úkol
 
 Vyberte jednu věc ze své nedávné práce, kterou by potřeboval znát nový
-Kolega: pojem, krok postupu nebo pravidlo. Zapište ji dvěma nebo třemi
-větami. Pak pošlete v Chatu:
+Kolega: pojem, krok postupu nebo pravidlo. Vyberte něco, co patří do
+repozitáře nebo do issue, protože v lekcích 7 a 8 to uložíte jako pull
+request nebo issue a tam zkontrolujete; hotový soubor do Souborů do tohoto
+cvičení nepatří. Tu věc zapište dvěma nebo třemi větami. Pak pošlete v Chatu:
 
 ```text
 Chci tohle uložit pro Kolegy: [vaše dvě nebo tři věty].
 Řekni mi, kam to v naší Organizaci patří (Knowledgebase, Mission
-Control, issue, nebo Soubory) a proč. Ověř, jestli už něco podobného
+Control, nebo issue) a proč. Ověř, jestli už něco podobného
 neexistuje. Zatím nic neukládej.
 ```
 

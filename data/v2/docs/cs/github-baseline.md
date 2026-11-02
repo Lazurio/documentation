@@ -4,8 +4,8 @@ description: "Co musí mít GitHub Organization, než v ní začne pracovat Lazu
 stableId: lazurio-doc-github-baseline
 locale: cs
 summary: "Nastavení GitHubu, které Owner připraví a ověří před prvním Builderem: aplikace, výchozí oprávnění none, Team builders, infra jen pro Adminy, chráněná main a merge."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-02"
+reviewedAt: "2026-11-02"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -155,8 +155,13 @@ Na tomto nastavení stojí tři pravidla Lazuria:
 
 - **Týmové Prostředí nikdy nemerguje.** Jeho pull requesty přicházejí od
   `lazurio-for-github[bot]` se štítkem `team:<slug>` a schvaluje a publikuje
-  je jmenovaný člověk pod vlastním účtem (rozhodnutí 0148). Na GitHub Free
-  to drží proces, na placeném plánu ochrana větve bez možnosti obejití.
+  je jmenovaný člověk pod vlastním účtem (rozhodnutí 0148). Je to pracovní
+  pravidlo na každém plánu. Ochrana větve, která vyžaduje schválení
+  a kontroly, aplikaci nezastaví: jakmile jsou splněné, může její token
+  s právem zápisu obsahu repozitáře mergnout. Pravidlo by vynutilo jen
+  omezení, které merge povolí jmenovaným lidem nebo Teamům a aplikaci
+  vynechá; Admin, který na takové omezení spoléhá, si ho na repozitáři
+  ověří.
 - **Pull requesty persony schvaluje člověk**: Owner, Admin nebo Steward.
   Persona merguje jen pull requesty, jejichž je assignee, nikdy nespouští
   apply infrastruktury, nevydává Release a nemění přístupy, tajemství ani

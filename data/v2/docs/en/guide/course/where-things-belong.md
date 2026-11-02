@@ -4,8 +4,8 @@ description: "Where work is saved so that colleagues and agents find it: Knowled
 stableId: lazurio-doc-guide-course-where-things-belong
 locale: en
 summary: "Where work is saved so that colleagues and agents find it: Knowledgebase, Mission Control, issues, repositories and Files."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-02"
+reviewedAt: "2026-11-02"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -42,13 +42,16 @@ and documents.
 ## Your task
 
 Pick one thing from your recent work that a new colleague would need to
-know: a term, a step of a procedure or a rule. Write it down in two or three
-sentences. Then send in Chat:
+know: a term, a step of a procedure or a rule. Choose something that belongs
+in a repository or an issue, because lessons 7 and 8 save it as a pull
+request or an issue and review it there; a finished file for Files is not
+part of this exercise. Write it down in two or three sentences. Then send in
+Chat:
 
 ```text
 I want to save this for colleagues: [your two or three sentences].
 Tell me where it belongs in our Organization (Knowledgebase, Mission
-Control, an issue or Files) and why. Check whether something similar
+Control or an issue) and why. Check whether something similar
 already exists. Do not save anything yet.
 ```
 

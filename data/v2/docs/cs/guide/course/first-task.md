@@ -4,8 +4,8 @@ description: "Zadejte práci agentovi v Chatu a nechte výsledek uložit jako n�
 stableId: lazurio-doc-guide-course-first-task
 locale: cs
 summary: "Zadejte práci agentovi v Chatu a nechte výsledek uložit jako návrh ke kontrole."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-02"
+reviewedAt: "2026-11-02"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -57,7 +57,8 @@ každému agentovi ukládají
 
 Když repozitář můžete jen číst, agent místo toho zapíše návrh jako issue.
 Soubor, který nepatří do žádného repozitáře, uloží do Souborů a pošle vám na
-něj odkaz.
+něj odkaz; úkol níže používá repozitář nebo issue, které jste vybrali
+v lekci 5.
 
 Jsou to pravidla v instrukcích agentů, ne technické zámky. Pravidla pro
 review a merge vynucuje GitHub jen tam, kde má vaše Organizace větev

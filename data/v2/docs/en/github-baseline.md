@@ -4,8 +4,8 @@ description: "What a GitHub Organization needs before Lazurio works in it: roles
 stableId: lazurio-doc-github-baseline
 locale: en
 summary: "The GitHub settings an Owner prepares and reads back before the first Builder: the app, base permission none, the builders Team, Admin-only infra, protected main and merging."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-02"
+reviewedAt: "2026-11-02"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -157,9 +157,13 @@ Three Lazurio rules depend on this:
 
 - **A Team Environment never merges.** Its pull requests come from
   `lazurio-for-github[bot]` with the label `team:<slug>`, and a named person
-  approves and publishes them under their own account (decision 0148). On
-  GitHub Free this is held by process; on a paid plan by branch protection
-  without bypass.
+  approves and publishes them under their own account (decision 0148). This
+  is a working rule on every plan. Branch protection that requires an
+  approval and checks does not stop the app: once they are met, its token,
+  which may write repository contents, can merge. Only a restriction that
+  allows merging to named people or Teams and leaves the app out would
+  enforce the rule, and an Admin who relies on one verifies it on the
+  repository.
 - **The persona's own pull requests are approved by a person**: an Owner, Admin
   or Steward. The persona merges only pull requests it is assigned to, never
   runs an infrastructure apply, issues no Release and changes no access,

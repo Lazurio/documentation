@@ -4,8 +4,8 @@ description: "Brief an agent in Chat and have the result saved as a draft for yo
 stableId: lazurio-doc-guide-course-first-task
 locale: en
 summary: "Brief an agent in Chat and have the result saved as a draft for your review."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-02"
+reviewedAt: "2026-11-02"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -57,7 +57,8 @@ tell every agent to
 
 If you can only read the repository, the agent writes the proposal as an
 issue there instead. A file that belongs in no repository goes to Files,
-and you get a link to it.
+and you get a link to it; the task below uses the repository or issue you
+chose in lesson 5.
 
 These are rules in the agents' instructions, not technical locks. GitHub
 enforces review and merge rules only where your Organization has protected
