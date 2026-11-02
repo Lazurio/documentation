@@ -27,15 +27,17 @@ The review covers introductions, headings, navigation, source lists, image capti
 
 The source map pins the released Platform contracts and the approved policy separately from the newer implementation. Provider retention, ZDR and consumer/developer boundaries were fetched again for the audit. New or repinned source URLs were checked for availability. The audit artifacts are kept outside this public repository; no private Knowledgebase material, runtime logs, internal hostnames or secrets are imported.
 
+The rebase onto the IT/Admin pages, onboarding course and server guidance preserves all 28 newly published pages, their navigation and all 77 added evidence records. The combined source map contains 123 records. The guide overview keeps its newer 1 November dates and course link alongside the private-tailnet description. Browser verification keeps the supported Ubuntu 24.04 runner already present on main.
+
 ## Validation and release boundary
 
 Run `bun run check`, `bun run build` and `bun run test:browser` from `app/v2`. Browser coverage verifies the date values on every route, both locales, desktop and mobile, plus existing accessibility, navigation, clipboard and analytics-consent behavior. Results are recorded in the PR after the final run.
 
-The shared Environment browser returned its DevTools-port timeout twice. Visual inspection therefore follows this repository's headless-browser workflow. This local preview is not a production deployment. Required trust-critical review and the exact-head publication decision remain outstanding; GA4 owner readback is still tracked separately in #41. No issue is closed by this PR.
+The shared Environment browser returned its DevTools-port timeout twice. Visual inspection therefore follows this repository's headless-browser workflow. This local preview is not a production deployment. The rebase requires a new exact-head review. GA4 owner readback is tracked separately in #41, which now contains the maintainer's 2 November confirmation for the exact stream; this agent did not observe the property. Publication responsibility remains with the current assignee. No issue is closed by this PR.
 
 ## Coverage
 
-30 authored pages changed. The shared date component applies to all 40 published pages. The remaining pages retain their authored dates.
+30 authored pages changed. The shared date component applies to all 68 published pages, including the 28 pages added on main after this refresh was prepared. The remaining pages retain their authored dates.
 
 - `data/v2/docs/cs/data-access-security.md`
 - `data/v2/docs/cs/deployment-operations.md`
