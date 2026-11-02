@@ -27,7 +27,7 @@ Where a rule below is a convention, nothing checks it: it grants nothing, and ex
 
 - **Virtualization host:** `<org>-proxmox-NN`, for example `example-proxmox-01`. `<org>` is a short label the Owner chooses once. It does not change when the Organization's GitHub login or DNS name changes, so an administrator of several Organizations can tell their hosts apart in the provider's console, in SSH and in the tailnet. Numbering starts at `01` and may grow past two digits. This is a convention.
 - **Services Environment:** each server of an Organization has exactly one `services-NN`, numbered after its server (`<org>-proxmox-01` has `services-01`). It is a Work Environment for Owners and Admins only, and each service runs in its own container. When it runs short of capacity it grows; a second one on the same server is not created (decision 0209).
-- **People's devices in the tailnet:** `<login>-<device>`, for example `<login>-macbook`. `<login>` is the person's network user, for an account linked to GitHub their lowercase GitHub login, and `<device>` is a short label chosen once and used in every tailnet. A second, headless client on the same device is `<login>-<device>-cli`, and a person's hosted Personal Environment is `<login>-personal-vm`. The owner sets the name on the device itself. The name grants nothing.
+- **People's devices in the tailnet:** `<login>-<device>`, for example `<login>-macbook`. `<login>` is the label of the person's network user: for an account linked to GitHub, their GitHub login in lowercase, frozen, so a later rename on GitHub does not rename the network user. `<device>` is a short label chosen once and used in every tailnet. A second, headless client on the same device is `<login>-<device>-cli`, and a person's hosted Personal Environment is `<login>-personal-vm`. The owner sets the name on the device itself. The name grants nothing.
 
 ## The tailnet's address range
 
@@ -37,10 +37,15 @@ Where a rule below is a convention, nothing checks it: it grants nothing, and ex
 
 ## Administering the Conglomerate Host
 
-Administering the host affects every Organization it serves. These rules hold for every Owner:
+Administering the host affects every Organization it serves. The rules below are a standard: by itself it grants nothing and does not prove that an Organization has deployed it. The concrete accounts, devices, keys, network bindings and evidence belong in the infrastructure repository of the host's owner. These rules hold for every Owner:
 
-- **Own path, own keys.** After an approved onboarding, every active GitHub Owner of the Organization that owns the host can administer it. They use their own named identity, from devices explicitly allowed for administration, over the private network and native SSH. Their keys can be revoked one by one. The path never depends on another Owner's or a vendor's IP address, computer, sign-in or private key, and the private key stays on its device.
-- **Only GitHub proves the role.** Membership in the tailnet, a shared network user, an Environment tag or a server name is no proof of the Owner role. The live GitHub role and the exact binding of the device to that Owner decide. A phone or a Work Environment gets no administration by itself. The exception is an Owner's named Work Environment (decision 0202).
+- **Own path, own keys, three kinds of source.** After an approved onboarding, every active GitHub Owner of the Organization that owns the host can administer it, and only from:
+  - their own personal computer, explicitly allowed for administration;
+  - their Personal Environment;
+  - their explicitly named Work Environment (decision 0202, not deployed yet).
+
+  A phone, any other Work Environment and a work laptop get no administration, even when they are approved for other access. The Owner uses their own named identity over the private network and native SSH, and their keys can be revoked one by one. The path never depends on another Owner's or a vendor's IP address, computer, sign-in or private key, and the private key stays on its device.
+- **Only GitHub proves the role.** Membership in the tailnet, a shared network user, an Environment tag or a server name is no proof of the Owner role. The live GitHub role and the exact binding of the source to that Owner decide, and access is never given to all of the Organization's nodes at once.
 - **Exact grants only.** The host has named SSH accounts, exact network grants and only the administrative rights the work needs. A reply on an established connection is no right to open the opposite one. A new IP address or a re-enrollment is fixed by a reviewed change of the exact binding, never by a broader grant.
 - **Onboarding ends with a change, not with a login.** A working SSH login alone does not finish an Owner's onboarding. Under their own account, the Owner can:
   - read the network's state and the configuration they need;
@@ -56,7 +61,7 @@ Administering the host affects every Organization it serves. These rules hold fo
 
 ## Two outcomes of handing over a Remote Environment
 
-Handing over a Remote Environment has two results, and each is proven separately.
+This is the target contract for handing over a Remote Environment, and its implementation is not finished yet: a running Environment can still differ from it. What is deployed, its evidence and the order of fixes belong in the infrastructure repository of the Environment's owner. Handing over has two results, and each is proven separately.
 
 **The Remote Environment is ready for handover** when:
 
@@ -67,16 +72,18 @@ Handing over a Remote Environment has two results, and each is proven separately
 - a repeated installation keeps the identity and existing work data;
 - backup and restore have their own verified result. Where a pilot explicitly postpones it, the report names that limit and does not call restore verified.
 
-**The user is ready to work** when they have:
+**The user is ready to work** in an individual Environment, which has one assigned user, when they have:
 
-- entered from their own device and signed in with their own GitHub account;
-- chosen and set up the Organizations they need;
+- entered from their own device and signed in to GitHub (`gh`) with their own account;
+- chosen and set up the Organizations they need from those they can access, each as a separate checkout and access boundary;
 - found their checkouts without a change of the hosting configuration, with modules still inside their Organization's boundary and live rights;
 - set up their own tools, sign-ins and project dependencies;
 - verified real work. A successful web sign-in proves neither SSH, Git access, every module nor an application's restore.
 
-Waiting for a person's sign-in is `onboarding pending`, not a provisioning failure. A report never merges the infrastructure, the base Lazurio and the user's acceptance into one green field.
+**A shared Team Environment** has no personal user, so the rule of an individual Environment, where the user signs in their own account and connects any of their Organizations, does not apply to it. It works on GitHub through the Organization's Lazurio for GitHub app with a limited Organization and Team scope, never with the personal token of whoever signed in last (decision 0147). Installing Lazurio needs no checkout of the Organization's data there either, and setting up the Team's content is a separate step under the Team's identity.
+
+Waiting for a person's sign-in is `onboarding pending`, not a provisioning failure; the name describes the state and is not a value in any system. A report never merges the infrastructure, the base Lazurio and the user's acceptance into one green field.
 
 ## Sources
 
-- Lazurio: the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (decisions 0155, 0202 and 0209) and three GEN3 manuals, in Czech: [access between one person's Environments](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), the full text of decision 0155 with the names, the services Environment and the IPv4 ranges; [administration of a Conglomerate Host by the Organization's Owners](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); and [handover of a hosted Environment and the user's onboarding](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) with the two separate outcomes.
+- Lazurio: the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (decisions 0147, 0155, 0202 and 0209) and three GEN3 manuals, in Czech: [access between one person's Environments](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), the full text of decision 0155 with the names, the services Environment and the IPv4 ranges; [administration of a Conglomerate Host by the Organization's Owners](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); and [handover of a hosted Environment and the user's onboarding](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) with the two separate outcomes.

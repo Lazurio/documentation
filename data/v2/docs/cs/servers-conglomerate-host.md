@@ -27,7 +27,7 @@ Kde je níže pravidlo jen konvence, nic ho nekontroluje: nic neuděluje a kvůl
 
 - **Virtualizační host:** `<org>-proxmox-NN`, například `example-proxmox-01`. `<org>` je krátký štítek, který Owner zvolí jednou. Nemění se, když se změní GitHub login nebo DNS jméno Organizace, takže správce více Organizací rozliší své hosty v konzoli poskytovatele, v SSH i v tailnetu. Číslování začíná `01` a smí přerůst dvě číslice. Je to konvence.
 - **Prostředí služeb:** každý server Organizace má právě jedno `services-NN` s číslem svého serveru (`<org>-proxmox-01` má `services-01`). Je to Pracovní Prostředí jen pro Ownery a Adminy a každá služba v něm běží ve vlastním kontejneru. Když mu nestačí výkon, zvětší se; druhé na tomtéž serveru nevzniká (rozhodnutí 0209).
-- **Zařízení lidí v tailnetu:** `<login>-<zařízení>`, například `<login>-macbook`. `<login>` je síťový uživatel člověka, u účtu propojeného s GitHubem jeho GitHub login malými písmeny, a `<zařízení>` je krátký štítek zvolený jednou a stejný ve všech tailnetech. Druhý, headless klient na tomtéž zařízení je `<login>-<zařízení>-cli` a Osobní Prostředí na serveru `<login>-personal-vm`. Jméno nastavuje majitel na zařízení samém. Jméno nic neuděluje.
+- **Zařízení lidí v tailnetu:** `<login>-<zařízení>`, například `<login>-macbook`. `<login>` je štítek síťového uživatele člověka: u účtu propojeného s GitHubem jeho GitHub login malými písmeny, zmrazený, takže pozdější přejmenování na GitHubu síťového uživatele nepřejmenuje. `<zařízení>` je krátký štítek zvolený jednou a stejný ve všech tailnetech. Druhý, headless klient na tomtéž zařízení je `<login>-<zařízení>-cli` a Osobní Prostředí na serveru `<login>-personal-vm`. Jméno nastavuje majitel na zařízení samém. Jméno nic neuděluje.
 
 ## Rozsah adres tailnetu
 
@@ -37,10 +37,15 @@ Kde je níže pravidlo jen konvence, nic ho nekontroluje: nic neuděluje a kvůl
 
 ## Správa Conglomerate Hostu
 
-Správa hostu se dotýká všech Organizací, které obsluhuje. Pro každého Ownera platí:
+Správa hostu se dotýká všech Organizací, které obsluhuje. Pravidla níže jsou standard: sám nic neuděluje a nedokazuje, že ho Organizace nasadila. Konkrétní účty, zařízení, klíče, síťové vazby a důkazy patří do infrastrukturního repozitáře vlastníka hostu. Pro každého Ownera platí:
 
-- **Vlastní cesta, vlastní klíče.** Po schváleném onboardingu může host spravovat každý aktivní GitHub Owner Organizace, která ho vlastní. Používá vlastní jmenovitou identitu, ze zařízení výslovně povolených pro správu, přes soukromou síť a nativní SSH. Jeho klíče jdou odvolat jednotlivě. Cesta nikdy nezávisí na IP adrese, počítači, přihlášení ani soukromém klíči jiného Ownera nebo dodavatele a soukromý klíč zůstává na svém zařízení.
-- **Roli dokazuje jen GitHub.** Členství v tailnetu, sdílený síťový uživatel, štítek Prostředí ani jméno serveru roli Ownera nedokazují. Rozhoduje živá role na GitHubu a přesná vazba zařízení na daného Ownera. Telefon ani Pracovní Prostředí samy správu nezískají. Výjimkou je jmenované Pracovní Prostředí Ownera (rozhodnutí 0202).
+- **Vlastní cesta, vlastní klíče, tři druhy zdrojů.** Po schváleném onboardingu může host spravovat každý aktivní GitHub Owner Organizace, která ho vlastní, a to jen:
+  - ze svého osobního počítače výslovně povoleného pro správu;
+  - ze svého Osobního Prostředí;
+  - ze svého výslovně jmenovaného Pracovního Prostředí (rozhodnutí 0202, zatím nenasazené).
+
+  Telefon, jiná Pracovní Prostředí ani pracovní laptop správu nedostanou, ani když jsou schválené pro jiný přístup. Owner používá vlastní jmenovitou identitu přes soukromou síť a nativní SSH a jeho klíče jdou odvolat jednotlivě. Cesta nikdy nezávisí na IP adrese, počítači, přihlášení ani soukromém klíči jiného Ownera nebo dodavatele a soukromý klíč zůstává na svém zařízení.
+- **Roli dokazuje jen GitHub.** Členství v tailnetu, sdílený síťový uživatel, štítek Prostředí ani jméno serveru roli Ownera nedokazují. Rozhoduje živá role na GitHubu a přesná vazba zdroje na daného Ownera a přístup se nikdy nedává všem uzlům Organizace najednou.
 - **Jen přesné granty.** Host má jmenovité SSH účty, přesné síťové granty a jen ta správcovská práva, která práce potřebuje. Odpověď na navázané spojení neopravňuje otevřít spojení opačným směrem. Novou IP adresu nebo novou registraci zařízení opravuje schválená změna přesné vazby, nikdy širší grant.
 - **Onboarding končí změnou, ne přihlášením.** Samotné funkční přihlášení přes SSH onboarding Ownera nedokončuje. Owner pod vlastním účtem umí:
   - přečíst stav sítě a konfiguraci, kterou potřebuje;
@@ -56,7 +61,7 @@ Správa hostu se dotýká všech Organizací, které obsluhuje. Pro každého Ow
 
 ## Dva výsledky předání Prostředí na serveru
 
-Předání Prostředí na serveru má dva výsledky a každý se prokazuje zvlášť.
+Toto je cílový kontrakt předání Prostředí na serveru a jeho implementace ještě není dokončená: běžící Prostředí se od něj může lišit. Co je nasazené, důkazy a pořadí oprav patří do infrastrukturního repozitáře vlastníka Prostředí. Předání má dva výsledky a každý se prokazuje zvlášť.
 
 **Prostředí na serveru je připravené k předání**, když:
 
@@ -67,16 +72,18 @@ Předání Prostředí na serveru má dva výsledky a každý se prokazuje zvlá
 - opakovaná instalace zachová identitu a existující pracovní data;
 - záloha a obnova mají vlastní ověřený výsledek. Pokud pilot obnovu výslovně odloží, report to omezení uvede a obnovu za ověřenou neoznačí.
 
-**Uživatel je připravený pracovat**, když:
+**Uživatel je připravený pracovat** v individuálním Prostředí, které má jednoho přiděleného uživatele, když:
 
-- má za sebou vstup ze svého zařízení a přihlášení vlastním GitHub účtem;
-- má vybrané a nastavené Organizace, které potřebuje;
+- má za sebou vstup ze svého zařízení a přihlášení vlastním účtem do GitHubu (`gh`);
+- má vybrané a nastavené Organizace, které potřebuje a ke kterým má přístup, každou jako samostatný checkout a hranici přístupu;
 - své checkouty najde bez změny konfigurace hostingu a moduly přitom zůstávají v hranici své Organizace a živých práv;
 - má nastavené vlastní nástroje, přihlášení a závislosti projektů;
 - má ověřenou skutečnou práci. Úspěšné přihlášení na web nedokazuje SSH, přístup do Gitu, funkci každého modulu ani obnovu aplikace.
 
-Čekání na přihlášení člověka je `onboarding pending`, ne porucha zřizování. Report nikdy nesloučí infrastrukturu, základní Lazurio a přijetí uživatelem do jednoho zeleného políčka.
+**Sdílené Týmové Prostředí** osobního uživatele nemá, a proto pro něj neplatí pravidlo individuálního Prostředí, kde se uživatel přihlásí vlastním účtem a připojí kteroukoli svou Organizaci. Na GitHubu pracuje přes aplikaci Lazurio for GitHub Organizace s omezeným rozsahem Organizace a Teamu, nikdy s osobním tokenem toho, kdo se přihlásil naposledy (rozhodnutí 0147). Ani instalace Lazuria tam nepotřebuje checkout dat Organizace a nastavení obsahu Teamu je samostatný krok pod identitou Teamu.
+
+Čekání na přihlášení člověka je `onboarding pending`, ne porucha zřizování; název popisuje stav, není to hodnota v žádném systému. Report nikdy nesloučí infrastrukturu, základní Lazurio a přijetí uživatelem do jednoho zeleného políčka.
 
 ## Zdroje
 
-- Lazurio: [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0155, 0202 a 0209, anglicky) a tři manuály GEN3: [přístupy mezi Prostředími jednoho uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), plné znění rozhodnutí 0155 se jmény, Prostředím služeb a IPv4 rozsahy; [správa Conglomerate Hostu Ownery Organizace](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); a [předání Prostředí na serveru a onboarding uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) se dvěma samostatnými výsledky.
+- Lazurio: [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0147, 0155, 0202 a 0209, anglicky) a tři manuály GEN3: [přístupy mezi Prostředími jednoho uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), plné znění rozhodnutí 0155 se jmény, Prostředím služeb a IPv4 rozsahy; [správa Conglomerate Hostu Ownery Organizace](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); a [předání Prostředí na serveru a onboarding uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) se dvěma samostatnými výsledky.
