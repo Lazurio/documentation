@@ -1,0 +1,80 @@
+---
+title: "Servers and the Conglomerate Host"
+description: "Conventions for an Organization that runs its own servers: names, the tailnet's address range, how Owners administer the Conglomerate Host, and when a Remote Environment and its user are ready."
+stableId: lazurio-doc-servers-conglomerate-host
+locale: en
+summary: "Server and services names, one IPv4 prefix per Conglomerate Host, the Owner's administration path with named identities, exact grants and a recovery route, and the two separate outcomes of handing over a Remote Environment."
+updatedAt: "2026-11-02"
+reviewedAt: "2026-11-02"
+reviewOwner: Matej Suchanek
+secondReviewOwner: Pablo AI
+trustCritical: true
+sourceRefs:
+  - lazurio-root-operator-machine-access
+  - lazurio-root-conglomerate-owner-administration
+  - lazurio-root-hosted-machine-handover
+  - lazurio-decision-register-gen4
+audience:
+  - it-admin
+  - agent
+---
+
+# Servers and the Conglomerate Host
+
+This page is for the Owners and IT of an Organization that runs its own servers for Lazurio. A **Conglomerate Host** is the server that runs the private network (Headscale) and the vault (Vaultwarden) for the Remote Environments of one or more Organizations.
+
+Where a rule below is a convention, nothing checks it: it grants nothing, and existing servers are not renamed or renumbered for it.
+
+## Names
+
+- **Virtualization host:** `<org>-proxmox-NN`, for example `example-proxmox-01`. `<org>` is a short label the Owner chooses once. It does not change when the Organization's GitHub login or DNS name changes, so an administrator of several Organizations can tell their hosts apart in the provider's console, in SSH and in the tailnet. Numbering starts at `01` and may grow past two digits. This is a convention.
+- **Services Environment:** each server of an Organization has exactly one `services-NN`, numbered after its server (`<org>-proxmox-01` has `services-01`). It is a Work Environment for Owners and Admins only, and each service runs in its own container. When it runs short of capacity it grows; a second one on the same server is not created (decision 0209).
+- **People's devices in the tailnet:** `<login>-<device>`, for example `<login>-macbook`. `<login>` is the person's network user, for an account linked to GitHub their lowercase GitHub login, and `<device>` is a short label chosen once and used in every tailnet. A second, headless client on the same device is `<login>-<device>-cli`, and a person's hosted Personal Environment is `<login>-personal-vm`. The owner sets the name on the device itself. The name grants nothing.
+
+## The tailnet's address range
+
+- Every Conglomerate Host gets its own range inside `100.64.0.0/10` that overlaps no other Conglomerate the same operator uses (decision 0155). Otherwise every tailnet hands out the same `100.64.0.x` addresses, and an administrator's computer cannot tell them apart.
+- The operator that founds Conglomerates keeps the list of ranges it has assigned, as an aid for itself. The list is not a central authority or a registry of other operators' networks.
+- A new Conglomerate Host must declare its range when it is created. An existing one keeps its range until a managed migration renumbers it.
+
+## Administering the Conglomerate Host
+
+Administering the host affects every Organization it serves. These rules hold for every Owner:
+
+- **Own path, own keys.** After an approved onboarding, every active GitHub Owner of the Organization that owns the host can administer it. They use their own named identity, from devices explicitly allowed for administration, over the private network and native SSH. Their keys can be revoked one by one. The path never depends on another Owner's or a vendor's IP address, computer, sign-in or private key, and the private key stays on its device.
+- **Only GitHub proves the role.** Membership in the tailnet, a shared network user, an Environment tag or a server name is no proof of the Owner role. The live GitHub role and the exact binding of the device to that Owner decide. A phone or a Work Environment gets no administration by itself. The exception is an Owner's named Work Environment (decision 0202).
+- **Exact grants only.** The host has named SSH accounts, exact network grants and only the administrative rights the work needs. A reply on an established connection is no right to open the opposite one. A new IP address or a re-enrollment is fixed by a reviewed change of the exact binding, never by a broader grant.
+- **Onboarding ends with a change, not with a login.** A working SSH login alone does not finish an Owner's onboarding. Under their own account, the Owner can:
+  - read the network's state and the configuration they need;
+  - reach the Organization's infrastructure repository;
+  - propose, validate and apply an authorized change through the normal deployment process with their own access;
+  - explain publication, review and recovery, with a recovery path of their own.
+- **Administrator rights do not bypass the process.** The desired state stays in the infrastructure repository, and every change goes through review and the deployment process, for an Owner as for an agent. An independent check may need another authorized Colleague, but never a secret that only a vendor holds.
+- **Revocation is a step of its own.** When an Owner leaves, changes role or loses a device, revoke their grants and keys and, where possible, end live sessions. Record whether that happened automatically or by hand. The role is checked when access is deployed, not at every SSH login.
+- **A shared host has many tenants.** An Owner of one Organization has no automatic right to administer another Organization's host: the approval follows the host's ownership and its whole shared boundary. Administration never grants reading anyone's Personalspace.
+- **Remote control reaches further than the network.** Full control of a person's computer from a Work Environment can lend that computer's administrative access indirectly, and a network rule against the direct path does not stop it. Keep the scope of remote control deliberate and documented, and do not promise strict isolation.
+- **The private network first, the provider's rescue for emergencies.** Administration goes over the private network. The provider's console and rescue mode are the emergency route. Before you close a public SSH fallback, prove that the private entry works, that the provider's recovery rights work, the host's identity and the way back to a normal boot. Rescue can interrupt shared services, so bring every emergency change back into the infrastructure repository and its records.
+- **Deployed means proven.** The host owner's infrastructure repository records the allowed sources and their binding to current Owners. It also records the deployed version, the deployment evidence and both kinds of test: a real SSH and administrator login from every allowed source, and a refused connection from a source that is not allowed. A standard, a plan, an open pull request and a live deployment are four different states.
+
+## Two outcomes of handing over a Remote Environment
+
+Handing over a Remote Environment has two results, and each is proven separately.
+
+**The Remote Environment is ready for handover** when:
+
+- its resources, operating system, identity, administration, network and isolation are verified;
+- its web entry has a valid certificate, correct DNS and a working gateway;
+- a clean Lazurio and the basic work entry run without an Organization checkout, without a personal GitHub token and without the user's sign-in to AI tools;
+- Lazurio shows a truthful empty state, and a missing checkout causes no crash, no automatic clone and no access to another Organization;
+- a repeated installation keeps the identity and existing work data;
+- backup and restore have their own verified result. Where a pilot explicitly postpones it, the report names that limit and does not call restore verified.
+
+**The user is ready to work** when they have:
+
+- entered from their own device and signed in with their own GitHub account;
+- chosen and set up the Organizations they need;
+- found their checkouts without a change of the hosting configuration, with modules still inside their Organization's boundary and live rights;
+- set up their own tools, sign-ins and project dependencies;
+- verified real work. A successful web sign-in proves neither SSH, Git access, every module nor an application's restore.
+
+Waiting for a person's sign-in is `onboarding pending`, not a provisioning failure. A report never merges the infrastructure, the base Lazurio and the user's acceptance into one green field.
