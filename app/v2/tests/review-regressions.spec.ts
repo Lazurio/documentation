@@ -1,10 +1,15 @@
 import { expect, test } from '@playwright/test'
 
 for (const locale of ['cs', 'en']) {
-  test(`approved MCP is the default and broker scope is explicit: ${locale}`, async ({ page }) => {
+  test(`the Lazurio catalog is the default and broker scope is explicit: ${locale}`, async ({ page }) => {
     await page.goto(`/${locale}/guide/tool-connections/`)
-    await expect(page.locator('[data-method]')).toHaveValue('mcp')
-    await expect(page.locator('[data-method] option').first()).toHaveValue('mcp')
+    await expect(page.locator('[data-method]')).toHaveValue('catalog')
+    await expect(page.locator('[data-method] option').first()).toHaveValue('catalog')
+    const revocation = page.getByRole('heading', { name: locale === 'cs' ? 'Jak přístup odebrat' : 'Revoke access' })
+    await expect(revocation.locator('xpath=following-sibling::p[1]')).toContainText(
+      locale === 'cs' ? 'odeberte server v Executoru' : 'remove the server in Executor')
+    await expect(page.locator('[data-scenario]:visible [data-prompt]').first()).toContainText(
+      locale === 'cs' ? 'Nezahajuj přihlášení' : 'Do not initiate sign-in')
     await page.locator('[data-method]').selectOption('composio')
     await expect(page.locator('[data-scenario]:visible .scenario-intro')).toContainText(
       locale === 'cs' ? 'kde je Composio povolené' : 'only where the Organization or Personal Environment user permits it')

@@ -4,13 +4,14 @@ description: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné
 stableId: lazurio-doc-use-cases
 locale: cs
 summary: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné řešení."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-platform-integrations-current
 audience:
   - it-admin
   - decision-maker
@@ -33,8 +34,7 @@ zkontroluje rozdíly a výsledky testů. Historie zůstává v Gitu.
 ### Provozní postupy napříč nástroji
 
 Jeden úkol může vyžadovat podklady z repozitáře i přístup ke schválené externí
-aplikaci. Každé takové propojení je v Lazuriu konkrétní, dohledatelné a
-samostatně odvolatelné pro dané zařízení. Systém nespoléhá na jedinou
+aplikaci. Apps → Integrace ukazují každou cestu a účet. Ověřte skutečný rozsah odvolání: účet nebo projekt může sdílet připojení mezi zařízeními. Systém nespoléhá na jedinou
 prostřednickou cloudovou službu se souhrnným přístupem ke všem nástrojům.
 
 ### Trvalé organizační znalosti
@@ -49,7 +49,9 @@ Pro opakovanou práci uložte instrukce, nástroje, testy a podmínky schválen�
 do zkontrolovaného postupu. Další úkol z něj může vycházet bez předpokladů
 skrytých v kopii starého zadání.
 
-### Více firem na zařízení jednoho Principála
+<span id="více-firem-na-zařízení-jednoho-principála"></span>
+
+### Práce pro více Organizací
 
 Lazurio může na jednom zařízení zpřístupnit několik povolených Organizací a
 každou zachovat jako samostatnou hranici v GitHubu i v lokálních repozitářích.

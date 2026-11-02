@@ -4,9 +4,9 @@ description: "Odpovědi k produktu, přístupům, datům a schvalování výsled
 stableId: lazurio-doc-faq
 locale: cs
 summary: "Odpovědi k produktu, přístupům, datům a schvalování výsledků."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-28"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -17,6 +17,8 @@ sourceRefs:
   - lazurio-external-apps
   - lazurio-secret-custody
   - microsoft-copilot-architecture
+  - lazurio-platform-release-current
+  - lazurio-platform-vault-current
 audience:
   - it-admin
   - decision-maker
@@ -32,11 +34,12 @@ zabezpečení a podmínky zpracování dat posuzujte samostatně.
 
 ## Je Lazurio hotový balíčkovaný produkt?
 
-Ne. V odkazované revizi se Lazurio spouští ze zdrojové pracovní kopie
-s Gitem a Bunem. CLI v0 je experimentální a balíčkovaná instalace je plánovaná. Lazurio je momentálně dostupné pod licencí
-[FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
-podrobnosti o licenci a zralosti produktu najdete v části [Bezpečnost a
-podklady k ověření](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).
+Ano. Současný Platform se distribuuje jako instalovatelná vydání. Verze
+v0.1.14 vyšla 27. října 2026 a obsahuje CLI, Apps i generované instrukce pro
+agenty. Vydaný balíček sám nepřislibuje jednotné SLA ani certifikované nasazení.
+Platform používá [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE);
+starší kód, cizí součásti a volitelné služby mají samostatné podmínky.
+Podrobnosti uvádí [přehled licence a produktu](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).
 
 ## Nahrazuje Lazurio Microsoft Copilot?
 
@@ -66,7 +69,9 @@ nasazení.
 Skutečné tajné údaje se nemají ukládat do Gitu. Patří do vyhrazených lokálních
 úložišť mimo verzované soubory nebo do schváleného úložiště poskytovatele.
 Repozitář obsahuje pouze schémata, požadované názvy proměnných a pokyny. Více
-uvádí veřejný [standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md).
+uvádí veřejný [standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/security/local-secret-custody.md).
+
+V podporovaném nastaveném Prostředí použijte Apps → Trezor a stránku žádosti o tajný údaj. Hodnoty nepatří do chatu. Podrobnosti uvádí [přístup k datům a trezor](/cs/data-access-security/#použijte-trezor-prostředí).
 
 ## Co brání agentovi zveřejnit škodlivou změnu?
 

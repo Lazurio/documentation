@@ -4,9 +4,9 @@ description: "Lazurio and Microsoft source links and how their review dates are 
 stableId: lazurio-doc-reference
 locale: en
 summary: "Lazurio and Microsoft source links and how their review dates are tracked."
-updatedAt: "2026-10-04"
-reviewedAt: "2026-10-04"
-reviewOwner: Matej Suchanek
+updatedAt: "2026-10-30"
+reviewedAt: "2026-10-28"
+reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
@@ -21,6 +21,10 @@ sourceRefs:
   - microsoft-copilot-privacy
   - microsoft-copilot-requirements
   - microsoft-copilot-extensibility
+  - lazurio-platform-release-current
+  - lazurio-platform-content-sync
+  - lazurio-platform-integrations-current
+  - lazurio-external-apps-current
 audience:
   - it-admin
   - decision-maker
@@ -28,25 +32,21 @@ audience:
   - agent
 ---
 
-Lazurio links point to the specific repository revision used by this
-documentation. Microsoft pages change over time; the source map records
-when they were last checked. An editorial revision does not by itself update
-that source review date.
-
-The pinned Lazurio source is written in Czech. English readers should begin
-with the reviewed [security and control evidence](/en/public-evidence/), which summarizes
-the security-relevant meaning and links each claim to the exact source. It
-improves accessibility; it is not an independent certification or a controlled
-legal translation.
+These sources describe the current Platform release and its integration
+rules. A source revision identifies what was checked; it does not prove
+that every deployment runs it. The “Last updated” date under each page title
+shows when its content last changed. It does not mean the facts were reviewed
+again. The factual review date is recorded as `reviewedAt` in the page's source
+metadata and the content index. External provider terms can change.
 
 ## Lazurio source
 
-- [Project overview (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md)
-- [License](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md)
-- [Architecture (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
-- [Authority and publication model (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-- [External application standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-- [Secret custody standard (Czech)](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
+- [Platform v0.1.14 release](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.14)
+- [Installed product](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/README.md)
+- [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/LICENSE) and [license boundaries](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/licensing.md)
+- [Integrations and approval scope](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/integrations.md)
+- [Content synchronization](https://github.com/Lazurio/LazurioPlatform/blob/v0.1.14/docs/content-sync.md)
+- [Approved integration policy, including the 27 October amendment](https://github.com/HumanAndMachines/Lazurio/blob/b41fc7d01f748ebc4724535ce811ffceded38fdb/manual/external-app-integrations.md)
 
 ## Microsoft provider documentation
 
