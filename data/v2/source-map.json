@@ -369,8 +369,8 @@
       "kind": "public-source",
       "url": "https://github.com/juanfont/headscale",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
     },
     {
       "id": "tailscale-fast-user-switching",
@@ -389,8 +389,8 @@
       "kind": "provider-documentation",
       "url": "https://tailscale.com/kb/1022/install-windows",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
     },
     {
       "id": "google-chrome-secure-dns",
@@ -1221,6 +1221,116 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-02",
       "reviewDueAt": "2026-12-02"
+    },
+    {
+      "id": "lazurio-environment-access-model-device-approval",
+      "title": "Lazurio Environment access model: device approval by the Organization Admin in Dashboard, the reviewed fallback and no access before approval (addendum to decision 0192 of 2026-11-01)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/environment-access-model.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "lazurio-device-node-names",
+      "title": "Lazurio operator machine access: names of user device nodes (<login>-<device>) and no renaming of approved devices",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/operator-machine-access.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "headscale-connect-apple",
+      "title": "Headscale: Connect Apple devices (iOS custom coordination server, macOS login)",
+      "publisher": "Headscale project",
+      "kind": "provider-documentation",
+      "url": "https://headscale.net/stable/usage/connect/apple/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "headscale-connect-android",
+      "title": "Headscale: Connect Android devices (alternate server)",
+      "publisher": "Headscale project",
+      "kind": "provider-documentation",
+      "url": "https://headscale.net/stable/usage/connect/android/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "headscale-connect-windows",
+      "title": "Headscale: Connect Windows (tailscale login --login-server)",
+      "publisher": "Headscale project",
+      "kind": "provider-documentation",
+      "url": "https://headscale.net/stable/usage/connect/windows/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-custom-control-server",
+      "title": "Tailscale: Configure Tailscale clients to use a custom control server (macOS, Windows, iOS, Android; last validated 2026-09-21)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/how-to/set-up-custom-control-server",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-cli",
+      "title": "Tailscale CLI: login flags --login-server and --hostname, the CLI on macOS, no CLI on iOS and Android (last validated 2026-07-30)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/reference/tailscale-cli",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-machine-names",
+      "title": "Tailscale: Machine names (derived from the OS hostname, -1 suffix on conflict)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/concepts/machine-names",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-ios",
+      "title": "Tailscale: Install Tailscale on iOS (iOS 15 or later, Get Started, VPN configuration)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/install/ios",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-android",
+      "title": "Tailscale: Install Tailscale on Android (Android 8.0 or later, Get Started, VPN configuration)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/install/android",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-macos",
+      "title": "Tailscale: Install Tailscale on macOS (macOS Ventura 13.0 or later, Standalone and App Store variants)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/install/mac",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
     }
   ]
 }

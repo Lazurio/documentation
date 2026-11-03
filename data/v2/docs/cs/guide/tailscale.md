@@ -4,8 +4,8 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-10-08"
-reviewedAt: "2026-10-08"
+updatedAt: "2026-11-03"
+reviewedAt: "2026-11-03"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -85,8 +85,8 @@ Tailscale**.
    tailnet.
 3. Zapněte přepínač Tailscale.
 
-Když tailnet v seznamu není, zařízení se do něj ještě nepřipojilo. Pokračujte
-částí [Pořád to nejde?](#pořád-to-nejde)
+Když tailnet v seznamu není, zařízení se do něj ještě nepřipojilo. Přidejte ho
+podle návodu [Přidání nového zařízení do tailnetu](/cs/guide/tailscale-add-device/).
 
 ## Víc tailnetů
 
@@ -107,7 +107,9 @@ v tomto pořadí:
 1. **Zařízení v tailnetu není, nebo ještě není schválené.** Když tailnet
    v seznamu účtů chybí, zařízení se do něj nikdy nepřipojilo. Když tam je a je
    aktivní, ale žádné Prostředí Organizace se neotevře, zařízení možná ještě
-   nemá přístup. Požádejte Admina své Organizace, aby ho přidal nebo schválil.
+   nemá přístup. Postupujte podle návodu
+   [Přidání nového zařízení do tailnetu](/cs/guide/tailscale-add-device/)
+   a požádejte Admina své Organizace o schválení.
    Schválený model přístupu Lazuria počítá s tím, že každé zařízení pro každou
    Organizaci schvaluje Admin (rozhodnutí 0192 ze 6. října 2026); jak se
    zařízení do tailnetu dostane dnes, se ale může mezi tailnety ještě lišit.

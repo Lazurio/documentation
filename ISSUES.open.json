@@ -94,6 +94,42 @@
       "decision_needed_for": [
         "the runner image of the verify job"
       ]
+    },
+    {
+      "id": "issue-2026-11-03-001",
+      "title": "Verify device naming and the mobile menu paths in the add-device guide on real iOS and Android clients",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-03",
+      "question": "How does a person set the node name `<login>-<device>` on iOS and Android, and do the current apps still show **Use a custom coordination server** and **Use an alternate server** at the documented place?",
+      "impact": "guide/tailscale-add-device follows the Tailscale custom control server page (validated 2026-09-21) and the Headscale connect pages; neither documents setting a device name on iOS or Android, and both apps lack a CLI. Headscale's Android page describes a different menu path (Settings → Accounts) than Tailscale's. The guide therefore asks people to tell the Admin the wanted name, and does not yet say how an Admin renames a generic mobile node within the reviewed approval.",
+      "options": [
+        "Test both apps on current versions against a Lazurio Headscale and update the steps with screenshots.",
+        "Document the Admin-side rename once the Dashboard approval supports a name."
+      ],
+      "decision_needed_for": [
+        "the iPhone, iPad and Android sections and Admin check 3 of guide/tailscale-add-device"
+      ]
+    },
+    {
+      "id": "issue-2026-11-03-002",
+      "title": "Confirm that Dashboard shows the login server address and the device approval before the add-device guide is published",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-03",
+      "question": "Does the released Dashboard show a person their Organization's Headscale login server address, and does an Admin approve waiting devices there (today through a reviewed batch change)?",
+      "impact": "guide/tailscale-add-device tells readers that Dashboard shows the exact address and that Admins approve devices in Dashboard. Both are being built separately; the public access model documents the approval service as the target with a reviewed change as fallback.",
+      "options": [
+        "Publish after the Dashboard change ships and re-read it.",
+        "Publish now with the Admin as the source of the address, and add Dashboard once it ships."
+      ],
+      "decision_needed_for": [
+        "the publication of guide/tailscale-add-device"
+      ]
     }
   ]
 }
