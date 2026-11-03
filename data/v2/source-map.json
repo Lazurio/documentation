@@ -1263,31 +1263,11 @@
       "reviewDueAt": "2026-12-03"
     },
     {
-      "id": "headscale-connect-windows",
-      "title": "Headscale: Connect Windows (tailscale login --login-server)",
-      "publisher": "Headscale project",
-      "kind": "provider-documentation",
-      "url": "https://headscale.net/stable/usage/connect/windows/",
-      "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-03",
-      "reviewDueAt": "2026-12-03"
-    },
-    {
       "id": "tailscale-custom-control-server",
       "title": "Tailscale: Configure Tailscale clients to use a custom control server (macOS, Windows, iOS, Android; last validated 2026-09-21)",
       "publisher": "Tailscale",
       "kind": "provider-documentation",
       "url": "https://tailscale.com/docs/how-to/set-up-custom-control-server",
-      "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-03",
-      "reviewDueAt": "2026-12-03"
-    },
-    {
-      "id": "tailscale-cli",
-      "title": "Tailscale CLI: login flags --login-server and --hostname, the CLI on macOS, no CLI on iOS and Android (last validated 2026-07-30)",
-      "publisher": "Tailscale",
-      "kind": "provider-documentation",
-      "url": "https://tailscale.com/docs/reference/tailscale-cli",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-03",
       "reviewDueAt": "2026-12-03"
@@ -1328,6 +1308,26 @@
       "publisher": "Tailscale",
       "kind": "provider-documentation",
       "url": "https://tailscale.com/docs/install/mac",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-system-policies",
+      "title": "Tailscale: Customize Tailscale using system policies (LoginURL and Hostname; mobile hostnames usually only name the manufacturer and model; last validated 2026-09-29)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/features/tailscale-system-policies",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-android-package",
+      "title": "Tailscale for Android 1.104.5, official package from Tailscale's package server (tailscale-android-universal-1.104.5.apk, SHA-256 a517f94006b90a9dbd7383221cbd05ff4acf5ea680335b9b0318e3fbf086d4c9), run without an account on Android 16 in an emulator on 2026-11-03 for the Guide screenshots",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://pkgs.tailscale.com/stable/#android",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-03",
       "reviewDueAt": "2026-12-03"

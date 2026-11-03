@@ -97,20 +97,21 @@
     },
     {
       "id": "issue-2026-11-03-001",
-      "title": "Verify device naming and the mobile menu paths in the add-device guide on real iOS and Android clients",
+      "title": "Give people a clickable way to name a new device, and let the Admin set the name at approval",
       "status": "open",
       "severity": "medium",
       "owner": "matejsuchanek",
       "created_at": "2026-11-03",
       "updated_at": "2026-11-03",
-      "question": "How does a person set the node name `<login>-<device>` on iOS and Android, and do the current apps still show **Use a custom coordination server** and **Use an alternate server** at the documented place?",
-      "impact": "guide/tailscale-add-device follows the Tailscale custom control server page (validated 2026-09-21) and the Headscale connect pages; neither documents setting a device name on iOS or Android, and both apps lack a CLI. Headscale's Android page describes a different menu path (Settings → Accounts) than Tailscale's. The guide therefore asks people to tell the Admin the wanted name, and does not yet say how an Admin renames a generic mobile node within the reviewed approval.",
+      "question": "How does a device get its `<login>-<device>` name when no person-facing step may use a command line?",
+      "impact": "Tailscale names a node after the system hostname; on phones that is usually only the manufacturer or model. Tailscale for Android 1.104.5 has no name setting (checked in the app on 2026-11-03), and Tailscale documents no clickable name setting for iOS, macOS or Windows; the only documented ways are the CLI flag and the Hostname system policy. guide/tailscale-add-device therefore asks people to tell the Admin the wanted name and says the guide does not yet describe how the Admin sets it.",
       "options": [
-        "Test both apps on current versions against a Lazurio Headscale and update the steps with screenshots.",
-        "Document the Admin-side rename once the Dashboard approval supports a name."
+        "Proposed: the Admin types the agreed name in Dashboard when approving, and the approval sets it on the node; until then the system name stays.",
+        "Proposed: Dashboard offers a personal settings file (an Apple configuration profile on macOS, a registry file on Windows) with LoginURL and Hostname, opened by double-click. Needs verification that the policies apply with Headscale and do not lock the device to one tailnet.",
+        "Accept the system name and show the owner and device kind next to it in Dashboard."
       ],
       "decision_needed_for": [
-        "the iPhone, iPad and Android sections and Admin check 3 of guide/tailscale-add-device"
+        "the Device name section and Admin check 3 of guide/tailscale-add-device"
       ]
     },
     {
@@ -129,6 +130,43 @@
       ],
       "decision_needed_for": [
         "the publication of guide/tailscale-add-device"
+      ]
+    },
+    {
+      "id": "issue-2026-11-03-003",
+      "title": "Windows has no clickable way to enter the Organization's login server",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-03",
+      "question": "How does a person on Windows join their Organization's tailnet without a command line?",
+      "impact": "Tailscale's documentation says the Windows app cannot add a custom control server in its interface; the documented alternatives are the CLI and the LoginURL registry value. The guide now tells Windows users to ask their Admin for help, which does not scale.",
+      "options": [
+        "Proposed: Dashboard offers a ready registry file with LoginURL (and Hostname) for the person's Organization, applied by double-click and confirmed by Windows.",
+        "Proposed: Lazurio provides a small signed installer that installs Tailscale with the Organization's LoginURL.",
+        "Keep the Admin-assisted step."
+      ],
+      "decision_needed_for": [
+        "the Windows section of guide/tailscale-add-device"
+      ]
+    },
+    {
+      "id": "issue-2026-11-03-004",
+      "title": "Add own screenshots for iPhone and macOS to the add-device guide",
+      "status": "open",
+      "severity": "low",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-03",
+      "question": "Where can the iPhone and macOS steps be photographed without a signed-in account and without personal data on screen?",
+      "impact": "The Android steps have own screenshots from Tailscale 1.104.5. iPhone and macOS have none: Tailscale's documentation images carry no licence that allows reuse, so the guide links to them, and the available Mac is a personal machine whose screen may show private data. The macOS Option-click path (Debug → Custom Login Server → Add Account…) comes from the Headscale documentation and is unverified in the current app.",
+      "options": [
+        "Take them on a test iPhone and a test Mac with no Tailscale account.",
+        "Have the reviewer take them on their own devices, cropped to the Tailscale window, before publication."
+      ],
+      "decision_needed_for": [
+        "the iPhone and macOS sections of guide/tailscale-add-device"
       ]
     }
   ]
