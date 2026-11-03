@@ -90,7 +90,7 @@ server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
 2. Open it. Android asks whether Tailscale may set up a VPN connection. Tap
    **OK**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-1-vpn.png" alt="Connection request dialog: Tailscale wants to set up a VPN connection. The OK button is highlighted." width="540" height="470" loading="lazy" />
      <figcaption>Allow the VPN connection. This does not connect you to any network yet.</figcaption>
    </figure>
@@ -98,27 +98,27 @@ server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
 3. Do not tap the large **Log in** button: it leads to Tailscale's own
    server. Tap the gear at the top right.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-2-settings.png" alt="Tailscale welcome screen with the Log in button. The gear at the top right is highlighted." width="540" height="785" loading="lazy" />
      <figcaption>Open settings with the gear, not with the Log in button.</figcaption>
    </figure>
 
 4. In settings, tap **Accounts**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-3-accounts.png" alt="Tailscale settings. The Accounts item at the top is highlighted." width="540" height="485" loading="lazy" />
    </figure>
 
 5. Tap the three dots at the top right and choose **Use an alternate server**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-4-alternate-server.png" alt="Accounts screen with its menu open. The item Use an alternate server is highlighted." width="540" height="385" loading="lazy" />
    </figure>
 
 6. In **Custom control server URL**, enter your Organization's login server
    address and tap **Add account**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-5-address.png" alt="Add another account screen with the field Custom control server URL containing the example address https://headscale.example.lazurio.io, and the Add account button." width="540" height="485" loading="lazy" />
      <figcaption>The picture shows an example address. Enter your Organization's address.</figcaption>
    </figure>

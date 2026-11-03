@@ -89,7 +89,7 @@ server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
 2. Otevřete ji. Android se zeptá, jestli Tailscale smí nastavit připojení VPN.
    Klepněte na **OK**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-1-vpn.png" alt="Dialog Connection request: Tailscale chce nastavit připojení VPN. Tlačítko OK je zvýrazněné." width="540" height="470" loading="lazy" />
      <figcaption>Povolte připojení VPN. Tím se zatím k žádné síti nepřipojíte.</figcaption>
    </figure>
@@ -97,27 +97,27 @@ server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
 3. Neklepejte na velké tlačítko **Log in**: vede na server společnosti
    Tailscale. Klepněte na ozubené kolo vpravo nahoře.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-2-settings.png" alt="Úvodní obrazovka Tailscale s tlačítkem Log in. Ozubené kolo vpravo nahoře je zvýrazněné." width="540" height="785" loading="lazy" />
      <figcaption>Nastavení otevřete ozubeným kolem, ne tlačítkem Log in.</figcaption>
    </figure>
 
 4. V nastavení klepněte na **Accounts**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-3-accounts.png" alt="Nastavení Tailscale. Položka Accounts nahoře je zvýrazněná." width="540" height="485" loading="lazy" />
    </figure>
 
 5. Vpravo nahoře klepněte na tři tečky a zvolte **Use an alternate server**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-4-alternate-server.png" alt="Obrazovka Accounts s otevřenou nabídkou. Položka Use an alternate server je zvýrazněná." width="540" height="385" loading="lazy" />
    </figure>
 
 6. Do pole **Custom control server URL** zadejte adresu přihlašovacího
    serveru Organizace a klepněte na **Add account**.
 
-   <figure>
+   <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-5-address.png" alt="Obrazovka Add another account s polem Custom control server URL, ve kterém je ukázková adresa https://headscale.example.lazurio.io, a tlačítkem Add account." width="540" height="485" loading="lazy" />
      <figcaption>Na obrázku je ukázková adresa. Zadejte adresu své Organizace.</figcaption>
    </figure>
