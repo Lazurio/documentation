@@ -134,53 +134,53 @@
     },
     {
       "id": "microsoft-copilot-architecture",
-      "title": "Microsoft Copilot architecture and how it works",
+      "title": "Microsoft Learn: What is Microsoft Copilot? (service tiers; Premium grounds in Microsoft Graph and Work IQ, Copilot Chat and Basic in web data; renamed from Microsoft 365 Copilot)",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
-      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture",
+      "url": "https://learn.microsoft.com/en-us/copilot/plan/copilot-overview",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-10-04",
-      "reviewDueAt": "2026-11-04"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "microsoft-copilot-data-protection",
-      "title": "How data is protected and audited in Microsoft 365 and Microsoft Copilot",
+      "title": "Microsoft Learn: Microsoft Copilot data protection architecture (Microsoft 365 service boundary, sensitivity labels and encryption, audit records)",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
-      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing",
+      "url": "https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-10-04",
-      "reviewDueAt": "2026-11-04"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "microsoft-copilot-privacy",
-      "title": "Data, privacy, and security for Microsoft Copilot",
+      "title": "Microsoft Learn: Data, Privacy, and Security for Microsoft Copilot (no training on prompts, responses or Graph data; stored interactions; Purview; agent terms; third-party models)",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
-      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy",
+      "url": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-10-04",
-      "reviewDueAt": "2026-11-04"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "microsoft-copilot-requirements",
-      "title": "Microsoft Copilot requirements",
+      "title": "Microsoft Learn: Microsoft Copilot requirements (prerequisite and Copilot licenses, Entra ID accounts, Exchange Online for mailbox grounding, *.cloud.microsoft, recommended SharePoint Advanced Management and Purview)",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
-      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements",
+      "url": "https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-10-04",
-      "reviewDueAt": "2026-11-04"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "microsoft-copilot-extensibility",
-      "title": "Extending Microsoft 365 Copilot with plugins",
+      "title": "Microsoft Learn: What is a Microsoft 365 Copilot plugin? (declarative agents and skills, configuration or references for connectors and remote MCP servers; publish, share and govern)",
       "publisher": "Microsoft Learn",
       "kind": "provider-documentation",
-      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/",
+      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-10-04",
-      "reviewDueAt": "2026-11-04"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "wispr-context-privacy",

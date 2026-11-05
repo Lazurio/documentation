@@ -50,11 +50,11 @@ legal translation.
 
 ## Microsoft provider documentation
 
-- [Microsoft Copilot architecture](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
-- [Data protection and auditing](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing)
-- [Data, privacy, and security](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
-- [Requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements)
-- [Extensibility with plugins](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
+- [Microsoft Copilot overview](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
+- [Data protection and auditing](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing)
+- [Data, privacy, and security](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy)
+- [Requirements](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements)
+- [Copilot plugins](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview)
 
 ## Review contract
 

@@ -43,11 +43,11 @@ ověření najdete v mapě zdrojů. Jazyková úprava stránky sama toto datum n
 
 ## Dokumentace Microsoftu
 
-- [Architektura Microsoft Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
-- [Ochrana dat a audit](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing)
-- [Data, soukromí a bezpečnost](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
-- [Technické požadavky](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements)
-- [Rozšíření pomocí pluginů](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/)
+- [Přehled Microsoft Copilotu](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
+- [Ochrana dat a audit](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing)
+- [Data, soukromí a bezpečnost](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy)
+- [Technické požadavky](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements)
+- [Pluginy Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview)
 
 ## Kontrola aktuálnosti
 

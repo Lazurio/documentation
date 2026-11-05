@@ -4,8 +4,8 @@ description: "Porovnejte účel, přístupy a nároky na správu obou řešení.
 stableId: lazurio-doc-copilot-comparison
 locale: cs
 summary: "Porovnejte účel, přístupy a nároky na správu obou řešení."
-updatedAt: "2026-10-04"
-reviewedAt: "2026-10-04"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -46,19 +46,20 @@ zdrojů; závěry a doporučení jsou naším hodnocením.
 | Oblast | Microsoft Copilot | Lazurio |
 | --- | --- | --- |
 | Hlavní účel | Pomoc s prací v aplikacích a službách Microsoft 365. | Řízená práce lidí a AI agentů nad verzovanými firemními podklady a nástroji. |
-| Běžně dostupný kontext | Microsoft Graph a obsah Microsoft 365, ke kterému má uživatel oprávnění; další zdroje lze připojit pomocí agentů a konektorů. | Vybrané repozitáře Organizace, lokální pracovní prostředí a jednotlivě schválené externí nástroje. |
+| Běžně dostupný kontext | S licencí Microsoft Copilot (Premium) Microsoft Graph a obsah Microsoft 365, ke kterému má uživatel oprávnění; Copilot Chat a úroveň Basic vycházejí z dat z webu. Další zdroje lze připojit pomocí agentů a konektorů. | Vybrané repozitáře Organizace, lokální pracovní prostředí a jednotlivě schválené externí nástroje. |
 | Oprávnění | Vycházejí z identity a oprávnění přihlášeného uživatele v Microsoft 365 a z pravidel služby. | Vycházejí z oprávnění přihlášeného Principála v GitHubu a dalších systémech. Samotné zadání žádná práva neuděluje. |
 | Typický výstup | Odpověď, souhrn, návrh nebo akce v aplikacích Microsoftu a v prostředích Copilotu. | Zkontrolovatelná změna, plán, znalostní podklad, aplikace nebo akce připravená k výslovnému schválení. |
 | Správa | Cloudová služba spravovaná Microsoftem, doplněná o licence, Entra, Purview a administraci Microsoft 365. | Git repozitáře vlastněné Organizací, její zařízení, pravidla Modulů a samostatná správa každého připojeného poskytovatele. |
-| Rozšíření | Pluginy, které spojují deklarativní agenty, dovednosti (skills), konektory Copilotu a MCP servery. | Workspace Moduly, připravené role pro agenty, MCP servery, oficiální nástroje příkazové řádky a řízené postupy v prohlížeči. |
+| Rozšíření | Pluginy: instalovatelné balíčky s deklarativními agenty a dovednostmi (skills) a s konfigurací nebo odkazy na konektory Copilotu a MCP servery. | Workspace Moduly, připravené role pro agenty, MCP servery, oficiální nástroje příkazové řádky a řízené postupy v prohlížeči. |
 | Nasazení | Cloudová služba Microsoftu s publikovanými požadavky na tenant. | Konkrétní podobu nasazení volí každá Organizace. Veřejně popsaný model vychází z lokálních repozitářů a samostatně nasazovaných Modulů. |
 | Kdy dává největší smysl | Když je většina kancelářské a znalostní práce soustředěná v Microsoft 365. | Když práce prochází více repozitáři nebo nástroji a má zůstat verzovaná, testovatelná a výslovně schvalovaná. |
 
-Microsoft uvádí, že Copilot pracuje uvnitř hranice služby Microsoft 365,
-využívá Microsoft Graph a uživateli zpřístupňuje jen data, ke kterým má daný
-uživatel oprávnění. Podrobnosti najdete v [přehledu architektury Microsoft
-365 Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
-a na stránce věnované [ochraně dat a auditu](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing).
+Microsoft uvádí, že Copilot pracuje uvnitř hranice služby Microsoft 365
+a zpřístupňuje jen firemní data, ke kterým má uživatel aspoň oprávnění ke
+čtení. Úroveň Premium z nich vychází přes Microsoft Graph; Copilot Chat
+a úroveň Basic vycházejí z dat z webu a Microsoft Graph použít nemohou.
+Podrobnosti najdete v [přehledu Microsoft Copilotu](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
+a na stránce věnované [ochraně dat a auditu](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing).
 
 Veřejná pravidla Lazuria určují GitHub jako autoritu pro přístup k
 repozitářům, oddělují jednotlivé Organizace a považují výstup agenta za návrh,
@@ -73,7 +74,7 @@ Copilot. Zároveň popisuje ukládání historie interakcí, možnosti správy p
 Microsoft Purview, potřebu ověřit podmínky používaných agentů a další
 podmínky, které mohou platit, když správce zapne modely třetích stran,
 například od Anthropicu nebo OpenAI. Přesné a aktuální podmínky jsou uvedené
-v dokumentaci Microsoftu k [ochraně soukromí a bezpečnosti](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy).
+v dokumentaci Microsoftu k [ochraně soukromí a bezpečnosti](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy).
 
 U Lazuria nelze stejné tvrzení vztáhnout na všechny instalace, protože není
 vázané na jediný účet ani jediného poskytovatele AI. Datové toky závisejí na
@@ -89,7 +90,7 @@ poštovní schránku v Exchange Online pro funkce pracující s poštou a síťo
 přístup k doméně `*.cloud.microsoft`. Důrazně doporučuje bezpečně spravovaný
 základ dat, který se nastavuje pomocí SharePoint Advanced Management
 a Microsoft Purview. Aktuální seznam uvádí stránka s [požadavky Microsoft
-Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements).
+Copilotu](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements).
 
 U Lazuria musí organizace spravovat vlastní strukturu v GitHubu, požadavky na
 koncová zařízení, zvoleného poskytovatele AI, pravidla repozitářů a zapnuté
@@ -98,9 +99,11 @@ výsledků, ale více provozních rozhodnutí zůstává na ní.
 
 ## Rozšiřitelnost
 
-Microsoft Copilot se rozšiřuje pomocí pluginů. Plugin spojí deklarativní
-agenty, dovednosti (skills), konektory Copilotu a MCP servery do jednoho
-balíčku, který se pak zveřejňuje a spravuje. Postup popisuje [dokumentace k rozšiřitelnosti](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/).
+Microsoft Copilot se rozšiřuje pomocí pluginů. Plugin je instalovatelný
+balíček, který může obsahovat deklarativní agenty a dovednosti (skills)
+a k nim konfiguraci nebo odkazy na konektory Copilotu a vzdálené MCP servery,
+které běží zvlášť. Pak se zveřejní nebo sdílí a zpřístupní pod správou.
+Postup popisuje [přehled pluginů](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview).
 Tato cesta se hodí pro postupy spravované v produktech Microsoftu.
 
 Lazurio se rozšiřuje pomocí Workspace Modulů a samostatně vymezených integrací.

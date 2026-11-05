@@ -4,8 +4,8 @@ description: "Compare the work, access and administration each tool requires."
 stableId: lazurio-doc-copilot-comparison
 locale: en
 summary: "Compare the work, access and administration each tool requires."
-updatedAt: "2026-10-04"
-reviewedAt: "2026-10-04"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -46,18 +46,20 @@ recommendations are our assessment.
 | Decision area | Microsoft Copilot | Lazurio |
 | --- | --- | --- |
 | Primary purpose | AI assistance inside the Microsoft 365 productivity environment. | Prepare, review and approve versioned work across repositories and tools. |
-| Natural context | Microsoft Graph and the user's permitted Microsoft 365 content, plus configured agents and connectors. | Selected Organization repositories, local workspace context and individually approved external tools. |
+| Natural context | With a Microsoft Copilot (Premium) license, Microsoft Graph and the user's permitted Microsoft 365 content; Copilot Chat and the Basic tier ground in web data. Plus configured agents and connectors. | Selected Organization repositories, local workspace context and individually approved external tools. |
 | Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in principal's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
 | Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Changes, plans, reference material and app actions prepared for review and approval. |
 | Administration | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, devices, module requirements and each provider's administration. |
-| Extensibility | Plugins that bring together declarative agents, skills, Copilot connectors and MCP servers. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
+| Extensibility | Plugins: installable packages with declarative agents and skills, plus configuration or references for Copilot connectors and MCP servers. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
 | Deployment | Microsoft-managed cloud service with published tenant requirements. | Framework and module deployment chosen per Organization; current public model begins with local checkouts and independently deployed modules. |
 | Best fit | Productivity and knowledge work already centered on Microsoft 365. | Work across repositories or tools that needs version history, tests and explicit approval. |
 
-Microsoft documents that Copilot works within the Microsoft 365 service
-boundary, uses Microsoft Graph and only presents data a user is authorized to
-access. See Microsoft's [architecture overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture)
-and [data protection and auditing](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-architecture-data-protection-auditing).
+Microsoft documents that Copilot operates within the Microsoft 365 service
+boundary and only surfaces organizational data to which the user has at least
+view permission. The Premium tier grounds answers in that data through
+Microsoft Graph; Copilot Chat and the Basic tier ground in web data and cannot
+use Microsoft Graph. See Microsoft's [Copilot overview](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
+and [data protection and auditing](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing).
 
 Lazurio's public source defines GitHub as the access authority for repository
 work, separates Organizations, and treats agent output as a draft until an
@@ -71,7 +73,7 @@ Graph are not used to train foundation models, including those used by
 Microsoft Copilot. It also documents stored interaction history, Purview
 controls, the need to check the terms of agents and the additional terms that
 may apply when an administrator enables third-party AI models, such as
-Anthropic or OpenAI models. Read the current [Microsoft privacy and security statement](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-privacy)
+Anthropic or OpenAI models. Read the current [Microsoft privacy and security statement](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy)
 for the exact product and tenant terms.
 
 Lazurio cannot give one equivalent model-provider statement because it is not
@@ -84,7 +86,7 @@ subscription with a Microsoft Copilot license, Microsoft Entra ID work
 accounts, an Exchange Online mailbox for mailbox-grounded experiences and
 network access to the `*.cloud.microsoft` domain. It strongly recommends a
 secure and governed data foundation built with SharePoint Advanced Management
-and Microsoft Purview. See the current [Microsoft requirements](https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-copilot-requirements).
+and Microsoft Purview. See the current [Microsoft requirements](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements).
 
 Lazurio instead requires the organization to own its GitHub structure,
 endpoint baseline, execution provider, repository rules and enabled
@@ -94,9 +96,11 @@ organization.
 
 ## Extending the tools
 
-Microsoft Copilot is extended through plugins. A plugin brings declarative
-agents, skills, Copilot connectors and MCP servers together in one package
-that is then published and governed, as described in Microsoft's [extensibility documentation](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/).
+Microsoft Copilot is extended through plugins. A plugin is an installable
+package that can include declarative agents and skills, with configuration or
+references for Copilot connectors and remote MCP servers that run separately.
+It is then published or shared and made available under governance, as
+described in Microsoft's [plugin overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview).
 Use this route for workflows managed within Microsoft's products.
 
 Lazurio extensions are workspace modules and scoped tool integrations. The
