@@ -1404,10 +1404,10 @@
     },
     {
       "id": "lazurio-decision-0230-request",
-      "title": "Decision 0230 as recorded for the register: people ask the Organization Admin through Lazurio, and the interim request as an issue in the root repository",
+      "title": "Decision 0230 in the register: people ask the Organization Admin through Lazurio, and the interim request as an issue in the root repository",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/afc4636773f358f246e6727d7119db0f3be6737e/docs/decision-register.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5348a7c0fd8e71fe11c5b3e5a3744f9e82fa5341/docs/decision-register.md",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-05",
       "reviewDueAt": "2026-12-05"
