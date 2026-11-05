@@ -27,7 +27,7 @@ assert.deepEqual([...new Set(sidebarRoutes)].sort(), guideRoutes, 'Guide sidebar
 const assets = new Set()
 for (const { markdown } of guideDocuments) {
   const links = [
-    ...Array.from(markdown.matchAll(/(?:src|href)\s*=\s*["'](\/[^"'#?]+)(?:[?#][^"']*)?["']/gu), (match) => match[1]),
+    ...Array.from(markdown.matchAll(/(?:src|href|poster)\s*=\s*["'](\/[^"'#?]+)(?:[?#][^"']*)?["']/gu), (match) => match[1]),
     ...Array.from(markdown.matchAll(/\[[^\]]*\]\((\/[^)\s?#]+)(?:[?#][^)\s]*)?\)/gu), (match) => match[1]),
   ]
   for (const link of links) {
