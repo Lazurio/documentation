@@ -170,6 +170,26 @@
       "decision_needed_for": [
         "the iPhone and macOS sections of guide/tailscale-add-device"
       ]
+    },
+    {
+      "id": "issue-2026-11-05-001",
+      "title": "Update the app connections page and one Tailscale sentence so that nine expired sources can be renewed",
+      "status": "open",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-05",
+      "updated_at": "2026-11-05",
+      "question": "Who updates environment-app-connections (en, cs) to today's product, and the sentence of guide/tailscale that says the apps of a Remote Environment work only inside a tailnet?",
+      "impact": "The re-verification of 2026-11-05 renewed 12 of the 21 sources due by 2026-11-08. Nine no longer support their pages, so their review windows were not moved: eight of environment-app-connections, due 2026-11-06, and lazurio-environment-network-decisions of guide/tailscale, due 2026-11-08. The content check therefore fails every pull request from 2026-11-07 until the pages change. What changed: decision 0162 gained eight addenda from 2026-10-08 to 2026-10-27 (Integrations, one own Composio organization per Organization, a team account on a Team Environment, ChatGPT apps off by default); decision 0175 replaced operator with user on 2026-10-21; the catalog gained executor and bitwarden and no longer offers gogcli on a work Remote Environment; the Launchpad now sets the Organization's Composio organization itself; LazurioPlatform issues 40 and 45 hold answers from 2026-10-07 that the page still calls open; decisions 0146 and 0154 were amended by decision 0213, so an Organization in public DNS mode reaches its Environments without a tailnet.",
+      "options": [
+        "Update both pages in one reviewed pull request, re-pin the nine sources to the public decision register and the current LazurioPlatform documents, and renew them. Recommended: it is the only way the page stays true.",
+        "Keep the sources expired and accept that no documentation pull request passes the check until the pages are updated."
+      ],
+      "decision_needed_for": [
+        "environment-app-connections (en, cs)",
+        "the section Why Tailscale of guide/tailscale (en, cs)",
+        "every documentation pull request after 2026-11-06"
+      ]
     }
   ]
 }
