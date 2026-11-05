@@ -29,13 +29,12 @@ Admin, or your Organization's own rules, tell you how it works in yours.
 
 ## What you do
 
-Register the device yourself: sign in to your Organization's tailnet in the
-Tailscale app with your Lazurio account, as the Tailscale guide describes.
-
-Registration alone does not guarantee access. If the Environment's address
-still does not open, the device may not have access yet. Ask the Admin to
-approve or add it, and say which device it is and its name in Tailscale: see
-[How to ask the Admin](/en/guide/ask-the-admin/).
+[Add a new device to the tailnet](/en/guide/tailscale-add-device/) walks you
+through it: installing Tailscale, signing in with your Lazurio account, how
+to tell waiting from approved, and [what to send your
+Admin](/en/guide/tailscale-add-device/#ask-your-admin-for-approval).
+Registration alone does not guarantee access; if the Environment's address
+still does not open, ask the Admin as that guide says.
 
 ## When you need no device in the tailnet
 
@@ -58,11 +57,8 @@ device yourself (decision 0192). Until Lazurio offers that, the Admin does it.
 
 ## For the Admin
 
-- Approve a specific device by its record in the tailnet (node, key, owner),
-  never by its name alone. A name can be changed and proves nothing.
-- Approving a device for the Organization's Environments opens nothing in a
-  person's Personal Environment.
-- In the target model you approve and remove devices with a click in the
-  Organization's Dashboard. Until then the path depends on your Organization.
-  Where it is in place, it is a reviewed change to the Organization's server
-  configuration. Your Organization's rules say which path applies.
+How to approve a device today, what to check first and the target in the
+Dashboard are in [For the Organization's
+Admin](/en/guide/tailscale-add-device/#for-the-organizations-admin).
+Approving a device for the Organization's Environments opens nothing in a
+person's Personal Environment.

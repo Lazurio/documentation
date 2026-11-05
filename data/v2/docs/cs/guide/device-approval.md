@@ -29,13 +29,12 @@ váš Admin nebo pravidla vaší Organizace.
 
 ## Co uděláte vy
 
-Zařízení zaregistrujete sami: v aplikaci Tailscale se svým Lazurio účtem
-přihlásíte do tailnetu své Organizace, jak popisuje průvodce Tailscale.
-
-Samotná registrace přístup nezaručuje. Když se adresa Prostředí pořád
-neotevře, zařízení možná přístup ještě nemá. Požádejte Admina, ať ho schválí
-nebo přidá, a napište, o jaké zařízení jde a jak se jmenuje v Tailscale; viz
-[Jak požádat Admina](/cs/guide/ask-the-admin/).
+Postup najdete v návodu [Přidání nového zařízení do
+tailnetu](/cs/guide/tailscale-add-device/): instalace Tailscale, přihlášení
+Lazurio účtem, jak poznáte, že zařízení čeká nebo je schválené,
+a [co poslat Adminovi](/cs/guide/tailscale-add-device/#požádejte-admina-o-schválení).
+Samotná registrace přístup nezaručuje; když se adresa Prostředí pořád
+neotevře, požádejte Admina podle tohoto návodu.
 
 ## Kdy zařízení v tailnetu nepotřebujete
 
@@ -58,11 +57,7 @@ odebrat i sami (rozhodnutí 0192). Dokud to Lazurio nenabízí, dělá to Admin.
 
 ## Pro Admina
 
-- Schvalujte konkrétní zařízení podle jeho záznamu v tailnetu (uzel, klíč,
-  vlastník), nikdy jen podle jména. Jméno jde změnit a nic nedokazuje.
-- Schválení zařízení pro Prostředí Organizace neotevírá nic v Osobním
-  Prostředí člověka.
-- V cílovém modelu zařízení schvalujete a odebíráte kliknutím v Přehledu
-  Organizace. Do té doby záleží cesta na vaší Organizaci. Kde už platí, je to
-  reviewovaná úprava serverového nastavení Organizace. Která cesta platí, říkají
-  pravidla vaší Organizace.
+Jak zařízení dnes schválit, co předtím ověřit a jaký je cíl v Přehledu
+Organizace, popisuje [Pro Admina
+Organizace](/cs/guide/tailscale-add-device/#pro-admina-organizace). Schválení
+zařízení pro Prostředí Organizace neotevírá nic v Osobním Prostředí člověka.

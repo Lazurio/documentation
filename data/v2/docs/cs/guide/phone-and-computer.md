@@ -76,5 +76,6 @@ kde je SSH do Prostředí povolené, nikdy v Organizaci s veřejnými adresami.
 
 Pokud vaše Organizace vstupuje do svých Prostředí přes tailnet, potřebuje
 počítač, který se takto připojuje, ještě Tailscale a přístup, který vaše
-Organizace vyžaduje; viz [Schválení zařízení](/cs/guide/device-approval/)
-a [Připojení přes Tailscale](/cs/guide/tailscale/).
+Organizace vyžaduje; viz [Přidání nového zařízení do
+tailnetu](/cs/guide/tailscale-add-device/) a [Schválení
+zařízení](/cs/guide/device-approval/).

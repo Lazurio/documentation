@@ -78,5 +78,5 @@ Organization with public addresses.
 
 If your Organization reaches its Environments through a tailnet, a computer
 that connects to it also needs Tailscale and the access your Organization
-requires: see [Device approval](/en/guide/device-approval/) and [Reach an
-Environment through Tailscale](/en/guide/tailscale/).
+requires: see [Add a new device to the tailnet](/en/guide/tailscale-add-device/)
+and [Device approval](/en/guide/device-approval/).
