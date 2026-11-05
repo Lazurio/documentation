@@ -51,7 +51,7 @@ is Lazurio's target under decision 0192; the transition is not complete.
 
 | Item | Required state | What enforces it |
 | --- | --- | --- |
-| GitHub Organization | One per Lazurio Organization. Its Owners appoint the Organization's Admins; until the Admin role in Lazurio is deployed (decision 0228), the Organization's active Owners are its Admins. | GitHub |
+| GitHub Organization | One per Lazurio Organization. Today its active Owners are the Organization's Admins. As the target, its Owners appoint the Admins as a role of Lazurio (decision 0228, not yet deployed). | Today GitHub's Owner role; the target Admin role will be held by Lazurio Auth (decision 0228, not yet deployed) |
 | Root repository | The Organization's root repository on `main`, by convention `<login>/<login>_GEN3`, with the manifest `lazurio.organization.json`. | Lazurio reads it; GitHub controls access |
 | Lazurio for GitHub | An Organization Owner installs the app with access to **All repositories**. "Only select repositories" is a supported exception; it must include the root and every repository Lazurio serves, and it is never presented as the full Organization. | GitHub installation scope |
 | Base repository permission | `none` (API `default_repository_permission`). Membership alone opens no private repository. | GitHub |

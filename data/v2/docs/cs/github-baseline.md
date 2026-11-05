@@ -51,7 +51,7 @@ vstupu je cílem rozhodnutí 0192; přechod na něj zatím není dokončený.
 
 | Položka | Požadovaný stav | Co ho vynucuje |
 | --- | --- | --- |
-| GitHub Organization | Jedna pro každou Organizaci v Lazuriu. Její Owneři jmenují Adminy Organizace; dokud role Admina v Lazuriu není nasazená (rozhodnutí 0228), jsou Admini Organizace její aktivní Owneři. | GitHub |
+| GitHub Organization | Jedna pro každou Organizaci v Lazuriu. Dnes jsou Admini Organizace její aktivní Owneři. Cílově Owneři jmenují Adminy jako roli Lazuria (rozhodnutí 0228, zatím nenasazené). | Dnes role Owner v GitHubu; cílovou roli Admina bude držet Lazurio Auth (rozhodnutí 0228, zatím nenasazené) |
 | Kořenový repozitář | Kořenový repozitář Organizace na `main`, podle konvence `<login>/<login>_GEN3`, s manifestem `lazurio.organization.json`. | Lazurio ho čte, přístup řídí GitHub |
 | Lazurio for GitHub | Owner Organizace aplikaci nainstaluje s přístupem ke **All repositories**. „Only select repositories“ je podporovaná výjimka; musí zahrnout kořenový repozitář a každý repozitář, který Lazurio obsluhuje, a nikdy se nevydává za celou Organizaci. | Rozsah instalace v GitHubu |
 | Výchozí oprávnění k repozitářům | `none` (v API `default_repository_permission`). Samotné členství neotevře žádný soukromý repozitář. | GitHub |
