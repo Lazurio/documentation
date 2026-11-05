@@ -94,6 +94,82 @@
       "decision_needed_for": [
         "the runner image of the verify job"
       ]
+    },
+    {
+      "id": "issue-2026-11-03-001",
+      "title": "Give people a clickable way to name a new device, and let the Admin set the name at approval",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-03",
+      "question": "How does a device get its `<login>-<device>` name when no person-facing step may use a command line?",
+      "impact": "Tailscale names a node after the system hostname; on phones that is usually only the manufacturer or model. Tailscale for Android 1.104.5 has no name setting (checked in the app on 2026-11-03), and Tailscale documents no clickable name setting for iOS, macOS or Windows; the only documented ways are the CLI flag and the Hostname system policy. guide/tailscale-add-device therefore asks people to tell the Admin the wanted name and says the guide does not yet describe how the Admin sets it.",
+      "options": [
+        "Proposed: the Admin types the agreed name in Dashboard when approving, and the approval sets it on the node; until then the system name stays.",
+        "Proposed: Dashboard offers a personal settings file (an Apple configuration profile on macOS, a registry file on Windows) with LoginURL and Hostname, opened by double-click. Needs verification that the policies apply with Headscale and do not lock the device to one tailnet.",
+        "Accept the system name and show the owner and device kind next to it in Dashboard."
+      ],
+      "decision_needed_for": [
+        "the Device name section and Admin check 3 of guide/tailscale-add-device"
+      ]
+    },
+    {
+      "id": "issue-2026-11-03-002",
+      "title": "Confirm that Dashboard shows the login server address and the device approval before the add-device guide is published",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-05",
+      "question": "Does the released Dashboard show a person their Organization's Headscale login server address, and does an Admin approve waiting devices there (today through a reviewed batch change)?",
+      "impact": "Since 2026-11-05 guide/tailscale-add-device no longer says that Dashboard shows the login server or that Admins approve devices in Dashboard: the Admin gives the address, and approval goes through the network administrator's managed procedure (Lazurio Platform v0.1.20 agent manual). The Dashboard approval and the approval service are described as the target of the access model (decision 0192). Once they ship and are verified, the guide can say so.",
+      "options": [
+        "Publish after the Dashboard change ships and re-read it.",
+        "Publish now with the Admin as the source of the address, and add Dashboard once it ships."
+      ],
+      "decision_needed_for": [
+        "the publication of guide/tailscale-add-device"
+      ]
+    },
+    {
+      "id": "issue-2026-11-03-003",
+      "title": "Windows has no clickable way to enter the Organization's login server",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-05",
+      "question": "How does a person on Windows join their Organization's tailnet without a command line?",
+      "impact": "Tailscale's documentation says the Windows app cannot add a custom control server in its interface; the documented alternatives are the CLI and the LoginURL registry value. Since 2026-11-05 (Matěj Suchánek's decision, recorded in AGENTS.md as the one exception to the no-terminal rule) the guide gives Windows readers one PowerShell line, shown click by click with labelled illustrative mockups, and a copyable prompt for their own agent. That still asks people to use PowerShell, and the mockups are not screenshots of a real Windows computer.",
+      "options": [
+        "Proposed (recommended): a signed Windows app \"Připojit k Organizaci\" from Moje zařízení that installs Tailscale if needed and opens the Organization's sign-in without a restart or a command (HumanAndMachine-ai/Dashboard#463).",
+        "Proposed: Dashboard offers a ready registry file with LoginURL (and Hostname) for the person's Organization; it takes effect only after a restart of the Tailscale service and locks the computer to one server.",
+        "Interim in place since 2026-11-05: one PowerShell line with illustrated steps and an agent prompt.",
+        "Replace the illustrative mockups with screenshots from a Windows 11 test machine once one exists."
+      ],
+      "decision_needed_for": [
+        "the Windows section of guide/tailscale-add-device",
+        "the end of the AGENTS.md exception for Windows"
+      ]
+    },
+    {
+      "id": "issue-2026-11-03-004",
+      "title": "Add own screenshots for iPhone and macOS to the add-device guide",
+      "status": "open",
+      "severity": "low",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-03",
+      "updated_at": "2026-11-03",
+      "question": "Where can the iPhone and macOS steps be photographed without a signed-in account and without personal data on screen?",
+      "impact": "The Android steps have own screenshots from Tailscale 1.104.5. iPhone and macOS have none: Tailscale's documentation images carry no licence that allows reuse, so the guide links to them, and the available Mac is a personal machine whose screen may show private data. The macOS Option-click path (Debug → Custom Login Server → Add Account…) comes from the Headscale documentation and is unverified in the current app.",
+      "options": [
+        "Take them on a test iPhone and a test Mac with no Tailscale account.",
+        "Have the reviewer take them on their own devices, cropped to the Tailscale window, before publication."
+      ],
+      "decision_needed_for": [
+        "the iPhone and macOS sections of guide/tailscale-add-device"
+      ]
     }
   ]
 }

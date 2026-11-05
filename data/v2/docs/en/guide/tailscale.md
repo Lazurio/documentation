@@ -4,8 +4,8 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-10-08"
-reviewedAt: "2026-10-08"
+updatedAt: "2026-11-03"
+reviewedAt: "2026-11-03"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -85,8 +85,8 @@ Tailscale app names such a tailnet by the address of its server, for example
    tailnet in the list.
 3. Turn on the Tailscale switch.
 
-If the tailnet is not in the list, this device has not joined it yet. See
-[Still not working?](#still-not-working)
+If the tailnet is not in the list, this device has not joined it yet. Add it
+with [Add a new device to the tailnet](/en/guide/tailscale-add-device/).
 
 ## More than one tailnet
 
@@ -107,8 +107,9 @@ causes in order:
 1. **This device is not in the tailnet, or not approved yet.** If the tailnet
    is missing from your account list, the device has never joined it. If it is
    there and active but no Environment of the Organization opens, the device
-   may not have access yet. Ask the Admin of your Organization to add or
-   approve it. Lazurio's approved access model has an Admin approve each device
+   may not have access yet. Follow
+   [Add a new device to the tailnet](/en/guide/tailscale-add-device/) and ask
+   the Admin of your Organization to approve it. Lazurio's approved access model has an Admin approve each device
    for each Organization (decision 0192 of 6 October 2026); how a device gets
    in today can still differ between tailnets.
 2. **The Environment does not answer.** If other Environments in the same

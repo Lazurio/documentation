@@ -369,8 +369,8 @@
       "kind": "public-source",
       "url": "https://github.com/juanfont/headscale",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
     },
     {
       "id": "tailscale-fast-user-switching",
@@ -389,8 +389,8 @@
       "kind": "provider-documentation",
       "url": "https://tailscale.com/kb/1022/install-windows",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
     },
     {
       "id": "google-chrome-secure-dns",
@@ -1221,6 +1221,166 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-02",
       "reviewDueAt": "2026-12-02"
+    },
+    {
+      "id": "lazurio-environment-access-model-device-approval",
+      "title": "Lazurio Environment access model: device approval by the Organization Admin in Dashboard, the reviewed fallback and no access before approval (addendum to decision 0192 of 2026-11-01)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/environment-access-model.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "lazurio-device-node-names",
+      "title": "Lazurio operator machine access: names of user device nodes (<login>-<device>) and no renaming of approved devices",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/operator-machine-access.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "headscale-connect-apple",
+      "title": "Headscale: Connect Apple devices (iOS custom coordination server, macOS login)",
+      "publisher": "Headscale project",
+      "kind": "provider-documentation",
+      "url": "https://headscale.net/stable/usage/connect/apple/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "headscale-connect-android",
+      "title": "Headscale: Connect Android devices (alternate server)",
+      "publisher": "Headscale project",
+      "kind": "provider-documentation",
+      "url": "https://headscale.net/stable/usage/connect/android/",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-custom-control-server",
+      "title": "Tailscale: Configure Tailscale clients to use a custom control server (macOS, Windows, iOS, Android; last validated 2026-09-21)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/how-to/set-up-custom-control-server",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-machine-names",
+      "title": "Tailscale: Machine names (derived from the OS hostname, -1 suffix on conflict)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/concepts/machine-names",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-ios",
+      "title": "Tailscale: Install Tailscale on iOS (iOS 15 or later, Get Started, VPN configuration)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/install/ios",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-android",
+      "title": "Tailscale: Install Tailscale on Android (Android 8.0 or later, Get Started, VPN configuration)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/install/android",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-macos",
+      "title": "Tailscale: Install Tailscale on macOS (macOS Ventura 13.0 or later, Standalone and App Store variants)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/install/mac",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-system-policies",
+      "title": "Tailscale: Customize Tailscale using system policies (LoginURL and Hostname; mobile hostnames usually only name the manufacturer and model; last validated 2026-09-29)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/features/tailscale-system-policies",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-android-package",
+      "title": "Tailscale for Android 1.104.5, official package from Tailscale's package server (tailscale-android-universal-1.104.5.apk, SHA-256 a517f94006b90a9dbd7383221cbd05ff4acf5ea680335b9b0318e3fbf086d4c9), run without an account on Android 16 in an emulator on 2026-11-03 for the Guide screenshots",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://pkgs.tailscale.com/stable/#android",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-03",
+      "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-windows-msi",
+      "title": "Tailscale: Install Tailscale on Windows with an MSI (the installation path defaults to C:\\Program Files\\Tailscale)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/kb/1189/install-windows-msi",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "tailscale-cli-login-output",
+      "title": "Tailscale 1.104.5 source: tailscale login switches to a new profile and runs up, which prints \"To authenticate, visit:\" with the sign-in address and \"Success.\" when it is done",
+      "publisher": "Tailscale",
+      "kind": "public-source",
+      "url": "https://github.com/tailscale/tailscale/blob/v1.104.5/cmd/tailscale/cli/up.go",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "microsoft-powershell-call-operator",
+      "title": "Microsoft Learn: about_Operators, call operator & (a quoted path is printed as a string unless it is run with &)",
+      "publisher": "Microsoft",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "microsoft-windows-terminal-interaction",
+      "title": "Microsoft Learn: Windows Terminal interaction settings (detected URLs open with Ctrl+click; right-click copies a selection). How the older console window copies is not stated there.",
+      "publisher": "Microsoft",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/windows/terminal/customize-settings/interaction",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-agent-manual-device-enrollment",
+      "title": "Lazurio Platform v0.1.20 agent manual: tailnet registration grants no access yet; the Organization Admin approves the exact device through the network administrator's managed procedure; do not assume a device list in the Organization overview",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/src/folder/manual.ts#L2584",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     }
   ]
 }

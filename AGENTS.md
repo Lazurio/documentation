@@ -39,6 +39,41 @@ This is the public documentation repository for Lazurio.
 - Date product-status claims against their evidence. An editorial revision is
   not a new provider verification, security audit or publication approval.
 
+### No terminal in instructions for people
+
+Lazurio is for technically capable people, not for programmers. Instructions
+written for customers and users (Guide pages, how-tos, the steps of any page a
+person follows, and messages based on them) never ask the reader to open a
+terminal, PowerShell or Command Prompt, or to run, paste or edit a command.
+
+- Give clickable steps in the app or in Lazurio, with the exact names of
+  buttons and menus. Show each step with a screenshot of the real app or a
+  short animation, or link to a page that explains it well.
+- Take screenshots legitimately: from a real app on a test device or emulator
+  without a signed-in account, or reuse provider images only where their
+  licence allows it, otherwise link to them. Screenshots show no accounts,
+  personal data, client names or real addresses other than examples. Record
+  each image's origin, app version and date in the asset folder's README.
+- When a step has no clickable path today, say so as a gap, tell the reader
+  who helps them (usually the Admin of their Organization) and record the gap
+  in `ISSUES.open.json` with a proposed product fix. Do not offer a command
+  as the fallback.
+- Commands belong only in material addressed to agents or explicitly to IT
+  administrators who operate the system, labelled as such.
+- **Recorded exception: Windows joining a tailnet** (decided by Matěj
+  Suchánek, 2026-11-05). The Tailscale app for Windows cannot take a custom
+  login server in its window (`issue-2026-11-03-003`). Until Lazurio offers a
+  clickable way, `guide/tailscale-add-device` gives Windows readers one
+  PowerShell line, shown click by click with labelled illustrative mockups,
+  and a copyable prompt for the reader's own agent that runs the line and
+  tells them where to click. The sign-in and the Admin's approval stay with
+  people. No other step of any guide may use a command, and this exception
+  ends when the clickable way ships.
+- Where no test device exists for a step, a clearly labelled illustrative
+  mockup may stand in for a screenshot. Its visible label, its origin and the
+  sources it is drawn from are recorded in the asset folder's README, and it
+  is replaced by a real screenshot once one can be taken.
+
 Every document requires a stable ID, locale, summary, update date, fact review
 date, review owner and source references. Stable IDs remain the same across
 localized versions.

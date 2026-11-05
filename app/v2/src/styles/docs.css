@@ -343,6 +343,32 @@ button,
   margin-block: 0;
 }
 
+/* Phone screenshots in step-by-step guides: readable, not full width. */
+.sl-markdown-content figure.lz-app-step {
+  margin-block: 0.75rem 1.25rem;
+}
+
+.sl-markdown-content figure.lz-app-step img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: var(--lz-radius-lg);
+}
+
+/* Desktop illustrations (Windows steps): wider than phone screenshots. */
+.sl-markdown-content figure.lz-app-step--wide img {
+  max-width: 640px;
+}
+
+.sl-markdown-content figure.lz-app-step figcaption {
+  max-width: 36rem;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--sl-color-gray-3);
+}
+
 .sl-markdown-content .lz-guide-app__visual {
   display: flex;
   flex-shrink: 0;

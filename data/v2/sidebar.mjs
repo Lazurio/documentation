@@ -30,6 +30,7 @@ export const sidebar = [
       { label: 'Tips for working', translations: { cs: 'Tipy pro práci' }, slug: 'guide/work-tips' },
       { label: 'Connect your tools', translations: { cs: 'Propojení nástrojů' }, slug: 'guide/tool-connections' },
       { label: 'Reach an Environment through Tailscale', translations: { cs: 'Připojení přes Tailscale' }, slug: 'guide/tailscale' },
+      { label: 'Add a new device to the tailnet', translations: { cs: 'Přidání nového zařízení' }, slug: 'guide/tailscale-add-device' },
       { label: 'Recommended applications', translations: { cs: 'Doporučené aplikace' }, slug: 'guide/recommended-apps' },
     ],
   },
