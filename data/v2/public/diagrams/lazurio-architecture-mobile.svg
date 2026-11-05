@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="1958" viewBox="0 0 640 1958" role="img" aria-labelledby="title description">
+  <title id="title">Lazurio architecture</title>
+  <desc id="description">A person on a device in the tailnet reaches an Environment, the computer where agents work. The Environment keeps synchronized copies of the modules of an Organization, which is one GitHub organization with a root repository and a repository for each module. Around the Environment are Integrations, the vault and the AI provider. A Services Environment with a database for v4 modules is decided and not deployed.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 8 4.5 L 1 8 z" fill="#6f77ff"/></marker>
+    <marker id="arrowplanned" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 8 4.5 L 1 8 z" fill="#d2ddfd"/></marker>
+    <style>.bg{fill:#090909}.panel{fill:#141414;stroke:#707070;stroke-width:2}.focus{fill:#0c0c53;stroke:#6f77ff;stroke-width:3}.item{fill:#262626;stroke:#505050;stroke-width:1.5}.planned{fill:#141414;stroke:#d2ddfd;stroke-width:2;stroke-dasharray:9 7}.title{fill:#fff;font:600 28px Inter,Arial,sans-serif}.label{fill:#fff;font:600 20px Inter,Arial,sans-serif}.name{fill:#fff;font:600 16px Inter,Arial,sans-serif}.copy{fill:#ecebea;font:400 16px Inter,Arial,sans-serif}.note{fill:#d2ddfd;font:500 15px Inter,Arial,sans-serif}.flow{fill:none;stroke:#6f77ff;stroke-width:2.5;stroke-linecap:round;marker-end:url(#arrow)}.flowplanned{fill:none;stroke:#d2ddfd;stroke-width:2;stroke-dasharray:7 6;stroke-linecap:round;marker-end:url(#arrowplanned)}</style>
+  </defs>
+  <rect class="bg" width="640" height="1958" rx="18"/>
+  <text class="title" x="40" y="55">How Lazurio fits together</text>
+  <text class="note" x="40" y="82">Solid parts run today.</text>
+  <text class="note" x="40" y="104">Dashed parts are decided and not deployed.</text>
+  <g data-node="person">
+  <rect class="panel" x="40" y="118" width="560" height="106" rx="16"/>
+  <text class="label" x="64" y="156">Person</text>
+  <text class="copy" x="64" y="190">Chat, Apps and Files in the browser</text>
+  </g>
+  <path class="flow" d="M320 224 V268"/>
+  <g data-node="device">
+  <rect class="panel" x="40" y="268" width="560" height="134" rx="16"/>
+  <text class="label" x="64" y="306">Device</text>
+  <text class="copy" x="64" y="340">Tailscale in the right tailnet, approved by the Admin</text>
+  <text class="note" x="64" y="374">Public DNS mode: no tailnet</text>
+  </g>
+  <path class="flow" d="M320 402 V446"/>
+  <g data-node="environment">
+  <rect class="focus" x="40" y="446" width="560" height="310" rx="16"/>
+  <text class="label" x="64" y="484">Environment: the computer where agents work</text>
+  <rect class="item" x="64" y="504" width="512" height="48" rx="10"/>
+  <text class="copy" x="80" y="534">Agents with full access</text>
+  <rect class="item" x="64" y="564" width="512" height="48" rx="10"/>
+  <text class="copy" x="80" y="594">Apps of modules run here</text>
+  <rect class="item" x="64" y="624" width="512" height="48" rx="10"/>
+  <text class="copy" x="80" y="654">Synchronized module copies</text>
+  <rect class="item" x="64" y="684" width="512" height="48" rx="10"/>
+  <text class="copy" x="80" y="714">Files: the Documents folder</text>
+  </g>
+  <path class="flow" d="M320 756 V808"/>
+  <text class="note" x="332" y="788">copies and pull requests</text>
+  <g data-node="organization">
+  <rect class="panel" x="40" y="808" width="560" height="650" rx="16"/>
+  <text class="label" x="64" y="846">Organization = one GitHub organization</text>
+  <text class="note" x="64" y="872">Teams reach a module by a live grant on GitHub</text>
+  <rect class="item" x="64" y="890" width="512" height="72" rx="10"/>
+  <text class="name" x="80" y="919">Root repository</text>
+  <text class="copy" x="80" y="944">modules.manifest.json lists the modules</text>
+  <rect class="focus" x="64" y="978" width="512" height="456" rx="12"/>
+  <text class="label" x="84" y="1014">Module: a repository of its own</text>
+  <rect class="item" x="84" y="1032" width="472" height="70" rx="10"/>
+  <text class="name" x="100" y="1061">Process</text>
+  <text class="copy" x="100" y="1086">AGENTS.md, skills</text>
+  <rect class="item" x="84" y="1114" width="472" height="70" rx="10"/>
+  <text class="name" x="100" y="1143">App</text>
+  <text class="copy" x="100" y="1168">app/vN</text>
+  <rect class="item" x="84" y="1196" width="472" height="70" rx="10"/>
+  <text class="name" x="100" y="1225">Content</text>
+  <text class="copy" x="100" y="1250">data/v2 (v2)</text>
+  <rect class="item" x="84" y="1278" width="472" height="70" rx="10"/>
+  <text class="name" x="100" y="1307">Data repository &lt;module&gt;-data (v3)</text>
+  <text class="copy" x="100" y="1332">records, as db/</text>
+  <text class="note" x="84" y="1384">Rows of a v4 module do not go to GitHub.</text>
+  </g>
+  <g data-node="around">
+  <rect class="panel" x="40" y="1482" width="560" height="440" rx="16"/>
+  <text class="label" x="64" y="1520">Around the Environment</text>
+  <rect class="item" x="64" y="1540" width="512" height="70" rx="10"/>
+  <text class="name" x="80" y="1569">Integrations</text>
+  <text class="copy" x="80" y="1594">outside apps, one path each</text>
+  <rect class="item" x="64" y="1622" width="512" height="70" rx="10"/>
+  <text class="name" x="80" y="1651">Vault</text>
+  <text class="copy" x="80" y="1676">secrets, never in Git</text>
+  <rect class="item" x="64" y="1704" width="512" height="70" rx="10"/>
+  <text class="name" x="80" y="1733">AI provider</text>
+  <text class="copy" x="80" y="1758">runs the models</text>
+  <rect class="planned" x="64" y="1786" width="512" height="112" rx="10"/>
+  <text class="name" x="80" y="1816">Services Environment</text>
+  <text class="copy" x="80" y="1844">database for v4 (Dolt)</text>
+  <text class="note" x="80" y="1870">decided, not deployed</text>
+  </g>
+</svg>

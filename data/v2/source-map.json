@@ -1451,6 +1451,186 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-05",
       "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-module-standard-v0-1-20",
+      "title": "Lazurio Module Standard at release v0.1.20: a Module is one Git repository, where Organization and personal Modules live, a Module without an App, who creates a Module and how its plan is confirmed",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/module-standard.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-module-standard-v0-1-21",
+      "title": "Lazurio Module Standard at v0.1.21-rc.1: the generation names the data layer, the data repository <owner>/<module>-data, at most two generations, existing Modules keep their directory until a planned transition",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/module-standard.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-stack-profiles",
+      "title": "LazurioPlatform stack profiles at v0.1.21-rc.1: the data layer of each generation, app-data and app-database, no scaffold or template for app/v4 yet",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/stack-profiles.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-module-parts-f14",
+      "title": "LazurioPlatform decision F14, the skill new-module: a module is a UI for people, a place for data and for agents, its own processes and skills, a Git repository of its own",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-decision-f52",
+      "title": "LazurioPlatform decision F52: one module generator, a person's own modules in their Personalspace",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-content-sync-v0-1-20",
+      "title": "LazurioPlatform content synchronization at release v0.1.20: at start and every hour, an absent declared module is cloned once it is readable, not a restricted slot and not on a Team Environment",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-new-module-tile-v0-1-20",
+      "title": "LazurioPlatform Apps at release v0.1.20: who is offered New module (a live Owner of the Organization, the holder of a personal space)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/src/launchpad/apps-view.ts#L947",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-texts-v0-1-20",
+      "title": "LazurioPlatform Launchpad texts at release v0.1.20: New module, Create with an agent, Marketplace, App templates, Add to Organization",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/src/launchpad/messages.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-prompt-handoff-v0-1-20",
+      "title": "LazurioPlatform Launchpad development at release v0.1.20: New module opens Chat with the prepared prompt, not sent; the Environment browser in the right panel",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/launchpad-development.md#prompt-hand-off-to-chat",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-20",
+      "title": "LazurioPlatform release v0.1.20 (published 2026-11-04, the latest final release on 2026-11-05, commit 5edbc2b7ebf53aec4e116663db60021d24593dbe)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.20",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-release-v0-1-21-rc-1",
+      "title": "LazurioPlatform release candidate v0.1.21-rc.1 (published 2026-11-05, commit d1d8917cdf1afdf49c5091115ca9d615abc0c376): the Marketplace reads the registry Lazurio/marketplace",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.21-rc.1",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-marketplace-v0-1-21",
+      "title": "LazurioPlatform Marketplace at v0.1.21-rc.1: the entry at the bottom of Apps, today's offers and what Add to Organization does",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/marketplace.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-marketplace-registry",
+      "title": "Lazurio Marketplace registry: one record per template; a listing grants no access, installs nothing and is no consent to publish",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/marketplace/blob/bc5839deb5c2156464cbafa1867bf9bd515c4191/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-template-adoption",
+      "title": "Mission Control template 4.0.0, adoption: the agent shows a plan, an active Owner creates the Module, otherwise the agent prepares a request",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/LazurioTemplates/mission-control/blob/8d29a8deaa03694be4358dcf293c19945d302d3e/docs/adoption.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-register-modules",
+      "title": "Lazurio decision register at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209 and 0213",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-environment-access-v0-1-21",
+      "title": "LazurioPlatform Environment access at v0.1.21-rc.1: the three conditions of entry, the approved device, public DNS mode, the transition is not complete",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-app-database-connection-question",
+      "title": "LazurioPlatform open question: no defined way to give an app/v4 App its Dolt connection without .env",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/818",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-documentation-readme",
+      "title": "Lazurio documentation README: app generation app/v2 and data generation data/v2 in one repository",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/documentation/blob/5a7c2884c64757e26dc9330625231b30c5fb235f/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     }
   ]
 }
