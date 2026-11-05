@@ -4,8 +4,8 @@ description: "Install Tailscale, enter your Organization's login server, sign in
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: en
 summary: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Admin to approve the device."
-updatedAt: "2026-11-03"
-reviewedAt: "2026-11-03"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -23,6 +23,10 @@ sourceRefs:
   - tailscale-install-android
   - tailscale-install-macos
   - tailscale-install-windows
+  - tailscale-install-windows-msi
+  - tailscale-cli-login-output
+  - microsoft-powershell-call-operator
+  - microsoft-windows-terminal-interaction
 audience:
   - builder
   - it-admin
@@ -33,9 +37,10 @@ You add a new device to your Organization's tailnet yourself: **install
 Tailscale, enter your Organization's login server in it, sign in with your
 Lazurio account and wait for an Admin of the Organization to approve the
 device.** Until then, the Organization's Environments do not open from it.
-Each device (phone, tablet, computer) is added and approved separately. The
-whole procedure is done by clicking in the app; you do not need a command
-line.
+Each device (phone, tablet, computer) is added and approved separately. On
+iPhone, Android and Mac the whole procedure is done by clicking in the app.
+Windows needs one line in PowerShell; the pictures show every click, and you
+can also hand that step to your agent.
 
 If the device is already in the tailnet and you only cannot connect, follow
 [Reach an Environment through Tailscale](/en/guide/tailscale/).
@@ -152,12 +157,91 @@ our own Mac pictures yet.
 
 ### Windows
 
-The Tailscale app for Windows does not offer a custom server in its window
-(Tailscale's official documentation says so), and Lazurio does not have
-another clickable procedure for Windows yet. **Install
-[Tailscale for Windows](https://tailscale.com/download/windows) (Windows 10 or
-later), do not sign in, and write to the Admin of your Organization** that you
-need to add a Windows device. They will help you set the server.
+The Tailscale app for Windows cannot take a custom login server in its window
+(Tailscale's documentation says so). On Windows you therefore enter the server
+with **one line in Windows PowerShell**. It is the only command in this guide.
+The pictures below show every click, and if you prefer, [let your agent do
+it](#let-your-agent-do-it).
+
+1. Install [Tailscale for Windows](https://tailscale.com/download/windows)
+   (Windows 10 or later) and finish the installer. **Do not sign in** in the
+   Tailscale app: its Log in button leads to Tailscale's own server, not to
+   your Organization.
+2. Click **Start**, type **PowerShell** and open **Windows PowerShell**. You
+   do not need **Run as administrator**.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-1-start-en.png" alt="Illustrative mockup: Windows search with PowerShell typed. The result Windows PowerShell, App, is highlighted; on the right the actions Open and Run as administrator." width="1280" height="788" loading="lazy" />
+     <figcaption>Illustrative mockup, not a screenshot. Open Windows PowerShell with a normal click.</figcaption>
+   </figure>
+
+3. Copy this whole line. Put your Organization's login server in place of
+   `<login server>`, for example `https://headscale.example.lazurio.io`:
+
+   ```powershell
+   & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<login server>
+   ```
+
+   Paste it into the PowerShell window with **Ctrl+V** or a right click and
+   press **Enter**. Keep the `&` and the quotation marks at the start: without
+   the `&`, PowerShell only prints the quoted path instead of running
+   Tailscale.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-2-paste-en.png" alt="Illustrative mockup: a Windows PowerShell window with the pasted line starting with an ampersand and ending with the example address https://headscale.example.lazurio.io." width="1280" height="486" loading="lazy" />
+     <figcaption>Illustrative mockup with the example address. The line may wrap in the window; that is fine.</figcaption>
+   </figure>
+
+4. The window writes **To authenticate, visit:** and an address that starts
+   with your login server. Hold **Ctrl** and click the address. If nothing
+   opens, select the whole address with the mouse, right-click it to copy it,
+   and paste it into your browser's address bar. Do not press **Ctrl+C** in
+   the window: without a selection it stops the command.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-3-link-en.png" alt="Illustrative mockup: PowerShell shows To authenticate, visit: and a sign-in address on the example login server. The address is highlighted with the hint Hold Ctrl and click." width="1280" height="522" loading="lazy" />
+     <figcaption>Illustrative mockup. Your address is different every time.</figcaption>
+   </figure>
+
+5. The Lazurio sign-in opens in your browser. Sign in with your Lazurio
+   account and close the browser tab when it is done. Leave the PowerShell
+   window open meanwhile.
+6. Back in PowerShell, the window writes **Success.** You can close it. The
+   device is now in your Organization's tailnet and waits for approval (see
+   [What happens next](#what-happens-next)).
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-4-success-en.png" alt="Illustrative mockup: after the sign-in, PowerShell shows Success. and a new prompt." width="1280" height="560" loading="lazy" />
+     <figcaption>Illustrative mockup. Success. means the sign-in is finished, not that the device is approved.</figcaption>
+   </figure>
+
+If PowerShell answers in red that the term is not recognized, Tailscale is not
+installed in its usual folder: install it (step 1) and paste the line again.
+If it only repeats the quoted path, the `&` at the start is missing.
+
+These pictures are illustrative mockups drawn from Microsoft's and
+Tailscale's documentation and from the messages in Tailscale's source; we
+have not taken them on a real Windows computer yet.
+
+#### Let your agent do it
+
+If you work with an agent on this Windows computer (ChatGPT Desktop, Codex or
+Claude), copy the prompt below into a new chat and put your Organization's
+login server in place of `<login server>`. The agent runs the line, reads the
+address and tells you where to click. Signing in stays with you, and the
+agent cannot approve the device.
+
+```text
+Connect this Windows computer to my Organization's tailnet in Tailscale. The Organization's login server is <login server>.
+
+1. Check that Tailscale is installed: C:\Program Files\Tailscale\tailscale.exe exists. If it does not, stop and tell me to install it from https://tailscale.com/download/windows. Do not install it yourself.
+2. In PowerShell run exactly this line, without administrator rights, so that you can read its output while it keeps waiting (for example in a separate window or in the background):
+   & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<login server>
+3. The output says "To authenticate, visit:" and an address. Give me that address as a clickable link and tell me in one or two sentences: open it, sign in with my Lazurio account, then come back to this chat. Do not open, fill in or confirm the sign-in yourself, and never ask me for a password or a code.
+4. When the output says "Success.", tell me in plain words that this computer is now in the tailnet of that login server and waits for the Admin's approval. Read this computer's name in the tailnet (tailscale status --json, Self.HostName) and tell me to send it to my Admin together with my login.
+
+Rules: do not use an auth key, do not change the Windows registry or Tailscale's policies, leave other Tailscale accounts on this computer as they are, do not turn Tailscale off, and do not try to approve the device. If anything fails, tell me what the window said and stop.
+```
 
 ## Device name
 
@@ -254,8 +338,9 @@ Before approving, check:
 4. that it is a fresh registration the person actually made. Do not approve
    a device you do not recognise.
 
-Help a person with Windows enter the login server; Lazurio does not have a
-clickable procedure for Windows yet.
+A person with Windows enters the login server with one PowerShell line, or
+lets their agent do it (see [Windows](#windows)). A clickable way for Windows
+is still a gap (`issue-2026-11-03-003`).
 
 When a person loses a device or stops using it, remove its approval the same
 way you granted it. The rules for who may approve and what an approved device

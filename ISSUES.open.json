@@ -139,16 +139,18 @@
       "severity": "medium",
       "owner": "matejsuchanek",
       "created_at": "2026-11-03",
-      "updated_at": "2026-11-03",
+      "updated_at": "2026-11-05",
       "question": "How does a person on Windows join their Organization's tailnet without a command line?",
-      "impact": "Tailscale's documentation says the Windows app cannot add a custom control server in its interface; the documented alternatives are the CLI and the LoginURL registry value. The guide now tells Windows users to ask their Admin for help, which does not scale.",
+      "impact": "Tailscale's documentation says the Windows app cannot add a custom control server in its interface; the documented alternatives are the CLI and the LoginURL registry value. Since 2026-11-05 (Matěj Suchánek's decision, recorded in AGENTS.md as the one exception to the no-terminal rule) the guide gives Windows readers one PowerShell line, shown click by click with labelled illustrative mockups, and a copyable prompt for their own agent. That still asks people to use PowerShell, and the mockups are not screenshots of a real Windows computer.",
       "options": [
-        "Proposed: Dashboard offers a ready registry file with LoginURL (and Hostname) for the person's Organization, applied by double-click and confirmed by Windows.",
-        "Proposed: Lazurio provides a small signed installer that installs Tailscale with the Organization's LoginURL.",
-        "Keep the Admin-assisted step."
+        "Proposed (recommended): a signed Windows app \"Připojit k Organizaci\" from Moje zařízení that installs Tailscale if needed and opens the Organization's sign-in without a restart or a command (HumanAndMachine-ai/Dashboard#463).",
+        "Proposed: Dashboard offers a ready registry file with LoginURL (and Hostname) for the person's Organization; it takes effect only after a restart of the Tailscale service and locks the computer to one server.",
+        "Interim in place since 2026-11-05: one PowerShell line with illustrated steps and an agent prompt.",
+        "Replace the illustrative mockups with screenshots from a Windows 11 test machine once one exists."
       ],
       "decision_needed_for": [
-        "the Windows section of guide/tailscale-add-device"
+        "the Windows section of guide/tailscale-add-device",
+        "the end of the AGENTS.md exception for Windows"
       ]
     },
     {

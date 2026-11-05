@@ -4,8 +4,8 @@ description: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace,
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: cs
 summary: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace, přihlaste se účtem Lazurio a počkejte na schválení Adminem."
-updatedAt: "2026-11-03"
-reviewedAt: "2026-11-03"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -23,6 +23,10 @@ sourceRefs:
   - tailscale-install-android
   - tailscale-install-macos
   - tailscale-install-windows
+  - tailscale-install-windows-msi
+  - tailscale-cli-login-output
+  - microsoft-powershell-call-operator
+  - microsoft-windows-terminal-interaction
 audience:
   - builder
   - it-admin
@@ -33,8 +37,10 @@ Nové zařízení si do tailnetu Organizace přidáte sami: **nainstalujte
 Tailscale, zadejte v něm přihlašovací server své Organizace, přihlaste se
 účtem Lazurio a počkejte, až zařízení schválí Admin Organizace.** Do té doby
 se z něj Prostředí Organizace neotevřou. Každé zařízení (telefon, tablet,
-počítač) se přidává zvlášť a zvlášť se i schvaluje. Celý postup se dělá
-klikáním v aplikaci; příkazový řádek nepotřebujete.
+počítač) se přidává zvlášť a zvlášť se i schvaluje. Na iPhonu, Androidu
+a Macu se celý postup dělá klikáním v aplikaci. Ve Windows je potřeba jeden
+řádek v PowerShellu; obrázky ukazují každé kliknutí a tento krok můžete předat
+i svému agentovi.
 
 Když už zařízení v tailnetu máte a jen se nemůžete připojit, pokračujte
 návodem [Připojení k Prostředí přes Tailscale](/cs/guide/tailscale/).
@@ -150,12 +156,91 @@ nemáme.
 
 ### Windows
 
-Aplikace Tailscale pro Windows zadání vlastního serveru v okně nenabízí
-(uvádí to oficiální dokumentace Tailscale) a jiný klikací postup Lazurio pro
-Windows zatím nemá. **Nainstalujte
-[Tailscale pro Windows](https://tailscale.com/download/windows) (Windows 10
-nebo novější), nepřihlašujte se a napište Adminovi své Organizace**, že
-potřebujete zařízení s Windows přidat. Pomůže vám s nastavením serveru.
+Aplikace Tailscale pro Windows vlastní přihlašovací server v okně zadat
+neumí (uvádí to dokumentace Tailscale). Ve Windows ho proto zadáte **jedním
+řádkem ve Windows PowerShellu**. Je to jediný příkaz v tomto návodu. Obrázky
+níže ukazují každé kliknutí, a když chcete, [nechte to na
+agentovi](#nechte-to-na-agentovi).
+
+1. Nainstalujte [Tailscale pro Windows](https://tailscale.com/download/windows)
+   (Windows 10 nebo novější) a dokončete instalaci. V aplikaci Tailscale se
+   **nepřihlašujte**: její tlačítko Log in vede na server společnosti
+   Tailscale, ne do vaší Organizace.
+2. Klikněte na **Start**, napište **PowerShell** a otevřete **Windows
+   PowerShell**. **Spustit jako správce** nepotřebujete.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-1-start-cs.png" alt="Ilustrační maketa: hledání ve Windows s napsaným PowerShell. Výsledek Windows PowerShell, Aplikace, je zvýrazněný; vpravo akce Otevřít a Spustit jako správce." width="1280" height="788" loading="lazy" />
+     <figcaption>Ilustrační maketa, ne snímek obrazovky. Windows PowerShell otevřete obyčejným kliknutím.</figcaption>
+   </figure>
+
+3. Zkopírujte celý tento řádek. Místo `<přihlašovací server>` dejte
+   přihlašovací server své Organizace, například
+   `https://headscale.example.lazurio.io`:
+
+   ```powershell
+   & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<přihlašovací server>
+   ```
+
+   Vložte ho do okna PowerShellu klávesami **Ctrl+V** nebo pravým tlačítkem
+   myši a stiskněte **Enter**. Znak `&` a uvozovky na začátku nechte: bez `&`
+   PowerShell cestu v uvozovkách jen vypíše a Tailscale nespustí.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-2-paste-cs.png" alt="Ilustrační maketa: okno Windows PowerShell s vloženým řádkem, který začíná znakem & a končí ukázkovou adresou https://headscale.example.lazurio.io." width="1280" height="486" loading="lazy" />
+     <figcaption>Ilustrační maketa s ukázkovou adresou. Řádek se v okně může zalomit, to nevadí.</figcaption>
+   </figure>
+
+4. Okno napíše **To authenticate, visit:** a adresu, která začíná vaším
+   přihlašovacím serverem. Podržte **Ctrl** a na adresu klikněte. Když se nic
+   neotevře, označte celou adresu myší, pravým tlačítkem ji zkopírujte a vložte
+   do adresního řádku prohlížeče. V okně nemačkejte **Ctrl+C**: bez označeného
+   textu příkaz zastaví.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-3-link-cs.png" alt="Ilustrační maketa: PowerShell ukazuje To authenticate, visit: a přihlašovací adresu na ukázkovém serveru. Adresa je zvýrazněná s nápovědou Podržte Ctrl a klikněte." width="1280" height="522" loading="lazy" />
+     <figcaption>Ilustrační maketa. Vaše adresa bude pokaždé jiná.</figcaption>
+   </figure>
+
+5. V prohlížeči se otevře přihlášení Lazuria. Přihlaste se svým účtem Lazurio
+   a po dokončení kartu prohlížeče zavřete. Okno PowerShellu mezitím nechte
+   otevřené.
+6. V PowerShellu se objeví **Success.** Okno pak můžete zavřít. Zařízení je
+   v tailnetu vaší Organizace a čeká na schválení (viz [Co se stane
+   potom](#co-se-stane-potom)).
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-4-success-cs.png" alt="Ilustrační maketa: po přihlášení PowerShell ukazuje Success. a nový řádek pro příkaz." width="1280" height="560" loading="lazy" />
+     <figcaption>Ilustrační maketa. Success. znamená, že je přihlášení hotové, ne že je zařízení schválené.</figcaption>
+   </figure>
+
+Když PowerShell červeně odpoví, že výraz nezná (is not recognized), Tailscale
+není nainstalovaný ve své obvyklé složce: nainstalujte ho (krok 1) a řádek
+vložte znovu. Když jen zopakuje cestu v uvozovkách, chybí na začátku `&`.
+
+Obrázky jsou ilustrační makety podle dokumentace Microsoftu a Tailscale
+a podle hlášek ve zdrojovém kódu Tailscale; na skutečném počítači s Windows
+jsme je zatím nepořídili.
+
+#### Nechte to na agentovi
+
+Když na tomto počítači s Windows pracujete s agentem (ChatGPT Desktop, Codex
+nebo Claude), zkopírujte mu do nového chatu prompt níže a místo
+`<přihlašovací server>` doplňte přihlašovací server své Organizace. Agent
+řádek spustí, přečte adresu a řekne vám, kam kliknout. Přihlášení zůstává na
+vás a zařízení agent schválit nemůže.
+
+```text
+Připoj tento počítač s Windows do tailnetu mé Organizace v Tailscale. Přihlašovací server Organizace je <přihlašovací server>.
+
+1. Ověř, že je Tailscale nainstalovaný: existuje C:\Program Files\Tailscale\tailscale.exe. Když neexistuje, zastav se a řekni mi, ať ho nainstaluji z https://tailscale.com/download/windows. Sám ho neinstaluj.
+2. V PowerShellu spusť přesně tento řádek, bez práv správce, a tak, abys mohl číst jeho výstup, zatímco dál čeká (třeba v samostatném okně nebo na pozadí):
+   & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<přihlašovací server>
+3. Výstup napíše „To authenticate, visit:“ a adresu. Dej mi tu adresu jako klikací odkaz a jednou dvěma větami mi řekni: otevřete ji, přihlaste se svým účtem Lazurio a pak se vraťte do tohoto chatu. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj a nikdy po mně nechtěj heslo ani kód.
+4. Až výstup napíše „Success.“, řekni mi srozumitelně, že tento počítač je v tailnetu toho přihlašovacího serveru a čeká na schválení Adminem. Zjisti jméno tohoto počítače v tailnetu (tailscale status --json, Self.HostName) a řekni mi, ať ho pošlu Adminovi spolu se svým loginem.
+
+Pravidla: nepoužívej auth key, neměň registr Windows ani zásady Tailscale, ostatní účty Tailscale na tomto počítači nech, jak jsou, Tailscale nevypínej a zařízení se nepokoušej schválit. Když něco selže, řekni mi, co okno napsalo, a zastav se.
+```
 
 ## Jméno zařízení
 
@@ -248,8 +333,9 @@ Před schválením ověřte:
 4. že jde o čerstvou registraci, kterou člověk opravdu udělal. Neznámé
    zařízení neschvalujte.
 
-Člověku s Windows pomozte se zadáním přihlašovacího serveru; klikací postup
-pro Windows Lazurio zatím nemá.
+Člověk s Windows zadá přihlašovací server jedním řádkem v PowerShellu, nebo to
+nechá na svém agentovi (viz [Windows](#windows)). Klikací cesta pro Windows
+pořád chybí (`issue-2026-11-03-003`).
 
 Když člověk zařízení ztratí nebo ho už nepoužívá, schválení odeberte
 stejnou cestou, jakou jste ho udělili. Pravidla, kdo smí schvalovat a kam

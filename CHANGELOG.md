@@ -3,12 +3,15 @@
 ## Unreleased
 
 - Add the Guide page "Add a new device to the tailnet" in English and Czech:
-  clickable steps for iOS, Android, macOS and Windows without any command,
-  own Android screenshots, the Organization's login server, the
-  `<login>-<device>` name, waiting for and requesting Admin approval, and the
-  Admin's checks.
+  clickable steps for iOS, Android and macOS, own Android screenshots, the
+  Organization's login server, the `<login>-<device>` name, waiting for and
+  requesting Admin approval, and the Admin's checks. Windows joins with one
+  PowerShell line, shown click by click with labelled illustrative mockups,
+  or through a copyable prompt for the reader's own agent.
 - Add the rule that instructions for people never use a terminal or command
-  line (`AGENTS.md`).
+  line (`AGENTS.md`), with one recorded exception for Windows joining a
+  tailnet, and allow labelled illustrative mockups where no test device
+  exists.
 - Add credential-isolated Cloudflare Pages previews for same-repository pull
   requests and automatic production deployment with immutable and canonical
   smoke checks after protected `main` updates.

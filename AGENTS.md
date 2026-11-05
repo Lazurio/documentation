@@ -60,6 +60,19 @@ terminal, PowerShell or Command Prompt, or to run, paste or edit a command.
   as the fallback.
 - Commands belong only in material addressed to agents or explicitly to IT
   administrators who operate the system, labelled as such.
+- **Recorded exception: Windows joining a tailnet** (decided by Matěj
+  Suchánek, 2026-11-05). The Tailscale app for Windows cannot take a custom
+  login server in its window (`issue-2026-11-03-003`). Until Lazurio offers a
+  clickable way, `guide/tailscale-add-device` gives Windows readers one
+  PowerShell line, shown click by click with labelled illustrative mockups,
+  and a copyable prompt for the reader's own agent that runs the line and
+  tells them where to click. The sign-in and the Admin's approval stay with
+  people. No other step of any guide may use a command, and this exception
+  ends when the clickable way ships.
+- Where no test device exists for a step, a clearly labelled illustrative
+  mockup may stand in for a screenshot. Its visible label, its origin and the
+  sources it is drawn from are recorded in the asset folder's README, and it
+  is replaced by a real screenshot once one can be taken.
 
 Every document requires a stable ID, locale, summary, update date, fact review
 date, review owner and source references. Stable IDs remain the same across

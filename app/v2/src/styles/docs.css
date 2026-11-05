@@ -357,6 +357,11 @@ button,
   border-radius: var(--lz-radius-lg);
 }
 
+/* Desktop illustrations (Windows steps): wider than phone screenshots. */
+.sl-markdown-content figure.lz-app-step--wide img {
+  max-width: 640px;
+}
+
 .sl-markdown-content figure.lz-app-step figcaption {
   max-width: 36rem;
   margin-top: 0.4rem;

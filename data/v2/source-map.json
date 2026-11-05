@@ -1331,6 +1331,46 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-03",
       "reviewDueAt": "2026-12-03"
+    },
+    {
+      "id": "tailscale-install-windows-msi",
+      "title": "Tailscale: Install Tailscale on Windows with an MSI (the installation path defaults to C:\\Program Files\\Tailscale)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/kb/1189/install-windows-msi",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "tailscale-cli-login-output",
+      "title": "Tailscale 1.104.5 source: tailscale login switches to a new profile and runs up, which prints \"To authenticate, visit:\" with the sign-in address and \"Success.\" when it is done",
+      "publisher": "Tailscale",
+      "kind": "public-source",
+      "url": "https://github.com/tailscale/tailscale/blob/v1.104.5/cmd/tailscale/cli/up.go",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "microsoft-powershell-call-operator",
+      "title": "Microsoft Learn: about_Operators, call operator & (a quoted path is printed as a string unless it is run with &)",
+      "publisher": "Microsoft",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "microsoft-windows-terminal-interaction",
+      "title": "Microsoft Learn: Windows Terminal interaction settings (detected URLs open with Ctrl+click; right-click copies a selection). How the older console window copies is not stated there.",
+      "publisher": "Microsoft",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/windows/terminal/customize-settings/interaction",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     }
   ]
 }
