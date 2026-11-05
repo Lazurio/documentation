@@ -4,13 +4,14 @@ description: "Co musí mít GitHub Organization, než v ní začne pracovat Lazu
 stableId: lazurio-doc-github-baseline
 locale: cs
 summary: "Nastavení GitHubu, které Owner připraví a ověří před prvním Builderem: aplikace, výchozí oprávnění none, Team builders, infra jen pro Adminy, chráněná main a merge."
-updatedAt: "2026-11-02"
-reviewedAt: "2026-11-02"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-gen4
+  - lazurio-decision-register-admin-ai
   - lazurio-first-organization-rollout
   - lazurio-organization-install
   - lazurio-root-agent-rules
@@ -50,7 +51,7 @@ vstupu je cílem rozhodnutí 0192; přechod na něj zatím není dokončený.
 
 | Položka | Požadovaný stav | Co ho vynucuje |
 | --- | --- | --- |
-| GitHub Organization | Jedna pro každou Organizaci v Lazuriu. Její Owneři jsou Admini Organizace. | GitHub |
+| GitHub Organization | Jedna pro každou Organizaci v Lazuriu. Dnes jsou Admini Organizace její aktivní Owneři. Cílově Owneři jmenují Adminy jako roli Lazuria (rozhodnutí 0228, zatím nenasazené). | Dnes role Owner v GitHubu; cílovou roli Admina bude držet Lazurio Auth (rozhodnutí 0228, zatím nenasazené) |
 | Kořenový repozitář | Kořenový repozitář Organizace na `main`, podle konvence `<login>/<login>_GEN3`, s manifestem `lazurio.organization.json`. | Lazurio ho čte, přístup řídí GitHub |
 | Lazurio for GitHub | Owner Organizace aplikaci nainstaluje s přístupem ke **All repositories**. „Only select repositories“ je podporovaná výjimka; musí zahrnout kořenový repozitář a každý repozitář, který Lazurio obsluhuje, a nikdy se nevydává za celou Organizaci. | Rozsah instalace v GitHubu |
 | Výchozí oprávnění k repozitářům | `none` (v API `default_repository_permission`). Samotné členství neotevře žádný soukromý repozitář. | GitHub |
@@ -110,7 +111,7 @@ Samotný název role nic neopravňuje; rozhodují živá práva člověka na Git
 
 | Role | Co role dělá |
 | --- | --- |
-| Organization Admin | Owner GitHub Organization. Spravuje členy, Teamy, granty, omezené repozitáře, instalace aplikací a pravidla větví a také Prostředí, která Organizace vlastní. Svůj pull request smí mergnout, kde to GitHub dovolí (rozhodnutí 0095). |
+| Organization Admin | Role Lazuria, kterou jmenuje Owner GitHub Organization (rozhodnutí 0228, zatím nenasazené); do nasazení je Adminem aktivní Owner GitHub Organization. Spravuje členy, Teamy, granty, omezené repozitáře, instalace aplikací a pravidla větví a také Prostředí, zařízení a zdroj AI Organizace. Svůj pull request smí mergnout, kde to GitHub dovolí (rozhodnutí 0095). |
 | Steward | Místo pro review. Merguje zamčenou `main` tam, kde to pravidla větví dovolí, a typicky vydává Release. |
 | Builder | Vyvíjí Moduly se zápisem do aktivních Builder repozitářů a smí mergovat mladou `main`, která je zatím vědomě otevřená. |
 | User | Používá produkční aplikace Organizace a nic neinstaluje (rozhodnutí 0060). |

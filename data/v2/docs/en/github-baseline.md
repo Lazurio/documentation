@@ -4,13 +4,14 @@ description: "What a GitHub Organization needs before Lazurio works in it: roles
 stableId: lazurio-doc-github-baseline
 locale: en
 summary: "The GitHub settings an Owner prepares and reads back before the first Builder: the app, base permission none, the builders Team, Admin-only infra, protected main and merging."
-updatedAt: "2026-11-02"
-reviewedAt: "2026-11-02"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-gen4
+  - lazurio-decision-register-admin-ai
   - lazurio-first-organization-rollout
   - lazurio-organization-install
   - lazurio-root-agent-rules
@@ -50,7 +51,7 @@ is Lazurio's target under decision 0192; the transition is not complete.
 
 | Item | Required state | What enforces it |
 | --- | --- | --- |
-| GitHub Organization | One per Lazurio Organization. Its Owners are the Organization's Admins. | GitHub |
+| GitHub Organization | One per Lazurio Organization. Today its active Owners are the Organization's Admins. As the target, its Owners appoint the Admins as a role of Lazurio (decision 0228, not yet deployed). | Today GitHub's Owner role; the target Admin role will be held by Lazurio Auth (decision 0228, not yet deployed) |
 | Root repository | The Organization's root repository on `main`, by convention `<login>/<login>_GEN3`, with the manifest `lazurio.organization.json`. | Lazurio reads it; GitHub controls access |
 | Lazurio for GitHub | An Organization Owner installs the app with access to **All repositories**. "Only select repositories" is a supported exception; it must include the root and every repository Lazurio serves, and it is never presented as the full Organization. | GitHub installation scope |
 | Base repository permission | `none` (API `default_repository_permission`). Membership alone opens no private repository. | GitHub |
@@ -112,7 +113,7 @@ decide (decision 0062).
 
 | Role | What the role does |
 | --- | --- |
-| Organization Admin | An Owner of the GitHub Organization. Administers members, Teams, grants, restricted repositories, app installations and branch rules, and the Environments the Organization owns. May merge their own pull request where GitHub allows it (decision 0095). |
+| Organization Admin | A role of Lazurio that an Owner of the GitHub Organization appoints (decision 0228, not yet deployed); until it is deployed, an active Owner of the GitHub Organization is the Admin. Administers members, Teams, grants, restricted repositories, app installations and branch rules, and the Organization's Environments, devices and AI source. May merge their own pull request where GitHub allows it (decision 0095). |
 | Steward | The review seat. Merges a locked `main` where the branch rules allow it and typically issues a Release. |
 | Builder | Develops Modules with Write on the active Builder repositories and may merge a young `main` that is still deliberately open. |
 | User | Uses the Organization's production applications and installs nothing (decision 0060). |

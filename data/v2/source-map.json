@@ -1381,6 +1381,36 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-05",
       "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-decision-register-admin-ai",
+      "title": "Lazurio decision register on 2026-11-05: the Organization Admin as a Lazurio role (0228), the AI source of a Work Environment (0229), device approval (0192), ChatGPT pairing (0215) and public DNS (0213)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-platform-launchpad-texts-pairing",
+      "title": "Launchpad message catalog on 2026-11-05: Getting started's AI step and Settings → Connections (phone pairing, computer)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/src/launchpad/messages.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-decision-0230-request",
+      "title": "Decision 0230 in the register: people ask the Organization Admin through Lazurio, and the interim request as an issue in the root repository",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5348a7c0fd8e71fe11c5b3e5a3744f9e82fa5341/docs/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     }
   ]
 }
