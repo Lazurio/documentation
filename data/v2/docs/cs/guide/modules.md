@@ -36,6 +36,13 @@ audience:
 Drží pohromadě postup, podle kterého agenti pracují, data, se kterými se
 pracuje, a aplikaci, ve které je vidíte a měníte.**
 
+<figure class="lz-diagram">
+  <video controls playsinline preload="none" poster="/videos/modules-cs.webp" aria-describedby="modules-video-words">
+    <source src="/videos/modules-cs.mp4" type="video/mp4" />
+  </video>
+  <figcaption id="modules-video-words">Modul je jedna oblast práce vaší firmy. Postup, data a aplikace v jednom balíčku. Agenti pracují podle postupu, lidé v aplikaci. Admin rozhodne, kdo modul dostane. Nový postavíte s agentem, nebo ze šablony.</figcaption>
+</figure>
+
 ## Tři části modulu
 
 | Část | Pro koho | Co to je |
@@ -101,7 +108,7 @@ roste dalšími zadáními v Chatu.
 ## Jak se modul mění
 
 Napište do Chatu, co chcete změnit. Agent změnu připraví a ukáže vám ji v panelu
-vpravo. Když jste spokojení, napište „publikuj“. Na GitHub nikdo chodit nemusí.
+vpravo. Když vám vyhovuje, napište „publikuj“. Na GitHub nikdo chodit nemusí.
 Poslední krok vysvětluje [Kontrola a Publikace](/cs/guide/course/review/).
 
 ## Kdo modul dostane a kdy se objeví
@@ -110,13 +117,13 @@ Organizace sdílí moduly po Teamech. Admin rozhoduje, které Teamy k modulu
 dosáhnou, a to v Přehledu Organizace nebo přímo na GitHubu. Kdo modul nedostane,
 ten ho v Apps nevidí a jeho agent ho nepřečte.
 
-Od verze 0.1.20 k vám modul, ke kterému jste dostali přístup, dorazí sám. Lazurio
+Od verze 0.1.20 k vám modul dorazí sám, jakmile k němu máte přístup. Lazurio
 každou hodinu kontroluje přístupy a modul stáhne do vašeho Prostředí, takže ho
 v Apps uvidíte nejpozději do hodiny. Nikdo nemusí nic instalovat.
 
 Jinak je to ve dvou případech:
 
-- **Týmové Prostředí** takhle nový modul nedostane. Požádejte Admina.
+- **Týmové Prostředí** nový modul tímto způsobem nedostane. Požádejte Admina.
 - **Modul vyhrazený Adminům** dostanou jen Admini.
 
 Osobní modul zůstává ve vašem Osobním Prostředí.

@@ -36,6 +36,13 @@ audience:
 recipes. It keeps together the process agents follow, the data the work is
 about, and the app in which you see and change it.**
 
+<figure class="lz-diagram">
+  <video controls playsinline preload="none" poster="/videos/modules-en.webp" aria-describedby="modules-video-words">
+    <source src="/videos/modules-en.mp4" type="video/mp4" />
+  </video>
+  <figcaption id="modules-video-words">A module is one area of your company's work. A process, data and an app in one package. Agents follow the process, people work in the app. The Admin decides who gets the module. Build yours with an agent or from a template.</figcaption>
+</figure>
+
 ## The three parts
 
 | Part | For whom | What it is |

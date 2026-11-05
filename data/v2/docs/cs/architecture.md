@@ -53,8 +53,8 @@ aplikaci. Takový je cílový model
 [rozhodnutí 0192](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md)
 a přechod na něj není dokončený: jak se zařízení dostane dovnitř dnes, se může
 v jednotlivých tailnetech lišit. Organizace v režimu veřejného DNS (rozhodnutí
-0213, nasazené částečně) podmínku sítě a schválení zařízení nemá. Lidé pak do
-webového rozhraní vstupují vstupem serveru s účtem Lazuria.
+0213, nasazené částečně) podmínku sítě a schválení zařízení nemá. Lidé se pak
+do webového rozhraní dostanou přes vstup serveru a přihlásí se účtem Lazuria.
 
 **Prostředí.** Počítač, na kterém pracují agenti: Osobní, Pracovní nebo Týmové
 Prostředí. Agenti v něm pracují s plným přístupem, bez sandboxu a bez
@@ -92,7 +92,7 @@ Jediným zdrojem modulu je GitHub. Každé Prostředí, které modul smí číst
 jeho pracovní kopii. Dvacet lidí na jednom modulu znamená dvacet kopií jednoho
 repozitáře, ne dvacet sad dat.
 
-Nainstalované Lazurio čisté kopie posouvá při startu a potom každou hodinu. Od
+Nainstalované Lazurio aktualizuje čisté kopie při startu a potom každou hodinu. Od
 vydání v0.1.20 stejná synchronizace naklonuje i deklarovaný modul nebo datový
 repozitář, jakmile ho identita tohoto Prostředí smí číst. Výjimkou je položka
 vyhrazená Adminům a Týmové Prostředí. Opačným směrem jde změna jako Publikace:

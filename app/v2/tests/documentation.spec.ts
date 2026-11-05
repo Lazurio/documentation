@@ -628,3 +628,16 @@ test('article contents stay in a right column on laptops and collapse on mobile'
     await expect(toc).toBeInViewport()
   }
 })
+
+test('the Modules page carries its video, its poster and the same words in text', async ({ page, request }) => {
+  for (const locale of ['en', 'cs']) {
+    await page.goto(`/${locale}/guide/modules/`)
+    const video = page.locator('.lz-diagram video')
+    await expect(video).toHaveAttribute('poster', `/videos/modules-${locale}.webp`)
+    await expect(video).toHaveAttribute('preload', 'none')
+    await expect(page.locator('figcaption#modules-video-words')).not.toBeEmpty()
+    for (const path of [`/videos/modules-${locale}.mp4`, `/videos/modules-${locale}.webp`]) {
+      expect((await request.head(path)).status()).toBe(200)
+    }
+  }
+})
