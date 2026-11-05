@@ -46,19 +46,21 @@ recommendations are our assessment.
 | Decision area | Microsoft Copilot | Lazurio |
 | --- | --- | --- |
 | Primary purpose | AI assistance inside the Microsoft 365 productivity environment. | Prepare, review and approve versioned work across repositories and tools. |
-| Natural context | With a Microsoft Copilot (Premium) license, Microsoft Graph and the user's permitted Microsoft 365 content; Copilot Chat and the Basic tier ground in web data. Plus configured agents and connectors. | Selected Organization repositories, local workspace context and individually approved external tools. |
+| Natural context | With a Premium license, Microsoft Graph and the user's permitted Microsoft 365 content. Copilot Chat (Basic) and Microsoft 365 Copilot (Basic) ground in web data, plus content the user supplies or a pay-as-you-go agent. Configured agents and connectors add more. | Selected Organization repositories, local workspace context and individually approved external tools. |
 | Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in principal's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
 | Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Changes, plans, reference material and app actions prepared for review and approval. |
 | Administration | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, devices, module requirements and each provider's administration. |
-| Extensibility | Plugins: installable packages with declarative agents and skills, plus configuration or references for Copilot connectors and MCP servers. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
+| Extensibility | Plugins: installable packages that can include declarative agents, skills, and configuration or references for Copilot connectors and MCP servers. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
 | Deployment | Microsoft-managed cloud service with published tenant requirements. | Framework and module deployment chosen per Organization; current public model begins with local checkouts and independently deployed modules. |
 | Best fit | Productivity and knowledge work already centered on Microsoft 365. | Work across repositories or tools that needs version history, tests and explicit approval. |
 
 Microsoft documents that Copilot operates within the Microsoft 365 service
 boundary and only surfaces organizational data to which the user has at least
-view permission. The Premium tier grounds answers in that data through
-Microsoft Graph; Copilot Chat and the Basic tier ground in web data and cannot
-use Microsoft Graph. See Microsoft's [Copilot overview](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
+view permission. With a Premium license, answers can be grounded in that
+data through Microsoft Graph. Copilot Chat (Basic) and Microsoft 365 Copilot
+(Basic) ground in web data and can't use organizational data via Microsoft
+Graph; they reach organizational content only when the user supplies it or
+through a pay-as-you-go agent. See Microsoft's [Copilot overview](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
 and [data protection and auditing](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing).
 
 Lazurio's public source defines GitHub as the access authority for repository
