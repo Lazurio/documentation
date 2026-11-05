@@ -12,6 +12,10 @@
   line (`AGENTS.md`), with one recorded exception for Windows joining a
   tailnet, and allow labelled illustrative mockups where no test device
   exists.
+- Add Guide pages in both locales on where an Environment takes its AI from,
+  pairing a phone and connecting a computer, device approval and how to ask
+  the Organization Admin, and describe the Admin in the GitHub baseline by
+  decision 0228.
 - Add credential-isolated Cloudflare Pages previews for same-repository pull
   requests and automatic production deployment with immutable and canonical
   smoke checks after protected `main` updates.
