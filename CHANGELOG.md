@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- Add the Guide page "Modules" and the IT page "Architecture" in English and
+  Czech, with a new diagram in both languages. Correct the glossary entries
+  Module and Marketplace, and link the new pages from lesson 3 of the course and
+  from "How Lazurio works".
+- A figure can hold a video: the rule in `docs.css`, and the link check and the
+  release smoke now see `src` and `poster` of `<video>`.
 - Add the Guide page "Add a new device to the tailnet" in English and Czech:
   clickable steps for iOS, Android and macOS, own Android screenshots, the
   Organization's login server, the `<login>-<device>` name, waiting for and

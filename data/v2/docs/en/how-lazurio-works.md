@@ -4,8 +4,8 @@ description: "Who assigns work, how an agent prepares a draft and who approves p
 stableId: lazurio-doc-how-it-works
 locale: en
 summary: "Who assigns work, how an agent prepares a draft and who approves publication."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -24,7 +24,9 @@ work. Publishing or deploying that result requires approval from someone
 authorized to make the decision. The agent cannot authorize itself.
 
 The terms below describe the older source model. For current Environment,
-Buddy and Apps names, see the [glossary](/en/guide/glossary/).
+Buddy and Apps names, see the [glossary](/en/guide/glossary/). What a module is
+today is explained in [Modules](/en/guide/modules/), and how the parts fit
+together in [Architecture](/en/architecture/).
 
 ## Five useful concepts
 

@@ -4,8 +4,8 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -17,6 +17,10 @@ sourceRefs:
   - lazurio-onboarding-decision-register
   - lazurio-platform-folder-manual
   - lazurio-platform-launchpad-texts
+  - lazurio-platform-module-standard-v0-1-20
+  - lazurio-platform-module-parts-f14
+  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-marketplace-registry
   - github-about-pull-requests
   - github-protected-branches
 audience:
@@ -83,11 +87,14 @@ například na obchodu nebo produktu.
 
 **Workspace** Část Organizace s aplikacemi pro každodenní práci.
 
-**Modul** Jedna konkrétní aplikace v Organizaci, například Mission Control
-nebo Knowledgebase.
+**Modul** Jedna oblast práce vaší firmy, třeba zakázky, web nebo receptury.
+Drží pohromadě postup, podle kterého agenti pracují, data, se kterými se
+pracuje, a aplikaci, ve které je vidíte a měníte. Moduly jsou například Mission
+Control a Knowledgebase. Víc na stránce [Moduly](/cs/guide/modules/).
 
-**Marketplace** Místo, kde můžete objevit další aplikace a rozšíření pro
-Lazurio.
+**Marketplace** Místo dole v Apps se šablonami modulů. Šablona se do vaší
+Organizace přidá jako vaše vlastní soukromá kopie. Od verze 0.1.21, která je
+k 5. listopadu 2026 kandidát vydání, nabízí šablony z veřejného seznamu Lazuria.
 
 **Mission Control** Místo pro řízení práce. Uvidíte zde, co se řeší, kdo za
 to odpovídá a co má následovat.

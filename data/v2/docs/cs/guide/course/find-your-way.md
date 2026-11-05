@@ -4,8 +4,8 @@ description: "Chat, Apps a Automate, moduly vaší Organizace, Soubory a jak si 
 stableId: lazurio-doc-guide-course-find-your-way
 locale: cs
 summary: "Chat, Apps a Automate, moduly vaší Organizace, Soubory a jak si nechat vysvětlit stránku."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -38,7 +38,8 @@ GitHub identita vašeho Prostředí, a to každý jednou. V části
 **Productionspace** jsou produkční repozitáře Organizace, jen ke čtení.
 O tom, jaké moduly Organizace má, rozhoduje ona sama. Když Kolega zmíní
 modul, který nevidíte, možná k němu nemáte přístup; zeptejte se svého
-Admina.
+Admina. Co modul drží, jak vzniká a kdo ho dostane, vysvětluje stránka
+[Moduly](/cs/guide/modules/).
 
 **Soubory** jsou složka Dokumenty tohoto Prostředí. Nahrajete do ní
 podklady pro agenty a stáhnete si z ní, co připravili, v případě potřeby
