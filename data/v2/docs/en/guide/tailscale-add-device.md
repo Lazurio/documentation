@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-environment-access-model-device-approval
+  - lazurio-agent-manual-device-enrollment
   - lazurio-device-node-names
   - headscale-project
   - headscale-connect-apple
@@ -35,8 +36,9 @@ audience:
 
 You add a new device to your Organization's tailnet yourself: **install
 Tailscale, enter your Organization's login server in it, sign in with your
-Lazurio account and wait for an Admin of the Organization to approve the
-device.** Until then, the Organization's Environments do not open from it.
+Lazurio account and wait until the Admin of the Organization tells you the
+device is approved.** Until then, do not expect the Organization's
+Environments to open from it.
 Each device (phone, tablet, computer) is added and approved separately. On
 iPhone, Android and Mac the whole procedure is done by clicking in the app.
 Windows needs one line in PowerShell; the pictures show every click, and you
@@ -51,8 +53,8 @@ Have **the address of your Organization's login server** ready. Lazurio runs
 its tailnets on [Headscale](https://github.com/juanfont/headscale), a
 self-hosted server that the Tailscale app signs in to instead of Tailscale's
 own server. The address usually looks like
-`https://headscale.<organization>.lazurio.io`. Dashboard shows the exact
-address, or the Admin of your Organization gives it to you. Do not guess it:
+`https://headscale.<organization>.lazurio.io`. The Admin of your
+Organization gives you the exact address. Do not guess it:
 with a different address you sign in to someone else's network, or not at all.
 
 Also decide what the device should be called: `<login>-<device>`, for example
@@ -269,11 +271,14 @@ is only a label and grants no access.
 
 ## What happens next
 
-After you sign in, the device is registered in the tailnet but **waits for
-approval by an Admin of the Organization**. Registration alone grants no
-access: Lazurio's access model (decision 0192) requires the Admin of each
-Organization to approve each device for that Organization. Approval for one
-Organization does not open another.
+After you sign in, the device is registered in the tailnet and **waits for
+approval by the Admin of the Organization**. Under Lazurio's rules, the Admin
+approves each device for their Organization, and approval for one
+Organization does not open another. How the approval is carried out today is
+described in [For the Organization's Admin](#for-the-organizations-admin).
+This guide does not promise that a device which is not approved yet is
+blocked: the Organization's network rules decide that, and the Admin and
+the network administrator manage them.
 
 **You are waiting when** the Organization's tailnet is in Tailscale's account
 list and the app may show that it is connected, but the addresses of the
@@ -312,20 +317,25 @@ to them through a channel they recognise you by.
 
 ## For the Organization's Admin
 
-The Admin approves devices in the Organization's Dashboard. An approval is a
+The Admin of the Organization approves each device. An approval is a
 relationship between a specific device, its owner's account and your
 Organization. On a tailnet that serves more than one Organization, each
 Organization approves separately.
 
-**How it works today (as of 3 November 2026).** In the target design, a
-service on the Conglomerate Host, the server that runs the tailnet, records
-approvals from Dashboard and changes the network rules within tens of seconds.
-Until that service runs, an approval in Dashboard prepares a change to the
-Organization's network configuration that goes through review. Several
-waiting devices can go in one batch. The device gets access only once that
-change is approved and deployed, so approval can take longer than a few
-minutes. The same reviewed change is also the fallback when the service is
-down.
+**How it works today (as of 5 November 2026).** The Admin approves the exact
+device and the Environments it may reach through the managed procedure of
+the network administrator, the operator of the server that runs the tailnet.
+That change is reviewed and deployed before the device can reach anything new.
+Several waiting devices can go in one batch, so approval can take longer than
+a few minutes. Dashboard does not list waiting devices yet: agree with the
+person directly which device is theirs, and ask your network administrator
+how to submit the approval.
+
+**Target.** Lazurio's access model (decision 0192) describes a registered
+device that reaches nothing until the Admin approves it in Dashboard, with a
+service on the Conglomerate Host that applies the approval within tens of
+seconds. That is being built (`issue-2026-11-03-002`). This guide does not
+claim that it already runs for your Organization.
 
 Before approving, check:
 
@@ -342,7 +352,7 @@ A person with Windows enters the login server with one PowerShell line, or
 lets their agent do it (see [Windows](#windows)). A clickable way for Windows
 is still a gap (`issue-2026-11-03-003`).
 
-When a person loses a device or stops using it, remove its approval the same
-way you granted it. The rules for who may approve and what an approved device
+When a person loses a device or stops using it, have its approval removed
+the same way it was granted. The rules for who may approve and what an approved device
 can reach change through a reviewed change to the Organization's
 configuration, not by approving a single device.

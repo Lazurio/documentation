@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-environment-access-model-device-approval
+  - lazurio-agent-manual-device-enrollment
   - lazurio-device-node-names
   - headscale-project
   - headscale-connect-apple
@@ -35,8 +36,8 @@ audience:
 
 Nové zařízení si do tailnetu Organizace přidáte sami: **nainstalujte
 Tailscale, zadejte v něm přihlašovací server své Organizace, přihlaste se
-účtem Lazurio a počkejte, až zařízení schválí Admin Organizace.** Do té doby
-se z něj Prostředí Organizace neotevřou. Každé zařízení (telefon, tablet,
+účtem Lazurio a počkejte, až vám Admin Organizace napíše, že je zařízení
+schválené.** Do té doby nečekejte, že se z něj Prostředí Organizace otevřou. Každé zařízení (telefon, tablet,
 počítač) se přidává zvlášť a zvlášť se i schvaluje. Na iPhonu, Androidu
 a Macu se celý postup dělá klikáním v aplikaci. Ve Windows je potřeba jeden
 řádek v PowerShellu; obrázky ukazují každé kliknutí a tento krok můžete předat
@@ -51,8 +52,8 @@ Připravte si **adresu přihlašovacího serveru vaší Organizace**. Lazurio
 provozuje tailnety na [Headscale](https://github.com/juanfont/headscale),
 vlastním serveru, ke kterému se aplikace Tailscale přihlašuje místo serveru
 společnosti Tailscale. Adresa má obvykle tvar
-`https://headscale.<organizace>.lazurio.io`. Přesnou adresu vám ukáže
-Dashboard nebo ji dostanete od Admina své Organizace. Adresu nehádejte:
+`https://headscale.<organizace>.lazurio.io`. Přesnou adresu dostanete od
+Admina své Organizace. Adresu nehádejte:
 s jinou se přihlásíte do cizí sítě, nebo vůbec.
 
 Rozmyslete si také, jak se má zařízení jmenovat: `<login>-<zařízení>`,
@@ -268,10 +269,13 @@ jen popis, přístup nedává.
 
 ## Co se stane potom
 
-Po přihlášení je zařízení v tailnetu zaregistrované, ale **čeká na schválení
-Adminem Organizace**. Registrace sama přístup nedává: model přístupu Lazuria
-(rozhodnutí 0192) vyžaduje, aby každé zařízení pro každou Organizaci schválil
-její Admin. Schválení pro jednu Organizaci neotevře jinou.
+Po přihlášení je zařízení v tailnetu zaregistrované a **čeká na schválení
+Adminem Organizace**. Podle pravidel Lazuria schvaluje každé zařízení pro svou
+Organizaci její Admin a schválení pro jednu Organizaci neotevře jinou. Jak se
+schvaluje dnes, popisuje část [Pro Admina Organizace](#pro-admina-organizace).
+Návod neslibuje, že zařízení, které ještě schválené není, je zablokované:
+o tom rozhodují pravidla sítě Organizace, která spravuje Admin se správcem
+sítě.
 
 **Poznáte, že čekáte:** tailnet Organizace je v Tailscale v seznamu účtů
 a aplikace může ukazovat připojení, ale adresy Prostředí Organizace se
@@ -309,18 +313,24 @@ kanálem, podle kterého vás pozná.
 
 ## Pro Admina Organizace
 
-Admin schvaluje zařízení v Dashboardu Organizace. Schválení je vztah
-konkrétního zařízení, účtu jeho vlastníka a vaší Organizace. Na tailnetu, který
-obsluhuje víc Organizací, schvaluje každá Organizace zvlášť.
+Každé zařízení schvaluje Admin Organizace. Schválení je vztah konkrétního
+zařízení, účtu jeho vlastníka a vaší Organizace. Na tailnetu, který obsluhuje
+víc Organizací, schvaluje každá Organizace zvlášť.
 
-**Jak to funguje dnes (stav k 3. listopadu 2026).** Cílově zapisuje schválení
-z Dashboardu služba na Conglomerate Hostu, serveru, který tailnet provozuje,
-a pravidla sítě změní během desítek sekund. Dokud tato služba neběží, připraví
-schválení z Dashboardu změnu konfigurace sítě Organizace, která prochází
-review. Několik čekajících zařízení může jít v jedné dávce. Zařízení dostane
-přístup až po schválení a nasazení této změny, proto může schválení trvat
-déle než pár minut. Stejná reviewovaná změna je i záložní cestou, když služba
-neběží.
+**Jak to funguje dnes (stav k 5. listopadu 2026).** Admin schvaluje konkrétní
+zařízení a Prostředí, kam smí, v řízeném postupu správce sítě, tedy
+provozovatele serveru, na kterém tailnet běží. Tato změna projde kontrolou
+a nasazením a teprve potom zařízení dosáhne na nová místa. Několik čekajících
+zařízení může jít v jedné dávce, proto může schválení trvat déle než pár
+minut. Dashboard čekající zařízení zatím neukazuje: s člověkem se přímo
+domluvte, které zařízení je jeho, a postup podání schválení si vyžádejte od
+správce sítě.
+
+**Cíl.** Model přístupu Lazuria (rozhodnutí 0192) popisuje zaregistrované
+zařízení, které nikam nedosáhne, dokud ho Admin neschválí v Dashboardu,
+a službu na Conglomerate Hostu, která schválení provede během desítek sekund.
+To se teprve staví (`issue-2026-11-03-002`). Návod netvrdí, že to už pro vaši
+Organizaci běží.
 
 Před schválením ověřte:
 
@@ -337,7 +347,7 @@ Před schválením ověřte:
 nechá na svém agentovi (viz [Windows](#windows)). Klikací cesta pro Windows
 pořád chybí (`issue-2026-11-03-003`).
 
-Když člověk zařízení ztratí nebo ho už nepoužívá, schválení odeberte
-stejnou cestou, jakou jste ho udělili. Pravidla, kdo smí schvalovat a kam
+Když člověk zařízení ztratí nebo ho už nepoužívá, nechte schválení odebrat
+stejnou cestou, jakou vzniklo. Pravidla, kdo smí schvalovat a kam
 schválené zařízení dosáhne, se mění reviewovanou změnou konfigurace
 Organizace, ne schválením jednoho zařízení.

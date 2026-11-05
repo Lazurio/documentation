@@ -1371,6 +1371,16 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-05",
       "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-agent-manual-device-enrollment",
+      "title": "Lazurio Platform v0.1.20 agent manual: tailnet registration grants no access yet; the Organization Admin approves the exact device through the network administrator's managed procedure; do not assume a device list in the Organization overview",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/src/folder/manual.ts#L2584",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     }
   ]
 }

@@ -121,9 +121,9 @@
       "severity": "medium",
       "owner": "matejsuchanek",
       "created_at": "2026-11-03",
-      "updated_at": "2026-11-03",
+      "updated_at": "2026-11-05",
       "question": "Does the released Dashboard show a person their Organization's Headscale login server address, and does an Admin approve waiting devices there (today through a reviewed batch change)?",
-      "impact": "guide/tailscale-add-device tells readers that Dashboard shows the exact address and that Admins approve devices in Dashboard. Both are being built separately; the public access model documents the approval service as the target with a reviewed change as fallback.",
+      "impact": "Since 2026-11-05 guide/tailscale-add-device no longer says that Dashboard shows the login server or that Admins approve devices in Dashboard: the Admin gives the address, and approval goes through the network administrator's managed procedure (Lazurio Platform v0.1.20 agent manual). The Dashboard approval and the approval service are described as the target of the access model (decision 0192). Once they ship and are verified, the guide can say so.",
       "options": [
         "Publish after the Dashboard change ships and re-read it.",
         "Publish now with the Admin as the source of the address, and add Dashboard once it ships."
