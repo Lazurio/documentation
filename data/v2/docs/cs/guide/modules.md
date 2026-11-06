@@ -51,8 +51,9 @@ pracuje, a aplikaci, ve které je vidíte a měníte.**
 | **Data** | lidé i agenti | Záznamy a obsah oblasti: zakázky, stránky webu, receptury. |
 | **Aplikace** | lidé | Obrazovka, ve které data vidíte a měníte: přehled, formulář, nástěnka, web. Modul může začít i bez ní. |
 
-Pod těmito třemi částmi je repozitář na GitHubu. Každá změna má historii a jde
-vrátit, takže se nebojte zkoušet.
+Pod těmito třemi částmi je repozitář na GitHubu. Změny v modulu mají historii
+a jdou vrátit, takže se nebojte zkoušet. Neplatí to pro záznamy v databázi ani
+pro to, co agent odeslal ven, třeba e-mail.
 
 ## Příklad, který má každá firma
 

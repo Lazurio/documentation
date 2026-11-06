@@ -51,8 +51,9 @@ about, and the app in which you see and change it.**
 | **Data** | people and agents | The records and content of the work: orders, the pages of your website, recipes. |
 | **App** | people | The screen where you see and change the data: an overview, a form, a board, a website. A module can start without one. |
 
-Under the three parts is a repository on GitHub. Every change has a history
-and can be taken back, so you can try things without worry.
+Under the three parts is a repository on GitHub. Changes in a module have a
+history and can be taken back, so you can try things without worry. That does
+not cover records in a database or what an agent sent out, such as an e-mail.
 
 ## An example every company has
 
