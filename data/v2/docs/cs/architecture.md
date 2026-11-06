@@ -39,7 +39,7 @@ repozitář. Stejný model bez technických pojmů vysvětluje stránka
 <figure class="lz-diagram">
   <picture>
     <source media="(max-width: 640px)" srcset="/diagrams/lazurio-architecture-cs-mobile.svg" />
-    <img src="/diagrams/lazurio-architecture-cs.svg" alt="Člověk na zařízení v tailnetu vstupuje do Prostředí, počítače, na kterém pracují agenti. Prostředí drží kopie modulů Organizace, tedy GitHub organizace s kořenovým repozitářem a repozitářem každého modulu. Okolo Prostředí jsou Integrace, trezor a poskytovatel AI. Prostředí služeb s databází pro moduly je rozhodnuté, ale nenasazené." />
+    <img src="/diagrams/lazurio-architecture-cs.svg" alt="Člověk na zařízení v tailnetu vstupuje do Prostředí, počítače, na kterém pracují agenti. Prostředí drží kopie modulů Organizace, tedy GitHub organizace s kořenovým repozitářem a repozitářem každého modulu. Okolo Prostředí jsou Integrace, trezor a poskytovatel AI. Služby serveru s databází pro moduly jsou rozhodnuté, ale nenasazené." />
   </picture>
   <figcaption>Plné části fungují dnes. Přerušované části jsou rozhodnuté, ale nenasazené.</figcaption>
 </figure>
@@ -82,9 +82,9 @@ Modul nemusí mít aplikaci vůbec. Modul Organizace je soukromý repozitář
   0193, 0198 a 0203).
 - **Poskytovatel AI** provozuje modely. Oba zdroje popisuje stránka
   [Zdroj AI](/cs/guide/ai-source/).
-- **Prostředí služeb** je na každém serveru Organizace jedno. Vstupují do něj
-  jen Owneři a Admini a každá služba má svůj kontejner (rozhodnutí 0209). Stav:
-  rozhodnuto, zatím nenasazeno.
+- **Služby serveru** běží na každém serveru Organizace na jednom stroji.
+  Vstupují do nich jen Owneři a Admini a každá služba má svůj kontejner
+  (rozhodnutí 0209). Stav: rozhodnuto, zatím nenasazeno.
 
 ## Jeden zdroj, synchronizované kopie
 
@@ -118,7 +118,7 @@ uvnitř, jsou vlastní pravidla Organizace v jejím kódu a datech (rozhodnutí 
 | Obsah modulu `v2` | `data/v2/` v repozitáři modulu | Ano |
 | Záznamy modulu `v3` | Datový repozitář `<modul>-data` | Ano |
 | Schéma modulu `v4` | Repozitář modulu | Ano, po nasazení |
-| Řádky modulu `v4` | Databáze v Prostředí služeb | Ne, po nasazení |
+| Řádky modulu `v4` | Databáze ve Službách serveru | Ne, po nasazení |
 | Tajné údaje | Trezor | Ne |
 | Soubory | Složka Dokumenty jednoho Prostředí | Ne |
 | Přihlášení nástrojů | Počítač, na kterém Prostředí běží | Ne |
@@ -134,7 +134,7 @@ aplikace dobrá (rozhodnutí F69, v kandidátu vydání v0.1.21-rc.1).
 | `v1` | Obsah je součástí aplikace. Datová vrstva není. | Modul nemá vlastní záznamy. | Šablony Design System a Prezentace | K dispozici |
 | `v2` | Obsah leží vedle aplikace ve stejném repozitáři, v `data/v2/`. Vlastní datová vrstva není. | Obsahu je hodně, mění se občas a upravují ho agenti. | [Tato dokumentace](https://github.com/Lazurio/documentation) | K dispozici |
 | `v3` | Záznamy leží v datovém repozitáři `<owner>/<modul>-data`, spravuje je repository-db a je připojený jako `db/`. Úprava člověka je nepublikovaná změna; publikace je jeden commit a push. | Záznamy se mění denně a chcete historii a schvalování. Výchozí volba pro nový modul s daty. | Šablona Mission Control | K dispozici |
-| `v4` | Záznamy leží v databázi Dolt v Prostředí služeb serveru Organizace. Na GitHubu je aplikace, postup a schéma, řádky ne. | Zapisuje mnoho lidí najednou, přístup se liší uvnitř dat, osobní údaje se musí dát smazat nebo zapisuje služba zvenku. | Zatím žádný | **Rozhodnuto, nenasazeno** |
+| `v4` | Záznamy leží v databázi Dolt ve Službách serveru Organizace. Na GitHubu je aplikace, postup a schéma, řádky ne. | Zapisuje mnoho lidí najednou, přístup se liší uvnitř dat, osobní údaje se musí dát smazat nebo zapisuje služba zvenku. | Zatím žádný | **Rozhodnuto, nenasazeno** |
 
 K tabulce tři poznámky:
 

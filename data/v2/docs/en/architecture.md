@@ -39,7 +39,7 @@ same model without technical terms.
 <figure class="lz-diagram">
   <picture>
     <source media="(max-width: 640px)" srcset="/diagrams/lazurio-architecture-mobile.svg" />
-    <img src="/diagrams/lazurio-architecture.svg" alt="A person on a device in the tailnet reaches an Environment, the computer where agents work. The Environment keeps copies of the modules of an Organization, which is a GitHub organization with a root repository and a repository for each module. Around the Environment are Integrations, the vault and the AI provider. A Services Environment with a database for modules is decided and not deployed." />
+    <img src="/diagrams/lazurio-architecture.svg" alt="A person on a device in the tailnet reaches an Environment, the computer where agents work. The Environment keeps copies of the modules of an Organization, which is a GitHub organization with a root repository and a repository for each module. Around the Environment are Integrations, the vault and the AI provider. Server services with a database for modules are decided and not deployed." />
   </picture>
   <figcaption>Solid parts run today. Dashed parts are decided and not deployed.</figcaption>
 </figure>
@@ -82,9 +82,9 @@ A module can have no app at all. An Organization's module is a private repositor
   and 0203).
 - **The AI provider** runs the models. [Where your AI comes
   from](/en/guide/ai-source/) describes the two sources.
-- **The Services Environment** is one services Machine on each Organization
-  server, entered only by Owners and Admins, with one container per service
-  (decision 0209). Its status is decided, not yet deployed.
+- **Server services** run on one services Machine on each Organization server,
+  entered only by Owners and Admins, with one container per service (decision
+  0209). Their status is decided, not yet deployed.
 
 ## One source, synchronized copies
 
@@ -120,7 +120,7 @@ person may do inside is the Organization's own rules in its code and data
 | Content of a `v2` module | `data/v2/` in the module's repository | Yes |
 | Records of a `v3` module | The data repository `<module>-data` | Yes |
 | Schema of a `v4` module | The module's repository | Yes, once deployed |
-| Rows of a `v4` module | The database in the Services Environment | No, once deployed |
+| Rows of a `v4` module | The database in the Server services | No, once deployed |
 | Secrets | The vault | No |
 | Files | The Documents folder of one Environment | No |
 | Sign-ins of tools | The Machine under the Environment | No |
@@ -136,7 +136,7 @@ not the app's quality (decision F69, in release candidate v0.1.21-rc.1).
 | `v1` | Content is part of the app. There is no data layer. | The module has no records of its own. | Design System and Presentations templates | Available |
 | `v2` | Content lies beside the app in the same repository, in `data/v2/`. There is no data layer of its own. | There is a lot of content, it changes now and then and agents edit it. | [This documentation](https://github.com/Lazurio/documentation) | Available |
 | `v3` | Records lie in a data repository `<owner>/<module>-data`, managed by repository-db and checked out as `db/`. A person's edit is an unpublished change; publishing it is one commit and push. | Records change daily and you want history and approval. This is the default for a new module with data. | Mission Control template | Available |
-| `v4` | Records lie in a Dolt database in the Services Environment of the Organization's server. GitHub holds the app, the process and the schema, not the rows. | Many people write at once, access differs inside the data, personal data must be deletable, or an outside service writes. | None yet | **Decided, not deployed** |
+| `v4` | Records lie in a Dolt database in the Server services of the Organization's server. GitHub holds the app, the process and the schema, not the rows. | Many people write at once, access differs inside the data, personal data must be deletable, or an outside service writes. | None yet | **Decided, not deployed** |
 
 Three things about the table:
 

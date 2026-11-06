@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840" role="img" aria-labelledby="title description">
   <title id="title">Architektura Lazuria</title>
-  <desc id="description">Člověk na zařízení v tailnetu vstupuje do Prostředí, počítače, na kterém pracují agenti. Prostředí drží synchronizované kopie modulů Organizace, tedy jedné GitHub organizace s kořenovým repozitářem a repozitářem každého modulu. Okolo Prostředí jsou Integrace, trezor a poskytovatel AI. Prostředí služeb s databází pro moduly v4 je rozhodnuté, ale nenasazené.</desc>
+  <desc id="description">Člověk na zařízení v tailnetu vstupuje do Prostředí, počítače, na kterém pracují agenti. Prostředí drží synchronizované kopie modulů Organizace, tedy jedné GitHub organizace s kořenovým repozitářem a repozitářem každého modulu. Okolo Prostředí jsou Integrace, trezor a poskytovatel AI. Služby serveru s databází pro moduly v4 jsou rozhodnuté, ale nenasazené.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 8 4.5 L 1 8 z" fill="#6f77ff"/></marker>
     <marker id="arrowplanned" viewBox="0 0 9 9" refX="8" refY="4.5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto"><path d="M 1 1 L 8 4.5 L 1 8 z" fill="#d2ddfd"/></marker>
@@ -74,7 +74,7 @@
   <text class="name" x="888" y="628">Poskytovatel AI</text>
   <text class="copy" x="888" y="653">provozuje modely</text>
   <rect class="planned" x="872" y="680" width="256" height="102" rx="10"/>
-  <text class="name" x="888" y="708">Prostředí služeb</text>
+  <text class="name" x="888" y="708">Služby serveru</text>
   <text class="copy" x="888" y="733">databáze pro v4 (Dolt)</text>
   <text class="note" x="888" y="757">rozhodnuto, nenasazeno</text>
   </g>
