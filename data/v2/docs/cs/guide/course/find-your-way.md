@@ -31,7 +31,7 @@ Nahoře v levém sloupci je přepínač **Chat · Apps · Automate**:
 - **Automate** slouží pravidelným úkolům a automatizaci. Kde neběží, řekne
   vám to prohlídka.
 
-**Modul** je jedna aplikace nebo oblast práce vaší Organizace, například
+**Modul** je jedna oblast vaší práce, například
 Mission Control pro plány nebo Knowledgebase pro sdílené znalosti. V části
 **Workspace** ukazuje Apps každý modul Organizace, ke kterému se dostane
 GitHub identita vašeho Prostředí, a to každý jednou. V části

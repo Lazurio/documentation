@@ -32,7 +32,7 @@ audience:
   - agent
 ---
 
-**Modul je jedna oblast práce vaší firmy, třeba zakázky, web nebo receptury.
+**Modul je jedna oblast vaší práce, třeba zakázky, web nebo receptury.
 Drží pohromadě postup, podle kterého agenti pracují, data, se kterými se
 pracuje, a aplikaci, ve které je vidíte a měníte.**
 
@@ -40,7 +40,7 @@ pracuje, a aplikaci, ve které je vidíte a měníte.**
   <video controls playsinline preload="none" poster="/videos/modules-cs.webp" aria-describedby="modules-video-words">
     <source src="/videos/modules-cs.mp4" type="video/mp4" />
   </video>
-  <figcaption id="modules-video-words">Modul je jedna oblast práce vaší firmy. Postup, data a aplikace v jednom balíčku. Agenti pracují podle postupu, lidé v aplikaci. Admin rozhodne, kdo modul dostane. Nový postavíte s agentem, nebo ze šablony.</figcaption>
+  <figcaption id="modules-video-words">Modul je jedna oblast vaší práce. Postup, data a aplikace v jednom balíčku. Agenti pracují podle postupu, lidé v aplikaci. Admin rozhodne, kdo modul dostane. Nový postavíte s agentem, nebo ze šablony.</figcaption>
 </figure>
 
 ## Tři části modulu
@@ -164,7 +164,7 @@ Stejnou tabulku s technickými názvy pro IT najdete v části
 Ne. Zdroj je jeden, na GitHubu. Každé Prostředí s přístupem má jeho kopii
 a Lazurio ji udržuje aktuální.
 
-**Má každý svůj repozitář, nebo je jeden pro celou firmu?**
+**Má každý svůj repozitář, nebo je jeden pro celou Organizaci?**
 Ani jedno. Organizace má jeden kořenový repozitář a každý modul má vlastní.
 Lidé pracují s kopií ve svém Prostředí.
 

@@ -32,7 +32,7 @@ audience:
   - agent
 ---
 
-**A module is one area of your company's work, such as orders, the website or
+**A module is one area of your work, such as orders, the website or
 recipes. It keeps together the process agents follow, the data the work is
 about, and the app in which you see and change it.**
 
@@ -40,7 +40,7 @@ about, and the app in which you see and change it.**
   <video controls playsinline preload="none" poster="/videos/modules-en.webp" aria-describedby="modules-video-words">
     <source src="/videos/modules-en.mp4" type="video/mp4" />
   </video>
-  <figcaption id="modules-video-words">A module is one area of your company's work. A process, data and an app in one package. Agents follow the process, people work in the app. The Admin decides who gets the module. Build yours with an agent or from a template.</figcaption>
+  <figcaption id="modules-video-words">A module is one area of your work. A process, data and an app in one package. Agents follow the process, people work in the app. The Admin decides who gets the module. Build yours with an agent or from a template.</figcaption>
 </figure>
 
 ## The three parts
@@ -173,7 +173,7 @@ No. There is one source on GitHub. Each Environment with access keeps a copy,
 and Lazurio keeps the copies up to date.
 
 **Does everyone have their own repository, or is there one for the whole
-company?**
+Organization?**
 Neither. The Organization has one root repository and each module has a
 repository of its own. People work on a copy in their Environment.
 

@@ -31,7 +31,7 @@ At the top of the left column is the switch **Chat · Apps · Automate**:
 - **Automate** is for regular tasks and automation. Where it does not run,
   the tour says so.
 
-A **Module** is one application or area of work of your Organization, for
+A **Module** is one area of your work, for
 example Mission Control for plans or a Knowledgebase for shared knowledge.
 Under **Workspace**, Apps lists every Module of the Organization that your
 Environment's GitHub identity can reach, each once. Under **Productionspace**

@@ -89,7 +89,7 @@ area, such as sales or product.
 **Workspace** The part of an Organization that contains applications for
 day-to-day work.
 
-**Module** One area of your company's work, such as orders, the website or
+**Module** One area of your work, such as orders, the website or
 recipes. It keeps together the process agents follow, the data the work is
 about, and the app in which you see and change it. Mission Control and
 Knowledgebase are modules. See [Modules](/en/guide/modules/).

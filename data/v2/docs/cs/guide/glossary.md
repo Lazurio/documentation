@@ -87,7 +87,7 @@ například na obchodu nebo produktu.
 
 **Workspace** Část Organizace s aplikacemi pro každodenní práci.
 
-**Modul** Jedna oblast práce vaší firmy, třeba zakázky, web nebo receptury.
+**Modul** Jedna oblast vaší práce, třeba zakázky, web nebo receptury.
 Drží pohromadě postup, podle kterého agenti pracují, data, se kterými se
 pracuje, a aplikaci, ve které je vidíte a měníte. Moduly jsou například Mission
 Control a Knowledgebase. Víc na stránce [Moduly](/cs/guide/modules/).
