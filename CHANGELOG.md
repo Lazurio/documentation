@@ -2,11 +2,6 @@
 
 ## Unreleased
 
-- Update "Connecting an Environment to apps" in English and Czech to today's
-  product: one path per Integration, the current tool catalog, the Composio
-  organization of an Environment, the user instead of the operator, Composio's
-  retention and the release status. Qualify the tailnet sentence of the Tailscale
-  guide with public DNS mode, and correct the sentence on installed connectors.
 - Add the Guide page "Add a new device to the tailnet" in English and Czech:
   clickable steps for iOS, Android and macOS, own Android screenshots, the
   Organization's login server, the `<login>-<device>` name, waiting for and
@@ -35,3 +30,8 @@
   switching and parity checks against the English source.
 - Make Agent search and stable-ID retrieval locale-aware while keeping English
   as the deterministic default.
+- Update "Connecting an Environment to apps" in English and Czech to today's
+  product: one path per Integration, the current tool catalog, the Composio
+  organization of an Environment, the user instead of the operator, Composio's
+  retention and the release status. Qualify the tailnet sentence of the Tailscale
+  guide with public DNS mode, and correct the sentence on installed connectors.
