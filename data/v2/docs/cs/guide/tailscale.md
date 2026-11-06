@@ -4,8 +4,8 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-03"
-reviewedAt: "2026-11-03"
+updatedAt: "2026-11-06"
+reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -37,11 +37,16 @@ jakmile Prostředí odpoví. Když se adresa ani pak neotevře, pokračujte
 ## Proč Tailscale
 
 **Tailnet** je soukromá síť zařízení propojených přes
-[Tailscale](https://tailscale.com/). Aplikace Prostředí na serveru, třeba jeho
-Launchpad, Chat nebo Automate, mají adresy, které fungují jen uvnitř tailnetu,
+[Tailscale](https://tailscale.com/). Ve výchozím stavu mají aplikace Prostředí
+na serveru, třeba jeho Launchpad, Chat nebo Automate, adresy, které fungují jen
+uvnitř tailnetu,
 který je obsluhuje. Žádná veřejná cesta k nim nevede: mimo tento tailnet je
 prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Tento web
 není dostupný“.
+
+Organizace může místo toho přejít na veřejné adresy (rozhodnutí 0213, nasazené
+částečně). Její lidé pak tailnet nepotřebují a tato stránka se jich netýká: viz
+[Schválení zařízení](/cs/guide/device-approval/#kdy-zařízení-v-tailnetu-nepotřebujete).
 
 K Prostředí tak vaše zařízení potřebuje tři věci:
 

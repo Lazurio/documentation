@@ -4,8 +4,8 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-11-03"
-reviewedAt: "2026-11-03"
+updatedAt: "2026-11-06"
+reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -37,11 +37,15 @@ still does not open, see [Still not working?](#still-not-working)
 ## Why Tailscale
 
 A **tailnet** is a private network of devices connected with
-[Tailscale](https://tailscale.com/). The apps of a Remote Environment, such as
-its Launchpad, Chat or Automate, have addresses that work only inside the
-tailnet that serves them. No public route leads to them: outside that tailnet
+[Tailscale](https://tailscale.com/). By default, the apps of a Remote
+Environment, such as its Launchpad, Chat or Automate, have addresses that work
+only inside the tailnet that serves them. No public route leads to them: outside that tailnet
 your browser cannot open them, and usually cannot even find the address. It
 shows an error such as "This site can't be reached".
+
+An Organization can switch to public addresses instead (decision 0213, partly
+deployed). Its people then need no tailnet, and this page does not apply to them:
+see [Device approval](/en/guide/device-approval/#when-you-need-no-device-in-the-tailnet).
 
 To reach an Environment, your device needs three things:
 

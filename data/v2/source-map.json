@@ -204,63 +204,63 @@
     },
     {
       "id": "lazurio-decision-0162",
-      "title": "Lazurio decision register: decision 0162 with its addendum of 2026-10-02, and decisions 0170, 0172 and 0175",
+      "title": "Lazurio decision register at release v0.1.20: decision 0162 with its addenda (Integrations, one path each), and decisions 0170, 0172 and 0175",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/decision-register.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-external-apps-0162",
-      "title": "External application integration standard: order of routes, Composio as the approved broker and the Organization integration catalog",
+      "title": "LazurioPlatform Integrations at release v0.1.20: one path per app, the path rule, whether Composio is allowed, ChatGPT apps and Executor's approvals",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/external-app-integrations.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md#the-path-rule",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-composio-runbook",
-      "title": "Composio runbook: the recommended route for connecting apps",
+      "title": "LazurioPlatform Integrations at release v0.1.20: Composio, the Composio organization of an Environment and the Team's account",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/3b95c80048b234c267031495be54927aa3d5cc43/manual/integrations/composio.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md#the-composio-organization-of-an-environment",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-platform-tools-decisions",
-      "title": "LazurioPlatform decisions F17, F18 and F19 with their addenda: operator tools, enabled tools of the Environment, the curated sign-in and team accounts on a Team Environment",
+      "title": "LazurioPlatform decisions F17, F18 and F19 at release v0.1.20, with their addenda: the user's tools, enabled tools of the Environment, the curated sign-in and team accounts on a Team Environment",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f18--enabled-tools-of-the-environment",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-platform-decision-f19",
-      "title": "LazurioPlatform decision F19: curated installation and login of catalog tools",
+      "title": "LazurioPlatform decision F19 at release v0.1.20: curated installation and login of catalog tools",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-platform-environment-tools",
-      "title": "LazurioPlatform environment tools and operator sign-ins",
+      "title": "LazurioPlatform environment tools and user sign-ins at release v0.1.20: the catalog, where a tool is offered and what the Organization decides",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/environment-tools.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/environment-tools.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-platform-release-v0-1-7",
@@ -269,8 +269,8 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-platform-release-v0-1-8-rc-35",
@@ -279,18 +279,18 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-platform-tools-screen-review",
       "title": "LazurioPlatform Launchpad Settings, Tools section",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1a4a99b2c586359e80e1663a3d66ee3d61730f2f/docs/launchpad-development.md#tools-section",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/launchpad-development.md#tools-section",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-platform-composio-write-gate-question",
@@ -299,28 +299,28 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/issues/39",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-platform-composio-custody-question",
-      "title": "LazurioPlatform open question: Composio data custody, log retention and hosting region",
+      "title": "LazurioPlatform question on Composio data custody: findings of 2026-10-07 on log retention and Zero Data Retention; the recommendation to Organizations is open",
       "publisher": "Lazurio",
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/issues/40",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-platform-composio-shared-connections-question",
-      "title": "LazurioPlatform open question: do two Machines signed in to the same Composio account and organization share connections",
+      "title": "LazurioPlatform question: two Machines signed in to the same Composio account and organization share connections (answered 2026-10-07 from documentation and source, without a live run)",
       "publisher": "Lazurio",
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/issues/45",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "composio-token-custody",
@@ -329,38 +329,38 @@
       "kind": "provider-documentation",
       "url": "https://docs.composio.dev/docs/security/token-custody",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-06",
-      "reviewDueAt": "2026-11-06"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-environment-network-decisions",
-      "title": "Lazurio decision register: decisions 0146 (names of hosted Environments, reachable only from the tailnet), 0154 (a personal Remote Environment only through the tailnet) and 0192 (Tailscale, Headscale and an Admin-approved device)",
+      "title": "Lazurio decision register at release v0.1.20: decisions 0146 (names and entry of hosted Environments), 0154 (a personal Environment in a tailnet), 0192 (an Admin-approved device) and 0213 (an Organization may switch from tailnet to public DNS)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/25d62a7045a77b7d522cb4603cc778777667bd2f/manual/decision-register.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0213--network-for-people-an-organization-may-switch-from-tailnet-to-public-dns",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-environment-access-model",
-      "title": "Lazurio Environment access model: the network condition of entry and the approval of devices (approved 2026-10-06)",
+      "title": "LazurioPlatform Environment access model, the public authority since 2026-11-01: the network condition of entry, Admin approval of each device per Organization, the public-DNS exception and removing one's own lost device (decision 0192, approved 2026-10-06; the transition is not complete)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/25d62a7045a77b7d522cb4603cc778777667bd2f/manual/environment-access-model.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/508a3a4493f4e9451c38b230adbe614adcb8ad00/docs/environment-access.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-platform-decision-f41",
-      "title": "LazurioPlatform decision F41: the offline guide on an Environment's addresses, and why its service worker is always updatable",
+      "title": "LazurioPlatform decision F41 with its addenda of 2026-10-09 and 2026-10-12: the offline guide on an Environment's addresses, and why its service worker is always updatable",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/9bdf1db23ef9d0b54bbf3dbeb829c8614390dcc8/docs/decisions.md#f41--the-offline-guide-a-service-worker-on-the-shells-origins-shows-how-to-reach-the-environment-and-is-always-updatable",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/508a3a4493f4e9451c38b230adbe614adcb8ad00/docs/decisions.md#f41--the-offline-guide-a-service-worker-on-the-shells-origins-shows-how-to-reach-the-environment-and-is-always-updatable",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "headscale-project",
@@ -377,10 +377,10 @@
       "title": "Tailscale: Fast user switching (one active account per device, switching on macOS, Windows, iOS and Android)",
       "publisher": "Tailscale",
       "kind": "provider-documentation",
-      "url": "https://tailscale.com/kb/1225/fast-user-switching",
+      "url": "https://tailscale.com/docs/features/client/fast-user-switching",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "tailscale-install-windows",
@@ -399,8 +399,8 @@
       "kind": "provider-documentation",
       "url": "https://support.google.com/chrome/answer/10468685",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "tailscale-android-private-dns-request",
@@ -409,8 +409,8 @@
       "kind": "public-source",
       "url": "https://github.com/tailscale/tailscale/issues/17655",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "webkit-storage-cap",
@@ -419,8 +419,8 @@
       "kind": "provider-documentation",
       "url": "https://webkit.org/blog/10218/full-third-party-cookie-blocking-and-more/",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-platform-release-v0-1-8-rc-41",
@@ -429,18 +429,58 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.41",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-10-08",
-      "reviewDueAt": "2026-11-08"
+      "reviewedAt": "2026-11-05",
+      "reviewDueAt": "2026-12-05"
     },
     {
       "id": "lazurio-external-apps-current",
-      "title": "External application standard: Executor routing, optional Composio and publication controls",
+      "title": "External application integration standard: the order of routes, what stays excluded, ChatGPT apps off in an Environment and the Organization's integration catalog",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
+    },
+    {
+      "id": "composio-data-retention",
+      "title": "Composio: Data retention and handling (logs up to one year on every plan, staged files 24 hours, where data goes)",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs/security/data-retention",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
+    },
+    {
+      "id": "composio-zero-data-retention",
+      "title": "Composio: Zero Data Retention (paid plans for a usage-based price, included on Enterprise, what it does not cover)",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://docs.composio.dev/docs/security/zero-data-retention",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
+    },
+    {
+      "id": "composio-pricing",
+      "title": "Composio pricing: the plans, and the Data Processing Addendum on Pro and Enterprise",
+      "publisher": "Composio",
+      "kind": "provider-documentation",
+      "url": "https://composio.dev/pricing",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
+    },
+    {
+      "id": "lazurio-platform-release-current",
+      "title": "LazurioPlatform release v0.1.20 (published 2026-11-04, the latest final release on 2026-11-06, commit 5edbc2b7ebf53aec4e116663db60021d24593dbe)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.20",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-06",
+      "reviewDueAt": "2026-12-06"
     },
     {
       "id": "lazurio-product-vocabulary",

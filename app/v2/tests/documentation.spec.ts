@@ -298,6 +298,18 @@ test('critical pages have no serious accessibility violations', async ({ page })
   }
 })
 
+test('connecting an app shows its screenshots in both languages', async ({ page }) => {
+  for (const locale of ['en', 'cs']) {
+    await page.goto(`/${locale}/environment-app-connections/`)
+    const shots = page.locator('figure.lz-app-step img')
+    await expect(shots).toHaveCount(2)
+    for (const shot of await shots.all()) {
+      await shot.scrollIntoViewIfNeeded()
+      await expect.poll(() => shot.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true)
+    }
+  }
+})
+
 test('diagram labels stay inside their nodes and arrowheads remain compact', async ({ page }) => {
   for (const route of [
     '/diagrams/company-to-github.svg',
