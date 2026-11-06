@@ -26,6 +26,14 @@ for (const pathname of smokePaths) {
   console.log(`Verified ${pathname}`)
 }
 
+// Safari and iOS play a video only with byte ranges, which the Pages assets do not answer.
+const range = await request('/videos/modules-en.mp4', { headers: { Range: 'bytes=0-1' } })
+if (range.status !== 206 || !/^bytes 0-1\/\d+$/u.test(range.headers.get('content-range') ?? '')) {
+  throw new Error(`Expected a byte range of the video, got ${range.status} ${range.headers.get('content-range') ?? '<no Content-Range>'}.`)
+}
+await range.arrayBuffer()
+console.log('Verified the byte range of /videos/modules-en.mp4')
+
 const index = await request('/content-index.json')
 const payload = await index.json()
 if (payload.sourceCommit !== expectedCommit) {

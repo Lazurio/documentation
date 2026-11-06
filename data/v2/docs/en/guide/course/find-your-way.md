@@ -4,8 +4,8 @@ description: "Chat, Apps and Automate, your Organization's Modules, Files and ho
 stableId: lazurio-doc-guide-course-find-your-way
 locale: en
 summary: "Chat, Apps and Automate, your Organization's Modules, Files and how to get a page explained."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -31,13 +31,15 @@ At the top of the left column is the switch **Chat · Apps · Automate**:
 - **Automate** is for regular tasks and automation. Where it does not run,
   the tour says so.
 
-A **Module** is one application or area of work of your Organization, for
+A **Module** is one area of your work, for
 example Mission Control for plans or a Knowledgebase for shared knowledge.
 Under **Workspace**, Apps lists every Module of the Organization that your
 Environment's GitHub identity can reach, each once. Under **Productionspace**
 it shows the Organization's production repositories, read-only. Your
 Organization decides which Modules it has. If a colleague mentions a Module
 you do not see, you may not have access to it; ask your Admin.
+[Modules](/en/guide/modules/) explains what a module holds, how it comes to be
+and who gets it.
 
 **Files** is the Documents folder of this Environment. Upload materials for
 agents there and download what they prepare, a whole folder as a ZIP if you

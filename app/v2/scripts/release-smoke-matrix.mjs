@@ -27,7 +27,7 @@ assert.deepEqual([...new Set(sidebarRoutes)].sort(), guideRoutes, 'Guide sidebar
 const assets = new Set()
 for (const { markdown } of guideDocuments) {
   const links = [
-    ...Array.from(markdown.matchAll(/(?:src|href)\s*=\s*["'](\/[^"'#?]+)(?:[?#][^"']*)?["']/gu), (match) => match[1]),
+    ...Array.from(markdown.matchAll(/(?:src|href|poster)\s*=\s*["'](\/[^"'#?]+)(?:[?#][^"']*)?["']/gu), (match) => match[1]),
     ...Array.from(markdown.matchAll(/\[[^\]]*\]\((\/[^)\s?#]+)(?:[?#][^)\s]*)?\)/gu), (match) => match[1]),
   ]
   for (const link of links) {
@@ -51,5 +51,7 @@ export const smokePaths = [...new Set([
   '/diagrams/human-directed-work.svg', '/diagrams/human-directed-work-mobile.svg',
   '/diagrams/lazurio-data-flow.svg', '/diagrams/draft-publication-flow.svg',
   '/diagrams/draft-publication-flow-mobile.svg',
+  '/diagrams/lazurio-architecture.svg', '/diagrams/lazurio-architecture-mobile.svg',
+  '/diagrams/lazurio-architecture-cs.svg', '/diagrams/lazurio-architecture-cs-mobile.svg',
 ])]
 verifyGuideCoverage(smokePaths)

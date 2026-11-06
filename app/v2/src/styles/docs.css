@@ -301,12 +301,18 @@ button,
   display: block;
 }
 
-.sl-markdown-content .lz-diagram img {
+.sl-markdown-content .lz-diagram img,
+.sl-markdown-content .lz-diagram video {
   display: block;
   width: 100%;
   border: 1px solid var(--sl-color-gray-5);
   border-radius: var(--lz-radius-lg);
   background: var(--sl-color-bg);
+}
+
+.sl-markdown-content .lz-diagram video {
+  height: auto;
+  aspect-ratio: 16 / 9;
 }
 
 .sl-markdown-content .lz-diagram figcaption {

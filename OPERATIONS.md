@@ -73,8 +73,8 @@ failure.
 ## Release smoke
 
 After every deployment or rollback, verify the canonical hostname, redirect,
-IT briefing, public evidence, both SVG diagrams, TLS request path and exact
-agent index provenance:
+IT briefing, public evidence, both SVG diagrams, the byte range of the video, TLS
+request path and exact agent index provenance:
 
 ```sh
 cd app/v2

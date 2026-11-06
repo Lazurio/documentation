@@ -2,6 +2,7 @@ import { access } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocuments } from './content-library.mjs'
+import { mediaTargets } from './media-targets.mjs'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
 const moduleRoot = path.resolve(scriptDirectory, '../../..')
@@ -14,8 +15,8 @@ const errors = []
 const linkPattern = /\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g
 
 for (const document of documents) {
-  for (const match of document.markdown.matchAll(linkPattern)) {
-    const href = match[1]
+  const links = Array.from(document.markdown.matchAll(linkPattern), (match) => match[1])
+  for (const href of [...links, ...mediaTargets(document.markdown)]) {
     if (href.startsWith('#') || href.startsWith('mailto:')) continue
     if (/^https:\/\//.test(href)) {
       try {

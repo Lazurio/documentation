@@ -319,6 +319,10 @@ test('diagram labels stay inside their nodes and arrowheads remain compact', asy
     '/diagrams/lazurio-data-flow.svg',
     '/diagrams/draft-publication-flow.svg',
     '/diagrams/draft-publication-flow-mobile.svg',
+    '/diagrams/lazurio-architecture.svg',
+    '/diagrams/lazurio-architecture-mobile.svg',
+    '/diagrams/lazurio-architecture-cs.svg',
+    '/diagrams/lazurio-architecture-cs-mobile.svg',
   ]) {
     const response = await page.goto(route)
     expect(response?.ok()).toBe(true)
@@ -622,5 +626,25 @@ test('article contents stay in a right column on laptops and collapse on mobile'
     await expect(page.getByRole('heading', { name: 'Jak obsah najít a načíst', exact: true })).toBeInViewport()
     await expect(toc.getByRole('link', { name: 'Jak obsah najít a načíst' })).toHaveAttribute('aria-current', 'true')
     await expect(toc).toBeInViewport()
+  }
+})
+
+test('the Modules page carries its video, its poster and the same words in text', async ({ page, request }) => {
+  for (const locale of ['en', 'cs']) {
+    await page.goto(`/${locale}/guide/modules/`)
+    const video = page.locator('.lz-diagram video')
+    await expect(video).toHaveAttribute('poster', `/videos/modules-${locale}.webp`)
+    await expect(video).toHaveAttribute('preload', 'none')
+    await expect(page.locator('figcaption#modules-video-words')).not.toBeEmpty()
+    for (const path of [`/videos/modules-${locale}.mp4`, `/videos/modules-${locale}.webp`]) {
+      expect((await request.head(path)).status()).toBe(200)
+    }
+    const range = await request.get(`/videos/modules-${locale}.mp4`, { headers: { Range: 'bytes=0-1023' } })
+    expect(range.status()).toBe(206)
+    expect(range.headers()['content-range']).toMatch(/^bytes 0-1023\/\d+$/)
+    expect(range.headers()['accept-ranges']).toBe('bytes')
+    expect((await range.body()).byteLength).toBe(1024)
+    const beyond = await request.get(`/videos/modules-${locale}.mp4`, { headers: { Range: 'bytes=999999999-' } })
+    expect(beyond.status()).toBe(416)
   }
 })

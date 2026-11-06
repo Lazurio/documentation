@@ -26,6 +26,7 @@ export const sidebar = [
         ],
       },
       { label: 'First steps with an agent', translations: { cs: 'První kroky s agentem' }, slug: 'guide/first-steps' },
+      { label: 'Modules', translations: { cs: 'Moduly' }, slug: 'guide/modules' },
       { label: 'Glossary', translations: { cs: 'Slovníček pojmů' }, slug: 'guide/glossary' },
       { label: 'Tips for working', translations: { cs: 'Tipy pro práci' }, slug: 'guide/work-tips' },
       { label: 'Connect your tools', translations: { cs: 'Propojení nástrojů' }, slug: 'guide/tool-connections' },
@@ -51,6 +52,7 @@ export const sidebar = [
     label: 'IT and administration',
     translations: { cs: 'Pro IT a Admina' },
     items: [
+      { label: 'Architecture', translations: { cs: 'Architektura' }, slug: 'architecture' },
       { label: 'GitHub baseline for a new Organization', translations: { cs: 'GitHub pro novou Organizaci' }, slug: 'github-baseline' },
       { label: 'Microsoft 365 for IT and the Admin', translations: { cs: 'Microsoft 365 pro IT a Admina' }, slug: 'microsoft-365' },
       { label: 'Verified provider notes', translations: { cs: 'Ověřené poznatky o poskytovatelích' }, slug: 'provider-notes' },

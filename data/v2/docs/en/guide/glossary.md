@@ -4,8 +4,8 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -17,6 +17,10 @@ sourceRefs:
   - lazurio-onboarding-decision-register
   - lazurio-platform-folder-manual
   - lazurio-platform-launchpad-texts
+  - lazurio-platform-module-standard-v0-1-20
+  - lazurio-platform-module-parts-f14
+  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-marketplace-registry
   - github-about-pull-requests
   - github-protected-branches
 audience:
@@ -85,11 +89,15 @@ area, such as sales or product.
 **Workspace** The part of an Organization that contains applications for
 day-to-day work.
 
-**Module** One specific application in an Organization, such as Mission
-Control or Knowledgebase.
+**Module** One area of your work, such as orders, the website or
+recipes. It keeps together the process agents follow, the data the work is
+about, and the app in which you see and change it. Mission Control and
+Knowledgebase are modules. See [Modules](/en/guide/modules/).
 
-**Marketplace** A place to discover additional applications and extensions
-for Lazurio.
+**Marketplace** The place at the bottom of Apps for module templates. A
+template is added to your Organization as your own private copy. From version
+0.1.21, a release candidate on 5 November 2026, it offers the templates of
+Lazurio's public registry.
 
 **Mission Control** The place for managing work. It shows what is being
 addressed, who is responsible, and what should happen next.

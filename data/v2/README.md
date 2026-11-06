@@ -9,3 +9,23 @@ rebuilt with `bun run prepare:data` from `app/v2`.
 same filename, stable ID, source references, audiences and trust-review
 metadata. The content validator rejects missing or structurally divergent
 pairs; it does not replace factual review of the translation.
+
+## Video in a figure
+
+A video lives in `public/videos/`, with its origin in that folder's README. Use
+one file per language and write the captions in the figure, so that the page says
+the same without the video:
+
+```html
+<figure class="lz-diagram">
+  <video controls playsinline preload="none" poster="/videos/modules-en.webp" aria-describedby="modules-video">
+    <source src="/videos/modules-en.mp4" type="video/mp4" />
+  </video>
+  <figcaption id="modules-video">The steps of the video, in words.</figcaption>
+</figure>
+```
+
+`bun run test:links` and the release smoke check `src` and `poster`.
+
+`public/_worker.js` answers byte ranges for `/videos/*`, because the Pages assets
+do not and Safari needs them. `public/_routes.json` limits it to that path.

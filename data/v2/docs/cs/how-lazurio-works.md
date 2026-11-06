@@ -4,8 +4,8 @@ description: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje z
 stableId: lazurio-doc-how-it-works
 locale: cs
 summary: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje zveřejnění."
-updatedAt: "2026-09-15"
-reviewedAt: "2026-09-15"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-readme
@@ -27,7 +27,9 @@ Model v odkazované revizi popisuje [architektura Lazuria](https://github.com/Hu
 a [pravidla spolupráce s Agenty](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md).
 
 Níže jsou pojmy ze staršího modelu zdrojů. Aktuální názvy Prostředí, Buddyho
-a Apps najdete ve [slovníčku](/cs/guide/glossary/).
+a Apps najdete ve [slovníčku](/cs/guide/glossary/). Co je modul dnes, vysvětluje
+stránka [Moduly](/cs/guide/modules/) a jak do sebe části zapadají, stránka
+[Architektura](/cs/architecture/).
 
 ## Základní pojmy
 
