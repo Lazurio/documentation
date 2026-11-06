@@ -121,13 +121,16 @@ Publication](/en/guide/course/review/) explains that last step.
 ## Who gets a module and when it appears
 
 An Organization shares its modules by Team. The Organization Admin decides which
-Teams reach a module, in Organization overview or directly on GitHub. Whoever
-never got a module does not see it in Apps, and their agent cannot read it. The
-agent can still see its name in the Organization's manifest.
+Teams reach a module, in Organization overview or directly on GitHub. A module
+is delivered to an Environment: what is not in the Environment does not show in
+Apps, and an agent there cannot read it. The agent can still see its name in the
+Organization's manifest.
 
-Taking access away does not delete the copy an Environment already has. The copy
-stays there, an agent with access to that Environment can still read it, and it
-only stops updating.
+What counts is what the Environment actually holds. Whoever has full access to a
+shared Environment works with its modules too, even without their own access to
+the module. And taking access away does not delete the copy an Environment
+already has: it stays there, an agent in that Environment can still read it, and
+it only stops updating.
 
 Since version 0.1.20, a module you have been given access to comes by itself.
 Lazurio tries to bring it to your Environment when it starts and then every hour,
