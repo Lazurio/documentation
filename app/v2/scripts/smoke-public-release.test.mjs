@@ -55,6 +55,10 @@ async function fixture(t, missing) {
       response.writeHead(200, { 'content-type': 'application/json' })
       response.end(JSON.stringify({ sourceCommit: expectedCommit })); return
     }
+    if (request.headers.range && known.has(pathname) && pathname !== missing) {
+      response.writeHead(206, { 'content-range': 'bytes 0-1/7' })
+      response.end('fi'); return
+    }
     response.writeHead(known.has(pathname) && pathname !== missing ? 200 : 404)
     response.end('fixture')
   })

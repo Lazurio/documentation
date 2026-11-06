@@ -26,3 +26,6 @@ the same without the video:
 ```
 
 `bun run test:links` and the release smoke check `src` and `poster`.
+
+`public/_worker.js` answers byte ranges for `/videos/*`, because the Pages assets
+do not and Safari needs them. `public/_routes.json` limits it to that path.

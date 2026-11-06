@@ -6,8 +6,8 @@ explains what a module is, and its poster is the frame at 9.4 seconds. Lazurio s
 `modules-overview-en` and `modules-overview-cs`.
 
 - **Origin:** the Lazurio design system, cut `modules` and its English version
-  `modules-en`, rendered on 2026-11-05 from revision
-  `6d30cc9393dd00f9b0632b40ccfb47f09c0a499e`. They are animations, not
+  `modules-en`, rendered on 2026-11-06 from revision
+  `25d49def90f3ba6fc58ec5390d3369150b46eda9`. They are animations, not
   screenshots of a product.
 - **Content:** the fictional bakery Pekárna Kvásek and its fictional people and
   orders. No real account, person or customer appears.
@@ -15,7 +15,7 @@ explains what a module is, and its poster is the frame at 9.4 seconds. Lazurio s
 
 | File | SHA-256 |
 | --- | --- |
-| `modules-en.mp4` | `f9cd5af9382694d2f05e36f45597275bc8a4324ac1665b8dbf360a6ddc10eaf3` |
+| `modules-en.mp4` | `f71b930a3f1aa166837007ea16f77260fb7964e14d07f6c3d7843d838e1e3053` |
 | `modules-en.webp` | `1ac0103746960b2ded97d054a8d7a005cebce0b6ff9eb0b30aa3a1b6cf0d3990` |
-| `modules-cs.mp4` | `216e4d35cbfbb41edd5cd953e12a71062f005211412c410322c4ec9b011d70ed` |
+| `modules-cs.mp4` | `5b579a8ecebba7853c1b1580e18d66285dc849aaf4c50fb9fcf4f129dd6d47a0` |
 | `modules-cs.webp` | `3bf77366449e9f195fc49e0ffb47ec53c63234f451f041d7fb6195e7d084b1df` |

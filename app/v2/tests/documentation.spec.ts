@@ -639,5 +639,12 @@ test('the Modules page carries its video, its poster and the same words in text'
     for (const path of [`/videos/modules-${locale}.mp4`, `/videos/modules-${locale}.webp`]) {
       expect((await request.head(path)).status()).toBe(200)
     }
+    const range = await request.get(`/videos/modules-${locale}.mp4`, { headers: { Range: 'bytes=0-1023' } })
+    expect(range.status()).toBe(206)
+    expect(range.headers()['content-range']).toMatch(/^bytes 0-1023\/\d+$/)
+    expect(range.headers()['accept-ranges']).toBe('bytes')
+    expect((await range.body()).byteLength).toBe(1024)
+    const beyond = await request.get(`/videos/modules-${locale}.mp4`, { headers: { Range: 'bytes=999999999-' } })
+    expect(beyond.status()).toBe(416)
   }
 })

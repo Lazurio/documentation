@@ -139,6 +139,13 @@ The property owner must separately confirm that Enhanced Measurement page
 changes based on browser history events are disabled; source tests cannot
 prove this provider setting.
 
+The artifact is static except for one small worker. Pages assets ignore byte
+ranges, and Safari and iOS play a video only from a server that answers them, so
+`data/v2/public/_worker.js` answers `/videos/*` and `_routes.json` keeps every
+other path on the assets without invoking it. `wrangler pages deploy` takes the
+worker from the artifact, so neither workflow changes, and it holds no secret and
+no binding other than the assets.
+
 ## Failure modes
 
 - Missing or expired evidence fails content validation.
@@ -153,6 +160,8 @@ prove this provider setting.
 - A missing or invalid production GA4 measurement ID fails the production
   build before any artifact can be deployed; normal and preview builds remain
   analytics-free.
+- A deployment that does not answer the video's byte ranges fails the release
+  smoke.
 - Missing Cloudflare access blocks deployment without weakening the
   DNS or review gate.
 
