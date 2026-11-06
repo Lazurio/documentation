@@ -20,7 +20,7 @@
   <text class="label" x="312" y="150">Zařízení</text>
   <text class="copy" x="312" y="184">Tailscale ve správném</text>
   <text class="copy" x="312" y="208">tailnetu, schválené</text>
-  <text class="copy" x="312" y="232">Adminem</text>
+  <text class="copy" x="312" y="232">Adminem Organizace</text>
   <text class="note" x="312" y="296">Veřejné DNS: bez tailnetu</text>
   </g>
   <g data-node="environment">

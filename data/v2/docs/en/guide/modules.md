@@ -40,7 +40,7 @@ about, and the app in which you see and change it.**
   <video controls playsinline preload="none" poster="/videos/modules-en.webp" aria-describedby="modules-video-words">
     <source src="/videos/modules-en.mp4" type="video/mp4" />
   </video>
-  <figcaption id="modules-video-words">A module is one area of your work. A process, data and an app in one package. Agents follow the process, people work in the app. The Admin decides who gets the module. Build yours with an agent or from a template.</figcaption>
+  <figcaption id="modules-video-words">A module is one area of your work. A process, data and an app in one package. Agents follow the process, people work in the app. The Organization Admin decides who gets the module. Build yours with an agent or from a template.</figcaption>
 </figure>
 
 ## The three parts
@@ -79,7 +79,7 @@ that your Environment can reach, each once. A tile opens the module's app in
 your browser; the app itself runs in your Environment.
 
 If a colleague mentions a module you do not see, you may not have access to it.
-Ask your Admin.
+Ask your Organization Admin.
 
 ## How a module comes to be
 
@@ -91,11 +91,11 @@ you confirm it.
 
 Who can do this depends on where the module goes:
 
-- **In an Organization, the Admin creates modules.** Only the Admin sees the
+- **In an Organization, the Organization Admin creates modules.** Only they see the
   **New module** tile. The module becomes a private repository of the
   Organization.
-- **If you are not the Admin,** describe what you need and
-  [ask the Admin](/en/guide/ask-the-admin/).
+- **If you are not the Organization Admin,** describe what you need and
+  [ask them](/en/guide/ask-the-admin/).
 - **In your Personal Environment, you create your own.** The same tile is in
   your personal space. The module becomes a private repository on your own
   GitHub account, belongs only to you and does not go into any Organization.
@@ -104,7 +104,7 @@ Who can do this depends on where the module goes:
 brings templates to the **Marketplace** at the bottom of Apps: Mission Control,
 Design System and Presentations. **Add to Organization** hands a brief to your
 agent, who shows you a plan and prepares a private copy in your Organization.
-The Admin creates it here too; if you are not the Admin, your agent prepares a
+The Organization Admin creates it here too; otherwise your agent prepares a
 request for them.
 
 However a module comes to be, it is your module. Start with a small first
@@ -119,7 +119,7 @@ Publication](/en/guide/course/review/) explains that last step.
 
 ## Who gets a module and when it appears
 
-An Organization shares its modules by Team. The Admin decides which Teams reach
+An Organization shares its modules by Team. The Organization Admin decides which Teams reach
 a module, in Organization overview or directly on GitHub. Whoever does not get
 a module does not see it in Apps, and their agent cannot read it.
 
@@ -130,8 +130,8 @@ it in Apps within an hour. Nobody has to install anything.
 Two cases work differently:
 
 - **A Team Environment** does not receive a new module this way. Ask your
-  Admin.
-- **A module restricted to Admins** reaches only Admins.
+  Organization Admin.
+- **A module restricted to Organization Admins** reaches only them.
 
 A personal module stays in your Personal Environment.
 

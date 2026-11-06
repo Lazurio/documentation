@@ -19,8 +19,8 @@
   <rect class="panel" x="292" y="112" width="240" height="210" rx="16"/>
   <text class="label" x="312" y="150">Device</text>
   <text class="copy" x="312" y="184">Tailscale in the right</text>
-  <text class="copy" x="312" y="208">tailnet, approved</text>
-  <text class="copy" x="312" y="232">by the Admin</text>
+  <text class="copy" x="312" y="208">tailnet, approved by</text>
+  <text class="copy" x="312" y="232">the Organization Admin</text>
   <text class="note" x="312" y="296">Public DNS mode: no tailnet</text>
   </g>
   <g data-node="environment">

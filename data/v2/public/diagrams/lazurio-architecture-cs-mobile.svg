@@ -19,7 +19,7 @@
   <g data-node="device">
   <rect class="panel" x="40" y="268" width="560" height="134" rx="16"/>
   <text class="label" x="64" y="306">Zařízení</text>
-  <text class="copy" x="64" y="340">Tailscale ve správném tailnetu, schválené Adminem</text>
+  <text class="copy" x="64" y="340">Tailscale ve správném tailnetu, schválené Adminem Organizace</text>
   <text class="note" x="64" y="374">Veřejné DNS: bez tailnetu</text>
   </g>
   <path class="flow" d="M320 402 V446"/>

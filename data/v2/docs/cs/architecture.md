@@ -83,7 +83,7 @@ Modul nemusí mít aplikaci vůbec. Modul Organizace je soukromý repozitář
 - **Poskytovatel AI** provozuje modely. Oba zdroje popisuje stránka
   [Zdroj AI](/cs/guide/ai-source/).
 - **Služby serveru** má každý server Organizace jen jedny. Vstupují do nich jen
-  Owneři a Admini a každá služba má svůj kontejner (rozhodnutí 0209). Stav:
+  Owneři a Admini Organizace a každá služba má svůj kontejner (rozhodnutí 0209). Stav:
   rozhodnuto, zatím nenasazeno.
 
 ## Jeden zdroj, synchronizované kopie
@@ -95,7 +95,7 @@ repozitáře, ne dvacet sad dat.
 Nainstalované Lazurio aktualizuje čisté kopie při startu a potom každou hodinu. Od
 vydání v0.1.20 stejná synchronizace naklonuje i deklarovaný modul nebo datový
 repozitář, jakmile ho identita tohoto Prostředí smí číst. Výjimkou je položka
-vyhrazená Adminům a Týmové Prostředí. Opačným směrem jde změna jako Publikace:
+vyhrazená Adminům Organizace a Týmové Prostředí. Opačným směrem jde změna jako Publikace:
 sloučený pull request, u dat v repository-db commit a push nepublikované změny.
 
 ## Přístupy po Teamech
@@ -105,7 +105,7 @@ Které Teamy k modulu dosáhnou, určuje živý grant na GitHubu (rozhodnutí 01
 a založení dá každému uvedenému Teamu právo Write. Přehled Organizace mění grant
 přes GitHub aplikaci Lazurio Administration Access s vlastními právy člověka,
 který změnu dělá, takže ho audit GitHubu jmenuje. Přepnutí Stewardem je žádost,
-kterou schvaluje Admin.
+kterou schvaluje Admin Organizace.
 
 Lazurio řídí vstup do modulu a předává mu ověřenou identitu. Co smí který člověk
 uvnitř, jsou vlastní pravidla Organizace v jejím kódu a datech (rozhodnutí 0196).

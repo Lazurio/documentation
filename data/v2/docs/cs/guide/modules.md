@@ -40,7 +40,7 @@ pracuje, a aplikaci, ve které je vidíte a měníte.**
   <video controls playsinline preload="none" poster="/videos/modules-cs.webp" aria-describedby="modules-video-words">
     <source src="/videos/modules-cs.mp4" type="video/mp4" />
   </video>
-  <figcaption id="modules-video-words">Modul je jedna oblast vaší práce. Postup, data a aplikace v jednom balíčku. Agenti pracují podle postupu, lidé v aplikaci. Admin rozhodne, kdo modul dostane. Nový postavíte s agentem, nebo ze šablony.</figcaption>
+  <figcaption id="modules-video-words">Modul je jedna oblast vaší práce. Postup, data a aplikace v jednom balíčku. Agenti pracují podle postupu, lidé v aplikaci. Admin Organizace rozhodne, kdo modul dostane. Nový postavíte s agentem, nebo ze šablony.</figcaption>
 </figure>
 
 ## Tři části modulu
@@ -77,7 +77,7 @@ kterému se vaše Prostředí dostane, a to každý jednou. Dlaždice otevře ap
 modulu v prohlížeči; samotná aplikace běží ve vašem Prostředí.
 
 Když Kolega zmíní modul, který nevidíte, možná k němu nemáte přístup. Zeptejte
-se svého Admina.
+se Admina své Organizace.
 
 ## Jak modul vzniká
 
@@ -88,10 +88,10 @@ Ukáže vám plán a modul založí až po vašem souhlasu.
 
 Kdo to může udělat, záleží na tom, kam modul patří:
 
-- **V Organizaci zakládá moduly Admin.** Dlaždici **Nový modul** vidí jen on.
+- **V Organizaci zakládá moduly Admin Organizace.** Dlaždici **Nový modul** vidí jen on.
   Z modulu se stane soukromý repozitář Organizace.
-- **Když Adminem nejste,** popište, co potřebujete, a
-  [požádejte Admina](/cs/guide/ask-the-admin/).
+- **Když Adminem Organizace nejste,** popište, co potřebujete, a
+  [požádejte ho](/cs/guide/ask-the-admin/).
 - **V Osobním Prostředí si zakládáte moduly sami.** Stejnou dlaždici najdete ve
   svém osobním prostoru. Z modulu se stane soukromý repozitář na vašem vlastním
   GitHub účtu. Patří jen vám a do žádné Organizace nejde.
@@ -100,7 +100,7 @@ Kdo to může udělat, záleží na tom, kam modul patří:
 šablony do **Marketplace** dole v Apps: Mission Control, Design System
 a Prezentace. Tlačítko **Přidat do Organizace** předá zadání vašemu agentovi,
 který vám ukáže plán a připraví soukromou kopii ve vaší Organizaci. Založí ji
-i tady Admin; když jím nejste, agent mu připraví žádost.
+i tady Admin Organizace; když jím nejste, agent mu připraví žádost.
 
 Ať modul vznikne jakkoli, je to váš modul. Začněte malou první verzí. Modul
 roste dalšími zadáními v Chatu.
@@ -113,7 +113,7 @@ Poslední krok vysvětluje [Kontrola a Publikace](/cs/guide/course/review/).
 
 ## Kdo modul dostane a kdy se objeví
 
-Organizace sdílí moduly po Teamech. Admin rozhoduje, které Teamy k modulu
+Organizace sdílí moduly po Teamech. Admin Organizace rozhoduje, které Teamy k modulu
 dosáhnou, a to v Přehledu Organizace nebo přímo na GitHubu. Kdo modul nedostane,
 ten ho v Apps nevidí a jeho agent ho nepřečte.
 
@@ -123,8 +123,8 @@ v Apps uvidíte nejpozději do hodiny. Nikdo nemusí nic instalovat.
 
 Jinak je to ve dvou případech:
 
-- **Týmové Prostředí** nový modul tímto způsobem nedostane. Požádejte Admina.
-- **Modul vyhrazený Adminům** dostanou jen Admini.
+- **Týmové Prostředí** nový modul tímto způsobem nedostane. Požádejte Admina Organizace.
+- **Modul vyhrazený Adminům Organizace** dostanou jen oni.
 
 Osobní modul zůstává ve vašem Osobním Prostředí.
 
