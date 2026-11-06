@@ -4,8 +4,8 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-10-24"
-reviewedAt: "2026-10-24"
+updatedAt: "2026-11-06"
+reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -106,8 +106,9 @@ Composio je jedinou povolenou výjimkou ze zákazu sdílených brokerů a musí 
 pro dané Prostředí povolené. Uchovává tokeny a zpracovává obsah volání;
 propojení patří účtu a organizaci v Composiu, nikoli automaticky jednomu
 zařízení. Nové cloudové konektory, jiné sdílené brokery a scraping či
-cookie-session servery standard nepovoluje. Už nasazený konektor může zůstat
-přechodovým stavem.
+cookie-session servery standard nepovoluje. Aplikace a konektory ChatGPT
+v harnessu agenta jsou vypnuté, dokud je nepovolí Organizace, v Osobním Prostředí
+uživatel.
 
 Přístup k zápisu není souhlas se zveřejněním. OAuth token může použít proces,
 který na něj dosáhne; schvalování v MCP neomezuje automaticky CLI ani shell.
