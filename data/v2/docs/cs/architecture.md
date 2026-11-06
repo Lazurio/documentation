@@ -82,9 +82,9 @@ Modul nemusí mít aplikaci vůbec. Modul Organizace je soukromý repozitář
   0193, 0198 a 0203).
 - **Poskytovatel AI** provozuje modely. Oba zdroje popisuje stránka
   [Zdroj AI](/cs/guide/ai-source/).
-- **Služby serveru** běží na každém serveru Organizace na jednom stroji.
-  Vstupují do nich jen Owneři a Admini a každá služba má svůj kontejner
-  (rozhodnutí 0209). Stav: rozhodnuto, zatím nenasazeno.
+- **Služby serveru** má každý server Organizace jen jedny. Vstupují do nich jen
+  Owneři a Admini a každá služba má svůj kontejner (rozhodnutí 0209). Stav:
+  rozhodnuto, zatím nenasazeno.
 
 ## Jeden zdroj, synchronizované kopie
 
