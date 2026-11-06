@@ -19,6 +19,16 @@
   `https://headscale.example.lazurio.io`. Cropped to the relevant part,
   scaled to 540 px wide, with an added orange ring marking where to tap.
   Status bars are cropped away.
+- `integrations/integrations-all-{cs,en}.png` and
+  `integrations/integrations-connected-{cs,en}.png` — own screenshots of
+  Apps → Integrations in LazurioPlatform release v0.1.20 (commit
+  `5edbc2b7ebf53aec4e116663db60021d24593dbe`), taken on 2026-11-06 with the
+  release's own preview (`scripts/preview-launchpad.ts local`), which runs the real
+  Launchpad against a temporary fixture Folder with a fake Executor and Composio.
+  Nothing was signed in: `jana@example.com`, Obchod and Práce are the fixture's
+  examples. Cropped to the page's main column, with the fixture's notice about
+  updating Composio removed from view and an added orange ring on the button to
+  click.
 - `tailscale-windows/windows-1-start-{cs,en}.png` … `windows-4-success-{cs,en}.png`
   — illustrative mockups, not screenshots, with the visible label
   "ILUSTRAČNÍ MAKETA" / "ILLUSTRATIVE MOCKUP". Drawn on 2026-11-05 as HTML

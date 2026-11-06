@@ -104,9 +104,11 @@ Composio is the sole approved exception to the shared-broker ban and must be
 permitted for the Environment. It holds tokens and processes call content;
 connections belong to the Composio account and organization, not automatically
 to one machine. The standard excludes new cloud connectors, other shared
-brokers, and scraping or browser-session servers. ChatGPT apps and connectors
-in an agent's harness are off unless the Organization, or the user on a Personal
-Environment, allows them.
+brokers, and scraping or browser-session servers. By rule, agents do not use
+the ChatGPT apps and connectors in their harness unless the Organization, or the
+user on a Personal Environment, allows them. In a Remote Environment Lazurio backs
+the rule with two settings in Codex's configuration; an app enabled by name and a
+configuration it cannot read stay unchanged and are reported.
 
 Write access is not approval to publish. An OAuth token can be used by a
 process that can reach it; MCP approvals do not automatically constrain CLI

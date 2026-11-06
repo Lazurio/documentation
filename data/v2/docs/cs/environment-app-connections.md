@@ -20,6 +20,7 @@ sourceRefs:
   - lazurio-platform-release-v0-1-7
   - lazurio-platform-release-v0-1-8-rc-35
   - lazurio-platform-release-current
+  - lazurio-platform-release-v0-1-9
   - lazurio-platform-tools-screen-review
   - lazurio-platform-composio-write-gate-question
   - lazurio-platform-composio-custody-question
@@ -81,9 +82,13 @@ Agenti Integraci nikdy nepřipojují sami, protože přihlášení je váš souh
 Pošlou vám odkaz na její kartu v **Apps → Integrace**. Vlastní MCP server patří
 do Executoru Prostředí a přidává se jen na váš výslovný pokyn.
 
-Firemní aplikace, Google Workspace a Microsoft 365, jsou volbou celé Organizace.
-Nastavuje je Admin v nastavení Organizace a pak se připojují přímo. Viz
-[Microsoft 365 pro IT a Admina](/cs/microsoft-365/).
+Firemní aplikace je volbou celé Organizace a pak se připojuje přímo. Dnes je to
+Microsoft 365, který Lazurio podporuje od vydání v0.1.9. Jeho nastavení se
+přidává pull requestem s review do repozitáře Organizace, protože úprava
+v Přehledu Organizace je rozhodnutá, ale zatím nenasazená. Viz
+[Microsoft 365 pro IT a Admina](/cs/microsoft-365/). Google Workspace jako firemní
+aplikace je rozhodnutý, ale zatím neimplementovaný, takže aplikace Googlu jdou
+cestami výše.
 
 U připojení, které Apps → Integrace nenabízí, navrhuje standard integrací Lazuria
 toto pořadí. Vyhrává první cesta, která funguje, a poslední slovo máte vy:
@@ -101,10 +106,26 @@ V žádném kroku nejsou dovolené: scraping webu, opakované použití cookies
 z prohlížeče, jiné sdílené brokery než Composio, klíče a tokeny v chatu, Gitu
 nebo logu a nové konektory ChatGPT nebo claude.ai.
 
-Aplikace, pluginy a konektory ChatGPT, které harness agenta nabízí, jsou vypnuté,
-dokud je nepovolí Organizace, v Osobním Prostředí vy, a i pak slouží jen pro
-aplikace mimo Integrace. V Prostředí na serveru je Lazurio vypíná. Váš vlastní
-počítač nemění, konektor tam může běžet dál.
+**Pravidlo.** Aplikace, pluginy a konektory ChatGPT, které harness nabízí, agenti
+nepoužívají, dokud je nepovolí Organizace, v Osobním Prostředí vy, a i pak jen pro
+aplikace mimo Integrace. Pravidlo dostávají v instrukcích Folderu. Přepínač
+Organizace je rozhodnutý, ale zatím nenasazený.
+
+**Co Lazurio dělá technicky.** Kde povolené nejsou, přidá Lazurio v Prostředí na
+serveru do konfigurace Codexu dvě vlastní nastavení: aplikace ve výchozím stavu
+vypnuté a žádné návrhy pluginů. Je to pojistka, ne záruka:
+
+- Aplikace, kterou konfigurace zapíná jménem, zůstává zapnutá. Lazurio ji hlásí
+  jako výjimku.
+- Konfiguraci, kterou Lazurio neumí přečíst nebo nepodporuje, třeba soubor, který
+  nejde zpracovat, nezmění a nahlásí.
+- Kde jsou aplikace povolené, Lazurio svá nastavení zase odebere.
+- Týká se to jen Codexu v Prostředí na serveru. Váš vlastní počítač Lazurio nikdy
+  nemění, konektor tam může běžet dál.
+
+Skutečný stav ukazuje spodní část Apps → Integrace → Vše, která varuje, když
+aplikace povolené nejsou a Codex je přesto má. Pro IT a agenty vypíše totéž
+`lazurio integrations chatgpt-apps`.
 
 ## Katalog nástrojů
 
@@ -204,10 +225,26 @@ se poznámka odebere.
    poslat agent.
 3. Zvolte **Připojit**. Když aplikace jde přes Composio a to ještě není přihlášené,
    přihlásíte se nejdřív do Composia.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/integrations/integrations-all-cs.png" alt="Stránka Apps → Integrace se záložkami Vše, Připojené a Vlastní. Každá aplikace má kartu, která říká, jak je připojená, třeba přímo, přes gh nebo přes Composio. Tlačítko Připojit u Google Kalendáře je zvýrazněné." width="930" height="554" loading="lazy" />
+     <figcaption>Karta ukazuje cestu aplikace. Účty na obrázku jsou příklady.</figcaption>
+   </figure>
+
 4. Přihlaste se přímo v aplikaci účtem, který mají agenti používat.
 5. Na kartě ověřte, že je připojený správný účet.
+
+   <figure class="lz-app-step">
+     <img src="/guide-assets/integrations/integrations-connected-cs.png" alt="Karta aplikace Notion: Připojeno přímo, s příkladovým účtem jana@example.com a tlačítky Přidat účet a Odpojit." width="312" height="198" loading="lazy" />
+     <figcaption>Připojená aplikace ukazuje svou cestu a účet.</figcaption>
+   </figure>
+
 6. Pokud agenti nemají mít celou aplikaci, omezte připojení dřív, než jim
    předáte práci.
+
+[Lekce 6 úvodního kurzu](/cs/guide/course/connected-apps/) vysvětluje záložky a co
+smějí agenti s připojenou aplikací dělat a [Propojení
+nástrojů](/cs/guide/tool-connections/) provede běžnými připojeními.
 
 <span id="účet-environmentu"></span>
 
@@ -265,8 +302,10 @@ Dnes je to pracovní pravidlo, které agenti dodržují. Lazurio zápis přes p�
 aplikaci neblokuje. Executor umí volání pozastavit ke schválení, ale znovu ho
 spustí sám agent, podle stejného pravidla. Zda vlastní filtry Composia platí na
 všech cestách, je [otevřená otázka](https://github.com/Lazurio/LazurioPlatform/issues/39).
-Výjimkou je firemní aplikace Microsoft 365: odesílání pošty nechává vypnuté, dokud
-ho Organizace nezapne.
+Firemní aplikace Microsoft 365 má jeden technický limit: nemá oprávnění
+`Mail.Send`, takže agent přes ni připraví koncept, ale poštu neodešle. Odesílání
+by Organizace musela vědomě přidat jako samostatné oprávnění se souhlasem správce;
+nastavení pro to je rozhodnuté, ale zatím nenasazené.
 
 ## Co přijímáte před prvním připojením
 
@@ -315,8 +354,10 @@ ze 4. 11. 2026.
 | Katalog s úrovněmi a způsoby nastavení; `lazurio tools list`, `enable`, `disable`, `note` a `prompt`; nástroje v instrukcích Folderu | Vydáno od v0.1.7 (27. 9. 2026) | [Rozhodnutí F18](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f18--enabled-tools-of-the-environment), [vydání v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
 | Připravená instalace a přihlášení nástrojů `gh`, `composio` a `wacli` na Linuxu a macOS | Vydáno od v0.1.7 (27. 9. 2026) | [Rozhodnutí F19](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [nástroje Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/environment-tools.md) |
 | **Nastavení → Nástroje** s akcemi Připojit a Odpojit, přihlášení, které zapne přepínač **Používají agenti**, propojení SSH klíče zařízení přes `gh`, `gh` v Týmovém Prostředí přes Lazurio for GitHub | Poprvé v kandidátech v0.1.8 ([v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35), 6. 10. 2026); ve v0.1.20 | [Sekce Nástroje](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/launchpad-development.md#tools-section) |
-| **Apps → Integrace**, Executor v Prostředí na serveru, sestavení Composia od Lazuria, nastavení Composia v Organizaci, aplikace ChatGPT vypnuté v Prostředí na serveru | Ve v0.1.20 | [Integrace](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md) |
-| Přepínač Organizace pro aplikace ChatGPT; nastavení Microsoftu 365 | Rozhodnuto, zatím nenasazeno | [Rozhodnutí 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
+| **Apps → Integrace**, Executor v Prostředí na serveru, sestavení Composia od Lazuria, nastavení Composia v Organizaci, dvě nastavení Codexu proti aplikacím ChatGPT v Prostředí na serveru, s výjimkami popsanými výše | Ve v0.1.20 | [Integrace](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md) |
+| Firemní aplikace Microsoft 365 (Outlook, OneDrive, SharePoint) bez `Mail.Send`, nastavená pull requestem s review | Podporováno od [v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9) (19. 10. 2026), s [otevřenými kontrolami](/cs/microsoft-365/) | [Integrace](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md#the-microsoft-365-company-app) |
+| Přepínač Organizace pro aplikace ChatGPT; nastavení Microsoftu 365 v Přehledu Organizace včetně odesílání pošty | Rozhodnuto, zatím nenasazeno | [Rozhodnutí 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
+| Google Workspace jako firemní aplikace | Rozhodnuto, zatím neimplementováno | [Integrace](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md), [rozhodnutí 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
 | Předání připraveného promptu nástroje rovnou do chatu s agentem (dnes se ukáže ke zkopírování); připravené postupy na Windows | Plánováno, není postaveno | [Rozhodnutí F19](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools) |
 
 Ověřte, kterou verzi vaše Prostředí skutečně používá. Starší verze může tyto akce

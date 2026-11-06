@@ -20,6 +20,7 @@ sourceRefs:
   - lazurio-platform-release-v0-1-7
   - lazurio-platform-release-v0-1-8-rc-35
   - lazurio-platform-release-current
+  - lazurio-platform-release-v0-1-9
   - lazurio-platform-tools-screen-review
   - lazurio-platform-composio-write-gate-question
   - lazurio-platform-composio-custody-question
@@ -86,9 +87,13 @@ consent. They send you a link to its card in **Apps → Integrations**. A custom
 MCP server goes into the Environment's Executor, and only on your explicit
 instruction.
 
-Company apps, Google Workspace and Microsoft 365, are a choice for the whole
-Organization. An Admin sets them up in the Organization's settings and they then
-connect directly. See [Microsoft 365 for IT and the Admin](/en/microsoft-365/).
+A company app is a choice for the whole Organization, and it then connects
+directly. Today that is Microsoft 365, which Lazurio supports since release
+v0.1.9. Its setting goes into the Organization's repository by a reviewed pull
+request, because editing it in Organization overview is decided, not yet
+deployed. See [Microsoft 365 for IT and the Admin](/en/microsoft-365/). Google
+Workspace as a company app is decided and not implemented yet, so Google apps
+take the paths above.
 
 For a connection Apps → Integrations does not offer, the Lazurio integration
 standard proposes this order. The first route that works wins, and you have the
@@ -107,11 +112,27 @@ Never allowed, at any step: scraping a website, reusing browser cookie sessions,
 shared brokers other than Composio, keys or tokens in a chat, Git or a log, and
 new ChatGPT or claude.ai connectors.
 
-ChatGPT apps, plugins and connectors that an agent's harness offers are off
-unless the Organization, or you on a Personal Environment, allows them, and then
-only for apps outside Integrations. Lazurio switches them off in a Remote
-Environment. It does not change your own computer, where a connector may keep
-running.
+**The rule.** Agents do not use the ChatGPT apps, plugins and connectors their
+harness offers, unless the Organization, or you on a Personal Environment, allows
+them, and then only for apps outside Integrations. Agents get this rule in the
+Folder instructions. The Organization's switch for it is decided, not yet
+deployed.
+
+**What Lazurio does technically.** Where they are not allowed, Lazurio adds two
+settings of its own to Codex's configuration in a Remote Environment: apps off by
+default, and no suggestions of plugins. That is a safeguard, not a guarantee:
+
+- An app that the configuration enables by name stays on. Lazurio reports it as
+  an exception.
+- A configuration Lazurio cannot read or does not support, such as a file that
+  does not parse, stays as it is and is reported.
+- Where the apps are allowed, Lazurio takes its settings back.
+- It covers only Codex in a Remote Environment. Lazurio never changes your own
+  computer, where a connector may keep running.
+
+To see the real state, look at the foot of Apps → Integrations → All, which warns
+where the apps are not allowed and Codex still has them. For IT and agents,
+`lazurio integrations chatgpt-apps` prints the same.
 
 ## The tool catalog
 
@@ -213,10 +234,26 @@ tool off removes its note.
    to its card.
 3. Choose **Connect**. If the app goes through Composio and Composio is not
    signed in yet, you sign in to Composio first.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/integrations/integrations-all-en.png" alt="Apps → Integrations with the tabs All, Connected and Custom. Each app has a card that says how it is connected, for example directly, through gh or through Composio. The Connect button of Google Calendar is highlighted." width="930" height="588" loading="lazy" />
+     <figcaption>Each card shows the app's path. The accounts in the picture are examples.</figcaption>
+   </figure>
+
 4. Sign in directly at the app, with the account agents should use.
 5. Confirm on the card that the intended account is connected.
+
+   <figure class="lz-app-step">
+     <img src="/guide-assets/integrations/integrations-connected-en.png" alt="The card of Notion: Connected directly, with the example account jana@example.com and the buttons Add account and Disconnect." width="312" height="225" loading="lazy" />
+     <figcaption>A connected app shows its path and its account.</figcaption>
+   </figure>
+
 6. If agents should not have all of the app, narrow the connection before you
    hand them work.
+
+[Lesson 6 of the course](/en/guide/course/connected-apps/) explains the tabs and
+what agents may do with a connected app, and [Connect your
+tools](/en/guide/tool-connections/) walks through common connections.
 
 ### The account of the Environment
 
@@ -276,8 +313,10 @@ Today this is a working rule that agents follow. Lazurio does not block a write
 through a connected app. Executor can pause a call for approval, but the agent
 itself resumes it, under the same rule. Whether Composio's own filters hold on
 every path is an [open question](https://github.com/Lazurio/LazurioPlatform/issues/39).
-The Microsoft 365 company app is the exception: it leaves sending mail off until
-the Organization enables it.
+The Microsoft 365 company app has one technical limit: it has no `Mail.Send`
+permission, so an agent can prepare a draft through it but cannot send mail. An
+Organization would have to add sending deliberately, as a separate permission
+with admin consent; the setting for that is decided, not yet deployed.
 
 ## What you accept before the first connection
 
@@ -329,8 +368,10 @@ is [v0.1.20](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.20) of
 | Catalog with tiers and setup modes; `lazurio tools list`, `enable`, `disable`, `note` and `prompt`; tools in the Folder instructions | Released since v0.1.7 (2026-09-27) | [Decision F18](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f18--enabled-tools-of-the-environment), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
 | Curated installation and sign-in of `gh`, `composio` and `wacli` on Linux and macOS | Released since v0.1.7 (2026-09-27) | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [environment tools](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/environment-tools.md) |
 | **Settings → Tools** with Connect and Disconnect, a sign-in that turns **Used by agents** on, `gh` linking the Machine's SSH key, `gh` on a Team Environment through Lazurio for GitHub | First in v0.1.8 release candidates ([v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35), 2026-10-06); in v0.1.20 | [Tools section](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/launchpad-development.md#tools-section) |
-| **Apps → Integrations**, Executor in a Remote Environment, Lazurio's build of Composio, the Organization's setting for Composio, ChatGPT apps off in a Remote Environment | In v0.1.20 | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md) |
-| The Organization's switch for ChatGPT apps; the Microsoft 365 settings | Decided, not yet deployed | [Decision 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
+| **Apps → Integrations**, Executor in a Remote Environment, Lazurio's build of Composio, the Organization's setting for Composio, the two Codex settings against ChatGPT apps in a Remote Environment, with the exceptions above | In v0.1.20 | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md) |
+| The Microsoft 365 company app (Outlook, OneDrive, SharePoint) without `Mail.Send`, set by a reviewed pull request | Supported since [v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9) (2026-10-19), with [open checks](/en/microsoft-365/) | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md#the-microsoft-365-company-app) |
+| The Organization's switch for ChatGPT apps; the Microsoft 365 settings in Organization overview, including sending mail | Decided, not yet deployed | [Decision 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
+| Google Workspace as a company app | Decided, not implemented | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md), [decision 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
 | Handing a tool's prepared prompt directly into an agent chat (today it is shown for copying); the curated flows on Windows | Planned, not built | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools) |
 
 Check which version your Environment actually runs. An older version can name

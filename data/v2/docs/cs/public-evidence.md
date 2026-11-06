@@ -107,8 +107,10 @@ pro dané Prostředí povolené. Uchovává tokeny a zpracovává obsah volání
 propojení patří účtu a organizaci v Composiu, nikoli automaticky jednomu
 zařízení. Nové cloudové konektory, jiné sdílené brokery a scraping či
 cookie-session servery standard nepovoluje. Aplikace a konektory ChatGPT
-v harnessu agenta jsou vypnuté, dokud je nepovolí Organizace, v Osobním Prostředí
-uživatel.
+v harnessu agenti podle pravidla nepoužívají, dokud je nepovolí Organizace,
+v Osobním Prostředí uživatel. V Prostředí na serveru pravidlo Lazurio podpírá
+dvěma nastaveními v konfiguraci Codexu; aplikace zapnutá jménem a konfigurace,
+kterou neumí přečíst, zůstávají beze změny a Lazurio je hlásí.
 
 Přístup k zápisu není souhlas se zveřejněním. OAuth token může použít proces,
 který na něj dosáhne; schvalování v MCP neomezuje automaticky CLI ani shell.

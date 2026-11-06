@@ -45,6 +45,8 @@ export function verifyGuideCoverage(paths) {
 }
 export const smokePaths = [...new Set([
   '/en/', ...guideMatrix, '/en/it-administrators/', '/en/public-evidence/',
+  '/guide-assets/integrations/integrations-all-en.png', '/guide-assets/integrations/integrations-all-cs.png',
+  '/guide-assets/integrations/integrations-connected-en.png', '/guide-assets/integrations/integrations-connected-cs.png',
   '/diagrams/company-to-github.svg', '/diagrams/company-to-github-mobile.svg',
   '/diagrams/human-directed-work.svg', '/diagrams/human-directed-work-mobile.svg',
   '/diagrams/lazurio-data-flow.svg', '/diagrams/draft-publication-flow.svg',
