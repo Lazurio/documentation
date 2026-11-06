@@ -1504,7 +1504,7 @@
     },
     {
       "id": "lazurio-platform-content-sync-v0-1-20",
-      "title": "LazurioPlatform content synchronization at release v0.1.20: at start and every hour, an absent declared module is cloned once it is readable, not a restricted slot and not on a Team Environment",
+      "title": "LazurioPlatform content synchronization at release v0.1.20: at start and every hour, an attempt that a blocked root or a denied or failed operation stops, an absent declared module cloned once it is readable, not a restricted slot and not on a Team Environment, and revoked access preserving local content",
       "publisher": "Lazurio",
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md",
@@ -1594,7 +1594,7 @@
     },
     {
       "id": "lazurio-platform-register-modules",
-      "title": "Lazurio decision register at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209 and 0213",
+      "title": "Lazurio decision register at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209, 0213 and 0228",
       "publisher": "Lazurio",
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md",

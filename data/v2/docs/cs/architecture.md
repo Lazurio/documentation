@@ -82,20 +82,27 @@ Modul nemusí mít aplikaci vůbec. Modul Organizace je soukromý repozitář
   0193, 0198 a 0203).
 - **Poskytovatel AI** provozuje modely. Oba zdroje popisuje stránka
   [Zdroj AI](/cs/guide/ai-source/).
-- **Služby serveru** má každý server Organizace jen jedny. Vstupují do nich jen
-  Owneři a Admini Organizace a každá služba má svůj kontejner (rozhodnutí 0209). Stav:
-  rozhodnuto, zatím nenasazeno.
+- **Služby serveru** má každý server Organizace jen jedny a každá služba má svůj
+  kontejner. Vstupují do nich jen Admini Organizace; Owner, který není zároveň
+  Adminem Organizace, ne (rozhodnutí 0209 a 0228). Stav: rozhodnuto, zatím
+  nenasazeno.
 
 ## Jeden zdroj, synchronizované kopie
 
 Jediným zdrojem modulu je GitHub. Každé Prostředí, které modul smí číst, drží
-jeho pracovní kopii. Dvacet lidí na jednom modulu znamená dvacet kopií jednoho
-repozitáře, ne dvacet sad dat.
+jeho pracovní kopii. Počet kopií odpovídá Prostředím, ne lidem: dvacet lidí
+v jednom Týmovém Prostředí sdílí jednu kopii. Ať je jich kolik chce, jsou to kopie
+jednoho repozitáře, ne oddělené sady dat.
 
 Nainstalované Lazurio aktualizuje čisté kopie při startu a potom každou hodinu. Od
 vydání v0.1.20 stejná synchronizace naklonuje i deklarovaný modul nebo datový
 repozitář, jakmile ho identita tohoto Prostředí smí číst. Výjimkou je položka
-vyhrazená Adminům Organizace a Týmové Prostředí. Opačným směrem jde změna jako Publikace:
+vyhrazená Adminům Organizace a Týmové Prostředí. Vyhrazenou položku takto nedostane
+ani Admin Organizace, zůstává výslovnou instalací. Každé kolo je pokus: kořen,
+který neskončí aktuální, zastaví svou Organizaci a odepřená nebo neúspěšná operace
+nechá repozitář beze změny do dalšího kola.
+
+Opačným směrem jde změna jako Publikace:
 sloučený pull request, u dat v repository-db commit a push nepublikované změny.
 
 ## Přístupy po Teamech
@@ -106,6 +113,11 @@ a založení dá každému uvedenému Teamu právo Write. Přehled Organizace m�
 přes GitHub aplikaci Lazurio Administration Access s vlastními právy člověka,
 který změnu dělá, takže ho audit GitHubu jmenuje. Přepnutí Stewardem je žádost,
 kterou schvaluje Admin Organizace.
+
+Odebrání přístupu zastaví operace s repozitářem, ale nesmaže, co už Prostředí má.
+Kopie zůstane, agent s přístupem do tohoto Prostředí ji přečte a přestane se
+aktualizovat. Manifest Organizace uvádí všechny moduly, takže samotné jméno skryté
+není.
 
 Lazurio řídí vstup do modulu a předává mu ověřenou identitu. Co smí který člověk
 uvnitř, jsou vlastní pravidla Organizace v jejím kódu a datech (rozhodnutí 0196).
@@ -177,5 +189,5 @@ označuje za návrh, který je třeba ověřit na prototypu, ne za ověřené ch
 - [Stack profily](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/stack-profiles.md) ve verzi v0.1.21-rc.1: datová vrstva každé generace, `app-data` a `app-database`.
 - [Synchronizace obsahu](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md) ve vydání v0.1.20.
 - [Přístup k Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) ve verzi v0.1.21-rc.1.
-- [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) ve verzi v0.1.21-rc.1: rozhodnutí 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209 a 0213.
+- [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) ve verzi v0.1.21-rc.1: rozhodnutí 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209, 0213 a 0228.
 - [Rozhodnutí F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (co modul drží) a [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (jeden generátor, osobní moduly).

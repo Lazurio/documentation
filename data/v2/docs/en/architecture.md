@@ -83,20 +83,27 @@ A module can have no app at all. An Organization's module is a private repositor
 - **The AI provider** runs the models. [Where your AI comes
   from](/en/guide/ai-source/) describes the two sources.
 - **Server services** run on one services Machine on each Organization server,
-  entered only by Owners and Organization Admins, with one container per service (decision
-  0209). Their status is decided, not yet deployed.
+  with one container per service. Only Organization Admins enter them; an Owner
+  who is not also an Organization Admin does not (decisions 0209 and 0228). Their
+  status is decided, not yet deployed.
 
 ## One source, synchronized copies
 
 GitHub holds the one source of a module. Every Environment that can read the
-module keeps a checkout of it. Twenty people on one module means twenty
-checkouts of one repository, not twenty sets of data.
+module keeps a checkout of it. The number of checkouts follows the Environments,
+not the people: twenty people in one Team Environment share one checkout. However
+many there are, they are checkouts of one repository, not separate sets of data.
 
 The installed Lazurio fast-forwards clean checkouts at its start and then every
 hour. Since release v0.1.20 the same synchronization also clones a declared
 module or data repository once this Environment's identity can read it, unless
-the slot is restricted to Organization Admins or the Environment is a Team Environment. A
-change goes the other way as a Publication: a merged pull request, or for
+the slot is restricted to Organization Admins or the Environment is a Team
+Environment. A restricted slot is not cloned this way even for an Organization
+Admin; it stays an explicit installation. Each round is an attempt: a root that
+does not end current stops its Organization, and a denied or failed operation
+leaves that repository as it is until the next round.
+
+A change goes the other way as a Publication: a merged pull request, or for
 repository-db data a commit and push of the unpublished change.
 
 ## Access by Team
@@ -107,6 +114,11 @@ is created, and creating a module grants Write to each Team named. Organization
 overview changes a grant through the GitHub app Lazurio Administration Access,
 with the acting person's own rights, so GitHub's audit names that person. A
 Steward's switch is a request that an Organization Admin approves.
+
+Revoking access stops the operations on that repository but does not delete what
+an Environment already has. The checkout stays, an agent with access to that
+Environment can still read it, and it stops updating. The Organization's manifest
+names every module, so a name alone is not hidden.
 
 Lazurio controls entry to a module and passes it a verified identity. What each
 person may do inside is the Organization's own rules in its code and data
@@ -183,5 +195,5 @@ prototype, not verified behaviour.
 - [Stack profiles](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/stack-profiles.md) at v0.1.21-rc.1: the data layer of each generation, `app-data` and `app-database`.
 - [Content synchronization](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md) at release v0.1.20.
 - [Environment access](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) at v0.1.21-rc.1.
-- [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209 and 0213.
+- [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209, 0213 and 0228.
 - [Decision F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (what a module holds) and [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (one generator, personal modules).

@@ -114,18 +114,27 @@ Poslední krok vysvětluje [Kontrola a Publikace](/cs/guide/course/review/).
 
 ## Kdo modul dostane a kdy se objeví
 
-Organizace sdílí moduly po Teamech. Admin Organizace rozhoduje, které Teamy k modulu
-dosáhnou, a to v Přehledu Organizace nebo přímo na GitHubu. Kdo modul nedostane,
-ten ho v Apps nevidí a jeho agent ho nepřečte.
+Organizace sdílí moduly po Teamech. Admin Organizace rozhoduje, které Teamy
+k modulu dosáhnou, a to v Přehledu Organizace nebo přímo na GitHubu. Kdo modul
+nikdy nedostal, nevidí ho v Apps a jeho agent ho nepřečte. Jméno modulu ale agent
+vidět může v manifestu Organizace.
 
-Od verze 0.1.20 k vám modul dorazí sám, jakmile k němu máte přístup. Lazurio
-každou hodinu kontroluje přístupy a modul stáhne do vašeho Prostředí, takže ho
-v Apps uvidíte nejpozději do hodiny. Nikdo nemusí nic instalovat.
+Odebrání přístupu nesmaže kopii, kterou Prostředí už má. Kopie tam zůstane, agent
+s přístupem do tohoto Prostředí ji přečte a jen se přestane aktualizovat.
+
+Od verze 0.1.20 k vám modul dorazí sám, jakmile k němu máte přístup. Lazurio se ho
+pokusí stáhnout do vašeho Prostředí při startu a potom každou hodinu, takže se
+v Apps obvykle objeví do hodiny a nikdo nemusí nic instalovat. Je to pokus, ne
+záruka. Když nejde aktualizovat kopii kořenového repozitáře Organizace ve vašem
+Prostředí nebo když GitHub operaci odmítne či se nepovede, modul nedorazí a Lazurio
+to zkusí znovu v dalším kole. Když očekávaný modul nepřichází, zeptejte se Admina
+své Organizace.
 
 Jinak je to ve dvou případech:
 
-- **Týmové Prostředí** nový modul tímto způsobem nedostane. Požádejte Admina Organizace.
-- **Modul vyhrazený Adminům Organizace** dostanou jen oni.
+- **Týmové Prostředí** nový modul tímto způsobem nedostane. Požádejte Admina
+  Organizace.
+- **Modul vyhrazený Adminům Organizace** sám nedorazí ani jim. Instaluje se zvlášť.
 
 Osobní modul zůstává ve vašem Osobním Prostředí.
 
@@ -163,7 +172,7 @@ Stejnou tabulku s technickými názvy pro IT najdete v části
 
 **Když modul používá dvacet lidí, jsou data dvacetkrát?**
 Ne. Zdroj je jeden, na GitHubu. Každé Prostředí s přístupem má jeho kopii
-a Lazurio ji udržuje aktuální.
+a Lazurio ji pravidelně aktualizuje.
 
 **Má každý svůj repozitář, nebo je jeden pro celou Organizaci?**
 Ani jedno. Organizace má jeden kořenový repozitář a každý modul má vlastní.

@@ -120,19 +120,29 @@ Publication](/en/guide/course/review/) explains that last step.
 
 ## Who gets a module and when it appears
 
-An Organization shares its modules by Team. The Organization Admin decides which Teams reach
-a module, in Organization overview or directly on GitHub. Whoever does not get
-a module does not see it in Apps, and their agent cannot read it.
+An Organization shares its modules by Team. The Organization Admin decides which
+Teams reach a module, in Organization overview or directly on GitHub. Whoever
+never got a module does not see it in Apps, and their agent cannot read it. The
+agent can still see its name in the Organization's manifest.
 
-Since version 0.1.20, a module you have been given access to arrives by itself.
-Lazurio checks every hour and brings the module to your Environment, so you see
-it in Apps within an hour. Nobody has to install anything.
+Taking access away does not delete the copy an Environment already has. The copy
+stays there, an agent with access to that Environment can still read it, and it
+only stops updating.
+
+Since version 0.1.20, a module you have been given access to comes by itself.
+Lazurio tries to bring it to your Environment when it starts and then every hour,
+so it usually appears in Apps within an hour and nobody has to install anything.
+That is an attempt, not a guarantee. If your Environment's copy of the
+Organization's root repository cannot be updated, or GitHub refuses the operation
+or it fails, the module does not arrive and Lazurio tries again in the next round.
+If a module you expect stays away, ask your Organization Admin.
 
 Two cases work differently:
 
 - **A Team Environment** does not receive a new module this way. Ask your
   Organization Admin.
-- **A module restricted to Organization Admins** reaches only them.
+- **A module restricted to Organization Admins** does not arrive by itself, not
+  even for them. It is installed separately.
 
 A personal module stays in your Personal Environment.
 
@@ -171,7 +181,7 @@ for IT.
 
 **If twenty people use a module, are there twenty sets of data?**
 No. There is one source on GitHub. Each Environment with access keeps a copy,
-and Lazurio keeps the copies up to date.
+and Lazurio updates it regularly.
 
 **Does everyone have their own repository, or is there one for the whole
 Organization?**
