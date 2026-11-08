@@ -1,10 +1,10 @@
 ---
 title: "Ověřené poznatky o poskytovatelích"
-description: "Chování poskytovatelů, na které Lazurio narazilo při napojování aplikací a které platí pro každou Organizaci: kroky správce, životnost tokenů, limity a potřebné role."
+description: "Chování poskytovatelů, na které Lazurio narazilo při napojování aplikací a které platí pro každou Organizaci: kroky administrátora, životnost tokenů, limity a potřebné role."
 stableId: lazurio-doc-provider-notes
 locale: cs
 summary: "Datované poznatky o Google Workspace, Slacku, Atlassianu, Canvě, LinkedInu, GitHubu a Composiu, každý ověřený ve vlastní dokumentaci poskytovatele."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -38,10 +38,10 @@ napojování aplikací a které platí pro každou Organizaci. U každého je uv
 kdy ho Lazurio zapsalo, a odkaz na stránku poskytovatele, kde byl znovu
 ověřený 1. 11. 2026. Poskytovatelé své produkty mění, proto si před použitím
 poznatku otevřete odkazovanou stránku. Microsoft 365 má vlastní stránku
-[Microsoft 365 pro IT a Admina](/cs/microsoft-365/) a obecná pravidla volby
+[Microsoft 365 pro IT a Admina Organizace](/cs/microsoft-365/) a obecná pravidla volby
 napojení najdete v [napojení Prostředí na aplikace](/cs/environment-app-connections/).
 
-## Co správce udělá nejdřív
+## Co administrátor udělá nejdřív
 
 Někteří poskytovatelé potřebují jednorázový krok na straně Organizace dřív,
 než se k nim může připojit jakékoli Prostředí.
@@ -49,8 +49,8 @@ než se k nim může připojit jakékoli Prostředí.
 | Poskytovatel | První krok na straně poskytovatele |
 | --- | --- |
 | Google Workspace | Vlastní projekt v Google Cloudu se zapnutými API, nastavenou obrazovkou souhlasu OAuth a vlastním klientem OAuth. |
-| Slack | Správce workspace schválí aplikaci MCP klienta standardním schvalováním aplikací ve Slacku. |
-| Atlassian | Správce organizace určí, které domény se smějí připojit přes OAuth 2.1 a zda jsou povolené API tokeny. |
+| Slack | Administrátor workspace schválí aplikaci MCP klienta standardním schvalováním aplikací ve Slacku. |
+| Atlassian | Administrátor organizace v Atlassianu určí, které domény se smějí připojit přes OAuth 2.1 a zda jsou povolené API tokeny. |
 | LinkedIn | Vývojářská aplikace LinkedIn s produktem Share on LinkedIn. |
 | Microsoft 365 | Jedna aplikace ve vašem tenantu Entra a jeden souhlas správce; viz [stránka o Microsoftu 365](/cs/microsoft-365/). |
 
@@ -72,7 +72,7 @@ uvádí jako nejčastější opakovaný problém.
   přístup odvolal, token se šest měsíců nepoužil, uživatel změnil heslo
   a token má rozsahy Gmailu, účet překročil limit 100 živých obnovovacích
   tokenů na jednoho klienta OAuth, což bez varování zneplatní ten nejstarší,
-  a správce nastavil požadovanou službu jako Restricted. Přihlášení každého
+  a administrátor nastavil požadovanou službu jako Restricted. Přihlášení každého
   Prostředí je samostatný grant, takže se do limitu počítá každé přihlášení
   téhož účtu přes stejného klienta.
 - **Oficiální MCP servery.** MCP servery Googlu pro Gmail, Disk, Dokumenty,
@@ -92,7 +92,7 @@ přihlášením bez ID a tajného klíče aplikace ve Slacku nestačí.
   Slack Marketplace nebo interní pro váš workspace; nezveřejněné aplikace MCP
   používat nesmějí. Tok OAuth je důvěrný: klient používá ID a tajný klíč
   aplikace, takže tajný klíč patří do trezoru, nikdy do Gitu.
-- Správci workspace aplikace MCP klientů schvalují a spravují standardním
+- Administrátoři workspace aplikace MCP klientů schvalují a spravují standardním
   schvalováním aplikací ve Slacku.
 - Limity platí pro každý nástroj zvlášť, stejně jako pro odpovídající metody
   Web API, a seznam povolených IP adres aplikace platí i pro její požadavky
@@ -107,7 +107,7 @@ adresu, než má runbook Lazuria.
   berte z aktuálního návodu Atlassianu, ne ze starší poznámky.
 - Přihlášení používá ve výchozím stavu OAuth 2.1 a akce respektují stávající
   oprávnění uživatele v Atlassianu. Přihlášení API tokenem je volitelné;
-  správce organizace ho zapíná nebo vypíná v Atlassian Administration →
+  administrátor organizace v Atlassianu ho zapíná nebo vypíná v Atlassian Administration →
   Connectors → Atlassian MCP server.
 - Povolené domény platí jen pro nástroje, které používají OAuth 2.1. Nástroje
   s API tokenem omezuje seznam povolených IP adres a rozsah tokenu a seznam
@@ -174,7 +174,7 @@ Lazurio tento poznatek zapsalo 17. 10. 2026.
 - Lazurio: [standard napojení externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/external-app-integrations.md), [runbooky poskytovatelů](https://github.com/HumanAndMachines/Lazurio/tree/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations) a [broker Lazurio for GitHub](https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md#opening-issues-in-public-repositories) (anglicky).
 - Google: [typ uživatelů a stav publikování OAuth](https://support.google.com/cloud/answer/15549945), [vypršení obnovovacího tokenu](https://developers.google.com/identity/protocols/oauth2#expiration), [MCP servery Workspace](https://developers.google.com/workspace/guides/configure-mcp-servers).
 - Slack: [MCP server Slacku](https://docs.slack.dev/ai/slack-mcp-server/).
-- Atlassian: [začátek s MCP serverem Atlassianu](https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/) a [nastavení pro správce](https://support.atlassian.com/security-and-access-policies/docs/control-atlassian-mcp-server-settings/).
+- Atlassian: [začátek s MCP serverem Atlassianu](https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/) a [nastavení pro administrátory](https://support.atlassian.com/security-and-access-policies/docs/control-atlassian-mcp-server-settings/).
 - Canva: [přístup a oprávnění](https://www.canva.dev/docs/apps/mcp/access/) a [nástroje a limity](https://www.canva.dev/docs/apps/mcp/tools/).
 - LinkedIn: [přístup k API](https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access), [tok autorizačního kódu](https://learn.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow), [Share on LinkedIn](https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/share-on-linkedin), [uživatelská smlouva](https://www.linkedin.com/legal/user-agreement).
 - Composio: [žádost o zakládání organizací](https://github.com/ComposioHQ/composio/issues/4949).

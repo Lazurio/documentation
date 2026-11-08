@@ -4,13 +4,14 @@ description: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy:
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: cs
 summary: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy: kdo o čem rozhoduje."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-onboarding-decision-register
+  - lazurio-decision-0234-role-names
   - lazurio-platform-folder-manual
 audience:
   - decision-maker
@@ -33,17 +34,26 @@ sandboxu a bez schvalování jednotlivých příkazů: hranicí je Prostředí
 použít. Plný přístup je schopnost, ne souhlas: Publikace zůstává vám.
 
 **Kolega** je uživatel v Organizaci. Co smí, určují jeho role a Teamy.
-Organizace zná čtyři role: **Admin** spravuje přístupy Organizace a její
-Prostředí, **Steward** kontroluje změny a merguje je tam, kde je větev
-chráněná, **Builder** vyvíjí moduly a **User** pracuje s aplikacemi
-Organizace. Název role sám nic neopravňuje; rozhodují živá práva na GitHubu
-(rozhodnutí 0062).
+Každá role říká, na jaké úrovni platí (rozhodnutí 0234):
+
+- **Organizace:** **Vlastník Organizace** vlastní její GitHub Organization
+  a jmenuje Adminy Organizace, **Admin Organizace** spravuje členy, Teamy,
+  přístupy a Prostředí Organizace a každý další je **Člen Organizace**.
+- **Modul:** **Čtenář modulu** ho čte a nic nemění, **Přispěvatel modulu**
+  ho staví a navrhuje změny a **Správce modulu** navíc smí mergovat jeho
+  chráněnou `main` a vydat ho.
+- **Aplikace:** **Admin aplikace** a **Uživatel aplikace** smějí to, co
+  dovolí pravidlo Organizace v modulu. Tyto role v aplikaci jsou rozhodnuté,
+  ale zatím nenasazené (rozhodnutí 0231).
+
+Název role sám nic neopravňuje. U rolí v Organizaci a v modulu dnes rozhoduje
+živý grant na GitHubu (rozhodnutí 0062 a 0232).
 
 **Henry** je jméno Pracovního Prostředí Organizace s automatizacemi.
 Pracuje v něm tým botů pod personou Organizace a odpovídá za něj jeden
-odpovědný uživatel, Owner nebo Admin Organizace (rozhodnutí 0169). Kde vaše
-Organizace Henryho provozuje, potkáte ho hlavně na GitHubu, třeba v review
-pull requestu.
+odpovědný uživatel, Vlastník Organizace nebo Admin Organizace (rozhodnutí
+0169). Kde vaše Organizace Henryho provozuje, potkáte ho hlavně na GitHubu,
+třeba v review pull requestu.
 
 **Buddy** je váš osobní zástupce. Běží ve vašem Osobním Prostředí, pokud ho
 máte, a jedná jen ve vašich právech a v rámci mandátů, které mu dáte. Platby
@@ -51,9 +61,9 @@ a vlastnictví, obnova, tajné údaje, změny přístupů a ničivé kroky vždy
 potřebují váš souhlas s přesně tímto krokem, stejně jako merge, Publikace
 nebo Release, na které se nevztahuje výslovný mandát (rozhodnutí 0089).
 
-Persona, třeba Henry nebo jméno, které dáte svému Buddymu, je jen jméno
-a povaha. Není to uživatel a nemá žádnou vlastní pravomoc. Čísla rozhodnutí
-odkazují na veřejný
+Persona je účet agenta Organizace, třeba Henryho. Stejně jako jméno, které
+dáte svému Buddymu, není uživatel a nemá žádnou vlastní pravomoc. Čísla
+rozhodnutí odkazují na veřejný
 [rejstřík rozhodnutí Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md).
 
 ## Váš úkol

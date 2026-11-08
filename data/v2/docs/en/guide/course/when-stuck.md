@@ -4,7 +4,7 @@ description: "Where to turn when something stops, how to describe a problem and 
 stableId: lazurio-doc-guide-course-when-stuck
 locale: en
 summary: "Where to turn when something stops, how to describe a problem and what never to send."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -25,7 +25,7 @@ a problem so that someone can help.
 | What happens | What to do |
 | --- | --- |
 | The Environment's address does not open | Follow [Reach an Environment through Tailscale](/en/guide/tailscale/). |
-| A step in Getting started stops | Read what the step says. Once AI is connected, **Solve in Chat** opens a new thread with a prepared request; read it and send it. If the step says that the Organization's Admin prepares it, contact your Admin. |
+| A step in Getting started stops | Read what the step says. Once AI is connected, **Solve in Chat** opens a new thread with a prepared request; read it and send it. If the step says that the Organization's Admin prepares it, contact your Organization Admin. |
 | The app of a Module does not open | Its overview in Apps says why. Ask an agent in Chat to look at it. |
 | An agent seems stuck | First look for a question it is waiting for you to answer. Then ask it what it has verified, what it is waiting for and what is missing. |
 | Lazurio itself reports a fault | Settings → **Recovery** shows Lazurio's own checks. When one fails, it offers a prepared prompt for a repair agent and a prepared issue. |

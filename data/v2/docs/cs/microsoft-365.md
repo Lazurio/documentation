@@ -1,10 +1,10 @@
 ---
-title: "Microsoft 365 pro IT a Admina"
-description: "Co Lazurio potřebuje od tenantu Microsoft 365, o čem rozhoduje IT, postup Admina a jak přístup odvolat."
+title: "Microsoft 365 pro IT a Admina Organizace"
+description: "Co Lazurio potřebuje od tenantu Microsoft 365, o čem rozhoduje IT, postup Admina Organizace a jak přístup odvolat."
 stableId: lazurio-doc-microsoft-365
 locale: cs
-summary: "Jedna aplikace Entra pro jediný tenant s delegovanými oprávněními Graphu a bez tajného klíče: co schvaluje IT, postup Admina, podmíněný přístup, audit a odvolání."
-updatedAt: "2026-11-01"
+summary: "Jedna aplikace Entra pro jediný tenant s delegovanými oprávněními Graphu a bez tajného klíče: co schvaluje IT, postup Admina Organizace, podmíněný přístup, audit a odvolání."
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -60,7 +60,7 @@ pracovní účet a agenti v jeho Prostředí dosáhnou jen tam, kam dosáhne ten
 
 **Stav k 1. 11. 2026.** Lazurio Platform aplikaci Organizace podporuje od
 [vydání v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9)
-z 19. 10. 2026. Dvě části hotové nejsou. Admin zatím nemůže nastavení upravit
+z 19. 10. 2026. Dvě části hotové nejsou. Admin Organizace zatím nemůže nastavení upravit
 v Přehledu Organizace, proto se přidává pull requestem do repozitáře
 Organizace, který projde kontrolou. Lazurio celý postup ještě neprošlo na
 skutečném tenantu: výměna přihlašovacího kódu bez tajného klíče na návratové
@@ -91,7 +91,7 @@ adres Prostředí a žádné zástupné znaky.
 Všechna oprávnění jsou delegovaná. Microsoft uvádí, že s delegovaným
 oprávněním aplikace nedosáhne na nic, k čemu nemá přístup přihlášený uživatel.
 Aplikace nežádá nic k adresáři, uživatelům, skupinám ani nastavení tenantu.
-Připojený účet správce proto dosáhne jen na poštu, kalendáře, soubory a weby,
+Připojený účet administrátora proto dosáhne jen na poštu, kalendáře, soubory a weby,
 tam ale na všechno, k čemu má přístup tento účet.
 
 | Oprávnění | Popis Microsoftu | Co to znamená pro agenty |
@@ -114,7 +114,7 @@ a kalendář), `one_drive` (soubory) a `share_point` (soubory a weby). Přihlá�
 žádá jen oprávnění vybraných částí a oprávnění k přihlášení. Když vydání
 Lazuria požádá o oprávnění, ke kterému váš tenant souhlas nedal, přihlášení
 ohlásí, že je potřeba schválení správce (`AADSTS65001` nebo `AADSTS90094`).
-Admin požádá IT o doplnění souhlasu a uživatel se připojí znovu.
+Admin Organizace požádá IT o doplnění souhlasu a uživatel se připojí znovu.
 
 ## Proč musí souhlas udělit IT
 
@@ -136,15 +136,15 @@ role Application Developer.
 
 | Kdo | Rozhoduje |
 | --- | --- |
-| IT, správci tenantu | Zda aplikace existuje, její oprávnění a souhlas; kdo se smí připojit („Assignment required“ a skupina); podmíněný přístup; vypnutí nebo smazání aplikace. Vypínačem je Entra. |
+| IT, administrátoři tenantu | Zda aplikace existuje, její oprávnění a souhlas; kdo se smí připojit („Assignment required“ a skupina); podmíněný přístup; vypnutí nebo smazání aplikace. Vypínačem je Entra. |
 | Admin Organizace v Lazuriu | Zapíše id tenantu, id aplikace, zvolené části a zaregistrované návratové adresy do nastavení Organizace a požádá IT o registraci adresy každého nového Prostředí. |
 | Každý uživatel | Připojí svůj pracovní účet v Apps → Integrace, může přidat další účty a odpojuje je. |
 | Agenti | Používají připojené účty. Účet nikdy nepřipojují sami a změny, které uvidí ostatní, dělají jen na pokyn uživatele. Je to pravidlo práce, které agenti dodržují, ne technická zábrana. |
 
-## Postup Admina
+## Postup Admina Organizace
 
 IT pracuje ve vlastním prohlížeči. Do Prostředí se nikdo nepřihlašuje účtem
-správce.
+administrátora.
 
 1. **Sepište návratové adresy.** Admin Organizace, třeba s pomocí agenta,
    sepíše návratovou adresu každého Prostředí Organizace na serveru podle vzoru
@@ -191,7 +191,7 @@ správce.
     pracovním účtem. Kde je návratová adresa Prostředí zaregistrovaná, otevře
     se přihlášení ve vlastním prohlížeči uživatele. Jinak se otevře v prohlížeči
     Prostředí, který sdílejí agenti tohoto Prostředí; Lazurio v něm po skončení
-    přihlášení smaže přihlašovací cookies Microsoftu. Účtem správce se
+    přihlášení smaže přihlašovací cookies Microsoftu. Účtem administrátora se
     v prohlížeči Prostředí nepřihlašujte.
 11. **Nové Prostředí.** IT doplní jeho návratovou adresu v Authentication
     a stejná adresa jde pull requestem do `callbacks`. Do té doby se uživatelé
@@ -227,8 +227,9 @@ Shellu ve vlastním prohlížeči; ověření v kroku 8 zůstává stejné.
   Prostředí pracuje.
 - Executor drží tokeny připojení v Prostředí v souboru, který smí číst jen účet
   operačního systému Prostředí (`0600`). Soubor není šifrovaný. Tokeny může
-  použít každý agent v tomto Prostředí (rozhodnutí 0172), správce serveru, na
-  kterém Prostředí Organizace běží, a každý, kdo má zálohu Prostředí.
+  použít každý agent v tomto Prostředí (rozhodnutí 0172), ten, kdo spravuje
+  server, na kterém Prostředí Organizace běží, a každý, kdo má zálohu
+  Prostředí.
 - V Týmovém Prostředí slouží připojený účet všem členům a agentům tohoto
   Prostředí.
 - Executor každé zapisující volání (POST, PUT, PATCH, DELETE) pozastaví ke
@@ -260,7 +261,7 @@ připojení, které se tak dlouho nepoužije, potřebuje nové přihlášení.
   při kterých klient obnovovacím tokenem získává přístupový token, včetně
   adres.
 - **Audit Microsoft Purview** (jednotný protokol auditu) zaznamenává operace
-  uživatelů a správců v Exchange Online, SharePointu a OneDrivu pod účtem
+  uživatelů a administrátorů v Exchange Online, SharePointu a OneDrivu pod účtem
   uživatele. Co se zaznamená a jak dlouho se to uchová, závisí na vašich
   licencích auditu.
 
@@ -276,7 +277,7 @@ tenant se souhlasem správce tento štítek nic nemění.
 - **Work IQ MCP.** Oficiální MCP server Microsoftu pro data Microsoftu 365 není
   výchozí cestou Lazuria. Jeho jediné delegované oprávnění `WorkIQAgent.Ask`
   zahrnuje čtení i zápis ve zdrojích Microsoftu 365, na které agenti Work IQ za
-  uživatele dosáhnou, správce musí Work IQ nejdřív zapnout a účtuje se podle
+  uživatele dosáhnou, administrátor musí Work IQ nejdřív zapnout a účtuje se podle
   využití. Naše hodnocení: Organizace, která ho chce, ho může později přidat
   k téže aplikaci a do Executoru.
 - **Nové konektory ChatGPT nebo claude.ai** a aplikace zaregistrované jiným

@@ -33,7 +33,7 @@ export const sidebar = [
       { label: 'Where your AI comes from', translations: { cs: 'Zdroj AI' }, slug: 'guide/ai-source' },
       { label: 'Phone and computer', translations: { cs: 'Telefon a počítač' }, slug: 'guide/phone-and-computer' },
       { label: 'Device approval', translations: { cs: 'Schválení zařízení' }, slug: 'guide/device-approval' },
-      { label: 'How to ask the Admin', translations: { cs: 'Jak požádat Admina' }, slug: 'guide/ask-the-admin' },
+      { label: 'How to ask the Organization Admin', translations: { cs: 'Jak požádat Admina Organizace' }, slug: 'guide/ask-the-admin' },
       { label: 'Reach an Environment through Tailscale', translations: { cs: 'Připojení přes Tailscale' }, slug: 'guide/tailscale' },
       { label: 'Add a new device to the tailnet', translations: { cs: 'Přidání nového zařízení' }, slug: 'guide/tailscale-add-device' },
       { label: 'Recommended applications', translations: { cs: 'Doporučené aplikace' }, slug: 'guide/recommended-apps' },
@@ -50,11 +50,11 @@ export const sidebar = [
   },
   {
     label: 'IT and administration',
-    translations: { cs: 'Pro IT a Admina' },
+    translations: { cs: 'Pro IT a Adminy Organizace' },
     items: [
       { label: 'Architecture', translations: { cs: 'Architektura' }, slug: 'architecture' },
       { label: 'GitHub baseline for a new Organization', translations: { cs: 'GitHub pro novou Organizaci' }, slug: 'github-baseline' },
-      { label: 'Microsoft 365 for IT and the Admin', translations: { cs: 'Microsoft 365 pro IT a Admina' }, slug: 'microsoft-365' },
+      { label: 'Microsoft 365 for IT and the Organization Admin', translations: { cs: 'Microsoft 365 pro IT a Admina Organizace' }, slug: 'microsoft-365' },
       { label: 'Verified provider notes', translations: { cs: 'Ověřené poznatky o poskytovatelích' }, slug: 'provider-notes' },
       { label: 'Servers and the Conglomerate Host', translations: { cs: 'Servery a Conglomerate Host' }, slug: 'servers-conglomerate-host' },
     ],

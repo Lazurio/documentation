@@ -4,7 +4,7 @@ description: "Porovnejte účel, přístupy a nároky na správu obou řešení.
 stableId: lazurio-doc-copilot-comparison
 locale: cs
 summary: "Porovnejte účel, přístupy a nároky na správu obou řešení."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -74,7 +74,7 @@ Microsoft uvádí, že výzvy, odpovědi a data získaná přes Microsoft Graph
 neslouží k trénování základních modelů, a to ani těch, které používá Microsoft
 Copilot. Zároveň popisuje ukládání historie interakcí, možnosti správy pomocí
 Microsoft Purview, potřebu ověřit podmínky používaných agentů a další
-podmínky, které mohou platit, když správce zapne modely třetích stran,
+podmínky, které mohou platit, když administrátor zapne modely třetích stran,
 například od Anthropicu nebo OpenAI. Přesné a aktuální podmínky jsou uvedené
 v dokumentaci Microsoftu k [ochraně soukromí a bezpečnosti](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy).
 

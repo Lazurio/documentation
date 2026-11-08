@@ -1,10 +1,10 @@
 ---
 title: "Add a new device to the tailnet"
-description: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Admin to approve the device."
+description: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Organization Admin to approve the device."
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: en
-summary: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Admin to approve the device."
-updatedAt: "2026-11-05"
+summary: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Organization Admin to approve the device."
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -36,8 +36,8 @@ audience:
 
 You add a new device to your Organization's tailnet yourself: **install
 Tailscale, enter your Organization's login server in it, sign in with your
-Lazurio account and wait until the Admin of the Organization tells you the
-device is approved.** Until then, do not expect the Organization's
+Lazurio account and wait until the Organization Admin tells you the device
+is approved.** Until then, do not expect the Organization's
 Environments to open from it.
 Each device (phone, tablet, computer) is added and approved separately. On
 iPhone, Android and Mac the whole procedure is done by clicking in the app.
@@ -53,13 +53,13 @@ Have **the address of your Organization's login server** ready. Lazurio runs
 its tailnets on [Headscale](https://github.com/juanfont/headscale), a
 self-hosted server that the Tailscale app signs in to instead of Tailscale's
 own server. The address usually looks like
-`https://headscale.<organization>.lazurio.io`. The Admin of your
-Organization gives you the exact address. Do not guess it:
+`https://headscale.<organization>.lazurio.io`. Your Organization Admin
+gives you the exact address. Do not guess it:
 with a different address you sign in to someone else's network, or not at all.
 
 Also decide what the device should be called: `<login>-<device>`, for example
 `jannovak-iphone` or `jannovak-macbook`. You do not set the name in the app;
-you only tell it to your Admin (see [Device name](#device-name)).
+you only tell it to your Organization Admin (see [Device name](#device-name)).
 
 ## Add the device
 
@@ -240,7 +240,7 @@ Connect this Windows computer to my Organization's tailnet in Tailscale. The Org
 2. In PowerShell run exactly this line, without administrator rights, so that you can read its output while it keeps waiting (for example in a separate window or in the background):
    & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<login server>
 3. The output says "To authenticate, visit:" and an address. Give me that address as a clickable link and tell me in one or two sentences: open it, sign in with my Lazurio account, then come back to this chat. Do not open, fill in or confirm the sign-in yourself, and never ask me for a password or a code.
-4. When the output says "Success.", tell me in plain words that this computer is now in the tailnet of that login server and waits for the Admin's approval. Read this computer's name in the tailnet (tailscale status --json, Self.HostName) and tell me to send it to my Admin together with my login.
+4. When the output says "Success.", tell me in plain words that this computer is now in the tailnet of that login server and waits for the Organization Admin's approval. Read this computer's name in the tailnet (tailscale status --json, Self.HostName) and tell me to send it to my Organization Admin together with my login.
 
 Rules: do not use an auth key, do not change the Windows registry or Tailscale's policies, leave other Tailscale accounts on this computer as they are, do not turn Tailscale off, and do not try to approve the device. If anything fails, tell me what the window said and stop.
 ```
@@ -251,14 +251,14 @@ Tailscale names a device after the system: a computer after its name, a phone
 usually only after its manufacturer or model. The Tailscale app for Android
 has no setting for the name (checked in version 1.104.5), and Tailscale's
 documentation does not describe a clickable name setting for the other systems
-either. So do not rename anything on the device; tell your Admin the name you
-want. It helps them recognise which device is yours.
+either. So do not rename anything on the device; tell your Organization Admin
+the name you want. It helps them recognise which device is yours.
 
 The name has the form `<login>-<device>`:
 
 - `<login>` is your login in lowercase. If your Lazurio account is linked to
-  GitHub, it is your GitHub login. If it is not, use the label your Admin
-  gives you.
+  GitHub, it is your GitHub login. If it is not, use the label your
+  Organization Admin gives you.
 - `<device>` is a short, stable label such as `iphone`, `ipad`, `pixel`,
   `android`, `macbook` or `windows`. Choose it once and use the same one in
   every tailnet. If you have two devices of the same kind, tell them apart
@@ -266,25 +266,25 @@ The name has the form `<login>-<device>`:
 - Only lowercase letters, digits and hyphens, without the Organization's name.
 
 Do not rename a device that is already approved just to follow this rule. The
-name is part of its approval, and an Admin has to prepare the change. The name
+name is part of its approval, and an Organization Admin has to prepare the change. The name
 is only a label and grants no access.
 
 ## What happens next
 
 After you sign in, the device is registered in the tailnet and **waits for
-approval by the Admin of the Organization**. Under Lazurio's rules, the Admin
-approves each device for their Organization, and approval for one
+approval by the Organization Admin**. Under Lazurio's rules, the Organization
+Admin approves each device for their Organization, and approval for one
 Organization does not open another. How the approval is carried out today is
-described in [For the Organization's Admin](#for-the-organizations-admin).
+described in [For the Organization Admin](#for-the-organization-admin).
 This guide does not promise that a device which is not approved yet is
-blocked: the Organization's network rules decide that, and the Admin and
-the network administrator manage them.
+blocked: the Organization's network rules decide that, and the Organization
+Admin and the network operator manage them.
 
 **You are waiting when** the Organization's tailnet is in Tailscale's account
 list and the app may show that it is connected, but the addresses of the
 Organization's Environments do not open.
 
-**You are approved when** the Admin tells you so and the addresses of the
+**You are approved when** the Organization Admin tells you so and the addresses of the
 Environments you have access to open. Check with Tailscale on and the
 Organization's tailnet chosen (see [Reach an Environment through
 Tailscale](/en/guide/tailscale/)).
@@ -293,18 +293,18 @@ Tailscale](/en/guide/tailscale/)).
 
 - **Sign-in ended with an error.** Your Lazurio account may not be allowed
   into this Organization's tailnet yet, or you entered a different server
-  address. Check the address and write to your Admin.
+  address. Check the address and write to your Organization Admin.
 - **The tailnet is missing from the account list.** The sign-in did not
   finish. Go through the steps again from entering the server.
-- **The device is still waiting.** Your Admin may not know about it. Write to
-  them as described in the next section.
+- **The device is still waiting.** Your Organization Admin may not know about
+  it. Write to them as described in the next section.
 - **The device appeared in the tailnet under another name or with a `-1`
   suffix.** That is normal. Do not delete anything or sign in again yourself;
-  write to your Admin.
+  write to your Organization Admin.
 
-### Ask your Admin for approval
+### Ask your Organization Admin for approval
 
-Write to the Admin of your Organization and include:
+Write to your Organization Admin and include:
 
 - your login;
 - the device name you want (`<login>-<device>`);
@@ -312,27 +312,27 @@ Write to the Admin of your Organization and include:
 - the login server address you entered;
 - when you signed in.
 
-The Admin approves a device only when they know you are the one asking. Write
+The Organization Admin approves a device only when they know you are the one asking. Write
 to them through a channel they recognise you by.
 
-## For the Organization's Admin
+## For the Organization Admin
 
-The Admin of the Organization approves each device. An approval is a
+The Organization Admin approves each device. An approval is a
 relationship between a specific device, its owner's account and your
 Organization. On a tailnet that serves more than one Organization, each
 Organization approves separately.
 
-**How it works today (as of 5 November 2026).** The Admin approves the exact
-device and the Environments it may reach through the managed procedure of
-the network administrator, the operator of the server that runs the tailnet.
+**How it works today (as of 5 November 2026).** The Organization Admin
+approves the exact device and the Environments it may reach through the
+managed procedure of the network operator, who runs the server of the tailnet.
 That change is reviewed and deployed before the device can reach anything new.
 Several waiting devices can go in one batch, so approval can take longer than
 a few minutes. Dashboard does not list waiting devices yet: agree with the
-person directly which device is theirs, and ask your network administrator
-how to submit the approval.
+person directly which device is theirs, and ask your network operator how to
+submit the approval.
 
 **Target.** Lazurio's access model (decision 0192) describes a registered
-device that reaches nothing until the Admin approves it in Dashboard, with a
+device that reaches nothing until the Organization Admin approves it in Dashboard, with a
 service on the Conglomerate Host that applies the approval within tens of
 seconds. That is being built (`issue-2026-11-03-002`). This guide does not
 claim that it already runs for your Organization.

@@ -4,7 +4,7 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -52,7 +52,7 @@ K Prostředí tak vaše zařízení potřebuje tři věci:
 
 1. zapnutou aplikaci Tailscale;
 2. v ní vybraný správný tailnet;
-3. přístup tohoto zařízení do tailnetu, který zařídí Admin vaší Organizace.
+3. přístup tohoto zařízení do tailnetu, který zařídí Admin Organizace.
 
 Lazurio provozuje své tailnety na
 [Headscale](https://github.com/juanfont/headscale), open-source serveru, ke
@@ -114,13 +114,14 @@ v tomto pořadí:
    aktivní, ale žádné Prostředí Organizace se neotevře, zařízení možná ještě
    nemá přístup. Postupujte podle návodu
    [Přidání nového zařízení do tailnetu](/cs/guide/tailscale-add-device/)
-   a požádejte Admina své Organizace o schválení.
+   a požádejte Admina Organizace o schválení.
    Schválený model přístupu Lazuria počítá s tím, že každé zařízení pro každou
-   Organizaci schvaluje Admin (rozhodnutí 0192 ze 6. října 2026); jak se
+   Organizaci schvaluje Admin Organizace (rozhodnutí 0192 ze 6. října 2026); jak se
    zařízení do tailnetu dostane dnes, se ale může mezi tailnety ještě lišit.
 2. **Prostředí neodpovídá.** Když se jiná Prostředí ve stejném tailnetu
    otevřou, toto je možná zastavené nebo se restartuje. Počkejte pár minut
-   a zkuste to znovu. Když se nevrátí, dejte vědět Adminovi jeho Organizace.
+   a zkuste to znovu. Když se nevrátí, dejte vědět Adminovi Organizace, které
+   Prostředí patří.
    U svého Osobního Prostředí na serveru se obraťte na podporu svého týmu.
 3. **Prohlížeč používá vlastní zabezpečené DNS.** Prohlížeč může adresy
    vyhledávat u vlastního poskytovatele DNS místo vašeho zařízení. Ten jména

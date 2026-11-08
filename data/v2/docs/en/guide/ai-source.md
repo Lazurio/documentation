@@ -4,7 +4,7 @@ description: "The Organization's AI pool or your own ChatGPT account: where you 
 stableId: lazurio-doc-guide-ai-source
 locale: en
 summary: "The Organization's AI pool or your own ChatGPT account: where you see which one your Environment uses, who switches it and what a switch interrupts."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -45,13 +45,13 @@ In an Environment that is not on the pool, open **Settings → Getting started
 The step is done when it shows your account.
 
 On the pool, do not sign in with your own account. Switching sources is the
-Admin's job.
+Organization Admin's job.
 
 ## Who switches the source
 
-Only your Organization's Admin moves an Environment between the pool and an
-own account. If you want the other source, ask the Admin: see
-[How to ask the Admin](/en/guide/ask-the-admin/). Tell them which account you
+Only your Organization Admin moves an Environment between the pool and an
+own account. If you want the other source, ask them: see
+[How to ask the Organization Admin](/en/guide/ask-the-admin/). Tell them which account you
 would use, a seat in ChatGPT Business or a personal account, whether you use
 Claude Code, and a time that suits you.
 
@@ -66,7 +66,7 @@ Once the change is done:
 
 - Running chats in your Environment end. Start new threads afterwards.
 - Everyone else on the same pool loses their running chats briefly too,
-  because the pool restarts. The Admin therefore agrees a time with you and
+  because the pool restarts. The Organization Admin therefore agrees a time with you and
   warns the others.
 - Claude Code leaves the pool together with Codex. If you use it, sign in to
   Claude as well.
@@ -75,8 +75,8 @@ Once the change is done:
 
 ## What is still coming
 
-Decision 0229 is decided but not yet deployed. When it is, the Admin will set
+Decision 0229 is decided but not yet deployed. When it is, the Organization Admin will set
 the source per Environment in the Organization's Dashboard. You will ask for
 the other source right in Getting started, and you will see there when a
-change is under way. Until then the Admin makes the change by a reviewed
+change is under way. Until then the Organization Admin makes the change by a reviewed
 change to the Organization's server configuration.

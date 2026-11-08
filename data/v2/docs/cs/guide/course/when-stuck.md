@@ -4,7 +4,7 @@ description: "Kam se obrátit, když se něco zastaví, jak popsat problém a co
 stableId: lazurio-doc-guide-course-when-stuck
 locale: cs
 summary: "Kam se obrátit, když se něco zastaví, jak popsat problém a co nikdy neposílat."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -25,7 +25,7 @@ problém, aby vám někdo mohl pomoct.
 | Co se děje | Co udělat |
 | --- | --- |
 | Adresa Prostředí se neotevře | Postupujte podle návodu [Připojení k Prostředí přes Tailscale](/cs/guide/tailscale/). |
-| Krok v Začínáme se zastavil | Přečtěte si, co krok říká. Když je připojené AI, otevře **Vyřešit v Chatu** nové vlákno s připraveným zadáním; přečtěte si ho a odešlete. Když krok říká, že Organizaci připravuje Admin, obraťte se na svého Admina. |
+| Krok v Začínáme se zastavil | Přečtěte si, co krok říká. Když je připojené AI, otevře **Vyřešit v Chatu** nové vlákno s připraveným zadáním; přečtěte si ho a odešlete. Když krok říká, že Organizaci připravuje Admin, obraťte se na Admina Organizace. |
 | Aplikace modulu se neotevře | Proč, říká přehled modulu v Apps. Požádejte agenta v Chatu, ať se na to podívá. |
 | Agent jako by se zasekl | Nejdřív zkontrolujte, jestli nečeká na vaši odpověď na otázku. Pak se ho zeptejte, co už ověřil, na co čeká a co mu chybí. |
 | Lazurio hlásí vlastní závadu | Nastavení → **Obnova** ukazuje kontroly samotného Lazuria. Když některá selže, nabídne připravený prompt pro opravného agenta a připravené issue. |

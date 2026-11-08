@@ -4,7 +4,7 @@ description: "How people, devices, Environments, Organizations, modules and outs
 stableId: lazurio-doc-architecture
 locale: en
 summary: "How people, devices, Environments, Organizations, modules and outside services fit together, what goes to GitHub and where a module keeps its data."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -83,8 +83,9 @@ A module can have no app at all. An Organization's module is a private repositor
 - **The AI provider** runs the models. [Where your AI comes
   from](/en/guide/ai-source/) describes the two sources.
 - **Server services** run on one services Machine on each Organization server,
-  with one container per service. Only Organization Admins enter them; an Owner
-  who is not also an Organization Admin does not (decisions 0209 and 0228). Their
+  with one container per service. Only Organization Admins enter them; an
+  Organization Owner who is not also an Organization Admin does not (decisions
+  0209 and 0228). Their
   status is decided, not yet deployed.
 
 ## One source, synchronized copies
@@ -113,7 +114,8 @@ Which Teams reach a module is decided by the live grant on GitHub (decision
 is created, and creating a module grants Write to each Team named. Organization
 overview changes a grant through the GitHub app Lazurio Administration Access,
 with the acting person's own rights, so GitHub's audit names that person. A
-Steward's switch is a request that an Organization Admin approves.
+change that a Module Maintainer asks for is a request that an Organization
+Admin approves.
 
 Revoking access stops the operations on that repository but does not delete what
 an Environment already has. The checkout stays, an agent with access to that
@@ -158,7 +160,7 @@ Three things about the table:
   transition.
 - **Moving up.** A module starts as low as it can. A transition is a planned
   step: a new generation beside the old one, the data converted, then the
-  default app switched by the Organization's Steward or the user. A module keeps
+  default app switched by a Module Maintainer or the user. A module keeps
   at most two generations.
 - **`v4` today.** No template exists, `lazurio module create` has no stack for
   it, and how an app gets its connection without `.env` is an [open

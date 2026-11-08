@@ -4,7 +4,7 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -51,7 +51,7 @@ To reach an Environment, your device needs three things:
 
 1. the Tailscale app, turned on;
 2. the right tailnet chosen in it;
-3. access for this device to that tailnet, which an Admin of your Organization
+3. access for this device to that tailnet, which your Organization Admin
    arranges.
 
 Lazurio runs its tailnets on [Headscale](https://github.com/juanfont/headscale),
@@ -113,12 +113,13 @@ causes in order:
    there and active but no Environment of the Organization opens, the device
    may not have access yet. Follow
    [Add a new device to the tailnet](/en/guide/tailscale-add-device/) and ask
-   the Admin of your Organization to approve it. Lazurio's approved access model has an Admin approve each device
+   your Organization Admin to approve it. Lazurio's approved access model has an Organization Admin approve each device
    for each Organization (decision 0192 of 6 October 2026); how a device gets
    in today can still differ between tailnets.
 2. **The Environment does not answer.** If other Environments in the same
    tailnet open, this one may be stopped or restarting. Wait a few minutes and
-   try again. If it does not come back, tell the Admin of its Organization. For
+   try again. If it does not come back, tell the Organization Admin of the
+   Organization it belongs to. For
    your personal Remote Environment, contact your team's support.
 3. **Your browser uses its own secure DNS.** A browser can look up addresses
    with its own DNS provider instead of your device. That provider does not

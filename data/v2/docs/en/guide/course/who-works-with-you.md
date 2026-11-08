@@ -4,13 +4,14 @@ description: "You as the user, agents, colleagues and their roles, Henry and Bud
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: en
 summary: "You as the user, agents, colleagues and their roles, Henry and Buddy: who decides what."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-onboarding-decision-register
+  - lazurio-decision-0234-role-names
   - lazurio-platform-folder-manual
 audience:
   - decision-maker
@@ -34,16 +35,26 @@ Environment, its agents can use. Full access is a capability, not consent:
 Publication stays with you.
 
 **A colleague** (Kolega) is a user in an Organization. Their roles and Teams
-say what they may do. An Organization knows four roles: an **Admin** manages
-the Organization's access and its Environments, a **Steward** reviews changes
-and merges them where the branch is protected, a **Builder** develops Modules
-and a **User** works with the Organization's applications. A role name
-authorizes nothing by itself; live rights on GitHub decide (decision 0062).
+say what they may do. Every role names its level (decision 0234):
+
+- **Organization:** the **Organization Owner** owns its GitHub Organization
+  and appoints the Organization Admins, the **Organization Admin** manages
+  the Organization's members, Teams, access and Environments, and everyone
+  else is an **Organization Member**.
+- **Module:** a **Module Reader** reads it and changes nothing, a **Module
+  Contributor** builds it and proposes changes, and a **Module Maintainer**
+  may also merge its protected `main` and release it.
+- **Application:** an **Application Admin** and an **Application User** may
+  do what the Organization's rule in the Module allows. These application
+  roles are decided and not yet deployed (decision 0231).
+
+A role name authorizes nothing by itself. For the Organization and Module
+roles, the live grant on GitHub decides today (decisions 0062 and 0232).
 
 **Henry** is the name of an Organization's Work Environment with
 automations. A team of bots works there under the Organization's persona,
-and one responsible user, an Owner or Admin of the Organization, answers
-for it (decision 0169). Where your Organization runs Henry, you meet it
+and one responsible user, an Organization Owner or an Organization Admin,
+answers for it (decision 0169). Where your Organization runs Henry, you meet it
 mostly on GitHub, for example in a review of a pull request.
 
 **Buddy** is your personal representative. Buddy runs in your Personal
@@ -53,8 +64,8 @@ access and destructive steps always need your consent to that exact step,
 and so do a merge, a publication or a release that no explicit mandate
 covers (decision 0089).
 
-A persona, such as Henry or the name you give your Buddy, is only a name and
-a character. It is not a user and holds no authority of its own. The
+A persona is an Organization's agent account, such as Henry's. Like the name
+you give your Buddy, it is not a user and holds no authority of its own. The
 decision numbers refer to the public
 [Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md).
 

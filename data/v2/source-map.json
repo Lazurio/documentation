@@ -1623,6 +1623,16 @@
       "reviewDueAt": "2026-12-05"
     },
     {
+      "id": "lazurio-decision-0234-role-names",
+      "title": "Decision 0234 in the register on 2026-11-08: the names of access roles in Czech and English, their identifiers and the deployed values they map to (amends the names in 0228, 0231 and 0232)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-08",
+      "reviewDueAt": "2026-12-08"
+    },
+    {
       "id": "lazurio-documentation-readme",
       "title": "Lazurio documentation README: app generation app/v2 and data generation data/v2 in one repository",
       "publisher": "Lazurio",

@@ -4,7 +4,7 @@ description: "When you can control your Environment's chats from the ChatGPT app
 stableId: lazurio-doc-guide-phone-and-computer
 locale: en
 summary: "When you can control your Environment's chats from the ChatGPT app on your phone or from ChatGPT Desktop on your computer, and what to use when Connections does not offer it."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -58,7 +58,7 @@ If the page shows a message instead:
 | The page says | What it means |
 | --- | --- |
 | **First sign in with your ChatGPT account.** | Sign in at Settings → Getting started → Connect AI first. |
-| **Coming soon for Environments on the Organization's AI.** | Your Environment uses the Organization's AI pool. Pairing needs your own account. Ask the Admin to move you to your own account, or whether your Organization has another way for your phone: see [How to ask the Admin](/en/guide/ask-the-admin/). |
+| **Coming soon for Environments on the Organization's AI.** | Your Environment uses the Organization's AI pool. Pairing needs your own account. Ask your Organization Admin to move you to your own account, or whether your Organization has another way for your phone: see [How to ask the Organization Admin](/en/guide/ask-the-admin/). |
 | **A Team Environment has no phone pairing.** | Shared Team Environments are not paired with a person's phone. |
 | **Pairing is not available right now.** | Pairing is not available in this Environment now, for example in an Organization with public addresses. Use the web interface in your phone's browser, or try again later. |
 

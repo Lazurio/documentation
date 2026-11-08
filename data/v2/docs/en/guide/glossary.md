@@ -4,7 +4,7 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-onboarding-decision-register
+  - lazurio-decision-0234-role-names
   - lazurio-platform-folder-manual
   - lazurio-platform-launchpad-texts
   - lazurio-platform-module-standard-v0-1-20
@@ -152,18 +153,65 @@ with the latest changes.
 
 <div class="lz-glossary">
 
-**User** An Organization user. They use available applications but do not
-normally change their source code or Organization settings.
+**User** The person agents work for, who has the final say. The bare word
+user names no role. When someone is to be made an "admin" or a "user", say
+whether the Organization or which application is meant.
 
-**Builder** An Organization member who creates and changes applications.
-Their exact capabilities are determined by actual GitHub permissions.
+**Role** A named access of a person at one level: in the Organization, in a
+module, in an application or in an Environment. It is written with a capital
+initial and always names its level, such as Organization Admin or
+Application User. A role name authorizes nothing by itself; actual access
+decides.
 
-**Steward** Reviews changes, helps complete them and may publish them
-within their permissions. This role looks after quality in an Organization.
+**Organization Owner** Owns the GitHub Organization in which the
+Organization lives (GitHub's owner role). Appoints and removes Organization
+Admins. Gets no access to Environments by that alone.
 
-**Admin** An Organization administrator with extended permissions. They
-manage access and important settings, but this does not grant access to
-another person's Personalspace.
+**Organization Admin** Manages the Organization's members, Teams, access and
+Environments; this does not grant access to another person's Personalspace.
+It is a role of Lazurio that an Organization Owner appoints (not yet
+deployed); until it is deployed, an active Organization Owner is the
+Organization Admin.
+
+**Organization Member** Every other person in the Organization. What they may
+do follows from their roles in modules and applications. As the target,
+membership in Lazurio decides, which needs no GitHub account; for now, live
+membership of the GitHub Organization decides.
+
+**Module Reader** Reads a module's source code and changes nothing. GitHub's
+`pull` permission. This role by itself gives no role in the module's
+application.
+
+**Module Contributor** Builds the module and proposes changes. GitHub's
+`push` permission on a repository that can have branch rules.
+
+**Module Maintainer** May also merge the module's protected `main` and
+release it. GitHub's `maintain` permission, or `push` where the repository
+cannot have branch rules.
+
+**Module access** The setting that holds a person's or a Team's role in a
+module. It is not a role itself. Whoever has no role in a module has no
+access to it.
+
+**Application Admin** A role in a module's application, decided and not yet
+deployed (decision 0231). What it may do is the Organization's rule in the
+module's code. Without any setting, the
+Application Admins are the Module Contributors, the Module Maintainers, the
+Organization Admin and whoever has the whole Environment where the
+application runs.
+
+**Application User** The other role in a module's application, also not yet
+deployed. What it may do is also the Organization's rule in the module's code.
+
+**Assigned User** The person a Work Environment is assigned to.
+
+**Service entry** Entry to an Environment for someone other than its
+Assigned User. It is not a role. As decided and not yet deployed (decision
+0228), the Organization Admin will have service entry to every Environment of
+their Organization; anyone else only when it is granted for one Environment.
+
+**Persona** An Organization's agent account, such as Henry's. It never names
+a person's role.
 
 **Principal** A term for the responsible identity in older Lazurio sources.
 Current copy uses “user” for the person who assigns work and has the final say.
@@ -235,6 +283,8 @@ repository permissions. A role name alone grants no access.
 
 These names follow the public [Lazurio decisions](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md),
 especially 0170 and 0207 with their addenda, 0169 for Henry and 0089 for
-Buddy. A particular installation may still show older labels; technical
+Buddy. [Decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
+sets the names of roles; the earlier names Builder, Steward and User no
+longer name roles. A particular installation may still show older labels; technical
 names and commands stay unchanged. The [onboarding course](/en/guide/course/)
 uses these terms step by step.

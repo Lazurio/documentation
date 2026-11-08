@@ -4,7 +4,7 @@ description: "What a module is, where you find it, how it comes to be, who gets 
 stableId: lazurio-doc-guide-modules
 locale: en
 summary: "What a module is, where you find it, how it comes to be, who gets it and where its data lies."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -26,6 +26,7 @@ sourceRefs:
   - lazurio-platform-stack-profiles
   - lazurio-platform-register-modules
   - lazurio-platform-folder-manual
+  - lazurio-decision-0234-role-names
 audience:
   - decision-maker
   - builder
@@ -121,7 +122,9 @@ Publication](/en/guide/course/review/) explains that last step.
 ## Who gets a module and when it appears
 
 An Organization shares its modules by Team. The Organization Admin decides which
-Teams reach a module, in Organization overview or directly on GitHub. A module
+Teams reach a module, in Organization overview or directly on GitHub. A Team's
+access to a module has a level, one of the Module roles: Module Reader, Module
+Contributor or Module Maintainer (decisions 0232 and 0234). A module
 is delivered to an Environment: what is not in the Environment does not show in
 Apps, and an agent there cannot read it. The agent can still see its name in the
 Organization's manifest.

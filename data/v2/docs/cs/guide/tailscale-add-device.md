@@ -1,10 +1,10 @@
 ---
 title: "Přidání nového zařízení do tailnetu"
-description: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace, přihlaste se účtem Lazurio a počkejte na schválení Adminem."
+description: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace, přihlaste se účtem Lazurio a počkejte na schválení Adminem Organizace."
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: cs
-summary: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace, přihlaste se účtem Lazurio a počkejte na schválení Adminem."
-updatedAt: "2026-11-05"
+summary: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace, přihlaste se účtem Lazurio a počkejte na schválení Adminem Organizace."
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -53,12 +53,12 @@ provozuje tailnety na [Headscale](https://github.com/juanfont/headscale),
 vlastním serveru, ke kterému se aplikace Tailscale přihlašuje místo serveru
 společnosti Tailscale. Adresa má obvykle tvar
 `https://headscale.<organizace>.lazurio.io`. Přesnou adresu dostanete od
-Admina své Organizace. Adresu nehádejte:
+Admina Organizace. Adresu nehádejte:
 s jinou se přihlásíte do cizí sítě, nebo vůbec.
 
 Rozmyslete si také, jak se má zařízení jmenovat: `<login>-<zařízení>`,
 například `jannovak-iphone` nebo `jannovak-macbook`. Jméno v aplikaci
-nenastavujete, jen ho napíšete Adminovi (viz [Jméno
+nenastavujete, jen ho napíšete Adminovi Organizace (viz [Jméno
 zařízení](#jméno-zařízení)).
 
 ## Přidejte zařízení
@@ -235,10 +235,10 @@ vás a zařízení agent schválit nemůže.
 Připoj tento počítač s Windows do tailnetu mé Organizace v Tailscale. Přihlašovací server Organizace je <přihlašovací server>.
 
 1. Ověř, že je Tailscale nainstalovaný: existuje C:\Program Files\Tailscale\tailscale.exe. Když neexistuje, zastav se a řekni mi, ať ho nainstaluji z https://tailscale.com/download/windows. Sám ho neinstaluj.
-2. V PowerShellu spusť přesně tento řádek, bez práv správce, a tak, abys mohl číst jeho výstup, zatímco dál čeká (třeba v samostatném okně nebo na pozadí):
+2. V PowerShellu spusť přesně tento řádek, bez administrátorských práv, a tak, abys mohl číst jeho výstup, zatímco dál čeká (třeba v samostatném okně nebo na pozadí):
    & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<přihlašovací server>
 3. Výstup napíše „To authenticate, visit:“ a adresu. Dej mi tu adresu jako klikací odkaz a jednou dvěma větami mi řekni: otevřete ji, přihlaste se svým účtem Lazurio a pak se vraťte do tohoto chatu. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj a nikdy po mně nechtěj heslo ani kód.
-4. Až výstup napíše „Success.“, řekni mi srozumitelně, že tento počítač je v tailnetu toho přihlašovacího serveru a čeká na schválení Adminem. Zjisti jméno tohoto počítače v tailnetu (tailscale status --json, Self.HostName) a řekni mi, ať ho pošlu Adminovi spolu se svým loginem.
+4. Až výstup napíše „Success.“, řekni mi srozumitelně, že tento počítač je v tailnetu toho přihlašovacího serveru a čeká na schválení Adminem Organizace. Zjisti jméno tohoto počítače v tailnetu (tailscale status --json, Self.HostName) a řekni mi, ať ho pošlu Adminovi Organizace spolu se svým loginem.
 
 Pravidla: nepoužívej auth key, neměň registr Windows ani zásady Tailscale, ostatní účty Tailscale na tomto počítači nech, jak jsou, Tailscale nevypínej a zařízení se nepokoušej schválit. Když něco selže, řekni mi, co okno napsalo, a zastav se.
 ```
@@ -249,14 +249,14 @@ Tailscale pojmenuje zařízení podle systému: počítač podle jeho názvu,
 telefon obvykle jen podle výrobce nebo modelu. Aplikace Tailscale pro Android
 nastavení jména nemá (ověřeno ve verzi 1.104.5) a dokumentace Tailscale
 klikací nastavení jména neuvádí ani pro ostatní systémy. Na zařízení proto nic
-nepřejmenovávejte a jméno, které chcete, napište Adminovi.
+nepřejmenovávejte a jméno, které chcete, napište Adminovi Organizace.
 Podle něj pozná, které zařízení je vaše.
 
 Jméno má tvar `<login>-<zařízení>`:
 
 - `<login>` je váš login malými písmeny. Máte-li k účtu Lazurio propojený
   GitHub, je to váš GitHub login. Nemáte-li ho, použijte označení, které vám
-  sdělí Admin.
+  sdělí Admin Organizace.
 - `<zařízení>` je krátké stálé označení, třeba `iphone`, `ipad`, `pixel`,
   `android`, `macbook` nebo `windows`. Zvolte ho jednou a používejte stejné
   ve všech tailnetech. Máte-li dvě zařízení stejného druhu, rozlište je
@@ -264,24 +264,25 @@ Jméno má tvar `<login>-<zařízení>`:
 - Jen malá písmena, číslice a spojovníky, bez názvu Organizace.
 
 Zařízení, které už je schválené, kvůli tomuto pravidlu nepřejmenovávejte.
-Jméno je součástí jeho schválení a jeho změnu musí připravit Admin. Jméno je
+Jméno je součástí jeho schválení a jeho změnu musí připravit Admin
+Organizace. Jméno je
 jen popis, přístup nedává.
 
 ## Co se stane potom
 
 Po přihlášení je zařízení v tailnetu zaregistrované a **čeká na schválení
 Adminem Organizace**. Podle pravidel Lazuria schvaluje každé zařízení pro svou
-Organizaci její Admin a schválení pro jednu Organizaci neotevře jinou. Jak se
+Organizaci Admin Organizace a schválení pro jednu Organizaci neotevře jinou. Jak se
 schvaluje dnes, popisuje část [Pro Admina Organizace](#pro-admina-organizace).
 Návod neslibuje, že zařízení, které ještě schválené není, je zablokované:
-o tom rozhodují pravidla sítě Organizace, která spravuje Admin se správcem
-sítě.
+o tom rozhodují pravidla sítě Organizace, která spravuje Admin Organizace
+s provozovatelem sítě.
 
 **Poznáte, že čekáte:** tailnet Organizace je v Tailscale v seznamu účtů
 a aplikace může ukazovat připojení, ale adresy Prostředí Organizace se
 neotevřou.
 
-**Poznáte, že jste schválení:** Admin vám dá vědět a adresy Prostředí, ke
+**Poznáte, že jste schválení:** Admin Organizace vám dá vědět a adresy Prostředí, ke
 kterým máte přístup, se otevřou. Ověřte to se zapnutým Tailscale a vybraným
 tailnetem Organizace (návod [Připojení k Prostředí přes
 Tailscale](/cs/guide/tailscale/)).
@@ -290,17 +291,18 @@ Tailscale](/cs/guide/tailscale/)).
 
 - **Přihlášení skončilo chybou.** Váš účet Lazurio zatím do tailnetu této
   Organizace nesmí, nebo jste zadali jinou adresu serveru. Zkontrolujte
-  adresu a napište Adminovi.
+  adresu a napište Adminovi Organizace.
 - **Tailnet v seznamu účtů chybí.** Přihlášení se nedokončilo. Projděte
   postup znovu od zadání serveru.
-- **Zařízení pořád čeká.** Admin o něm možná neví. Napište mu podle další
-  části.
+- **Zařízení pořád čeká.** Admin Organizace o něm možná neví. Napište mu
+  podle další části.
 - **Zařízení se v tailnetu objevilo pod jiným jménem nebo s příponou `-1`.**
-  To je běžné. Nic sami nemažte ani nepřihlašujte znovu a napište Adminovi.
+  To je běžné. Nic sami nemažte ani nepřihlašujte znovu a napište Adminovi
+  Organizace.
 
-### Požádejte Admina o schválení
+### Požádejte Admina Organizace o schválení
 
-Napište Adminovi své Organizace a uveďte:
+Napište Adminovi Organizace a uveďte:
 
 - svůj login;
 - jméno zařízení, které chcete (`<login>-<zařízení>`);
@@ -308,7 +310,7 @@ Napište Adminovi své Organizace a uveďte:
 - adresu přihlašovacího serveru, kterou jste zadali;
 - kdy jste se přihlásili.
 
-Admin zařízení schválí jen tehdy, když ví, že o ně žádáte vy. Proto mu pište
+Admin Organizace zařízení schválí jen tehdy, když ví, že o ně žádáte vy. Proto mu pište
 kanálem, podle kterého vás pozná.
 
 ## Pro Admina Organizace
@@ -317,17 +319,17 @@ Každé zařízení schvaluje Admin Organizace. Schválení je vztah konkrétní
 zařízení, účtu jeho vlastníka a vaší Organizace. Na tailnetu, který obsluhuje
 víc Organizací, schvaluje každá Organizace zvlášť.
 
-**Jak to funguje dnes (stav k 5. listopadu 2026).** Admin schvaluje konkrétní
-zařízení a Prostředí, kam smí, v řízeném postupu správce sítě, tedy
-provozovatele serveru, na kterém tailnet běží. Tato změna projde kontrolou
+**Jak to funguje dnes (stav k 5. listopadu 2026).** Admin Organizace
+schvaluje konkrétní zařízení a Prostředí, kam smí, v řízeném postupu
+provozovatele sítě, který provozuje server, na kterém tailnet běží. Tato změna projde kontrolou
 a nasazením a teprve potom zařízení dosáhne na nová místa. Několik čekajících
 zařízení může jít v jedné dávce, proto může schválení trvat déle než pár
 minut. Dashboard čekající zařízení zatím neukazuje: s člověkem se přímo
 domluvte, které zařízení je jeho, a postup podání schválení si vyžádejte od
-správce sítě.
+provozovatele sítě.
 
 **Cíl.** Model přístupu Lazuria (rozhodnutí 0192) popisuje zaregistrované
-zařízení, které nikam nedosáhne, dokud ho Admin neschválí v Dashboardu,
+zařízení, které nikam nedosáhne, dokud ho Admin Organizace neschválí v Dashboardu,
 a službu na Conglomerate Hostu, která schválení provede během desítek sekund.
 To se teprve staví (`issue-2026-11-03-002`). Návod netvrdí, že to už pro vaši
 Organizaci běží.

@@ -4,7 +4,7 @@ description: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace,
 stableId: lazurio-doc-architecture
 locale: cs
 summary: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace, moduly a služby okolo, co jde na GitHub a kde má modul data."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -83,8 +83,9 @@ Modul nemusí mít aplikaci vůbec. Modul Organizace je soukromý repozitář
 - **Poskytovatel AI** provozuje modely. Oba zdroje popisuje stránka
   [Zdroj AI](/cs/guide/ai-source/).
 - **Služby serveru** má každý server Organizace jen jedny a každá služba má svůj
-  kontejner. Vstupují do nich jen Admini Organizace; Owner, který není zároveň
-  Adminem Organizace, ne (rozhodnutí 0209 a 0228). Stav: rozhodnuto, zatím
+  kontejner. Vstupují do nich jen Admini Organizace; Vlastník Organizace,
+  který není zároveň Adminem Organizace, ne (rozhodnutí 0209 a 0228). Stav:
+  rozhodnuto, zatím
   nenasazeno.
 
 ## Jeden zdroj, synchronizované kopie
@@ -111,8 +112,8 @@ Které Teamy k modulu dosáhnou, určuje živý grant na GitHubu (rozhodnutí 01
 `teams` v manifestu Organizace je jen výchozí nastavení při založení modulu
 a založení dá každému uvedenému Teamu právo Write. Přehled Organizace mění grant
 přes GitHub aplikaci Lazurio Administration Access s vlastními právy člověka,
-který změnu dělá, takže ho audit GitHubu jmenuje. Přepnutí Stewardem je žádost,
-kterou schvaluje Admin Organizace.
+který změnu dělá, takže ho audit GitHubu jmenuje. Změna, o kterou požádá
+Správce modulu, je žádost, kterou schvaluje Admin Organizace.
 
 Odebrání přístupu zastaví operace s repozitářem, ale nesmaže, co už Prostředí má.
 Kopie zůstane, agent s přístupem do tohoto Prostředí ji přečte a přestane se
@@ -155,7 +156,7 @@ K tabulce tři poznámky:
   ponechá a posune se při nejbližším plánovaném přechodu.
 - **Posun výš.** Modul začíná co nejníž. Přechod je plánovaný krok: nová generace
   vedle staré, převod dat a nakonec přepnutí výchozí aplikace, o kterém rozhoduje
-  Steward Organizace nebo uživatel. Modul drží nejvýš dvě generace.
+  Správce modulu nebo uživatel. Modul drží nejvýš dvě generace.
 - **`v4` dnes.** Šablona neexistuje, `lazurio module create` pro ni nemá stack
   a jak aplikace dostane připojení bez `.env`, je [otevřená
   otázka](https://github.com/Lazurio/LazurioPlatform/issues/818). Rozhodnutý

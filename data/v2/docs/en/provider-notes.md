@@ -4,7 +4,7 @@ description: "Provider behaviour Lazurio met while connecting apps that holds fo
 stableId: lazurio-doc-provider-notes
 locale: en
 summary: "Dated notes on Google Workspace, Slack, Atlassian, Canva, LinkedIn, GitHub and Composio, each checked against the provider's own documentation."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -38,7 +38,7 @@ applications and that holds for any Organization. Each note says when Lazurio
 recorded it and links the provider's page where it was checked again on
 1 November 2026. Providers change their products, so check the linked page
 before you rely on a note. Microsoft 365 has its own page,
-[Microsoft 365 for IT and the Admin](/en/microsoft-365/), and the general rules
+[Microsoft 365 for IT and the Organization Admin](/en/microsoft-365/), and the general rules
 for choosing a connection are in
 [connecting an Environment to apps](/en/environment-app-connections/).
 
