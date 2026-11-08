@@ -4,8 +4,8 @@ description: "Why a registered device may still not reach your Environments, who
 stableId: lazurio-doc-guide-device-approval
 locale: en
 summary: "Why a registered device may still not reach your Environments, who decides about access and what to do when you lose a device."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

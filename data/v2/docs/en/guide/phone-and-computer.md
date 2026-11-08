@@ -4,8 +4,8 @@ description: "When you can control your Environment's chats from the ChatGPT app
 stableId: lazurio-doc-guide-phone-and-computer
 locale: en
 summary: "When you can control your Environment's chats from the ChatGPT app on your phone or from ChatGPT Desktop on your computer, and what to use when Connections does not offer it."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

@@ -4,8 +4,8 @@ description: "Chat, Apps and Automate, your Organization's Modules, Files and ho
 stableId: lazurio-doc-guide-course-find-your-way
 locale: en
 summary: "Chat, Apps and Automate, your Organization's Modules, Files and how to get a page explained."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

@@ -193,21 +193,22 @@ cannot have branch rules.
 module. It is not a role itself. Whoever has no role in a module has no
 access to it.
 
-**Application Admin** A role in a module's application. What it may do is
-the Organization's rule in the module's code. Without any setting, the
+**Application Admin** A role in a module's application, decided and not yet
+deployed (decision 0231). What it may do is the Organization's rule in the
+module's code. Without any setting, the
 Application Admins are the Module Contributors, the Module Maintainers, the
 Organization Admin and whoever has the whole Environment where the
 application runs.
 
-**Application User** The other role in a module's application. What it may
-do is also the Organization's rule in the module's code.
+**Application User** The other role in a module's application, also not yet
+deployed. What it may do is also the Organization's rule in the module's code.
 
 **Assigned User** The person a Work Environment is assigned to.
 
 **Service entry** Entry to an Environment for someone other than its
-Assigned User. It is not a role. The Organization Admin has service entry to
-every Environment of their Organization; anyone else has it only when it is
-granted for one Environment.
+Assigned User. It is not a role. As decided and not yet deployed (decision
+0228), the Organization Admin will have service entry to every Environment of
+their Organization; anyone else only when it is granted for one Environment.
 
 **Persona** An Organization's agent account, such as Henry's. It never names
 a person's role.

@@ -43,10 +43,11 @@ Každá role říká, na jaké úrovni platí (rozhodnutí 0234):
   ho staví a navrhuje změny a **Správce modulu** navíc smí mergovat jeho
   chráněnou `main` a vydat ho.
 - **Aplikace:** **Admin aplikace** a **Uživatel aplikace** smějí to, co
-  dovolí pravidlo Organizace v modulu.
+  dovolí pravidlo Organizace v modulu. Tyto role v aplikaci jsou rozhodnuté,
+  ale zatím nenasazené (rozhodnutí 0231).
 
-Název role sám nic neopravňuje; rozhoduje živý grant, dnes na GitHubu
-(rozhodnutí 0062 a 0231).
+Název role sám nic neopravňuje. U rolí v Organizaci a v modulu dnes rozhoduje
+živý grant na GitHubu (rozhodnutí 0062 a 0232).
 
 **Henry** je jméno Pracovního Prostředí Organizace s automatizacemi.
 Pracuje v něm tým botů pod personou Organizace a odpovídá za něj jeden

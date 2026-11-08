@@ -124,7 +124,7 @@ names, identifier and the deployed value it maps to are fixed by decision 0234.
 | Module Reader | Reads a Module's source and changes nothing. Gives no application role by itself. | `pull` |
 | Module Contributor | Builds the Module and proposes changes, and may merge a young `main` that is still deliberately open. | `push` where the repository can have branch rules |
 | Module Maintainer | May also merge the Module's protected `main` and typically releases it. | `maintain`, or `push` where the repository cannot have branch rules (decision 0232) |
-| Application Admin, Application User | The two roles in a Module's application. What they may do is the Organization's rule in the Module's code (decision 0231). | None; Lazurio's module kit reports `appRole: "admin"` or `"user"` |
+| Application Admin, Application User | The two roles in a Module's application. What they may do is the Organization's rule in the Module's code (decision 0231, not yet deployed). | None; Lazurio's module kit will report `appRole: "admin"` or `"user"` |
 
 The Team slugs `builders` and `steward` and the install option values
 `--role builder`, `--role steward` and `--role reader` are identifiers and

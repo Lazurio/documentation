@@ -124,7 +124,7 @@ identifikátor i nasazenou hodnotu, na kterou se mapuje, určuje rozhodnutí 023
 | Čtenář modulu | Čte zdrojový kód modulu a nic nemění. Sama tato role nedává žádnou roli v aplikaci. | `pull` |
 | Přispěvatel modulu | Staví modul a navrhuje změny a smí mergovat mladou `main`, která je zatím vědomě otevřená. | `push` tam, kde repozitář smí mít pravidla větví |
 | Správce modulu | Navíc smí mergovat chráněnou `main` modulu a typicky ho vydává. | `maintain`, nebo `push` tam, kde repozitář pravidla větví mít nemůže (rozhodnutí 0232) |
-| Admin aplikace, Uživatel aplikace | Dvě role v aplikaci modulu. Co smějí, určuje pravidlo Organizace v kódu modulu (rozhodnutí 0231). | Žádná; modulový kit Lazuria hlásí `appRole: "admin"` nebo `"user"` |
+| Admin aplikace, Uživatel aplikace | Dvě role v aplikaci modulu. Co smějí, určuje pravidlo Organizace v kódu modulu (rozhodnutí 0231, zatím nenasazené). | Žádná; modulový kit Lazuria bude hlásit `appRole: "admin"` nebo `"user"` |
 
 Slugy Teamů `builders` a `steward` a hodnoty volby instalace `--role builder`,
 `--role steward` a `--role reader` jsou identifikátory a jména si nechávají;

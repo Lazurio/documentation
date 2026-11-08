@@ -4,8 +4,8 @@ description: "Lazurio and Microsoft source links and how their review dates are 
 stableId: lazurio-doc-reference
 locale: en
 summary: "Lazurio and Microsoft source links and how their review dates are tracked."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-10-04"
+reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

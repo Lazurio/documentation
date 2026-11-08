@@ -29,9 +29,9 @@ Některé věci ve vaší Organizaci dělá jen Admin Organizace. Požádejte ho
   ([Odkud bere vaše Prostředí AI](/cs/guide/ai-source/)).
 - Schvaluje a odebírá zařízení ([Schválení zařízení](/cs/guide/device-approval/)).
 - Zařizuje nové Prostředí nebo víc paměti či disku.
-- Dává vám roli v modulu jiného Teamu nebo roli v jeho aplikaci (role
-  v aplikaci mohou dávat i Přispěvatelé modulu a Správci modulu tohoto
-  modulu).
+- Dává vám roli v modulu jiného Teamu nebo přístup k jeho aplikaci. Podle
+  rozhodnutí 0231, které zatím není nasazené, budou role v aplikaci dávat
+  i Přispěvatelé modulu a Správci modulu tohoto modulu.
 - Připojuje Integraci pro celou Organizaci, třeba sdílenou schránku.
 - Mění server.
 

@@ -4,8 +4,8 @@ description: "Provider behaviour Lazurio met while connecting apps that holds fo
 stableId: lazurio-doc-provider-notes
 locale: en
 summary: "Dated notes on Google Workspace, Slack, Atlassian, Canva, LinkedIn, GitHub and Composio, each checked against the provider's own documentation."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-01"
+reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

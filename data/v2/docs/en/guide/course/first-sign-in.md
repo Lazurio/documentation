@@ -4,8 +4,8 @@ description: "What an Environment is, which kind you work in and how you get in.
 stableId: lazurio-doc-guide-course-first-sign-in
 locale: en
 summary: "What an Environment is, which kind you work in and how you get in."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-01"
+reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

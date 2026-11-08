@@ -4,8 +4,8 @@ description: "Connect AI and GitHub and download your Organization, in this orde
 stableId: lazurio-doc-guide-course-getting-started
 locale: en
 summary: "Connect AI and GitHub and download your Organization, in this order."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-01"
+reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

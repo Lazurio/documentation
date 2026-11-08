@@ -4,8 +4,8 @@ description: "The Organization's AI pool or your own ChatGPT account: where you 
 stableId: lazurio-doc-guide-ai-source
 locale: en
 summary: "The Organization's AI pool or your own ChatGPT account: where you see which one your Environment uses, who switches it and what a switch interrupts."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

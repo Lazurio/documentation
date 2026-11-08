@@ -4,8 +4,8 @@ description: "Co Lazurio potřebuje od tenantu Microsoft 365, o čem rozhoduje I
 stableId: lazurio-doc-microsoft-365
 locale: cs
 summary: "Jedna aplikace Entra pro jediný tenant s delegovanými oprávněními Graphu a bez tajného klíče: co schvaluje IT, postup Admina Organizace, podmíněný přístup, audit a odvolání."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-01"
+reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

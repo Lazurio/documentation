@@ -4,8 +4,8 @@ description: "Install Tailscale, enter your Organization's login server, sign in
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: en
 summary: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Organization Admin to approve the device."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

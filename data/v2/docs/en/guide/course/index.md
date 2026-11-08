@@ -4,8 +4,8 @@ description: "Nine short lessons from your first sign-in to your first task that
 stableId: lazurio-doc-guide-course
 locale: en
 summary: "Nine short lessons from your first sign-in to your first task that an agent saves and you review."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-01"
+reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

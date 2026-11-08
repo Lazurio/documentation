@@ -29,9 +29,9 @@ with a request they can act on without asking back.
   account ([Where your AI comes from](/en/guide/ai-source/)).
 - Approves or removes a device ([Device approval](/en/guide/device-approval/)).
 - Arranges a new Environment or more memory or disk.
-- Gives you a Module role in another Team's module, or a role in its
-  application (that module's Module Contributors and Module Maintainers can
-  also give application roles).
+- Gives you a Module role in another Team's module, or access to its
+  application. Under decision 0231, not yet deployed, that module's Module
+  Contributors and Module Maintainers will also give application roles.
 - Connects an Integration for the whole Organization, such as a shared mailbox.
 - Changes a server.
 

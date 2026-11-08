@@ -184,20 +184,21 @@ mít nemůže. Slovem Správce označuje Lazurio jen tuto roli.
 **Přístup k modulu** Nastavení, které drží roli člověka nebo Teamu v modulu.
 Samo roli neoznačuje. Kdo žádnou roli v modulu nemá, k modulu přístup nemá.
 
-**Admin aplikace** Role v aplikaci modulu. Co smí, určuje pravidlo Organizace
-v kódu modulu. Bez dalšího nastavení je Adminem aplikace každý Přispěvatel
+**Admin aplikace** Role v aplikaci modulu, rozhodnutá a zatím nenasazená
+(rozhodnutí 0231). Co smí, určuje pravidlo Organizace v kódu modulu. Bez dalšího nastavení je Adminem aplikace každý Přispěvatel
 modulu a Správce modulu, Admin Organizace a ten, kdo má celé Prostředí, kde
 aplikace běží.
 
-**Uživatel aplikace** Druhá role v aplikaci modulu. Co smí, určuje také
-pravidlo Organizace v kódu modulu.
+**Uživatel aplikace** Druhá role v aplikaci modulu, také zatím nenasazená. Co
+smí, určuje také pravidlo Organizace v kódu modulu.
 
 **Přidělený uživatel** Člověk, kterému je přidělené Pracovní Prostředí.
 
 **Servisní vstup** Vstup do Prostředí pro někoho jiného, než je jeho
-Přidělený uživatel. Není to role. Admin Organizace má servisní vstup do
-každého Prostředí své Organizace, kdokoli jiný jen tehdy, když mu ho někdo
-udělí pro jedno Prostředí.
+Přidělený uživatel. Není to role. Podle rozhodnutí 0228, které zatím není
+nasazené, bude mít Admin Organizace servisní vstup do každého Prostředí své
+Organizace, kdokoli jiný jen tehdy, když mu ho někdo udělí pro jedno
+Prostředí.
 
 **Persona** Účet agenta Organizace, třeba Henryho. Nikdy neoznačuje roli
 člověka.

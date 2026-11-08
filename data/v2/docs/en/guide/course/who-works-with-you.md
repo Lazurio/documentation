@@ -45,10 +45,11 @@ say what they may do. Every role names its level (decision 0234):
   Contributor** builds it and proposes changes, and a **Module Maintainer**
   may also merge its protected `main` and release it.
 - **Application:** an **Application Admin** and an **Application User** may
-  do what the Organization's rule in the Module allows.
+  do what the Organization's rule in the Module allows. These application
+  roles are decided and not yet deployed (decision 0231).
 
-A role name authorizes nothing by itself; the live grant decides, today on
-GitHub (decisions 0062 and 0231).
+A role name authorizes nothing by itself. For the Organization and Module
+roles, the live grant on GitHub decides today (decisions 0062 and 0232).
 
 **Henry** is the name of an Organization's Work Environment with
 automations. A team of bots works there under the Organization's persona,

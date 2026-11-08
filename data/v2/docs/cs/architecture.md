@@ -4,8 +4,8 @@ description: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace,
 stableId: lazurio-doc-architecture
 locale: cs
 summary: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace, moduly a služby okolo, co jde na GitHub a kde má modul data."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

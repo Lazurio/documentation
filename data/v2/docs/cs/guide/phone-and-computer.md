@@ -4,8 +4,8 @@ description: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT 
 stableId: lazurio-doc-guide-phone-and-computer
 locale: cs
 summary: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT v telefonu nebo z ChatGPT Desktopu v počítači, a co použít, když to Připojení nenabízí."
-updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+updatedAt: "2026-11-05"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
