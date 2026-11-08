@@ -4,8 +4,8 @@ description: "Jak vybrat propojení, schválit oprávnění a později přístup
 stableId: lazurio-doc-environment-app-connections
 locale: cs
 summary: "Jak vybrat propojení, schválit oprávnění a později přístup odvolat."
-updatedAt: "2026-11-06"
-reviewedAt: "2026-11-06"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -86,7 +86,7 @@ Firemní aplikace je volbou celé Organizace a pak se připojuje přímo. Dnes j
 Microsoft 365, který Lazurio podporuje od vydání v0.1.9. Jeho nastavení se
 přidává pull requestem s review do repozitáře Organizace, protože úprava
 v Přehledu Organizace je rozhodnutá, ale zatím nenasazená. Viz
-[Microsoft 365 pro IT a Admina](/cs/microsoft-365/). Google Workspace jako firemní
+[Microsoft 365 pro IT a Admina Organizace](/cs/microsoft-365/). Google Workspace jako firemní
 aplikace je rozhodnutý, ale zatím neimplementovaný, takže aplikace Googlu jdou
 cestami výše.
 
@@ -273,7 +273,7 @@ patří celému Prostředí. Může je používat každý člen Teamu i každý 
   Prostředí. Launchpad na to před přihlášením upozorní a agent se před připojením
   aplikace zeptá, který týmový účet připojit.
 
-## Doporučení pro správce Organizace
+## Doporučení pro Adminy Organizace
 
 Kromě nastavení Organizace Lazurio nevynucuje ani nesleduje, jak uživatel své
 Prostředí připojuje.

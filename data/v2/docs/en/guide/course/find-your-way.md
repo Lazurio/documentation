@@ -4,8 +4,8 @@ description: "Chat, Apps and Automate, your Organization's Modules, Files and ho
 stableId: lazurio-doc-guide-course-find-your-way
 locale: en
 summary: "Chat, Apps and Automate, your Organization's Modules, Files and how to get a page explained."
-updatedAt: "2026-11-05"
-reviewedAt: "2026-11-05"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -37,7 +37,7 @@ Under **Workspace**, Apps lists every Module of the Organization that your
 Environment's GitHub identity can reach, each once. Under **Productionspace**
 it shows the Organization's production repositories, read-only. Your
 Organization decides which Modules it has. If a colleague mentions a Module
-you do not see, you may not have access to it; ask your Admin.
+you do not see, you may not have access to it; ask your Organization Admin.
 [Modules](/en/guide/modules/) explains what a module holds, how it comes to be
 and who gets it.
 

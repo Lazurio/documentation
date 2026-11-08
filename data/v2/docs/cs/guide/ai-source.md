@@ -4,8 +4,8 @@ description: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidí
 stableId: lazurio-doc-guide-ai-source
 locale: cs
 summary: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidíte, který zdroj Prostředí používá, kdo ho přepíná a co přepnutí přeruší."
-updatedAt: "2026-11-05"
-reviewedAt: "2026-11-05"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -43,13 +43,14 @@ V Prostředí, které není na poolu, otevřete **Nastavení → Začínáme →
 AI** a zvolte **Přihlásit ChatGPT** nebo **Přihlásit Claude**. Krok je hotový,
 když ukazuje váš účet.
 
-Na poolu se vlastním účtem nepřihlašujte. Přepnutí zdroje je práce Admina.
+Na poolu se vlastním účtem nepřihlašujte. Přepnutí zdroje je práce Admina
+Organizace.
 
 ## Kdo zdroj přepíná
 
-Mezi poolem a vlastním účtem Prostředí přesouvá jen Admin vaší Organizace.
+Mezi poolem a vlastním účtem Prostředí přesouvá jen Admin Organizace.
 Když chcete druhý zdroj, požádejte ho; postup je v části [Jak požádat
-Admina](/cs/guide/ask-the-admin/). Napište mu, jaký účet byste používali
+Admina Organizace](/cs/guide/ask-the-admin/). Napište mu, jaký účet byste používali
 (místo v ChatGPT Business, nebo osobní účet), jestli používáte Claude Code
 a kdy se vám změna hodí.
 
@@ -63,7 +64,7 @@ Po změně:
 
 - Rozběhnuté chaty ve vašem Prostředí skončí. Potom začněte nová vlákna.
 - Na chvíli přijdou o rozběhnuté chaty i všichni ostatní na stejném poolu,
-  protože se pool restartuje. Admin s vámi proto domluví termín a ostatní
+  protože se pool restartuje. Admin Organizace s vámi proto domluví termín a ostatní
   předem upozorní.
 - Claude Code odchází z poolu spolu s Codexem. Pokud ho používáte, přihlaste
   i Claude.
@@ -72,7 +73,7 @@ Po změně:
 
 ## Co se teprve chystá
 
-Rozhodnutí 0229 je přijaté, ale zatím není nasazené. Až bude, nastaví Admin
+Rozhodnutí 0229 je přijaté, ale zatím není nasazené. Až bude, nastaví Admin Organizace
 zdroj pro jednotlivá Prostředí v Přehledu Organizace. Vy o druhý zdroj
 požádáte přímo v Začínáme a tam také uvidíte, že změna probíhá. Do té doby
-Admin změnu provede reviewovanou úpravou serverového nastavení Organizace.
+Admin Organizace změnu provede reviewovanou úpravou serverového nastavení Organizace.

@@ -4,8 +4,8 @@ description: "Nine short lessons from your first sign-in to your first task that
 stableId: lazurio-doc-guide-course
 locale: en
 summary: "Nine short lessons from your first sign-in to your first task that an agent saves and you review."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -29,7 +29,7 @@ ends with one practical task and tells you how to know that it is done.
 You need:
 
 - **An Environment assigned to you** and its address. Your Organization
-  assigns it; if you do not have the address, ask its Admin.
+  assigns it; if you do not have the address, ask your Organization Admin.
 - **Tailscale on an approved device**, if your Organization's Environments
   are reachable only in its tailnet. The tailnet is the default; see
   [Reach an Environment through Tailscale](/en/guide/tailscale/).

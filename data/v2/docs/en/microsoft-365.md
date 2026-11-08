@@ -1,11 +1,11 @@
 ---
-title: "Microsoft 365 for IT and the Admin"
-description: "What Lazurio needs from a Microsoft 365 tenant, what IT decides, the Admin's setup steps and how to revoke access."
+title: "Microsoft 365 for IT and the Organization Admin"
+description: "What Lazurio needs from a Microsoft 365 tenant, what IT decides, the Organization Admin's setup steps and how to revoke access."
 stableId: lazurio-doc-microsoft-365
 locale: en
-summary: "One single-tenant Entra app with delegated Graph permissions and no secret: what IT approves, the Admin's steps, Conditional Access, audit and revocation."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+summary: "One single-tenant Entra app with delegated Graph permissions and no secret: what IT approves, the Organization Admin's steps, Conditional Access, audit and revocation."
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -59,7 +59,7 @@ only what that account can reach.
 
 **Status on 1 November 2026.** Lazurio Platform supports this company app since
 [release v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9)
-of 19 October 2026. Two parts are not finished. The Admin cannot yet edit the
+of 19 October 2026. Two parts are not finished. The Organization Admin cannot yet edit the
 setting in Organization overview, so it is added by a reviewed pull request to
 the Organization's repository. Lazurio has not yet run the procedure end to end
 on a real tenant: an exchange of the sign-in code without a secret on an HTTPS
@@ -115,7 +115,7 @@ calendar), `one_drive` (files) and `share_point` (files and sites). A sign-in
 asks only for the permissions of the chosen parts plus the sign-in permissions.
 If a Lazurio release asks for a permission your tenant has not consented to, the
 sign-in reports that administrator approval is required (`AADSTS65001` or
-`AADSTS90094`). The Admin asks IT to add the consent and the user connects
+`AADSTS90094`). The Organization Admin asks IT to add the consent and the user connects
 again.
 
 ## Why IT must give the consent
@@ -139,16 +139,16 @@ can.
 | Who | Decides |
 | --- | --- |
 | IT, the tenant's administrators | Whether the app exists, its permissions and the consent; who may connect ("Assignment required" and a group); Conditional Access; disabling or deleting the app. Entra is the off switch. |
-| The Organization's Admin in Lazurio | Records the tenant ID, client ID, chosen parts and registered callbacks in the Organization's settings, and asks IT to register the callback of every new Environment. |
+| The Organization Admin in Lazurio | Records the tenant ID, client ID, chosen parts and registered callbacks in the Organization's settings, and asks IT to register the callback of every new Environment. |
 | Each user | Connects their own work account in Apps → Integrations, may add further accounts and disconnects them. |
 | Agents | Use the connected accounts. They never connect an account themselves, and they make changes other people see only on the user's instruction. This is a working rule that agents follow, not a technical barrier. |
 
-## The Admin's procedure
+## The Organization Admin's procedure
 
 IT works in its own browser. Nobody signs in to an Environment with an
 administrator account.
 
-1. **Collect the callbacks.** The Organization's Admin, or an agent working for
+1. **Collect the callbacks.** The Organization Admin, or an agent working for
    them, lists the callback of each of the Organization's Environments on the
    server, in the pattern shown above.
 2. **Register the app.** In the Microsoft Entra admin center open Entra ID →
@@ -171,13 +171,13 @@ administrator account.
    with `AADSTS50105`. Microsoft notes that users with the Global Administrator
    role can sign in regardless of this setting.
 7. **Hand over the identifiers.** Copy the Application (client) ID and the
-   Directory (tenant) ID from Overview and give them to the Organization's
+   Directory (tenant) ID from Overview and give them to the Organization
    Admin.
 8. **Read it back.** Check that the account type is `AzureADMyOrg`, that the
    redirect URIs are exactly the intended ones, that no Web platform exists,
    that there are no secrets or certificates and that consent is granted for all
    nine permissions. The first real connection is the proof that it works.
-9. **Record the setting.** The Organization's Admin approves a pull request that
+9. **Record the setting.** The Organization Admin approves a pull request that
    adds `settings.integrations.microsoft365` to the Organization's
    `lazurio.organization.json`: `tenant_id`, `client_id`, `apps` and
    `callbacks`, the last being exactly the registered Environment callbacks

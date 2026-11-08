@@ -4,8 +4,8 @@ description: "Choose a connection, approve its permissions and revoke access whe
 stableId: lazurio-doc-environment-app-connections
 locale: en
 summary: "Choose a connection, approve its permissions and revoke access when needed."
-updatedAt: "2026-11-06"
-reviewedAt: "2026-11-06"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -91,7 +91,7 @@ A company app is a choice for the whole Organization, and it then connects
 directly. Today that is Microsoft 365, which Lazurio supports since release
 v0.1.9. Its setting goes into the Organization's repository by a reviewed pull
 request, because editing it in Organization overview is decided, not yet
-deployed. See [Microsoft 365 for IT and the Admin](/en/microsoft-365/). Google
+deployed. See [Microsoft 365 for IT and the Organization Admin](/en/microsoft-365/). Google
 Workspace as a company app is decided and not implemented yet, so Google apps
 take the paths above.
 
@@ -281,7 +281,7 @@ agent there can use them.
   own Environment. The Launchpad warns about this before a sign-in, and an agent
   asks which team account to connect before it connects an app.
 
-## Guidance for Organization admins
+## Guidance for Organization Admins
 
 Beyond the Organization's settings, Lazurio does not enforce or monitor how a
 user connects an Environment.

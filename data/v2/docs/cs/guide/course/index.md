@@ -4,8 +4,8 @@ description: "Devět krátkých lekcí od prvního přihlášení po první úko
 stableId: lazurio-doc-guide-course
 locale: cs
 summary: "Devět krátkých lekcí od prvního přihlášení po první úkol, který agent uloží a vy zkontrolujete."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -29,7 +29,7 @@ praktickým úkolem a řekne vám, podle čeho poznáte, že je hotový.
 Budete potřebovat:
 
 - **Prostředí přiřazené vám** a jeho adresu. Přiřazuje ho vaše Organizace;
-  když adresu nemáte, požádejte jejího Admina.
+  když adresu nemáte, požádejte Admina Organizace.
 - **Tailscale na schváleném zařízení**, pokud jsou Prostředí vaší Organizace
   dostupná jen v jejím tailnetu. Tailnet je výchozí cesta; viz
   [Připojení k Prostředí přes Tailscale](/cs/guide/tailscale/).

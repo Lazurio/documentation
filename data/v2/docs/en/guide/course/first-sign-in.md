@@ -4,8 +4,8 @@ description: "What an Environment is, which kind you work in and how you get in.
 stableId: lazurio-doc-guide-course-first-sign-in
 locale: en
 summary: "What an Environment is, which kind you work in and how you get in."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -46,10 +46,10 @@ where it needs a name. This course uses a Work Environment.
 Lazurio's approved access model keeps three conditions apart
 ([decision 0192](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md)):
 the network, active membership of the Organization and a grant to the
-Environment or to one of its apps. Your Organization's Admin arranges the
+Environment or to one of its apps. Your Organization Admin arranges the
 membership and the grant. Where the Environment is reachable only in the
-Organization's tailnet, your device also needs Tailscale and the Admin's
-approval. The transition to this model is not complete, so how a device is
+Organization's tailnet, your device also needs Tailscale and the Organization
+Admin's approval. The transition to this model is not complete, so how a device is
 approved today can still differ between Organizations.
 
 Sign in to Lazurio in your own browser. The browser in the right panel of an

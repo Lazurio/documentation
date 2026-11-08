@@ -5,7 +5,7 @@ stableId: lazurio-doc-reference
 locale: cs
 summary: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřování."
 updatedAt: "2026-10-04"
-reviewedAt: "2026-10-04"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

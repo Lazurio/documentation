@@ -4,8 +4,8 @@ description: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT 
 stableId: lazurio-doc-guide-phone-and-computer
 locale: cs
 summary: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT v telefonu nebo z ChatGPT Desktopu v počítači, a co použít, když to Připojení nenabízí."
-updatedAt: "2026-11-05"
-reviewedAt: "2026-11-05"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -57,7 +57,7 @@ Když stránka místo toho ukáže hlášku:
 | Stránka hlásí | Co to znamená |
 | --- | --- |
 | **Nejdřív se přihlaste svým účtem ChatGPT.** | Nejdřív se přihlaste v Nastavení → Začínáme → Připojit AI. |
-| **Pro Prostředí s AI Organizace telefon připravujeme.** | Vaše Prostředí používá AI pool Organizace a párování potřebuje váš vlastní účet. Požádejte Admina o přechod na vlastní účet, nebo se zeptejte, jestli má vaše Organizace pro telefon jinou cestu; viz [Jak požádat Admina](/cs/guide/ask-the-admin/). |
+| **Pro Prostředí s AI Organizace telefon připravujeme.** | Vaše Prostředí používá AI pool Organizace a párování potřebuje váš vlastní účet. Požádejte Admina Organizace o přechod na vlastní účet, nebo se zeptejte, jestli má vaše Organizace pro telefon jinou cestu; viz [Jak požádat Admina Organizace](/cs/guide/ask-the-admin/). |
 | **Týmové Prostředí párování telefonu nemá.** | Sdílené Týmové Prostředí se s telefonem jednoho člověka nepáruje. |
 | **Párování teď není dostupné.** | Párování v tomto Prostředí teď nejde, například v Organizaci s veřejnými adresami. Použijte webové rozhraní v prohlížeči telefonu, nebo to zkuste později. |
 

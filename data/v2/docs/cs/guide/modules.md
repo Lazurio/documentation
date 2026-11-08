@@ -4,8 +4,8 @@ description: "Co je modul, kde ho najdete, jak vzniká, kdo ho dostane a kde le�
 stableId: lazurio-doc-guide-modules
 locale: cs
 summary: "Co je modul, kde ho najdete, jak vzniká, kdo ho dostane a kde leží jeho data."
-updatedAt: "2026-11-05"
-reviewedAt: "2026-11-05"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -26,6 +26,7 @@ sourceRefs:
   - lazurio-platform-stack-profiles
   - lazurio-platform-register-modules
   - lazurio-platform-folder-manual
+  - lazurio-decision-0234-role-names
 audience:
   - decision-maker
   - builder
@@ -78,7 +79,7 @@ kterému se vaše Prostředí dostane, a to každý jednou. Dlaždice otevře ap
 modulu v prohlížeči; samotná aplikace běží ve vašem Prostředí.
 
 Když Kolega zmíní modul, který nevidíte, možná k němu nemáte přístup. Zeptejte
-se Admina své Organizace.
+se Admina Organizace.
 
 ## Jak modul vzniká
 
@@ -115,7 +116,9 @@ Poslední krok vysvětluje [Kontrola a Publikace](/cs/guide/course/review/).
 ## Kdo modul dostane a kdy se objeví
 
 Organizace sdílí moduly po Teamech. Admin Organizace rozhoduje, které Teamy
-k modulu dosáhnou, a to v Přehledu Organizace nebo přímo na GitHubu. Modul se
+k modulu dosáhnou, a to v Přehledu Organizace nebo přímo na GitHubu. Přístup
+Teamu k modulu má úroveň, jednu z rolí v modulu: Čtenář modulu, Přispěvatel
+modulu nebo Správce modulu (rozhodnutí 0232 a 0234). Modul se
 doručuje do Prostředí: co v Prostředí není, to v Apps nevidíte a agent tam nepřečte.
 Jméno modulu ale agent vidět může v manifestu Organizace.
 
@@ -130,7 +133,7 @@ v Apps obvykle objeví do hodiny a nikdo nemusí nic instalovat. Je to pokus, ne
 záruka. Když nejde aktualizovat kopii kořenového repozitáře Organizace ve vašem
 Prostředí nebo když GitHub operaci odmítne či se nepovede, modul nedorazí a Lazurio
 to zkusí znovu v dalším kole. Když očekávaný modul nepřichází, zeptejte se Admina
-své Organizace.
+Organizace.
 
 Jinak je to ve dvou případech:
 

@@ -4,8 +4,8 @@ description: "Lazurio and Microsoft source links and how their review dates are 
 stableId: lazurio-doc-reference
 locale: en
 summary: "Lazurio and Microsoft source links and how their review dates are tracked."
-updatedAt: "2026-10-04"
-reviewedAt: "2026-10-04"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -60,8 +60,8 @@ legal translation.
 
 The source map records an owner, review date and expiry for each reference.
 Expired evidence fails content validation. Trust-critical pages also require an
-exact-commit review before production publication. Pablo AI is the
-Organization Steward automation used for that review, not an independent
+exact-commit review before production publication. Pablo AI is the persona,
+an Organization's agent account, used for that review, not an independent
 auditor or certification of a customer's deployment. The deploy script checks
 for a clean main branch and an operator-supplied approved commit; matching that
 commit to the exact-head review remains an explicit delivery step.

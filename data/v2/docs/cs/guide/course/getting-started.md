@@ -4,8 +4,8 @@ description: "Připojte AI a GitHub a stáhněte svou Organizaci, v tomto pořad
 stableId: lazurio-doc-guide-course-getting-started
 locale: cs
 summary: "Připojte AI a GitHub a stáhněte svou Organizaci, v tomto pořadí."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -48,7 +48,7 @@ Povinné kroky jdou v tomto pořadí:
 AI je na řadě první proto, aby vám se zbytkem mohl pomoct agent v Chatu.
 Když se krok zastaví, řekne, co dál. **Vyřešit v Chatu** otevře v Chatu nové
 vlákno s připraveným zadáním, které ještě není odeslané. **Organizaci
-připravuje Admin.** znamená, že jednat musí váš Admin, ne vy.
+připravuje Admin.** znamená, že jednat musí Admin Organizace, ne vy.
 
 Pod povinnými kroky jsou volitelné, například Composio pro poštu
 a kalendář, SSH z vlastního počítače a prohlídka aplikace. Přidat je můžete

@@ -4,8 +4,8 @@ description: "Co je Prostředí, v jakém druhu pracujete a jak se do něj dosta
 stableId: lazurio-doc-guide-course-first-sign-in
 locale: cs
 summary: "Co je Prostředí, v jakém druhu pracujete a jak se do něj dostanete."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -47,9 +47,9 @@ potřebuje jméno, jmenuje se Henry. Tento kurz počítá s Pracovním Prostřed
 Schválený model přístupu Lazuria drží tři podmínky odděleně
 ([rozhodnutí 0192](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md)):
 síť, aktivní členství v Organizaci a přístup k Prostředí nebo k jedné jeho
-aplikaci. Členství a přístup vám zařídí Admin vaší Organizace. Když je
+aplikaci. Členství a přístup vám zařídí Admin Organizace. Když je
 Prostředí dostupné jen v tailnetu Organizace, potřebuje vaše zařízení navíc
-Tailscale a schválení od Admina. Přechod na tento model ještě není
+Tailscale a schválení od Admina Organizace. Přechod na tento model ještě není
 dokončený, takže jak se zařízení schvaluje dnes, se může mezi Organizacemi
 lišit.
 

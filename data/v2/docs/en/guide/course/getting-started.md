@@ -4,8 +4,8 @@ description: "Connect AI and GitHub and download your Organization, in this orde
 stableId: lazurio-doc-guide-course-getting-started
 locale: en
 summary: "Connect AI and GitHub and download your Organization, in this order."
-updatedAt: "2026-11-01"
-reviewedAt: "2026-11-01"
+updatedAt: "2026-11-08"
+reviewedAt: "2026-11-08"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
@@ -48,7 +48,7 @@ The required steps go in this order:
 AI comes first so that an agent in Chat can help you with the rest. When a
 step stops, it says what to do next. **Solve in Chat** opens a new Chat thread
 with a prepared request that is not sent yet. **The Organization's Admin
-prepares it.** means that your Admin has to act, not you.
+prepares it.** means that your Organization Admin has to act, not you.
 
 Below the required steps are optional ones, such as Composio for mail and
 calendars, SSH from your own computer and a tour of the app. You can add them
