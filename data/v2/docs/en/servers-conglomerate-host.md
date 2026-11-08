@@ -5,7 +5,7 @@ stableId: lazurio-doc-servers-conglomerate-host
 locale: en
 summary: "Server and services names, one IPv4 prefix per Conglomerate Host, the Organization Owner's administration path with named identities, exact grants and a recovery route, and the two separate outcomes of handing over a Remote Environment."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-02"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

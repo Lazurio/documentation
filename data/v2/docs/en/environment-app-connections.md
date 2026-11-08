@@ -4,7 +4,7 @@ description: "Choose a connection, approve its permissions and revoke access whe
 stableId: lazurio-doc-environment-app-connections
 locale: en
 summary: "Choose a connection, approve its permissions and revoke access when needed."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

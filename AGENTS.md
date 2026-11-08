@@ -76,7 +76,10 @@ terminal, PowerShell or Command Prompt, or to run, paste or edit a command.
 
 Every document requires a stable ID, locale, summary, update date, fact review
 date, review owner and source references. Stable IDs remain the same across
-localized versions.
+localized versions. The update date is the date of the latest change and may be
+newer than the fact review date; an editorial change moves only the update
+date, and the fact review date moves only when the whole document's facts were
+reviewed again.
 
 English is the first accepted locale. Do not publish generated Czech copy.
 Add Czech only as a curated document with the same stable ID and evidence map.

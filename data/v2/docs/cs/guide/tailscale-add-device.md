@@ -4,7 +4,7 @@ description: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace,
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: cs
 summary: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace, přihlaste se účtem Lazurio a počkejte na schválení Adminem Organizace."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

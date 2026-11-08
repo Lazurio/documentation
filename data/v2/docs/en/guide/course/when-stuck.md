@@ -4,7 +4,7 @@ description: "Where to turn when something stops, how to describe a problem and 
 stableId: lazurio-doc-guide-course-when-stuck
 locale: en
 summary: "Where to turn when something stops, how to describe a problem and what never to send."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI

@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocuments } from './content-library.mjs'
+import { findDocumentDateErrors } from './document-dates.mjs'
 import { findLocaleParityErrors } from './locale-parity.mjs'
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url))
@@ -60,9 +61,7 @@ for (const document of documents) {
   if (!Array.isArray(frontmatter.audience) || frontmatter.audience.length === 0) {
     errors.push(`${relativePath}: audience must not be empty`)
   }
-  if (frontmatter.updatedAt > frontmatter.reviewedAt) {
-    errors.push(`${relativePath}: reviewedAt must cover the latest update`)
-  }
+  errors.push(...findDocumentDateErrors(relativePath, frontmatter))
   if (frontmatter.trustCritical && frontmatter.secondReviewOwner !== 'Pablo AI') {
     errors.push(`${relativePath}: trust-critical content requires Pablo AI as secondReviewOwner`)
   }

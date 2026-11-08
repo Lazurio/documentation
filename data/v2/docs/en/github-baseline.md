@@ -5,7 +5,7 @@ stableId: lazurio-doc-github-baseline
 locale: en
 summary: "The GitHub settings an Organization Owner prepares and reads back before the first Module Contributor: the app, base permission none, the builders Team, infra only for Organization Admins, protected main and merging."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

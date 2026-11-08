@@ -5,7 +5,7 @@ stableId: lazurio-doc-guide-ask-the-admin
 locale: en
 summary: "What only your Organization Admin does, how to ask them today and what a request must and must never contain."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

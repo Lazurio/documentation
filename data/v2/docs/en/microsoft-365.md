@@ -4,7 +4,7 @@ description: "What Lazurio needs from a Microsoft 365 tenant, what IT decides, t
 stableId: lazurio-doc-microsoft-365
 locale: en
 summary: "One single-tenant Entra app with delegated Graph permissions and no secret: what IT approves, the Organization Admin's steps, Conditional Access, audit and revocation."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

@@ -4,7 +4,7 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

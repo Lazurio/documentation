@@ -4,7 +4,7 @@ description: "Devět krátkých lekcí od prvního přihlášení po první úko
 stableId: lazurio-doc-guide-course
 locale: cs
 summary: "Devět krátkých lekcí od prvního přihlášení po první úkol, který agent uloží a vy zkontrolujete."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI

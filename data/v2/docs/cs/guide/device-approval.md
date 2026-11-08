@@ -4,7 +4,7 @@ description: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše
 stableId: lazurio-doc-guide-device-approval
 locale: cs
 summary: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše Prostředí, kdo o přístupu rozhoduje a co dělat, když zařízení ztratíte."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

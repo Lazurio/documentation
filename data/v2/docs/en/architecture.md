@@ -4,7 +4,7 @@ description: "How people, devices, Environments, Organizations, modules and outs
 stableId: lazurio-doc-architecture
 locale: en
 summary: "How people, devices, Environments, Organizations, modules and outside services fit together, what goes to GitHub and where a module keeps its data."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

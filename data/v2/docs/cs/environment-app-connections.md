@@ -4,7 +4,7 @@ description: "Jak vybrat propojení, schválit oprávnění a později přístup
 stableId: lazurio-doc-environment-app-connections
 locale: cs
 summary: "Jak vybrat propojení, schválit oprávnění a později přístup odvolat."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

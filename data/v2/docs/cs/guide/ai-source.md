@@ -4,7 +4,7 @@ description: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidí
 stableId: lazurio-doc-guide-ai-source
 locale: cs
 summary: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidíte, který zdroj Prostředí používá, kdo ho přepíná a co přepnutí přeruší."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

@@ -5,7 +5,7 @@ stableId: lazurio-doc-guide-ask-the-admin
 locale: cs
 summary: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes požádat a co do žádosti patří a co nikdy."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

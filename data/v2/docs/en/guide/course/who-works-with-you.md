@@ -5,7 +5,7 @@ stableId: lazurio-doc-guide-course-who-works-with-you
 locale: en
 summary: "You as the user, agents, colleagues and their roles, Henry and Buddy: who decides what."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

@@ -4,7 +4,7 @@ description: "Chat, Apps a Automate, moduly vaší Organizace, Soubory a jak si 
 stableId: lazurio-doc-guide-course-find-your-way
 locale: cs
 summary: "Chat, Apps a Automate, moduly vaší Organizace, Soubory a jak si nechat vysvětlit stránku."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI

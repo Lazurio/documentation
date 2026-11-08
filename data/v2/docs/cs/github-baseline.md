@@ -5,7 +5,7 @@ stableId: lazurio-doc-github-baseline
 locale: cs
 summary: "Nastavení GitHubu, které Vlastník Organizace připraví a ověří před prvním Přispěvatelem modulu: aplikace, výchozí oprávnění none, Team builders, infra jen pro Adminy Organizace, chráněná main a merge."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

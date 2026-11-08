@@ -5,7 +5,7 @@ stableId: lazurio-doc-guide-course-who-works-with-you
 locale: cs
 summary: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy: kdo o čem rozhoduje."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true

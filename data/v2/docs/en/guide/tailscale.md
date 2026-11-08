@@ -4,7 +4,7 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

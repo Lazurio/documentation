@@ -4,7 +4,7 @@ description: "Chování poskytovatelů, na které Lazurio narazilo při napojov�
 stableId: lazurio-doc-provider-notes
 locale: cs
 summary: "Datované poznatky o Google Workspace, Slacku, Atlassianu, Canvě, LinkedInu, GitHubu a Composiu, každý ověřený ve vlastní dokumentaci poskytovatele."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

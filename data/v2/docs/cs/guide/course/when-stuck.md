@@ -4,7 +4,7 @@ description: "Kam se obrátit, když se něco zastaví, jak popsat problém a co
 stableId: lazurio-doc-guide-course-when-stuck
 locale: cs
 summary: "Kam se obrátit, když se něco zastaví, jak popsat problém a co nikdy neposílat."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI

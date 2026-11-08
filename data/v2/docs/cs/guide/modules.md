@@ -5,7 +5,7 @@ stableId: lazurio-doc-guide-modules
 locale: cs
 summary: "Co je modul, kde ho najdete, jak vzniká, kdo ho dostane a kde leží jeho data."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

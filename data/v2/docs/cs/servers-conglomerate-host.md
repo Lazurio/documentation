@@ -5,7 +5,7 @@ stableId: lazurio-doc-servers-conglomerate-host
 locale: cs
 summary: "Jména serverů a Prostředí služeb, jeden IPv4 prefix na Conglomerate Host, správa Vlastníkem Organizace se jmenovitou identitou, přesnými granty a cestou obnovy a dva samostatné výsledky předání Prostředí na serveru."
 updatedAt: "2026-11-08"
-reviewedAt: "2026-11-08"
+reviewedAt: "2026-11-02"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

@@ -4,7 +4,7 @@ description: "Připojte AI a GitHub a stáhněte svou Organizaci, v tomto pořad
 stableId: lazurio-doc-guide-course-getting-started
 locale: cs
 summary: "Připojte AI a GitHub a stáhněte svou Organizaci, v tomto pořadí."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-08"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
