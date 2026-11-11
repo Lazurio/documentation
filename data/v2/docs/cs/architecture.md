@@ -4,12 +4,13 @@ description: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace,
 stableId: lazurio-doc-architecture
 locale: cs
 summary: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace, moduly a služby okolo, co jde na GitHub a kde má modul data."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-11"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-register-production-applications-0239
   - lazurio-platform-module-standard-v0-1-20
   - lazurio-platform-module-standard-v0-1-21
   - lazurio-platform-module-parts-f14
@@ -170,12 +171,44 @@ K tabulce tři poznámky:
 
 Cizí systém zůstává tam, kde je. Agent se k němu dostane jako k Integraci,
 například přes vlastní MCP server v Executoru, a vidí to, co mu připojení
-dovolí. Data zůstávají v tomto systému. Databáze `v4` slouží vnitřní práci
-Organizace; produkční aplikace a databáze, které obsluhují její zákazníky, jsou
-samostatné systémy mimo ni (rozhodnutí 0209).
+dovolí. Data zůstávají v tomto systému. Databázová služba `v4` je podle dodatku 0209 z 11. listopadu 2026
+rozhodnutým cílem pro workspace i produkční aplikace: oddělené databáze,
+identity a granty nepustí workspace nebo preview identitu k produkčnímu
+zápisu. Produkční aplikace běží na samostatném hostiteli aplikací (0239).
+Tento dodatek není dokladem nasazené databáze ani produkčního vstupu.
 
 Naše hodnocení, ne technický limit: vlastní modul se vyplatí, když chcete vlastní
 postup a aplikaci, Integrace, když z velké části používáte cizí aplikaci.
+
+
+## Produkční aplikace Organizace: rozhodnutý cíl
+
+Rozhodnutí 0239 odděluje vydanou aplikaci od vývojářova Prostředí. Organizace
+ji provozuje na svém Proxmox serveru a její Admin Organizace schválí každé
+zveřejnění a konkrétní vydanou verzi pull requestem do Deployment Repa.
+Zaměstnanec se přihlásí svým Lazurio účtem jako Uživatel aplikace nebo
+Admin aplikace; k tomu nedostává Prostředí, shell ani zdrojový kód.
+Zpřístupnění z Pracovního Prostředí je jiná cesta a navazuje později.
+
+Hostitel aplikací není Prostředí a nemá Přiděleného uživatele. Běží na něm
+jen vydané sestavené moduly. Služby serveru drží veřejný vstup a DNS-01.
+Budoucí adresa je `<module>.<organization>.lazurio.app`, bez jména hostitele;
+před použitím se musí ověřit vlastnictví domény a DNS delegace. Přijatý návrh
+počítá také s MCP na adrese aplikace se stejným Lazurio přihlášením a rolí.
+**Jde o rozhodnutý návrh, jehož nasazení tato stránka nepotvrzuje.**
+
+Dodatek 0216 mění nové místo na 4 vCPU, 8 GiB RAM a **50 GiB disk**.
+Dvě místa mají 100 GiB, čtyři 200 GiB. Třída 32 GB se vyřazuje; Služby a
+hostitel aplikací jsou mimo místa lidí:
+
+| Třída serveru | Místa | Služby serveru RAM / disk | Hostitel aplikací RAM / disk |
+| --- | --- | --- | --- |
+| 64 GB RAM, 2×512 GB NVMe | 6 | 4 / 40 GiB | 2 / 20 GiB |
+| 128 GB RAM, 2×1 TB NVMe | 12 | 8 / 80 GiB | 8 / 40 GiB |
+
+Oba disky tvoří zrcadlo. Existující disky se tímto rozhodnutím nezmenší:
+potřebují nový menší host a samostatně schválený přesun dat. Produkční data
+mají jednoho writera; vývoj a preview do nich nezapisují.
 
 ## Kdo co udělal
 
@@ -192,3 +225,5 @@ označuje za návrh, který je třeba ověřit na prototypu, ne za ověřené ch
 - [Přístup k Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) ve verzi v0.1.21-rc.1.
 - [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) ve verzi v0.1.21-rc.1: rozhodnutí 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209, 0213 a 0228.
 - [Rozhodnutí F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (co modul drží) a [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (jeden generátor, osobní moduly).
+
+- [0239, 0216 a 0209 — produkční aplikace a kapacity, 11. listopadu 2026](https://github.com/Lazurio/LazurioPlatform/blob/1838ab74a5a0f0a8eb6acfa5281522561ca4a75a/docs/decision-register.md).

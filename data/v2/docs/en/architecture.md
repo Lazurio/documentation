@@ -4,12 +4,13 @@ description: "How people, devices, Environments, Organizations, modules and outs
 stableId: lazurio-doc-architecture
 locale: en
 summary: "How people, devices, Environments, Organizations, modules and outside services fit together, what goes to GitHub and where a module keeps its data."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-11"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-register-production-applications-0239
   - lazurio-platform-module-standard-v0-1-20
   - lazurio-platform-module-standard-v0-1-21
   - lazurio-platform-module-parts-f14
@@ -175,13 +176,45 @@ Three things about the table:
 
 An outside system stays where it is. An agent reaches it as an Integration, for
 example through a custom MCP server in Executor, and sees what that connection
-allows. The data stay in that system. The `v4` database is for the Organization's
-internal work; production apps and databases that serve its customers are
-separate systems outside it (decision 0209).
+allows. The data stay in that system. The November 11, 2026 amendment of 0209 makes the `v4` database service
+an accepted target for workspace and production applications, with separate
+databases, identities and grants: workspace and preview identities gain no
+production write access. Production applications run on a separate application
+host (0239). This amendment is not evidence of a deployed database or production entry.
 
 Our assessment, not a technical limit: build a module when you want your own
 process and app, and connect an Integration when you mostly use someone else's
 app.
+
+
+## Organization production applications: accepted target
+
+Decision 0239 separates a released application from its builder's Environment.
+The Organization runs it on its own Proxmox server, and its Organization Admin
+approves every publication and exact released version through a pull request to
+the Deployment Repo. An employee signs in with a Lazurio account as an
+Application User or Application Admin, without receiving an Environment, shell
+or source access. Sharing from a Work Environment is a separate path that follows later.
+
+The application host is not an Environment and has no Assigned User. It runs
+only released builds. Server Services carries the public entry and DNS-01.
+The future address is `<module>.<organization>.lazurio.app`, without the host's
+name; domain ownership and DNS delegation must be verified before use.
+The accepted design also includes MCP on the application origin with the same
+Lazurio sign-in and role. **This is an accepted target, not a claim of deployment.**
+
+The amendment of 0216 makes a new slot 4 vCPU, 8 GiB RAM and **50 GiB disk**.
+Two slots have 100 GiB, four have 200 GiB. The 32 GB class is removed;
+Server Services and the application host are outside people's slots:
+
+| Server class | Slots | Server Services RAM / disk | Application host RAM / disk |
+| --- | --- | --- | --- |
+| 64 GB RAM, 2×512 GB NVMe | 6 | 4 / 40 GiB | 2 / 20 GiB |
+| 128 GB RAM, 2×1 TB NVMe | 12 | 8 / 80 GiB | 8 / 40 GiB |
+
+The two disks form a mirror. This decision never shrinks existing disks:
+they need a new smaller guest and a separately approved data move. Production
+data has one writer; builders and previews do not write it.
 
 ## Who did what
 
@@ -199,3 +232,5 @@ prototype, not verified behaviour.
 - [Environment access](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) at v0.1.21-rc.1.
 - [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209, 0213 and 0228.
 - [Decision F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (what a module holds) and [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (one generator, personal modules).
+
+- [0239, 0216 and 0209 — production applications and capacity, 2026-11-11](https://github.com/Lazurio/LazurioPlatform/blob/1838ab74a5a0f0a8eb6acfa5281522561ca4a75a/docs/decision-register.md).

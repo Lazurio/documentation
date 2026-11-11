@@ -1641,6 +1641,16 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-05",
       "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-register-production-applications-0239",
+      "title": "Lazurio decisions 0239 and the 2026-11-11 amendments of 0216 and 0209",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/1838ab74a5a0f0a8eb6acfa5281522561ca4a75a/docs/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-11",
+      "reviewDueAt": "2026-12-11"
     }
   ]
 }
