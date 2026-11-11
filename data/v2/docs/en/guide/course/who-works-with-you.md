@@ -4,7 +4,7 @@ description: "You as the user, agents, colleagues and their roles, Henry and Bud
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: en
 summary: "You as the user, agents, colleagues and their roles, Henry and Buddy: who decides what."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-11"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-onboarding-decision-register
   - lazurio-decision-0234-role-names
+  - lazurio-decision-0236-mission-control-readers
   - lazurio-platform-folder-manual
 audience:
   - decision-maker
@@ -51,6 +52,10 @@ say what they may do. Every role names its level (decision 0234):
 A role name authorizes nothing by itself. For the Organization and Module
 roles, the live grant on GitHub decides today (decisions 0062 and 0232).
 
+Every Organization Member reads the Organization's Mission Control, where
+the plan and the order of work live: they are at least its Module Reader and
+send their proposals as issues (decision 0236, not yet deployed).
+
 **Henry** is the name of an Organization's Work Environment with
 automations. A team of bots works there under the Organization's persona,
 and one responsible user, an Organization Owner or an Organization Admin,
@@ -68,6 +73,10 @@ A persona is an Organization's agent account, such as Henry's. Like the name
 you give your Buddy, it is not a user and holds no authority of its own. The
 decision numbers refer to the public
 [Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md).
+[Decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
+with 0231 and 0232 sets the roles and their names, and
+[decision 0236](https://github.com/Lazurio/LazurioPlatform/blob/cfbd1b3cf2887f4f254f2fa63a20f5f90e8ef26f/docs/decision-register.md#0236--mission-control-is-every-members-each-organization-member-reads-it-and-proposes-through-issues)
+sets who reads Mission Control.
 
 ## Your task
 

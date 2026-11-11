@@ -4,7 +4,7 @@ description: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy:
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: cs
 summary: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy: kdo o čem rozhoduje."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-11"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-onboarding-decision-register
   - lazurio-decision-0234-role-names
+  - lazurio-decision-0236-mission-control-readers
   - lazurio-platform-folder-manual
 audience:
   - decision-maker
@@ -49,6 +50,10 @@ Každá role říká, na jaké úrovni platí (rozhodnutí 0234):
 Název role sám nic neopravňuje. U rolí v Organizaci a v modulu dnes rozhoduje
 živý grant na GitHubu (rozhodnutí 0062 a 0232).
 
+Mission Control Organizace, kde je plán a pořadí práce, čte každý Člen
+Organizace: je v něm aspoň Čtenář modulu a své návrhy posílá jako issue
+(rozhodnutí 0236, zatím nenasazené).
+
 **Henry** je jméno Pracovního Prostředí Organizace s automatizacemi.
 Pracuje v něm tým botů pod personou Organizace a odpovídá za něj jeden
 odpovědný uživatel, Vlastník Organizace nebo Admin Organizace (rozhodnutí
@@ -65,6 +70,9 @@ Persona je účet agenta Organizace, třeba Henryho. Stejně jako jméno, které
 dáte svému Buddymu, není uživatel a nemá žádnou vlastní pravomoc. Čísla
 rozhodnutí odkazují na veřejný
 [rejstřík rozhodnutí Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md).
+Role a jejich názvy určuje [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
+s 0231 a 0232 a čtení Mission Control [rozhodnutí 0236](https://github.com/Lazurio/LazurioPlatform/blob/cfbd1b3cf2887f4f254f2fa63a20f5f90e8ef26f/docs/decision-register.md#0236--mission-control-is-every-members-each-organization-member-reads-it-and-proposes-through-issues)
+(obě anglicky).
 
 ## Váš úkol
 
