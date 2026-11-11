@@ -39,6 +39,14 @@ This is the public documentation repository for Lazurio.
 - Date product-status claims against their evidence. An editorial revision is
   not a new provider verification, security audit or publication approval.
 
+### Voice
+
+Write in Lazurio's
+[default agent voice](https://github.com/Lazurio/LazurioPlatform/blob/main/docs/agent-voice.md),
+in English and Czech alike: start from the reader's situation, use plain
+language and say what each point changes for their work. The editorial rules
+above still apply.
+
 ### No terminal in instructions for people
 
 Lazurio is for technically capable people, not for programmers. Instructions
