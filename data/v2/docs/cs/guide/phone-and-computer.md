@@ -59,7 +59,7 @@ Když stránka místo toho ukáže hlášku:
 | **Nejdřív se přihlaste svým účtem ChatGPT.** | Nejdřív se přihlaste v Nastavení → Začínáme → Připojit AI. |
 | **Pro Prostředí s AI Organizace telefon připravujeme.** | Vaše Prostředí používá AI pool Organizace a párování potřebuje váš vlastní účet. Požádejte Admina Organizace o přechod na vlastní účet, nebo se zeptejte, jestli má vaše Organizace pro telefon jinou cestu; viz [Jak požádat Admina Organizace](/cs/guide/ask-the-admin/). |
 | **Týmové Prostředí párování telefonu nemá.** | Sdílené Týmové Prostředí se s telefonem jednoho člověka nepáruje. |
-| **Párování teď není dostupné.** | Párování v tomto Prostředí teď nejde, například ve veřejném vstupu referenční Organizace. Použijte webové rozhraní v prohlížeči telefonu (v tailnetu se zapnutou aplikací Tailscale a schváleným telefonem, viz [Schválení zařízení](/cs/guide/device-approval/)), nebo to zkuste později. |
+| **Párování teď není dostupné.** | Párování v tomto Prostředí teď nejde. Ve veřejném vstupu referenční Organizace otevřete webové rozhraní v prohlížeči telefonu a přihlaste se Lazurio účtem. V tailnetu ho otevřete se zapnutou aplikací Tailscale a schváleným telefonem (viz [Schválení zařízení](/cs/guide/device-approval/)). Jinak to zkuste později. |
 
 **Restartovat Codex** na této stránce ukončí chaty, které v Codexu právě běží.
 Použijte ho, jen když nic důležitého neběží.

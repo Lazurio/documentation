@@ -61,7 +61,7 @@ If the page shows a message instead:
 | **First sign in with your ChatGPT account.** | Sign in at Settings → Getting started → Connect AI first. |
 | **Coming soon for Environments on the Organization's AI.** | Your Environment uses the Organization's AI pool. Pairing needs your own account. Ask your Organization Admin to move you to your own account, or whether your Organization has another way for your phone: see [How to ask the Organization Admin](/en/guide/ask-the-admin/). |
 | **A Team Environment has no phone pairing.** | Shared Team Environments are not paired with a person's phone. |
-| **Pairing is not available right now.** | Pairing is not available in this Environment now, for example in the reference Organization's public entry. Use the web interface in your phone's browser (in a tailnet with the Tailscale app on and the phone approved, see [Device approval](/en/guide/device-approval/)), or try again later. |
+| **Pairing is not available right now.** | Pairing is not available in this Environment now. In the reference Organization's public entry, open the web interface in your phone's browser and sign in with your Lazurio account. In a tailnet, open it with the Tailscale app on and the phone approved (see [Device approval](/en/guide/device-approval/)). Otherwise try again later. |
 
 **Restart Codex** on that page ends the chats running in Codex. Use it only
 when nothing important is running.
