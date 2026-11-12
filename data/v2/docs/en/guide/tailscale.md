@@ -45,7 +45,7 @@ your browser cannot open them, and usually cannot even find the address. It
 shows an error such as "This site can't be reached".
 
 Environments are entered through a tailnet.
-[Decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
+[Decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/c6c320b7362b724aea47cc297a96031c44ae49eb/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
 (decided, not yet deployed) makes it the only way into every Environment. Today
 the only public entry without a tailnet left is that of Lazurio's reference
 Organization, with its public Environment for trying Lazurio, and it ends when
