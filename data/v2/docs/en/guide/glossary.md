@@ -4,7 +4,7 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-11"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -16,6 +16,7 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-onboarding-decision-register
   - lazurio-decision-0234-role-names
+  - lazurio-decision-0236-mission-control-readers
   - lazurio-platform-folder-manual
   - lazurio-platform-launchpad-texts
   - lazurio-platform-module-standard-v0-1-20
@@ -177,6 +178,8 @@ Organization Admin.
 do follows from their roles in modules and applications. As the target,
 membership in Lazurio decides, which needs no GitHub account; for now, live
 membership of the GitHub Organization decides.
+Every Organization Member is at least a Module Reader of the Organization's
+Mission Control (decision 0236, not yet deployed).
 
 **Module Reader** Reads a module's source code and changes nothing. GitHub's
 `pull` permission. This role by itself gives no role in the module's
@@ -284,7 +287,8 @@ repository permissions. A role name alone grants no access.
 These names follow the public [Lazurio decisions](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md),
 especially 0170 and 0207 with their addenda, 0169 for Henry and 0089 for
 Buddy. [Decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
-sets the names of roles; the earlier names Builder, Steward and User no
+sets the names of roles and [decision 0236](https://github.com/Lazurio/LazurioPlatform/blob/cfbd1b3cf2887f4f254f2fa63a20f5f90e8ef26f/docs/decision-register.md#0236--mission-control-is-every-members-each-organization-member-reads-it-and-proposes-through-issues)
+who reads Mission Control; the earlier names Builder, Steward and User no
 longer name roles. A particular installation may still show older labels; technical
 names and commands stay unchanged. The [onboarding course](/en/guide/course/)
 uses these terms step by step.

@@ -1643,6 +1643,16 @@
       "reviewDueAt": "2026-12-08"
     },
     {
+      "id": "lazurio-decision-0236-mission-control-readers",
+      "title": "Decision 0236 in the register on 2026-11-11: every Organization Member is at least a Module Reader of the Organization's Mission Control and proposes through issues (decided, not yet deployed)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/cfbd1b3cf2887f4f254f2fa63a20f5f90e8ef26f/docs/decision-register.md#0236--mission-control-is-every-members-each-organization-member-reads-it-and-proposes-through-issues",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-11",
+      "reviewDueAt": "2026-12-11"
+    },
+    {
       "id": "lazurio-documentation-readme",
       "title": "Lazurio documentation README: app generation app/v2 and data generation data/v2 in one repository",
       "publisher": "Lazurio",

@@ -4,7 +4,7 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-11"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -16,6 +16,7 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-onboarding-decision-register
   - lazurio-decision-0234-role-names
+  - lazurio-decision-0236-mission-control-readers
   - lazurio-platform-folder-manual
   - lazurio-platform-launchpad-texts
   - lazurio-platform-module-standard-v0-1-20
@@ -170,6 +171,8 @@ Organizace aktivní Vlastník Organizace.
 **Člen Organizace** Každý další člověk v Organizaci. Co smí, plyne z jeho
 rolí v modulech a aplikacích. Cílově ho určuje členství v Lazuriu, které účet
 na GitHubu nepotřebuje; zatím rozhoduje živé členství v GitHub Organization.
+V Mission Control Organizace je každý Člen Organizace aspoň Čtenář modulu
+(rozhodnutí 0236, zatím nenasazené).
 
 **Čtenář modulu** Čte zdrojový kód modulu a nic nemění. Na GitHubu oprávnění
 `pull`. Sama tato role nedává žádnou roli v aplikaci modulu.
@@ -273,6 +276,7 @@ k repozitářům určuje GitHub. Samotný název role přístup neuděluje.
 Pojmenování odpovídá veřejným [rozhodnutím Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md),
 zejména 0170 a 0207 s jejich dodatky, 0169 pro Henryho a 0089 pro Buddyho.
 Názvy rolí určuje [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
+(anglicky) a čtení Mission Control [rozhodnutí 0236](https://github.com/Lazurio/LazurioPlatform/blob/cfbd1b3cf2887f4f254f2fa63a20f5f90e8ef26f/docs/decision-register.md#0236--mission-control-is-every-members-each-organization-member-reads-it-and-proposes-through-issues)
 (anglicky); dřívější názvy Builder, Steward a User už role neoznačují.
 Konkrétní instalace může používat starší popisky; technické názvy a příkazy
 zůstávají přesné. Pojmy krok za krokem používá [Úvodní kurz](/cs/guide/course/).
