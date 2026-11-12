@@ -4,7 +4,7 @@ description: "When you can control your Environment's chats from the ChatGPT app
 stableId: lazurio-doc-guide-phone-and-computer
 locale: en
 summary: "When you can control your Environment's chats from the ChatGPT app on your phone or from ChatGPT Desktop on your computer, and what to use when Connections does not offer it."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-12"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -33,10 +33,7 @@ It works only when all of these hold:
   AI pool ([Where your AI comes from](/en/guide/ai-source/), decision 0229);
 - Lazurio has recognized the remote-control feature in your Environment. The
   feature is experimental, so Lazurio checks for it and offers pairing only
-  where it finds it;
-- your Organization does **not** use public addresses (decision 0213). There
-  pairing shows as unavailable, and you use the web interface instead:
-  Launchpad, chat, MausBot and Buddy.
+  where it finds it.
 
 The ChatGPT app must be signed in with the same account as Codex in your
 Environment, ChatGPT Plus or higher.
@@ -60,7 +57,7 @@ If the page shows a message instead:
 | **First sign in with your ChatGPT account.** | Sign in at Settings → Getting started → Connect AI first. |
 | **Coming soon for Environments on the Organization's AI.** | Your Environment uses the Organization's AI pool. Pairing needs your own account. Ask your Organization Admin to move you to your own account, or whether your Organization has another way for your phone: see [How to ask the Organization Admin](/en/guide/ask-the-admin/). |
 | **A Team Environment has no phone pairing.** | Shared Team Environments are not paired with a person's phone. |
-| **Pairing is not available right now.** | Pairing is not available in this Environment now, for example in an Organization with public addresses. Use the web interface in your phone's browser, or try again later. |
+| **Pairing is not available right now.** | Pairing is not available in this Environment now. Open the Environment in your phone's browser with the Tailscale app turned on, if the phone is approved in the tailnet ([Device approval](/en/guide/device-approval/)), or try again later. |
 
 **Restart Codex** on that page ends the chats running in Codex. Use it only
 when nothing important is running.
@@ -73,10 +70,8 @@ and click **Add to Codex**. If the page does not offer it, work in the web
 interface in your browser.
 
 **SSH from your devices** on the same page is an advanced option. It is
-offered only where SSH into the Environment is allowed, never in an
-Organization with public addresses.
+offered only where SSH into the Environment is allowed.
 
-If your Organization reaches its Environments through a tailnet, a computer
-that connects to it also needs Tailscale and the access your Organization
-requires: see [Add a new device to the tailnet](/en/guide/tailscale-add-device/)
+A computer that connects this way also needs Tailscale and the access your
+Organization requires: see [Add a new device to the tailnet](/en/guide/tailscale-add-device/)
 and [Device approval](/en/guide/device-approval/).

@@ -4,12 +4,13 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-12"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0243
   - lazurio-environment-network-decisions
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
@@ -37,16 +38,17 @@ jakmile Prostředí odpoví. Když se adresa ani pak neotevře, pokračujte
 ## Proč Tailscale
 
 **Tailnet** je soukromá síť zařízení propojených přes
-[Tailscale](https://tailscale.com/). Ve výchozím stavu mají aplikace Prostředí
-na serveru, třeba jeho Launchpad, Chat nebo Automate, adresy, které fungují jen
-uvnitř tailnetu,
+[Tailscale](https://tailscale.com/). Aplikace Prostředí na serveru, třeba
+jeho Launchpad, Chat nebo Automate, mají adresy, které fungují jen uvnitř
+tailnetu,
 který je obsluhuje. Žádná veřejná cesta k nim nevede: mimo tento tailnet je
 prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Tento web
 není dostupný“.
 
-Organizace může místo toho přejít na veřejné adresy (rozhodnutí 0213, nasazené
-částečně). Její lidé pak tailnet nepotřebují a tato stránka se jich netýká: viz
-[Schválení zařízení](/cs/guide/device-approval/#kdy-zařízení-v-tailnetu-nepotřebujete).
+Do každého Prostředí se vstupuje jen přes tailnet
+([rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
+Lazurio App bude mít tailnet vestavěný; do jejího vydání použijte aplikaci
+Tailscale.
 
 K Prostředí tak vaše zařízení potřebuje tři věci:
 

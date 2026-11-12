@@ -4,7 +4,7 @@ description: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT 
 stableId: lazurio-doc-guide-phone-and-computer
 locale: cs
 summary: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT v telefonu nebo z ChatGPT Desktopu v počítači, a co použít, když to Připojení nenabízí."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-12"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -32,10 +32,7 @@ Funguje jen tehdy, když platí všechno z tohoto:
   ([Odkud bere vaše Prostředí AI](/cs/guide/ai-source/), rozhodnutí 0229);
 - Lazurio ve vašem Prostředí rozpoznalo funkci vzdáleného ovládání. Ta je
   zatím experimentální, proto ji Lazurio ověřuje a párování nabídne jen tam,
-  kde ji najde;
-- vaše Organizace **nepoužívá** veřejné adresy (rozhodnutí 0213). Tam se
-  párování ukazuje jako nedostupné a pracujete ve webovém rozhraní: Launchpad,
-  chat, MausBot a Buddy.
+  kde ji najde.
 
 Aplikace ChatGPT musí být přihlášená stejným účtem jako Codex ve vašem
 Prostředí, ChatGPT Plus a vyšší.
@@ -59,7 +56,7 @@ Když stránka místo toho ukáže hlášku:
 | **Nejdřív se přihlaste svým účtem ChatGPT.** | Nejdřív se přihlaste v Nastavení → Začínáme → Připojit AI. |
 | **Pro Prostředí s AI Organizace telefon připravujeme.** | Vaše Prostředí používá AI pool Organizace a párování potřebuje váš vlastní účet. Požádejte Admina Organizace o přechod na vlastní účet, nebo se zeptejte, jestli má vaše Organizace pro telefon jinou cestu; viz [Jak požádat Admina Organizace](/cs/guide/ask-the-admin/). |
 | **Týmové Prostředí párování telefonu nemá.** | Sdílené Týmové Prostředí se s telefonem jednoho člověka nepáruje. |
-| **Párování teď není dostupné.** | Párování v tomto Prostředí teď nejde, například v Organizaci s veřejnými adresami. Použijte webové rozhraní v prohlížeči telefonu, nebo to zkuste později. |
+| **Párování teď není dostupné.** | Párování v tomto Prostředí teď nejde. Otevřete Prostředí v prohlížeči telefonu se zapnutou aplikací Tailscale, pokud je telefon v tailnetu schválený ([Schválení zařízení](/cs/guide/device-approval/)), nebo to zkuste později. |
 
 **Restartovat Codex** na této stránce ukončí chaty, které v Codexu právě běží.
 Použijte ho, jen když nic důležitého neběží.
@@ -72,10 +69,9 @@ a klikněte na **Přidat do Codexu**. Když to stránka nenabízí, pracujte ve
 webovém rozhraní v prohlížeči.
 
 **SSH ze zařízení** na téže stránce je pokročilá možnost. Nabízí se jen tam,
-kde je SSH do Prostředí povolené, nikdy v Organizaci s veřejnými adresami.
+kde je SSH do Prostředí povolené.
 
-Pokud vaše Organizace vstupuje do svých Prostředí přes tailnet, potřebuje
-počítač, který se takto připojuje, ještě Tailscale a přístup, který vaše
-Organizace vyžaduje; viz [Přidání nového zařízení do
+Počítač, který se takto připojuje, potřebuje ještě Tailscale a přístup, který
+vaše Organizace vyžaduje; viz [Přidání nového zařízení do
 tailnetu](/cs/guide/tailscale-add-device/) a [Schválení
 zařízení](/cs/guide/device-approval/).

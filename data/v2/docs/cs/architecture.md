@@ -4,12 +4,13 @@ description: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace,
 stableId: lazurio-doc-architecture
 locale: cs
 summary: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace, moduly a služby okolo, co jde na GitHub a kde má modul data."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-12"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0243
   - lazurio-platform-module-standard-v0-1-20
   - lazurio-platform-module-standard-v0-1-21
   - lazurio-platform-module-parts-f14
@@ -46,15 +47,14 @@ repozitář. Stejný model bez technických pojmů vysvětluje stránka
 
 ## Vrstvy
 
-**Člověk a zařízení.** Ve výchozím stavu má vstup tři podmínky: síť (Tailscale
+**Člověk a zařízení.** Vstup má tři podmínky: síť (Tailscale
 ve správném tailnetu Headscale, ze zařízení schváleného Adminem Organizace),
 aktivní členství v Organizaci a oprávnění k celému Prostředí nebo k jedné
 aplikaci. Takový je cílový model
 [rozhodnutí 0192](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md)
 a přechod na něj není dokončený: jak se zařízení dostane dovnitř dnes, se může
-v jednotlivých tailnetech lišit. Organizace v režimu veřejného DNS (rozhodnutí
-0213, nasazené částečně) podmínku sítě a schválení zařízení nemá. Lidé se pak
-do webového rozhraní dostanou přes vstup serveru a přihlásí se účtem Lazuria.
+v jednotlivých tailnetech lišit. Do každého Prostředí se vstupuje jen přes
+tailnet ([rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
 
 **Prostředí.** Počítač, na kterém pracují agenti: Osobní, Pracovní nebo Týmové
 Prostředí. Agenti v něm pracují s plným přístupem, bez sandboxu a bez
@@ -191,4 +191,5 @@ označuje za návrh, který je třeba ověřit na prototypu, ne za ověřené ch
 - [Synchronizace obsahu](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md) ve vydání v0.1.20.
 - [Přístup k Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) ve verzi v0.1.21-rc.1.
 - [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) ve verzi v0.1.21-rc.1: rozhodnutí 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209, 0213 a 0228.
+- [Rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet), rozhodnuté 2026-11-12, zatím nenasazené: do každého Prostředí jen přes tailnet.
 - [Rozhodnutí F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (co modul drží) a [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (jeden generátor, osobní moduly).
