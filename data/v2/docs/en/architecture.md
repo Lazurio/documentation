@@ -53,9 +53,13 @@ Admin approved), active membership of the Organization, and a grant to the whole
 Environment or to one app. This is the target model of
 [decision 0192](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md),
 and the transition is not complete: how a device gets in today can still differ
-between tailnets. Every Environment is entered only through a tailnet; until it
-returns to its tailnet, the only exception is Lazurio's reference Organization
-([decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
+between tailnets.
+[Decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
+(decided, not yet deployed) makes the tailnet the only way into every
+Environment. Today the only public entry without a tailnet left is that of
+Lazurio's reference Organization, until its return to its tailnet: there people
+have no network condition or device approval, and they reach the web interface
+through the server's entry with a Lazurio account.
 
 **Environment.** The computer where agents work: a Personal, Work or Team
 Environment. Agents work there with full access, without a sandbox or approval of

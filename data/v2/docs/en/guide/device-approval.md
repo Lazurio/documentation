@@ -39,6 +39,12 @@ still does not open, ask the Organization Admin as that guide says.
 
 ## When you need no device in the tailnet
 
+- **Lazurio's reference Organization in its public entry**
+  ([decision 0213](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0213--network-for-people-an-organization-may-switch-from-tailnet-to-public-dns))
+  needs no tailnet and no device approval until it returns to its tailnet. You
+  sign in with your Lazurio account, but only to the web interface: Launchpad,
+  chat, MausBot and Buddy. There is no SSH and no phone pairing for people
+  there. No other Organization can switch to a public entry.
 - **A phone paired through the ChatGPT app**, where your Environment offers
   pairing ([Phone and computer](/en/guide/phone-and-computer/)). The phone
   needs no tailnet. You create the pairing code inside the Environment,

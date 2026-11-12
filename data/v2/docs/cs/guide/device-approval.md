@@ -38,6 +38,12 @@ neotevře, požádejte Admina Organizace podle tohoto návodu.
 
 ## Kdy zařízení v tailnetu nepotřebujete
 
+- **Referenční Organizace Lazuria ve veřejném vstupu**
+  ([rozhodnutí 0213](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0213--network-for-people-an-organization-may-switch-from-tailnet-to-public-dns))
+  tailnet ani schválení zařízení nepotřebuje, dokud se nevrátí do tailnetu.
+  Přihlásíte se Lazurio účtem, ale jen do webového rozhraní: Launchpad, chat,
+  MausBot a Buddy. SSH ani párování telefonu tam lidé nemají. Jiná Organizace
+  na veřejný vstup přejít nemůže.
 - **Telefon spárovaný přes aplikaci ChatGPT**, pokud ho vaše Prostředí
   nabízí ([Telefon a počítač](/cs/guide/phone-and-computer/)). Telefon tailnet
   nepotřebuje. Párovací kód ale vytvoříte uvnitř Prostředí, takže ho už
