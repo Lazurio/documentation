@@ -347,7 +347,7 @@
       "title": "Lazurio decision register, decision 0243: every Environment is entered only through a tailnet; Personal Environments outside a Conglomerate are in Lazurio's personal tailnet (decided 2026-11-12, not yet deployed; the public-DNS mode of decision 0213 is retired)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/c6c320b7362b724aea47cc297a96031c44ae49eb/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet",
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-12",
       "reviewDueAt": "2026-12-12"

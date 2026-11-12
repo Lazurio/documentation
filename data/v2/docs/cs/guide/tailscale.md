@@ -46,7 +46,7 @@ prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Te
 není dostupný“.
 
 Do Prostředí se vstupuje přes tailnet.
-[Rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
+[Rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/c6c320b7362b724aea47cc297a96031c44ae49eb/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
 (rozhodnuté, zatím nenasazené) z něj dělá jedinou cestu do každého Prostředí.
 Veřejný vstup bez tailnetu dnes zbývá jen u referenční Organizace Lazuria
 s veřejným Prostředím na vyzkoušení a skončí jejím návratem do tailnetu; viz
