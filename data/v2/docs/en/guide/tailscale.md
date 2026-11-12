@@ -4,12 +4,13 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-12"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0243
   - lazurio-environment-network-decisions
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
@@ -37,15 +38,16 @@ still does not open, see [Still not working?](#still-not-working)
 ## Why Tailscale
 
 A **tailnet** is a private network of devices connected with
-[Tailscale](https://tailscale.com/). By default, the apps of a Remote
-Environment, such as its Launchpad, Chat or Automate, have addresses that work
-only inside the tailnet that serves them. No public route leads to them: outside that tailnet
+[Tailscale](https://tailscale.com/). The apps of a Remote Environment, such
+as its Launchpad, Chat or Automate, have addresses that work only inside the
+tailnet that serves them. No public route leads to them: outside that tailnet
 your browser cannot open them, and usually cannot even find the address. It
 shows an error such as "This site can't be reached".
 
-An Organization can switch to public addresses instead (decision 0213, partly
-deployed). Its people then need no tailnet, and this page does not apply to them:
-see [Device approval](/en/guide/device-approval/#when-you-need-no-device-in-the-tailnet).
+Every Environment is entered only through a tailnet
+([decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
+Lazurio App will have the tailnet built in; until it is released, use the
+Tailscale app.
 
 To reach an Environment, your device needs three things:
 

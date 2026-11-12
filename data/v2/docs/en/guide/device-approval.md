@@ -4,7 +4,7 @@ description: "Why a registered device may still not reach your Environments, who
 stableId: lazurio-doc-guide-device-approval
 locale: en
 summary: "Why a registered device may still not reach your Environments, who decides about access and what to do when you lose a device."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-12"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -39,11 +39,6 @@ still does not open, ask the Organization Admin as that guide says.
 
 ## When you need no device in the tailnet
 
-- **An Organization with public addresses**
-  ([decision 0213](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0213--network-for-people-an-organization-may-switch-from-tailnet-to-public-dns))
-  needs no tailnet and no device approval. You sign in with your Lazurio
-  account, but only to the web interface: Launchpad, chat, MausBot and Buddy.
-  There is no SSH and no phone pairing for people there.
 - **A phone paired through the ChatGPT app**, where your Environment offers
   pairing ([Phone and computer](/en/guide/phone-and-computer/)). The phone
   needs no tailnet. You create the pairing code inside the Environment,

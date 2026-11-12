@@ -4,12 +4,13 @@ description: "How people, devices, Environments, Organizations, modules and outs
 stableId: lazurio-doc-architecture
 locale: en
 summary: "How people, devices, Environments, Organizations, modules and outside services fit together, what goes to GitHub and where a module keeps its data."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-12"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0243
   - lazurio-platform-module-standard-v0-1-20
   - lazurio-platform-module-standard-v0-1-21
   - lazurio-platform-module-parts-f14
@@ -46,15 +47,14 @@ same model without technical terms.
 
 ## The layers
 
-**Person and device.** By default, entry has three conditions: the network
+**Person and device.** Entry has three conditions: the network
 (Tailscale on the right Headscale tailnet, from a device the Organization
 Admin approved), active membership of the Organization, and a grant to the whole
 Environment or to one app. This is the target model of
 [decision 0192](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md),
 and the transition is not complete: how a device gets in today can still differ
-between tailnets. An Organization in public DNS mode (decision 0213, partly
-deployed) drops the network condition and device approval. People then reach the
-web interface through the server's entry with a Lazurio account.
+between tailnets. Every Environment is entered only through a tailnet
+([decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
 
 **Environment.** The computer where agents work: a Personal, Work or Team
 Environment. Agents work there with full access, without a sandbox or approval of
@@ -198,4 +198,5 @@ prototype, not verified behaviour.
 - [Content synchronization](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md) at release v0.1.20.
 - [Environment access](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) at v0.1.21-rc.1.
 - [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0192, 0193, 0196, 0198, 0203, 0209, 0213 and 0228.
+- [Decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet), decided 2026-11-12, not yet deployed: every Environment only through a tailnet.
 - [Decision F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (what a module holds) and [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (one generator, personal modules).
