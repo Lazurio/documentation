@@ -38,16 +38,19 @@ jakmile Prostředí odpoví. Když se adresa ani pak neotevře, pokračujte
 ## Proč Tailscale
 
 **Tailnet** je soukromá síť zařízení propojených přes
-[Tailscale](https://tailscale.com/). Aplikace Prostředí na serveru, třeba
+[Tailscale](https://tailscale.com/). Aplikace Prostředí v tailnetu, třeba
 jeho Launchpad, Chat nebo Automate, mají adresy, které fungují jen uvnitř
 tailnetu,
 který je obsluhuje. Žádná veřejná cesta k nim nevede: mimo tento tailnet je
 prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Tento web
 není dostupný“.
 
-Do každého Prostředí se vstupuje jen přes tailnet; dokud se nevrátí do
-tailnetu, je výjimkou jen referenční Organizace Lazuria s veřejným Prostředím na
-vyzkoušení ([rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
+Do Prostředí se vstupuje přes tailnet.
+[Rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
+(rozhodnuté, zatím nenasazené) z něj dělá jedinou cestu do každého Prostředí.
+Veřejný vstup bez tailnetu dnes zbývá jen u referenční Organizace Lazuria
+s veřejným Prostředím na vyzkoušení a skončí jejím návratem do tailnetu; viz
+[Schválení zařízení](/cs/guide/device-approval/#kdy-zařízení-v-tailnetu-nepotřebujete).
 Lazurio App bude mít tailnet vestavěný; do jejího vydání použijte aplikaci
 Tailscale.
 
