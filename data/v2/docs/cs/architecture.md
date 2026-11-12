@@ -54,7 +54,8 @@ aplikaci. Takový je cílový model
 [rozhodnutí 0192](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md)
 a přechod na něj není dokončený: jak se zařízení dostane dovnitř dnes, se může
 v jednotlivých tailnetech lišit. Do každého Prostředí se vstupuje jen přes
-tailnet ([rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
+tailnet; dokud se nevrátí do tailnetu, je výjimkou jen referenční Organizace
+Lazuria ([rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
 
 **Prostředí.** Počítač, na kterém pracují agenti: Osobní, Pracovní nebo Týmové
 Prostředí. Agenti v něm pracují s plným přístupem, bez sandboxu a bez
