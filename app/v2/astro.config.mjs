@@ -1,3 +1,4 @@
+import { rename, rmdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'astro/config'
 import { unified } from '@astrojs/markdown-remark'
@@ -22,6 +23,19 @@ function accessibleTables() {
   }
 }
 
+// Cloudflare Pages answers an unknown path with the closest 404.html and HTTP
+// 404. Astro writes the Czech page to cs/404/index.html, so it is moved to
+// cs/404.html, which also keeps /cs/404/ from existing as a 200 page.
+const czechNotFound = {
+  name: 'lazurio-czech-not-found',
+  hooks: {
+    'astro:build:done': async ({ dir }) => {
+      await rename(new URL('cs/404/index.html', dir), new URL('cs/404.html', dir))
+      await rmdir(new URL('cs/404/', dir))
+    },
+  },
+}
+
 export default defineConfig({
   site: 'https://documentation.lazurio.ai',
   publicDir: fileURLToPath(new URL('../../data/v2/public', import.meta.url)),
@@ -40,8 +54,11 @@ export default defineConfig({
     preview: { strictPort: true },
   },
   integrations: [
+    czechNotFound,
     starlight({
       title: 'Lazurio Docs',
+      // Our own localized not-found pages live in src/pages (404 for English, cs/404).
+      disable404Route: true,
       expressiveCode: {
         // Prompts are prose: keep them readable without horizontal scrolling.
         defaultProps: { overridesByLang: { text: { wrap: true } } },
