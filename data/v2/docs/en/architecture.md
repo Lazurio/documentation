@@ -53,7 +53,8 @@ Admin approved), active membership of the Organization, and a grant to the whole
 Environment or to one app. This is the target model of
 [decision 0192](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md),
 and the transition is not complete: how a device gets in today can still differ
-between tailnets. Every Environment is entered only through a tailnet
+between tailnets. Every Environment is entered only through a tailnet; until it
+returns to its tailnet, the only exception is Lazurio's reference Organization
 ([decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
 
 **Environment.** The computer where agents work: a Personal, Work or Team

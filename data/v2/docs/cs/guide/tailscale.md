@@ -45,8 +45,9 @@ který je obsluhuje. Žádná veřejná cesta k nim nevede: mimo tento tailnet j
 prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Tento web
 není dostupný“.
 
-Do každého Prostředí se vstupuje jen přes tailnet
-([rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
+Do každého Prostředí se vstupuje jen přes tailnet; dokud se nevrátí do
+tailnetu, je výjimkou jen referenční Organizace Lazuria s veřejným Prostředím na
+vyzkoušení ([rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/bf5a83d95e59ad3eb40abc91e20e4877de50c678/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)).
 Lazurio App bude mít tailnet vestavěný; do jejího vydání použijte aplikaci
 Tailscale.
 
