@@ -4,7 +4,7 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

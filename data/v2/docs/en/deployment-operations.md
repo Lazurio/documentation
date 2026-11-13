@@ -4,8 +4,8 @@ description: "Plan the deployment, assign owners and test recovery and access re
 stableId: lazurio-doc-deployment-operations
 locale: en
 summary: "Plan the deployment, assign owners and test recovery and access revocation."
-updatedAt: "2026-10-29"
-reviewedAt: "2026-10-29"
+updatedAt: "2026-11-13"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

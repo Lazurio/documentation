@@ -4,7 +4,7 @@ description: "Public sources behind product and security claims, and the limits 
 stableId: lazurio-doc-public-evidence
 locale: en
 summary: "Public sources behind product and security claims, and the limits of that evidence."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
