@@ -4,8 +4,8 @@ description: "What to verify before a Lazurio pilot and production deployment."
 stableId: lazurio-doc-it-administrators
 locale: en
 summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
-updatedAt: "2026-10-29"
-reviewedAt: "2026-10-29"
+updatedAt: "2026-11-13"
+reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true

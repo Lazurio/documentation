@@ -4,7 +4,7 @@ description: "Who assigns work, how an agent prepares a draft and who approves p
 stableId: lazurio-doc-how-it-works
 locale: en
 summary: "Who assigns work, how an agent prepares a draft and who approves publication."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:

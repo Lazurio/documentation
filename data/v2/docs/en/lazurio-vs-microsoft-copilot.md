@@ -4,7 +4,7 @@ description: "Compare the work, access and administration each tool requires."
 stableId: lazurio-doc-copilot-comparison
 locale: en
 summary: "Compare the work, access and administration each tool requires."
-updatedAt: "2026-11-05"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

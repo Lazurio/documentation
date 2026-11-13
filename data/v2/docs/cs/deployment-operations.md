@@ -4,7 +4,7 @@ description: "Jak připravit nasazení, určit odpovědné osoby a ověřit obno
 stableId: lazurio-doc-deployment-operations
 locale: cs
 summary: "Jak připravit nasazení, určit odpovědné osoby a ověřit obnovu i odebrání přístupu."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
