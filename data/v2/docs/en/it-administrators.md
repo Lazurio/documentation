@@ -4,12 +4,13 @@ description: "What to verify before a Lazurio pilot and production deployment."
 stableId: lazurio-doc-it-administrators
 locale: en
 summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
-updatedAt: "2026-09-15"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-license
   - lazurio-architecture
@@ -36,10 +37,12 @@ additional sandbox around the selected agent client.
 Before approval, identify **the account, machine, Organization, tool and
 available data**. Separately verify who may publish the result.
 
-![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
+![The user's machine is one trust domain holding the Lazurio root, Organization checkouts, the task agent client and local integrations. Data leaves it for GitHub, the selected model provider, approved application providers and optional hosted services.](/diagrams/lazurio-data-flow.svg)
 
-The diagram is a reference model. Optional hosted services are separate
-services and belong in the inventory only when a deployment enables them.
+The diagram is a reference model. Its boundary is the user's machine: one
+shared trust domain, not a hosted Environment. Optional hosted services are
+separate services and belong in the inventory only when a deployment enables
+them.
 
 ## Decision snapshot
 
@@ -57,7 +60,7 @@ source links and limits of these claims.
 
 | Area | Lazurio's operating model | What IT should verify |
 | --- | --- | --- |
-| Identity | The signed-in principal supplies authority; a task agent has no independent rights. | The account, repository membership and machine owner are correct. |
+| Identity | The signed-in user supplies authority; a task agent has no independent rights. | The account, repository membership and machine owner are correct. |
 | Company boundary | One company maps to one Organization and GitHub access boundary. One machine remains one trust domain. | Only intended repositories are mounted; use separate machines or equivalent isolation when companies must not share an OS boundary. |
 | Working context | Work begins in checked-out source and explicitly enabled tools. | Endpoint protection, local data scope and provider terms meet policy. |
 | Publication | Agent output stays editable until an authorized merge, deployment, send or provider action. | Branch rules, reviews and provider permissions enforce the intended gate. |
@@ -100,7 +103,7 @@ permission and approval from the person responsible for that decision.
     <source media="(max-width: 80rem)" srcset="/diagrams/draft-publication-flow-mobile.svg" />
     <img src="/diagrams/draft-publication-flow.svg" alt="A person defines the outcome, an Agent prepares a proposed change and proof, and the change takes effect only when the account is allowed to perform it and the responsible person approves it." />
   </picture>
-  <figcaption>The Agent prepares; it does not self-authorize. Lazurio calls the identity responsible for the decision the Principal.</figcaption>
+  <figcaption>The agent prepares the result. The authorized user decides whether to publish it.</figcaption>
 </figure>
 
 ## Minimum approval package

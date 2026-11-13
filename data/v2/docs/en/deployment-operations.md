@@ -4,12 +4,13 @@ description: "Plan the deployment, assign owners and test recovery and access re
 stableId: lazurio-doc-deployment-operations
 locale: en
 summary: "Plan the deployment, assign owners and test recovery and access revocation."
-updatedAt: "2026-09-15"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -26,7 +27,7 @@ local working copies and individual modules. Start by listing the machines,
 repositories, AI tools, model providers and connected services you will use.
 Name an owner for each.
 
-![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
+![The user's machine is one trust domain holding the Lazurio root, Organization checkouts, the task agent client and local integrations. Data leaves it for GitHub, the selected model provider, approved application providers and optional hosted services.](/diagrams/lazurio-data-flow.svg)
 
 ## Current and target state
 
@@ -38,7 +39,7 @@ Name an owner for each.
 | Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |
 | Dashboard, hosted workspace and Resident/Buddy | Optional, separately deployed | Inventory each enabled service with its own identity, network, storage and operating owner. |
 
-Assign an owner to each part of the installation: the principal's machine,
+Assign an owner to each part of the installation: the user's machine,
 the local Lazurio root, Organization repositories, modules, GitHub, the
 agent client, model provider and each connected application.
 Some modules remain local; others run internally or publish a public website or service.

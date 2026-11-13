@@ -4,12 +4,14 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
+  - lazurio-onboarding-decision-register
   - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
@@ -56,10 +58,11 @@ služeb pro konkrétní nasazení.
 
 ## Identita a oprávnění
 
-[Model spolupráce](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-označuje jako Principála člověka nebo dlouhodobější AI identitu, pro niž se
-práce vykonává. Task Agent je dočasná pracovní relace a nemá vlastní nezávislá
-oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost poskytovatele:
+Současné [názvosloví uživatele a agentů](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
+označuje jako uživatele člověka, se kterým a pro kterého agenti pracují. Má
+poslední slovo. Podle [rozhodnutí 0089](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0089--buddy-is-the-persons-trusted-personal-representative)
+(anglicky) ho Buddy zastupuje v jeho oprávněních a v mandátech, které mu dá.
+Task Agent je dočasná pracovní relace a nemá vlastní nezávislá oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost poskytovatele:
 rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
 službách.
 
@@ -78,7 +81,7 @@ nejsou oddělená prostředí operačního systému: proces se stejným účinn�
 může hranici adresářů překročit. Kde firmy nemají sdílet hranici operačního
 systému, je potřeba oddělené zařízení nebo rovnocenná infrastruktura.
 
-Personalspace patří jednomu Principálovi. Není to společné úložiště Organizace
+Personalspace patří jednomu uživateli. Není to společné úložiště Organizace
 ani zkratka pro přesun firemních dat přes přístupové hranice. Jde o hranici
 přístupu a procesu; bez dalšího opatření konkrétního nasazení se nemá popisovat
 jako kryptografické oddělení.

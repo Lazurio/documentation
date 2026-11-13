@@ -4,12 +4,14 @@ description: "Public sources behind product and security claims, and the limits 
 stableId: lazurio-doc-public-evidence
 locale: en
 summary: "Public sources behind product and security claims, and the limits of that evidence."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-13"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-user-roles-current
+  - lazurio-onboarding-decision-register
   - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
@@ -55,9 +57,11 @@ not itself promise hosting, support or a service level for a concrete rollout.
 
 ## Identity and authority
 
-The [collaboration model](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md)
-defines a principal as the person or longer-lived AI identity for whom work is
-done. A task agent is a temporary work session with no permissions of its own.
+The current [user and agent terminology](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
+names the user as the person agents work with and for. The user has the final
+say. Under [decision 0089](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0089--buddy-is-the-persons-trusted-personal-representative),
+Buddy represents that user within their rights and the mandates they give.
+A task agent is a temporary work session with no permissions of its own.
 Access comes from GitHub, the operating system and connected services.
 A prompt cannot grant it.
 
@@ -76,7 +80,7 @@ isolated operating-system environments. A process with the same effective filesy
 that directory boundary. Stronger isolation requires separate machines or
 equivalent infrastructure.
 
-Personalspace is private to one principal and is not a shared Organization
+Personalspace is private to one user and is not a shared Organization
 store. This is an access and process boundary; it should not be described as
 cryptographic isolation unless a deployment separately provides that control.
 
