@@ -27,7 +27,7 @@ local working copies and individual modules. Start by listing the machines,
 repositories, AI tools, model providers and connected services you will use.
 Name an owner for each.
 
-![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
+![The user's machine is one trust domain holding the Lazurio root, Organization checkouts, the task agent client and local integrations. Data leaves it for GitHub, the selected model provider, approved application providers and optional hosted services.](/diagrams/lazurio-data-flow.svg)
 
 ## Current and target state
 
