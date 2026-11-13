@@ -149,7 +149,8 @@ pracovali s nejnovějšími změnami.
 
 <div class="lz-glossary">
 
-**Uživatel** Člověk, pro kterého agenti pracují a který má poslední slovo.
+**Uživatel** Člověk, se kterým a pro kterého agenti pracují a který má poslední
+slovo. Agenti jednají jeho jménem v jeho živých oprávněních a v rozsahu zadání.
 Samotné slovo uživatel roli neoznačuje. Když má někdo dostat roli „admina“
 nebo „uživatele“, vždy se upřesní, jestli jde o Organizaci, nebo o kterou
 aplikaci.
@@ -203,6 +204,10 @@ Prostředí.
 
 **Persona** Účet agenta Organizace, třeba Henryho. Nikdy neoznačuje roli
 člověka.
+
+**Principál** Označení odpovědné identity ve starších zdrojích Lazuria.
+Aktuální texty mluví o uživateli jako o člověku, který práci zadává a má
+poslední slovo.
 
 **Task Agent** Pracovní relace AI nástroje pro konkrétní úkol. Nemá vlastní
 oprávnění; používá přístupy dostupné v Prostředí a řídí se zadáním uživatele.

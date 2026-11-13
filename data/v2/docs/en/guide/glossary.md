@@ -154,9 +154,10 @@ with the latest changes.
 
 <div class="lz-glossary">
 
-**User** The person agents work for, who has the final say. The bare word
-user names no role. When someone is to be made an "admin" or a "user", say
-whether the Organization or which application is meant.
+**User** The person agents work with and for, who has the final say. Agents
+act on their behalf within their live rights and the task they were given.
+The bare word user names no role. When someone is to be made an "admin" or a
+"user", say whether the Organization or which application is meant.
 
 **Role** A named access of a person at one level: in the Organization, in a
 module, in an application or in an Environment. It is written with a capital
@@ -213,6 +214,9 @@ their Organization; anyone else only when it is granted for one Environment.
 
 **Persona** An Organization's agent account, such as Henry's. It never names
 a person's role.
+
+**Principal** A term for the responsible identity in older Lazurio sources.
+Current copy uses “user” for the person who assigns work and has the final say.
 
 **Task Agent** An AI tool session for a particular task. It has no
 permissions of its own; it uses access available in the Environment and

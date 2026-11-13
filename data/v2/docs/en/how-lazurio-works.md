@@ -9,6 +9,7 @@ reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-user-roles-current
+  - lazurio-onboarding-decision-register
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -24,8 +25,10 @@ the result. The agent may prepare a document, an application change or other
 work. Publishing or deploying that result requires approval from someone
 authorized to make the decision. The agent cannot authorize itself.
 
-The roles below follow the current user and agent vocabulary. For Environment
-and Apps names, see the [glossary](/en/guide/glossary/). What a module is
+User, Buddy and task agent below follow the current user and agent
+vocabulary; Organization, Workspace module and Personalspace still describe
+the older source model. For current Environment and Apps names, see the
+[glossary](/en/guide/glossary/). What a module is
 today is explained in [Modules](/en/guide/modules/), and how the parts fit
 together in [Architecture](/en/architecture/).
 
@@ -33,12 +36,14 @@ together in [Architecture](/en/architecture/).
 
 **User** is the person agents work with and for. The user holds real
 permissions and has the final say. In an Organization, that person is a
-**Colleague**. This is separate from the Organization User role: a user may
-hold User, Builder, Steward or Admin permissions. The role name alone does
-not grant access.
+**Colleague**, whose roles and Teams decide what they may do. The bare word
+user names no role: roles always name their level, such as Organization Admin,
+Module Contributor or Application User. A role name alone does not grant
+access.
 
 **Buddy** is the user's personal AI representative. It acts on the user's
-behalf within their permissions and mandate; it is not a separate user.
+behalf within their rights and the mandates they give; it is not a separate
+user.
 
 **Task agent** is the active tool session. It works for the user and has
 no independent authority. It can propose and prepare; a prompt does not make it
