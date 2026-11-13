@@ -37,10 +37,12 @@ additional sandbox around the selected agent client.
 Before approval, identify **the account, machine, Organization, tool and
 available data**. Separately verify who may publish the result.
 
-![Lazurio deployment and data-flow overview](/diagrams/lazurio-data-flow.svg)
+![The user's machine is one trust domain holding the Lazurio root, Organization checkouts, the task agent client and local integrations. Data leaves it for GitHub, the selected model provider, approved application providers and optional hosted services.](/diagrams/lazurio-data-flow.svg)
 
-The diagram is a reference model. Optional hosted services are separate
-services and belong in the inventory only when a deployment enables them.
+The diagram is a reference model. Its boundary is the user's machine: one
+shared trust domain, not a hosted Environment. Optional hosted services are
+separate services and belong in the inventory only when a deployment enables
+them.
 
 ## Decision snapshot
 

@@ -6,7 +6,9 @@ and the Inter typeface. They hold no screenshots, accounts or customer data.
 - `company-to-github`, `human-directed-work`, `draft-publication-flow` and their
   `-mobile` variants are drawn for the overview pages.
 - `lazurio-data-flow.svg` draws the older local model of the source revision that
-  `it-administrators` and `deployment-operations` cite.
+  `it-administrators` and `deployment-operations` cite. Its boundary is the
+  user's machine as one trust domain, not a hosted Environment; hosted services
+  sit outside it.
 - `lazurio-architecture.svg`, `lazurio-architecture-mobile.svg`,
   `lazurio-architecture-cs.svg` and `lazurio-architecture-cs-mobile.svg` were drawn
   on 2026-11-05 for the page Architecture, written from one layout so that the two
