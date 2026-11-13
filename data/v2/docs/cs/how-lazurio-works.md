@@ -9,6 +9,7 @@ reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
   - lazurio-user-roles-current
+  - lazurio-onboarding-decision-register
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
@@ -27,20 +28,23 @@ Agent si tuto pravomoc nemůže udělit sám.
 Model v odkazované revizi popisuje [architektura Lazuria](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
 a [pravidla spolupráce s Agenty](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md).
 
-Níže jsou role podle současného názvosloví uživatele a agentů. Názvy Prostředí
-a Apps najdete ve [slovníčku](/cs/guide/glossary/). Co je modul dnes, vysvětluje
+Uživatel, Buddy a Task Agent níže odpovídají současnému názvosloví uživatele
+a agentů; Organizace, Workspace modul a Personalspace dál popisují starší model
+zdrojů. Aktuální názvy Prostředí a Apps najdete ve
+[slovníčku](/cs/guide/glossary/). Co je modul dnes, vysvětluje
 stránka [Moduly](/cs/guide/modules/) a jak do sebe části zapadají, stránka
 [Architektura](/cs/architecture/).
 
 ## Kdo co dělá
 
 **Uživatel** je člověk, se kterým a pro kterého agenti pracují. Drží skutečná
-oprávnění a má poslední slovo. V Organizaci je **Kolegou**. Tento vztah
-k agentům je oddělený od role Organization User: uživatel může mít oprávnění
-User, Builder, Steward nebo Admin. Samotný název role přístup neuděluje.
+oprávnění a má poslední slovo. V Organizaci je **Kolegou**; co smí, určují jeho
+role a Teamy. Samotné slovo uživatel roli neoznačuje: role vždy uvádí svou
+úroveň, třeba Admin Organizace, Přispěvatel modulu nebo Uživatel aplikace.
+Samotný název role přístup neuděluje.
 
 **Buddy** je osobní AI zástupce uživatele. Jedná jeho jménem v jeho
-oprávněních a mandátu; sám není dalším uživatelem.
+oprávněních a v mandátech, které mu dá; sám není dalším uživatelem.
 
 **Task Agent** je právě běžící pracovní relace s AI nástrojem. Pracuje pro
 uživatele a nemá vlastní oprávnění. Umí navrhnout a připravit práci; prompt z
