@@ -331,10 +331,10 @@ provozovatele sítě.
 
 **Cíl.** Model přístupu Lazuria (rozhodnutí 0245) popisuje zaregistrované
 zařízení, které nikam nedosáhne, dokud ho Admin Organizace neschválí
-v Přehledu Organizace; schválení se zapíše do Lazurio Auth, platí do minut
-a vlastní ztracené zařízení může člověk odebrat hned sám. Cestou k tomu
-provádí schválení služba na Conglomerate Hostu během desítek sekund
-a zapisuje ho do konfigurace Organizace jako auditní záznam. To se teprve
+v Přehledu Organizace; schválení provede služba na Conglomerate Hostu během
+desítek sekund a zapíše ho do konfigurace Organizace jako auditní záznam.
+Vlastní ztracené zařízení může člověk odebrat hned sám. Pro GEN4 je
+rozhodnuto, že se schválení zapisuje do Lazurio Auth. To se teprve
 staví (`issue-2026-11-03-002`). Návod netvrdí, že to už pro vaši Organizaci
 běží.
 

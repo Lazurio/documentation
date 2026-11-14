@@ -56,10 +56,11 @@ and the transition is not complete: how a device gets in today can still differ
 between tailnets.
 [Decision 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (the target model, not yet deployed) makes the tailnet the only way into every
-Environment. Today the only public entry without a tailnet left is that of
+Environment. Today two public entries without a tailnet still run. One is that of
 Lazurio's reference Organization, until its return to its tailnet: there people
 have no network condition or device approval, and they reach the web interface
-through the server's entry with a Lazurio account.
+through the server's entry with a Lazurio account. The other is the public entry
+of Personal Environments, until its removal is deployed.
 
 **Environment.** The computer where agents work: a Personal, Work or Team
 Environment. Agents work there with full access, without a sandbox or approval of

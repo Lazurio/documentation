@@ -7,10 +7,14 @@
   0192, 0228 and 0243. An Organization Owner is no longer described as the
   Organization Admin: until the Admin role is deployed, an active Organization
   Owner performs the Admin's administrative acts and gets no access to an
-  Environment by them. The `infra` repository belongs to the Organization
-  Owners, the Conglomerate Host is administered by its holder and never
-  through the Organization Admin role, and service entry is described as
-  decided: opened with a reason and passing a recording entry point. Pages:
+  Environment by them; the Admin as a role held by Lazurio Auth is marked as
+  decided for GEN4. The `infra` repository belongs to the Organization
+  Owners, the Conglomerate Host is administered by its holder from devices
+  approved for it, never through the Organization Admin role and not from a
+  Personal Environment, and service entry is described as decided for GEN4:
+  opened with a reason and passing a recording entry point. The pages name
+  both public entries that still run: the reference Organization's and that
+  of Personal Environments, until its removal is deployed. Pages:
   GitHub baseline, Servers and the Conglomerate Host, Architecture, and in the
   Guide the glossary, Ask the Admin, device approval, Tailscale, adding a
   device and the first sign-in, in English and Czech. A new source pins the

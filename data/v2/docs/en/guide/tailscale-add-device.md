@@ -333,11 +333,11 @@ person directly which device is theirs, and ask your network operator how to
 submit the approval.
 
 **Target.** Lazurio's access model (decision 0245) describes a registered
-device that reaches nothing until the Organization Admin approves it in Dashboard; the
-approval is recorded in Lazurio Auth and takes effect within minutes, and a
-person can remove their own lost device at once. On the way there, a
-service on the Conglomerate Host applies an approval within tens of seconds
-and writes it to the Organization's configuration as an audit entry. That
+device that reaches nothing until the Organization Admin approves it in Dashboard, with a
+service on the Conglomerate Host that applies the approval within tens of
+seconds and writes it to the Organization's configuration as an audit entry;
+a person can remove their own lost device at once. For GEN4 the approval is
+decided to be recorded in Lazurio Auth instead. That
 is being built (`issue-2026-11-03-002`). This guide does not claim that it
 already runs for your Organization.
 
