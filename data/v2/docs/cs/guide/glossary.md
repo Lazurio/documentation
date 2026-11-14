@@ -4,12 +4,13 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -163,9 +164,11 @@ rozhoduje skutečný přístup.
 do Prostředí přístup nemá.
 
 **Admin Organizace** Spravuje členy, Teamy, přístupy a Prostředí Organizace;
-tím ale nezískává přístup do cizího Personalspace. Je to role Lazuria, kterou
-jmenuje Vlastník Organizace (zatím nenasazená); do jejího nasazení je Adminem
-Organizace aktivní Vlastník Organizace.
+tím ale nezískává přístup do cizího Personalspace ani do ničího Osobního
+Prostředí. Správní úkony Admina Organizace, třeba schvalování zařízení
+a odpovědi na žádosti, dnes dělá aktivní Vlastník Organizace a vstup do
+žádného Prostředí jimi nezískává. Pro GEN4 je rozhodnutý jako role Lazuria,
+kterou jmenuje Vlastník Organizace (zatím nenasazená).
 
 **Člen Organizace** Každý další člověk v Organizaci. Co smí, plyne z jeho
 rolí v modulech a aplikacích. Cílově ho určuje členství v Lazuriu, které účet
@@ -195,9 +198,11 @@ smí, určuje také pravidlo Organizace v kódu modulu.
 **Přidělený uživatel** Člověk, kterému je přidělené Pracovní Prostředí.
 
 **Servisní vstup** Vstup do Prostředí pro někoho jiného, než je jeho
-Přidělený uživatel. Není to role. Podle rozhodnutí 0228, které zatím není
-nasazené, bude mít Admin Organizace servisní vstup do každého Prostředí své
-Organizace, kdokoli jiný jen tehdy, když mu ho někdo udělí pro jedno
+Přidělený uživatel. Není to role. Podle rozhodnutí 0247, které platí pro GEN4
+a zatím není nasazené, bude mít Admin Organizace servisní vstup do každého Pracovního
+a Týmového Prostředí své Organizace, nikdy do Osobního Prostředí: otevírá ho
+s důvodem, vstup vede přes nahrávací vstupní bod a ve výchozí úrovni Admin
+jen pozoruje. Kdokoli jiný ho má jen tehdy, když mu ho někdo udělí pro jedno
 Prostředí.
 
 **Persona** Účet agenta Organizace, třeba Henryho. Nikdy neoznačuje roli

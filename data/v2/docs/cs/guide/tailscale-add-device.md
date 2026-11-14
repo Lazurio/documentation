@@ -4,12 +4,13 @@ description: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace,
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: cs
 summary: "Nainstalujte Tailscale, zadejte přihlašovací server Organizace, přihlaste se účtem Lazurio a počkejte na schválení Adminem Organizace."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-environment-access-model-device-approval
   - lazurio-agent-manual-device-enrollment
   - lazurio-device-node-names
@@ -328,11 +329,14 @@ minut. Dashboard čekající zařízení zatím neukazuje: s člověkem se pří
 domluvte, které zařízení je jeho, a postup podání schválení si vyžádejte od
 provozovatele sítě.
 
-**Cíl.** Model přístupu Lazuria (rozhodnutí 0192) popisuje zaregistrované
-zařízení, které nikam nedosáhne, dokud ho Admin Organizace neschválí v Dashboardu,
-a službu na Conglomerate Hostu, která schválení provede během desítek sekund.
-To se teprve staví (`issue-2026-11-03-002`). Návod netvrdí, že to už pro vaši
-Organizaci běží.
+**Cíl.** Model přístupu Lazuria (rozhodnutí 0245) popisuje zaregistrované
+zařízení, které nikam nedosáhne, dokud ho Admin Organizace neschválí
+v Přehledu Organizace; schválení provede služba na Conglomerate Hostu během
+desítek sekund a zapíše ho do konfigurace Organizace jako auditní záznam.
+Vlastní ztracené zařízení může člověk odebrat hned sám. Pro GEN4 je
+rozhodnuto, že se schválení zapisuje do Lazurio Auth. To se teprve
+staví (`issue-2026-11-03-002`). Návod netvrdí, že to už pro vaši Organizaci
+běží.
 
 Před schválením ověřte:
 

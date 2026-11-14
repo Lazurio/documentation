@@ -1651,6 +1651,16 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-05",
       "reviewDueAt": "2026-12-05"
+    },
+    {
+      "id": "lazurio-decision-register-access-0245-0247",
+      "title": "Lazurio decision register on 2026-11-14: decisions 0245 (who is who in an Organization: its Deployment Repo holds the boundaries of trust and Lazurio Auth their use), 0246 (the network: every Environment only through a tailnet, Conglomerates and Lazurio's personal tailnet) and 0247 (entry into an Environment and its record); in force as the target model, the transition is not complete; they consolidate decisions 0192, 0202, 0224, 0228, 0243 and 0244; and decision 0234 as amended on 2026-11-13 (until the Organization Admin role is deployed, an active Organization Owner performs the Admin's administrative acts and gets no access to Environments by them)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-14",
+      "reviewDueAt": "2026-12-14"
     }
   ]
 }
