@@ -4,12 +4,13 @@ description: "Konvence pro Organizaci, která provozuje vlastní servery: jména
 stableId: lazurio-doc-servers-conglomerate-host
 locale: cs
 summary: "Jména serverů a Prostředí služeb, jeden IPv4 prefix na Conglomerate Host, správa Vlastníkem Organizace se jmenovitou identitou, přesnými granty a cestou obnovy a dva samostatné výsledky předání Prostředí na serveru."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-02"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-root-operator-machine-access
   - lazurio-root-conglomerate-owner-administration
   - lazurio-root-hosted-machine-handover
@@ -28,12 +29,12 @@ Kde je níže pravidlo jen konvence, nic ho nekontroluje: nic neuděluje a kvůl
 ## Jména
 
 - **Virtualizační host:** `<org>-proxmox-NN`, například `example-proxmox-01`. `<org>` je krátký štítek, který Vlastník Organizace zvolí jednou. Nemění se, když se změní GitHub login nebo DNS jméno Organizace, takže kdo spravuje víc Organizací, rozliší své hosty v konzoli poskytovatele, v SSH i v tailnetu. Číslování začíná `01` a smí přerůst dvě číslice. Je to konvence.
-- **Prostředí služeb:** každý server Organizace má právě jedno `services-NN` s číslem svého serveru (`<org>-proxmox-01` má `services-01`). Je to Pracovní Prostředí jen pro Adminy Organizace (rozhodnutí 0228, zatím nenasazené) a každá služba v něm běží ve vlastním kontejneru. Když mu nestačí výkon, zvětší se; druhé na tomtéž serveru nevzniká (rozhodnutí 0209).
+- **Prostředí služeb:** každý server Organizace má právě jedno `services-NN` s číslem svého serveru (`<org>-proxmox-01` má `services-01`). Je to Pracovní Prostředí jen pro Adminy Organizace (rozhodnutí 0245, zatím nenasazené) a každá služba v něm běží ve vlastním kontejneru. Když mu nestačí výkon, zvětší se; druhé na tomtéž serveru nevzniká (rozhodnutí 0209).
 - **Zařízení lidí v tailnetu:** `<login>-<zařízení>`, například `<login>-macbook`. `<login>` je štítek síťového uživatele člověka: u účtu propojeného s GitHubem jeho GitHub login malými písmeny, zmrazený, takže pozdější přejmenování na GitHubu síťového uživatele nepřejmenuje. `<zařízení>` je krátký štítek zvolený jednou a stejný ve všech tailnetech. Druhý, headless klient na tomtéž zařízení je `<login>-<zařízení>-cli` a Osobní Prostředí na serveru `<login>-personal-vm`. Jméno nastavuje majitel na zařízení samém. Jméno nic neuděluje.
 
 ## Rozsah adres tailnetu
 
-- Každý Conglomerate Host dostane vlastní rozsah uvnitř `100.64.0.0/10`, který se nepřekrývá s žádným jiným Conglomerate téhož provozovatele (rozhodnutí 0155). Jinak by každý tailnet rozdával stejné adresy `100.64.0.x` a počítač toho, kdo je spravuje, by je nerozlišil.
+- Každý Conglomerate Host dostane vlastní rozsah uvnitř `100.64.0.0/10`, který se nepřekrývá s žádným jiným Conglomerate téhož provozovatele (manuál GEN3 o přístupu mezi Prostředími jednoho člověka, viz Zdroje). Jinak by každý tailnet rozdával stejné adresy `100.64.0.x` a počítač toho, kdo je spravuje, by je nerozlišil.
 - Provozovatel, který Conglomeraty zakládá, si vede seznam rozsahů, které přidělil, jako pomůcku pro sebe. Není to centrální autorita ani registr cizích sítí.
 - Nový Conglomerate Host musí svůj rozsah určit při založení. Existující si rozsah ponechá, dokud ho nepřečísluje řízená migrace.
 
@@ -41,14 +42,13 @@ Kde je níže pravidlo jen konvence, nic ho nekontroluje: nic neuděluje a kvůl
 
 Správa hostu se dotýká všech Organizací, které obsluhuje. Pravidla níže jsou standard: sám nic neuděluje a nedokazuje, že ho Organizace nasadila. Konkrétní účty, zařízení, klíče, síťové vazby a důkazy patří do infrastrukturního repozitáře Organizace, která host vlastní. Pro každého Vlastníka Organizace, který host spravuje, platí:
 
-- **Vlastní cesta, vlastní klíče, tři druhy zdrojů.** Po schváleném onboardingu může host spravovat každý aktivní Vlastník Organizace, která ho vlastní, a to jen:
+- **Vlastní cesta, vlastní klíče, jmenované zdroje.** Host spravuje jeho držitel, nikdy role Admina Organizace (rozhodnutí 0245, cílový model; přechod není dokončený). Kde Organizace provozuje host na vlastní infrastruktuře, jak předpokládá tato stránka, je držitelem každý živý Vlastník Organizace, která host vlastní; kde servery provozuje Lazurio, je držitelem operátor Lazuria. Po schváleném onboardingu spravuje držitel host jen ze zdrojů, které jsou pro správu výslovně schválené:
   - ze svého osobního počítače výslovně povoleného pro správu;
-  - ze svého Osobního Prostředí;
-  - ze svého výslovně jmenovaného Pracovního Prostředí (rozhodnutí 0202, zatím nenasazené).
+  - ze svého Osobního Prostředí.
 
-  Podle rozhodnutí 0228 (přijaté, zatím nenasazené) bude správa hostu potřebovat obě role: host spravuje jen ten, kdo je Adminem Organizace a zároveň má živou roli Vlastníka Organizace, která host vlastní. Do nasazení jsou Adminy Organizace její aktivní Vlastníci Organizace.
+  Pracovní Prostředí Admina Organizace, správní stanoviště, vede do Prostředí Organizace a nikdy do správy hostu ani serverů pod Prostředími (rozhodnutí 0247). Role Vlastníka Organizace sama nedává vstup do žádného Prostředí a nikdy nezastupuje roli Admina Organizace.
 
-  Telefon, jiná Pracovní Prostředí ani pracovní laptop správu nedostanou, ani když jsou schválené pro jiný přístup. Vlastník Organizace používá vlastní jmenovitou identitu přes soukromou síť a nativní SSH a jeho klíče jdou odvolat jednotlivě. Cesta nikdy nezávisí na IP adrese, počítači, přihlášení ani soukromém klíči jiného Vlastníka Organizace nebo dodavatele a soukromý klíč zůstává na svém zařízení.
+  Telefon, Pracovní Prostředí ani pracovní laptop správu nedostanou, ani když jsou schválené pro jiný přístup. Vlastník Organizace používá vlastní jmenovitou identitu přes soukromou síť a nativní SSH a jeho klíče jdou odvolat jednotlivě. Cesta nikdy nezávisí na IP adrese, počítači, přihlášení ani soukromém klíči jiného Vlastníka Organizace nebo dodavatele a soukromý klíč zůstává na svém zařízení.
 - **Roli dokazuje jen GitHub.** Členství v tailnetu, sdílený síťový uživatel, štítek Prostředí ani jméno serveru roli Vlastníka Organizace nedokazují. Rozhoduje živá role na GitHubu a přesná vazba zdroje na daného Vlastníka Organizace a přístup se nikdy nedává všem uzlům Organizace najednou.
 - **Jen přesné granty.** Host má jmenovité SSH účty, přesné síťové granty a jen ta administrátorská práva, která práce potřebuje. Odpověď na navázané spojení neopravňuje otevřít spojení opačným směrem. Novou IP adresu nebo novou registraci zařízení opravuje schválená změna přesné vazby, nikdy širší grant.
 - **Onboarding končí změnou, ne přihlášením.** Samotné funkční přihlášení přes SSH onboarding Vlastníka Organizace nedokončuje. Vlastník Organizace pod vlastním účtem umí:
@@ -90,4 +90,4 @@ Toto je cílový kontrakt předání Prostředí na serveru a jeho implementace 
 
 ## Zdroje
 
-- Lazurio: [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0147, 0155, 0202 a 0209; [rozhodnutí 0228](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0228--the-organization-admin-is-a-lazurio-role-and-the-admin-also-enters-every-environment-of-their-organization-in-the-browser) pro Admina Organizace a [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent) pro názvy rolí; anglicky) a tři manuály GEN3: [přístupy mezi Prostředími jednoho uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), plné znění rozhodnutí 0155 se jmény, Prostředím služeb a IPv4 rozsahy; [správa Conglomerate Hostu Ownery Organizace](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); a [předání Prostředí na serveru a onboarding uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) se dvěma samostatnými výsledky.
+- Lazurio: [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0147 a 0209; [rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use) pro Admina Organizace a držitele hostu, [rozhodnutí 0247](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0247--entry-into-an-environment-and-its-record-normal-service-and-break-glass-entries-and-what-is-not-guaranteed) pro správní stanoviště a [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent) pro názvy rolí; anglicky) a tři manuály GEN3: [přístupy mezi Prostředími jednoho uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/operator-machine-access.md), plné znění rozhodnutí 0155 se jmény, Prostředím služeb a IPv4 rozsahy; [správa Conglomerate Hostu Ownery Organizace](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/conglomerate-owner-administration.md); a [předání Prostředí na serveru a onboarding uživatele](https://github.com/HumanAndMachines/Lazurio/blob/621d657a593fdca8b6c462ebe7fbec9d5d70a677/manual/hosted-machine-handover.md) se dvěma samostatnými výsledky.

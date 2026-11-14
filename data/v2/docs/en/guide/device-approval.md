@@ -4,12 +4,13 @@ description: "Why a registered device may still not reach your Environments, who
 stableId: lazurio-doc-guide-device-approval
 locale: en
 summary: "Why a registered device may still not reach your Environments, who decides about access and what to do when you lose a device."
-updatedAt: "2026-11-12"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-decision-register-admin-ai
   - lazurio-environment-access-model
 audience:
@@ -21,7 +22,7 @@ audience:
 
 In Lazurio's target model, an Organization that reaches its Environments
 through a tailnet lets in only devices its Organization Admin approved
-([decision 0192](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0192--entry-with-a-lazurio-account-and-an-admin-approved-device-sharing-inside-the-organization)).
+([decision 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use)).
 That decision is in force as the target, but the transition is not complete.
 **How a device gets access today can still differ between tailnets**, as
 [Reach an Environment through Tailscale](/en/guide/tailscale/) says. Your
@@ -55,7 +56,7 @@ still does not open, ask the Organization Admin as that guide says.
 Tell the Organization Admin at once, so they remove its access. If you paired the lost
 phone through ChatGPT, also remove it under **Paired phones** in Settings →
 Connections. In the target model you will be able to remove your own lost
-device yourself (decision 0192). Until Lazurio offers that, the Organization
+device yourself (decision 0245). Until Lazurio offers that, the Organization
 Admin does it.
 
 ## For the Organization Admin

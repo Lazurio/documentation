@@ -4,13 +4,13 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-11-12"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-decision-0243
+  - lazurio-decision-register-access-0245-0247
   - lazurio-environment-network-decisions
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
@@ -45,8 +45,8 @@ your browser cannot open them, and usually cannot even find the address. It
 shows an error such as "This site can't be reached".
 
 Environments are entered through a tailnet.
-[Decision 0243](https://github.com/Lazurio/LazurioPlatform/blob/c6c320b7362b724aea47cc297a96031c44ae49eb/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
-(decided, not yet deployed) makes it the only way into every Environment. Today
+[Decision 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
+(the target model, not yet deployed) makes it the only way into every Environment. Today
 the only public entry without a tailnet left is that of Lazurio's reference
 Organization, with its public Environment for trying Lazurio, and it ends when
 that Organization returns to its tailnet; see
@@ -121,7 +121,7 @@ causes in order:
    may not have access yet. Follow
    [Add a new device to the tailnet](/en/guide/tailscale-add-device/) and ask
    your Organization Admin to approve it. Lazurio's approved access model has an Organization Admin approve each device
-   for each Organization (decision 0192 of 6 October 2026); how a device gets
+   for each Organization (decision 0245); how a device gets
    in today can still differ between tailnets.
 2. **The Environment does not answer.** If other Environments in the same
    tailnet open, this one may be stopped or restarting. Wait a few minutes and

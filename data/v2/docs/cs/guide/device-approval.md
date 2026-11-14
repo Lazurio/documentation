@@ -4,12 +4,13 @@ description: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše
 stableId: lazurio-doc-guide-device-approval
 locale: cs
 summary: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše Prostředí, kdo o přístupu rozhoduje a co dělat, když zařízení ztratíte."
-updatedAt: "2026-11-12"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-decision-register-admin-ai
   - lazurio-environment-access-model
 audience:
@@ -21,7 +22,7 @@ audience:
 
 V cílovém modelu Lazuria pouští Organizace, která vstupuje do svých Prostředí
 přes tailnet, dovnitř jen zařízení schválená jejím Adminem Organizace
-([rozhodnutí 0192](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0192--entry-with-a-lazurio-account-and-an-admin-approved-device-sharing-inside-the-organization)).
+([rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use)).
 Rozhodnutí platí jako cíl, ale přechod na něj zatím není dokončený. **Jak
 zařízení dnes získá přístup, se může mezi tailnety lišit**, jak píše
 i [Připojení přes Tailscale](/cs/guide/tailscale/). Jak je to u vás, řekne
@@ -54,7 +55,7 @@ neotevře, požádejte Admina Organizace podle tohoto návodu.
 Hned to řekněte Adminovi Organizace, ať zařízení odebere přístup. Pokud jste ztracený
 telefon spárovali přes ChatGPT, odeberte ho i v seznamu **Spárované telefony**
 v Nastavení → Připojení. V cílovém modelu budete moct ztracené zařízení
-odebrat i sami (rozhodnutí 0192). Dokud to Lazurio nenabízí, dělá to Admin
+odebrat i sami (rozhodnutí 0245). Dokud to Lazurio nenabízí, dělá to Admin
 Organizace.
 
 ## Pro Admina Organizace

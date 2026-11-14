@@ -2,6 +2,19 @@
 
 ## Unreleased
 
+- Bring the pages on roles, access and entry in line with decisions 0245, 0246
+  and 0247 of the decision register (2026-11-14), which consolidate decisions
+  0192, 0228 and 0243. An Organization Owner is no longer described as the
+  Organization Admin: until the Admin role is deployed, an active Organization
+  Owner performs the Admin's administrative acts and gets no access to an
+  Environment by them. The `infra` repository belongs to the Organization
+  Owners, the Conglomerate Host is administered by its holder and never
+  through the Organization Admin role, and service entry is described as
+  decided: opened with a reason and passing a recording entry point. Pages:
+  GitHub baseline, Servers and the Conglomerate Host, Architecture, and in the
+  Guide the glossary, Ask the Admin, device approval, Tailscale, adding a
+  device and the first sign-in, in English and Czech. A new source pins the
+  register at the commit that carries the three decisions.
 - Add the Guide page "Modules" and the IT page "Architecture" in English and
   Czech, with a new diagram in both languages. Correct the glossary entries
   Module and Marketplace, and link the new pages from lesson 3 of the course and

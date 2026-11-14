@@ -4,12 +4,13 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -168,10 +169,12 @@ Organization lives (GitHub's owner role). Appoints and removes Organization
 Admins. Gets no access to Environments by that alone.
 
 **Organization Admin** Manages the Organization's members, Teams, access and
-Environments; this does not grant access to another person's Personalspace.
-It is a role of Lazurio that an Organization Owner appoints (not yet
-deployed); until it is deployed, an active Organization Owner is the
-Organization Admin.
+Environments; this does not grant access to another person's Personalspace
+or to anyone's Personal Environment. It is a role of Lazurio that an
+Organization Owner appoints (not yet deployed). Until it is deployed, an
+active Organization Owner performs the Organization Admin's administrative
+acts, such as approving devices and answering requests, and gets no access
+to any Environment by them.
 
 **Organization Member** Every other person in the Organization. What they may
 do follows from their roles in modules and applications. As the target,
@@ -207,8 +210,11 @@ deployed. What it may do is also the Organization's rule in the module's code.
 
 **Service entry** Entry to an Environment for someone other than its
 Assigned User. It is not a role. As decided and not yet deployed (decision
-0228), the Organization Admin will have service entry to every Environment of
-their Organization; anyone else only when it is granted for one Environment.
+0247), the Organization Admin will have service entry to every Work and
+Team Environment of their Organization, never to a Personal Environment:
+the Admin opens it with a reason, it passes a recording entry point, and by
+default the Admin only observes. Anyone else has it only when it is granted
+for one Environment.
 
 **Persona** An Organization's agent account, such as Henry's. It never names
 a person's role.
