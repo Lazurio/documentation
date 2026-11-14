@@ -47,9 +47,10 @@ shows an error such as "This site can't be reached".
 Environments are entered through a tailnet.
 [Decision 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (the target model, not yet deployed) makes it the only way into every Environment. Today
-the only public entry without a tailnet left is that of Lazurio's reference
-Organization, with its public Environment for trying Lazurio, and it ends when
-that Organization returns to its tailnet; see
+two public entries without a tailnet still run: that of Lazurio's reference
+Organization, with its public Environment for trying Lazurio, which ends when
+that Organization returns to its tailnet, and the public entry of Personal
+Environments, until its removal is deployed; see
 [Device approval](/en/guide/device-approval/#when-you-need-no-device-in-the-tailnet).
 Lazurio App will have the tailnet built in; until it is released, use the
 Tailscale app.

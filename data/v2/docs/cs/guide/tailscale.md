@@ -48,8 +48,10 @@ není dostupný“.
 Do Prostředí se vstupuje přes tailnet.
 [Rozhodnutí 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (cílový model, zatím nenasazené) z něj dělá jedinou cestu do každého Prostředí.
-Veřejný vstup bez tailnetu dnes zbývá jen u referenční Organizace Lazuria
-s veřejným Prostředím na vyzkoušení a skončí jejím návratem do tailnetu; viz
+Veřejný vstup bez tailnetu dnes ještě běží na dvou místech: u referenční
+Organizace Lazuria s veřejným Prostředím na vyzkoušení, kde skončí jejím
+návratem do tailnetu, a u Osobních Prostředí, dokud není nasazené odstranění
+jejich veřejného vstupu; viz
 [Schválení zařízení](/cs/guide/device-approval/#kdy-zařízení-v-tailnetu-nepotřebujete).
 Lazurio App bude mít tailnet vestavěný; do jejího vydání použijte aplikaci
 Tailscale.

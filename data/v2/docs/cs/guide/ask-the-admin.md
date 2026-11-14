@@ -84,12 +84,12 @@ Heslo, token, párovací ani ověřovací kód do žádosti **nikdy** nepatří.
 
 ## Kdo je Admin Organizace
 
-Admin Organizace je role Lazuria, kterou jmenuje Vlastník Organizace (na
-GitHubu role owner;
-[rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use),
-zatím nenasazené). Dokud nasazená není, odpovídá na vaše žádosti a dělá
-ostatní správní úkony Admina Organizace aktivní Vlastník Organizace; vstup
-do vašeho Prostředí mu to nedává. Názvy rolí určuje
+Na vaše žádosti dnes odpovídá a ostatní správní úkony Admina Organizace
+dělá aktivní Vlastník Organizace (na GitHubu role owner); vstup do vašeho
+Prostředí mu to nedává. Pro GEN4 je Admin Organizace rozhodnutý jako role
+Lazuria, kterou jmenuje Vlastník Organizace
+([rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use),
+zatím nenasazené). Názvy rolí určuje
 [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
 (anglicky).
 

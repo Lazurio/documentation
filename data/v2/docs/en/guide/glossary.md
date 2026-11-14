@@ -170,11 +170,11 @@ Admins. Gets no access to Environments by that alone.
 
 **Organization Admin** Manages the Organization's members, Teams, access and
 Environments; this does not grant access to another person's Personalspace
-or to anyone's Personal Environment. It is a role of Lazurio that an
-Organization Owner appoints (not yet deployed). Until it is deployed, an
-active Organization Owner performs the Organization Admin's administrative
-acts, such as approving devices and answering requests, and gets no access
-to any Environment by them.
+or to anyone's Personal Environment. Today an active Organization Owner
+performs the Organization Admin's administrative acts, such as approving
+devices and answering requests, and gets no access to any Environment by
+them. For GEN4 it is decided as a role of Lazurio that an Organization
+Owner appoints (not yet deployed).
 
 **Organization Member** Every other person in the Organization. What they may
 do follows from their roles in modules and applications. As the target,
@@ -209,8 +209,8 @@ deployed. What it may do is also the Organization's rule in the module's code.
 **Assigned User** The person a Work Environment is assigned to.
 
 **Service entry** Entry to an Environment for someone other than its
-Assigned User. It is not a role. As decided and not yet deployed (decision
-0247), the Organization Admin will have service entry to every Work and
+Assigned User. It is not a role. As decided for GEN4 and not yet deployed
+(decision 0247), the Organization Admin will have service entry to every Work and
 Team Environment of their Organization, never to a Personal Environment:
 the Admin opens it with a reason, it passes a recording entry point, and by
 default the Admin only observes. Anyone else has it only when it is granted

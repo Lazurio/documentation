@@ -165,10 +165,10 @@ do Prostředí přístup nemá.
 
 **Admin Organizace** Spravuje členy, Teamy, přístupy a Prostředí Organizace;
 tím ale nezískává přístup do cizího Personalspace ani do ničího Osobního
-Prostředí. Je to role Lazuria, kterou jmenuje Vlastník Organizace (zatím
-nenasazená). Do jejího nasazení dělá správní úkony Admina Organizace, třeba
-schvalování zařízení a odpovědi na žádosti, aktivní Vlastník Organizace
-a vstup do žádného Prostředí jimi nezískává.
+Prostředí. Správní úkony Admina Organizace, třeba schvalování zařízení
+a odpovědi na žádosti, dnes dělá aktivní Vlastník Organizace a vstup do
+žádného Prostředí jimi nezískává. Pro GEN4 je rozhodnutý jako role Lazuria,
+kterou jmenuje Vlastník Organizace (zatím nenasazená).
 
 **Člen Organizace** Každý další člověk v Organizaci. Co smí, plyne z jeho
 rolí v modulech a aplikacích. Cílově ho určuje členství v Lazuriu, které účet
@@ -198,8 +198,8 @@ smí, určuje také pravidlo Organizace v kódu modulu.
 **Přidělený uživatel** Člověk, kterému je přidělené Pracovní Prostředí.
 
 **Servisní vstup** Vstup do Prostředí pro někoho jiného, než je jeho
-Přidělený uživatel. Není to role. Podle rozhodnutí 0247, které zatím není
-nasazené, bude mít Admin Organizace servisní vstup do každého Pracovního
+Přidělený uživatel. Není to role. Podle rozhodnutí 0247, které platí pro GEN4
+a zatím není nasazené, bude mít Admin Organizace servisní vstup do každého Pracovního
 a Týmového Prostředí své Organizace, nikdy do Osobního Prostředí: otevírá ho
 s důvodem, vstup vede přes nahrávací vstupní bod a ve výchozí úrovni Admin
 jen pozoruje. Kdokoli jiný ho má jen tehdy, když mu ho někdo udělí pro jedno

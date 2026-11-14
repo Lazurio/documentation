@@ -87,12 +87,13 @@ request.
 
 ## Who the Organization Admin is
 
-The Organization Admin is a role of Lazurio that an Organization Owner
-(GitHub's owner role) appoints
+Today an active Organization Owner (GitHub's owner role) answers your
+requests and performs the Organization Admin's other administrative acts;
+that gives the Owner no access to your Environment. For GEN4 the
+Organization Admin is decided as a role of Lazurio that an Organization
+Owner appoints
 ([decision 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use),
-not yet deployed). Until it is deployed, an active Organization
-Owner answers your requests and performs the Organization Admin's other
-administrative acts; that gives the Owner no access to your Environment.
+not yet deployed).
 The role names follow
 [decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent).
 
