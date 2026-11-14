@@ -4,12 +4,13 @@ description: "Co je Prostředí, v jakém druhu pracujete a jak se do něj dosta
 stableId: lazurio-doc-guide-course-first-sign-in
 locale: cs
 summary: "Co je Prostředí, v jakém druhu pracujete a jak se do něj dostanete."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-onboarding-decision-register
   - lazurio-platform-folder-manual
   - lazurio-platform-shell-column-head
@@ -45,7 +46,7 @@ potřebuje jméno, jmenuje se Henry. Tento kurz počítá s Pracovním Prostřed
 ## Jak se dovnitř dostanete
 
 Schválený model přístupu Lazuria drží tři podmínky odděleně
-([rozhodnutí 0192](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md)):
+([rozhodnutí 0247](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0247--entry-into-an-environment-and-its-record-normal-service-and-break-glass-entries-and-what-is-not-guaranteed)):
 síť, aktivní členství v Organizaci a přístup k Prostředí nebo k jedné jeho
 aplikaci. Členství a přístup vám zařídí Admin Organizace. Když je
 Prostředí dostupné jen v tailnetu Organizace, potřebuje vaše zařízení navíc

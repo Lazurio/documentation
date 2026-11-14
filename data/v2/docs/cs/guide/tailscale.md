@@ -4,13 +4,13 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-12"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-decision-0243
+  - lazurio-decision-register-access-0245-0247
   - lazurio-environment-network-decisions
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
@@ -46,8 +46,8 @@ prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Te
 není dostupný“.
 
 Do Prostředí se vstupuje přes tailnet.
-[Rozhodnutí 0243](https://github.com/Lazurio/LazurioPlatform/blob/c6c320b7362b724aea47cc297a96031c44ae49eb/docs/decision-register.md#0243--every-environment-is-entered-only-through-a-tailnet-personal-environments-outside-a-conglomerate-are-in-lazurios-personal-tailnet)
-(rozhodnuté, zatím nenasazené) z něj dělá jedinou cestu do každého Prostředí.
+[Rozhodnutí 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
+(cílový model, zatím nenasazené) z něj dělá jedinou cestu do každého Prostředí.
 Veřejný vstup bez tailnetu dnes zbývá jen u referenční Organizace Lazuria
 s veřejným Prostředím na vyzkoušení a skončí jejím návratem do tailnetu; viz
 [Schválení zařízení](/cs/guide/device-approval/#kdy-zařízení-v-tailnetu-nepotřebujete).
@@ -122,7 +122,7 @@ v tomto pořadí:
    [Přidání nového zařízení do tailnetu](/cs/guide/tailscale-add-device/)
    a požádejte Admina Organizace o schválení.
    Schválený model přístupu Lazuria počítá s tím, že každé zařízení pro každou
-   Organizaci schvaluje Admin Organizace (rozhodnutí 0192 ze 6. října 2026); jak se
+   Organizaci schvaluje Admin Organizace (rozhodnutí 0245); jak se
    zařízení do tailnetu dostane dnes, se ale může mezi tailnety ještě lišit.
 2. **Prostředí neodpovídá.** Když se jiná Prostředí ve stejném tailnetu
    otevřou, toto je možná zastavené nebo se restartuje. Počkejte pár minut

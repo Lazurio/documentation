@@ -4,12 +4,13 @@ description: "Install Tailscale, enter your Organization's login server, sign in
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: en
 summary: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Organization Admin to approve the device."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-environment-access-model-device-approval
   - lazurio-agent-manual-device-enrollment
   - lazurio-device-node-names
@@ -331,11 +332,14 @@ a few minutes. Dashboard does not list waiting devices yet: agree with the
 person directly which device is theirs, and ask your network operator how to
 submit the approval.
 
-**Target.** Lazurio's access model (decision 0192) describes a registered
-device that reaches nothing until the Organization Admin approves it in Dashboard, with a
-service on the Conglomerate Host that applies the approval within tens of
-seconds. That is being built (`issue-2026-11-03-002`). This guide does not
-claim that it already runs for your Organization.
+**Target.** Lazurio's access model (decision 0245) describes a registered
+device that reaches nothing until the Organization Admin approves it in Dashboard; the
+approval is recorded in Lazurio Auth and takes effect within minutes, and a
+person can remove their own lost device at once. On the way there, a
+service on the Conglomerate Host applies an approval within tens of seconds
+and writes it to the Organization's configuration as an audit entry. That
+is being built (`issue-2026-11-03-002`). This guide does not claim that it
+already runs for your Organization.
 
 Before approving, check:
 

@@ -4,12 +4,13 @@ description: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes p
 stableId: lazurio-doc-guide-ask-the-admin
 locale: cs
 summary: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes požádat a co do žádosti patří a co nikdy."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-14"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-access-0245-0247
   - lazurio-decision-register-admin-ai
   - lazurio-decision-0230-request
   - lazurio-decision-0234-role-names
@@ -84,10 +85,11 @@ Heslo, token, párovací ani ověřovací kód do žádosti **nikdy** nepatří.
 ## Kdo je Admin Organizace
 
 Admin Organizace je role Lazuria, kterou jmenuje Vlastník Organizace (na
-GitHubu role owner)
-([rozhodnutí 0228](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0228--the-organization-admin-is-a-lazurio-role-and-the-admin-also-enters-every-environment-of-their-organization-in-the-browser),
-zatím nenasazené). Dokud nasazená není, je Adminem Organizace aktivní
-Vlastník Organizace. Názvy rolí určuje
+GitHubu role owner;
+[rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use),
+zatím nenasazené). Dokud nasazená není, odpovídá na vaše žádosti a dělá
+ostatní správní úkony Admina Organizace aktivní Vlastník Organizace; vstup
+do vašeho Prostředí mu to nedává. Názvy rolí určuje
 [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
 (anglicky).
 
