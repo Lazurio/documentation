@@ -4,7 +4,7 @@ description: "Co ověřit před pilotem a produkčním nasazením Lazuria."
 stableId: lazurio-doc-it-administrators
 locale: cs
 summary: "Přehled pro správce IT: hranice přístupu, podmínky poskytovatelů a schvalování výsledků před nasazením."
-updatedAt: "2026-11-13"
+updatedAt: "2026-11-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

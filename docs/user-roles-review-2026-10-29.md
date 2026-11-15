@@ -47,4 +47,24 @@ decision 0234 and the date rules had changed there.
   mapping, so whichever PR merges second can keep #48's v0.1.14 content and
   point to the glossary instead of repeating the older term in prose.
 
+## Rebase onto main — 15 November 2026
+
+The branch was rebased onto `main` at `007a8b1`, after `main` had brought the
+pages on roles, access and entry in line with decisions 0245, 0246 and 0247
+and had added the voice rule to `AGENTS.md`. Of the files this PR changes,
+`main` had changed only the glossary in both locales and the evidence map.
+
+- **Glossary.** The Organization Admin and Service entry entries, the new
+  register source and the update date come from `main` unchanged. This PR
+  adds only its user entry and its source reference next to `main`'s.
+- **Evidence map.** Both new source records stay: `main`'s register record for
+  decisions 0245 to 0247 and this PR's `lazurio-user-roles-current`.
+- **No commit dissolved.** None of the other pages this PR changes was changed
+  on `main` since the previous rebase. None of them describes what an
+  Organization Owner or Admin may do or how entry into an Environment works,
+  which decisions 0245 to 0247 restate; the cooperation page names the
+  Organization Admin only as an example of a role with its level.
+- **Dates.** The sixteen changed pages get `updatedAt` 2026-11-15. Each keeps
+  the `reviewedAt` it has on `main`; no source review date was moved.
+
 Publication and release prerequisites still apply.

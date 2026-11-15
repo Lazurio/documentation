@@ -4,7 +4,7 @@ description: "Která data může agent použít a jak otestovat skutečná omeze
 stableId: lazurio-doc-data-access-security
 locale: cs
 summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
-updatedAt: "2026-11-13"
+updatedAt: "2026-11-15"
 reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI

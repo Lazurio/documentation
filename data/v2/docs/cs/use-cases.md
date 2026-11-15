@@ -4,7 +4,7 @@ description: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné
 stableId: lazurio-doc-use-cases
 locale: cs
 summary: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné řešení."
-updatedAt: "2026-11-13"
+updatedAt: "2026-11-15"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
