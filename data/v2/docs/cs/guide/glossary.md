@@ -4,13 +4,14 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-15"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-user-roles-current
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -149,7 +150,8 @@ pracovali s nejnovějšími změnami.
 
 <div class="lz-glossary">
 
-**Uživatel** Člověk, pro kterého agenti pracují a který má poslední slovo.
+**Uživatel** Člověk, se kterým a pro kterého agenti pracují a který má poslední
+slovo. Agenti jednají jeho jménem v jeho živých oprávněních a v rozsahu zadání.
 Samotné slovo uživatel roli neoznačuje. Když má někdo dostat roli „admina“
 nebo „uživatele“, vždy se upřesní, jestli jde o Organizaci, nebo o kterou
 aplikaci.

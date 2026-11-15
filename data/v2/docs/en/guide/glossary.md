@@ -4,13 +4,14 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-15"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-user-roles-current
   - lazurio-product-vocabulary
   - lazurio-readme
   - lazurio-architecture
@@ -154,9 +155,10 @@ with the latest changes.
 
 <div class="lz-glossary">
 
-**User** The person agents work for, who has the final say. The bare word
-user names no role. When someone is to be made an "admin" or a "user", say
-whether the Organization or which application is meant.
+**User** The person agents work with and for, who has the final say. Agents
+act on their behalf within their live rights and the task they were given.
+The bare word user names no role. When someone is to be made an "admin" or a
+"user", say whether the Organization or which application is meant.
 
 **Role** A named access of a person at one level: in the Organization, in a
 module, in an application or in an Environment. It is written with a capital
