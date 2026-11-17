@@ -40,6 +40,7 @@ audience:
   - agent
 ---
 
+import Aside from '@components/Aside.astro';
 import DeviceSetupScene from '@components/DeviceSetupScene.astro';
 
 Zařízení se připojí do sítě vaší Organizace přes aplikaci Tailscale. Celé to zabere pár minut:
@@ -54,7 +55,8 @@ Budete potřebovat **adresu přihlašovacího serveru vaší Organizace**. Dá v
 ji Admin Organizace a vypadá třeba takto: `https://headscale.example.lazurio.io`.
 Adresu nehádejte: s jinou se přihlásíte do cizí sítě, nebo vůbec.
 
-:::danger[Po instalaci neklikejte v aplikaci Tailscale na Log in]
+<Aside type="danger" title="Po instalaci neklikejte v aplikaci Tailscale na Log in">
+
 Tlačítko **Log in** (Přihlásit se) na úvodní obrazovce Tailscale vede na server
 společnosti Tailscale. Nabídne přihlášení přes Google, GitHub, Microsoft nebo
 Apple a zařízení pak skončí v cizí síti, ne v síti vaší Organizace. Po
@@ -63,7 +65,8 @@ přihlašovacího serveru Lazuria.
 
 **Už se to stalo?** Nic nemažte a pokračujte kroky pro své zařízení od zadání
 adresy. Síť Organizace se přidá jako další účet a Tailscale na ni přepne.
-:::
+
+</Aside>
 
 <nav class="lz-device-picker" aria-label="Vyberte své zařízení">
   <a class="lz-device-card" href="#windows"><span class="lz-device-card__name">Windows</span><span class="lz-device-card__hint lz-device-card__hint--agent">Udělá to agent</span></a>
@@ -78,9 +81,11 @@ přes Tailscale](/cs/guide/tailscale/).
 
 ## Windows
 
-:::caution[Na Log in v aplikaci Tailscale neklikejte]
+<Aside type="caution" title="Na Log in v aplikaci Tailscale neklikejte">
+
 Adresu Organizace zadá agent, nebo ji zadáte ručním postupem níže.
-:::
+
+</Aside>
 
 ### Nechte to na agentovi (doporučeno)
 
@@ -232,11 +237,13 @@ programátor: mluv s ním jednoduše a příkazy mu neukazuj.
 
 ## macOS
 
-:::caution[Na Log in v aplikaci Tailscale neklikejte]
+<Aside type="caution" title="Na Log in v aplikaci Tailscale neklikejte">
+
 Na Macu nejdřív projdete úvodního průvodce aplikace a povolíte dvě věci
 v nastavení systému. Adresu Organizace pak zadá agent, nebo ji zadáte ručním
 postupem níže.
-:::
+
+</Aside>
 
 ### Nechte to na agentovi (doporučeno)
 
@@ -325,11 +332,13 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
 
 ## iPhone a iPad
 
-:::caution[Nevybírejte Google, GitHub ani jiný účet]
+<Aside type="caution" title="Nevybírejte Google, GitHub ani jiný účet">
+
 Na obrazovce přihlášení otevřete nabídku vpravo nahoře a zadejte adresu
 Organizace (krok 4). Tlačítka pro přihlášení přes Google, GitHub, Microsoft
 nebo Apple vedou do cizí sítě.
-:::
+
+</Aside>
 
 1. Nainstalujte [Tailscale z App Store](https://apps.apple.com/app/tailscale/id1470499037).
 2. Otevřete ji, zvolte **Get Started** a povolte konfiguraci VPN. Zatím se
@@ -356,9 +365,11 @@ nebo Apple vedou do cizí sítě.
 
 ## Android
 
-:::caution[Na velké tlačítko Log in neklepejte]
+<Aside type="caution" title="Na velké tlačítko Log in neklepejte">
+
 Pokračujte ozubeným kolem vpravo nahoře (krok 2). Log in vede do cizí sítě.
-:::
+
+</Aside>
 
 1. Nainstalujte
    [Tailscale z Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn)

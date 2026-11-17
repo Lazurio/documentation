@@ -1,0 +1,13 @@
+---
+// Starlight's aside for documents outside the app (data/v2/docs), which
+// cannot resolve '@astrojs/starlight/components' themselves.
+import { Aside as StarlightAside } from '@astrojs/starlight/components'
+
+interface Props {
+  type?: 'note' | 'tip' | 'caution' | 'danger'
+  title?: string
+}
+
+const { type = 'note', title } = Astro.props
+---
+<StarlightAside type={type} title={title}><slot /></StarlightAside>
