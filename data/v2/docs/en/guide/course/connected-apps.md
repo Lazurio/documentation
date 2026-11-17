@@ -4,7 +4,7 @@ description: "What an Integration is, who connects it and what agents may do wit
 stableId: lazurio-doc-guide-course-connected-apps
 locale: en
 summary: "What an Integration is, who connects it and what agents may do with your mail or calendar."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -14,7 +14,6 @@ sourceRefs:
   - lazurio-platform-folder-agent-rules
   - lazurio-platform-onboarding-decisions
   - lazurio-platform-launchpad-texts
-  - lazurio-external-apps-current
 audience:
   - decision-maker
   - builder

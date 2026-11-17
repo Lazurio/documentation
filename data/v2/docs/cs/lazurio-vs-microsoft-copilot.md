@@ -15,7 +15,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
   - microsoft-copilot-architecture
   - microsoft-copilot-data-protection
   - microsoft-copilot-privacy
@@ -48,11 +48,11 @@ zdrojů; závěry a doporučení jsou naším hodnocením.
 | Oblast | Microsoft Copilot | Lazurio |
 | --- | --- | --- |
 | Hlavní účel | Pomoc s prací v aplikacích a službách Microsoft 365. | Řízená práce lidí a AI agentů nad verzovanými firemními podklady a nástroji. |
-| Běžně dostupný kontext | S licencí Premium Microsoft Graph a obsah Microsoft 365, ke kterému má uživatel oprávnění. Copilot Chat (Basic) a Microsoft 365 Copilot (Basic) vycházejí z dat z webu a z obsahu, který uživatel sám dodá, případně z agenta placeného podle použití. Další zdroje lze připojit pomocí agentů a konektorů. | Vybrané repozitáře Organizace, lokální pracovní prostředí a jednotlivě schválené externí nástroje. |
+| Běžně dostupný kontext | S licencí Premium Microsoft Graph a obsah Microsoft 365, ke kterému má uživatel oprávnění. Copilot Chat (Basic) a Microsoft 365 Copilot (Basic) vycházejí z dat z webu a z obsahu, který uživatel sám dodá nebo má otevřený v Outlooku či Teams, případně z agenta placeného podle použití. Další zdroje lze připojit pomocí agentů a konektorů. | Vybrané repozitáře Organizace, lokální pracovní prostředí a jednotlivě schválené externí nástroje. |
 | Oprávnění | Vycházejí z identity a oprávnění přihlášeného uživatele v Microsoft 365 a z pravidel služby. | Vycházejí z oprávnění přihlášeného uživatele v GitHubu a dalších systémech. Samotné zadání žádná práva neuděluje. |
 | Typický výstup | Odpověď, souhrn, návrh nebo akce v aplikacích Microsoftu a v prostředích Copilotu. | Zkontrolovatelná změna, plán, znalostní podklad, aplikace nebo akce připravená k výslovnému schválení. |
 | Správa | Cloudová služba spravovaná Microsoftem, doplněná o licence, Entra, Purview a administraci Microsoft 365. | Git repozitáře vlastněné Organizací, její zařízení, pravidla Modulů a samostatná správa každého připojeného poskytovatele. |
-| Rozšíření | Pluginy: instalovatelné balíčky, které mohou obsahovat deklarativní agenty, dovednosti (skills) a konfiguraci nebo odkazy na konektory Copilotu a MCP servery. | Workspace Moduly, připravené role pro agenty, MCP servery, oficiální nástroje příkazové řádky a řízené postupy v prohlížeči. |
+| Rozšíření | Pluginy: instalovatelné balíčky, které mohou obsahovat dovednosti (skills), nástroje, například konektory Copilotu a vzdálené MCP servery, a deklarativní agenty. | Workspace Moduly, připravené role pro agenty, MCP servery, oficiální nástroje příkazové řádky a řízené postupy v prohlížeči. |
 | Nasazení | Cloudová služba Microsoftu s publikovanými požadavky na tenant. | Konkrétní podobu nasazení volí každá Organizace. Veřejně popsaný model vychází z lokálních repozitářů a samostatně nasazovaných Modulů. |
 | Kdy dává největší smysl | Když je většina kancelářské a znalostní práce soustředěná v Microsoft 365. | Když práce prochází více repozitáři nebo nástroji a má zůstat verzovaná, testovatelná a výslovně schvalovaná. |
 
@@ -61,8 +61,8 @@ a zpřístupňuje jen firemní data, ke kterým má uživatel aspoň oprávněn�
 čtení. S licencí Premium z nich odpovědi mohou vycházet přes Microsoft
 Graph. Copilot Chat (Basic) a Microsoft 365 Copilot (Basic) vycházejí z dat
 z webu a firemní data přes Microsoft Graph použít nemohou; k firemnímu obsahu
-se dostanou, jen když ho uživatel sám dodá, nebo přes agenta placeného podle
-použití. Podrobnosti najdete v [přehledu Microsoft Copilotu](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
+se dostanou, jen když ho uživatel sám dodá nebo ho má otevřený v Outlooku či
+Teams, nebo přes agenta placeného podle použití. Podrobnosti najdete v [přehledu Microsoft Copilotu](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
 a na stránce věnované [ochraně dat a auditu](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing).
 
 Veřejná pravidla Lazuria určují GitHub jako autoritu pro přístup k
@@ -104,17 +104,17 @@ výsledků, ale více provozních rozhodnutí zůstává na ní.
 ## Rozšiřitelnost
 
 Microsoft Copilot se rozšiřuje pomocí pluginů. Plugin je instalovatelný
-balíček, který může obsahovat deklarativní agenty a dovednosti (skills)
-a k nim konfiguraci nebo odkazy na konektory Copilotu a vzdálené MCP servery,
-které běží zvlášť. Pak se zveřejní nebo sdílí a zpřístupní pod správou.
-Postup popisuje [přehled pluginů](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview).
+balíček, který může obsahovat dovednosti (skills), nástroje, například
+konektory Copilotu a vzdálené MCP servery, a deklarativní agenty. Vzdálené MCP
+servery mohou běžet mimo balíček. Plugin se pak zveřejní nebo sdílí
+a zpřístupní pod správou. Postup popisuje [přehled pluginů](https://learn.microsoft.com/en-us/plugins/overview).
 Tato cesta se hodí pro postupy spravované v produktech Microsoftu.
 
 Lazurio se rozšiřuje pomocí Workspace Modulů a samostatně vymezených integrací.
-Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
-upřednostňuje oficiální MCP servery nebo nástroje příkazové řádky, jejichž
-přihlášení zůstávají v Prostředí a lze je samostatně odvolat. Kde Organizace
-povolí Composio, patří jeho připojení účtu Composia, ne jednomu zařízení. To se hodí tam, kde práce
+Každá připojená aplikace má jednu cestu: vlastní nástroj nebo Executor
+Prostředí, jejichž přihlášení zůstávají v Prostředí a lze je samostatně
+odvolat, nebo, kde to Organizace povolí, Composio, jehož připojení patří účtu
+Composia, ne jednomu zařízení. To se hodí tam, kde práce
 vychází z repozitářů, prochází více službami nebo vyžaduje vlastní testy a
 schválení.
 

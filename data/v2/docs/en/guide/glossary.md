@@ -20,9 +20,10 @@ sourceRefs:
   - lazurio-decision-0234-role-names
   - lazurio-platform-folder-manual
   - lazurio-platform-launchpad-texts
-  - lazurio-platform-module-standard-v0-1-20
+  - lazurio-platform-module-standard
   - lazurio-platform-module-parts-f14
-  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-platform-marketplace
+  - lazurio-platform-release-v0-1-21
   - lazurio-marketplace-registry
   - github-about-pull-requests
   - github-protected-branches
@@ -100,9 +101,9 @@ about, and the app in which you see and change it. Mission Control and
 Knowledgebase are modules. See [Modules](/en/guide/modules/).
 
 **Marketplace** The place at the bottom of Apps for module templates. A
-template is added to your Organization as your own private copy. From version
-0.1.21, a release candidate on 5 November 2026, it offers the templates of
-Lazurio's public registry.
+template is added to your Organization as your own private copy. Since version
+0.1.21, released on 13 November 2026, it offers the templates of Lazurio's
+public registry.
 
 **Mission Control** The place for managing work. It shows what is being
 addressed, who is responsible, and what should happen next.
@@ -295,7 +296,7 @@ repository permissions. A role name alone grants no access.
 
 These names follow the public [Lazurio decisions](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md),
 especially 0170 and 0207 with their addenda, 0169 for Henry and 0089 for
-Buddy. [Decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
+Buddy. [Decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
 sets the names of roles; the earlier names Builder, Steward and User no
 longer name roles. A particular installation may still show older labels; technical
 names and commands stay unchanged. The [onboarding course](/en/guide/course/)

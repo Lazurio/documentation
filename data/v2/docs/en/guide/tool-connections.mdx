@@ -4,13 +4,13 @@ description: "Connect email or a calendar and check what the agent can access."
 stableId: lazurio-doc-tool-connections
 locale: en
 summary: "Connect email or a calendar and check what the agent can access."
-updatedAt: "2026-11-06"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-external-apps-current
+  - lazurio-platform-folder-manual
   - lazurio-external-apps
   - composio-authentication
   - mcp-local-servers
@@ -72,9 +72,9 @@ export const walkthrough = {
       "id": "composio",
       "name": "Composio",
       "prerequisite": "In Lazurio, use Composio only where the Organization or Personal Environment user permits it. Composio holds credentials and processes call content. Check permissions and data-processing terms before connecting a work account. An account or prompt alone does not make Composio tools available to your AI client.",
-      "connect": "I want to use Composio. If you do not have its tools, say so: ask for my AI app and version and guide me to its supported setup instructions. If you have them, initiate connecting my account and show the real authorization link returned by the tool. Explain the requested permissions first. Do not ask for passwords or tokens in chat.",
-      "reply": "First I will check whether Composio is available. If configured, I can request an account connection. You complete sign-in and permission approval; a prompt does not grant access.",
-      "action": "In your real AI app, open the authorization link returned by the tool and check the domain and account. Read the permissions. If they are broader than needed, clarify them before proceeding. Then return to chat."
+      "connect": "I want to use Composio. If you do not have its tools, say so: ask for my AI app and version and guide me to its supported setup instructions. In Lazurio, do not start the connection yourself: send me the link to the app's card in Apps → Integrations, where I connect it. In another app, if you have its tools, initiate connecting my account and show the real authorization link returned by the tool. Explain the requested permissions first. Do not ask for passwords or tokens in chat.",
+      "reply": "First I will check whether Composio is available. In Lazurio I send you the link to the app's card; elsewhere, if it is configured, I can request an account connection. You complete sign-in and permission approval; a prompt does not grant access.",
+      "action": "In Lazurio, connect the app on its card in Apps → Integrations. In another AI app, open the authorization link returned by the tool and check the domain and account. Read the permissions. If they are broader than needed, clarify them before proceeding. Then return to chat."
     },
     {
       "id": "plugin",

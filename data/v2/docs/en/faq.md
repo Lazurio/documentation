@@ -61,10 +61,10 @@ the license and maturity details.
 
 <summary>Does Lazurio replace Microsoft Copilot?</summary>
 
-The tools serve different needs. Microsoft Copilot mainly assists with work
-in Microsoft 365. Lazurio focuses on reviewing and approving versioned work
-across repositories and tools. An Organization may use both. See the [full
-comparison](/en/lazurio-vs-microsoft-copilot/).
+In our assessment, the tools serve different needs. Microsoft Copilot mainly
+assists with work in Microsoft 365. Lazurio focuses on reviewing and approving
+versioned work across repositories and tools. An Organization may use both.
+See the [full comparison](/en/lazurio-vs-microsoft-copilot/).
 
 </details>
 

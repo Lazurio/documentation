@@ -37,10 +37,14 @@ Publication stays with you.
 **A colleague** (Kolega) is a user in an Organization. Their roles and Teams
 say what they may do. Every role names its level (decision 0234):
 
-- **Organization:** the **Organization Owner** owns its GitHub Organization
-  and appoints the Organization Admins, the **Organization Admin** manages
-  the Organization's members, Teams, access and Environments, and everyone
-  else is an **Organization Member**.
+- **Organization:** the **Organization Owner** owns its GitHub Organization,
+  the **Organization Admin** manages the Organization's members, Teams, access
+  and Environments, and everyone else is an **Organization Member**. Today an
+  active Organization Owner performs the Organization Admin's administrative
+  acts, such as approving devices and answering requests, and gets no access
+  to any Environment by them. For GEN4 the Organization Admin is decided as a
+  role of Lazurio that an Organization Owner appoints (decision 0245, not yet
+  deployed).
 - **Module:** a **Module Reader** reads it and changes nothing, a **Module
   Contributor** builds it and proposes changes, and a **Module Maintainer**
   may also merge its protected `main` and release it.

@@ -11,7 +11,9 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
+  - lazurio-decision-0162
+  - lazurio-platform-folder-manual
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -61,12 +63,11 @@ mezi přístupovými hranicemi.
 
 ### Externí aplikace
 
-[Standard integrací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
-pro nové propojení upřednostňuje oficiální MCP server, potom oficiální CLI,
-povolené Composio, prověřené open-source řešení a nakonec prohlížeč pod
-dohledem uživatele. Vlastní MCP servery v Lazuriu spravuje Executor.
-Při práci s již připojenou aplikací agent použije její nástroj, Executor nebo
-Composio podle evidované cesty, v tomto pořadí.
+Každá připojená aplikace má právě jednu cestu: vlastní nástroj z Nastavení →
+Nástroje, Executor Prostředí, nebo Composio tam, kde je povolené. Aplikaci
+připojuje uživatel sám, protože přihlášení je jeho souhlas; agent připojení
+nikdy sám nezahajuje. Vlastní MCP server patří do Executoru, a jen na výslovný
+pokyn uživatele. Viz [Napojení Prostředí na aplikace](/cs/environment-app-connections/).
 
 Composio je povolený zprostředkovatel jen tam, kde jeho použití dovoluje
 Organizace nebo uživatel Osobního Prostředí. Composio uchovává přihlašovací

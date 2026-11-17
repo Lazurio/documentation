@@ -12,8 +12,9 @@
   <g data-node="person">
   <rect class="panel" x="48" y="112" width="200" height="210" rx="16"/>
   <text class="label" x="68" y="150">Člověk</text>
-  <text class="copy" x="68" y="184">Chat, Apps a Soubory</text>
-  <text class="copy" x="68" y="208">v prohlížeči</text>
+  <text class="copy" x="68" y="184">Chat, Aplikace</text>
+  <text class="copy" x="68" y="208">a Soubory</text>
+  <text class="copy" x="68" y="232">v prohlížeči</text>
   </g>
   <g data-node="device">
   <rect class="panel" x="292" y="112" width="240" height="210" rx="16"/>

@@ -16,7 +16,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -82,9 +82,9 @@ or account tier changes.
 ### 4. Enable only the required context
 
 Begin with one bounded use case. Grant only the repositories and provider
-scopes it needs, follow the [external application
-standard](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md),
-and test revocation.
+scopes it needs, connect each app by its one path as [Connecting an
+Environment to apps](/en/environment-app-connections/) describes, and test
+revocation.
 
 ### 5. Enforce publication
 

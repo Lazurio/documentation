@@ -4,7 +4,7 @@ description: "What only your Organization Admin does, how to ask them today and 
 stableId: lazurio-doc-guide-ask-the-admin
 locale: en
 summary: "What only your Organization Admin does, how to ask them today and what a request must and must never contain."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-decision-register-access-0245-0247
   - lazurio-decision-register-admin-ai
   - lazurio-decision-0230-request
+  - lazurio-platform-folder-admin-request
   - lazurio-decision-0234-role-names
 audience:
   - builder
@@ -30,6 +31,8 @@ with a request they can act on without asking back.
   account ([Where your AI comes from](/en/guide/ai-source/)).
 - Approves or removes a device ([Device approval](/en/guide/device-approval/)).
 - Arranges a new Environment or more memory or disk.
+- Creates a new module in the Organization from a description you confirmed
+  ([Modules](/en/guide/modules/)).
 - Gives you a Module role in another Team's module, or access to its
   application. Under decision 0231, not yet deployed, that module's Module
   Contributors and Module Maintainers will also give application roles.
@@ -59,10 +62,10 @@ no request is filed. It has no Organization Admin of yours to ask.
 ### With your agent
 
 Lazurio teaches agents to file such a request with the skill
-`admin-request`. It reaches your Environment with the Lazurio release that
-includes it ([LazurioPlatform#860](https://github.com/Lazurio/LazurioPlatform/pull/860),
-not yet released). In an Environment with that version, say for example "Ask
-the Organization Admin to move me to my own ChatGPT account". The agent then:
+`admin-request`, included since release v0.1.21 of 13 November 2026
+([LazurioPlatform#860](https://github.com/Lazurio/LazurioPlatform/pull/860)).
+Say for example "Ask the Organization Admin to move me to my own ChatGPT
+account". The agent then:
 
 1. checks that the matter really is the Organization Admin's;
 2. collects what the Organization Admin needs;
@@ -70,8 +73,8 @@ the Organization Admin to move me to my own ChatGPT account". The agent then:
 4. gives you the link, or, without access to the repository, a text for you
    to send.
 
-Until then, your agent can prepare the request text with you by this page,
-and you file or send it yourself.
+In an Environment on an older release, your agent can prepare the request
+text with you by this page, and you file or send it yourself.
 
 ## What a request contains
 
@@ -95,7 +98,7 @@ Owner appoints
 ([decision 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use),
 not yet deployed).
 The role names follow
-[decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent).
+[decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent).
 
 ## What is coming
 

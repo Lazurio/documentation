@@ -4,7 +4,7 @@ description: "When you can control your Environment's chats from the ChatGPT app
 stableId: lazurio-doc-guide-phone-and-computer
 locale: en
 summary: "When you can control your Environment's chats from the ChatGPT app on your phone or from ChatGPT Desktop on your computer, and what to use when Connections does not offer it."
-updatedAt: "2026-11-12"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -26,7 +26,7 @@ Follow what the page shows. This page explains each case.
 
 Pairing connects the ChatGPT app with your Environment through your ChatGPT
 account
-([decision 0215](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0215--chatgpt-apps-pair-with-an-environment-through-the-chatgpt-account-ssh-stays-a-hidden-option-for-advanced-users)).
+([decision 0215](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0215--chatgpt-apps-pair-with-an-environment-through-the-chatgpt-account-ssh-stays-a-hidden-option-for-advanced-users)).
 It works only when all of these hold:
 
 - your Environment uses **your own ChatGPT account**, not the Organization's
