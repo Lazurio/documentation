@@ -4,13 +4,13 @@ description: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu a
 stableId: lazurio-doc-tool-connections
 locale: cs
 summary: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu agenta."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-external-apps-current
+  - lazurio-platform-folder-manual
   - lazurio-external-apps
   - composio-authentication
   - mcp-local-servers
@@ -72,9 +72,9 @@ export const walkthrough = {
       "id": "composio",
       "name": "Composio",
       "prerequisite": "V Lazuriu jen tam, kde je Composio povolené Organizací nebo uživatelem Osobního Prostředí. Composio uchovává přihlašovací údaje a zpracovává obsah volání. Před připojením pracovního účtu ověřte oprávnění a podmínky zpracování dat. Účet ani prompt samy nezpřístupní nástroje Composio vašemu AI klientovi.",
-      "connect": "Chci použít Composio. Pokud jeho nástroje nemáš, nic nepředstírej: zjisti název a verzi mé AI aplikace a naveď mě na její podporovaný postup instalace. Pokud je máš, zahaj připojení mého účtu a ukaž skutečný autorizační odkaz vrácený nástrojem. Předem vysvětli požadovaná oprávnění. Heslo ani token po mně v chatu nechtěj.",
-      "reply": "Nejdřív ověřím dostupnost Composio. Pokud je zde nastavené, mohu požádat o připojení účtu. Přihlášení a souhlas s oprávněními dokončíte vy; přístup není udělen tímto promptem.",
-      "action": "Ve své skutečné AI aplikaci otevřete autorizační odkaz z nástroje, ověřte doménu a správný účet. Přečtěte si oprávnění. Pokud jsou širší, než potřebujete, nepokračujte bez vyjasnění. Poté se vraťte do chatu."
+      "connect": "Chci použít Composio. Pokud jeho nástroje nemáš, nic nepředstírej: zjisti název a verzi mé AI aplikace a naveď mě na její podporovaný postup instalace. V Lazuriu připojení sám nezahajuj: pošli mi odkaz na kartu aplikace v Aplikacích → Napojení, kde ji připojím. V jiné aplikaci, pokud jeho nástroje máš, zahaj připojení mého účtu a ukaž skutečný autorizační odkaz vrácený nástrojem. Předem vysvětli požadovaná oprávnění. Heslo ani token po mně v chatu nechtěj.",
+      "reply": "Nejdřív ověřím dostupnost Composio. V Lazuriu vám pošlu odkaz na kartu aplikace; jinde, pokud je Composio nastavené, mohu požádat o připojení účtu. Přihlášení a souhlas s oprávněními dokončíte vy; přístup není udělen tímto promptem.",
+      "action": "V Lazuriu aplikaci připojte na její kartě v Aplikacích → Napojení. V jiné AI aplikaci otevřete autorizační odkaz z nástroje, ověřte doménu a správný účet. Přečtěte si oprávnění. Pokud jsou širší, než potřebujete, nepokračujte bez vyjasnění. Poté se vraťte do chatu."
     },
     {
       "id": "plugin",

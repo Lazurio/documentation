@@ -12,7 +12,9 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-onboarding-decision-register
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
+  - lazurio-decision-0162
+  - lazurio-platform-folder-manual
   - lazurio-readme
   - lazurio-license
   - lazurio-platform-license
@@ -112,17 +114,17 @@ je výslovné schválení pouze procesní pravidlo.
 
 ## Externí aplikace a přihlašovací údaje
 
-Tato část vychází z novějšího [standardu integrací](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md),
-ověřeného 24. 10. 2026. Pro nové propojení stanovuje pořadí: oficiální MCP,
-oficiální CLI, povolené Composio, prověřené open-source řešení a prohlížeč.
-Executor spravuje MCP servery Prostředí; při práci s již připojenou aplikací
-má její nástroj přednost před Executorem a Composiem.
+Každá připojená aplikace má právě jednu cestu: vlastní nástroj, Executor
+Prostředí, nebo Composio tam, kde je povolené, a agenti je používají v tomto
+pořadí ([Integrace ve vydání v0.1.22](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md#the-path-rule)). Aplikaci připojuje
+uživatel sám; agent připojení nikdy sám nezahajuje a vlastní MCP server patří
+do Executoru jen na výslovný pokyn uživatele.
 
 Composio je jedinou povolenou výjimkou ze zákazu sdílených brokerů a musí být
 pro dané Prostředí povolené. Uchovává tokeny a zpracovává obsah volání;
 propojení patří účtu a organizaci v Composiu, nikoli automaticky jednomu
-zařízení. Nové cloudové konektory, jiné sdílené brokery a scraping či
-cookie-session servery standard nepovoluje. Aplikace a konektory ChatGPT
+zařízení. Nové konektory ChatGPT nebo claude.ai, jiné sdílené brokery
+a scraping či cookie-session servery rozhodnutí 0162 nepovoluje. Aplikace a konektory ChatGPT
 v harnessu agenti podle pravidla nepoužívají, dokud je nepovolí Organizace,
 v Osobním Prostředí uživatel. V Prostředí na serveru pravidlo Lazurio podpírá
 dvěma nastaveními v konfiguraci Codexu; aplikace zapnutá jménem a konfigurace,

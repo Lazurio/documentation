@@ -10,7 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-external-apps-current
+  - lazurio-platform-folder-manual
   - lazurio-decision-0162
   - lazurio-external-apps-0162
   - lazurio-composio-runbook
@@ -91,21 +91,16 @@ v Přehledu Organizace je rozhodnutá, ale zatím nenasazená. Viz
 aplikace je rozhodnutý, ale zatím neimplementovaný, takže aplikace Googlu jdou
 cestami výše.
 
-U připojení, které stránka Aplikace → Napojení nenabízí, navrhuje standard integrací Lazuria
-toto pořadí. Vyhrává první cesta, která funguje, a poslední slovo máte vy:
+**Když aplikace cestu nemá.** Když stránka Aplikace → Napojení aplikaci
+nenabízí, agent vám to řekne a pošle vám její kartu. Firemní aplikaci nastaví
+Admin Organizace, Composio v Pracovním Prostředí povoluje Organizace a v Osobním
+vy; jinak se obraťte na Admina Organizace. Vlastní integraci, třeba vlastní
+OAuth aplikaci, API klienta nebo scraper, agenti bez vašeho výslovného
+rozhodnutí nestaví.
 
-1. **oficiální MCP server** poskytovatele, vzdálený nebo vlastní, přidaný do
-   Executoru;
-2. **oficiální CLI** poskytovatele;
-3. **Composio**, když poskytovatel nemá vhodný oficiální MCP server ani CLI
-   a Composio je povolené;
-4. **prověřený open-source MCP server nebo CLI**, připnutý na konkrétní vydání
-   nebo commit, s ověřeným vydavatelem a licencí;
-5. **prohlížeč** pod vaším dohledem, když nic z předchozího neexistuje.
-
-V žádném kroku nejsou dovolené: scraping webu, opakované použití cookies
-z prohlížeče, jiné sdílené brokery než Composio, klíče a tokeny v chatu, Gitu
-nebo logu a nové konektory ChatGPT nebo claude.ai.
+Nikdy nejsou dovolené: scraping webu, servery postavené na cookies přihlášené
+relace prohlížeče, jiné sdílené brokery než Composio, klíče a tokeny v chatu,
+Gitu nebo logu a nové konektory ChatGPT nebo claude.ai (rozhodnutí 0162).
 
 **Pravidlo.** Aplikace, pluginy a konektory ChatGPT, které harness nabízí, agenti
 nepoužívají, dokud je nepovolí Organizace, v Osobním Prostředí vy, a i pak jen pro
@@ -383,7 +378,7 @@ pojmenovávat jinak nebo je nemít: v0.1.7 je nazývá **Nainstalovat a přihlá
 
 - [Rejstřík rozhodnutí Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md) ve větvi main ze 17. 11. 2026: rozhodnutí 0162 s dodatky, 0170 (Prostředí), 0172 (plný přístup uvnitř Prostředí) a 0175 (uživatel).
 - [Integrace](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md) ve vydání v0.1.22: pravidlo cest, organizace Composia v Prostředí, aplikace ChatGPT a schvalování v Executoru.
-- [Standard napojení externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md): pořadí cest, co zůstává vyloučené a katalog integrací Organizace.
+- [Manuál agentů Lazurio Platform](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/manual.ts) ve vydání v0.1.21, beze změny ve v0.1.22: agenti Integraci nikdy nepřipojují sami, co dělají, když aplikace cestu nemá, a žádná vlastní integrace.
 - [Rozhodnutí F17, F18 a F19 v LazurioPlatform](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f18--enabled-tools-of-the-environment) s jejich dodatky: nástroje uživatele, katalog, instrukce Folderu, poznámka, připravené přihlášení, `gh` v Týmovém Prostředí a týmové účty.
 - [Nástroje Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/environment-tools.md): katalog, kde se nástroj nabízí, co rozhoduje Organizace a příkazy `lazurio tools`.
 - [Sekce Nástroje v Launchpadu](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/launchpad-development.md#tools-section): co sekce ukazuje a jaké nabízí akce.

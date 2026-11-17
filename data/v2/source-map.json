@@ -463,16 +463,6 @@
       "reviewDueAt": "2026-12-17"
     },
     {
-      "id": "lazurio-external-apps-current",
-      "title": "External application integration standard: the order of routes, what stays excluded, ChatGPT apps off in an Environment and the Organization's integration catalog",
-      "publisher": "Lazurio",
-      "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md",
-      "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-11-06",
-      "reviewDueAt": "2026-12-06"
-    },
-    {
       "id": "composio-data-retention",
       "title": "Composio: Data retention and handling (logs up to one year on every plan, staged files 24 hours, where data goes)",
       "publisher": "Composio",
@@ -1374,13 +1364,13 @@
     },
     {
       "id": "lazurio-device-node-names",
-      "title": "Lazurio operator machine access: names of user device nodes (<login>-<device>) and no renaming of approved devices",
+      "title": "Lazurio Platform v0.1.22 agent manual, Adding a computer to a tailnet, steps 1 to 5 (unchanged on main): the login from Lazurio or the tailnet's administrator, never from the OS account; a new computer named <login>-<device> with --hostname at its first sign-in; a wrong name fixed with tailscale set --hostname while the device is not approved; never renamed on the Conglomerate Host; a -1 suffix is not success; an approved device is not renamed for convention",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/operator-machine-access.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/src/folder/manual.ts#L2882-L2898",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-03",
-      "reviewDueAt": "2026-12-03"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "headscale-connect-apple",

@@ -15,7 +15,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
   - microsoft-copilot-architecture
   - microsoft-copilot-data-protection
   - microsoft-copilot-privacy
@@ -111,10 +111,10 @@ a zpřístupní pod správou. Postup popisuje [přehled pluginů](https://learn.
 Tato cesta se hodí pro postupy spravované v produktech Microsoftu.
 
 Lazurio se rozšiřuje pomocí Workspace Modulů a samostatně vymezených integrací.
-Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
-upřednostňuje oficiální MCP servery nebo nástroje příkazové řádky, jejichž
-přihlášení zůstávají v Prostředí a lze je samostatně odvolat. Kde Organizace
-povolí Composio, patří jeho připojení účtu Composia, ne jednomu zařízení. To se hodí tam, kde práce
+Každá připojená aplikace má jednu cestu: vlastní nástroj nebo Executor
+Prostředí, jejichž přihlášení zůstávají v Prostředí a lze je samostatně
+odvolat, nebo, kde to Organizace povolí, Composio, jehož připojení patří účtu
+Composia, ne jednomu zařízení. To se hodí tam, kde práce
 vychází z repozitářů, prochází více službami nebo vyžaduje vlastní testy a
 schválení.
 

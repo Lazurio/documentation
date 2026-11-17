@@ -18,7 +18,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -72,7 +72,7 @@ source links and limits of these claims.
 | Company boundary | One company maps to one Organization and GitHub access boundary. One machine remains one trust domain. | Only intended repositories are mounted; use separate machines or equivalent isolation when companies must not share an OS boundary. |
 | Working context | Work begins in checked-out source and explicitly enabled tools. | Endpoint protection, local data scope and provider terms meet policy. |
 | Publication | Agent output stays editable until an authorized merge, deployment, send or provider action. | Branch rules, reviews and provider permissions enforce the intended gate. |
-| Integrations | Each connected app has one route: a tool, Executor or, where the Organization allows it, Composio. Official MCP servers and CLIs come first. Tool and Executor sign-ins stay in the Environment and can be revoked separately; Composio connections belong to the Composio account, and Composio holds their tokens and call content. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
+| Integrations | Each connected app has one route: a tool, Executor or, where the Organization allows it, Composio. Tool and Executor sign-ins stay in the Environment and can be revoked separately; Composio connections belong to the Composio account, and Composio holds their tokens and call content. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
 | Evidence | Git and provider records can show who changed what, but coverage depends on the tools actually used. | Required endpoint, model, app and deployment logs exist and have named retention. |
 
 ## What data can be reached?

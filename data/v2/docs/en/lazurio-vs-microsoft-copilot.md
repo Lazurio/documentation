@@ -15,7 +15,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
   - microsoft-copilot-architecture
   - microsoft-copilot-data-protection
   - microsoft-copilot-privacy
@@ -107,11 +107,11 @@ the package. A plugin is then published or shared and made available under
 governance, as described in Microsoft's [plugin overview](https://learn.microsoft.com/en-us/plugins/overview).
 Use this route for workflows managed within Microsoft's products.
 
-Lazurio extensions are workspace modules and scoped tool integrations. The
-documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
-prefers official MCP servers or CLIs whose sign-ins stay in the Environment and
-can be revoked separately. Where the Organization allows Composio, its
-connections belong to the Composio account rather than to one machine. Use this route for work across repositories or providers that needs its own tests and approvals.
+Lazurio extensions are workspace modules and scoped tool integrations. Each
+connected app has one path: its own tool or the Environment's Executor, whose
+sign-ins stay in the Environment and can be revoked separately, or, where the
+Organization allows it, Composio, whose connections belong to the Composio
+account rather than to one machine. Use this route for work across repositories or providers that needs its own tests and approvals.
 
 ## Which should you choose?
 

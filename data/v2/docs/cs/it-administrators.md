@@ -18,7 +18,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -64,7 +64,7 @@ jen tehdy, když je konkrétní nasazení zapne.
 | Oddělení firem | Jedna firma odpovídá jedné Organizaci a hranici přístupů v GitHubu; jedno zařízení je však stále jedna doména důvěry. | Připojené jsou jen zamýšlené repozitáře. Kde firmy nemají sdílet hranici operačního systému, použijte oddělená zařízení nebo rovnocennou izolaci. |
 | Lokální pracovní prostředí | Práce vychází z lokálně stažených, verzovaných podkladů na zařízení uživatele. | Zabezpečení zařízení, šifrování disku, dohled nad koncovými zařízeními, zálohování a odebrání přístupů odpovídají interním pravidlům. |
 | Schválení výsledku | Výstup agenta je nejprve vratný návrh. Sloučení změny, nasazení, odeslání nebo jiné zveřejnění vyžaduje příslušné oprávnění. | Pravidla repozitářů, povinné kontroly a oprávnění k nasazení skutečně vynucují zamýšlený schvalovací postup. |
-| Externí aplikace | Každá připojená aplikace má jednu cestu: nástroj, Executor, nebo Composio, pokud ho Organizace povolí. Přednost mají oficiální MCP servery a oficiální nástroje příkazové řádky. Přihlášení nástrojů a Executoru zůstávají v Prostředí a lze je samostatně odvolat; připojení přes Composio patří účtu Composia a Composio drží jejich tokeny i obsah volání. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
+| Externí aplikace | Každá připojená aplikace má jednu cestu: nástroj, Executor, nebo Composio, pokud ho Organizace povolí. Přihlášení nástrojů a Executoru zůstávají v Prostředí a lze je samostatně odvolat; připojení přes Composio patří účtu Composia a Composio drží jejich tokeny i obsah volání. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
 | Přihlašovací a tajné údaje | Citlivé údaje patří do vyhrazených úložišť mimo Git a veřejnou dokumentaci. | Zvolené úložiště, obměna údajů, reakce na incident a kontrola úniků fungují i v praxi. |
 | Audit | Commity, pull requesty, schválení a záznamy o nasazení dobře dokládají změny zdrojů; jejich pokrytí závisí na použitých nástrojích. | Potřebné záznamy existují v GitHubu, na koncových zařízeních, u poskytovatele modelu, v připojených aplikacích i v infrastruktuře pro nasazení. |
 

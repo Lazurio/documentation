@@ -10,7 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-external-apps-current
+  - lazurio-platform-folder-manual
   - lazurio-decision-0162
   - lazurio-external-apps-0162
   - lazurio-composio-runbook
@@ -96,22 +96,16 @@ deployed. See [Microsoft 365 for IT and the Organization Admin](/en/microsoft-36
 Workspace as a company app is decided and not implemented yet, so Google apps
 take the paths above.
 
-For a connection Apps → Integrations does not offer, the Lazurio integration
-standard proposes this order. The first route that works wins, and you have the
-last word:
+**When an app has no path.** If Apps → Integrations does not offer an app, an
+agent tells you so and sends you its card. Your Organization Admin sets up a
+company app, your Organization allows Composio on a Work Environment and you
+do on a Personal Environment; otherwise ask your Organization Admin. Agents do
+not build an integration of their own, such as their own OAuth app, API client
+or scraper, without your explicit decision.
 
-1. the provider's **official MCP server**, remote or self-hosted, added to
-   Executor;
-2. the provider's **official CLI**;
-3. **Composio**, when the provider has no suitable official MCP server or CLI
-   and Composio is allowed;
-4. a **reviewed open-source MCP server or CLI**, pinned to an exact release or
-   commit, with a verified publisher and licence;
-5. **the browser**, under your supervision, when none of the above exists.
-
-Never allowed, at any step: scraping a website, reusing browser cookie sessions,
-shared brokers other than Composio, keys or tokens in a chat, Git or a log, and
-new ChatGPT or claude.ai connectors.
+Never allowed: scraping a website, servers built on a signed-in browser
+session's cookies, shared brokers other than Composio, keys or tokens in a
+chat, Git or a log, and new ChatGPT or claude.ai connectors (decision 0162).
 
 **The rule.** Agents do not use the ChatGPT apps, plugins and connectors their
 harness offers, unless the Organization, or you on a Personal Environment, allows
@@ -399,7 +393,7 @@ in**, **Sign in** and **Sign out** and does not turn the switch on by itself.
 
 - [Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md) on main of 17 November 2026: decision 0162 with its addenda, 0170 (Environment), 0172 (full access inside the Environment) and 0175 (the user).
 - [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md) at release v0.1.22: the path rule, the Composio organization of an Environment, ChatGPT apps and Executor's approvals.
-- [External application integration standard](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md): the order of routes, what stays excluded and the Organization's integration catalog.
+- [Lazurio Platform agents' manual](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/manual.ts) at release v0.1.21, unchanged in v0.1.22: agents never connect an Integration themselves, what they do when an app has no path, and no integration of their own.
 - [LazurioPlatform decisions F17, F18 and F19](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f18--enabled-tools-of-the-environment), with their addenda: the user's tools, the catalog, the Folder instructions, the note, the curated sign-in, `gh` on a Team Environment and team accounts on a Team Environment.
 - [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/environment-tools.md): the catalog, where a tool is offered, what the Organization decides and the `lazurio tools` commands.
 - [Launchpad Tools section](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/launchpad-development.md#tools-section): what the section shows and its actions.

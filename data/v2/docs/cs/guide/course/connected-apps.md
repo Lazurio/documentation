@@ -14,7 +14,6 @@ sourceRefs:
   - lazurio-platform-folder-agent-rules
   - lazurio-platform-onboarding-decisions
   - lazurio-platform-launchpad-texts
-  - lazurio-external-apps-current
 audience:
   - decision-maker
   - builder

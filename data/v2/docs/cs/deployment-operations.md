@@ -16,7 +16,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -99,9 +99,10 @@ vlastníka. Posouzení zopakujte při změně klienta, poskytovatele nebo typu �
 ### 4. Povolte jen potřebné repozitáře a integrace
 
 Začněte jedním jasně vymezeným scénářem. Uživatel má mít přístup pouze k
-repozitářům a rozsahům oprávnění, které pro něj potřebuje. Postupujte podle
-veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
-a vyzkoušejte také odebrání přístupu.
+repozitářům a rozsahům oprávnění, které pro něj potřebuje. Každou aplikaci
+připojte její jedinou cestou, jak popisuje [Napojení Prostředí na
+aplikace](/cs/environment-app-connections/), a vyzkoušejte také odebrání
+přístupu.
 
 ### 5. Nastavte schvalování výsledků
 
