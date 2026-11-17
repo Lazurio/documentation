@@ -187,6 +187,12 @@ header.header {
   display: none;
 }
 
+/* Starlight draws its own chevron before the summary; the +/− after it is
+   the only marker, so the label starts at the left edge. */
+.sl-markdown-content details summary::before {
+  display: none;
+}
+
 .sl-markdown-content details summary::after {
   flex: 0 0 auto;
   color: var(--sl-color-text-accent);
