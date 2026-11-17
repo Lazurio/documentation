@@ -113,6 +113,16 @@
       "reviewDueAt": "2026-12-17"
     },
     {
+      "id": "lazurio-platform-readme-release",
+      "title": "Lazurio Platform README at release v0.1.21 (published 2026-11-13, commit 8c11468): one-command installation of versioned releases, CLI and Launchpad in one program, lazurio update, Folder Factory and the generated Lazurio Folder; status still release candidates",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
       "id": "wispr-flow",
       "title": "Wispr Flow downloads and product documentation",
       "publisher": "Wispr Flow",

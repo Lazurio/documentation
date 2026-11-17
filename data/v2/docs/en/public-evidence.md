@@ -57,9 +57,13 @@ The license notice names HumanAndMachine s.r.o. as copyright holder. It does
 not itself promise hosting, support or a service level for a concrete rollout.
 
 Lazurio Platform, the released product, uses
-[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) instead. It has no automatic transition to Apache,
-and offering it to third parties as a hosted or managed service needs a separate
-agreement with the licensor ([scope and notices](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) instead. It has no automatic transition to Apache.
+Offering third parties a hosted or managed service that exposes a substantial
+set of the software's features or functionality needs a separate agreement
+with the licensor, even when the service is free. The licensing scope states
+that this is not a prohibition on every kind of hosting: personal and internal
+company use, including a rented server or an internal cloud deployment, is
+allowed subject to the license ([scope and notices](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
 
 ## Identity and authority
 

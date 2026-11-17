@@ -2,16 +2,23 @@
 
 ## Unreleased
 
-- Re-verify the fourteen evidence sources due by 2026-11-29 and renew
-  thirteen of them. The Wispr privacy note follows the current Context
-  Awareness article. Pages that presented pinned 3c5bda5 statements as today's
-  state now label them as that revision or cite the current source: agents
-  work without a sandbox in an Environment (decision 0172), each connected app
-  has one route with Composio as the permitted exception, tracked files hold
-  only what the custody standard allows, and the glossary says Lazurio instead
-  of Launchpad. The vocabulary source moves to the public register in
-  LazurioPlatform. `lazurio-license` is not renewed; the license statement
-  needs a product decision (`issue-2026-11-17-001`). Record:
+- Re-verify the fourteen evidence sources due by 2026-11-29 and renew all
+  fourteen until 2026-12-17. The Wispr privacy note follows the current
+  Context Awareness article. Pages that presented pinned 3c5bda5 statements as
+  today's state now label them as that revision or cite the current source:
+  agents work without a sandbox in an Environment (decision 0172), each
+  connected app has one route with Composio as the permitted exception,
+  tracked files hold only what the custody standard allows, and the glossary
+  says Lazurio instead of Launchpad. The vocabulary source moves to the public
+  register in LazurioPlatform. `lazurio-license` is renewed after the owner's
+  decision of 2026-11-17 (`issue-2026-11-17-001`, resolved): the home page,
+  FAQ, IT briefing and evidence page name Elastic License 2.0 for the released
+  Lazurio Platform, with the hosted-service condition of its licensing scope,
+  and keep FSL-1.1-Apache-2.0 for the earlier Lazurio root repository. The
+  home page, FAQ, IT briefing and deployment page describe the released
+  Platform as installed versioned releases (v0.1.21) and limit the
+  source-checkout statements to root revision 3c5bda5. Two new sources:
+  `lazurio-platform-license` and `lazurio-platform-readme-release`. Record:
   `docs/source-review-2026-11-17.md`.
 - Bring the pages on roles, access and entry in line with decisions 0245, 0246
   and 0247 of the decision register (2026-11-14), which consolidate decisions

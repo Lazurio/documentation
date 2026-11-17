@@ -59,9 +59,9 @@ const safetyClaims = [
   ],
   [
     "deployment-operations",
-    "target only",
-    "| Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |",
-    "| Balíčkované CLI a generovaný root bez Gitu | Budoucí cíl | Nezahrnujte je do seznamu dnes nasazovaných součástí. |"
+    "target of the earlier revision",
+    "| Packaged CLI and generated non-Git root | Target at that revision | They were not part of an installation at that revision. The released Lazurio Platform now installs a packaged CLI and generates the Lazurio Folder; list the installed release in a current bill of materials. |",
+    "| Balíčkované CLI a generovaný root bez Gitu | Cíl v této revizi | V této revizi nebyly součástí instalace. Vydaná Lazurio Platform dnes instaluje balíčkované CLI a generuje Lazurio Folder; do seznamu dnes nasazovaných součástí zapište instalované vydání. |"
   ],
   [
     "deployment-operations",

@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-license
   - lazurio-platform-license
   - lazurio-architecture
@@ -31,10 +32,15 @@ materials and change history. Agents prepare drafts; publication is approved
 separately. GitHub, the operating system and connected services still control
 access.
 
-The setup described in the linked source revision runs from source with Git and Bun. It
-includes Launchpad, diagnostics, operating contracts and an experimental CLI
-v0. It is not a vendor-managed AI service, a stable packaged installer or an
-additional sandbox around the selected agent client.
+The current baseline is installable Platform v0.1.21, released on 13 November
+2026. CLI and Apps share one installed program; the product generates the
+Lazurio Folder's agent instructions
+([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
+This does not supply an AI subscription or a universal sandbox. The earlier
+Lazurio root repository at revision `3c5bda5`, which this briefing still cites
+for some rules, ran from a developer-operated source checkout with Git and Bun
+and had an experimental CLI v0; that describes that revision, not the current
+release.
 
 Before approval, identify **the account, machine, Organization, tool and
 available data**. Separately verify who may publish the result.
@@ -50,9 +56,9 @@ them.
 
 | Item | Current public position |
 | --- | --- |
-| Product form | Developer-operated source checkout using Git and Bun. A packaged installation is a future target. |
-| Runtime maturity | Launchpad, Doctor and selected module flows work today; CLI v0 remains experimental. |
-| License | Lazurio Platform is source-available under [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE), with no automatic transition to Apache; offering it to third parties as a hosted or managed service needs a separate agreement ([scope](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)). The earlier Lazurio root repository is under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each of its published versions after two years. |
+| Product form | Installable CLI and Apps, with generated instructions; source checkout is not required for daily use. Releases are versioned; the latest final release is v0.1.21 of 13 November 2026. |
+| Runtime maturity | The Platform README still describes the status as release candidates, and hosted Environments still run the earlier Resident beside it until hosted entry and content synchronization land. Verify the installed release and enabled services; a release is not a promise that every optional service is deployed. |
+| License | Lazurio Platform is source-available under [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE), with no automatic transition to Apache. A hosted or managed service offered to third parties that exposes a substantial set of the software's features or functionality needs a separate agreement, even when it is free. This is not a prohibition on every kind of hosting: internal company use, including a rented server or an internal cloud deployment, is allowed subject to the license ([scope](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)). The earlier Lazurio root repository is under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each of its published versions after two years. |
 | Assurance | No certification, universal service level, retention period or deployment topology is claimed. Support and hosting terms belong to the concrete deployment. |
 
 See [security and control evidence](/en/public-evidence/) for the license,

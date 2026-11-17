@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -36,12 +37,19 @@ The following status matches Lazurio source revision
 [`3c5bda5`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60),
 not automatically the latest product version.
 
+The current product differs from that revision: Lazurio Platform is installed
+as versioned releases, the latest final one being v0.1.21 of 13 November 2026.
+An installed release contains the CLI and Apps in one program and generates
+the Lazurio Folder; later updates arrive as new releases
+([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
+For a current bill of materials, list the installed release, not this table.
+
 | Surface | Status | Operational meaning |
 | --- | --- | --- |
 | Source checkout with Git and Bun | Supported | The operator owns repository access, dependencies and updates. |
 | Launchpad, Guide and Doctor | Available | These are local tools for finding applications, reading guidance, running applications and checking the installation. Loopback listeners are not caller authentication. |
 | CLI v0 | Experimental | Pin versions and test any production automation that depends on it. |
-| Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |
+| Packaged CLI and generated non-Git root | Target at that revision | They were not part of an installation at that revision. The released Lazurio Platform now installs a packaged CLI and generates the Lazurio Folder; list the installed release in a current bill of materials. |
 | Dashboard, hosted workspace and Resident/Buddy | Optional, separately deployed | Inventory each enabled service with its own identity, network, storage and operating owner. |
 
 Assign an owner to each part of the installation: the user's machine,

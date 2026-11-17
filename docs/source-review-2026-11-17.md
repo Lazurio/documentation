@@ -5,8 +5,8 @@ again on 17 November 2026 and compared with the claims of every page in both
 locales that cites it. A review window moves only where the source still
 supports those claims, or where the page was corrected first. All fourteen
 windows move; `lazurio-license` moved after the license statements were
-corrected on the owner's decision (see its entry below), and the new source
-`lazurio-platform-license` was added. The
+corrected on the owner's decision (see its entry below). Two new sources were
+added: `lazurio-platform-license` and `lazurio-platform-readme-release`. The
 repository's monthly cadence is retained: a renewed source is next due one
 calendar month after this review, on 17 December 2026.
 
@@ -66,7 +66,9 @@ into this repository.
 Each pinned file was read at its pin and compared with the same file on the
 current default branch: `HumanAndMachines/Lazurio` at
 `31028d51893b2f7caa4a723dbe0081b4f17fbada` and `Lazurio/LazurioPlatform` at
-`9ec84a9baecf735434ec54fe77a93e1550678db1`. Every page that cites a source
+`9ec84a9baecf735434ec54fe77a93e1550678db1` (the README again at release
+v0.1.21 and on main `fe72f68721e3f9968e8e52cee390af106f4e319c` during the
+follow-up of the review). Every page that cites a source
 was read in both locales. A claim that a page labels as the state of the
 pinned revision only needs the pin; a claim presented as current needs the
 current source.
@@ -79,15 +81,33 @@ either labels it as the state of that revision or cites the newer source
 already in the evidence map.
 
 - **`lazurio-readme` and `lazurio-architecture`:** the pin still supports
-  every statement the pages tie to it. The current README and architecture
-  still support the present-tense statements: a local working system and
-  not an AI model, active development, no packaged installation yet, one
-  machine as one trust domain, Organization folders that are not isolation,
-  optional hosted services. Two statements read as current but are no longer
-  true: decision 0164 replaced the generated non-Git root with the Lazurio
-  Folder, and the Guide is now this public documentation. The English
-  deployment table now names revision `3c5bda5` as its scope, as the Czech
-  one already did, and drops "today"; both locales of how-lazurio-works say
+  every statement the pages tie to that revision. The root repository's
+  README and architecture on its main branch still describe a local working
+  system and not an AI model, active development, one machine as one trust
+  domain, Organization folders that are not isolation and optional hosted
+  services. The root README on main also still says there is no packaged
+  installation yet, but the root repository no longer describes the current
+  product. The first version of this record treated that sentence as current
+  evidence; that was wrong. The README of Lazurio Platform at its latest
+  final release, v0.1.21 (commit `8c11468`, published 13 November 2026, the
+  same on main `fe72f687` except for one decision note), describes a
+  one-command installation of versioned releases, the CLI and Launchpad in
+  one program, updates through `lazurio update`, and the Folder Factory that
+  generates the Lazurio Folder. It still calls the status release
+  candidates, and hosted installations still run the earlier resident beside
+  it until hosted entry and content synchronization land. The new source
+  `lazurio-platform-readme-release` pins that README at the release commit.
+  The home page, the FAQ, the IT briefing (introduction, product form and
+  runtime maturity) and the deployment page now describe the installed
+  releases from it, in both locales; their source-checkout, CLI v0 and
+  planned-installation statements are limited to root revision `3c5bda5`.
+  Two other statements read as current but are no longer true: decision 0164
+  replaced the generated non-Git root with the Lazurio Folder, and the Guide
+  is now this public documentation. The English deployment table now names
+  revision `3c5bda5` as its scope, as the Czech one already did, and drops
+  "today"; in both locales its row for the packaged CLI and generated root
+  is marked as the target of that revision and sends a current bill of
+  materials to the installed release. Both locales of how-lazurio-works say
   the packaged CLI and generated root were the target at that revision.
   The English how-lazurio-works page now links the revision it refers to, as
   the Czech page does.
@@ -128,8 +148,15 @@ already in the evidence map.
   Platform and FSL-1.1-Apache-2.0 as the license of the earlier root
   repository; the evidence page keeps the root's FSL terms and adds the
   Platform's. The new source `lazurio-platform-license` pins
-  `docs/licensing.md` at `fe72f687`. The wider refresh of the product form in
-  #48 (issue #42) is unchanged by this.
+  `docs/licensing.md` at `fe72f687`. The first corrected text said that
+  offering the Platform to third parties as a hosted or managed service
+  needs a separate agreement, without the condition in the licensing scope.
+  The IT table and the evidence page now say, in both locales, that the
+  restriction covers a hosted or managed service for third parties that
+  exposes a substantial set of the software's features or functionality,
+  even a free one, and that it is not a prohibition on every kind of
+  hosting. The wider refresh of the product form in #48 (issue #42) is
+  unchanged by this.
 - **`lazurio-product-vocabulary`:** decisions 0170, 0175, 0179, 0185 and 0207
   remain in force; 0170 and 0207 gained addenda, including a Services
   Environment that is decided but not shown. Since decision 0226 the
@@ -148,14 +175,20 @@ already in the evidence map.
 
 | Source ID | Read at | Compared with | Result |
 | --- | --- | --- | --- |
-| `lazurio-readme` | `3c5bda5` README.md (blob `070ec3b1a6ef`) | main README.md (blob `b47f80e37a05`) | text corrected |
+| `lazurio-readme` | `3c5bda5` README.md (blob `070ec3b1a6ef`) | main README.md (blob `b47f80e37a05`) and LazurioPlatform README at v0.1.21 (blob `076e547ea244`) | text corrected; current product form cited to `lazurio-platform-readme-release` |
 | `lazurio-architecture` | `3c5bda5` ARCHITECTURE.md (blob `bf12cf304be1`) | main ARCHITECTURE.md (blob `ec5908c5ee7e`) | text corrected |
 | `lazurio-collaboration-model` | `3c5bda5` AGENTS.md (blob `5bb8448d27c9`) | main AGENTS.md (blob `e7597aead3c8`) | text corrected |
 | `lazurio-external-apps` | `3c5bda5` external-app-integrations.md (blob `69fd8794fa53`) | main (blob `37bfd6ebeffc`) | text corrected |
 | `lazurio-secret-custody` | `3c5bda5` local-secret-custody.md (blob `d4aac6693d96`) | main (blob `34975ca9015a`) | text corrected |
-| `lazurio-license` | `3c5bda5` LICENSE.md (blob `27224345f001`) | main (identical) and LazurioPlatform `LICENSE` | not renewed |
+| `lazurio-license` | `3c5bda5` LICENSE.md (blob `27224345f001`) | main (identical) and LazurioPlatform `LICENSE` | renewed after a correction (owner's decision, 17 November 2026) |
 | `lazurio-product-vocabulary` | `6416d27` decision-register.md | HumanAndMachines main and LazurioPlatform `f9af2b7` register | confirmed, re-pinned, glossary corrected |
 | `lazurio-user-roles-current` | `4681f49` decisions.md, F30 | LazurioPlatform main, F30 identical | confirmed |
+
+Two sources are new in this review, both reviewed on 17 November 2026 and due
+on 17 December 2026: `lazurio-platform-license` pins LazurioPlatform
+`docs/licensing.md` at `fe72f687`, and `lazurio-platform-readme-release` pins
+the LazurioPlatform README at release v0.1.21 (commit `8c11468`), the latest
+final release listed on GitHub on the day of this review.
 
 Not checked in this review: text inside SVG diagrams, and claims that the
 same pages draw from sources that were not due.

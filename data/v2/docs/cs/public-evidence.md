@@ -58,9 +58,13 @@ držitele autorských práv. Samotná licence neslibuje hosting, podporu ani úr
 služeb pro konkrétní nasazení.
 
 Vydaná Lazurio Platform místo toho používá
-[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE). Na Apache se automaticky nepřevádí a nabízet ji
-třetím stranám jako hostovanou nebo spravovanou službu vyžaduje samostatnou
-smlouvu s poskytovatelem licence ([rozsah a oznámení](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE). Na Apache se automaticky nepřevádí.
+Nabízet třetím stranám hostovanou nebo spravovanou službu, která zpřístupňuje
+podstatnou část funkcí nebo funkcionality softwaru, vyžaduje samostatnou
+smlouvu s poskytovatelem licence, i když je služba zdarma. Popis rozsahu
+licence výslovně uvádí, že nejde o zákaz každého hostingu: osobní i interní
+firemní použití, včetně pronajatého serveru nebo nasazení v interním cloudu,
+je za podmínek licence povolené ([rozsah a oznámení](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
 
 ## Identita a oprávnění
 

@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-license
   - lazurio-platform-license
   - lazurio-architecture
@@ -34,8 +35,15 @@ zabezpečení a podmínky zpracování dat posuzujte samostatně.
 
 ## Je Lazurio hotový balíčkovaný produkt?
 
-Ne. V odkazované revizi se Lazurio spouští ze zdrojové pracovní kopie
-s Gitem a Bunem. CLI v0 je experimentální a balíčkovaná instalace je plánovaná. Vydaná Lazurio Platform je dostupná pod licencí
+Balíčkovaný ano. Současná Lazurio Platform se distribuuje jako instalovatelná
+vydání: verze v0.1.21 vyšla 13. listopadu 2026 a obsahuje CLI, Apps
+i generované instrukce pro agenty. Její
+[README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)
+stav dál označuje jako kandidáty na vydání (release candidates) a vydaný
+balíček sám nepřislibuje jednotné SLA ani certifikované nasazení. V revizi
+`3c5bda5` staršího repozitáře Lazurio rootu, na kterou některé stránky dál
+odkazují, se Lazurio spouštělo ze zdrojové pracovní kopie s Gitem a Bunem
+a balíčkovaná instalace byla teprve plánovaná. Vydaná Lazurio Platform je dostupná pod licencí
 [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) a starší repozitář Lazurio rootu pod
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
 podrobnosti o licenci a zralosti produktu najdete v části [Bezpečnost a

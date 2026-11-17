@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-license
   - lazurio-platform-license
   - lazurio-architecture
@@ -40,8 +41,15 @@ security and data terms separately.
 
 <summary>Is Lazurio a finished, packaged product?</summary>
 
-No. At the referenced revision, Lazurio runs from a source checkout using
-Git and Bun. CLI v0 is experimental; a packaged installation is planned. Lazurio Platform, the released product, is source-available under
+It is packaged. The current Platform is distributed as installable releases:
+version v0.1.21 was published on 13 November 2026 and includes CLI, Apps and
+generated agent instructions. Its
+[README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)
+still describes the status as release candidates, and a released package does
+not imply a universal SLA or a certified deployment. At revision `3c5bda5` of
+the earlier Lazurio root repository, which some pages still cite, Lazurio ran
+from a source checkout using Git and Bun and a packaged installation was still
+planned. Lazurio Platform, the released product, is source-available under
 [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE), and the earlier Lazurio root repository under
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
 the [security and control evidence](/en/public-evidence/#product-form-and-maturity) explains
