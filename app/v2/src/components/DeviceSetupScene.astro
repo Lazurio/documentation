@@ -3,16 +3,19 @@
 // It follows the visual language of the Launchpad guide's scenes
 // (Lazurio/LazurioPlatform src/shell/guide-scenes.ts, guide-scene-styles.ts):
 // a paper stage of 320 × 180 units, white objects, blue for the answer, one
-// subject at a time, the easing cubic-bezier(0.22, 0.8, 0.24, 1), and one beat
-// per step that the reader moves with Back and Next, never on a timer.
-// Every animation is finite and ends within five seconds of a step starting
-// (WCAG 2.2.2), on the step's still frame.
+// subject at a time, the easing cubic-bezier(0.22, 0.8, 0.24, 1), one beat
+// per step. The steps play on their own in a loop, one every few seconds, with
+// arrows and a pause button inside the frame (WCAG 2.2.2): the loop stops
+// while the pointer is over the frame or focus is in it, when the reader
+// pauses it or steps by hand, and while the frame is off screen. Within a step
+// every animation is finite and ends on the step's still frame.
 //
 // The plain rules are each beat's finished frame. Motion lives only inside
 // `prefers-reduced-motion: no-preference` and only where the scene is not
-// still, so with reduced motion every beat is its still frame. The stage is
-// decorative (`aria-hidden`); the step text below it is the content, and
-// without JavaScript the steps render as a plain ordered list.
+// still, so with reduced motion every beat is its still frame and the loop
+// starts paused. The stage and its caption are decorative (`aria-hidden`);
+// the full list of steps stays in the page for assistive technology, and
+// without JavaScript it renders as a plain ordered list.
 //
 // Icons: Iconoir (MIT, https://iconoir.com), the set the Lazurio design
 // system mandates; the same path data the Launchpad shell draws.
@@ -20,10 +23,10 @@ interface Props {
   system: 'windows' | 'macos'
   copy: {
     label: string
-    stepOf: string
-    back: string
+    prev: string
     next: string
-    restart: string
+    pause: string
+    play: string
     you: string
     chat: string
     prompt: string
@@ -52,73 +55,88 @@ const icon = {
   key: '<path d="M10 12C10 14.2091 8.20914 16 6 16C3.79086 16 2 14.2091 2 12C2 9.79086 3.79086 8 6 8C8.20914 8 10 9.79086 10 12ZM10 12H22V15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 12V15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
   lock: '<path d="M16 12H17.4C17.7314 12 18 12.2686 18 12.6V19.4C18 19.7314 17.7314 20 17.4 20H6.6C6.26863 20 6 19.7314 6 19.4V12.6C6 12.2686 6.26863 12 6.6 12H8M16 12V8C16 6.66667 15.2 4 12 4C8.8 4 8 6.66667 8 8V12M16 12H8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
   user: '<path d="M5 20V19C5 15.134 8.13401 12 12 12V12C15.866 12 19 15.134 19 19V20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  prev: '<path d="M15 6L9 12L15 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  next: '<path d="M9 6L15 12L9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  pause: '<path d="M6 18.4V5.6C6 5.26863 6.26863 5 6.6 5H9.4C9.73137 5 10 5.26863 10 5.6V18.4C10 18.7314 9.73137 19 9.4 19H6.6C6.26863 19 6 18.7314 6 18.4Z" stroke="currentColor"/><path d="M14 18.4V5.6C14 5.26863 14.2686 5 14.6 5H17.4C17.7314 5 18 5.26863 18 5.6V18.4C18 18.7314 17.7314 19 17.4 19H14.6C14.2686 19 14 18.7314 14 18.4Z" stroke="currentColor"/>',
+  play: '<path d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947C6 19.4119 6.50592 19.7002 6.90588 19.4632L18.629 12.5162C19.0211 12.2838 19.0211 11.7162 18.629 11.4838L6.90588 4.53682Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
   laptop: '<path d="M3.2 14.2222V4C3.2 2.89543 4.09543 2 5.2 2H18.8C19.9046 2 20.8 2.89543 20.8 4V14.2222M3.2 14.2222H20.8M3.2 14.2222L1.71969 19.4556C1.35863 20.7321 2.31762 22 3.64418 22H20.3558C21.6824 22 22.6414 20.7321 22.2803 19.4556L20.8 14.2222" stroke="currentColor"/><path d="M11 19L13 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
 }
 const svg = (name: keyof typeof icon) =>
   `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true">${icon[name]}</svg>`
-const total = c.steps.length
 ---
-<device-scene class="lzs not-content" data-system={system} data-step-of={c.stepOf} data-total={total}>
-  <div class="lzs-stage" aria-hidden="true" hidden>
-    <span class="lzs-badge">{c.badge}</span>
-    <div class="lzs-scene" data-beat="0">
-      <span class="lzs-o lzs-box lzs-chat">
-        <span class="lzs-title"><Fragment set:html={svg('laptop')} />{c.chat}</span>
-        <span class="lzs-composer"></span>
-      </span>
-      <span class="lzs-o lzs-chip lzs-prompt"><Fragment set:html={svg('page')} />{c.prompt}<span class="lzs-you lzs-hand"><Fragment set:html={svg('cursor')} /><span class="lzs-tag lzs-ink">{c.you}</span></span></span>
-      <span class="lzs-o lzs-bubble lzs-ask lzs-sent"><Fragment set:html={svg('page')} />{c.prompt}</span>
-      <span class="lzs-o lzs-bubble lzs-answer lzs-working"><span class="lzs-dot"></span><span class="lzs-typing"><span></span><span></span><span></span></span>{c.working}</span>
-      <span class="lzs-o lzs-box lzs-dialog">
-        <span class="lzs-title"><Fragment set:html={svg('lock')} />{system === 'windows' ? 'Windows' : 'macOS'}</span>
-        <span class="lzs-dtext">{c.dialog}</span>
-        <span class="lzs-btn">{c.allow}</span>
-      </span>
-      <span class="lzs-o lzs-bubble lzs-answer lzs-linkmsg"><span class="lzs-dot"></span><span class="lzs-link"><Fragment set:html={svg('link')} />{c.signIn}</span></span>
-      <span class="lzs-o lzs-box lzs-signin">
-        <span class="lzs-title"><Fragment set:html={svg('lock')} />{c.lazurio}</span>
-        <span class="lzs-key"><Fragment set:html={svg('key')} /></span>
-        <span class="lzs-status"><Fragment set:html={svg('check')} />{c.signedIn}</span>
-      </span>
-      <span class="lzs-o lzs-bubble lzs-answer lzs-donemsg"><span class="lzs-mark"><Fragment set:html={svg('check')} /></span>{c.done}</span>
-      <span class="lzs-o lzs-tile">
-        <span class="lzs-tname">{c.network}</span>
-        <span class="lzs-tstatus">{c.waiting}</span>
-      </span>
-      <span class="lzs-o lzs-line"></span>
-      <span class="lzs-o lzs-person"><span class="lzs-head"><Fragment set:html={svg('user')} /></span><span class="lzs-tag">{c.admin}</span></span>
-      <span class="lzs-o lzs-tapper lzs-you"><Fragment set:html={svg('cursor')} /><span class="lzs-tag lzs-ink">{c.you}</span></span>
+<device-scene class="lzs not-content" data-pause={c.pause} data-play={c.play}>
+  <figure class="lzs-frame" hidden>
+    <div class="lzs-view">
+      <div class="lzs-stage" aria-hidden="true">
+        <div class="lzs-scene" data-beat="0">
+          <span class="lzs-o lzs-box lzs-chat">
+            <span class="lzs-title"><Fragment set:html={svg('laptop')} />{c.chat}</span>
+            <span class="lzs-composer"></span>
+          </span>
+          <span class="lzs-o lzs-chip lzs-prompt"><Fragment set:html={svg('page')} />{c.prompt}<span class="lzs-you lzs-hand"><Fragment set:html={svg('cursor')} /><span class="lzs-tag lzs-ink">{c.you}</span></span></span>
+          <span class="lzs-o lzs-bubble lzs-ask lzs-sent"><Fragment set:html={svg('page')} />{c.prompt}</span>
+          <span class="lzs-o lzs-bubble lzs-answer lzs-working"><span class="lzs-dot"></span><span class="lzs-typing"><span></span><span></span><span></span></span>{c.working}</span>
+          <span class="lzs-o lzs-box lzs-dialog">
+            <span class="lzs-title"><Fragment set:html={svg('lock')} />{system === 'windows' ? 'Windows' : 'macOS'}</span>
+            <span class="lzs-dtext">{c.dialog}</span>
+            <span class="lzs-btn">{c.allow}</span>
+          </span>
+          <span class="lzs-o lzs-bubble lzs-answer lzs-linkmsg"><span class="lzs-dot"></span><span class="lzs-link"><Fragment set:html={svg('link')} />{c.signIn}</span></span>
+          <span class="lzs-o lzs-box lzs-signin">
+            <span class="lzs-title"><Fragment set:html={svg('lock')} />{c.lazurio}</span>
+            <span class="lzs-key"><Fragment set:html={svg('key')} /></span>
+            <span class="lzs-status"><Fragment set:html={svg('check')} />{c.signedIn}</span>
+          </span>
+          <span class="lzs-o lzs-bubble lzs-answer lzs-donemsg"><span class="lzs-mark"><Fragment set:html={svg('check')} /></span>{c.done}</span>
+          <span class="lzs-o lzs-tile">
+            <span class="lzs-tname">{c.network}</span>
+            <span class="lzs-tstatus">{c.waiting}</span>
+          </span>
+          <span class="lzs-o lzs-line"></span>
+          <span class="lzs-o lzs-person"><span class="lzs-head"><Fragment set:html={svg('user')} /></span><span class="lzs-tag">{c.admin}</span></span>
+          <span class="lzs-o lzs-tapper lzs-you"><Fragment set:html={svg('cursor')} /><span class="lzs-tag lzs-ink">{c.you}</span></span>
+        </div>
+      </div>
+      <span class="lzs-badge" title={c.note} aria-hidden="true">{c.badge}</span>
+      <div class="lzs-ctrl">
+        <button type="button" data-prev aria-label={c.prev} title={c.prev}><Fragment set:html={svg('prev')} /></button>
+        <button type="button" data-toggle aria-label={c.pause} title={c.pause}><span class="lzs-i-pause"><Fragment set:html={svg('pause')} /></span><span class="lzs-i-play"><Fragment set:html={svg('play')} /></span></button>
+        <button type="button" data-next aria-label={c.next} title={c.next}><Fragment set:html={svg('next')} /></button>
+      </div>
     </div>
-  </div>
+    <figcaption class="lzs-caption" aria-hidden="true">
+      <span class="lzs-progress">{c.steps.map(() => <span></span>)}</span>
+      <span class="lzs-line-text"><span class="lzs-count"></span><span class="lzs-text"></span></span>
+    </figcaption>
+  </figure>
   <ol class="lzs-steps" aria-label={c.label}>
-    {c.steps.map((step, index) => <li data-step={index}>{step}</li>)}
+    {c.steps.map((step) => <li>{step}</li>)}
   </ol>
-  <div class="lzs-controls" hidden>
-    <span class="lzs-count" aria-hidden="true"></span>
-    <span class="lzs-dots" aria-hidden="true">{c.steps.map(() => <span></span>)}</span>
-    <span class="lzs-nav">
-      <button type="button" data-back>{c.back}</button>
-      <button type="button" data-next data-next-label={c.next} data-restart-label={c.restart}>{c.next}</button>
-    </span>
-  </div>
-  <p class="lzs-note">{c.note}</p>
+  <span class="lzs-sr">{c.note}</span>
 </device-scene>
 
 <style>
   .lzs {
     display: block;
-    margin-block: 1rem 1.5rem;
+    margin-block: 1.25rem 2rem;
     max-width: 36rem;
   }
+  /* One block: the stage and its caption share a single frame. */
+  .lzs-frame {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: var(--lz-radius-lg);
+    background: var(--sl-color-black);
+  }
+  .lzs-frame[hidden] { display: none; }
+  .lzs-view { position: relative; }
   .lzs-stage {
     position: relative;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: var(--lz-radius-lg);
     background: var(--lz-paper);
   }
-  .lzs-stage[hidden] { display: none; }
   .lzs-scene {
     --e: cubic-bezier(0.22, 0.8, 0.24, 1);
     position: absolute;
@@ -180,8 +198,8 @@ const total = c.steps.length
   .lzs-signin { translate: 206px 34px; width: 102px; height: 96px; }
   .lzs-donemsg { translate: 22px 112px; }
   .lzs-tile { translate: 200px 30px; width: 112px; height: 50px; }
-  .lzs-line { translate: 257px 82px; width: 30px; rotate: 90deg; }
-  .lzs-person { translate: 236px 114px; }
+  .lzs-line { translate: 257px 82px; width: 20px; rotate: 90deg; }
+  .lzs-person { translate: 236px 104px; }
   .lzs-tapper { translate: 270px 106px; }
 
   /* Beat 0: the prompt goes into the chat. */
@@ -198,35 +216,32 @@ const total = c.steps.length
   /* Beat 4: done; the device waits for the Organization Admin. */
   [data-beat='4'] :is(.lzs-chat, .lzs-sent, .lzs-linkmsg, .lzs-donemsg, .lzs-tile, .lzs-line, .lzs-person) { opacity: 1; }
 
-  .lzs-badge { position: absolute; z-index: 1; top: 0.5rem; right: 0.5rem; padding: 0.1rem 0.45rem; border-radius: var(--lz-radius-pill); background: var(--lz-ink); color: var(--lz-white); font-size: 0.7rem; font-weight: var(--lz-weight-title); letter-spacing: 0.04em; text-transform: uppercase; }
-  .lzs-note { margin: 0.5rem 0 0; color: var(--sl-color-gray-3); font-size: 0.85rem; }
+  .lzs-badge { position: absolute; z-index: 1; top: 0.5rem; right: 0.5rem; padding: 0.1rem 0.45rem; border-radius: var(--lz-radius-pill); background: var(--lz-ink); color: var(--lz-white); font-size: 0.7rem; font-weight: var(--lz-weight-title); letter-spacing: 0.04em; text-transform: uppercase; cursor: help; }
+
+  /* Arrows and pause sit inside the frame, bottom right, on the paper. */
+  .lzs-ctrl { position: absolute; z-index: 1; right: 0.5rem; bottom: 0.5rem; display: flex; padding: 2px; border: 1px solid var(--lz-line); border-radius: var(--lz-radius-pill); background: rgb(255 255 255 / 92%); box-shadow: 0 2px 8px rgb(0 0 0 / 8%); }
+  .lzs-ctrl button { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--lz-ink); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .lzs-ctrl button :global(svg) { width: 18px; height: 18px; }
+  .lzs-ctrl button:active { background: var(--lz-gray-100); }
+  .lzs-ctrl button:focus-visible { outline: 2px solid var(--lz-blue-500); outline-offset: -2px; }
+  @media (hover: hover) and (pointer: fine) { .lzs-ctrl button:hover { background: var(--lz-gray-100); } }
+  .lzs-i-play, [data-paused] .lzs-i-pause { display: none; }
+  [data-paused] .lzs-i-play { display: block; }
+  @media (max-width: 30rem) { .lzs-ctrl { right: 0.375rem; bottom: 0.375rem; } .lzs-ctrl button { width: 26px; height: 26px; } .lzs-ctrl button :global(svg) { width: 14px; height: 14px; } }
+
+  /* The caption belongs to the frame: progress, step number and its text. */
+  .lzs-caption { display: grid; gap: 0.6rem; padding: 0.75rem 1rem 0.9rem; border-top: 1px solid var(--sl-color-gray-5); }
+  .lzs-progress { display: flex; gap: 0.25rem; }
+  .lzs-progress span { flex: 1; height: 3px; border-radius: 2px; background: var(--sl-color-gray-5); }
+  .lzs-progress span[data-on] { background: var(--sl-color-text-accent); }
+  .lzs-line-text { display: flex; gap: 0.6rem; align-items: baseline; min-height: 3em; color: var(--sl-color-white); font-size: 0.95rem; line-height: 1.5; }
+  .lzs-count { flex: none; color: var(--sl-color-gray-3); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+
   .lzs-steps { margin-block: 0.75rem 0; padding-inline-start: 1.5rem; list-style: decimal; }
   .lzs-steps li + li { margin-top: 0.25rem; }
-  .lzs[data-ready] .lzs-steps { padding: 0; list-style: none; }
-  .lzs[data-ready] .lzs-steps li { display: none; margin: 0; min-height: 3em; color: var(--sl-color-white); font-size: 1rem; }
-  .lzs[data-ready] .lzs-steps li[data-current] { display: block; }
-  .lzs-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
-  .lzs-controls[hidden] { display: none; }
-  .lzs-count { color: var(--sl-color-gray-3); font-size: 0.85rem; }
-  .lzs-dots { display: flex; gap: 0.3rem; }
-  .lzs-dots span { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--sl-color-gray-5); }
-  .lzs-dots span[data-on] { background: var(--sl-color-text-accent); }
-  .lzs-nav { display: flex; gap: 0.5rem; margin-inline-start: auto; }
-  .lzs-nav button {
-    min-height: 44px;
-    padding: 0 1rem;
-    border: 1px solid var(--sl-color-gray-5);
-    border-radius: var(--lz-radius-md);
-    background: var(--sl-color-black);
-    color: var(--sl-color-white);
-    font: inherit;
-    font-weight: var(--lz-weight-title);
-    cursor: pointer;
-    touch-action: manipulation;
-  }
-  .lzs-nav button[data-next] { border-color: var(--sl-color-text-accent); background: var(--sl-color-text-accent); color: var(--sl-color-black); }
-  .lzs-nav button:disabled { opacity: 0.45; cursor: default; }
-  .lzs-nav button:focus-visible { outline: 2px solid var(--sl-color-text-accent); outline-offset: 2px; }
+  .lzs-sr { display: none; }
+  /* With the scene running, the list and the note stay for screen readers. */
+  .lzs[data-ready] :is(.lzs-steps, .lzs-sr) { position: absolute; display: block; width: 1px; height: 1px; overflow: hidden; margin: -1px; padding: 0; clip-path: inset(50%); white-space: nowrap; }
 
   @media (prefers-reduced-motion: no-preference) {
     .lzs-scene:not([data-still]) .lzs-o { transition: translate 0.75s var(--e), opacity 0.45s ease, rotate 0.9s var(--e); }
@@ -250,55 +265,96 @@ const total = c.steps.length
 </style>
 
 <script>
+  const STEP_MS = 6000
+
   class DeviceScene extends HTMLElement {
     connectedCallback() {
       if (this.dataset.ready !== undefined) return
+      const frame = this.querySelector<HTMLElement>('.lzs-frame')!
+      const view = this.querySelector<HTMLElement>('.lzs-view')!
       const stage = this.querySelector<HTMLElement>('.lzs-stage')!
       const scene = this.querySelector<HTMLElement>('.lzs-scene')!
-      const controls = this.querySelector<HTMLElement>('.lzs-controls')!
-      const steps = [...this.querySelectorAll<HTMLElement>('.lzs-steps li')]
-      const dots = [...this.querySelectorAll<HTMLElement>('.lzs-dots span')]
+      const steps = [...this.querySelectorAll<HTMLElement>('.lzs-steps li')].map((li) => li.textContent ?? '')
+      const bars = [...this.querySelectorAll<HTMLElement>('.lzs-progress span')]
       const count = this.querySelector<HTMLElement>('.lzs-count')!
-      const back = this.querySelector<HTMLButtonElement>('[data-back]')!
+      const text = this.querySelector<HTMLElement>('.lzs-text')!
+      const prev = this.querySelector<HTMLButtonElement>('[data-prev]')!
       const next = this.querySelector<HTMLButtonElement>('[data-next]')!
+      const toggle = this.querySelector<HTMLButtonElement>('[data-toggle]')!
       const total = steps.length
-      const stepOf = this.dataset.stepOf ?? '{n} / {total}'
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)')
       let beat = 0
+      let userPaused = reduced.matches
+      let hovered = false
+      let focused = false
+      let visible = false
+      let timer: ReturnType<typeof setTimeout> | undefined
 
       const fit = () => scene.style.setProperty('--k', String(stage.clientWidth / 320))
       new ResizeObserver(fit).observe(stage)
 
       const show = (to: number) => {
-        beat = to
+        beat = (to + total) % total
         scene.dataset.beat = String(beat)
-        steps.forEach((step, index) => step.toggleAttribute('data-current', index === beat))
-        dots.forEach((dot, index) => dot.toggleAttribute('data-on', index <= beat))
-        count.textContent = stepOf.replace('{n}', String(beat + 1)).replace('{total}', String(total))
-        back.disabled = beat === 0
-        next.textContent = beat === total - 1 ? next.dataset.restartLabel! : next.dataset.nextLabel!
+        bars.forEach((bar, index) => bar.toggleAttribute('data-on', index <= beat))
+        count.textContent = `${beat + 1}/${total}`
+        text.textContent = steps[beat]
       }
 
-      back.addEventListener('click', () => show(Math.max(0, beat - 1)))
-      next.addEventListener('click', () => show(beat === total - 1 ? 0 : beat + 1))
+      // Focus inside the frame also counts when the window itself has no
+      // focus and no focusin event fired.
+      const held = () => userPaused || hovered || focused || !visible || frame.contains(document.activeElement)
+      const schedule = () => {
+        clearTimeout(timer)
+        timer = undefined
+        // Paused by the reader or off screen: nothing runs. Otherwise the
+        // timer keeps ticking and skips a step while the pointer or focus
+        // holds the frame.
+        if (userPaused || !visible) return
+        timer = setTimeout(() => {
+          if (!held()) show(beat + 1)
+          schedule()
+        }, STEP_MS)
+      }
 
-      // The current step is announced politely when it changes.
-      const list = this.querySelector<HTMLElement>('.lzs-steps')!
-      list.setAttribute('aria-live', 'polite')
+      const setPaused = (paused: boolean) => {
+        userPaused = paused
+        frame.toggleAttribute('data-paused', paused)
+        const label = paused ? this.dataset.play! : this.dataset.pause!
+        toggle.setAttribute('aria-label', label)
+        toggle.title = label
+        schedule()
+      }
 
-      // Motion starts only when the scene is on screen, so the first beat
-      // plays when the reader reaches it; the step the reader is on stays.
+      prev.addEventListener('click', () => { show(beat - 1); setPaused(true) })
+      next.addEventListener('click', () => { show(beat + 1); setPaused(true) })
+      toggle.addEventListener('click', () => setPaused(!userPaused))
+      view.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') { hovered = true; schedule() } })
+      view.addEventListener('pointerleave', () => { hovered = false; schedule() })
+      frame.addEventListener('focusin', () => { focused = true; schedule() })
+      frame.addEventListener('focusout', (event) => {
+        if (frame.contains(event.relatedTarget as Node | null)) return
+        focused = false
+        schedule()
+      })
+      frame.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); prev.click() }
+        if (event.key === 'ArrowRight') { event.preventDefault(); next.click() }
+      })
+
+      // Motion and the loop run only while the frame is on screen.
       scene.dataset.still = ''
-      new IntersectionObserver((entries, observer) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return
-        observer.disconnect()
-        delete scene.dataset.still
+      new IntersectionObserver((entries) => {
+        visible = entries.some((entry) => entry.isIntersecting)
+        if (visible) delete scene.dataset.still
+        schedule()
       }, { threshold: 0.4 }).observe(stage)
 
-      stage.hidden = false
-      controls.hidden = false
+      frame.hidden = false
       this.dataset.ready = ''
       fit()
       show(0)
+      setPaused(userPaused)
     }
   }
   customElements.define('device-scene', DeviceScene)

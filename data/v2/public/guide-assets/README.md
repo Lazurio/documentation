@@ -46,8 +46,9 @@
 - Motion scenes of the agent path on `guide/tailscale-add-device` (Windows and
   macOS) — not image files: drawn in code by
   `app/v2/src/components/DeviceSetupScene.astro`, with the visible label
-  "Ilustrace" / "Illustration" on the stage and a caption that the windows are
-  simplified and look different in reality. Made on 2026-11-17 after the
+  "Ilustrace" / "Illustration" on the stage; its tooltip and the text for
+  screen readers say that the windows are simplified and look different in
+  reality. Made on 2026-11-17 after the
   visual language of the Launchpad guide's scenes (Lazurio/LazurioPlatform
   `src/shell/guide-scenes.ts` and `guide-scene-styles.ts` at `fe72f68`): a
   paper stage of 320 × 180 units, Lazurio design tokens, Iconoir icons (MIT).
