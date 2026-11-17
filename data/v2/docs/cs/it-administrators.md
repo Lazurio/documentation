@@ -4,7 +4,7 @@ description: "Co ověřit před pilotem a produkčním nasazením Lazuria."
 stableId: lazurio-doc-it-administrators
 locale: cs
 summary: "Přehled pro správce IT: hranice přístupu, podmínky poskytovatelů a schvalování výsledků před nasazením."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -16,6 +16,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -56,7 +57,7 @@ jen tehdy, když je konkrétní nasazení zapne.
 | Oddělení firem | Jedna firma odpovídá jedné Organizaci a hranici přístupů v GitHubu; jedno zařízení je však stále jedna doména důvěry. | Připojené jsou jen zamýšlené repozitáře. Kde firmy nemají sdílet hranici operačního systému, použijte oddělená zařízení nebo rovnocennou izolaci. |
 | Lokální pracovní prostředí | Práce vychází z lokálně stažených, verzovaných podkladů na zařízení uživatele. | Zabezpečení zařízení, šifrování disku, dohled nad koncovými zařízeními, zálohování a odebrání přístupů odpovídají interním pravidlům. |
 | Schválení výsledku | Výstup agenta je nejprve vratný návrh. Sloučení změny, nasazení, odeslání nebo jiné zveřejnění vyžaduje příslušné oprávnění. | Pravidla repozitářů, povinné kontroly a oprávnění k nasazení skutečně vynucují zamýšlený schvalovací postup. |
-| Externí aplikace | Integrace se nastavují pro konkrétní zařízení, procházejí kontrolou a lze je samostatně odvolat. Přednost mají oficiální MCP servery a následně oficiální nástroje příkazové řádky. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
+| Externí aplikace | Každá připojená aplikace má jednu cestu: nástroj, Executor, nebo Composio, pokud ho Organizace povolí. Přednost mají oficiální MCP servery a oficiální nástroje příkazové řádky. Přihlášení nástrojů a Executoru zůstávají v Prostředí a lze je samostatně odvolat; připojení přes Composio patří účtu Composia a Composio drží jejich tokeny i obsah volání. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
 | Přihlašovací a tajné údaje | Citlivé údaje patří do vyhrazených úložišť mimo Git a veřejnou dokumentaci. | Zvolené úložiště, obměna údajů, reakce na incident a kontrola úniků fungují i v praxi. |
 | Audit | Commity, pull requesty, schválení a záznamy o nasazení dobře dokládají změny zdrojů; jejich pokrytí závisí na použitých nástrojích. | Potřebné záznamy existují v GitHubu, na koncových zařízeních, u poskytovatele modelu, v připojených aplikacích i v infrastruktuře pro nasazení. |
 
@@ -72,8 +73,9 @@ Před nasazením zmapujte těchto pět míst:
 
 1. Git repozitáře a Teamy dostupné přihlášené identitě.
 2. Lokální soubory v aktivním pracovním prostředí i jiné soubory, které klient dokáže přečíst.
-3. Externí aplikace připojené přes schválený MCP server nebo nástroj příkazové
-   řádky nebo schválený postup v prohlížeči.
+3. Externí aplikace připojené přes nástroj, Executor (MCP servery) nebo,
+   pokud ho Organizace povolí, Composio, a práce v prohlížeči pod dohledem
+   uživatele.
 4. Poskytovatele modelu a hostingu, které využívá zvolený klient a jednotlivé
    Moduly.
 5. Volitelné hostované služby Lazuria, například Dashboard, týmový workspace

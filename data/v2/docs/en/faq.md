@@ -4,7 +4,7 @@ description: "Answers about the product, access, data and approval of results."
 stableId: lazurio-doc-faq
 locale: en
 summary: "Answers about the product, access, data and approval of results."
-updatedAt: "2026-09-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -16,6 +16,7 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-onboarding-decision-register
   - microsoft-copilot-architecture
 audience:
   - it-admin
@@ -62,8 +63,10 @@ comparison](/en/lazurio-vs-microsoft-copilot/).
 <summary>Can an agent access everything the user can?</summary>
 
 It depends on the setup. An agent may use files, accounts and tools available
-to its running process. OS permissions, the AI tool's sandbox, the workspace
-and service credentials determine access. A prompt neither grants new rights
+to its running process. OS permissions, the workspace, service credentials
+and any sandbox of the AI tool determine access. In a Lazurio Environment
+agents work with full access and without a sandbox: the Environment is the
+boundary, and narrower rights need a separate Environment. A prompt neither grants new rights
 nor removes existing ones. Test what should be allowed and what should be denied.
 
 </details>
@@ -84,8 +87,9 @@ data-flow and processor map belongs to the deployment.
 <summary>How are secrets handled?</summary>
 
 Real secrets stay outside Git in scoped ignored paths or approved provider
-stores. Tracked files contain only schemas, required variable names and
-instructions. Endpoint, backup, rotation and incident controls must protect the
+stores. Tracked files contain only standard paths, pointers to the local location,
+names of required variables, instructions without secrets and checks that read
+metadata only. Endpoint, backup, rotation and incident controls must protect the
 actual custody location.
 
 </details>

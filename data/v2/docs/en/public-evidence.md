@@ -4,7 +4,7 @@ description: "Public sources behind product and security claims, and the limits 
 stableId: lazurio-doc-public-evidence
 locale: en
 summary: "Public sources behind product and security claims, and the limits of that evidence."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -66,8 +66,11 @@ Access comes from GitHub, the operating system and connected services.
 A prompt cannot grant it.
 
 The agent may use credentials and files available to its process. Lazurio's
-rules specify when that use is permitted. The operating system, AI tool's
-sandbox and provider controls enforce technical restrictions.
+rules specify when that use is permitted. The operating system, provider
+controls and any sandbox of the AI tool enforce technical restrictions. In a
+Lazurio Environment agents work with full access and without a sandbox: under
+[decision 0172](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
+the Environment is the boundary.
 
 ## Machine and Organization boundaries
 

@@ -4,7 +4,7 @@ description: "Odpovědi k produktu, přístupům, datům a schvalování výsled
 stableId: lazurio-doc-faq
 locale: cs
 summary: "Odpovědi k produktu, přístupům, datům a schvalování výsledků."
-updatedAt: "2026-09-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -16,6 +16,7 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-onboarding-decision-register
   - microsoft-copilot-architecture
 audience:
   - it-admin
@@ -49,8 +50,10 @@ Microsoft Copilotu](/cs/lazurio-vs-microsoft-copilot/).
 ## Dostane se agent ke všemu, kam se dostane uživatel?
 
 Záleží na nastavení. Agent může použít soubory, účty a nástroje dostupné
-jeho běžícímu procesu. Rozhodují oprávnění operačního systému, sandbox AI
-nástroje, pracovní prostor a přístupy ke službám. Prompt nová práva neudělí
+jeho běžícímu procesu. Rozhodují oprávnění operačního systému, pracovní
+prostor, přístupy ke službám a případný sandbox AI nástroje. V Prostředí
+Lazuria pracují agenti s plným přístupem a bez sandboxu: hranicí je Prostředí
+a menší práva vyžadují samostatné Prostředí. Prompt nová práva neudělí
 a sám ani neodebere ta existující. Otestujte, co agent smí i co má být zamítnuto.
 
 ## Jsou všechna data Lazuria uložená lokálně?
@@ -65,7 +68,9 @@ nasazení.
 
 Skutečné tajné údaje se nemají ukládat do Gitu. Patří do vyhrazených lokálních
 úložišť mimo verzované soubory nebo do schváleného úložiště poskytovatele.
-Repozitář obsahuje pouze schémata, požadované názvy proměnných a pokyny. Více
+Repozitář obsahuje pouze standardní cesty, odkazy na lokální umístění, názvy
+požadovaných proměnných, pokyny bez tajných údajů a kontroly, které čtou jen
+metadata. Více
 uvádí veřejný [standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md).
 
 ## Co brání agentovi zveřejnit škodlivou změnu?

@@ -4,7 +4,7 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -116,7 +116,7 @@ needs your consent.
 
 **Personal Workspace** Your private working content in a Personal
 Environment. It serves you and your Buddy, rather than the Organization.
-Older technical sources call it Personalspace.
+Technical sources call it Personalspace.
 
 **Colleague (Kolega)** A user in an Organization. Their roles and Teams
 decide what they may do.
@@ -140,7 +140,7 @@ unpaid invoices and explain what I should address first.”
 
 **Start** Turn an application on so it can be used.
 
-**Open** Go to the selected application. If it is not running yet, Launchpad
+**Open** Go to the selected application. If it is not running yet, Lazurio
 may start it first.
 
 **Stop** Turn off a locally running application. This does not delete its

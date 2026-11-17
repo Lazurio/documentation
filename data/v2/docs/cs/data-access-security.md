@@ -4,7 +4,7 @@ description: "Která data může agent použít a jak otestovat skutečná omeze
 stableId: lazurio-doc-data-access-security
 locale: cs
 summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -87,8 +87,9 @@ a omezení zápisu ověřte podle [návodu k propojení aplikací](/cs/environme
 
 [Standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md)
 udržuje skutečné přihlašovací údaje mimo Git. Lokální úložiště jsou oddělená
-podle vlastníka nebo Organizace a verzované soubory obsahují pouze schémata,
-názvy proměnných a pokyny. Konkrétní nasazení musí zajistit zabezpečení zařízení, ochranu záloh,
+podle vlastníka nebo Organizace a verzované soubory obsahují pouze standardní
+cesty, odkazy na lokální umístění, názvy proměnných, pokyny bez tajných údajů
+a kontroly, které čtou jen metadata. Konkrétní nasazení musí zajistit zabezpečení zařízení, ochranu záloh,
 obměnu přihlašovacích údajů a postup při incidentu. Samotný standard
 tato opatření nezaručuje. Vedle vyhrazených cest mimo Git
 lze použít schválené úložiště poskytovatele.

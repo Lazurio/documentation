@@ -4,7 +4,7 @@ description: "Who assigns work, how an agent prepares a draft and who approves p
 stableId: lazurio-doc-how-it-works
 locale: en
 summary: "Who assigns work, how an agent prepares a draft and who approves publication."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -24,6 +24,9 @@ In Lazurio, you give an agent a task and the materials it needs, then review
 the result. The agent may prepare a document, an application change or other
 work. Publishing or deploying that result requires approval from someone
 authorized to make the decision. The agent cannot authorize itself.
+
+The model at the referenced revision is described in the [Lazurio architecture](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md)
+and the [rules for working with agents](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md).
 
 User, Buddy and task agent below follow the current user and agent
 vocabulary; Organization, Workspace module and Personalspace still describe
@@ -111,8 +114,9 @@ does not restrict anything by itself.
 
 The setup described in the linked source revision uses a source checkout with Git and Bun. It
 contains Launchpad, CLI/Core v0, Doctor, operating manuals and the contracts
-used by connected Organizations and modules. CLI v0 is experimental. A
-packaged CLI and automatically generated non-Git root are future targets.
+used by connected Organizations and modules. CLI v0 is experimental. At
+that revision, a packaged CLI and an automatically generated non-Git root were
+the planned target.
 
 The agent client sends model requests to the selected provider under their
 respective terms. Dashboard, hosted team workspaces and per-owner Resident/Buddy

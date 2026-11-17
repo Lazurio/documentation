@@ -4,7 +4,7 @@ description: "Jak připravit nasazení, určit odpovědné osoby a ověřit obno
 stableId: lazurio-doc-deployment-operations
 locale: cs
 summary: "Jak připravit nasazení, určit odpovědné osoby a ověřit obnovu i odebrání přístupu."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -28,8 +29,9 @@ služby. U každé položky určete odpovědnou osobu.
 
 ## Dostupné součásti a budoucí cíle
 
-Následující stav odpovídá odkazované revizi zdrojů, ne automaticky nejnovější
-verzi produktu.
+Následující stav odpovídá revizi zdrojů Lazuria
+[`3c5bda5`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60),
+ne automaticky nejnovější verzi produktu.
 
 | Součást | Stav | Co to znamená pro provoz |
 | --- | --- | --- |
@@ -89,7 +91,7 @@ vlastníka. Posouzení zopakujte při změně klienta, poskytovatele nebo typu �
 
 Začněte jedním jasně vymezeným scénářem. Uživatel má mít přístup pouze k
 repozitářům a rozsahům oprávnění, které pro něj potřebuje. Postupujte podle
-veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
+veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
 a vyzkoušejte také odebrání přístupu.
 
 ### 5. Nastavte schvalování výsledků

@@ -4,7 +4,7 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -68,7 +68,10 @@ službách.
 
 Agent může použít soubory a přihlášení dostupné jeho procesu. Pravidla
 Lazuria určují, kdy je to dovoleno; technická omezení zajišťují operační
-systém, sandbox AI nástroje a poskytovatel.
+systém, poskytovatel a případný sandbox AI nástroje. V Prostředí Lazuria
+pracují agenti s plným přístupem a bez sandboxu: podle
+[rozhodnutí 0172](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
+(anglicky) je hranicí Prostředí.
 
 ## Hranice zařízení a Organizace
 

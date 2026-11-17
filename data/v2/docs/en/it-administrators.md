@@ -4,7 +4,7 @@ description: "What to verify before a Lazurio pilot and production deployment."
 stableId: lazurio-doc-it-administrators
 locale: en
 summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -16,6 +16,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -64,7 +65,7 @@ source links and limits of these claims.
 | Company boundary | One company maps to one Organization and GitHub access boundary. One machine remains one trust domain. | Only intended repositories are mounted; use separate machines or equivalent isolation when companies must not share an OS boundary. |
 | Working context | Work begins in checked-out source and explicitly enabled tools. | Endpoint protection, local data scope and provider terms meet policy. |
 | Publication | Agent output stays editable until an authorized merge, deployment, send or provider action. | Branch rules, reviews and provider permissions enforce the intended gate. |
-| Integrations | Connections are locally curated and separately revocable; official MCP or CLI paths are preferred. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
+| Integrations | Each connected app has one route: a tool, Executor or, where the Organization allows it, Composio. Official MCP servers and CLIs come first. Tool and Executor sign-ins stay in the Environment and can be revoked separately; Composio connections belong to the Composio account, and Composio holds their tokens and call content. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
 | Evidence | Git and provider records can show who changed what, but coverage depends on the tools actually used. | Required endpoint, model, app and deployment logs exist and have named retention. |
 
 ## What data can be reached?
@@ -74,8 +75,9 @@ enabled tools. Check these five areas for your deployment:
 
 1. Git repositories and teams visible to the operating identity.
 2. Local files placed inside the active workspace or readable by the client.
-3. External applications enabled through an approved MCP server, CLI or
-   browser workflow.
+3. External applications connected through a tool, Executor (MCP servers)
+   or, where the Organization allows it, Composio, and work in a browser under
+   the user's supervision.
 4. The agent client, model provider and any hosting provider used by modules.
 5. Optional hosted Lazurio services such as Dashboard, a hosted team workspace
    or a per-owner Resident/Buddy service.

@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+- Re-verify the fourteen evidence sources due by 2026-11-29 and renew
+  thirteen of them. The Wispr privacy note follows the current Context
+  Awareness article. Pages that presented pinned 3c5bda5 statements as today's
+  state now label them as that revision or cite the current source: agents
+  work without a sandbox in an Environment (decision 0172), each connected app
+  has one route with Composio as the permitted exception, tracked files hold
+  only what the custody standard allows, and the glossary says Lazurio instead
+  of Launchpad. The vocabulary source moves to the public register in
+  LazurioPlatform. `lazurio-license` is not renewed; the license statement
+  needs a product decision (`issue-2026-11-17-001`). Record:
+  `docs/source-review-2026-11-17.md`.
 - Bring the pages on roles, access and entry in line with decisions 0245, 0246
   and 0247 of the decision register (2026-11-14), which consolidate decisions
   0192, 0228 and 0243. An Organization Owner is no longer described as the

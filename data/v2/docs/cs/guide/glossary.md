@@ -4,7 +4,7 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -113,7 +113,7 @@ souhlas.
 
 **Osobní Workspace** Váš soukromý pracovní obsah v Osobním Prostředí.
 Slouží vám a vašemu Buddymu; není sdíleným úložištěm Organizace.
-Ve starších technických zdrojích se objevuje název Personalspace.
+V technických zdrojích se pro něj používá název Personalspace.
 
 **Kolega** Uživatel v Organizaci. Co smí, určují jeho role a Teamy.
 
@@ -136,7 +136,7 @@ nezaplacených faktur a vysvětlete, co mám řešit jako první.“
 
 **Spustit** Zapnout aplikaci, aby ji bylo možné používat.
 
-**Otevřít** Přejít do vybrané aplikace. Pokud ještě neběží, Launchpad ji
+**Otevřít** Přejít do vybrané aplikace. Pokud ještě neběží, Lazurio ji
 může nejprve spustit.
 
 **Zastavit** Vypnout lokálně spuštěnou aplikaci. Její data se tím nemažou.

@@ -2,6 +2,25 @@
   "schema": "workspace-issues.v1",
   "issues": [
     {
+      "id": "issue-2026-11-17-001",
+      "title": "Decide how the pages present Lazurio's license so that the lazurio-license source can be renewed",
+      "status": "open",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-17",
+      "updated_at": "2026-11-17",
+      "question": "Which license do index, faq and it-administrators present as Lazurio's current license, while public-evidence and reference keep the FSL-1.1-Apache-2.0 terms as the pinned Lazurio Root revision?",
+      "impact": "The re-verification of 2026-11-17 renewed 13 of the 14 sources due by 2026-11-29. lazurio-license was not renewed: the pinned LICENSE.md is unchanged on HumanAndMachines/Lazurio main, but the released Lazurio Platform uses Elastic License 2.0 with no automatic two-year Apache transition (LazurioPlatform LICENSE and docs/licensing.md). index and faq still say that Lazurio is currently source-available under FSL-1.1-Apache-2.0, and the IT table promises the Apache transition; public-evidence and reference label the FSL terms as the pinned revision. Choosing the current license statement for a public, trust-critical page is a product and legal decision, and an open proposal for it exists in pull request #48 (issue #42). The source expires on 2026-11-27, so the content check fails every pull request from 2026-11-28 until the pages change.",
+      "options": [
+        "Settle the license statement in #48 or a dedicated pull request: present the Platform's Elastic-2.0 as current, keep the FSL terms labelled as the pinned Lazurio Root revision, re-pin lazurio-license to the Platform license and renew it. Recommended: it is the only way the pages stay true.",
+        "Keep the source expired and accept that no documentation pull request passes the check from 2026-11-28 until the pages are updated."
+      ],
+      "decision_needed_for": [
+        "index, faq and it-administrators (en, cs)",
+        "every documentation pull request after 2026-11-27"
+      ]
+    },
+    {
       "id": "issue-2026-11-06-001",
       "title": "Test the Modules video on a real iPhone and Mac",
       "status": "open",

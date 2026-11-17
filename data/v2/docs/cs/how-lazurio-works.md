@@ -4,7 +4,7 @@ description: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje z
 stableId: lazurio-doc-how-it-works
 locale: cs
 summary: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje zveřejnění."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -99,7 +99,7 @@ samo nic neomezí.
 Verze popsaná v odkazovaných zdrojích běží ze zdrojové pracovní kopie s Gitem a Bunem.
 Obsahuje Launchpad, CLI/Core v0, Doctor, provozní manuály a kontrakty pro
 připojené Organizace a moduly. CLI v0 je experimentální; balíčkované CLI a
-automaticky generovaný root bez Gitu jsou cíle do budoucna.
+automaticky generovaný root bez Gitu byly v té revizi plánovaným cílem.
 
 Vybraný klient agenta a poskytovatel modelu zpracovávají požadavky podle
 vlastních podmínek. Dashboard, hostované týmové workspaces a služby
