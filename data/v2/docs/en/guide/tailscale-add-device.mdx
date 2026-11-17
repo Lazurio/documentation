@@ -105,7 +105,7 @@ What you do yourself:
 1. Check that C:\Program Files\Tailscale\tailscale.exe exists. If not, install Tailscale with: winget install --id Tailscale.Tailscale --exact --accept-package-agreements --accept-source-agreements. Tell me beforehand to click "Yes" when Windows asks whether the app may make changes. If winget is missing or the installation fails, send me the link https://tailscale.com/download/windows and wait until I have installed it.
 2. Without administrator rights, start the sign-in in the background; it waits until it is finished:
    Start-Process -FilePath "C:\Program Files\Tailscale\tailscale.exe" -ArgumentList 'login','--login-server=<ADDRESS>' -WindowStyle Hidden
-3. Read & "C:\Program Files\Tailscale\tailscale.exe" status --json repeatedly until the AuthURL field contains a sign-in link. The link must start with the login server address above.
+3. Read & "C:\Program Files\Tailscale\tailscale.exe" status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
 4. Send me that link as a clickable link and tell me in one sentence: open it, sign in with your Lazurio account, then come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
@@ -194,6 +194,11 @@ programmer: talk to them in plain language and do not show them commands.
   background and read the sign-in link from `tailscale status --json` (the
   `AuthURL` field while `BackendState` is `NeedsLogin`). The same CLI prints
   `To authenticate, visit:` and, when finished, `Success.`.
+- Before you pass the sign-in link on, parse it as a URL and compare its
+  scheme, hostname and port with the login server address. A matching start
+  of the text is not enough: `https://server.example.evil.test/` starts like
+  `https://server.example` but leads elsewhere. On a mismatch, do not pass
+  the link on and stop.
 - It is done when `BackendState` is `Running` and `tailscale debug prefs`
   shows `ControlURL` equal to the address given. That means the device is in
   the tailnet, not that it is approved.
@@ -239,7 +244,7 @@ What you do yourself:
 2. Start the app (open -a Tailscale). If the Mac asks about a VPN configuration, tell me to click "Allow". Do not sign in in the app.
 3. Start the sign-in in the background; it waits until it is finished:
    /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADDRESS>
-4. Read /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json repeatedly until the AuthURL field contains a sign-in link. The link must start with the login server address above.
+4. Read /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
 5. Send me that link as a clickable link and tell me in one sentence: open it, sign in with your Lazurio account, then come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
@@ -360,8 +365,10 @@ by: they approve the device only when they know the request comes from you.
 Once they approve it, they let you know and the addresses of the
 Environments you have access to open (with Tailscale turned on and your
 Organization's tailnet selected, see [Reach an Environment through
-Tailscale](/en/guide/tailscale/)). Until then they do not open, even if
-Tailscale shows a connection.
+Tailscale](/en/guide/tailscale/)). Until then, do not expect the
+Organization's Environments to open from the new device, even if Tailscale
+shows a connection. Whether a device that is not yet approved is blocked is
+decided by your Organization's network rules (see the Admin section below).
 
 <details>
 <summary>If nothing happens</summary>

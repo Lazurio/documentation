@@ -103,7 +103,7 @@ Co uděláš sám:
 1. Ověř, že existuje C:\Program Files\Tailscale\tailscale.exe. Když ne, nainstaluj Tailscale příkazem: winget install --id Tailscale.Tailscale --exact --accept-package-agreements --accept-source-agreements. Předem mi řekni, ať ve Windows kliknu na „Ano“, až se zeptá, jestli aplikace smí provádět změny. Když winget chybí nebo instalace selže, pošli mi odkaz https://tailscale.com/download/windows a počkej, až ji nainstaluji.
 2. Bez práv správce spusť na pozadí přihlášení, které čeká na dokončení:
    Start-Process -FilePath "C:\Program Files\Tailscale\tailscale.exe" -ArgumentList 'login','--login-server=<ADRESA>' -WindowStyle Hidden
-3. Opakovaně čti & "C:\Program Files\Tailscale\tailscale.exe" status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Odkaz musí začínat adresou přihlašovacího serveru výše.
+3. Opakovaně čti & "C:\Program Files\Tailscale\tailscale.exe" status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Než mi odkaz dáš, rozeber ho jako URL a ověř, že má stejné schéma (https), hostname a port jako adresa přihlašovacího serveru výše. Nestačí, že text odkazu stejně začíná. Když se liší, odkaz mi nedávej, řekni mi, co nesedí, a zastav se.
 
 Kde se zastavíš a necháš to na mně:
 4. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho, přihlaste se svým účtem Lazurio a pak se vraťte sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
@@ -191,6 +191,11 @@ programátor: mluv s ním jednoduše a příkazy mu neukazuj.
   pozadí a přihlašovací odkaz čti z `tailscale status --json` (pole
   `AuthURL`, dokud je `BackendState` `NeedsLogin`). Totéž CLI vypíše na
   výstup `To authenticate, visit:` a po dokončení `Success.`.
+- Přihlašovací odkaz před předáním rozeber jako URL a porovnej schéma,
+  hostname a port s adresou přihlašovacího serveru. Shoda začátku textu
+  nestačí: `https://server.example.evil.test/` začíná stejně jako
+  `https://server.example`, ale vede jinam. Při nesouladu odkaz nepředávej
+  a zastav se.
 - Hotovo je, když `BackendState` je `Running` a `tailscale debug prefs`
   ukazuje `ControlURL` rovnou zadané adrese. Tím je zařízení v tailnetu, ne
   schválené.
@@ -236,7 +241,7 @@ Co uděláš sám:
 2. Spusť aplikaci (open -a Tailscale). Když se Mac zeptá na konfiguraci VPN, řekni mi, ať kliknu na „Povolit“. V aplikaci se nepřihlašuj.
 3. Na pozadí spusť přihlášení, které čeká na dokončení:
    /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADRESA>
-4. Opakovaně čti /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Odkaz musí začínat adresou přihlašovacího serveru výše.
+4. Opakovaně čti /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Než mi odkaz dáš, rozeber ho jako URL a ověř, že má stejné schéma (https), hostname a port jako adresa přihlašovacího serveru výše. Nestačí, že text odkazu stejně začíná. Když se liší, odkaz mi nedávej, řekni mi, co nesedí, a zastav se.
 
 Kde se zastavíš a necháš to na mně:
 5. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho, přihlaste se svým účtem Lazurio a pak se vraťte sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
@@ -354,8 +359,10 @@ jen tehdy, když ví, že o ně žádáte vy.
 
 Až zařízení schválí, dá vám vědět a adresy Prostředí, ke kterým máte přístup,
 se otevřou (se zapnutým Tailscale a vybraným tailnetem Organizace, viz
-[Připojení k Prostředí přes Tailscale](/cs/guide/tailscale/)). Do té doby se
-neotevřou, i když Tailscale ukazuje připojení.
+[Připojení k Prostředí přes Tailscale](/cs/guide/tailscale/)). Do té doby
+nečekejte, že se z nového zařízení Prostředí Organizace otevřou, i když
+Tailscale ukazuje připojení. Jestli je neschválené zařízení zablokované, určují
+pravidla sítě vaší Organizace (viz část pro Admina níže).
 
 <details>
 <summary>Když se nic neděje</summary>

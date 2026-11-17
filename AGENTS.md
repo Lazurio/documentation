@@ -73,11 +73,9 @@ terminal, PowerShell or Command Prompt, or to run, paste or edit a command.
   login server in its window (`issue-2026-11-03-003`). Until Lazurio offers a
   clickable way, `guide/tailscale-add-device` gives Windows readers one
   PowerShell line, shown click by click with labelled illustrative mockups,
-  and a copyable prompt for the reader's own agent that installs Tailscale,
-  runs the line and tells them where to click. The macOS section also offers
-  a prompt for the reader's agent; commands in such prompts are addressed to
-  the agent, and the macOS manual steps stay clickable. The sign-in and the
-  Admin's approval stay with people. No other step of any guide may use a command, and this exception
+  and a copyable prompt for the reader's own agent that runs the line and
+  tells them where to click. The sign-in and the Admin's approval stay with
+  people. No other step of any guide may use a command, and this exception
   ends when the clickable way ships.
 - Where no test device exists for a step, a clearly labelled illustrative
   mockup may stand in for a screenshot. Its visible label, its origin and the
