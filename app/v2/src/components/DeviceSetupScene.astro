@@ -5,6 +5,8 @@
 // a paper stage of 320 × 180 units, white objects, blue for the answer, one
 // subject at a time, the easing cubic-bezier(0.22, 0.8, 0.24, 1), and one beat
 // per step that the reader moves with Back and Next, never on a timer.
+// Every animation is finite and ends within five seconds of a step starting
+// (WCAG 2.2.2), on the step's still frame.
 //
 // The plain rules are each beat's finished frame. Motion lives only inside
 // `prefers-reduced-motion: no-preference` and only where the scene is not
@@ -232,13 +234,13 @@ const total = c.steps.length
     .lzs-scene:not([data-still]) .lzs-key { transition: rotate 0.9s var(--e) 0.5s; }
     .lzs-scene:not([data-still])[data-beat='0'] .lzs-prompt { animation: lzs-drag 1.3s var(--e) 0.3s backwards; }
     .lzs-scene:not([data-still])[data-beat='1'] .lzs-dialog { transition-delay: 0.9s; }
-    .lzs-scene:not([data-still])[data-beat='1'] .lzs-tapper { transition-delay: 1.3s; animation: lzs-tap 1.3s ease-in-out 2s infinite; }
+    .lzs-scene:not([data-still])[data-beat='1'] .lzs-tapper { transition-delay: 1.3s; animation: lzs-tap 1.3s ease-in-out 2s 2; }
     .lzs-scene:not([data-still])[data-beat='2'] .lzs-linkmsg { transition-delay: 0.3s; }
-    .lzs-scene:not([data-still])[data-beat='2'] .lzs-tapper { animation: lzs-tap 1.3s ease-in-out 1s infinite; }
+    .lzs-scene:not([data-still])[data-beat='2'] .lzs-tapper { animation: lzs-tap 1.3s ease-in-out 1s 3; }
     .lzs-scene:not([data-still])[data-beat='4'] .lzs-donemsg { transition-delay: 0.2s; }
     .lzs-scene:not([data-still])[data-beat='4'] :is(.lzs-tile) { transition-delay: 0.5s; }
     .lzs-scene:not([data-still])[data-beat='4'] :is(.lzs-line, .lzs-person) { transition-delay: 0.9s; }
-    .lzs-scene:not([data-still]) .lzs-typing span { animation: lzs-hover 1.6s ease-in-out infinite; }
+    .lzs-scene:not([data-still]) .lzs-typing span { animation: lzs-hover 1.6s ease-in-out 2; }
     .lzs-scene:not([data-still]) .lzs-typing span:nth-child(2) { animation-delay: 0.15s; }
     .lzs-scene:not([data-still]) .lzs-typing span:nth-child(3) { animation-delay: 0.3s; }
   }
