@@ -1,0 +1,389 @@
+---
+// A short motion explainer of "let your agent do it" for one computer system.
+// It follows the visual language of the Launchpad guide's scenes
+// (Lazurio/LazurioPlatform src/shell/guide-scenes.ts, guide-scene-styles.ts):
+// a paper stage of 320 × 180 units, white objects, blue for the answer, one
+// subject at a time, the easing cubic-bezier(0.22, 0.8, 0.24, 1), one beat
+// per step. The steps play on their own in a loop, one every few seconds, with
+// arrows and a pause button inside the frame (WCAG 2.2.2): the loop stops
+// while the pointer is over the frame or focus is in it, when the reader
+// pauses it or steps by hand, and while the frame is off screen. Within a step
+// every animation is finite and ends on the step's still frame.
+//
+// The plain rules are each beat's finished frame. Motion lives only inside
+// `prefers-reduced-motion: no-preference` and only where the scene is not
+// still, so with reduced motion every beat is its still frame and the loop
+// starts paused. The stage and its caption are decorative (`aria-hidden`);
+// the full list of steps stays in the page for assistive technology, a step
+// the reader moves to by hand is announced (never the loop's own steps), and
+// without JavaScript the list renders as a plain ordered list.
+//
+// Icons: Iconoir (MIT, https://iconoir.com), the set the Lazurio design
+// system mandates; the same path data the Launchpad shell draws.
+interface Props {
+  system: 'windows' | 'macos'
+  copy: {
+    label: string
+    stepOf: string
+    prev: string
+    next: string
+    pause: string
+    play: string
+    you: string
+    chat: string
+    prompt: string
+    working: string
+    dialog: string
+    allow: string
+    signIn: string
+    lazurio: string
+    signedIn: string
+    done: string
+    network: string
+    waiting: string
+    admin: string
+    badge: string
+    note: string
+    steps: string[]
+  }
+}
+
+const { system, copy: c } = Astro.props
+const icon = {
+  cursor: '<path fill-rule="evenodd" clip-rule="evenodd" d="M19.5027 9.96958C20.7073 10.4588 20.6154 12.1941 19.3658 12.5533L13.0605 14.3658L10.1807 20.2606C9.60996 21.4288 7.88499 21.218 7.6124 19.9468L4.67677 6.25646C4.44638 5.18204 5.5121 4.2878 6.53019 4.70126L19.5027 9.96958Z" stroke="currentColor"/>',
+  page: '<path d="M4 21.4V2.6C4 2.26863 4.26863 2 4.6 2H16.2515C16.4106 2 16.5632 2.06321 16.6757 2.17574L19.8243 5.32426C19.9368 5.43679 20 5.5894 20 5.74853V21.4C20 21.7314 19.7314 22 19.4 22H4.6C4.26863 22 4 21.7314 4 21.4Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 10L16 10M8 18L16 18M8 14L12 14M16 2V5.4C16 5.73137 16.2686 6 16.6 6H20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  link: '<path d="M14 11.9976C14 9.5059 11.683 7 8.85714 7C8.52241 7 7.41904 7.00001 7.14286 7.00001C4.30254 7.00001 2 9.23752 2 11.9976C2 14.376 3.70973 16.3664 6 16.8714C6.36756 16.9525 6.75006 16.9952 7.14286 16.9952" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 11.9976C10 14.4893 12.317 16.9952 15.1429 16.9952C15.4776 16.9952 16.581 16.9952 16.8571 16.9952C19.6975 16.9952 22 14.7577 22 11.9976C22 9.6192 20.2903 7.62884 18 7.12383C17.6324 7.04278 17.2499 6.99999 16.8571 6.99999" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  check: '<path d="M5 13L9 17L19 7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  key: '<path d="M10 12C10 14.2091 8.20914 16 6 16C3.79086 16 2 14.2091 2 12C2 9.79086 3.79086 8 6 8C8.20914 8 10 9.79086 10 12ZM10 12H22V15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 12V15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  lock: '<path d="M16 12H17.4C17.7314 12 18 12.2686 18 12.6V19.4C18 19.7314 17.7314 20 17.4 20H6.6C6.26863 20 6 19.7314 6 19.4V12.6C6 12.2686 6.26863 12 6.6 12H8M16 12V8C16 6.66667 15.2 4 12 4C8.8 4 8 6.66667 8 8V12M16 12H8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  user: '<path d="M5 20V19C5 15.134 8.13401 12 12 12V12C15.866 12 19 15.134 19 19V20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  prev: '<path d="M15 6L9 12L15 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  next: '<path d="M9 6L15 12L9 18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  pause: '<path d="M6 18.4V5.6C6 5.26863 6.26863 5 6.6 5H9.4C9.73137 5 10 5.26863 10 5.6V18.4C10 18.7314 9.73137 19 9.4 19H6.6C6.26863 19 6 18.7314 6 18.4Z" stroke="currentColor"/><path d="M14 18.4V5.6C14 5.26863 14.2686 5 14.6 5H17.4C17.7314 5 18 5.26863 18 5.6V18.4C18 18.7314 17.7314 19 17.4 19H14.6C14.2686 19 14 18.7314 14 18.4Z" stroke="currentColor"/>',
+  play: '<path d="M6.90588 4.53682C6.50592 4.2998 6 4.58808 6 5.05299V18.947C6 19.4119 6.50592 19.7002 6.90588 19.4632L18.629 12.5162C19.0211 12.2838 19.0211 11.7162 18.629 11.4838L6.90588 4.53682Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+  laptop: '<path d="M3.2 14.2222V4C3.2 2.89543 4.09543 2 5.2 2H18.8C19.9046 2 20.8 2.89543 20.8 4V14.2222M3.2 14.2222H20.8M3.2 14.2222L1.71969 19.4556C1.35863 20.7321 2.31762 22 3.64418 22H20.3558C21.6824 22 22.6414 20.7321 22.2803 19.4556L20.8 14.2222" stroke="currentColor"/><path d="M11 19L13 19" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>',
+}
+const svg = (name: keyof typeof icon) =>
+  `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true">${icon[name]}</svg>`
+---
+<device-scene class="lzs not-content" data-pause={c.pause} data-play={c.play} data-step-of={c.stepOf}>
+  <figure class="lzs-frame" hidden>
+    <div class="lzs-view">
+      <div class="lzs-stage" aria-hidden="true">
+        <div class="lzs-scene" data-beat="0">
+          <span class="lzs-o lzs-box lzs-chat">
+            <span class="lzs-title"><Fragment set:html={svg('laptop')} />{c.chat}</span>
+            <span class="lzs-composer"></span>
+          </span>
+          <span class="lzs-o lzs-chip lzs-prompt"><Fragment set:html={svg('page')} />{c.prompt}<span class="lzs-you lzs-hand"><Fragment set:html={svg('cursor')} /><span class="lzs-tag lzs-ink">{c.you}</span></span></span>
+          <span class="lzs-o lzs-bubble lzs-ask lzs-sent"><Fragment set:html={svg('page')} />{c.prompt}</span>
+          <span class="lzs-o lzs-bubble lzs-answer lzs-working"><span class="lzs-dot"></span><span class="lzs-typing"><span></span><span></span><span></span></span>{c.working}</span>
+          <span class="lzs-o lzs-box lzs-dialog">
+            <span class="lzs-title"><Fragment set:html={svg('lock')} />{system === 'windows' ? 'Windows' : 'macOS'}</span>
+            <span class="lzs-dtext">{c.dialog}</span>
+            <span class="lzs-btn">{c.allow}</span>
+          </span>
+          <span class="lzs-o lzs-bubble lzs-answer lzs-linkmsg"><span class="lzs-dot"></span><span class="lzs-link"><Fragment set:html={svg('link')} />{c.signIn}</span></span>
+          <span class="lzs-o lzs-box lzs-signin">
+            <span class="lzs-title"><Fragment set:html={svg('lock')} />{c.lazurio}</span>
+            <span class="lzs-key"><Fragment set:html={svg('key')} /></span>
+            <span class="lzs-status"><Fragment set:html={svg('check')} />{c.signedIn}</span>
+          </span>
+          <span class="lzs-o lzs-bubble lzs-answer lzs-donemsg"><span class="lzs-mark"><Fragment set:html={svg('check')} /></span>{c.done}</span>
+          <span class="lzs-o lzs-tile">
+            <span class="lzs-tname">{c.network}</span>
+            <span class="lzs-tstatus">{c.waiting}</span>
+          </span>
+          <span class="lzs-o lzs-line"></span>
+          <span class="lzs-o lzs-person"><span class="lzs-head"><Fragment set:html={svg('user')} /></span><span class="lzs-tag">{c.admin}</span></span>
+          <span class="lzs-o lzs-tapper lzs-you"><Fragment set:html={svg('cursor')} /><span class="lzs-tag lzs-ink">{c.you}</span></span>
+        </div>
+      </div>
+      <span class="lzs-badge" title={c.note} aria-hidden="true">{c.badge}</span>
+      <div class="lzs-ctrl">
+        <button type="button" data-prev aria-label={c.prev} title={c.prev}><Fragment set:html={svg('prev')} /></button>
+        <button type="button" data-toggle aria-label={c.pause} title={c.pause}><span class="lzs-i-pause"><Fragment set:html={svg('pause')} /></span><span class="lzs-i-play"><Fragment set:html={svg('play')} /></span></button>
+        <button type="button" data-next aria-label={c.next} title={c.next}><Fragment set:html={svg('next')} /></button>
+      </div>
+    </div>
+    <figcaption class="lzs-caption" aria-hidden="true">
+      <span class="lzs-progress">{c.steps.map(() => <span></span>)}</span>
+      <span class="lzs-line-text"><span class="lzs-count"></span><span class="lzs-text">{c.steps.map((step) => <span>{step}</span>)}</span></span>
+    </figcaption>
+    <span class="lzs-live" aria-live="polite" aria-atomic="true"></span>
+  </figure>
+  <ol class="lzs-steps" aria-label={c.label}>
+    {c.steps.map((step) => <li>{step}</li>)}
+  </ol>
+  <span class="lzs-sr">{c.note}</span>
+</device-scene>
+
+<style>
+  .lzs {
+    display: block;
+    margin-block: 1.25rem 2rem;
+  }
+  /* One block: the stage and its caption share a single frame, as wide as
+     the code blocks and collapsible sections of the page. */
+  .lzs-frame {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: var(--lz-radius-lg);
+    background: var(--sl-color-black);
+  }
+  .lzs-frame[hidden] { display: none; }
+  .lzs-view { position: relative; }
+  .lzs-stage {
+    position: relative;
+    /* Full width; height follows 16:9 up to a cap, so a wide column does
+       not make the stage tall (an explicit width stops the cap from
+       narrowing it). */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 22rem;
+    overflow: hidden;
+    background: var(--lz-paper);
+  }
+  .lzs-scene {
+    --e: cubic-bezier(0.22, 0.8, 0.24, 1);
+    /* The scene keeps its 16:9 units and is centred in a wider stage. */
+    position: absolute;
+    top: var(--y, 0px);
+    left: var(--x, 0px);
+    width: 320px;
+    height: 180px;
+    scale: var(--k, 1);
+    transform-origin: 0 0;
+    color: var(--lz-ink);
+    font-family: var(--lz-font-sans);
+    font-size: 11px;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+  .lzs-scene :global(svg) { display: block; flex: none; width: 12px; height: 12px; }
+  :where(.lzs-scene span) { display: block; }
+  .lzs-o { position: absolute; top: 0; left: 0; opacity: 0; }
+  .lzs-box { border: 1px solid var(--lz-line); border-radius: var(--lz-radius-md); background: var(--lz-white); }
+  .lzs-title { position: absolute; top: 7px; left: 9px; display: flex; align-items: center; gap: 4px; color: var(--lz-ink-muted); font-size: 10.5px; font-weight: var(--lz-weight-akce); white-space: nowrap; }
+  .lzs-composer { position: absolute; right: 9px; bottom: 9px; left: 9px; height: 16px; border: 1px solid var(--lz-line); border-radius: var(--lz-radius-pill); }
+  .lzs-tag { display: inline-flex; align-items: center; margin-top: 2px; padding: 0 5px; border-radius: var(--lz-radius-pill); background: var(--lz-blue-50); color: var(--lz-blue-800); font-size: 9.5px; line-height: 15px; white-space: nowrap; }
+  .lzs-ink { background: var(--lz-ink); color: var(--lz-white); }
+  .lzs-you { display: flex; flex-direction: column; align-items: flex-start; }
+  .lzs-you :global(svg) { width: 15px; height: 15px; fill: var(--lz-white); color: var(--lz-ink); }
+  .lzs-you .lzs-tag { margin: -1px 0 0 9px; }
+  .lzs-chip { display: flex; align-items: center; gap: 5px; padding: 6px 8px; border: 1px solid var(--lz-blue-500); border-radius: var(--lz-radius-sm); background: var(--lz-white); box-shadow: 0 0 0 3px var(--lz-blue-50); white-space: nowrap; }
+  .lzs-hand { position: absolute; top: 18px; left: 44px; }
+  .lzs-bubble { display: flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 11px; font-size: 10.5px; white-space: nowrap; }
+  .lzs-ask { background: var(--lz-gray-100); }
+  .lzs-answer { padding-left: 4px; background: var(--lz-blue-50); }
+  .lzs-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--lz-blue-500); box-shadow: 0 0 0 2px var(--lz-blue-100); }
+  .lzs-typing { display: flex; gap: 3px; }
+  .lzs-typing span { width: 4px; height: 4px; border-radius: 50%; background: var(--lz-blue-500); }
+  .lzs-link { display: flex; align-items: center; gap: 3px; padding: 1px 4px; border-radius: 4px; color: var(--lz-blue-700); font-weight: var(--lz-weight-akce); text-decoration: underline; }
+  .lzs-mark { display: grid; width: 14px; height: 14px; place-items: center; border-radius: 50%; background: var(--lz-blue-500); color: var(--lz-white); }
+  .lzs-mark :global(svg) { width: 10px; height: 10px; }
+  .lzs-dtext { position: absolute; top: 28px; left: 9px; right: 9px; font-size: 10px; color: var(--lz-ink); white-space: normal; }
+  .lzs-btn { position: absolute; right: 9px; bottom: 9px; padding: 3px 10px; border-radius: var(--lz-radius-sm); background: var(--lz-blue-500); color: var(--lz-white); font-size: 10px; font-weight: var(--lz-weight-akce); }
+  .lzs-key { position: absolute; top: 30px; left: 50%; display: grid; width: 26px; height: 26px; margin-left: -13px; place-items: center; border-radius: 50%; background: var(--lz-blue-500); color: var(--lz-white); box-shadow: 0 0 0 3px var(--lz-blue-100); rotate: -90deg; }
+  .lzs-key :global(svg) { width: 14px; height: 14px; }
+  .lzs-status { position: absolute; right: 9px; bottom: 9px; left: 9px; display: flex; justify-content: center; align-items: center; gap: 3px; color: var(--lz-blue-700); font-size: 10px; font-weight: var(--lz-weight-akce); }
+  .lzs-tile { display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 0 10px; border: 1px solid var(--lz-blue-500); border-radius: var(--lz-radius-md); background: var(--lz-white); box-shadow: 0 0 0 3px var(--lz-blue-50); }
+  .lzs-tname { font-size: 11.5px; font-weight: var(--lz-weight-akce); white-space: nowrap; }
+  .lzs-tstatus { color: var(--lz-blue-700); font-size: 10px; white-space: nowrap; }
+  .lzs-line { height: 0; border-top: 1.5px dashed var(--lz-blue-500); transform-origin: 0 50%; }
+  .lzs-person { display: flex; flex-direction: column; align-items: center; }
+  .lzs-head { display: grid; width: 24px; height: 24px; place-items: center; border: 1px solid var(--lz-line); border-radius: 50%; background: var(--lz-white); color: var(--lz-ink-muted); }
+  .lzs-head :global(svg) { width: 14px; height: 14px; }
+  .lzs-person .lzs-tag { background: var(--lz-gray-100); color: var(--lz-ink-muted); }
+
+  /* Where each object stands; the beats below say when it is on stage. */
+  .lzs-chat { translate: 12px 12px; width: 186px; height: 156px; }
+  .lzs-prompt { translate: 26px 124px; }
+  .lzs-sent { translate: 92px 34px; }
+  .lzs-working { translate: 22px 62px; }
+  .lzs-dialog { translate: 206px 44px; width: 102px; height: 78px; }
+  .lzs-linkmsg { translate: 22px 86px; }
+  .lzs-signin { translate: 206px 34px; width: 102px; height: 96px; }
+  .lzs-donemsg { translate: 22px 112px; }
+  .lzs-tile { translate: 200px 30px; width: 112px; height: 50px; }
+  .lzs-line { translate: 257px 82px; width: 20px; rotate: 90deg; }
+  .lzs-person { translate: 236px 104px; }
+  .lzs-tapper { translate: 270px 106px; }
+
+  /* Beat 0: the prompt goes into the chat. */
+  [data-beat='0'] :is(.lzs-chat, .lzs-prompt) { opacity: 1; }
+  /* Beat 1: the agent installs Tailscale; you allow it. */
+  [data-beat='1'] :is(.lzs-chat, .lzs-sent, .lzs-working, .lzs-dialog, .lzs-tapper) { opacity: 1; }
+  /* Beat 2: the agent sends the sign-in link; you open it. */
+  [data-beat='2'] :is(.lzs-chat, .lzs-sent, .lzs-linkmsg, .lzs-tapper) { opacity: 1; }
+  [data-beat='2'] .lzs-tapper { translate: 60px 98px; }
+  [data-beat='2'] .lzs-link { background: var(--lz-blue-100); }
+  /* Beat 3: you sign in with Lazurio. */
+  [data-beat='3'] :is(.lzs-chat, .lzs-sent, .lzs-linkmsg, .lzs-signin) { opacity: 1; }
+  [data-beat='3'] .lzs-key { rotate: 0deg; }
+  /* Beat 4: done; the device waits for the Organization Admin. */
+  [data-beat='4'] :is(.lzs-chat, .lzs-sent, .lzs-linkmsg, .lzs-donemsg, .lzs-tile, .lzs-line, .lzs-person) { opacity: 1; }
+
+  .lzs-badge { position: absolute; z-index: 1; top: 0.5rem; right: 0.5rem; padding: 0.1rem 0.45rem; border-radius: var(--lz-radius-pill); background: var(--lz-ink); color: var(--lz-white); font-size: 0.7rem; font-weight: var(--lz-weight-title); letter-spacing: 0.04em; text-transform: uppercase; cursor: help; }
+
+  /* Arrows and pause sit inside the frame, bottom right, on the paper. */
+  .lzs-ctrl { position: absolute; z-index: 1; right: 0.5rem; bottom: 0.5rem; display: flex; padding: 2px; border: 1px solid var(--lz-line); border-radius: var(--lz-radius-pill); background: rgb(255 255 255 / 92%); box-shadow: 0 2px 8px rgb(0 0 0 / 8%); }
+  .lzs-ctrl button { display: grid; width: 36px; height: 36px; padding: 0; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--lz-ink); cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+  .lzs-ctrl button :global(svg) { width: 18px; height: 18px; }
+  .lzs-ctrl button:active { background: var(--lz-gray-100); }
+  .lzs-ctrl button:focus-visible { outline: 2px solid var(--lz-blue-500); outline-offset: -2px; }
+  @media (hover: hover) and (pointer: fine) { .lzs-ctrl button:hover { background: var(--lz-gray-100); } }
+  .lzs-i-play, [data-paused] .lzs-i-pause { display: none; }
+  [data-paused] .lzs-i-play { display: block; }
+  @media (max-width: 30rem) { .lzs-ctrl { right: 0.375rem; bottom: 0.375rem; } .lzs-ctrl button { width: 26px; height: 26px; } .lzs-ctrl button :global(svg) { width: 14px; height: 14px; } }
+
+  /* The caption belongs to the frame: progress, step number and its text. */
+  .lzs-caption { display: grid; gap: 0.6rem; padding: 0.75rem 1rem 0.9rem; border-top: 1px solid var(--sl-color-gray-5); }
+  .lzs-progress { display: flex; gap: 0.25rem; }
+  .lzs-progress span { flex: 1; height: 3px; border-radius: 2px; background: var(--sl-color-gray-5); }
+  .lzs-progress span[data-on] { background: var(--sl-color-text-accent); }
+  .lzs-line-text { display: flex; gap: 0.6rem; align-items: baseline; color: var(--sl-color-white); font-size: 0.95rem; line-height: 1.5; }
+  /* All step texts share one grid cell, so the caption is as tall as the
+     longest step and never jumps; only the current one is visible. */
+  .lzs-text { display: grid; }
+  .lzs-text > span { grid-area: 1 / 1; visibility: hidden; }
+  .lzs-text > span[data-on] { visibility: visible; }
+  .lzs-count { flex: none; color: var(--sl-color-gray-3); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+
+  .lzs-steps { margin-block: 0.75rem 0; padding-inline-start: 1.5rem; list-style: decimal; }
+  .lzs-steps li + li { margin-top: 0.25rem; }
+  .lzs-sr { display: none; }
+  /* With the scene running, the list and the note stay for screen readers. */
+  .lzs-live { display: none; }
+  .lzs[data-ready] :is(.lzs-steps, .lzs-sr, .lzs-live) { position: absolute; display: block; width: 1px; height: 1px; overflow: hidden; margin: -1px; padding: 0; clip-path: inset(50%); white-space: nowrap; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lzs-scene:not([data-still]) .lzs-o { transition: translate 0.75s var(--e), opacity 0.45s ease, rotate 0.9s var(--e); }
+    .lzs-scene:not([data-still]) .lzs-link { transition: background 0.3s ease 0.6s; }
+    .lzs-scene:not([data-still]) .lzs-key { transition: rotate 0.9s var(--e) 0.5s; }
+    .lzs-scene:not([data-still])[data-beat='0'] .lzs-prompt { animation: lzs-drag 1.3s var(--e) 0.3s backwards; }
+    .lzs-scene:not([data-still])[data-beat='1'] .lzs-dialog { transition-delay: 0.9s; }
+    .lzs-scene:not([data-still])[data-beat='1'] .lzs-tapper { transition-delay: 1.3s; animation: lzs-tap 1.3s ease-in-out 2s 2; }
+    .lzs-scene:not([data-still])[data-beat='2'] .lzs-linkmsg { transition-delay: 0.3s; }
+    .lzs-scene:not([data-still])[data-beat='2'] .lzs-tapper { animation: lzs-tap 1.3s ease-in-out 1s 3; }
+    .lzs-scene:not([data-still])[data-beat='4'] .lzs-donemsg { transition-delay: 0.2s; }
+    .lzs-scene:not([data-still])[data-beat='4'] :is(.lzs-tile) { transition-delay: 0.5s; }
+    .lzs-scene:not([data-still])[data-beat='4'] :is(.lzs-line, .lzs-person) { transition-delay: 0.9s; }
+    .lzs-scene:not([data-still]) .lzs-typing span { animation: lzs-hover 1.6s ease-in-out 2; }
+    .lzs-scene:not([data-still]) .lzs-typing span:nth-child(2) { animation-delay: 0.15s; }
+    .lzs-scene:not([data-still]) .lzs-typing span:nth-child(3) { animation-delay: 0.3s; }
+  }
+  @keyframes lzs-drag { from { translate: 150px 20px; } }
+  @keyframes lzs-tap { 0%, 60%, 100% { scale: 1; } 70% { scale: 0.85; } }
+  @keyframes lzs-hover { 50% { transform: translateY(-2px); } }
+</style>
+
+<script>
+  const STEP_MS = 6000
+
+  class DeviceScene extends HTMLElement {
+    connectedCallback() {
+      if (this.dataset.ready !== undefined) return
+      const frame = this.querySelector<HTMLElement>('.lzs-frame')!
+      const view = this.querySelector<HTMLElement>('.lzs-view')!
+      const stage = this.querySelector<HTMLElement>('.lzs-stage')!
+      const scene = this.querySelector<HTMLElement>('.lzs-scene')!
+      const steps = [...this.querySelectorAll<HTMLElement>('.lzs-steps li')].map((li) => li.textContent ?? '')
+      const bars = [...this.querySelectorAll<HTMLElement>('.lzs-progress span')]
+      const count = this.querySelector<HTMLElement>('.lzs-count')!
+      const texts = [...this.querySelectorAll<HTMLElement>('.lzs-text > span')]
+      const prev = this.querySelector<HTMLButtonElement>('[data-prev]')!
+      const next = this.querySelector<HTMLButtonElement>('[data-next]')!
+      const toggle = this.querySelector<HTMLButtonElement>('[data-toggle]')!
+      const live = this.querySelector<HTMLElement>('.lzs-live')!
+      const stepOf = this.dataset.stepOf ?? '{n}/{total}'
+      const total = steps.length
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)')
+      let beat = 0
+      let userPaused = reduced.matches
+      let hovered = false
+      let focused = false
+      let visible = false
+      let timer: ReturnType<typeof setTimeout> | undefined
+
+      const fit = () => {
+        const width = stage.clientWidth
+        const height = stage.clientHeight
+        const k = Math.min(width / 320, height / 180)
+        scene.style.setProperty('--k', String(k))
+        scene.style.setProperty('--x', `${(width - 320 * k) / 2}px`)
+        scene.style.setProperty('--y', `${(height - 180 * k) / 2}px`)
+      }
+      new ResizeObserver(fit).observe(stage)
+
+      const show = (to: number) => {
+        beat = (to + total) % total
+        scene.dataset.beat = String(beat)
+        bars.forEach((bar, index) => bar.toggleAttribute('data-on', index <= beat))
+        count.textContent = `${beat + 1}/${total}`
+        texts.forEach((item, index) => item.toggleAttribute('data-on', index === beat))
+      }
+
+      // Focus inside the frame also counts when the window itself has no
+      // focus and no focusin event fired.
+      const held = () => userPaused || hovered || focused || !visible || frame.contains(document.activeElement)
+      const schedule = () => {
+        clearTimeout(timer)
+        timer = undefined
+        // Paused by the reader or off screen: nothing runs. Otherwise the
+        // timer keeps ticking and skips a step while the pointer or focus
+        // holds the frame.
+        if (userPaused || !visible) return
+        timer = setTimeout(() => {
+          if (!held()) show(beat + 1)
+          schedule()
+        }, STEP_MS)
+      }
+
+      const setPaused = (paused: boolean) => {
+        userPaused = paused
+        frame.toggleAttribute('data-paused', paused)
+        const label = paused ? this.dataset.play! : this.dataset.pause!
+        toggle.setAttribute('aria-label', label)
+        toggle.title = label
+        schedule()
+      }
+
+      // A step chosen by hand is announced; the loop's own steps are not.
+      const announce = () => {
+        live.textContent = `${stepOf.replace('{n}', String(beat + 1)).replace('{total}', String(total))}: ${steps[beat]}`
+      }
+      prev.addEventListener('click', () => { show(beat - 1); setPaused(true); announce() })
+      next.addEventListener('click', () => { show(beat + 1); setPaused(true); announce() })
+      toggle.addEventListener('click', () => setPaused(!userPaused))
+      view.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') { hovered = true; schedule() } })
+      view.addEventListener('pointerleave', () => { hovered = false; schedule() })
+      frame.addEventListener('focusin', () => { focused = true; schedule() })
+      frame.addEventListener('focusout', (event) => {
+        if (frame.contains(event.relatedTarget as Node | null)) return
+        focused = false
+        schedule()
+      })
+      frame.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); prev.click() }
+        if (event.key === 'ArrowRight') { event.preventDefault(); next.click() }
+      })
+
+      // Motion and the loop run only while the frame is on screen.
+      scene.dataset.still = ''
+      new IntersectionObserver((entries) => {
+        visible = entries.some((entry) => entry.isIntersecting)
+        if (visible) delete scene.dataset.still
+        schedule()
+      }, { threshold: 0.4 }).observe(stage)
+
+      frame.hidden = false
+      this.dataset.ready = ''
+      fit()
+      show(0)
+      setPaused(userPaused)
+    }
+  }
+  customElements.define('device-scene', DeviceScene)
+</script>

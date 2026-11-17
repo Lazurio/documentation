@@ -42,6 +42,9 @@ audience:
   - agent
 ---
 
+import Aside from '@components/Aside.astro';
+import DeviceSetupScene from '@components/DeviceSetupScene.astro';
+
 Zařízení se připojí do sítě vaší Organizace přes aplikaci Tailscale. Celé to zabere pár minut:
 
 1. **Vyberte níže své zařízení.**
@@ -57,7 +60,8 @@ a Macu agent potřebuje ještě **váš login**, třeba `jannovak`, aby počíta
 pojmenoval podle pravidla Lazuria; pošle vám ho Admin Organizace spolu
 s adresou.
 
-:::danger[Po instalaci neklikejte v aplikaci Tailscale na Log in]
+<Aside type="danger" title="Po instalaci neklikejte v aplikaci Tailscale na Log in">
+
 Tlačítko **Log in** (Přihlásit se) na úvodní obrazovce Tailscale vede na server
 společnosti Tailscale. Nabídne přihlášení přes Google, GitHub, Microsoft nebo
 Apple a zařízení pak skončí v cizí síti, ne v síti vaší Organizace. Po
@@ -66,7 +70,8 @@ přihlašovacího serveru Lazuria.
 
 **Už se to stalo?** Nic nemažte a pokračujte kroky pro své zařízení od zadání
 adresy. Síť Organizace se přidá jako další účet a Tailscale na ni přepne.
-:::
+
+</Aside>
 
 <nav class="lz-device-picker" aria-label="Vyberte své zařízení">
   <a class="lz-device-card" href="#windows"><span class="lz-device-card__name">Windows</span><span class="lz-device-card__hint lz-device-card__hint--agent">Udělá to agent</span></a>
@@ -81,15 +86,28 @@ přes Tailscale](/cs/guide/tailscale/).
 
 ## Windows
 
-:::caution[Na Log in v aplikaci Tailscale neklikejte]
+<Aside type="caution" title="Na Log in v aplikaci Tailscale neklikejte">
+
 Adresu Organizace zadá agent, nebo ji zadáte ručním postupem níže.
-:::
+
+</Aside>
 
 ### Nechte to na agentovi (doporučeno)
 
 Pracujete-li na tomto počítači s agentem, třeba s Codexem v aplikaci ChatGPT
 nebo s Claude Code, celé připojení udělá za vás. Vy jen kliknete na **Ano**,
 až se Windows zeptá na instalaci, a přihlásíte se.
+
+<DeviceSetupScene system="windows" copy={{ "label": "Jak to probíhá", "stepOf": "Krok {n} z {total}", "prev": "Předchozí krok", "next": "Další krok", "pause": "Pozastavit", "play": "Přehrát",
+  "you": "Vy", "chat": "Chat s agentem", "prompt": "Prompt", "working": "Pracuji…", "signIn": "Přihlásit se",
+  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Schválí Admin", "admin": "Admin", "badge": "Ilustrace", "note": "Ilustrace, ne snímek obrazovky. Okna chatu, Windows a přihlášení jsou zjednodušená a skutečná vypadají jinak.", "dialog": "Povolit změny?", "allow": "Ano",
+  "steps": [
+    "Zkopírujte prompt níže, doplňte adresu a login od Admina Organizace a vložte ho agentovi do nového chatu.",
+    "Agent nainstaluje Tailscale. Až se Windows zeptá, jestli smí provést změny, klikněte na Ano.",
+    "Agent vám pošle odkaz na přihlášení. Klikněte na něj.",
+    "Přihlaste se svým účtem Lazurio. Heslo ani kód agentovi nepíšete.",
+    "Hotovo. Počítač je přihlášený do sítě Organizace. Schválení je samostatný krok Admina Organizace: napište mu, že jste přidali nový počítač."
+  ] }} />
 
 1. **Zapněte agentovi plný přístup.** Bez něj na Tailscale nedosáhne.
    V Codexu přepněte dole u pole pro zprávu oprávnění na **Plný přístup**
@@ -239,11 +257,13 @@ programátor: mluv s ním jednoduše a příkazy mu neukazuj.
 
 ## macOS
 
-:::caution[Na Log in v aplikaci Tailscale neklikejte]
+<Aside type="caution" title="Na Log in v aplikaci Tailscale neklikejte">
+
 Na Macu nejdřív projdete úvodního průvodce aplikace a povolíte konfiguraci
 VPN, u verze ze stránek Tailscale také síťové rozšíření v Nastavení systému. Adresu Organizace pak zadá agent, nebo ji zadáte ručním
 postupem níže.
-:::
+
+</Aside>
 
 ### Nechte to na agentovi (doporučeno)
 
@@ -254,6 +274,17 @@ požádá. Agent vás požádá
 o povolení konfigurace VPN a u verze ze stránek Tailscale (Standalone) také
 o zapnutí síťového rozšíření Tailscale v Nastavení systému (postup je
 i v ručním kroku 2 níže).
+
+<DeviceSetupScene system="macos" copy={{ "label": "Jak to probíhá", "stepOf": "Krok {n} z {total}", "prev": "Předchozí krok", "next": "Další krok", "pause": "Pozastavit", "play": "Přehrát",
+  "you": "Vy", "chat": "Chat s agentem", "prompt": "Prompt", "working": "Pracuji…", "signIn": "Přihlásit se",
+  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Schválí Admin", "admin": "Admin", "badge": "Ilustrace", "note": "Ilustrace, ne snímek obrazovky. Okna chatu, macOS a přihlášení jsou zjednodušená a skutečná vypadají jinak.", "dialog": "Povolit VPN?", "allow": "Povolit",
+  "steps": [
+    "Zkopírujte prompt níže, doplňte adresu a login od Admina Organizace a vložte ho agentovi do nového chatu.",
+    "Agent spustí Tailscale. U dotazu na VPN klikněte na Povolit; u verze ze stránek Tailscale zapněte i síťové rozšíření v Nastavení systému.",
+    "Agent vám pošle odkaz na přihlášení. Klikněte na něj.",
+    "Přihlaste se svým účtem Lazurio. Heslo ani kód agentovi nepíšete.",
+    "Hotovo. Mac je přihlášený do sítě Organizace. Schválení je samostatný krok Admina Organizace: napište mu, že jste přidali nový Mac."
+  ] }} />
 
 ```text
 Připoj tento Mac do tailnetu mé Organizace v Lazuriu přes Tailscale.
@@ -327,11 +358,13 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
 
 ## iPhone a iPad
 
-:::caution[Nevybírejte Google, GitHub ani jiný účet]
+<Aside type="caution" title="Nevybírejte Google, GitHub ani jiný účet">
+
 Na obrazovce přihlášení otevřete nabídku vpravo nahoře a zadejte adresu
 Organizace (krok 4). Tlačítka pro přihlášení přes Google, GitHub, Microsoft
 nebo Apple vedou do cizí sítě.
-:::
+
+</Aside>
 
 1. Nainstalujte [Tailscale z App Store](https://apps.apple.com/app/tailscale/id1470499037).
 2. Otevřete ji, zvolte **Get Started** a povolte konfiguraci VPN. Zatím se
@@ -358,9 +391,11 @@ nebo Apple vedou do cizí sítě.
 
 ## Android
 
-:::caution[Na velké tlačítko Log in neklepejte]
+<Aside type="caution" title="Na velké tlačítko Log in neklepejte">
+
 Pokračujte ozubeným kolem vpravo nahoře (krok 2). Log in vede do cizí sítě.
-:::
+
+</Aside>
 
 1. Nainstalujte
    [Tailscale z Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn)

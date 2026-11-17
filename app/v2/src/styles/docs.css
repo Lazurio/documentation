@@ -371,9 +371,18 @@ button,
   border-radius: var(--lz-radius-lg);
 }
 
-/* Desktop illustrations (Windows steps): wider than phone screenshots. */
+/* Desktop illustrations (Windows steps) reach the right edge of the content
+   column like code blocks, though the list around them keeps its measure. */
+.sl-markdown-content {
+  container-type: inline-size;
+}
+
+.sl-markdown-content > :is(ol, ul) > li > :is(figure.lz-app-step--wide, .expressive-code) {
+  width: calc(100cqw - 2.5rem);
+}
+
 .sl-markdown-content figure.lz-app-step--wide img {
-  max-width: 640px;
+  max-width: 100%;
 }
 
 /* Device picker: one large card per system, each linking to its section so a

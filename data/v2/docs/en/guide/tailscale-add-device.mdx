@@ -42,6 +42,9 @@ audience:
   - agent
 ---
 
+import Aside from '@components/Aside.astro';
+import DeviceSetupScene from '@components/DeviceSetupScene.astro';
+
 Your device joins your Organization's network through the Tailscale app. It takes a few minutes:
 
 1. **Pick your device below.**
@@ -59,7 +62,8 @@ and Mac your agent also needs **your login**, for example `jannovak`, to name
 the computer by Lazurio's rule; your Organization Admin sends it with the
 address.
 
-:::danger[After installing, do not click Log in in the Tailscale app]
+<Aside type="danger" title="After installing, do not click Log in in the Tailscale app">
+
 The **Log in** button on Tailscale's welcome screen leads to Tailscale's own
 server. It offers sign-in with Google, GitHub, Microsoft or Apple, and the
 device then ends up in someone else's network, not your Organization's. After
@@ -69,7 +73,8 @@ of Lazurio's login server.
 **Already happened?** Do not delete anything; continue with the steps for your
 device from entering the address. Your Organization's network is added as
 another account and Tailscale switches to it.
-:::
+
+</Aside>
 
 <nav class="lz-device-picker" aria-label="Pick your device">
   <a class="lz-device-card" href="#windows"><span class="lz-device-card__name">Windows</span><span class="lz-device-card__hint lz-device-card__hint--agent">Your agent does it</span></a>
@@ -84,16 +89,29 @@ through Tailscale](/en/guide/tailscale/).
 
 ## Windows
 
-:::caution[Do not click Log in in the Tailscale app]
+<Aside type="caution" title="Do not click Log in in the Tailscale app">
+
 Your agent enters your Organization's address, or you enter it with the
 manual steps below.
-:::
+
+</Aside>
 
 ### Let your agent do it (recommended)
 
 If you work with an agent on this computer, such as Codex in the ChatGPT
 app or Claude Code, it does the whole setup for you. You only click **Yes**
 when Windows asks about the installation, and you sign in.
+
+<DeviceSetupScene system="windows" copy={{ "label": "How it goes", "stepOf": "Step {n} of {total}", "prev": "Previous step", "next": "Next step", "pause": "Pause", "play": "Play",
+  "you": "You", "chat": "Chat with agent", "prompt": "Prompt", "working": "Working…", "signIn": "Sign in",
+  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Admin approves", "admin": "Admin", "badge": "Illustration", "note": "Illustration, not a screenshot. The chat, Windows and sign-in windows are simplified; the real ones look different.", "dialog": "Allow changes?", "allow": "Yes",
+  "steps": [
+    "Copy the prompt below, fill in the address and login from your Organization Admin and paste it into a new chat with your agent.",
+    "The agent installs Tailscale. When Windows asks whether it may make changes, click Yes.",
+    "The agent sends you a sign-in link. Click it.",
+    "Sign in with your Lazurio account. You never type a password or code for the agent.",
+    "Done. The computer is signed in to your Organization's network. Approving it is a separate step for your Organization Admin: tell them you added a new computer."
+  ] }} />
 
 1. **Give the agent full access.** Without it, the agent cannot reach
    Tailscale. In Codex, switch the permission below the message box to
@@ -247,12 +265,14 @@ programmer: talk to them in plain language and do not show them commands.
 
 ## macOS
 
-:::caution[Do not click Log in in the Tailscale app]
+<Aside type="caution" title="Do not click Log in in the Tailscale app">
+
 On a Mac you first go through the app's welcome steps and allow the VPN
 configuration, for the version from Tailscale's website also the network
 extension in System Settings. Your agent then enters your Organization's address, or you
 enter it with the manual steps below.
-:::
+
+</Aside>
 
 ### Let your agent do it (recommended)
 
@@ -263,6 +283,17 @@ and do what the agent asks.
 The agent asks you to allow the VPN configuration and, for the version from
 Tailscale's website (Standalone), also to turn on Tailscale's network
 extension in System Settings (the same steps are in manual step 2 below).
+
+<DeviceSetupScene system="macos" copy={{ "label": "How it goes", "stepOf": "Step {n} of {total}", "prev": "Previous step", "next": "Next step", "pause": "Pause", "play": "Play",
+  "you": "You", "chat": "Chat with agent", "prompt": "Prompt", "working": "Working…", "signIn": "Sign in",
+  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Admin approves", "admin": "Admin", "badge": "Illustration", "note": "Illustration, not a screenshot. The chat, macOS and sign-in windows are simplified; the real ones look different.", "dialog": "Allow VPN?", "allow": "Allow",
+  "steps": [
+    "Copy the prompt below, fill in the address and login from your Organization Admin and paste it into a new chat with your agent.",
+    "The agent starts Tailscale. Click Allow when asked about the VPN; for the version from Tailscale's website, also turn on the network extension in System Settings.",
+    "The agent sends you a sign-in link. Click it.",
+    "Sign in with your Lazurio account. You never type a password or code for the agent.",
+    "Done. The Mac is signed in to your Organization's network. Approving it is a separate step for your Organization Admin: tell them you added a new Mac."
+  ] }} />
 
 ```text
 Connect this Mac to my Organization's tailnet in Lazurio through Tailscale.
@@ -338,11 +369,13 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
 
 ## iPhone and iPad
 
-:::caution[Do not choose Google, GitHub or any other account]
+<Aside type="caution" title="Do not choose Google, GitHub or any other account">
+
 On the sign-in screen, open the menu at the top right and enter your
 Organization's address (step 4). The buttons to sign in with Google, GitHub,
 Microsoft or Apple lead to someone else's network.
-:::
+
+</Aside>
 
 1. Install [Tailscale from the App Store](https://apps.apple.com/app/tailscale/id1470499037).
 2. Open it, choose **Get Started** and allow the VPN configuration. Do not
@@ -370,10 +403,12 @@ Microsoft or Apple lead to someone else's network.
 
 ## Android
 
-:::caution[Do not tap the large Log in button]
+<Aside type="caution" title="Do not tap the large Log in button">
+
 Continue with the gear at the top right (step 2). Log in leads to someone
 else's network.
-:::
+
+</Aside>
 
 1. Install
    [Tailscale from Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn)
