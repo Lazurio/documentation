@@ -100,13 +100,13 @@ až se Windows zeptá na instalaci, a přihlásíte se.
 
 <DeviceSetupScene system="windows" copy={{ "label": "Jak to probíhá", "stepOf": "Krok {n} z {total}", "prev": "Předchozí krok", "next": "Další krok", "pause": "Pozastavit", "play": "Přehrát",
   "you": "Vy", "chat": "Chat s agentem", "prompt": "Prompt", "working": "Pracuji…", "signIn": "Přihlásit se",
-  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Čeká na schválení", "admin": "Admin", "badge": "Ilustrace", "note": "Ilustrace, ne snímek obrazovky. Okna chatu, Windows a přihlášení jsou zjednodušená a skutečná vypadají jinak.", "dialog": "Povolit změny?", "allow": "Ano",
+  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Schválí Admin", "admin": "Admin", "badge": "Ilustrace", "note": "Ilustrace, ne snímek obrazovky. Okna chatu, Windows a přihlášení jsou zjednodušená a skutečná vypadají jinak.", "dialog": "Povolit změny?", "allow": "Ano",
   "steps": [
-    "Zkopírujte prompt níže a vložte ho agentovi do nového chatu.",
+    "Zkopírujte prompt níže, doplňte adresu a login od Admina Organizace a vložte ho agentovi do nového chatu.",
     "Agent nainstaluje Tailscale. Až se Windows zeptá, jestli smí provést změny, klikněte na Ano.",
     "Agent vám pošle odkaz na přihlášení. Klikněte na něj.",
     "Přihlaste se svým účtem Lazurio. Heslo ani kód agentovi nepíšete.",
-    "Hotovo. Počítač je v síti Organizace a čeká na schválení. Napište Adminovi Organizace."
+    "Hotovo. Počítač je přihlášený do sítě Organizace. Schválení je samostatný krok Admina Organizace: napište mu, že jste přidali nový počítač."
   ] }} />
 
 1. **Zapněte agentovi plný přístup.** Bez něj na Tailscale nedosáhne.
@@ -277,13 +277,13 @@ i v ručním kroku 2 níže).
 
 <DeviceSetupScene system="macos" copy={{ "label": "Jak to probíhá", "stepOf": "Krok {n} z {total}", "prev": "Předchozí krok", "next": "Další krok", "pause": "Pozastavit", "play": "Přehrát",
   "you": "Vy", "chat": "Chat s agentem", "prompt": "Prompt", "working": "Pracuji…", "signIn": "Přihlásit se",
-  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Čeká na schválení", "admin": "Admin", "badge": "Ilustrace", "note": "Ilustrace, ne snímek obrazovky. Okna chatu, macOS a přihlášení jsou zjednodušená a skutečná vypadají jinak.", "dialog": "Povolit VPN?", "allow": "Povolit",
+  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Schválí Admin", "admin": "Admin", "badge": "Ilustrace", "note": "Ilustrace, ne snímek obrazovky. Okna chatu, macOS a přihlášení jsou zjednodušená a skutečná vypadají jinak.", "dialog": "Povolit VPN?", "allow": "Povolit",
   "steps": [
-    "Zkopírujte prompt níže a vložte ho agentovi do nového chatu.",
+    "Zkopírujte prompt níže, doplňte adresu a login od Admina Organizace a vložte ho agentovi do nového chatu.",
     "Agent spustí Tailscale. U dotazu na VPN klikněte na Povolit; u verze ze stránek Tailscale zapněte i síťové rozšíření v Nastavení systému.",
     "Agent vám pošle odkaz na přihlášení. Klikněte na něj.",
     "Přihlaste se svým účtem Lazurio. Heslo ani kód agentovi nepíšete.",
-    "Hotovo. Mac je v síti Organizace a čeká na schválení. Napište Adminovi Organizace."
+    "Hotovo. Mac je přihlášený do sítě Organizace. Schválení je samostatný krok Admina Organizace: napište mu, že jste přidali nový Mac."
   ] }} />
 
 ```text

@@ -104,13 +104,13 @@ when Windows asks about the installation, and you sign in.
 
 <DeviceSetupScene system="windows" copy={{ "label": "How it goes", "stepOf": "Step {n} of {total}", "prev": "Previous step", "next": "Next step", "pause": "Pause", "play": "Play",
   "you": "You", "chat": "Chat with agent", "prompt": "Prompt", "working": "Working…", "signIn": "Sign in",
-  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Waiting for approval", "admin": "Admin", "badge": "Illustration", "note": "Illustration, not a screenshot. The chat, Windows and sign-in windows are simplified; the real ones look different.", "dialog": "Allow changes?", "allow": "Yes",
+  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Admin approves", "admin": "Admin", "badge": "Illustration", "note": "Illustration, not a screenshot. The chat, Windows and sign-in windows are simplified; the real ones look different.", "dialog": "Allow changes?", "allow": "Yes",
   "steps": [
-    "Copy the prompt below and paste it into a new chat with your agent.",
+    "Copy the prompt below, fill in the address and login from your Organization Admin and paste it into a new chat with your agent.",
     "The agent installs Tailscale. When Windows asks whether it may make changes, click Yes.",
     "The agent sends you a sign-in link. Click it.",
     "Sign in with your Lazurio account. You never type a password or code for the agent.",
-    "Done. The computer is in your Organization's network and waits for approval. Message your Organization Admin."
+    "Done. The computer is signed in to your Organization's network. Approving it is a separate step for your Organization Admin: tell them you added a new computer."
   ] }} />
 
 1. **Give the agent full access.** Without it, the agent cannot reach
@@ -286,13 +286,13 @@ extension in System Settings (the same steps are in manual step 2 below).
 
 <DeviceSetupScene system="macos" copy={{ "label": "How it goes", "stepOf": "Step {n} of {total}", "prev": "Previous step", "next": "Next step", "pause": "Pause", "play": "Play",
   "you": "You", "chat": "Chat with agent", "prompt": "Prompt", "working": "Working…", "signIn": "Sign in",
-  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Waiting for approval", "admin": "Admin", "badge": "Illustration", "note": "Illustration, not a screenshot. The chat, macOS and sign-in windows are simplified; the real ones look different.", "dialog": "Allow VPN?", "allow": "Allow",
+  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Admin approves", "admin": "Admin", "badge": "Illustration", "note": "Illustration, not a screenshot. The chat, macOS and sign-in windows are simplified; the real ones look different.", "dialog": "Allow VPN?", "allow": "Allow",
   "steps": [
-    "Copy the prompt below and paste it into a new chat with your agent.",
+    "Copy the prompt below, fill in the address and login from your Organization Admin and paste it into a new chat with your agent.",
     "The agent starts Tailscale. Click Allow when asked about the VPN; for the version from Tailscale's website, also turn on the network extension in System Settings.",
     "The agent sends you a sign-in link. Click it.",
     "Sign in with your Lazurio account. You never type a password or code for the agent.",
-    "Done. The Mac is in your Organization's network and waits for approval. Message your Organization Admin."
+    "Done. The Mac is signed in to your Organization's network. Approving it is a separate step for your Organization Admin: tell them you added a new Mac."
   ] }} />
 
 ```text
