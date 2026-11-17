@@ -4,7 +4,7 @@ description: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidí
 stableId: lazurio-doc-guide-ai-source
 locale: cs
 summary: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidíte, který zdroj Prostředí používá, kdo ho přepíná a co přepnutí přeruší."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -35,7 +35,7 @@ z jednoho ze dvou zdrojů:
 | **Váš vlastní účet** | Přihlásíte se svým účtem ChatGPT, pracovním místem v ChatGPT Business vaší Organizace nebo osobním účtem, a pokud chcete, i účtem Claude. | **Připojeno:** s vaším účtem |
 
 Organizace může oba zdroje kombinovat a lidi přesouvat po jednom, oběma
-směry ([rozhodnutí 0229](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0229--the-organization-admin-sets-where-each-work-environment-takes-its-ai-from)).
+směry ([rozhodnutí 0229](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0229--the-organization-admin-sets-where-each-work-environment-takes-its-ai-from)).
 
 ## Co uděláte sami
 

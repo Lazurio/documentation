@@ -12,7 +12,9 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-onboarding-decision-register
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
+  - lazurio-decision-0162
+  - lazurio-platform-folder-manual
   - lazurio-readme
   - lazurio-license
   - lazurio-platform-license
@@ -111,17 +113,17 @@ exists.
 
 ## External applications and credentials
 
-This section uses the newer [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md),
-checked on 24 October 2026. For new connections it prefers official MCP,
-official CLI, permitted Composio, a reviewed open-source implementation and
-browser fallback. Executor manages Environment MCP servers. For existing
-connections, the app's tool takes precedence over Executor and Composio.
+Each connected app has exactly one path: its own tool, the Environment's
+Executor, or Composio where it is allowed, and agents use them in that order
+([Integrations at release v0.1.22](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md#the-path-rule)). The user connects an app
+themselves; agents never start a connection, and a custom MCP server goes into
+Executor only on the user's explicit instruction.
 
 Composio is the sole approved exception to the shared-broker ban and must be
 permitted for the Environment. It holds tokens and processes call content;
 connections belong to the Composio account and organization, not automatically
-to one machine. The standard excludes new cloud connectors, other shared
-brokers, and scraping or browser-session servers. By rule, agents do not use
+to one machine. Decision 0162 excludes new ChatGPT or claude.ai connectors,
+other shared brokers, and scraping or browser-session servers. By rule, agents do not use
 the ChatGPT apps and connectors in their harness unless the Organization, or the
 user on a Personal Environment, allows them. In a Remote Environment Lazurio backs
 the rule with two settings in Codex's configuration; an app enabled by name and a

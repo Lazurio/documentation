@@ -4,14 +4,16 @@ description: "Which data an agent can use and how to test access restrictions."
 stableId: lazurio-doc-data-access-security
 locale: en
 summary: "Which data an agent can use and how to test access restrictions."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
+  - lazurio-decision-0162
+  - lazurio-platform-folder-manual
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -58,12 +60,11 @@ truth rather than another person's private context.
 
 ### External tools and secrets
 
-For a new connection, the [integration standard](https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/external-app-integrations.md)
-prefers an official MCP server, then an official CLI, permitted Composio,
-a reviewed open-source implementation and finally supervised browser use.
-Executor manages custom MCP servers in Lazurio. For an existing connection,
-agents use the app's tool, Executor or Composio according to its recorded
-route, in that order.
+Every connected app has exactly one path: its own tool from Settings → Tools,
+the Environment's Executor, or Composio where it is allowed. The user connects
+an app themselves, because signing in is their consent; agents never start a
+connection. A custom MCP server goes into Executor only on the user's explicit
+instruction. See [Connecting an Environment to apps](/en/environment-app-connections/).
 
 Composio is an approved broker only where the Organization or Personal
 Environment user permits it. Composio holds credentials and processes call

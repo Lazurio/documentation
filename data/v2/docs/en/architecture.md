@@ -4,24 +4,24 @@ description: "How people, devices, Environments, Organizations, modules and outs
 stableId: lazurio-doc-architecture
 locale: en
 summary: "How people, devices, Environments, Organizations, modules and outside services fit together, what goes to GitHub and where a module keeps its data."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-platform-module-standard
   - lazurio-platform-module-standard-v0-1-20
-  - lazurio-platform-module-standard-v0-1-21
   - lazurio-platform-module-parts-f14
   - lazurio-platform-decision-f52
-  - lazurio-platform-content-sync-v0-1-20
+  - lazurio-platform-content-sync
   - lazurio-platform-release-v0-1-20
-  - lazurio-platform-release-v0-1-21-rc-1
-  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-platform-release-v0-1-21
+  - lazurio-platform-marketplace
   - lazurio-platform-stack-profiles
   - lazurio-platform-register-modules
-  - lazurio-platform-environment-access-v0-1-21
+  - lazurio-environment-access-model
   - lazurio-platform-app-database-connection-question
   - lazurio-documentation-readme
   - lazurio-decision-register-admin-ai
@@ -123,10 +123,14 @@ with the acting person's own rights, so GitHub's audit names that person. A
 change that a Module Maintainer asks for is a request that an Organization
 Admin approves.
 
-Revoking access stops the operations on that repository but does not delete what
-an Environment already has. The checkout stays, an agent with access to that
-Environment can still read it, and it stops updating. The Organization's manifest
-names every module, so a name alone is not hidden.
+Revoking access stops the operations on that repository. What happens to the
+checkout depends on the Environment. On a Work Environment assigned to a person,
+Lazurio deletes the module's checkout, unsaved work included, once two
+synchronizations in a row, at least 30 minutes apart, prove that the access has
+ended (decision F72). On a Team Environment, in Henry, in Server services and on
+a person's own computer the checkout stays: an agent with access to that
+Environment can still read it, and it stops updating. The Organization's
+manifest names every module, so a name alone is not hidden.
 
 Lazurio controls entry to a module and passes it a verified identity. What each
 person may do inside is the Organization's own rules in its code and data
@@ -149,7 +153,7 @@ person may do inside is the Organization's own rules in its code and data
 ## Where a module keeps its data
 
 The generation of an app, the directory `app/v<N>`, names where the data lies,
-not the app's quality (decision F69, in release candidate v0.1.21-rc.1).
+not the app's quality (decision F69, since release v0.1.21).
 
 | Generation | Where the data lies | When it fits | Public example | Status |
 | --- | --- | --- | --- | --- |
@@ -182,8 +186,10 @@ Three things about the table:
 An outside system stays where it is. An agent reaches it as an Integration, for
 example through a custom MCP server in Executor, and sees what that connection
 allows. The data stay in that system. The `v4` database is for the Organization's
-internal work; production apps and databases that serve its customers are
-separate systems outside it (decision 0209).
+internal work. Production data stay apart from it: the Organization's production
+applications run on a separate application host, and once the database service
+serves them too, it keeps their data in separate databases with their own
+identities and grants (decisions 0209 and 0239, decided, not yet deployed).
 
 Our assessment, not a technical limit: build a module when you want your own
 process and app, and connect an Integration when you mostly use someone else's
@@ -199,10 +205,10 @@ prototype, not verified behaviour.
 
 ## Sources
 
-- [Lazurio Module Standard](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/module-standard.md) at release v0.1.20, and [at v0.1.21-rc.1](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/module-standard.md) for the generations.
-- [Stack profiles](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/stack-profiles.md) at v0.1.21-rc.1: the data layer of each generation, `app-data` and `app-database`.
-- [Content synchronization](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md) at release v0.1.20.
-- [Environment access](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) at v0.1.21-rc.1.
-- [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) at v0.1.21-rc.1: decisions 0162, 0171, 0172, 0186, 0193, 0196, 0198, 0203, 0209 and 0213.
+- [Lazurio Module Standard](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/module-standard.md) at release v0.1.22, and [at release v0.1.20](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/module-standard.md) for where a new module with data started before v0.1.21.
+- [Stack profiles](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/stack-profiles.md) at release v0.1.22: the data layer of each generation, `app-data` and `app-database`.
+- [Content synchronization](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/content-sync.md) at release v0.1.22.
+- [Environment access](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/environment-access.md) of 17 November 2026.
+- [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md) of 17 November 2026: decisions 0162, 0171, 0172, 0186, 0193, 0196, 0198, 0203, 0209, 0213 and 0239.
 - [Decisions 0245, 0246 and 0247](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md) of 2026-11-14, the target model, not yet deployed: who is who in an Organization, the network (every Environment only through a tailnet) and entry into an Environment. They consolidate decisions 0192, 0228 and 0243.
-- [Decision F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (what a module holds) and [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (one generator, personal modules).
+- [Decision F14](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (what a module holds) and [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (one generator, personal modules).

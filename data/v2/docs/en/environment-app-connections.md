@@ -4,13 +4,13 @@ description: "Choose a connection, approve its permissions and revoke access whe
 stableId: lazurio-doc-environment-app-connections
 locale: en
 summary: "Choose a connection, approve its permissions and revoke access when needed."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-external-apps-current
+  - lazurio-platform-folder-manual
   - lazurio-decision-0162
   - lazurio-external-apps-0162
   - lazurio-composio-runbook
@@ -19,7 +19,7 @@ sourceRefs:
   - lazurio-platform-decision-f19
   - lazurio-platform-release-v0-1-7
   - lazurio-platform-release-v0-1-8-rc-35
-  - lazurio-platform-release-current
+  - lazurio-platform-release-v0-1-22
   - lazurio-platform-release-v0-1-9
   - lazurio-platform-tools-screen-review
   - lazurio-platform-composio-write-gate-question
@@ -30,6 +30,7 @@ sourceRefs:
   - composio-data-retention
   - composio-zero-data-retention
   - composio-pricing
+  - composio-pricing-for-you
 audience:
   - builder
   - it-admin
@@ -95,28 +96,24 @@ deployed. See [Microsoft 365 for IT and the Organization Admin](/en/microsoft-36
 Workspace as a company app is decided and not implemented yet, so Google apps
 take the paths above.
 
-For a connection Apps → Integrations does not offer, the Lazurio integration
-standard proposes this order. The first route that works wins, and you have the
-last word:
+**When an app has no path.** If Apps → Integrations does not offer an app, an
+agent tells you so and sends you its card. Your Organization Admin sets up a
+company app, your Organization allows Composio on a Work Environment and you
+do on a Personal Environment; otherwise ask your Organization Admin. Agents do
+not build an integration of their own, such as their own OAuth app, API client
+or scraper, without your explicit decision.
 
-1. the provider's **official MCP server**, remote or self-hosted, added to
-   Executor;
-2. the provider's **official CLI**;
-3. **Composio**, when the provider has no suitable official MCP server or CLI
-   and Composio is allowed;
-4. a **reviewed open-source MCP server or CLI**, pinned to an exact release or
-   commit, with a verified publisher and licence;
-5. **the browser**, under your supervision, when none of the above exists.
-
-Never allowed, at any step: scraping a website, reusing browser cookie sessions,
-shared brokers other than Composio, keys or tokens in a chat, Git or a log, and
-new ChatGPT or claude.ai connectors.
+Never allowed: scraping a website, servers built on a signed-in browser
+session's cookies, shared brokers other than Composio, keys or tokens in a
+chat, Git or a log, and new ChatGPT or claude.ai connectors (decision 0162).
 
 **The rule.** Agents do not use the ChatGPT apps, plugins and connectors their
 harness offers, unless the Organization, or you on a Personal Environment, allows
 them, and then only for apps outside Integrations. Agents get this rule in the
-Folder instructions. The Organization's switch for it is decided, not yet
-deployed.
+Folder instructions. An Organization allows them in its settings: the switch
+in Organization overview is decided, not yet deployed, so until then the
+setting goes into the Organization's repository by a reviewed pull request,
+as for Microsoft 365.
 
 **What Lazurio does technically.** Where they are not allowed, Lazurio adds two
 settings of its own to Codex's configuration in a Remote Environment: apps off by
@@ -174,6 +171,9 @@ account, or **Not connected**. The row offers one action:
 - **Add and connect** when the tool is not installed yet;
 - **Connect** when it is installed but not signed in;
 - **Link SSH key** when `gh` is signed in but the Machine's key is not linked;
+- **Allow CI changes** when `gh` is signed in and its key is linked, but its
+  sign-in cannot push changes to `.github/workflows` yet; it renews the
+  sign-in with one more code;
 - **Disconnect** when it is signed in;
 - **Connect with an agent** for a tool an agent sets up.
 
@@ -191,8 +191,11 @@ finish the sign-in on any device:
 - **`composio`** shows a link. Open it and sign in. An Organization's Environment
   then works in the Composio organization named after that Organization: Lazurio
   selects it itself and, where it does not exist yet, shows the one step that
-  creates it. A Personal Environment uses the account's default organization,
-  which you choose at sign-in.
+  creates it. Until the Organization is downloaded in this Environment, in
+  Getting started, Composio's sign-in waits and says so. A Personal Environment
+  uses the account's default organization, the one Composio made when you
+  signed up; Lazurio selects it itself, and you choose only where it cannot
+  tell which one that is.
 - **`wacli`** shows a QR code to scan in WhatsApp, or pairs with your phone
   number instead.
 
@@ -333,7 +336,7 @@ Review these conditions and risks before connecting:
   options, their terms or their price.
 - **Composio keeps logs.** Its [data retention
   page](https://docs.composio.dev/docs/security/data-retention), read on
-  2026-11-06, says that tool execution logs stay for up to one year on every plan
+  2026-11-17, says that tool execution logs stay for up to one year on every plan
   and that files staged for a tool are deleted after 24 hours. [Zero Data
   Retention](https://docs.composio.dev/docs/security/zero-data-retention) stops
   storing the payloads of covered calls. It is available on paid plans for a
@@ -342,10 +345,16 @@ Review these conditions and risks before connecting:
   on Enterprise.
 - **Where the data is and on what terms.** Composio's public pages read on that
   date name no hosting region and point to its Trust Center for sub-processors
-  and data-handling terms. Its [pricing page](https://composio.dev/pricing) lists
-  a Data Processing Addendum on Pro and Enterprise, not on Hobby. Lazurio has not
-  reviewed those terms, and whether to recommend Zero Data Retention to
-  Organizations is [still open](https://github.com/Lazurio/LazurioPlatform/issues/40).
+  and data-handling terms. Composio has two price lists. Its [platform
+  pricing](https://composio.dev/pricing/platform), for building with its SDK,
+  lists a Data Processing Addendum on Pro and Enterprise, not on Hobby. Its
+  [“For you” pricing](https://composio.dev/pricing/for-you), where
+  composio.dev/pricing now leads, lists Free, Standard and Enterprise, includes
+  Zero Data Retention on Standard and Enterprise only and names no Data
+  Processing Addendum. Lazurio has not reviewed those terms or established which
+  price list applies to an Environment's Composio account, and whether to
+  recommend Zero Data Retention to Organizations is [still
+  open](https://github.com/Lazurio/LazurioPlatform/issues/40).
 - **A sign-in reaches wherever its account reaches.** Agents can use everything
   the signed-in account can use, not only what the current task needs.
 - **Several Organizations on one Machine are one Environment.** Agents choose the
@@ -357,22 +366,24 @@ Review these conditions and risks before connecting:
 
 <span id="what-is-available-today"></span>
 
-## Release status on 6 November 2026
+## Release status, checked against v0.1.22
 
-The latest final release of [LazurioPlatform](https://github.com/Lazurio/LazurioPlatform)
-is [v0.1.20](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.20) of
-2026-11-04.
+This table was checked on 17 November 2026 against
+[LazurioPlatform](https://github.com/Lazurio/LazurioPlatform) release
+[v0.1.22](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.22) of
+2026-11-17.
 
 | Capability | Status | Evidence |
 | --- | --- | --- |
-| Catalog with tiers and setup modes; `lazurio tools list`, `enable`, `disable`, `note` and `prompt`; tools in the Folder instructions | Released since v0.1.7 (2026-09-27) | [Decision F18](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f18--enabled-tools-of-the-environment), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
-| Curated installation and sign-in of `gh`, `composio` and `wacli` on Linux and macOS | Released since v0.1.7 (2026-09-27) | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [environment tools](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/environment-tools.md) |
-| **Settings → Tools** with Connect and Disconnect, a sign-in that turns **Used by agents** on, `gh` linking the Machine's SSH key, `gh` on a Team Environment through Lazurio for GitHub | First in v0.1.8 release candidates ([v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35), 2026-10-06); in v0.1.20 | [Tools section](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/launchpad-development.md#tools-section) |
-| **Apps → Integrations**, Executor in a Remote Environment, Lazurio's build of Composio, the Organization's setting for Composio, the two Codex settings against ChatGPT apps in a Remote Environment, with the exceptions above | In v0.1.20 | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md) |
-| The Microsoft 365 company app (Outlook, OneDrive, SharePoint) without `Mail.Send`, set by a reviewed pull request | Supported since [v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9) (2026-10-19), with [open checks](/en/microsoft-365/) | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md#the-microsoft-365-company-app) |
-| The Organization's switch for ChatGPT apps; the Microsoft 365 settings in Organization overview, including sending mail | Decided, not yet deployed | [Decision 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
-| Google Workspace as a company app | Decided, not implemented | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md), [decision 0162](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
-| Handing a tool's prepared prompt directly into an agent chat (today it is shown for copying); the curated flows on Windows | Planned, not built | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools) |
+| Catalog with tiers and setup modes; `lazurio tools list`, `enable`, `disable`, `note` and `prompt`; tools in the Folder instructions | Released since v0.1.7 (2026-09-27) | [Decision F18](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f18--enabled-tools-of-the-environment), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) |
+| Curated installation and sign-in of `gh`, `composio` and `wacli` on Linux and macOS | Released since v0.1.7 (2026-09-27) | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools), [environment tools](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/environment-tools.md) |
+| **Settings → Tools** with Connect and Disconnect, a sign-in that turns **Used by agents** on, `gh` linking the Machine's SSH key, `gh` on a Team Environment through Lazurio for GitHub | First in v0.1.8 release candidates ([v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35), 2026-10-06); in v0.1.22 | [Tools section](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/launchpad-development.md#tools-section) |
+| `gh`'s **Allow CI changes** where its sign-in cannot push changes to `.github/workflows`; Composio's sign-in waiting until the Organization is downloaded in the Environment | Since v0.1.21 (2026-11-13) | [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/environment-tools.md), [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md#the-composio-organization-of-an-environment) |
+| **Apps → Integrations**, Executor in a Remote Environment, Lazurio's build of Composio, the Organization's setting for Composio, the two Codex settings against ChatGPT apps in a Remote Environment, with the exceptions above | In v0.1.22 | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md) |
+| The Microsoft 365 company app (Outlook, OneDrive, SharePoint) without `Mail.Send`, set by a reviewed pull request | Supported since [v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9) (2026-10-19), with [open checks](/en/microsoft-365/) | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md#the-microsoft-365-company-app) |
+| The switch for ChatGPT apps and the Microsoft 365 settings in Organization overview, including sending mail | Decided, not yet deployed | [Decision 0162](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
+| Google Workspace as a company app | Decided, not implemented | [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md), [decision 0162](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0162--integrations-applications-connected-to-an-environment-one-path-each) |
+| Handing a tool's prepared prompt directly into an agent chat (today it is shown for copying); the curated flows on Windows | Planned, not built | [Decision F19](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f19--curated-installation-and-login-of-catalog-tools) |
 
 Check which version your Environment actually runs. An older version can name
 these actions differently or not have them: v0.1.7 names them **Install and sign
@@ -380,11 +391,11 @@ in**, **Sign in** and **Sign out** and does not turn the switch on by itself.
 
 ## Sources
 
-- [Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decision-register.md) at release v0.1.20: decision 0162 with its addenda, 0170 (Environment), 0172 (full access inside the Environment) and 0175 (the user).
-- [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/integrations.md) at release v0.1.20: the path rule, the Composio organization of an Environment, ChatGPT apps and Executor's approvals.
-- [External application integration standard](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md): the order of routes, what stays excluded and the Organization's integration catalog.
-- [LazurioPlatform decisions F17, F18 and F19](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f18--enabled-tools-of-the-environment), with their addenda: the user's tools, the catalog, the Folder instructions, the note, the curated sign-in, `gh` on a Team Environment and team accounts on a Team Environment.
-- [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/environment-tools.md): the catalog, where a tool is offered, what the Organization decides and the `lazurio tools` commands.
-- [Launchpad Tools section](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/launchpad-development.md#tools-section): what the section shows and its actions.
-- LazurioPlatform [release v0.1.20](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.20), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) and [release candidate v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35).
-- [Composio authentication](https://docs.composio.dev/docs/authentication), [token custody](https://docs.composio.dev/docs/security/token-custody), [data retention](https://docs.composio.dev/docs/security/data-retention), [Zero Data Retention](https://docs.composio.dev/docs/security/zero-data-retention) and [pricing](https://composio.dev/pricing): Composio's own description of sign-in, credential custody, logs and terms.
+- [Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md) on main of 17 November 2026: decision 0162 with its addenda, 0170 (Environment), 0172 (full access inside the Environment) and 0175 (the user).
+- [Integrations](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/integrations.md) at release v0.1.22: the path rule, the Composio organization of an Environment, ChatGPT apps and Executor's approvals.
+- [Lazurio Platform agents' manual](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/manual.ts) at release v0.1.21, unchanged in v0.1.22: agents never connect an Integration themselves, what they do when an app has no path, and no integration of their own.
+- [LazurioPlatform decisions F17, F18 and F19](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f18--enabled-tools-of-the-environment), with their addenda: the user's tools, the catalog, the Folder instructions, the note, the curated sign-in, `gh` on a Team Environment and team accounts on a Team Environment.
+- [Environment tools](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/environment-tools.md): the catalog, where a tool is offered, what the Organization decides and the `lazurio tools` commands.
+- [Launchpad Tools section](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/launchpad-development.md#tools-section): what the section shows and its actions.
+- LazurioPlatform [release v0.1.22](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.22), [release v0.1.7](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.7) and [release candidate v0.1.8-rc.35](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.8-rc.35).
+- [Composio authentication](https://docs.composio.dev/docs/authentication), [token custody](https://docs.composio.dev/docs/security/token-custody), [data retention](https://docs.composio.dev/docs/security/data-retention), [Zero Data Retention](https://docs.composio.dev/docs/security/zero-data-retention) and pricing ([platform](https://composio.dev/pricing/platform), [“For you”](https://composio.dev/pricing/for-you)): Composio's own description of sign-in, credential custody, logs and terms.

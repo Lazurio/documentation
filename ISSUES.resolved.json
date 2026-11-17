@@ -140,6 +140,66 @@
         "selected_option": "Settle the license statement in #48 or a dedicated pull request: present the Platform's Elastic-2.0 as current, keep the FSL terms labelled as the pinned Lazurio Root revision, re-pin lazurio-license to the Platform license and renew it. Recommended: it is the only way the pages stay true.",
         "evidence": "LazurioPlatform LICENSE (SHA-256 48255018…) and docs/licensing.md at fe72f68721e3; HumanAndMachines/Lazurio LICENSE.md blob 27224345 on the pin and on main; owner decision in the review thread on 2026-11-17."
       }
+    },
+    {
+      "id": "issue-2026-11-17-003",
+      "title": "The add-device guide and Lazurio's agent manual disagree on who sets a device's `<login>-<device>` name",
+      "status": "resolved",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-17",
+      "updated_at": "2026-11-17",
+      "question": "Should guide/tailscale-add-device follow the agent manual of Lazurio Platform v0.1.22, in which the agent on the person's computer sets the `<login>-<device>` name on the device before approval, or should the product change to match the guide, in which nobody on the device sets it?",
+      "impact": "Since #68 (17 November 2026) the guide tells the person's agent not to change the device name (\"do not use `--hostname`\"), says that today the Organization Admin sets the name with the network operator at approval, and calls a `-1` suffix normal, to be adjusted by the Admin. The agent manual of Lazurio Platform v0.1.22, unchanged on main (`src/folder/manual.ts`, Adding a computer to a tailnet, steps 4 and 5), tells the agent on the source computer to pass `--hostname=<name>` with `--login-server` at first connection, to fix the wrong name of a device that is not yet approved with `tailscale set --hostname`, never to run `headscale nodes rename` on the Conglomerate Host, and to treat a `-1` suffix as not success. The GEN3 record `manual/operator-machine-access.md` and servers-conglomerate-host also say that the name is set on the device itself. No public source says that the Admin sets the name at approval; issue-2026-11-03-001 lists it only as a proposal. Agents with a Lazurio Folder and agents following the guide get opposite instructions. The source lazurio-device-node-names (due 2026-12-03) stays expired until this is decided.",
+      "options": [
+        "Align the guide with the released product for computers: the Windows and Mac prompts set the `<login>-<device>` name on the device before approval, as the agent manual says; the sentence about the Admin setting the name today and the `-1` line follow the manual; phones keep the system's name until issue-2026-11-03-001 is resolved. Recommended: documentation does not redefine runtime behaviour, and nothing changes on servers.",
+        "Keep the guide's flow without renaming: replace the unsourced sentence with the gap (the guide does not set the name yet; Lazurio's rule sets it on the device; a clickable way is missing, issue-2026-11-03-001), and propose in LazurioPlatform that the agent manual stop requiring `--hostname` for devices added by the guide.",
+        "Change the product: the Organization Admin sets the name at approval (option 1 of issue-2026-11-03-001). This needs a LazurioPlatform decision, because the manual forbids renaming on the Conglomerate Host today; until it ships, the guide states the gap."
+      ],
+      "decision_needed_for": [
+        "the Device name paragraph, the `-1` line and the agent details for Windows and macOS in guide/tailscale-add-device (en, cs)",
+        "the source lazurio-device-node-names"
+      ],
+      "resolved_at": "2026-11-17",
+      "resolved_by": "matejsuchanek",
+      "resolved_from": "ISSUES.open.json",
+      "resolution": {
+        "decision": "The add-device guide follows the agent manual of Lazurio Platform v0.1.22: on Windows and Mac the person's agent names the computer <login>-<device> with --hostname at its first sign-in, before approval, from the login the Organization Admin sends with the address; a phone, and a computer set up without an agent, keeps the name from the system for now (issue-2026-11-03-001); the name is never changed on the server, and a -1 suffix is not success.",
+        "rationale": "Documentation does not redefine runtime behaviour; agents with a Lazurio Folder and agents following the guide now get the same instruction, and nothing changes on servers.",
+        "selected_option": "Align the guide with the released product for computers: the Windows and Mac prompts set the `<login>-<device>` name on the device before approval, as the agent manual says; the sentence about the Admin setting the name today and the `-1` line follow the manual; phones keep the system's name until issue-2026-11-03-001 is resolved. Recommended: documentation does not redefine runtime behaviour, and nothing changes on servers.",
+        "evidence": "LazurioPlatform src/folder/manual.ts at v0.1.22 (4e9c6b9bc25b), Adding a computer to a tailnet, steps 1 to 5, unchanged on main 7db8485; Tailscale's login takes --hostname (cmd/tailscale/cli/up.go, login.go at v1.104.5 and v1.104.7); owner decision relayed in the working thread of the review on 2026-11-17."
+      }
+    },
+    {
+      "id": "issue-2026-11-17-004",
+      "title": "Decide whether the public pages keep the GEN3 five-step order for new connections, which LazurioPlatform's Folder leaves out",
+      "status": "resolved",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-17",
+      "updated_at": "2026-11-17",
+      "question": "Should Lazurio's public documentation still present the order official MCP server, official CLI, Composio, reviewed open-source MCP server or CLI, supervised browser, from the GEN3 Root's external application standard, as Lazurio's current guidance for a connection that Apps → Integrations does not offer?",
+      "impact": "environment-app-connections, data-access-security, public-evidence, deployment-operations (step 4) and lazurio-vs-microsoft-copilot (en, cs) present the order as Lazurio's standard and link to the GEN3 Root manual, a GEN3 record since decisions 0225 and 0226. LazurioPlatform deliberately leaves it out of the Folder (`src/folder/manual.ts` at v0.1.22: \"The Root's order for a new connection is left out: it puts MCP before the tool and adds paths that are no Integration's.\"), so agents in an Environment are never told it; LazurioPlatform issue 757 still lists it as open. data-access-security and public-evidence also link to revision 6416d27 instead of the source's pin, and public-evidence's sentence that ChatGPT apps are off is not in that revision. The Composio prompt on guide/tool-connections asks the agent to start the connection itself, which the GEN3 standard and the agent manual at v0.1.22 (\"Never start a connection yourself, neither in Composio nor in Executor.\") forbid in Lazurio; it is corrected together with this decision. Everything else these pages draw from the source holds against LazurioPlatform v0.1.22. The source lazurio-external-apps-current (due 2026-12-06) stays expired until this is decided.",
+      "options": [
+        "Describe today's rules from LazurioPlatform (a custom MCP server goes into Executor only on the user's instruction, with the provider's official server first; no own integration without the user's decision; the forbidden list of decision 0162) and keep the five-step order only as a labelled GEN3 record, or drop it; retitle the source as a GEN3 record pinned to the root's main and align the links. Recommended: the pages then describe what the product does today, and LazurioPlatform is the authority since decision 0225.",
+        "Keep the order as Lazurio's recommendation and ask LazurioPlatform to add it to the Folder (issue 757); until then only the link pins change, and the pages keep promising a rule that agents in an Environment are not given.",
+        "Remove the order and the GEN3 link from every page and cite only environment-app-connections and LazurioPlatform's Integrations."
+      ],
+      "decision_needed_for": [
+        "environment-app-connections (en, cs)",
+        "data-access-security (en, cs) and public-evidence (en, cs)",
+        "deployment-operations (en, cs) step 4, lazurio-vs-microsoft-copilot (en, cs) and the Composio prompt on guide/tool-connections (en, cs)",
+        "the source lazurio-external-apps-current"
+      ],
+      "resolved_at": "2026-11-17",
+      "resolved_by": "matejsuchanek",
+      "resolved_from": "ISSUES.open.json",
+      "resolution": {
+        "decision": "The GEN3 five-step order for new connections, and the GEN3 external application standard cited as its source, are removed from every page in both locales. Where a page says how an app connects, it describes only LazurioPlatform's rule: every Integration has exactly one path (a tool from Settings → Tools, Executor, or Composio) and the user connects it; the Composio prompt on guide/tool-connections follows the same rule. The source lazurio-external-apps-current is removed, because no page needs it any more. Links to the same GEN3 document at other revisions stay where they support other statements and do not present the order: revision 3c5bda5 on reference for statements labelled as that revision (lazurio-external-apps), and revision 66e437f on provider-notes for the organization-side steps (lazurio-external-apps-org-steps); both are due on 2026-12-17.",
+        "rationale": "LazurioPlatform, the authority since decisions 0225 and 0226, leaves the order out of the Folder on purpose, so the pages no longer promise a rule that agents in an Environment are not given.",
+        "selected_option": "Remove the order and the GEN3 link from every page and cite only environment-app-connections and LazurioPlatform's Integrations.",
+        "evidence": "LazurioPlatform docs/integrations.md (the path rule) and src/folder/manual.ts at v0.1.22, decision 0162 on main 7db8485; owner decision relayed in the working thread of the review on 2026-11-17."
+      }
     }
   ]
 }

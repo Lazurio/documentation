@@ -13,7 +13,7 @@
   <g data-node="person">
   <rect class="panel" x="40" y="118" width="560" height="106" rx="16"/>
   <text class="label" x="64" y="156">Člověk</text>
-  <text class="copy" x="64" y="190">Chat, Apps a Soubory v prohlížeči</text>
+  <text class="copy" x="64" y="190">Chat, Aplikace a Soubory v prohlížeči</text>
   </g>
   <path class="flow" d="M320 224 V268"/>
   <g data-node="device">

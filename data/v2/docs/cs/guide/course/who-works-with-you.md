@@ -36,9 +36,13 @@ použít. Plný přístup je schopnost, ne souhlas: Publikace zůstává vám.
 **Kolega** je uživatel v Organizaci. Co smí, určují jeho role a Teamy.
 Každá role říká, na jaké úrovni platí (rozhodnutí 0234):
 
-- **Organizace:** **Vlastník Organizace** vlastní její GitHub Organization
-  a jmenuje Adminy Organizace, **Admin Organizace** spravuje členy, Teamy,
-  přístupy a Prostředí Organizace a každý další je **Člen Organizace**.
+- **Organizace:** **Vlastník Organizace** vlastní její GitHub Organization,
+  **Admin Organizace** spravuje členy, Teamy, přístupy a Prostředí Organizace
+  a každý další je **Člen Organizace**. Správní úkony Admina Organizace, třeba
+  schvalování zařízení a odpovědi na žádosti, dnes dělá aktivní Vlastník
+  Organizace a vstup do žádného Prostředí jimi nezískává. Pro GEN4 je Admin
+  Organizace rozhodnutý jako role Lazuria, kterou jmenuje Vlastník Organizace
+  (rozhodnutí 0245, zatím nenasazené).
 - **Modul:** **Čtenář modulu** ho čte a nic nemění, **Přispěvatel modulu**
   ho staví a navrhuje změny a **Správce modulu** navíc smí mergovat jeho
   chráněnou `main` a vydat ho.

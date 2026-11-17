@@ -4,7 +4,7 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
   - lazurio-platform-release-v0-1-8-rc-41
+  - lazurio-platform-shell-texts
   - headscale-project
   - tailscale-fast-user-switching
   - tailscale-install-windows
@@ -81,7 +82,7 @@ Tailscale app names such a tailnet by the address of its server, for example
 1. Right-click the Tailscale icon at the bottom right of the taskbar. If you
    do not see it, select the up arrow (**^**) first.
 2. Point at your account and choose the tailnet in the list.
-3. If Tailscale is not connected, choose **Connect**.
+3. If the top of the menu does not show **Connected**, select **Tailscale** there.
 
 ### iPhone and iPad
 

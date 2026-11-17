@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-environment-access-model
   - lazurio-environment-access-model-device-approval
   - lazurio-agent-manual-device-enrollment
   - lazurio-device-node-names
@@ -53,7 +54,10 @@ Your device joins your Organization's network through the Tailscale app. It take
 You need **the address of your Organization's login server**. Your
 Organization Admin gives it to you; it looks like
 `https://headscale.example.lazurio.io`. Do not guess it: with a different
-address you sign in to someone else's network, or not at all.
+address you sign in to someone else's network, or not at all. On Windows
+and Mac your agent also needs **your login**, for example `jannovak`, to name
+the computer by Lazurio's rule; your Organization Admin sends it with the
+address.
 
 :::danger[After installing, do not click Log in in the Tailscale app]
 The **Log in** button on Tailscale's welcome screen leads to Tailscale's own
@@ -96,14 +100,16 @@ when Windows asks about the installation, and you sign in.
    **Full access**. In Claude, let it run commands.
 2. **Copy the prompt below** with the button at its top right and paste it
    into a new chat.
-3. **Replace `<ADDRESS>` with the login server address** your Organization
-   Admin sent you, and send the prompt.
+3. **Replace `<ADDRESS>` with the login server address and `<LOGIN>` with
+   your login**, both from your Organization Admin's message, and send the
+   prompt.
 4. **Do what the agent asks you to:** click **Yes** for the installation and
    sign in with your Lazurio account on the page it sends you.
 
 ```text
 Connect this Windows computer to my Organization's tailnet in Lazurio through Tailscale.
 The Organization's login server address: <ADDRESS>
+My login: <LOGIN>
 
 The procedure and details are at https://documentation.lazurio.ai/en/guide/tailscale-add-device/#windows (the collapsible section "Details for the agent"). Follow it whenever you are unsure. Talk to me in plain language; I am not a programmer.
 
@@ -111,16 +117,17 @@ First: if you cannot run commands on this computer or have no internet access (y
 
 What you do yourself:
 1. Check that C:\Program Files\Tailscale\tailscale.exe exists. If not, install Tailscale, only from an official source (the winget package Tailscale.Tailscale from the publisher Tailscale Inc., or https://tailscale.com/download/windows): winget install --id Tailscale.Tailscale --exact --accept-package-agreements --accept-source-agreements. Tell me beforehand to click "Yes" when Windows asks whether the app may make changes. If winget is missing or the installation fails, send me the link https://tailscale.com/download/windows and wait until I have installed it.
-2. Without administrator rights, start the sign-in in the background; it waits until it is finished:
-   Start-Process -FilePath "C:\Program Files\Tailscale\tailscale.exe" -ArgumentList 'login','--login-server=<ADDRESS>' -WindowStyle Hidden
+2. Choose the computer's name in the network: <LOGIN>-<device>, only lowercase letters, digits and hyphens, where <device> is a short, stable label such as windows or thinkpad. If Tailscale on this computer already uses such a name in another network, keep its label. Do not change the computer's name in Windows. Without administrator rights, start the sign-in with that name in the background; it waits until it is finished (<NAME> is the name you chose):
+   Start-Process -FilePath "C:\Program Files\Tailscale\tailscale.exe" -ArgumentList 'login','--login-server=<ADDRESS>','--hostname=<NAME>' -WindowStyle Hidden
    If you do not get a sign-in link within a minute, or the command ends before I have signed in, start it again the same way.
 3. Read & "C:\Program Files\Tailscale\tailscale.exe" status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
-4. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+4. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark with "Node registered" or "Node reauthenticated", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
-5. status --json shows BackendState "Running" and & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This computer is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Windows computer," and add the computer's name in the network (Self.HostName from status --json).
+5. Check three things: status --json shows BackendState "Running", & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above, and the first part of Self.DNSName in status --json is exactly the name you chose. Only when all three hold, tell me: "Done. This computer is signed in to your Organization's network as <NAME>. Approving it is a separate step for your Organization Admin; without approval, Lazurio may not open from it. Tell your Organization Admin that you added a Windows computer named <NAME>."
+6. If any of the three checks still fails after a minute, rename nothing, change nothing, delete nothing and do not sign in again. Whether a computer may be renamed depends on whether my Organization Admin has approved it, and you cannot find that out from this computer. Stop and tell me the name you chose, Self.DNSName, ControlURL and BackendState, and ask me to send exactly that to my Organization Admin.
 
 Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it; switching back is in the Tailscale menu. Do not use an auth key, do not change the registry or Tailscale policies, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
 ```
@@ -215,9 +222,24 @@ programmer: talk to them in plain language and do not show them commands.
 - If Tailscale on the computer already has another account, `login` adds a
   new profile and switches to it. Do not delete or log out the old profile;
   the person can switch back in the Tailscale menu.
-- The person does not choose the device name and you do not change it (do
-  not use `--hostname`). Only tell them the name the device shows up under,
-  so they can pass it to the Organization Admin.
+- Name the computer `<login>-<device>` with `--hostname` at its first
+  sign-in, as Lazurio's agent manual says. `<login>` is the person's login
+  that their Organization Admin sent; never derive it from the Windows
+  account or an e-mail address. `<device>` is a short, stable label in
+  lowercase letters, digits and hyphens. Do not change the computer's name in
+  Windows. Report success only after `BackendState` is `Running`,
+  `ControlURL` is the given address and `Self.DNSName` has exactly the chosen
+  name, and say only what you verified: registration is not approval. Never
+  rename the device afterwards. Lazurio's agent manual allows `tailscale set
+  --hostname=<name>` only on a newly registered device that is not approved
+  yet, and whether it is approved cannot be read on the device: neither the
+  **Node registered** heading nor the person's word establishes that the
+  Organization Admin has not approved it. If any check fails (another
+  network, a state other than `Running`, another name or a `-1` suffix),
+  change nothing, delete nothing, do not sign in again and hand the case to
+  the Organization Admin with the exact state: the chosen name,
+  `Self.DNSName`, `ControlURL` and `BackendState`. Tell the person the final
+  name so they can pass it to the Organization Admin.
 - On failure, stop and tell the person what happened. Do not try auth keys,
   registry changes, Tailscale policies or approving the device.
 
@@ -236,7 +258,8 @@ enter it with the manual steps below.
 
 It works the same as on Windows: give the agent full access (in Codex,
 **Full access** below the message box), copy the prompt, replace
-`<ADDRESS>` with your Organization's address and do what the agent asks.
+`<ADDRESS>` with your Organization's address and `<LOGIN>` with your login,
+and do what the agent asks.
 The agent asks you to allow the VPN configuration and, for the version from
 Tailscale's website (Standalone), also to turn on Tailscale's network
 extension in System Settings (the same steps are in manual step 2 below).
@@ -244,6 +267,7 @@ extension in System Settings (the same steps are in manual step 2 below).
 ```text
 Connect this Mac to my Organization's tailnet in Lazurio through Tailscale.
 The Organization's login server address: <ADDRESS>
+My login: <LOGIN>
 
 The procedure and details are at https://documentation.lazurio.ai/en/guide/tailscale-add-device/#macos (the collapsible section "Details for the agent"). Follow it whenever you are unsure. Talk to me in plain language; I am not a programmer.
 
@@ -252,15 +276,16 @@ First: if you cannot run commands on this computer or have no internet access (y
 What you do yourself:
 1. Check that /Applications/Tailscale.app exists. If not, open https://tailscale.com/download/mac for me and tell me to download and install the Standalone version. Wait until I have done it.
 2. Find out which version I have: defaults read /Applications/Tailscale.app/Contents/Info.plist CFBundleIdentifier. io.tailscale.ipn.macsys is the Standalone version from Tailscale's website, io.tailscale.ipn.macos the Mac App Store version. Start the app (open -a Tailscale) and tell me to go through the app's welcome steps without signing in. Only for the Standalone version, ask me to turn on Tailscale Network Extension in System Settings → General → Login Items & Extensions → Network Extensions (on macOS 14 and earlier, click Allow for Tailscale in Privacy & Security); skip this step for the Mac App Store version. For both versions, tell me to click "Allow" when asked about a VPN configuration. Wait until I have done it. Do not sign in in the app.
-3. Start the sign-in in the background; it waits until it is finished:
-   /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADDRESS>
+3. Choose the Mac's name in the network: <LOGIN>-<device>, only lowercase letters, digits and hyphens, where <device> is a short, stable label such as macbook or macbook-air. If Tailscale on this Mac already uses such a name in another network, keep its label. Do not change the Mac's computer name. Start the sign-in with that name in the background; it waits until it is finished (<NAME> is the name you chose):
+   /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADDRESS> --hostname=<NAME>
 4. Read /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
-5. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+5. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark with "Node registered" or "Node reauthenticated", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
-6. status --json shows BackendState "Running" and debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This Mac is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Mac," and add the Mac's name in the network (Self.HostName from status --json).
+6. Check three things: status --json shows BackendState "Running", debug prefs shows ControlURL equal to the address above, and the first part of Self.DNSName in status --json is exactly the name you chose. Only when all three hold, tell me: "Done. This Mac is signed in to your Organization's network as <NAME>. Approving it is a separate step for your Organization Admin; without approval, Lazurio may not open from it. Tell your Organization Admin that you added a Mac named <NAME>."
+7. If any of the three checks still fails after a minute, rename nothing, change nothing, delete nothing and do not sign in again. Whether a Mac may be renamed depends on whether my Organization Admin has approved it, and you cannot find that out from this Mac. Stop and tell me the name you chose, Self.DNSName, ControlURL and BackendState, and ask me to send exactly that to my Organization Admin.
 
 Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it. Do not use an auth key, do not install anything with sudo, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
 ```
@@ -333,13 +358,13 @@ Microsoft or Apple lead to someone else's network.
 <details>
 <summary>Details</summary>
 
-- Tailscale works on iOS 15 and later.
+- Tailscale works on iOS 16 and later.
 - The app changes its menus between versions. If you cannot find an item,
   look for a similar menu for a custom server.
 - We do not have our own pictures from an iPhone yet. The procedure with
   screen descriptions is on Tailscale's page [Configure Tailscale clients to
-  use a custom control
-  server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
+  use a custom coordination
+  server](https://tailscale.com/docs/how-to/set-up-custom-coordination-server).
 
 </details>
 
@@ -399,8 +424,8 @@ and the heading **Node registered**, followed by "Registered as" with your
 account and "You can now close this window." Close the tab. If you added this
 device before, the heading reads **Node reauthenticated**; that is fine too.
 
-Now the device is in your Organization's network and **waits for approval by
-your Organization Admin**. Tell them that you added a new device, what kind
+Now the device is in your Organization's network. A new device **waits for
+approval by your Organization Admin**. Tell them that you added a new device, what kind
 (for example a Windows computer) and when. Use a channel they recognize you
 by: they approve the device only when they know the request comes from you.
 
@@ -424,8 +449,8 @@ decided by your Organization's network rules (see the Admin section below).
 - **The device keeps waiting.** Your Organization Admin may not know about
   it. Message them.
 - **The device appeared in the network under another name, for example with
-  a `-1` suffix.** That is normal. Do not delete anything or sign in again;
-  the Organization Admin adjusts the name.
+  a `-1` suffix.** Do not delete anything or sign in again; tell your
+  Organization Admin, who sorts it out with the network operator.
 
 </details>
 
@@ -440,31 +465,29 @@ does not promise that a device that is not yet approved is blocked: that is
 decided by the Organization's network rules, which the Organization Admin
 manages with the network operator.
 
-**How it works today (as of 5 November 2026).** The Organization Admin
+**How it works today (as of 17 November 2026).** The Organization Admin
 approves a specific device and the Environments it may reach in the network
 operator's managed procedure; the network operator runs the server the
 tailnet is on. The change goes through review and deployment, and only then
-does the device reach the new places. Several waiting devices may go in one
-batch, so approval can take longer than a few minutes. The Organization
-overview does not show waiting devices yet: agree directly with the person
-which device is theirs, and ask the network operator how to submit the
-approval.
+does the device reach the new places, so approval can take longer than a few
+minutes. The Organization overview does not show waiting devices yet: agree
+directly with the person which device is theirs, and ask the network
+operator how to submit the approval.
 
 **Target.** Lazurio's access model (decision 0245) describes a registered
 device that reaches nothing until the Organization Admin approves it in the
 Organization overview; a service on the Conglomerate Host applies the
-approval within tens of seconds and records it in the Organization's
-configuration as an audit record. A person can remove their own lost device
-immediately. For GEN4 it is decided that approvals are written to Lazurio
-Auth. That is still being built (`issue-2026-11-03-002`). This guide does not
-claim that it already runs for your Organization.
+approval within tens of seconds. A person can remove their own lost device
+immediately. In GEN3 an approval is recorded as an audit entry in the
+Organization's configuration. For GEN4 it is decided that the service's own
+audit entry is the only record of an approval, Lazurio Auth keeps a copy of it
+for overviews and applications, and the GEN3 entry in the configuration does
+not carry over (decision 0245 as amended on 17 November 2026). That is still
+being built (`issue-2026-11-03-002`). This guide does not claim that it
+already runs for your Organization.
 
-**Device name.** Tailscale names a device after the system: a computer after
-its name, a phone usually after its maker or model. The person cannot change
-it by clicking in the app (the Android app 1.104.5 has no such setting and
-Tailscale's documentation lists none for the other systems either), so they
-do not choose it. Lazurio's rule for approved nodes is `<login>-<device>`,
-for example `jannovak-macbook`:
+**Device name.** Lazurio's rule for a device's name in the network is
+`<login>-<device>`, for example `jannovak-macbook`:
 
 - `<login>` is the owner's login in lowercase; for an account linked to
   GitHub their GitHub login, otherwise the label of their Headscale user.
@@ -474,10 +497,19 @@ for example `jannovak-macbook`:
 - Only lowercase letters, digits and hyphens, without the Organization name.
   The name is only a description and grants no access.
 
-Today the name is set at approval by the Organization Admin with the network
-operator; this guide does not yet describe exactly how. Do not rename a
-device that is already approved because of the rule: the name is part of its
-approval.
+On Windows and Mac the person's agent sets the name on the computer at its
+first sign-in, before approval, as Lazurio's agent manual says; send the
+person their login together with the address. A phone, and a computer set up
+without an agent, keeps the name Tailscale takes from the system, usually the
+computer's name or the phone's maker or model: the person cannot change it by
+clicking in the app (the Android app 1.104.5 has no such setting and
+Tailscale's documentation lists none for the other systems either), so it
+stays until a clickable way exists (`issue-2026-11-03-001`). The name is
+never changed by hand on the server. A `-1` suffix or another name than expected is
+not success: check with the network operator whether another device has that
+name or was renamed earlier, and do not delete another device. Do not rename
+a device that is already approved because of the rule: the name is part of
+its approval.
 
 Before approving, check that the owner asks for the device through a channel
 you trust, that the device in the tailnet belongs to that person's account

@@ -4,7 +4,7 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-environment-access-model
   - lazurio-platform-decision-f41
   - lazurio-platform-release-v0-1-8-rc-41
+  - lazurio-platform-shell-texts
   - headscale-project
   - tailscale-fast-user-switching
   - tailscale-install-windows
@@ -31,15 +32,15 @@ audience:
 Pokud se adresa Prostředí neotevírá, ověřte nejdřív připojení zařízení
 do správné soukromé sítě. **Zapněte
 Tailscale, vyberte tailnet, který Prostředí potřebuje, a otevřete adresu
-znovu.** Stránka Lazuria **Zapni Tailscale** vás přesměruje automaticky,
+znovu.** Stránka Lazuria **Zapněte Tailscale** vás přesměruje automaticky,
 jakmile Prostředí odpoví. Když se adresa ani pak neotevře, pokračujte
 částí [Pořád to nejde?](#pořád-to-nejde)
 
 ## Proč Tailscale
 
 **Tailnet** je soukromá síť zařízení propojených přes
-[Tailscale](https://tailscale.com/). Aplikace Prostředí v tailnetu, třeba
-jeho Launchpad, Chat nebo Automate, mají adresy, které fungují jen uvnitř
+[Tailscale](https://tailscale.com/). Části Prostředí v tailnetu, třeba
+jeho Chat, Aplikace nebo Automatizace, mají adresy, které fungují jen uvnitř
 tailnetu,
 který je obsluhuje. Žádná veřejná cesta k nim nevede: mimo tento tailnet je
 prohlížeč neotevře a adresu obvykle ani nenajde. Ukáže chybu, třeba „Tento web
@@ -66,7 +67,7 @@ Lazurio provozuje své tailnety na
 [Headscale](https://github.com/juanfont/headscale), open-source serveru, ke
 kterému se aplikace Tailscale připojuje. Proto aplikace Tailscale takový
 tailnet pojmenuje adresou jeho serveru, třeba `headscale.example.com`, a ne
-názvem firmy. Přesný název, který potřebujete, ukazuje stránka Lazuria **Zapni
+názvem firmy. Přesný název, který potřebujete, ukazuje stránka Lazuria **Zapněte
 Tailscale**.
 
 ## Zapněte Tailscale a vyberte tailnet
@@ -82,7 +83,7 @@ Tailscale**.
 1. Klikněte pravým tlačítkem na ikonu Tailscale vpravo dole na hlavním
    panelu. Když ji nevidíte, klikněte nejdřív na šipku nahoru (**^**).
 2. Najeďte na svůj účet a v seznamu vyberte tailnet.
-3. Když Tailscale není připojený, zvolte **Connect**.
+3. Když nahoře v nabídce není **Connected**, klikněte tam na **Tailscale**.
 
 ### iPhone a iPad
 
@@ -147,9 +148,9 @@ v tomto pořadí:
 
 ## Kdy Lazurio ukáže vlastní stránku
 
-Jakmile v prohlížeči jednou otevřete Launchpad, Chat nebo Automate
+Jakmile v prohlížeči jednou otevřete Chat, Aplikace nebo Automatizaci
 Prostředí, které běží na Lazurio Platform v0.1.8-rc.41 nebo novější,
-prohlížeč si pro tuto adresu podrží stránku Lazuria **Zapni Tailscale**. Když
+prohlížeč si pro tuto adresu podrží stránku Lazuria **Zapněte Tailscale**. Když
 pak adresa není dostupná, prohlížeč na téže adrese ukáže tuto
 stránku místo vlastní chyby. Stránka jmenuje Prostředí, jeho Organizaci
 a tailnet a sama na adresu pokračuje, jakmile adresa odpoví.

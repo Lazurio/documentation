@@ -2,6 +2,42 @@
 
 ## Unreleased
 
+- Re-verify the seventy-four evidence sources due from 2026-12-02 to
+  2026-12-08 against LazurioPlatform release v0.1.22 of 2026-11-17 and
+  LazurioPlatform main of the same day: 48 still support their pages and 26
+  after the page text was corrected first, two of them after decisions by
+  Matěj Suchánek on 2026-11-17; all are renewed until 2026-12-17 or replaced.
+  Owner's decisions: on Windows and Mac the person's agent names the computer
+  `<login>-<device>` with `--hostname` before approval, as Lazurio's agent
+  manual says, while phones keep the system's name for now
+  (`issue-2026-11-17-003`, resolved); the GEN3 five-step order for new
+  connections and its GEN3 source are removed from every page, which now
+  describe only LazurioPlatform's one path per Integration connected by the
+  user, and the Composio prompt no longer asks an agent in Lazurio to start a
+  connection (`issue-2026-11-17-004`, resolved). Guide:
+  an Organization Member sees New module muted with a lock and asks the
+  Organization Admin through its dialog, every New module opens a dialog before
+  Chat, v0.1.21 is named as released on 2026-11-13, the Marketplace lists the
+  registry's templates as examples, Ask the Organization Admin lists a new
+  module and says that the skill `admin-request` ships since v0.1.21, lesson 4
+  marks the Admin appointed by an Owner as decided for GEN4, the GEN4 record of
+  a device approval follows decision 0245 as amended on 2026-11-17, iOS 16, the
+  renamed Tailscale page on custom coordination servers, and the Windows tray
+  menu without a Connect item. Connecting apps: Composio's two price lists,
+  Allow CI changes, Composio's sign-in waiting for the Organization, the
+  Personal Environment's Composio organization chosen by Lazurio, ChatGPT apps
+  allowed in the Organization's manifest today, and a release table checked
+  against v0.1.22. Architecture: a module copy deleted when access ended (F72)
+  and production data apart under 0209 and 0239. Copilot comparison: three
+  ways for the Basic tiers to reach organizational content, the moved plugin
+  overview, and the FAQ's positioning labelled as our assessment. Servers: no
+  claim rests on the superseded decision 0155. Czech: Aplikace, Automatizace,
+  Napojení and Správce hesel on the remaining pages and in the Czech
+  architecture diagrams, "Zapněte Tailscale", and Vlastník Organizace on the
+  servers page. Eight sources continue under ids without a release number,
+  two are removed (a duplicate and `lazurio-external-apps-current`) and three
+  sources are new. Record:
+  `docs/source-review-2026-11-17-due-2026-12-08.md`.
 - Re-verify the seventy-two evidence sources due on 2026-12-01 and renew all
   seventy-two until 2026-12-17: 48 still support their pages, 24 after the
   page text was corrected first. Microsoft 365: "Assignment required" is a

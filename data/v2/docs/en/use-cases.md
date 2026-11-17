@@ -12,7 +12,7 @@ sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
-  - lazurio-external-apps-current
+  - lazurio-external-apps-0162
 audience:
   - it-admin
   - decision-maker
