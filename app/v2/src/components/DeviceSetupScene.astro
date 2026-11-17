@@ -14,8 +14,9 @@
 // `prefers-reduced-motion: no-preference` and only where the scene is not
 // still, so with reduced motion every beat is its still frame and the loop
 // starts paused. The stage and its caption are decorative (`aria-hidden`);
-// the full list of steps stays in the page for assistive technology, and
-// without JavaScript it renders as a plain ordered list.
+// the full list of steps stays in the page for assistive technology, a step
+// the reader moves to by hand is announced (never the loop's own steps), and
+// without JavaScript the list renders as a plain ordered list.
 //
 // Icons: Iconoir (MIT, https://iconoir.com), the set the Lazurio design
 // system mandates; the same path data the Launchpad shell draws.
@@ -23,6 +24,7 @@ interface Props {
   system: 'windows' | 'macos'
   copy: {
     label: string
+    stepOf: string
     prev: string
     next: string
     pause: string
@@ -64,7 +66,7 @@ const icon = {
 const svg = (name: keyof typeof icon) =>
   `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" aria-hidden="true">${icon[name]}</svg>`
 ---
-<device-scene class="lzs not-content" data-pause={c.pause} data-play={c.play}>
+<device-scene class="lzs not-content" data-pause={c.pause} data-play={c.play} data-step-of={c.stepOf}>
   <figure class="lzs-frame" hidden>
     <div class="lzs-view">
       <div class="lzs-stage" aria-hidden="true">
@@ -108,6 +110,7 @@ const svg = (name: keyof typeof icon) =>
       <span class="lzs-progress">{c.steps.map(() => <span></span>)}</span>
       <span class="lzs-line-text"><span class="lzs-count"></span><span class="lzs-text"></span></span>
     </figcaption>
+    <span class="lzs-live" aria-live="polite" aria-atomic="true"></span>
   </figure>
   <ol class="lzs-steps" aria-label={c.label}>
     {c.steps.map((step) => <li>{step}</li>)}
@@ -241,7 +244,8 @@ const svg = (name: keyof typeof icon) =>
   .lzs-steps li + li { margin-top: 0.25rem; }
   .lzs-sr { display: none; }
   /* With the scene running, the list and the note stay for screen readers. */
-  .lzs[data-ready] :is(.lzs-steps, .lzs-sr) { position: absolute; display: block; width: 1px; height: 1px; overflow: hidden; margin: -1px; padding: 0; clip-path: inset(50%); white-space: nowrap; }
+  .lzs-live { display: none; }
+  .lzs[data-ready] :is(.lzs-steps, .lzs-sr, .lzs-live) { position: absolute; display: block; width: 1px; height: 1px; overflow: hidden; margin: -1px; padding: 0; clip-path: inset(50%); white-space: nowrap; }
 
   @media (prefers-reduced-motion: no-preference) {
     .lzs-scene:not([data-still]) .lzs-o { transition: translate 0.75s var(--e), opacity 0.45s ease, rotate 0.9s var(--e); }
@@ -281,6 +285,8 @@ const svg = (name: keyof typeof icon) =>
       const prev = this.querySelector<HTMLButtonElement>('[data-prev]')!
       const next = this.querySelector<HTMLButtonElement>('[data-next]')!
       const toggle = this.querySelector<HTMLButtonElement>('[data-toggle]')!
+      const live = this.querySelector<HTMLElement>('.lzs-live')!
+      const stepOf = this.dataset.stepOf ?? '{n}/{total}'
       const total = steps.length
       const reduced = matchMedia('(prefers-reduced-motion: reduce)')
       let beat = 0
@@ -326,8 +332,12 @@ const svg = (name: keyof typeof icon) =>
         schedule()
       }
 
-      prev.addEventListener('click', () => { show(beat - 1); setPaused(true) })
-      next.addEventListener('click', () => { show(beat + 1); setPaused(true) })
+      // A step chosen by hand is announced; the loop's own steps are not.
+      const announce = () => {
+        live.textContent = `${stepOf.replace('{n}', String(beat + 1)).replace('{total}', String(total))}: ${steps[beat]}`
+      }
+      prev.addEventListener('click', () => { show(beat - 1); setPaused(true); announce() })
+      next.addEventListener('click', () => { show(beat + 1); setPaused(true); announce() })
       toggle.addEventListener('click', () => setPaused(!userPaused))
       view.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') { hovered = true; schedule() } })
       view.addEventListener('pointerleave', () => { hovered = false; schedule() })
