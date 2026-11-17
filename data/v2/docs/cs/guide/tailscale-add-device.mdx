@@ -1,5 +1,5 @@
 ---
-title: "Přidání nového zařízení do tailnetu"
+title: "Přidání nového zařízení do tailnetu Lazuria"
 description: "Vyberte své zařízení. Na Windows a Macu to za vás udělá agent, na telefonu pár klepnutí v aplikaci Tailscale. Pak počkáte na schválení Adminem Organizace."
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: cs
@@ -28,6 +28,8 @@ sourceRefs:
   - tailscale-install-windows-msi
   - tailscale-winget-package
   - tailscale-cli-reference
+  - tailscale-macos-sysext
+  - headscale-auth-success-page
   - tailscale-cli-login-output
   - tailscale-status-auth-url
   - microsoft-powershell-call-operator
@@ -52,6 +54,17 @@ Budete potřebovat **adresu přihlašovacího serveru vaší Organizace**. Dá v
 ji Admin Organizace a vypadá třeba takto: `https://headscale.example.lazurio.io`.
 Adresu nehádejte: s jinou se přihlásíte do cizí sítě, nebo vůbec.
 
+:::danger[Po instalaci neklikejte v aplikaci Tailscale na Log in]
+Tlačítko **Log in** (Přihlásit se) na úvodní obrazovce Tailscale vede na server
+společnosti Tailscale. Nabídne přihlášení přes Google, GitHub, Microsoft nebo
+Apple a zařízení pak skončí v cizí síti, ne v síti vaší Organizace. Po
+instalaci dělejte jen kroky z tohoto návodu: v nich zadáte adresu
+přihlašovacího serveru Lazuria.
+
+**Už se to stalo?** Nic nemažte a pokračujte kroky pro své zařízení od zadání
+adresy. Síť Organizace se přidá jako další účet a Tailscale na ni přepne.
+:::
+
 <nav class="lz-device-picker" aria-label="Vyberte své zařízení">
   <a class="lz-device-card" href="#windows"><span class="lz-device-card__name">Windows</span><span class="lz-device-card__hint lz-device-card__hint--agent">Udělá to agent</span></a>
   <a class="lz-device-card" href="#macos"><span class="lz-device-card__name">macOS</span><span class="lz-device-card__hint lz-device-card__hint--agent">Udělá to agent</span></a>
@@ -64,6 +77,10 @@ máte a jen se nemůžete připojit, pokračujte návodem [Připojení k Prostř
 přes Tailscale](/cs/guide/tailscale/).
 
 ## Windows
+
+:::caution[Na Log in v aplikaci Tailscale neklikejte]
+Adresu Organizace zadá agent, nebo ji zadáte ručním postupem níže.
+:::
 
 ### Nechte to na agentovi (doporučeno)
 
@@ -108,7 +125,7 @@ Co uděláš sám:
 3. Opakovaně čti & "C:\Program Files\Tailscale\tailscale.exe" status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Než mi odkaz dáš, rozeber ho jako URL a ověř, že má stejné schéma (https), hostname a port jako adresa přihlašovacího serveru výše. Nestačí, že text odkazu stejně začíná. Když se liší, odkaz mi nedávej, řekni mi, co nesedí, a zastav se.
 
 Kde se zastavíš a necháš to na mně:
-4. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho, přihlaste se svým účtem Lazurio a pak se vraťte sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
+4. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho a přihlaste se svým účtem Lazurio; až uvidíte zelenou fajfku a text „Node registered“, kartu zavřete a vraťte se sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
 
 Jak poznáš, že je hotovo:
 5. status --json ukazuje BackendState „Running“ a příkaz & "C:\Program Files\Tailscale\tailscale.exe" debug prefs ukazuje ControlURL rovnou adrese výše. Pak mi napiš: „Hotovo. Počítač čeká na schválení Adminem Organizace. Do té doby se z něj Lazurio nemusí otevřít, to je v pořádku. Napište Adminovi Organizace, že jste přidali počítač s Windows,“ a připoj jméno počítače v síti (Self.HostName ze status --json).
@@ -155,8 +172,9 @@ se zadává jedním řádkem ve Windows PowerShellu.
      <figcaption>Ilustrační maketa. Váš odkaz bude pokaždé jiný.</figcaption>
    </figure>
 
-5. Přihlaste se v prohlížeči účtem Lazurio. Okno PowerShellu nechte
-   otevřené, dokud nenapíše **Success.** Pak ho můžete zavřít.
+5. Přihlaste se v prohlížeči účtem Lazurio. Prohlížeč ukáže zelenou fajfku
+   a text **Node registered**. Okno PowerShellu nechte otevřené, dokud
+   nenapíše **Success.** Pak ho můžete zavřít.
 
    <figure class="lz-app-step lz-app-step--wide">
      <img src="/guide-assets/tailscale-windows/windows-4-success-cs.png" alt="Ilustrační maketa: po přihlášení PowerShell ukazuje Success. a nový řádek pro příkaz." width="1280" height="560" loading="lazy" />
@@ -214,12 +232,19 @@ programátor: mluv s ním jednoduše a příkazy mu neukazuj.
 
 ## macOS
 
+:::caution[Na Log in v aplikaci Tailscale neklikejte]
+Na Macu nejdřív projdete úvodního průvodce aplikace a povolíte dvě věci
+v nastavení systému. Adresu Organizace pak zadá agent, nebo ji zadáte ručním
+postupem níže.
+:::
+
 ### Nechte to na agentovi (doporučeno)
 
 Postup je stejný jako u Windows: zapněte agentovi plný přístup (v Codexu dole
 u pole pro zprávu **Plný přístup**), zkopírujte mu prompt, místo `<ADRESA>`
-napište adresu Organizace a udělejte, o co vás požádá. Mac se zeptá, jestli
-Tailscale smí přidat konfiguraci VPN: klikněte na **Povolit**.
+napište adresu Organizace a udělejte, o co vás požádá. Agent vás požádá
+o dvě povolení: zapnout síťové rozšíření Tailscale v Nastavení systému
+a povolit konfiguraci VPN (postup je i v ručním kroku 2 níže).
 
 <DeviceSetupScene system="macos" copy={{ "label": "Jak to probíhá", "stepOf": "Krok {n} z {total}", "back": "Zpět", "next": "Další krok", "restart": "Znovu od začátku",
   "you": "Vy", "chat": "Chat s agentem", "prompt": "Prompt", "working": "Pracuji…", "signIn": "Přihlásit se",
@@ -242,13 +267,13 @@ Nejdřív: když na tomto počítači nemůžeš spouštět příkazy nebo nemá
 
 Co uděláš sám:
 1. Ověř, že existuje /Applications/Tailscale.app. Když ne, otevři mi stránku https://tailscale.com/download/mac a řekni mi, ať stáhnu a nainstaluji verzi Standalone. Počkej, až to udělám.
-2. Spusť aplikaci (open -a Tailscale). Když se Mac zeptá na konfiguraci VPN, řekni mi, ať kliknu na „Povolit“. V aplikaci se nepřihlašuj.
+2. Spusť aplikaci (open -a Tailscale). Řekni mi, ať projdu úvodního průvodce aplikace bez přihlášení a povolím dvě věci: v Nastavení systému → Obecné → Login Items & Extensions → Network Extensions zapnu Tailscale Network Extension (na macOS 14 a starších v Soukromí a zabezpečení kliknu na Povolit u Tailscale) a pak u dotazu na konfiguraci VPN kliknu na „Povolit“. Počkej, až to udělám. V aplikaci se nepřihlašuj.
 3. Na pozadí spusť přihlášení, které čeká na dokončení:
    /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADRESA>
 4. Opakovaně čti /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Než mi odkaz dáš, rozeber ho jako URL a ověř, že má stejné schéma (https), hostname a port jako adresa přihlašovacího serveru výše. Nestačí, že text odkazu stejně začíná. Když se liší, odkaz mi nedávej, řekni mi, co nesedí, a zastav se.
 
 Kde se zastavíš a necháš to na mně:
-5. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho, přihlaste se svým účtem Lazurio a pak se vraťte sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
+5. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho a přihlaste se svým účtem Lazurio; až uvidíte zelenou fajfku a text „Node registered“, kartu zavřete a vraťte se sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
 
 Jak poznáš, že je hotovo:
 6. status --json ukazuje BackendState „Running“ a debug prefs ukazuje ControlURL rovnou adrese výše. Pak mi napiš: „Hotovo. Mac čeká na schválení Adminem Organizace. Do té doby se z něj Lazurio nemusí otevřít, to je v pořádku. Napište Adminovi Organizace, že jste přidali Mac,“ a připoj jméno Macu v síti (Self.HostName ze status --json).
@@ -259,14 +284,22 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
 ### Ručně, bez agenta
 
 1. Nainstalujte Tailscale ve verzi
-   [Standalone ze stránek Tailscale](https://tailscale.com/download/mac) nebo
-   z Mac App Store. Spusťte ho a povolte konfiguraci VPN. Zatím se
-   nepřihlašujte.
-2. Podržte klávesu **Option** (⌥) a klikněte na ikonu Tailscale v horní
+   [Standalone ze stránek Tailscale](https://tailscale.com/download/mac) a
+   spusťte ho. Projděte úvodního průvodce, ale na **Log in** neklikejte.
+2. Povolte dvě věci, bez kterých Tailscale na Macu nefunguje:
+   - **Síťové rozšíření:** otevřete **Nastavení systému → Obecné → Login
+     Items & Extensions**, u **Network Extensions** klikněte na ikonu ⓘ,
+     zapněte **Tailscale Network Extension**, potvrďte heslem nebo Touch ID
+     a klikněte na **Done**. Na macOS 14 a starších místo toho v **Soukromí
+     a zabezpečení** klikněte u hlášky o Tailscale na **Povolit**.
+   - **Konfigurace VPN:** když se Mac zeptá, jestli smí přidat konfiguraci
+     VPN, klikněte na **Povolit**.
+3. Podržte klávesu **Option** (⌥) a klikněte na ikonu Tailscale v horní
    liště. Najeďte na **Debug** a v části **Custom Login Server** zvolte
    **Add Account…**.
-3. Zadejte adresu Organizace a klikněte na **Add Account**.
-4. V prohlížeči se přihlaste účtem Lazurio.
+4. Zadejte adresu Organizace a klikněte na **Add Account**.
+5. V prohlížeči se přihlaste účtem Lazurio. Uvidíte zelenou fajfku a text
+   **Node registered**; kartu pak zavřete.
 
 <details>
 <summary>Podrobnosti a jiné cesty</summary>
@@ -276,27 +309,38 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
 - Jste-li už v Tailscale přihlášení k jinému tailnetu, je tu i druhá cesta:
   ikona Tailscale v horní liště → **Settings** → záložka **Accounts** →
   šipka vlevo dole → zadejte adresu → **Add account**.
-- Kroky 2 a 3 popisuje dokumentace Headscale; vlastní obrázky z Macu zatím
+- Obě povolení popisuje dokumentace Tailscale; názvy položek v Nastavení
+  systému uvádíme anglicky podle ní, v češtině se mohou jmenovat jinak.
+- Verze z Mac App Store síťové rozšíření v Nastavení systému nepotřebuje,
+  stačí jí povolit konfiguraci VPN.
+- Kroky 3 a 4 popisuje dokumentace Headscale; vlastní obrázky z Macu zatím
   nemáme.
 - **Pro agenta:** CLI je v balíčku aplikace na
   `/Applications/Tailscale.app/Contents/MacOS/Tailscale` (dokumentace
-  Tailscale CLI). Funguje, jen když aplikace běží a konfigurace VPN je
-  povolená. Odkaz, hotovo, další účty a jméno zařízení se řídí stejnými
+  Tailscale CLI). Funguje, jen když aplikace běží a síťové rozšíření
+  i konfigurace VPN jsou povolené. Odkaz, hotovo, další účty a jméno zařízení se řídí stejnými
   pravidly jako v části [Podrobnosti pro agenta u Windows](#windows).
 
 </details>
 
 ## iPhone a iPad
 
+:::caution[Nevybírejte Google, GitHub ani jiný účet]
+Na obrazovce přihlášení otevřete nabídku vpravo nahoře a zadejte adresu
+Organizace (krok 4). Tlačítka pro přihlášení přes Google, GitHub, Microsoft
+nebo Apple vedou do cizí sítě.
+:::
+
 1. Nainstalujte [Tailscale z App Store](https://apps.apple.com/app/tailscale/id1470499037).
 2. Otevřete ji, zvolte **Get Started** a povolte konfiguraci VPN. Zatím se
    nepřihlašujte.
 3. Klepněte na ikonu profilu vpravo nahoře a pak na **Log in** (nebo na svůj
-   účet, pokud už nějaký máte).
+   účet, pokud už nějaký máte). Na obrazovce, která se otevře, nevybírejte
+   žádný účet.
 4. Vpravo nahoře otevřete nabídku a zvolte **Use a custom coordination
    server**.
 5. Zadejte adresu Organizace, klepněte na **Log in** a přihlaste se účtem
-   Lazurio.
+   Lazurio. Uvidíte zelenou fajfku a text **Node registered**.
 
 <details>
 <summary>Podrobnosti</summary>
@@ -311,6 +355,10 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
 </details>
 
 ## Android
+
+:::caution[Na velké tlačítko Log in neklepejte]
+Pokračujte ozubeným kolem vpravo nahoře (krok 2). Log in vede do cizí sítě.
+:::
 
 1. Nainstalujte
    [Tailscale z Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn)
@@ -335,7 +383,7 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
    </figure>
 
 4. Zadejte adresu Organizace, klepněte na **Add account** a přihlaste se
-   účtem Lazurio.
+   účtem Lazurio. Uvidíte zelenou fajfku a text **Node registered**.
 
    <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-5-address.png" alt="Obrazovka Add another account s polem Custom control server URL, ve kterém je ukázková adresa https://headscale.example.lazurio.io, a tlačítkem Add account." width="540" height="485" loading="lazy" />
@@ -356,7 +404,12 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
 
 ## Co se stane potom
 
-Po přihlášení je zařízení v síti Organizace a **čeká na schválení Adminem
+**Když se přihlášení povede**, prohlížeč ukáže stránku se zelenou fajfkou
+a nadpisem **Node registered** a pod ním „Registered as“ s vaším účtem
+a „You can now close this window.“ Kartu zavřete. Pokud jste toto zařízení
+už někdy přidávali, nadpis zní **Node reauthenticated**; to je také v pořádku.
+
+Teď je zařízení v síti Organizace a **čeká na schválení Adminem
 Organizace**. Napište mu, že jste přidali nové zařízení, jaké (třeba počítač
 s Windows) a kdy. Pište kanálem, podle kterého vás pozná: zařízení schválí
 jen tehdy, když ví, že o ně žádáte vy.
