@@ -38,8 +38,7 @@ audience:
   - agent
 ---
 
-Your device joins your Organization's network (its tailnet) through the
-Tailscale app. It takes a few minutes:
+Your device joins your Organization's network through the Tailscale app. It takes a few minutes:
 
 1. **Pick your device below.**
 2. **Install Tailscale and enter your Organization's address.** On Windows
@@ -61,7 +60,7 @@ address you sign in to someone else's network, or not at all.
 </nav>
 
 Each device is added and approved separately. If the device is already in
-the tailnet and you only cannot connect, follow [Reach an Environment
+your Organization's network and you only cannot connect, follow [Reach an Environment
 through Tailscale](/en/guide/tailscale/).
 
 ## Windows
@@ -77,8 +76,8 @@ when Windows asks about the installation, and you sign in.
    **Full access**. In Claude, let it run commands.
 2. **Copy the prompt below** with the button at its top right and paste it
    into a new chat.
-3. **Replace `<ADDRESS>` with your Organization's login server address**
-   and send the prompt.
+3. **Replace `<ADDRESS>` with the login server address** your Organization
+   Admin sent you, and send the prompt.
 4. **Do what the agent asks you to:** click **Yes** for the installation and
    sign in with your Lazurio account on the page it sends you.
 
@@ -88,19 +87,22 @@ The Organization's login server address: <ADDRESS>
 
 The procedure and details are at https://documentation.lazurio.ai/en/guide/tailscale-add-device/#windows (the collapsible section "Details for the agent"). Follow it whenever you are unsure. Talk to me in plain language; I am not a programmer.
 
+First: if you cannot run commands on this computer or have no internet access (you run in a sandbox), do not try anything and only tell me: "Below the message box, switch the permission to Full access and message me again."
+
 What you do yourself:
-1. Check that C:\Program Files\Tailscale\tailscale.exe exists. If not, install Tailscale with: winget install --id Tailscale.Tailscale --exact --accept-package-agreements --accept-source-agreements. Tell me beforehand to click "Yes" when Windows asks whether the app may make changes. If winget is missing or the installation fails, send me the link https://tailscale.com/download/windows and wait until I have installed it.
+1. Check that C:\Program Files\Tailscale\tailscale.exe exists. If not, install Tailscale, only from an official source (the winget package Tailscale.Tailscale from the publisher Tailscale Inc., or https://tailscale.com/download/windows): winget install --id Tailscale.Tailscale --exact --accept-package-agreements --accept-source-agreements. Tell me beforehand to click "Yes" when Windows asks whether the app may make changes. If winget is missing or the installation fails, send me the link https://tailscale.com/download/windows and wait until I have installed it.
 2. Without administrator rights, start the sign-in in the background; it waits until it is finished:
    Start-Process -FilePath "C:\Program Files\Tailscale\tailscale.exe" -ArgumentList 'login','--login-server=<ADDRESS>' -WindowStyle Hidden
+   If you do not get a sign-in link within a minute, or the command ends before I have signed in, start it again the same way.
 3. Read & "C:\Program Files\Tailscale\tailscale.exe" status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
 4. Send me that link as a clickable link and tell me in one sentence: open it, sign in with your Lazurio account, then come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
-5. status --json shows BackendState "Running" and & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This computer is in your Organization's network and is waiting for approval. Tell your Organization Admin that you added a Windows computer," and add the computer's name in the network (Self.HostName from status --json).
+5. status --json shows BackendState "Running" and & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This computer is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Windows computer," and add the computer's name in the network (Self.HostName from status --json).
 
-Rules: do not use an auth key, do not change the registry or Tailscale policies, leave other Tailscale accounts on this computer as they are, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
+Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it; switching back is in the Tailscale menu. Do not use an auth key, do not change the registry or Tailscale policies, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
 ```
 
 The agent cannot approve the device; your Organization Admin does that (see
@@ -215,6 +217,8 @@ The Organization's login server address: <ADDRESS>
 
 The procedure and details are at https://documentation.lazurio.ai/en/guide/tailscale-add-device/#macos (the collapsible section "Details for the agent"). Follow it whenever you are unsure. Talk to me in plain language; I am not a programmer.
 
+First: if you cannot run commands on this computer or have no internet access (you run in a sandbox), do not try anything and only tell me: "Below the message box, switch the permission to Full access and message me again."
+
 What you do yourself:
 1. Check that /Applications/Tailscale.app exists. If not, open https://tailscale.com/download/mac for me and tell me to download and install the Standalone version. Wait until I have done it.
 2. Start the app (open -a Tailscale). If the Mac asks about a VPN configuration, tell me to click "Allow". Do not sign in in the app.
@@ -226,9 +230,9 @@ Where you stop and leave it to me:
 5. Send me that link as a clickable link and tell me in one sentence: open it, sign in with your Lazurio account, then come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
-6. status --json shows BackendState "Running" and debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This Mac is in your Organization's network and is waiting for approval. Tell your Organization Admin that you added a Mac," and add the Mac's name in the network (Self.HostName from status --json).
+6. status --json shows BackendState "Running" and debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This Mac is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Mac," and add the Mac's name in the network (Self.HostName from status --json).
 
-Rules: do not use an auth key, do not install anything with sudo, leave other Tailscale accounts on this Mac as they are, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
+Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it. Do not use an auth key, do not install anything with sudo, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
 ```
 
 ### Manually, without an agent
@@ -333,14 +337,14 @@ Rules: do not use an auth key, do not install anything with sudo, leave other Ta
 
 ## What happens next
 
-After the sign-in, the device is in the tailnet and **waits for approval by
+After the sign-in, the device is in your Organization's network and **waits for approval by
 your Organization Admin**. Tell them that you added a new device, what kind
 (for example a Windows computer) and when. Use a channel they recognize you
 by: they approve the device only when they know the request comes from you.
 
 Once they approve it, they let you know and the addresses of the
 Environments you have access to open (with Tailscale turned on and your
-Organization's tailnet selected, see [Reach an Environment through
+Organization's network selected, see [Reach an Environment through
 Tailscale](/en/guide/tailscale/)). Until then, do not expect the
 Organization's Environments to open from the new device, even if Tailscale
 shows a connection. Whether a device that is not yet approved is blocked is
