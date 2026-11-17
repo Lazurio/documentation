@@ -29,6 +29,7 @@ sourceRefs:
   - tailscale-winget-package
   - tailscale-cli-reference
   - tailscale-macos-sysext
+  - tailscale-macos-bundle-ids
   - headscale-auth-success-page
   - tailscale-cli-login-output
   - tailscale-status-auth-url
@@ -225,8 +226,9 @@ programmer: talk to them in plain language and do not show them commands.
 ## macOS
 
 :::caution[Do not click Log in in the Tailscale app]
-On a Mac you first go through the app's welcome steps and allow two things in
-System Settings. Your agent then enters your Organization's address, or you
+On a Mac you first go through the app's welcome steps and allow the VPN
+configuration, for the version from Tailscale's website also the network
+extension in System Settings. Your agent then enters your Organization's address, or you
 enter it with the manual steps below.
 :::
 
@@ -235,9 +237,9 @@ enter it with the manual steps below.
 It works the same as on Windows: give the agent full access (in Codex,
 **Full access** below the message box), copy the prompt, replace
 `<ADDRESS>` with your Organization's address and do what the agent asks.
-The agent asks you for two permissions: turning on Tailscale's network
-extension in System Settings and allowing the VPN configuration (the same
-steps are in manual step 2 below).
+The agent asks you to allow the VPN configuration and, for the version from
+Tailscale's website (Standalone), also to turn on Tailscale's network
+extension in System Settings (the same steps are in manual step 2 below).
 
 ```text
 Connect this Mac to my Organization's tailnet in Lazurio through Tailscale.
@@ -249,7 +251,7 @@ First: if you cannot run commands on this computer or have no internet access (y
 
 What you do yourself:
 1. Check that /Applications/Tailscale.app exists. If not, open https://tailscale.com/download/mac for me and tell me to download and install the Standalone version. Wait until I have done it.
-2. Start the app (open -a Tailscale). Tell me to go through the app's welcome steps without signing in and to allow two things: in System Settings → General → Login Items & Extensions → Network Extensions, turn on Tailscale Network Extension (on macOS 14 and earlier, click Allow for Tailscale in Privacy & Security), then click "Allow" when asked about a VPN configuration. Wait until I have done it. Do not sign in in the app.
+2. Find out which version I have: defaults read /Applications/Tailscale.app/Contents/Info.plist CFBundleIdentifier. io.tailscale.ipn.macsys is the Standalone version from Tailscale's website, io.tailscale.ipn.macos the Mac App Store version. Start the app (open -a Tailscale) and tell me to go through the app's welcome steps without signing in. Only for the Standalone version, ask me to turn on Tailscale Network Extension in System Settings → General → Login Items & Extensions → Network Extensions (on macOS 14 and earlier, click Allow for Tailscale in Privacy & Security); skip this step for the Mac App Store version. For both versions, tell me to click "Allow" when asked about a VPN configuration. Wait until I have done it. Do not sign in in the app.
 3. Start the sign-in in the background; it waits until it is finished:
    /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADDRESS>
 4. Read /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
@@ -268,7 +270,8 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
 1. Install the
    [Standalone version from Tailscale's website](https://tailscale.com/download/mac)
    and start it. Go through the welcome steps, but do not click **Log in**.
-2. Allow two things without which Tailscale does not work on a Mac:
+2. Allow two things without which the Standalone version does not work on a
+   Mac:
    - **Network extension:** open **System Settings → General → Login Items &
      Extensions**, select the ⓘ icon next to **Network Extensions**, turn on
      **Tailscale Network Extension**, confirm with your password or Touch ID
@@ -298,8 +301,11 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
   pictures from a Mac yet.
 - **For the agent:** the CLI is inside the app bundle at
   `/Applications/Tailscale.app/Contents/MacOS/Tailscale` (Tailscale CLI
-  documentation). It works only while the app is running and both the
-  network extension and the VPN configuration are allowed. The sign-in link, the done check, other accounts
+  documentation). It works only while the app is running and the VPN
+  configuration is allowed; for the Standalone version (`CFBundleIdentifier`
+  `io.tailscale.ipn.macsys`) the network extension must be allowed too, the
+  Mac App Store version (`io.tailscale.ipn.macos`) has none in System
+  Settings. The sign-in link, the done check, other accounts
   and the device name follow the same rules as in [Details for the agent on
   Windows](#windows).
 

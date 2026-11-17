@@ -29,6 +29,7 @@ sourceRefs:
   - tailscale-winget-package
   - tailscale-cli-reference
   - tailscale-macos-sysext
+  - tailscale-macos-bundle-ids
   - headscale-auth-success-page
   - tailscale-cli-login-output
   - tailscale-status-auth-url
@@ -220,8 +221,8 @@ programátor: mluv s ním jednoduše a příkazy mu neukazuj.
 ## macOS
 
 :::caution[Na Log in v aplikaci Tailscale neklikejte]
-Na Macu nejdřív projdete úvodního průvodce aplikace a povolíte dvě věci
-v nastavení systému. Adresu Organizace pak zadá agent, nebo ji zadáte ručním
+Na Macu nejdřív projdete úvodního průvodce aplikace a povolíte konfiguraci
+VPN, u verze ze stránek Tailscale také síťové rozšíření v Nastavení systému. Adresu Organizace pak zadá agent, nebo ji zadáte ručním
 postupem níže.
 :::
 
@@ -230,8 +231,9 @@ postupem níže.
 Postup je stejný jako u Windows: zapněte agentovi plný přístup (v Codexu dole
 u pole pro zprávu **Plný přístup**), zkopírujte mu prompt, místo `<ADRESA>`
 napište adresu Organizace a udělejte, o co vás požádá. Agent vás požádá
-o dvě povolení: zapnout síťové rozšíření Tailscale v Nastavení systému
-a povolit konfiguraci VPN (postup je i v ručním kroku 2 níže).
+o povolení konfigurace VPN a u verze ze stránek Tailscale (Standalone) také
+o zapnutí síťového rozšíření Tailscale v Nastavení systému (postup je
+i v ručním kroku 2 níže).
 
 ```text
 Připoj tento Mac do tailnetu mé Organizace v Lazuriu přes Tailscale.
@@ -243,7 +245,7 @@ Nejdřív: když na tomto počítači nemůžeš spouštět příkazy nebo nemá
 
 Co uděláš sám:
 1. Ověř, že existuje /Applications/Tailscale.app. Když ne, otevři mi stránku https://tailscale.com/download/mac a řekni mi, ať stáhnu a nainstaluji verzi Standalone. Počkej, až to udělám.
-2. Spusť aplikaci (open -a Tailscale). Řekni mi, ať projdu úvodního průvodce aplikace bez přihlášení a povolím dvě věci: v Nastavení systému → Obecné → Login Items & Extensions → Network Extensions zapnu Tailscale Network Extension (na macOS 14 a starších v Soukromí a zabezpečení kliknu na Povolit u Tailscale) a pak u dotazu na konfiguraci VPN kliknu na „Povolit“. Počkej, až to udělám. V aplikaci se nepřihlašuj.
+2. Zjisti, jakou verzi aplikace mám: defaults read /Applications/Tailscale.app/Contents/Info.plist CFBundleIdentifier. io.tailscale.ipn.macsys je verze Standalone ze stránek Tailscale, io.tailscale.ipn.macos verze z Mac App Store. Spusť aplikaci (open -a Tailscale) a řekni mi, ať projdu úvodního průvodce aplikace bez přihlášení. Jen u verze Standalone mě požádej, ať v Nastavení systému → Obecné → Login Items & Extensions → Network Extensions zapnu Tailscale Network Extension (na macOS 14 a starších v Soukromí a zabezpečení kliknu na Povolit u Tailscale); u verze z Mac App Store tento krok vynech. U obou verzí mi řekni, ať u dotazu na konfiguraci VPN kliknu na „Povolit“. Počkej, až to udělám. V aplikaci se nepřihlašuj.
 3. Na pozadí spusť přihlášení, které čeká na dokončení:
    /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADRESA>
 4. Opakovaně čti /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Než mi odkaz dáš, rozeber ho jako URL a ověř, že má stejné schéma (https), hostname a port jako adresa přihlašovacího serveru výše. Nestačí, že text odkazu stejně začíná. Když se liší, odkaz mi nedávej, řekni mi, co nesedí, a zastav se.
@@ -262,7 +264,7 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
 1. Nainstalujte Tailscale ve verzi
    [Standalone ze stránek Tailscale](https://tailscale.com/download/mac) a
    spusťte ho. Projděte úvodního průvodce, ale na **Log in** neklikejte.
-2. Povolte dvě věci, bez kterých Tailscale na Macu nefunguje:
+2. Povolte dvě věci, bez kterých verze Standalone na Macu nefunguje:
    - **Síťové rozšíření:** otevřete **Nastavení systému → Obecné → Login
      Items & Extensions**, u **Network Extensions** klikněte na ikonu ⓘ,
      zapněte **Tailscale Network Extension**, potvrďte heslem nebo Touch ID
@@ -293,8 +295,10 @@ Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede j
   nemáme.
 - **Pro agenta:** CLI je v balíčku aplikace na
   `/Applications/Tailscale.app/Contents/MacOS/Tailscale` (dokumentace
-  Tailscale CLI). Funguje, jen když aplikace běží a síťové rozšíření
-  i konfigurace VPN jsou povolené. Odkaz, hotovo, další účty a jméno zařízení se řídí stejnými
+  Tailscale CLI). Funguje, jen když aplikace běží a konfigurace VPN je
+  povolená; u verze Standalone (`CFBundleIdentifier` `io.tailscale.ipn.macsys`)
+  musí být povolené i síťové rozšíření, verze z Mac App Store
+  (`io.tailscale.ipn.macos`) ho v Nastavení systému nemá. Odkaz, hotovo, další účty a jméno zařízení se řídí stejnými
   pravidly jako v části [Podrobnosti pro agenta u Windows](#windows).
 
 </details>
