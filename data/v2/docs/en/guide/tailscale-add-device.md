@@ -1,10 +1,10 @@
 ---
-title: "Add a new device to the tailnet"
-description: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Organization Admin to approve the device."
+title: "Add a new device to the Lazurio tailnet"
+description: "Pick your device. On Windows and Mac your agent does it for you; on a phone it takes a few taps in the Tailscale app. Then an Organization Admin approves the device."
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: en
-summary: "Install Tailscale, enter your Organization's login server, sign in with your Lazurio account and wait for an Organization Admin to approve the device."
-updatedAt: "2026-11-14"
+summary: "Pick your device. On Windows and Mac your agent does it for you; on a phone it takes a few taps in the Tailscale app. Then an Organization Admin approves the device."
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -26,7 +26,13 @@ sourceRefs:
   - tailscale-install-macos
   - tailscale-install-windows
   - tailscale-install-windows-msi
+  - tailscale-winget-package
+  - tailscale-cli-reference
+  - tailscale-macos-sysext
+  - tailscale-macos-bundle-ids
+  - headscale-auth-success-page
   - tailscale-cli-login-output
+  - tailscale-status-auth-url
   - microsoft-powershell-call-operator
   - microsoft-windows-terminal-interaction
 audience:
@@ -35,328 +41,454 @@ audience:
   - agent
 ---
 
-You add a new device to your Organization's tailnet yourself: **install
-Tailscale, enter your Organization's login server in it, sign in with your
-Lazurio account and wait until the Organization Admin tells you the device
-is approved.** Until then, do not expect the Organization's
-Environments to open from it.
-Each device (phone, tablet, computer) is added and approved separately. On
-iPhone, Android and Mac the whole procedure is done by clicking in the app.
-Windows needs one line in PowerShell; the pictures show every click, and you
-can also hand that step to your agent.
+Your device joins your Organization's network through the Tailscale app. It takes a few minutes:
 
-If the device is already in the tailnet and you only cannot connect, follow
-[Reach an Environment through Tailscale](/en/guide/tailscale/).
+1. **Pick your device below.**
+2. **Install Tailscale and enter your Organization's address.** On Windows
+   and Mac your agent does this for you.
+3. **Sign in with your Lazurio account.**
+4. **Message your Organization Admin** and wait until they approve the
+   device.
 
-## Before you start
+You need **the address of your Organization's login server**. Your
+Organization Admin gives it to you; it looks like
+`https://headscale.example.lazurio.io`. Do not guess it: with a different
+address you sign in to someone else's network, or not at all.
 
-Have **the address of your Organization's login server** ready. Lazurio runs
-its tailnets on [Headscale](https://github.com/juanfont/headscale), a
-self-hosted server that the Tailscale app signs in to instead of Tailscale's
-own server. The address usually looks like
-`https://headscale.<organization>.lazurio.io`. Your Organization Admin
-gives you the exact address. Do not guess it:
-with a different address you sign in to someone else's network, or not at all.
+:::danger[After installing, do not click Log in in the Tailscale app]
+The **Log in** button on Tailscale's welcome screen leads to Tailscale's own
+server. It offers sign-in with Google, GitHub, Microsoft or Apple, and the
+device then ends up in someone else's network, not your Organization's. After
+installing, follow only the steps of this guide: in them you enter the address
+of Lazurio's login server.
 
-Also decide what the device should be called: `<login>-<device>`, for example
-`jannovak-iphone` or `jannovak-macbook`. You do not set the name in the app;
-you only tell it to your Organization Admin (see [Device name](#device-name)).
+**Already happened?** Do not delete anything; continue with the steps for your
+device from entering the address. Your Organization's network is added as
+another account and Tailscale switches to it.
+:::
 
-## Add the device
+<nav class="lz-device-picker" aria-label="Pick your device">
+  <a class="lz-device-card" href="#windows"><span class="lz-device-card__name">Windows</span><span class="lz-device-card__hint lz-device-card__hint--agent">Your agent does it</span></a>
+  <a class="lz-device-card" href="#macos"><span class="lz-device-card__name">macOS</span><span class="lz-device-card__hint lz-device-card__hint--agent">Your agent does it</span></a>
+  <a class="lz-device-card" href="#iphone-and-ipad"><span class="lz-device-card__name">iPhone and iPad</span><span class="lz-device-card__hint">A few taps</span></a>
+  <a class="lz-device-card" href="#android"><span class="lz-device-card__name">Android</span><span class="lz-device-card__hint">A few taps</span></a>
+</nav>
 
-The steps follow the official Tailscale and Headscale documentation as of
-3 November 2026. We went through the Android steps the same day in the real
-Tailscale app, version 1.104.5, and the pictures come from it. The iPhone and
-Android apps change their menus between versions. If you cannot find an item
-under the name given here, look for a similar option for a custom or
-alternate server.
+Each device is added and approved separately. If the device is already in
+your Organization's network and you only cannot connect, follow [Reach an Environment
+through Tailscale](/en/guide/tailscale/).
 
-### iPhone and iPad
+## Windows
+
+:::caution[Do not click Log in in the Tailscale app]
+Your agent enters your Organization's address, or you enter it with the
+manual steps below.
+:::
+
+### Let your agent do it (recommended)
+
+If you work with an agent on this computer, such as Codex in the ChatGPT
+app or Claude Code, it does the whole setup for you. You only click **Yes**
+when Windows asks about the installation, and you sign in.
+
+1. **Give the agent full access.** Without it, the agent cannot reach
+   Tailscale. In Codex, switch the permission below the message box to
+   **Full access**. In Claude, let it run commands.
+2. **Copy the prompt below** with the button at its top right and paste it
+   into a new chat.
+3. **Replace `<ADDRESS>` with the login server address** your Organization
+   Admin sent you, and send the prompt.
+4. **Do what the agent asks you to:** click **Yes** for the installation and
+   sign in with your Lazurio account on the page it sends you.
+
+```text
+Connect this Windows computer to my Organization's tailnet in Lazurio through Tailscale.
+The Organization's login server address: <ADDRESS>
+
+The procedure and details are at https://documentation.lazurio.ai/en/guide/tailscale-add-device/#windows (the collapsible section "Details for the agent"). Follow it whenever you are unsure. Talk to me in plain language; I am not a programmer.
+
+First: if you cannot run commands on this computer or have no internet access (you run in a sandbox), do not try anything and only tell me: "Below the message box, switch the permission to Full access and message me again."
+
+What you do yourself:
+1. Check that C:\Program Files\Tailscale\tailscale.exe exists. If not, install Tailscale, only from an official source (the winget package Tailscale.Tailscale from the publisher Tailscale Inc., or https://tailscale.com/download/windows): winget install --id Tailscale.Tailscale --exact --accept-package-agreements --accept-source-agreements. Tell me beforehand to click "Yes" when Windows asks whether the app may make changes. If winget is missing or the installation fails, send me the link https://tailscale.com/download/windows and wait until I have installed it.
+2. Without administrator rights, start the sign-in in the background; it waits until it is finished:
+   Start-Process -FilePath "C:\Program Files\Tailscale\tailscale.exe" -ArgumentList 'login','--login-server=<ADDRESS>' -WindowStyle Hidden
+   If you do not get a sign-in link within a minute, or the command ends before I have signed in, start it again the same way.
+3. Read & "C:\Program Files\Tailscale\tailscale.exe" status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
+
+Where you stop and leave it to me:
+4. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+
+How you know it is done:
+5. status --json shows BackendState "Running" and & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This computer is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Windows computer," and add the computer's name in the network (Self.HostName from status --json).
+
+Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it; switching back is in the Tailscale menu. Do not use an auth key, do not change the registry or Tailscale policies, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
+```
+
+The agent cannot approve the device; your Organization Admin does that (see
+[What happens next](#what-happens-next)).
+
+### Manually, without an agent
+
+The Tailscale app for Windows cannot take your Organization's address in its
+window, so you enter it with one line in Windows PowerShell.
+
+1. Install [Tailscale for Windows](https://tailscale.com/download/windows).
+   Do **not** sign in in the Tailscale app: its Log in button leads
+   somewhere other than your Organization.
+2. Click **Start**, type **PowerShell** and open **Windows PowerShell** with
+   a normal click.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-1-start-en.png" alt="Illustrative mockup: Windows search with PowerShell typed. The result Windows PowerShell, App, is highlighted; on the right the actions Open and Run as administrator." width="1280" height="788" loading="lazy" />
+     <figcaption>Illustrative mockup, not a screenshot.</figcaption>
+   </figure>
+
+3. Copy this line, replace `<ADDRESS>` with your Organization's address,
+   paste it into the window (**Ctrl+V**) and press **Enter**:
+
+   ```powershell
+   & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<ADDRESS>
+   ```
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-2-paste-en.png" alt="Illustrative mockup: a Windows PowerShell window with the pasted line starting with an ampersand and ending with the example address https://headscale.example.lazurio.io." width="1280" height="486" loading="lazy" />
+     <figcaption>Illustrative mockup with the example address. The line may wrap; that is fine.</figcaption>
+   </figure>
+
+4. The window shows **To authenticate, visit:** and a link. Hold **Ctrl**
+   and click it.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-3-link-en.png" alt="Illustrative mockup: PowerShell shows To authenticate, visit: and a sign-in address on the example login server. The address is highlighted with the hint Hold Ctrl and click." width="1280" height="522" loading="lazy" />
+     <figcaption>Illustrative mockup. Your link is different every time.</figcaption>
+   </figure>
+
+5. Sign in with your Lazurio account in the browser. The browser shows a
+   green check mark and **Node registered**. Keep the PowerShell window open
+   until it shows **Success.** Then you can close it.
+
+   <figure class="lz-app-step lz-app-step--wide">
+     <img src="/guide-assets/tailscale-windows/windows-4-success-en.png" alt="Illustrative mockup: after the sign-in, PowerShell shows Success. and a new prompt." width="1280" height="560" loading="lazy" />
+     <figcaption>Illustrative mockup. Success. means the sign-in is finished, not the approval.</figcaption>
+   </figure>
+
+<details>
+<summary>If something does not work</summary>
+
+- **PowerShell answers in red that the term is not recognized.** Tailscale
+  is not installed in its usual folder. Install it and paste the line again.
+- **The window only repeats the quoted path.** The `&` at the start of the
+  line is missing. Without it, PowerShell only prints the path.
+- **Nothing opens when you click the link.** Select the whole link with the
+  mouse, copy it with a right click and paste it into the browser. Do not
+  press **Ctrl+C** in the window: with no text selected it stops the
+  sign-in.
+- You do not need **Run as administrator**.
+
+</details>
+
+<details>
+<summary>Details for the agent</summary>
+
+This part is for an agent doing the setup for a person. The person is not a
+programmer: talk to them in plain language and do not show them commands.
+
+- Tailscale for Windows cannot take a custom login server in its window
+  (Tailscale documentation), so it is entered through the CLI with
+  `tailscale.exe login --login-server=<ADDRESS>`. The flag is exactly
+  `--login-server`.
+- Installing with winget (`Tailscale.Tailscale`) triggers a User Account
+  Control prompt. The person clicks **Yes**; you never confirm it.
+- `tailscale login` waits until the person has signed in. Start it in the
+  background and read the sign-in link from `tailscale status --json` (the
+  `AuthURL` field while `BackendState` is `NeedsLogin`). The same CLI prints
+  `To authenticate, visit:` and, when finished, `Success.`.
+- Before you pass the sign-in link on, parse it as a URL and compare its
+  scheme, hostname and port with the login server address. A matching start
+  of the text is not enough: `https://server.example.evil.test/` starts like
+  `https://server.example` but leads elsewhere. On a mismatch, do not pass
+  the link on and stop.
+- It is done when `BackendState` is `Running` and `tailscale debug prefs`
+  shows `ControlURL` equal to the address given. That means the device is in
+  the tailnet, not that it is approved.
+- If Tailscale on the computer already has another account, `login` adds a
+  new profile and switches to it. Do not delete or log out the old profile;
+  the person can switch back in the Tailscale menu.
+- The person does not choose the device name and you do not change it (do
+  not use `--hostname`). Only tell them the name the device shows up under,
+  so they can pass it to the Organization Admin.
+- On failure, stop and tell the person what happened. Do not try auth keys,
+  registry changes, Tailscale policies or approving the device.
+
+</details>
+
+## macOS
+
+:::caution[Do not click Log in in the Tailscale app]
+On a Mac you first go through the app's welcome steps and allow the VPN
+configuration, for the version from Tailscale's website also the network
+extension in System Settings. Your agent then enters your Organization's address, or you
+enter it with the manual steps below.
+:::
+
+### Let your agent do it (recommended)
+
+It works the same as on Windows: give the agent full access (in Codex,
+**Full access** below the message box), copy the prompt, replace
+`<ADDRESS>` with your Organization's address and do what the agent asks.
+The agent asks you to allow the VPN configuration and, for the version from
+Tailscale's website (Standalone), also to turn on Tailscale's network
+extension in System Settings (the same steps are in manual step 2 below).
+
+```text
+Connect this Mac to my Organization's tailnet in Lazurio through Tailscale.
+The Organization's login server address: <ADDRESS>
+
+The procedure and details are at https://documentation.lazurio.ai/en/guide/tailscale-add-device/#macos (the collapsible section "Details for the agent"). Follow it whenever you are unsure. Talk to me in plain language; I am not a programmer.
+
+First: if you cannot run commands on this computer or have no internet access (you run in a sandbox), do not try anything and only tell me: "Below the message box, switch the permission to Full access and message me again."
+
+What you do yourself:
+1. Check that /Applications/Tailscale.app exists. If not, open https://tailscale.com/download/mac for me and tell me to download and install the Standalone version. Wait until I have done it.
+2. Find out which version I have: defaults read /Applications/Tailscale.app/Contents/Info.plist CFBundleIdentifier. io.tailscale.ipn.macsys is the Standalone version from Tailscale's website, io.tailscale.ipn.macos the Mac App Store version. Start the app (open -a Tailscale) and tell me to go through the app's welcome steps without signing in. Only for the Standalone version, ask me to turn on Tailscale Network Extension in System Settings → General → Login Items & Extensions → Network Extensions (on macOS 14 and earlier, click Allow for Tailscale in Privacy & Security); skip this step for the Mac App Store version. For both versions, tell me to click "Allow" when asked about a VPN configuration. Wait until I have done it. Do not sign in in the app.
+3. Start the sign-in in the background; it waits until it is finished:
+   /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADDRESS>
+4. Read /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
+
+Where you stop and leave it to me:
+5. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+
+How you know it is done:
+6. status --json shows BackendState "Running" and debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This Mac is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Mac," and add the Mac's name in the network (Self.HostName from status --json).
+
+Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it. Do not use an auth key, do not install anything with sudo, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
+```
+
+### Manually, without an agent
+
+1. Install the
+   [Standalone version from Tailscale's website](https://tailscale.com/download/mac)
+   and start it. Go through the welcome steps, but do not click **Log in**.
+2. Allow two things without which the Standalone version does not work on a
+   Mac:
+   - **Network extension:** open **System Settings → General → Login Items &
+     Extensions**, select the ⓘ icon next to **Network Extensions**, turn on
+     **Tailscale Network Extension**, confirm with your password or Touch ID
+     and select **Done**. On macOS 14 and earlier, instead click **Allow**
+     next to the Tailscale message in **Privacy & Security**.
+   - **VPN configuration:** when the Mac asks whether it may add a VPN
+     configuration, click **Allow**.
+3. Hold the **Option** (⌥) key and click the Tailscale icon in the menu bar.
+   Point to **Debug** and, under **Custom Login Server**, choose **Add
+   Account…**.
+4. Enter your Organization's address and click **Add Account**.
+5. Sign in with your Lazurio account in the browser. You see a green check
+   mark and **Node registered**; then close the tab.
+
+<details>
+<summary>Details and other ways</summary>
+
+- Tailscale for macOS needs macOS Ventura 13.0 or later. Tailscale
+  recommends the Standalone version.
+- If you are already signed in to another tailnet in Tailscale, there is a
+  second way: Tailscale icon in the menu bar → **Settings** → **Accounts**
+  tab → arrow at the bottom left → enter the address → **Add account**.
+- Both permissions are described in Tailscale's documentation.
+- The Mac App Store version does not need the network extension in System
+  Settings; allowing the VPN configuration is enough.
+- Steps 3 and 4 follow the Headscale documentation; we do not have our own
+  pictures from a Mac yet.
+- **For the agent:** the CLI is inside the app bundle at
+  `/Applications/Tailscale.app/Contents/MacOS/Tailscale` (Tailscale CLI
+  documentation). It works only while the app is running and the VPN
+  configuration is allowed; for the Standalone version (`CFBundleIdentifier`
+  `io.tailscale.ipn.macsys`) the network extension must be allowed too, the
+  Mac App Store version (`io.tailscale.ipn.macos`) has none in System
+  Settings. The sign-in link, the done check, other accounts
+  and the device name follow the same rules as in [Details for the agent on
+  Windows](#windows).
+
+</details>
+
+## iPhone and iPad
+
+:::caution[Do not choose Google, GitHub or any other account]
+On the sign-in screen, open the menu at the top right and enter your
+Organization's address (step 4). The buttons to sign in with Google, GitHub,
+Microsoft or Apple lead to someone else's network.
+:::
 
 1. Install [Tailscale from the App Store](https://apps.apple.com/app/tailscale/id1470499037).
-   It works on iOS 15 or later.
-2. Open it, choose **Get Started** and allow the VPN configuration to be
-   added. Do not sign in yet.
-3. Tap the profile icon at the top right. Settings open.
-4. If you are not signed in to another tailnet in Tailscale, tap **Log in**.
-   Otherwise, tap your signed-in account.
-5. Open the menu at the top right and choose **Use a custom coordination
+2. Open it, choose **Get Started** and allow the VPN configuration. Do not
+   sign in yet.
+3. Tap the profile icon at the top right, then **Log in** (or your account,
+   if you already have one). On the screen that opens, do not choose any
+   account.
+4. Open the menu at the top right and choose **Use a custom coordination
    server**.
-6. Enter your Organization's login server address and tap **Log in**.
-7. The Lazurio sign-in opens. Sign in with your Lazurio account and return to
-   the Tailscale app.
+5. Enter your Organization's address, tap **Log in** and sign in with your
+   Lazurio account. You see a green check mark and **Node registered**.
 
-We do not have our own iPhone pictures yet. Tailscale describes the screens
-on [Configure Tailscale clients to use a custom control
-server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
+<details>
+<summary>Details</summary>
 
-### Android
+- Tailscale works on iOS 15 and later.
+- The app changes its menus between versions. If you cannot find an item,
+  look for a similar menu for a custom server.
+- We do not have our own pictures from an iPhone yet. The procedure with
+  screen descriptions is on Tailscale's page [Configure Tailscale clients to
+  use a custom control
+  server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
+
+</details>
+
+## Android
+
+:::caution[Do not tap the large Log in button]
+Continue with the gear at the top right (step 2). Log in leads to someone
+else's network.
+:::
 
 1. Install
-   [Tailscale from Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn).
-   It works on Android 8.0 or later.
-2. Open it. Android asks whether Tailscale may set up a VPN connection. Tap
-   **OK**.
+   [Tailscale from Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn)
+   and open it. When asked about the VPN connection, tap **OK**.
 
    <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-1-vpn.png" alt="Connection request dialog: Tailscale wants to set up a VPN connection. The OK button is highlighted." width="540" height="470" loading="lazy" />
-     <figcaption>Allow the VPN connection. This does not connect you to any network yet.</figcaption>
    </figure>
 
-3. Do not tap the large **Log in** button: it leads to Tailscale's own
-   server. Tap the gear at the top right.
+2. **Do not tap the large Log in button.** Tap the gear at the top right.
 
    <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-2-settings.png" alt="Tailscale welcome screen with the Log in button. The gear at the top right is highlighted." width="540" height="785" loading="lazy" />
-     <figcaption>Open settings with the gear, not with the Log in button.</figcaption>
    </figure>
 
-4. In settings, tap **Accounts**.
-
-   <figure class="lz-app-step">
-     <img src="/guide-assets/tailscale-android/android-3-accounts.png" alt="Tailscale settings. The Accounts item at the top is highlighted." width="540" height="485" loading="lazy" />
-   </figure>
-
-5. Tap the three dots at the top right and choose **Use an alternate server**.
+3. Tap **Accounts**, then the three dots at the top right, and choose **Use
+   an alternate server**.
 
    <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-4-alternate-server.png" alt="Accounts screen with its menu open. The item Use an alternate server is highlighted." width="540" height="385" loading="lazy" />
    </figure>
 
-6. In **Custom control server URL**, enter your Organization's login server
-   address and tap **Add account**.
+4. Enter your Organization's address, tap **Add account** and sign in with
+   your Lazurio account. You see a green check mark and **Node registered**.
 
    <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-5-address.png" alt="Add another account screen with the field Custom control server URL containing the example address https://headscale.example.lazurio.io, and the Add account button." width="540" height="485" loading="lazy" />
      <figcaption>The picture shows an example address. Enter your Organization's address.</figcaption>
    </figure>
 
-7. The Lazurio sign-in opens. Sign in with your Lazurio account and return to
-   the Tailscale app.
+<details>
+<summary>Details</summary>
 
-### macOS
+- Tailscale works on Android 8.0 and later. We walked through the steps in
+  the real Tailscale 1.104.5 app on 3 November 2026, and the pictures come
+  from it.
+- The large **Log in** button leads to Tailscale's own server, not to your
+  Organization.
+- The app changes its menus between versions. If you cannot find an item,
+  look for a similar menu for an alternate server.
 
-Tailscale for macOS needs macOS Ventura 13.0 or later.
-
-1. Install Tailscale: the
-   [Standalone variant from Tailscale's website](https://tailscale.com/download)
-   (which Tailscale recommends), or the Mac App Store variant.
-2. Start the app, go through the onboarding and allow the VPN configuration.
-   Do not sign in yet.
-3. Hold the **Option** key (⌥) and click the Tailscale icon in the menu bar.
-   Point at **Debug** and, under **Custom Login Server**, choose **Add
-   Account…**.
-4. Enter your Organization's login server address and click **Add Account**.
-5. The Lazurio sign-in opens in your browser. Sign in with your Lazurio
-   account.
-
-If you are already signed in to another tailnet in Tailscale, Tailscale also
-documents a second way: Tailscale icon in the menu bar → **Settings** →
-**Accounts** tab → down arrow at the bottom left → enter the address → **Add
-account**.
-
-Steps 3 and 4 are described in the Headscale documentation; we do not have
-our own Mac pictures yet.
-
-### Windows
-
-The Tailscale app for Windows cannot take a custom login server in its window
-(Tailscale's documentation says so). On Windows you therefore enter the server
-with **one line in Windows PowerShell**. It is the only command in this guide.
-The pictures below show every click, and if you prefer, [let your agent do
-it](#let-your-agent-do-it).
-
-1. Install [Tailscale for Windows](https://tailscale.com/download/windows)
-   (Windows 10 or later) and finish the installer. **Do not sign in** in the
-   Tailscale app: its Log in button leads to Tailscale's own server, not to
-   your Organization.
-2. Click **Start**, type **PowerShell** and open **Windows PowerShell**. You
-   do not need **Run as administrator**.
-
-   <figure class="lz-app-step lz-app-step--wide">
-     <img src="/guide-assets/tailscale-windows/windows-1-start-en.png" alt="Illustrative mockup: Windows search with PowerShell typed. The result Windows PowerShell, App, is highlighted; on the right the actions Open and Run as administrator." width="1280" height="788" loading="lazy" />
-     <figcaption>Illustrative mockup, not a screenshot. Open Windows PowerShell with a normal click.</figcaption>
-   </figure>
-
-3. Copy this whole line. Put your Organization's login server in place of
-   `<login server>`, for example `https://headscale.example.lazurio.io`:
-
-   ```powershell
-   & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<login server>
-   ```
-
-   Paste it into the PowerShell window with **Ctrl+V** or a right click and
-   press **Enter**. Keep the `&` and the quotation marks at the start: without
-   the `&`, PowerShell only prints the quoted path instead of running
-   Tailscale.
-
-   <figure class="lz-app-step lz-app-step--wide">
-     <img src="/guide-assets/tailscale-windows/windows-2-paste-en.png" alt="Illustrative mockup: a Windows PowerShell window with the pasted line starting with an ampersand and ending with the example address https://headscale.example.lazurio.io." width="1280" height="486" loading="lazy" />
-     <figcaption>Illustrative mockup with the example address. The line may wrap in the window; that is fine.</figcaption>
-   </figure>
-
-4. The window writes **To authenticate, visit:** and an address that starts
-   with your login server. Hold **Ctrl** and click the address. If nothing
-   opens, select the whole address with the mouse, right-click it to copy it,
-   and paste it into your browser's address bar. Do not press **Ctrl+C** in
-   the window: without a selection it stops the command.
-
-   <figure class="lz-app-step lz-app-step--wide">
-     <img src="/guide-assets/tailscale-windows/windows-3-link-en.png" alt="Illustrative mockup: PowerShell shows To authenticate, visit: and a sign-in address on the example login server. The address is highlighted with the hint Hold Ctrl and click." width="1280" height="522" loading="lazy" />
-     <figcaption>Illustrative mockup. Your address is different every time.</figcaption>
-   </figure>
-
-5. The Lazurio sign-in opens in your browser. Sign in with your Lazurio
-   account and close the browser tab when it is done. Leave the PowerShell
-   window open meanwhile.
-6. Back in PowerShell, the window writes **Success.** You can close it. The
-   device is now in your Organization's tailnet and waits for approval (see
-   [What happens next](#what-happens-next)).
-
-   <figure class="lz-app-step lz-app-step--wide">
-     <img src="/guide-assets/tailscale-windows/windows-4-success-en.png" alt="Illustrative mockup: after the sign-in, PowerShell shows Success. and a new prompt." width="1280" height="560" loading="lazy" />
-     <figcaption>Illustrative mockup. Success. means the sign-in is finished, not that the device is approved.</figcaption>
-   </figure>
-
-If PowerShell answers in red that the term is not recognized, Tailscale is not
-installed in its usual folder: install it (step 1) and paste the line again.
-If it only repeats the quoted path, the `&` at the start is missing.
-
-These pictures are illustrative mockups drawn from Microsoft's and
-Tailscale's documentation and from the messages in Tailscale's source; we
-have not taken them on a real Windows computer yet.
-
-#### Let your agent do it
-
-If you work with an agent on this Windows computer (ChatGPT Desktop, Codex or
-Claude), copy the prompt below into a new chat and put your Organization's
-login server in place of `<login server>`. The agent runs the line, reads the
-address and tells you where to click. Signing in stays with you, and the
-agent cannot approve the device.
-
-```text
-Connect this Windows computer to my Organization's tailnet in Tailscale. The Organization's login server is <login server>.
-
-1. Check that Tailscale is installed: C:\Program Files\Tailscale\tailscale.exe exists. If it does not, stop and tell me to install it from https://tailscale.com/download/windows. Do not install it yourself.
-2. In PowerShell run exactly this line, without administrator rights, so that you can read its output while it keeps waiting (for example in a separate window or in the background):
-   & "C:\Program Files\Tailscale\tailscale.exe" login --login-server=<login server>
-3. The output says "To authenticate, visit:" and an address. Give me that address as a clickable link and tell me in one or two sentences: open it, sign in with my Lazurio account, then come back to this chat. Do not open, fill in or confirm the sign-in yourself, and never ask me for a password or a code.
-4. When the output says "Success.", tell me in plain words that this computer is now in the tailnet of that login server and waits for the Organization Admin's approval. Read this computer's name in the tailnet (tailscale status --json, Self.HostName) and tell me to send it to my Organization Admin together with my login.
-
-Rules: do not use an auth key, do not change the Windows registry or Tailscale's policies, leave other Tailscale accounts on this computer as they are, do not turn Tailscale off, and do not try to approve the device. If anything fails, tell me what the window said and stop.
-```
-
-## Device name
-
-Tailscale names a device after the system: a computer after its name, a phone
-usually only after its manufacturer or model. The Tailscale app for Android
-has no setting for the name (checked in version 1.104.5), and Tailscale's
-documentation does not describe a clickable name setting for the other systems
-either. So do not rename anything on the device; tell your Organization Admin
-the name you want. It helps them recognise which device is yours.
-
-The name has the form `<login>-<device>`:
-
-- `<login>` is your login in lowercase. If your Lazurio account is linked to
-  GitHub, it is your GitHub login. If it is not, use the label your
-  Organization Admin gives you.
-- `<device>` is a short, stable label such as `iphone`, `ipad`, `pixel`,
-  `android`, `macbook` or `windows`. Choose it once and use the same one in
-  every tailnet. If you have two devices of the same kind, tell them apart
-  permanently, for example `macbook-air` and `macbook-pro`.
-- Only lowercase letters, digits and hyphens, without the Organization's name.
-
-Do not rename a device that is already approved just to follow this rule. The
-name is part of its approval, and an Organization Admin has to prepare the change. The name
-is only a label and grants no access.
+</details>
 
 ## What happens next
 
-After you sign in, the device is registered in the tailnet and **waits for
-approval by the Organization Admin**. Under Lazurio's rules, the Organization
-Admin approves each device for their Organization, and approval for one
-Organization does not open another. How the approval is carried out today is
-described in [For the Organization Admin](#for-the-organization-admin).
-This guide does not promise that a device which is not approved yet is
-blocked: the Organization's network rules decide that, and the Organization
-Admin and the network operator manage them.
+**When the sign-in works**, the browser shows a page with a green check mark
+and the heading **Node registered**, followed by "Registered as" with your
+account and "You can now close this window." Close the tab. If you added this
+device before, the heading reads **Node reauthenticated**; that is fine too.
 
-**You are waiting when** the Organization's tailnet is in Tailscale's account
-list and the app may show that it is connected, but the addresses of the
-Organization's Environments do not open.
+Now the device is in your Organization's network and **waits for approval by
+your Organization Admin**. Tell them that you added a new device, what kind
+(for example a Windows computer) and when. Use a channel they recognize you
+by: they approve the device only when they know the request comes from you.
 
-**You are approved when** the Organization Admin tells you so and the addresses of the
-Environments you have access to open. Check with Tailscale on and the
-Organization's tailnet chosen (see [Reach an Environment through
-Tailscale](/en/guide/tailscale/)).
+Once they approve it, they let you know and the addresses of the
+Environments you have access to open (with Tailscale turned on and your
+Organization's network selected, see [Reach an Environment through
+Tailscale](/en/guide/tailscale/)). Until then, do not expect the
+Organization's Environments to open from the new device, even if Tailscale
+shows a connection. Whether a device that is not yet approved is blocked is
+decided by your Organization's network rules (see the Admin section below).
 
-### If nothing happens
+<details>
+<summary>If nothing happens</summary>
 
-- **Sign-in ended with an error.** Your Lazurio account may not be allowed
-  into this Organization's tailnet yet, or you entered a different server
-  address. Check the address and write to your Organization Admin.
-- **The tailnet is missing from the account list.** The sign-in did not
-  finish. Go through the steps again from entering the server.
-- **The device is still waiting.** Your Organization Admin may not know about
-  it. Write to them as described in the next section.
-- **The device appeared in the tailnet under another name or with a `-1`
-  suffix.** That is normal. Do not delete anything or sign in again yourself;
-  write to your Organization Admin.
+- **The sign-in ended with an error.** Your Lazurio account may not join
+  this Organization's tailnet yet, or you entered a different address. Check
+  the address and message your Organization Admin.
+- **The Organization's tailnet is missing from the account list in
+  Tailscale.** The sign-in did not finish. Go through the steps again from
+  entering the address.
+- **The device keeps waiting.** Your Organization Admin may not know about
+  it. Message them.
+- **The device appeared in the network under another name, for example with
+  a `-1` suffix.** That is normal. Do not delete anything or sign in again;
+  the Organization Admin adjusts the name.
 
-### Ask your Organization Admin for approval
+</details>
 
-Write to your Organization Admin and include:
+<details>
+<summary>For the Organization Admin: approval and device names</summary>
 
-- your login;
-- the device name you want (`<login>-<device>`);
-- the kind of device (iPhone, Android, Mac, Windows);
-- the login server address you entered;
-- when you signed in.
-
-The Organization Admin approves a device only when they know you are the one asking. Write
-to them through a channel they recognise you by.
-
-## For the Organization Admin
-
-The Organization Admin approves each device. An approval is a
-relationship between a specific device, its owner's account and your
-Organization. On a tailnet that serves more than one Organization, each
-Organization approves separately.
+Every device is approved by an Organization Admin. An approval is a relation
+between a specific device, its owner's account and your Organization; on a
+tailnet that serves several Organizations, each Organization approves
+separately. Approval for one Organization does not open another. This guide
+does not promise that a device that is not yet approved is blocked: that is
+decided by the Organization's network rules, which the Organization Admin
+manages with the network operator.
 
 **How it works today (as of 5 November 2026).** The Organization Admin
-approves the exact device and the Environments it may reach through the
-managed procedure of the network operator, who runs the server of the tailnet.
-That change is reviewed and deployed before the device can reach anything new.
-Several waiting devices can go in one batch, so approval can take longer than
-a few minutes. Dashboard does not list waiting devices yet: agree with the
-person directly which device is theirs, and ask your network operator how to
-submit the approval.
+approves a specific device and the Environments it may reach in the network
+operator's managed procedure; the network operator runs the server the
+tailnet is on. The change goes through review and deployment, and only then
+does the device reach the new places. Several waiting devices may go in one
+batch, so approval can take longer than a few minutes. The Organization
+overview does not show waiting devices yet: agree directly with the person
+which device is theirs, and ask the network operator how to submit the
+approval.
 
 **Target.** Lazurio's access model (decision 0245) describes a registered
-device that reaches nothing until the Organization Admin approves it in Dashboard, with a
-service on the Conglomerate Host that applies the approval within tens of
-seconds and writes it to the Organization's configuration as an audit entry;
-a person can remove their own lost device at once. For GEN4 the approval is
-decided to be recorded in Lazurio Auth instead. That
-is being built (`issue-2026-11-03-002`). This guide does not claim that it
-already runs for your Organization.
+device that reaches nothing until the Organization Admin approves it in the
+Organization overview; a service on the Conglomerate Host applies the
+approval within tens of seconds and records it in the Organization's
+configuration as an audit record. A person can remove their own lost device
+immediately. For GEN4 it is decided that approvals are written to Lazurio
+Auth. That is still being built (`issue-2026-11-03-002`). This guide does not
+claim that it already runs for your Organization.
 
-Before approving, check:
+**Device name.** Tailscale names a device after the system: a computer after
+its name, a phone usually after its maker or model. The person cannot change
+it by clicking in the app (the Android app 1.104.5 has no such setting and
+Tailscale's documentation lists none for the other systems either), so they
+do not choose it. Lazurio's rule for approved nodes is `<login>-<device>`,
+for example `jannovak-macbook`:
 
-1. that the device's owner is asking for it, through a channel you trust;
-2. that the device in the tailnet belongs to that person's account;
-3. the device name. A device arrives with the name its system gave it, and
-   the person cannot change it by clicking in the Tailscale app. Agree with
-   them which device it is, and tell them the name you approve it under. This
-   guide does not yet describe how to set the name during approval;
-4. that it is a fresh registration the person actually made. Do not approve
-   a device you do not recognise.
+- `<login>` is the owner's login in lowercase; for an account linked to
+  GitHub their GitHub login, otherwise the label of their Headscale user.
+- `<device>` is a short, stable label (`iphone`, `pixel`, `macbook`,
+  `windows`); two devices of the same kind are told apart permanently, for
+  example `macbook-air` and `macbook-pro`.
+- Only lowercase letters, digits and hyphens, without the Organization name.
+  The name is only a description and grants no access.
 
-A person with Windows enters the login server with one PowerShell line, or
-lets their agent do it (see [Windows](#windows)). A clickable way for Windows
-is still a gap (`issue-2026-11-03-003`).
+Today the name is set at approval by the Organization Admin with the network
+operator; this guide does not yet describe exactly how. Do not rename a
+device that is already approved because of the rule: the name is part of its
+approval.
 
-When a person loses a device or stops using it, have its approval removed
-the same way it was granted. The rules for who may approve and what an approved device
-can reach change through a reviewed change to the Organization's
-configuration, not by approving a single device.
+Before approving, check that the owner asks for the device through a channel
+you trust, that the device in the tailnet belongs to that person's account
+and that it is a fresh registration they really made. Do not approve an
+unknown device.
+
+On Windows the login server is entered with one line in PowerShell, or the
+person's agent does it (see [Windows](#windows)). A clickable way for
+Windows is still missing (`issue-2026-11-03-003`). Have a lost or unused
+device removed the same way its approval came about. The rules for who may
+approve and what an approved device reaches change through a reviewed change
+to the Organization's configuration, not through approving one device.
+
+</details>
