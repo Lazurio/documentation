@@ -4,7 +4,7 @@ description: "What a GitHub Organization needs before Lazurio works in it: roles
 stableId: lazurio-doc-github-baseline
 locale: en
 summary: "The GitHub settings an Organization Owner prepares and reads back before the first Module Contributor: the app, base permission none, the builders Team, infra only for Organization Owners, protected main and merging."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -17,6 +17,7 @@ sourceRefs:
   - lazurio-first-organization-rollout
   - lazurio-organization-install
   - lazurio-root-agent-rules
+  - lazurio-platform-folder-release
   - lazurio-platform-folder-roles
   - lazurio-platform-decision-f31
   - lazurio-platform-team-github
@@ -60,7 +61,7 @@ is Lazurio's target under decision 0245; the transition is not complete.
 | Team `builders` | Exactly one Team gives the approved people their Write on the Organization's repositories. Its complete roster equals the approved list, and each is an active member of the GitHub Organization, not a pending invitation. | GitHub membership |
 | Grants of `builders` | Explicit Write (API `push`) on the root and on every active repository that is not restricted. A new repository gets this grant in the same step that creates or activates it. | GitHub grants |
 | Restricted repositories | No grant for `builders` on `infra` or on any repository the manifest declares `default_access: restricted` or `private`. The `infra` repository, the Organization's Deployment Repo, belongs to its Organization Owners: only they see and change it, beside the named machines of decision 0245 (decisions 0093 and 0245). An Organization Admin's changes there are to go through the Dashboard; until that is deployed, an Organization Admin who works in the repository keeps the grant they hold today. | GitHub grants |
-| Design Systems | Every person and account in the Organization, including the accounts of Environments with automations, has at least Read on the Organization's Design Systems. | Process: the Organization Admin checks it |
+| Design Systems | Every person and account in the Organization, including the accounts of Environments with automations, has at least Read on the Organization's Design Systems. | Process: a rule of the Organization template and of the GEN3 Lazurio Root that the Organization Admin checks; no Lazurio decision requires it |
 
 GitHub cannot express "every current and future repository except `infra`",
 so each new regular repository needs its own grant for `builders`. Whether a
@@ -120,16 +121,18 @@ names, identifier and the deployed value it maps to are fixed by decision 0234.
 | Role | What the role does | On GitHub today |
 | --- | --- | --- |
 | Organization Owner | Owns the GitHub Organization and appoints and removes the Organization Admins. Gets no access to Environments by that alone (decision 0245). | GitHub's owner role |
-| Organization Admin | Administers members, Teams, grants, restricted repositories, app installations and branch rules, and the Organization's Environments, devices and AI source. Today an active Organization Owner performs the Organization Admin's administrative acts (approving devices, the AI source, answering requests, application roles), and those acts give that Owner no access to any Environment (decision 0234). For GEN4 it is decided as a role of Lazurio that an Organization Owner appoints in the Organization's Deployment Repo and that Lazurio Auth holds, and there the Organization Owner role never stands in for it for access (decision 0245, not yet deployed). May merge their own pull request where GitHub allows it (decision 0095). | Today GitHub's owner role performs the administrative acts; in GEN4 the role itself will be held by Lazurio Auth |
+| Organization Admin | Administers members, Teams, grants, restricted repositories and branch rules, and the Organization's Environments, devices and AI source. Today an active Organization Owner performs the Organization Admin's administrative acts (approving devices, the AI source, answering requests, application roles), and those acts give that Owner no access to any Environment (decision 0234). For GEN4 it is decided as a role of Lazurio that an Organization Owner appoints in the Organization's Deployment Repo and that Lazurio Auth holds, and there the Organization Owner role never stands in for it for access (decision 0245, not yet deployed). May merge their own pull request where GitHub allows it (decision 0095). | Today GitHub's owner role performs the administrative acts; in GEN4 the role itself will be held by Lazurio Auth |
 | Organization Member | Everyone else in the Organization. What they may do follows from their Module and application roles; without a Module role they install nothing and use the applications made available to them (decisions 0060 and 0231). | Membership of the GitHub Organization |
 | Module Reader | Reads a Module's source and changes nothing. Gives no application role by itself. | `pull` |
 | Module Contributor | Builds the Module and proposes changes, and may merge a young `main` that is still deliberately open. | `push` where the repository can have branch rules |
 | Module Maintainer | May also merge the Module's protected `main` and typically releases it. | `maintain`, or `push` where the repository cannot have branch rules (decision 0232) |
 | Application Admin, Application User | The two roles in a Module's application. What they may do is the Organization's rule in the Module's code (decision 0231, not yet deployed). | None; Lazurio's module kit will report `appRole: "admin"` or `"user"` |
 
-The Team slugs `builders` and `steward` and the install option values
-`--role builder`, `--role steward` and `--role reader` are identifiers and
-keep their names; they no longer name roles.
+The Team slugs `builders` and `steward` are identifiers and keep their names;
+they no longer name roles. The install option takes `--role module-contributor`,
+`--role module-maintainer` and, in GEN4, `--role module-reader`; the former
+values `builder`, `steward` and, in GEN4, `reader` work only as deprecated
+aliases with a warning.
 
 ## Protecting `main` and who merges
 
@@ -164,7 +167,7 @@ Our recommendation for a locked `main` on a paid plan:
 - require a pull request with at least one approval;
 - require a review from the code owners named in `CODEOWNERS`;
 - dismiss stale approvals when new commits are pushed, so GitHub itself keeps
-  the approval tied to the reviewed head;
+  the approval tied to the reviewed changes;
 - require conversation resolution and the repository's status checks;
 - do not allow bypassing the rules.
 
@@ -180,11 +183,14 @@ Three Lazurio rules depend on this:
   enforce the rule, and an Organization Admin who relies on one verifies it on
   the repository.
 - **The persona's own pull requests are approved by a person**: an
-  Organization Owner, an Organization Admin or a Module Maintainer. The
-  persona merges only pull requests it is assigned to, never
+  Organization Owner, an Organization Admin or a Module Maintainer, or that
+  person's bot under the person's own account. The persona merges only pull
+  requests it is assigned to, never
   runs an infrastructure apply, issues no Release and changes no access,
-  secrets or billing (decision 0169). On a paid plan branch rules enforce the
-  approval; on a free one it is an agreement.
+  secrets or billing (decision 0169). On a paid plan branch rules enforce the approval; on a free one it is an
+  agreement. GitHub cannot tell a person's bot from the person, so the bot's
+  limits (a scope the person recorded, never a Deployment Repo, a signature
+  that shows a bot approved) are held by process, not by branch rules.
 - **A Release is not a Publication.** Only someone whose GitHub rights allow it
   issues a Release, and only on the user's explicit instruction or under a
   standing mandate that a decision records.
@@ -202,8 +208,8 @@ GitHub accounts are not signed in there, and Lazurio refuses such a sign-in.
 On Personal and Work Environments the user signs in to GitHub with their own
 account, and agents act with that account's live rights (decision 0165).
 
-The broker's [public source](https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md),
-release 0.14.0 of 21 October 2026, issues a short-lived installation token for
+The broker's [public source](https://github.com/Lazurio/github-app/blob/56975c96615887520dddc20db60a4b647d4d344d/README.md),
+release 0.16.0 of 14 November 2026, issues a short-lived installation token for
 one repository at a time. The Team's live grant on that repository chooses the
 permissions:
 
@@ -211,6 +217,13 @@ permissions:
 | --- | --- |
 | Write, Maintain or Admin | `actions: write`, `checks: read`, `contents: write`, `members: read`, `pull_requests: write`, plus `workflows: write` and `issues: write` where the Organization's broker policy declares them |
 | Read or Triage | `actions: read`, `checks: read`, `contents: read`, `members: read`, `pull_requests: read`, plus `issues: write` where the policy declares it |
+
+The Organization's broker policy can also cap the tokens of one Team
+Environment below its grant: with the `read` ceiling every grant gets the read
+set with each permission at `read`, and with the `contents` ceiling (since
+0.16.0) a token carries only `contents: write` or `contents: read` and no
+Actions, Checks, issue, membership, pull request or workflow permission. A
+ceiling never adds a repository.
 
 The token never gets administration or membership changes. The app's private
 key exists only in the broker, never on the Environment. GitHub's
@@ -228,11 +241,11 @@ one-time token, so GitHub's audit log names that person; neither Lazurio for
 GitHub nor the broker can change access (decision 0186). A change that a
 Module Maintainer asks for is a request that an Organization Admin approves.
 
-In GEN3, a Module Contributor's computer runs `lazurio organization install <login> --role builder`,
+In GEN3, a Module Contributor's computer runs `lazurio organization install <login> --role module-contributor`,
 which refuses to clone when Write is missing on the root or on any repository
 of the `builders` Team and changes nothing on GitHub (decision 0141).
 
 ## Sources
 
-- Lazurio: the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (decisions 0060, 0062, 0093, 0095, 0103, 0141, 0143, 0147, 0148, 0150, 0165, 0169, 0186, 0188, 0218 and 0222), [decision 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use) for the Organization Owner, the Organization Admin and the `infra` repository and, for the names of roles, [decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent) with 0231 and 0232, the GEN3 [Organization rollout](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/first-client-organization-rollout.md) and [Organization install](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/organization-install.md) runbooks (in Czech), the [rules for agents](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/AGENTS.md) (in Czech), the Folder's [role descriptions](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/manual.ts#L888-L904), [decision F31](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f31--a-team-environment-publishes-under-the-teams-identity), [gh on a Team Environment](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/environment-tools.md#gh-on-a-team-environment) and the [Lazurio for GitHub broker](https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md).
-- GitHub, read on 1 November 2026: [roles in an organization](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization), [base permissions](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization), [installing a GitHub App](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party), [protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), [rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), [code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners), [repository collaborators](https://docs.github.com/en/rest/collaborators/collaborators) and [draft pull requests by plan](https://docs.github.com/en/rest/pulls/pulls).
+- Lazurio: the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md) (decisions 0060, 0062, 0093, 0095, 0103, 0141, 0143, 0147, 0148, 0150, 0165, 0169, 0186, 0188, 0218 and 0222), [decision 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use) for the Organization Owner, the Organization Admin and the `infra` repository and, for the names of roles, [decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent) with 0231 and 0232, the GEN3 [Organization rollout](https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/manual/first-client-organization-rollout.md#L293-L434) and [Organization install](https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/manual/organization-install.md#L131-L275) runbooks (in Czech), the GEN3 Root's [rules for agents](https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/AGENTS.md) (in Czech), the Folder's [access roles](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/src/folder/manual.ts#L1095-L1206) and its [Release rule](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/manual.ts#L691-L694), [decision F31](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f31--a-team-environment-publishes-under-the-teams-identity), [gh on a Team Environment](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/environment-tools.md#gh-on-a-team-environment) and the [Lazurio for GitHub broker](https://github.com/Lazurio/github-app/blob/56975c96615887520dddc20db60a4b647d4d344d/README.md).
+- GitHub, read on 1 November 2026 and again on 17 November 2026: [roles in an organization](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization), [base permissions](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization), [installing a GitHub App](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party), [protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), [rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), [code owners](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners), [repository collaborators](https://docs.github.com/en/rest/collaborators/collaborators) and [draft pull requests by plan](https://docs.github.com/en/rest/pulls/pulls).

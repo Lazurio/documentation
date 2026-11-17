@@ -4,7 +4,7 @@ description: "Brief an agent in Chat and have the result saved as a draft for yo
 stableId: lazurio-doc-guide-course-first-task
 locale: en
 summary: "Brief an agent in Chat and have the result saved as a draft for your review."
-updatedAt: "2026-11-02"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-02"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -40,7 +40,7 @@ briefs is in [How to think about Lazurio and agents](/en/guide/start-here/).
 
 The instructions Lazurio generates for agents, the Folder's `AGENTS.md`,
 tell every agent to
-([`render.ts`](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/render.ts)):
+([`render.ts`](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/render.ts)):
 
 1. work in a **worktree**, a separate working copy of the repository, so that
    the valid version on `main` stays untouched;

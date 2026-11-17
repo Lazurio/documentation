@@ -4,7 +4,7 @@ description: "Co je Prostředí, v jakém druhu pracujete a jak se do něj dosta
 stableId: lazurio-doc-guide-course-first-sign-in
 locale: cs
 summary: "Co je Prostředí, v jakém druhu pracujete a jak se do něj dostanete."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-platform-folder-manual
   - lazurio-platform-shell-column-head
   - lazurio-platform-launchpad-texts
+  - lazurio-platform-shell-texts
 audience:
   - decision-maker
   - builder
@@ -25,7 +26,7 @@ audience:
 dostanete.
 
 **Prostředí** je počítač, na kterém pro vás pracují agenti. Lazurio je vaše
-okno do něj: v prohlížeči vidíte jeho Chat, Apps a Automate, zatímco agenti,
+okno do něj: v prohlížeči vidíte jeho Chat, Aplikace a Automatizaci, zatímco agenti,
 jejich soubory i přihlášení zůstávají v Prostředí. Hostovaná Prostředí mají
 tři druhy:
 
@@ -61,8 +62,10 @@ v něm. Do Lazuria se v něm nikdy nepřihlašujte.
 ## Váš úkol
 
 1. Otevřete adresu svého Prostředí a přihlaste se svým účtem Lazuria.
-2. V hlavičce levého sloupce najděte název Prostředí a komu slouží. Ozubené
-   kolo vedle něj otevře Nastavení právě tohoto Prostředí.
+2. V hlavičce levého sloupce najděte své Prostředí. Pracovní Prostředí ukazuje
+   fotku a jméno člověka, kterému je přiřazené (nebo vlastní název, pokud ho
+   má), a pod nimi svůj druh, **Pracovní Prostředí**. Ozubené kolo vedle něj
+   otevře Nastavení právě tohoto Prostředí.
 3. V Nastavení otevřete oddíl pojmenovaný podle Prostředí, například **Toto
    Pracovní Prostředí**, a přečtěte si **Druh**, **Owner** a **Přiřazení**.
 
@@ -70,5 +73,5 @@ Když se adresa neotevře, postupujte podle návodu
 [Připojení k Prostředí přes Tailscale](/cs/guide/tailscale/).
 
 **Hotovo poznáte takto:** přihlášení proběhlo, nahoře v levém sloupci vidíte
-přepínač Chat · Apps · Automate a umíte říct, jaký druh Prostředí to je, kdo
+přepínač Chat · Aplikace · Automatizace a umíte říct, jaký druh Prostředí to je, kdo
 ho vlastní a komu je přiřazené.

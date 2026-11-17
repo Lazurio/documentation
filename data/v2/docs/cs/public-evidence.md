@@ -70,7 +70,7 @@ je za podmínek licence povolené ([rozsah a oznámení](https://github.com/Lazu
 
 Současné [názvosloví uživatele a agentů](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
 označuje jako uživatele člověka, se kterým a pro kterého agenti pracují. Má
-poslední slovo. Podle [rozhodnutí 0089](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0089--buddy-is-the-persons-trusted-personal-representative)
+poslední slovo. Podle [rozhodnutí 0089](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md#0089--buddy-is-the-persons-trusted-personal-representative)
 (anglicky) ho Buddy zastupuje v jeho oprávněních a v mandátech, které mu dá.
 Task Agent je dočasná pracovní relace a nemá vlastní nezávislá oprávnění. Prompt nemůže udělit přístup k repozitáři ani schopnost poskytovatele:
 rozhodující jsou živá oprávnění v GitHubu, operačním systému a jednotlivých
@@ -80,7 +80,7 @@ Agent může použít soubory a přihlášení dostupné jeho procesu. Pravidla
 Lazuria určují, kdy je to dovoleno; technická omezení zajišťují operační
 systém, poskytovatel a případný sandbox AI nástroje. V Prostředí Lazuria
 pracují agenti s plným přístupem a bez sandboxu: podle
-[rozhodnutí 0172](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
+[rozhodnutí 0172](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
 (anglicky) je hranicí Prostředí.
 
 ## Hranice zařízení a Organizace

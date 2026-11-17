@@ -4,7 +4,7 @@ description: "Co musí mít GitHub Organization, než v ní začne pracovat Lazu
 stableId: lazurio-doc-github-baseline
 locale: cs
 summary: "Nastavení GitHubu, které Vlastník Organizace připraví a ověří před prvním Přispěvatelem modulu: aplikace, výchozí oprávnění none, Team builders, infra jen pro Vlastníky Organizace, chráněná main a merge."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -17,6 +17,7 @@ sourceRefs:
   - lazurio-first-organization-rollout
   - lazurio-organization-install
   - lazurio-root-agent-rules
+  - lazurio-platform-folder-release
   - lazurio-platform-folder-roles
   - lazurio-platform-decision-f31
   - lazurio-platform-team-github
@@ -60,7 +61,7 @@ vstupu je cílem rozhodnutí 0245; přechod na něj zatím není dokončený.
 | Team `builders` | Zápis do repozitářů Organizace dává schváleným lidem právě jeden Team. Jeho úplný seznam členů se rovná schválenému seznamu a každý je aktivním členem GitHub Organization, ne čekající pozvánkou. | Členství v GitHubu |
 | Granty Teamu `builders` | Výslovný zápis (Write, v API `push`) do kořenového repozitáře a do každého aktivního repozitáře, který není omezený. Nový repozitář dostane grant ve stejném kroku, ve kterém vznikne nebo se aktivuje. | Granty v GitHubu |
 | Omezené repozitáře | Žádný grant pro `builders` k `infra` ani k žádnému repozitáři, který manifest deklaruje jako `default_access: restricted` nebo `private`. Repozitář `infra`, Deployment Repo Organizace, patří jejím Vlastníkům Organizace: vidí a mění ho jen oni a vedle nich jmenované stroje podle rozhodnutí 0245 (rozhodnutí 0093 a 0245). Změny Admina Organizace v něm mají jít přes Přehled Organizace; do nasazení si Admin Organizace, který v repozitáři pracuje, ponechá grant, který má dnes. | Granty v GitHubu |
-| Design Systemy | Každý člověk i účet v Organizaci včetně účtů Prostředí s automatizacemi má k Design Systemům Organizace alespoň Read. | Proces: kontroluje Admin Organizace |
+| Design Systemy | Každý člověk i účet v Organizaci včetně účtů Prostředí s automatizacemi má k Design Systemům Organizace alespoň Read. | Proces: pravidlo šablony Organizace a Lazurio Rootu GEN3, které kontroluje Admin Organizace; žádné rozhodnutí Lazuria ho nevyžaduje |
 
 GitHub neumí vyjádřit „všechny současné i budoucí repozitáře kromě `infra`“,
 proto každý nový běžný repozitář potřebuje vlastní grant pro `builders`. Zda je
@@ -120,16 +121,18 @@ identifikátor i nasazenou hodnotu, na kterou se mapuje, určuje rozhodnutí 023
 | Role | Co role dělá | Na GitHubu dnes |
 | --- | --- | --- |
 | Vlastník Organizace | Vlastní GitHub Organization a jmenuje a odvolává Adminy Organizace. Sám tím do Prostředí přístup nemá (rozhodnutí 0245). | Role owner |
-| Admin Organizace | Spravuje členy, Teamy, granty, omezené repozitáře, instalace aplikací a pravidla větví a také Prostředí, zařízení a zdroj AI Organizace. Správní úkony Admina Organizace (schvalování zařízení, zdroj AI, odpovědi na žádosti, role aplikací) dnes dělá aktivní Vlastník Organizace a vstup do žádného Prostředí mu nedávají (rozhodnutí 0234). Pro GEN4 je rozhodnutý jako role Lazuria, kterou Vlastník Organizace jmenuje v Deployment Repu Organizace a kterou drží Lazurio Auth, a role Vlastníka Organizace ji tam pro přístup nikdy nezastupuje (rozhodnutí 0245, zatím nenasazené). Svůj pull request smí mergnout, kde to GitHub dovolí (rozhodnutí 0095). | Správní úkony dnes dělá role owner v GitHubu; v GEN4 bude samotnou roli držet Lazurio Auth |
+| Admin Organizace | Spravuje členy, Teamy, granty, omezené repozitáře a pravidla větví a také Prostředí, zařízení a zdroj AI Organizace. Správní úkony Admina Organizace (schvalování zařízení, zdroj AI, odpovědi na žádosti, role aplikací) dnes dělá aktivní Vlastník Organizace a vstup do žádného Prostředí mu nedávají (rozhodnutí 0234). Pro GEN4 je rozhodnutý jako role Lazuria, kterou Vlastník Organizace jmenuje v Deployment Repu Organizace a kterou drží Lazurio Auth, a role Vlastníka Organizace ji tam pro přístup nikdy nezastupuje (rozhodnutí 0245, zatím nenasazené). Svůj pull request smí mergnout, kde to GitHub dovolí (rozhodnutí 0095). | Správní úkony dnes dělá role owner v GitHubu; v GEN4 bude samotnou roli držet Lazurio Auth |
 | Člen Organizace | Každý další člověk v Organizaci. Co smí, plyne z jeho rolí v modulech a aplikacích; bez role v modulu nic neinstaluje a používá aplikace, které mu někdo zpřístupnil (rozhodnutí 0060 a 0231). | Členství v GitHub Organization |
 | Čtenář modulu | Čte zdrojový kód modulu a nic nemění. Sama tato role nedává žádnou roli v aplikaci. | `pull` |
 | Přispěvatel modulu | Staví modul a navrhuje změny a smí mergovat mladou `main`, která je zatím vědomě otevřená. | `push` tam, kde repozitář smí mít pravidla větví |
 | Správce modulu | Navíc smí mergovat chráněnou `main` modulu a typicky ho vydává. | `maintain`, nebo `push` tam, kde repozitář pravidla větví mít nemůže (rozhodnutí 0232) |
 | Admin aplikace, Uživatel aplikace | Dvě role v aplikaci modulu. Co smějí, určuje pravidlo Organizace v kódu modulu (rozhodnutí 0231, zatím nenasazené). | Žádná; modulový kit Lazuria bude hlásit `appRole: "admin"` nebo `"user"` |
 
-Slugy Teamů `builders` a `steward` a hodnoty volby instalace `--role builder`,
-`--role steward` a `--role reader` jsou identifikátory a jména si nechávají;
-role už neoznačují.
+Slugy Teamů `builders` a `steward` jsou identifikátory a jména si nechávají;
+role už neoznačují. Volba instalace bere `--role module-contributor`,
+`--role module-maintainer` a v GEN4 i `--role module-reader`; dřívější hodnoty
+`builder`, `steward` a v GEN4 i `reader` fungují už jen jako zastaralé aliasy
+s varováním.
 
 ## Ochrana `main` a kdo merguje
 
@@ -163,8 +166,8 @@ Naše doporučení pro zamčenou `main` na placeném plánu:
 
 - vyžadujte pull request s alespoň jedním schválením;
 - vyžadujte review od code ownerů uvedených v `CODEOWNERS`;
-- při novém pushi zahazujte stará schválení, aby schválení k přezkoumanému
-  headu vázal i sám GitHub;
+- při novém pushi zahazujte stará schválení, aby schválení k přezkoumaným
+  změnám vázal i sám GitHub;
 - vyžadujte vyřešené konverzace a kontroly (status checks) repozitáře;
 - obcházení pravidel nedovolte.
 
@@ -180,11 +183,13 @@ Na tomto nastavení stojí tři pravidla Lazuria:
   vynechá; Admin Organizace, který na takové omezení spoléhá, si ho na
   repozitáři ověří.
 - **Pull requesty persony schvaluje člověk**: Vlastník Organizace, Admin
-  Organizace nebo Správce modulu.
-  Persona merguje jen pull requesty, jejichž je assignee, nikdy nespouští
+  Organizace nebo Správce modulu, případně bot tohoto člověka pod jeho vlastním
+  účtem. Persona merguje jen pull requesty, jejichž je assignee, nikdy nespouští
   apply infrastruktury, nevydává Release a nemění přístupy, tajemství ani
   fakturaci (rozhodnutí 0169). Na placeném plánu schválení vynucují pravidla
-  větví, na bezplatném je to dohoda.
+  větví, na bezplatném je to dohoda. GitHub bota od člověka nerozliší, proto
+  jeho meze (rozsah, který člověk zapsal, nikdy Deployment Repo, podpis, ze
+  kterého je vidět, že schválil bot) drží proces, ne pravidla větví.
 - **Release není Publikace.** Release vydává jen ten, komu to dovolují práva
   na GitHubu, a jen na výslovný pokyn uživatele nebo podle stálého mandátu,
   který zapisuje rozhodnutí.
@@ -202,8 +207,8 @@ v něm nepřihlašují a Lazurio takové přihlášení odmítne. V Osobním a P
 Prostředí se uživatel přihlásí na GitHub vlastním účtem a agenti jednají
 v živých právech tohoto účtu (rozhodnutí 0165).
 
-[Veřejný zdrojový kód brokeru](https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md),
-vydání 0.14.0 z 21. 10. 2026, vydává krátkodobý instalační token vždy pro
+[Veřejný zdrojový kód brokeru](https://github.com/Lazurio/github-app/blob/56975c96615887520dddc20db60a4b647d4d344d/README.md),
+vydání 0.16.0 z 14. 11. 2026, vydává krátkodobý instalační token vždy pro
 jeden repozitář. Oprávnění tokenu určuje živý grant Teamu k tomuto
 repozitáři:
 
@@ -211,6 +216,13 @@ repozitáři:
 | --- | --- |
 | Write, Maintain nebo Admin | `actions: write`, `checks: read`, `contents: write`, `members: read`, `pull_requests: write` a navíc `workflows: write` a `issues: write`, pokud je deklaruje politika brokeru Organizace |
 | Read nebo Triage | `actions: read`, `checks: read`, `contents: read`, `members: read`, `pull_requests: read` a navíc `issues: write`, pokud ho politika deklaruje |
+
+Politika brokeru Organizace může tokeny jednoho Týmového Prostředí omezit i pod
+úroveň jeho grantu: se stropem `read` dostane každý grant sadu pro čtení se
+všemi oprávněními na `read` a se stropem `contents` (od vydání 0.16.0) nese
+token jen `contents: write` nebo `contents: read`, bez oprávnění k Actions,
+Checks, issues, členství, pull requestům a workflow. Strop nikdy nepřidá další
+repozitář.
 
 Token nikdy nedostane správu repozitáře ani změny členství. Soukromý klíč
 aplikace existuje jen v brokeru, nikdy v Prostředí. Dokumentace GitHubu
@@ -227,11 +239,11 @@ samostatná úzká aplikace Lazurio Administration Access s jednorázovým token
 Lazurio for GitHub ani broker přístupy měnit nemohou. Změna, o kterou požádá
 Správce modulu, je žádost, kterou schvaluje Admin Organizace.
 
-V GEN3 spouští počítač Přispěvatele modulu `lazurio organization install <login> --role builder`,
+V GEN3 spouští počítač Přispěvatele modulu `lazurio organization install <login> --role module-contributor`,
 který odmítne klonovat, když chybí zápis do kořenového repozitáře nebo do
 některého repozitáře Teamu `builders`, a na GitHubu nic nemění (rozhodnutí 0141).
 
 ## Zdroje
 
-- Lazurio: [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0060, 0062, 0093, 0095, 0103, 0141, 0143, 0147, 0148, 0150, 0165, 0169, 0186, 0188, 0218 a 0222, anglicky), [rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use) pro Vlastníka Organizace, Admina Organizace a repozitář `infra` a pro názvy rolí [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent) s 0231 a 0232 (anglicky), runbooky GEN3 [zavedení Organizace](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/first-client-organization-rollout.md) a [instalace Organizace](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/organization-install.md), [pravidla pro agenty](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/AGENTS.md), [popis rolí ve Folderu](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/manual.ts#L888-L904), [rozhodnutí F31](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f31--a-team-environment-publishes-under-the-teams-identity), [gh v Týmovém Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/environment-tools.md#gh-on-a-team-environment) a [broker Lazurio for GitHub](https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md).
-- GitHub, přečteno 1. 11. 2026: [role v organizaci](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization), [výchozí oprávnění](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization), [instalace GitHub App](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party), [chráněné větve](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), [rulesety](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), [code owneři](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners), [collaboratoři repozitáře](https://docs.github.com/en/rest/collaborators/collaborators) a [Draft pull requesty podle plánu](https://docs.github.com/en/rest/pulls/pulls).
+- Lazurio: [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md) (rozhodnutí 0060, 0062, 0093, 0095, 0103, 0141, 0143, 0147, 0148, 0150, 0165, 0169, 0186, 0188, 0218 a 0222, anglicky), [rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use) pro Vlastníka Organizace, Admina Organizace a repozitář `infra` a pro názvy rolí [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent) s 0231 a 0232 (anglicky), runbooky GEN3 [zavedení Organizace](https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/manual/first-client-organization-rollout.md#L293-L434) a [instalace Organizace](https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/manual/organization-install.md#L131-L275), [pravidla pro agenty](https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/AGENTS.md) Rootu GEN3, [role přístupu ve Folderu](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/src/folder/manual.ts#L1095-L1206) a jeho [pravidlo pro Release](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/manual.ts#L691-L694) (anglicky), [rozhodnutí F31](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f31--a-team-environment-publishes-under-the-teams-identity), [gh v Týmovém Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/environment-tools.md#gh-on-a-team-environment) a [broker Lazurio for GitHub](https://github.com/Lazurio/github-app/blob/56975c96615887520dddc20db60a4b647d4d344d/README.md).
+- GitHub, přečteno 1. 11. 2026 a znovu 17. 11. 2026: [role v organizaci](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization), [výchozí oprávnění](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization), [instalace GitHub App](https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party), [chráněné větve](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches), [rulesety](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), [code owneři](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners), [collaboratoři repozitáře](https://docs.github.com/en/rest/collaborators/collaborators) a [Draft pull requesty podle plánu](https://docs.github.com/en/rest/pulls/pulls).

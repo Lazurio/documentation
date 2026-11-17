@@ -38,7 +38,7 @@ The following status matches Lazurio source revision
 not automatically the latest product version.
 
 The current product differs from that revision: Lazurio Platform is installed
-as versioned releases, the latest final one being v0.1.21 of 13 November 2026.
+as versioned releases; this page was checked against v0.1.21 of 13 November 2026.
 An installed release contains the CLI and Apps in one program and generates
 the Lazurio Folder; later updates arrive as new releases
 ([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).

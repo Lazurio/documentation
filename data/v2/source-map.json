@@ -524,13 +524,13 @@
     },
     {
       "id": "lazurio-microsoft-365-company-app",
-      "title": "Microsoft 365 company app runbook (Czech): one single-tenant public client with delegated Graph permissions, the IT procedure, Conditional Access, revocation and the verification on a real tenant that is still open",
+      "title": "GEN3 record (Czech, status of 2026-10-14) of the Microsoft 365 company app runbook: single-tenant public client with delegated Graph permissions, the IT procedure, Conditional Access and revocation",
       "publisher": "Lazurio",
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-microsoft-365-for-it",
@@ -539,18 +539,18 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-microsoft-365-company-app",
-      "title": "LazurioPlatform Integrations: the Microsoft 365 company app, its pinned specs and scopes, where the user signs in, Executor's approvals and the IT consent",
+      "title": "LazurioPlatform Integrations at release v0.1.21: the Microsoft 365 company app, its pinned specs and scopes, where the user signs in, Executor's approvals and the consent of the tenant's admin",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/integrations.md#the-microsoft-365-company-app",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/integrations.md#the-microsoft-365-company-app",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-decision-f45",
@@ -559,8 +559,8 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-release-v0-1-9",
@@ -569,68 +569,108 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-decision-f42-m365-test",
+      "title": "LazurioPlatform decision F42 at release v0.1.21, addendum (c) of 2026-10-14, point 10 (addendum of 2026-10-22): the Microsoft 365 company app verified on the reference Organization's test tenant (security defaults, no Conditional Access), including MFA at the code redemption",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/decisions.md#f42--integrace-one-catalog-for-the-environment-one-path-per-app-executors-api-behind-the-launchpad",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-m365-test-exchange",
+      "title": "LazurioPlatform issue 596, comment of 2026-10-22: on the test tenant Executor redeemed the company app's code from the Environment without a client secret, through the Launchpad's HTTPS callback",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/596#issuecomment-6344936802",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-m365-refresh-question",
+      "title": "LazurioPlatform issue 598 (open): one automatic refresh of the company app's token succeeded on 2026-10-22; whether later refreshes still rotate the refresh token is to be verified",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/issues/598",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-manifest-family-settings",
-      "title": "Lazurio manifest family: the Microsoft 365 setting settings.integrations.microsoft365 and the rule that readers ship first",
+      "title": "LazurioPlatform Organization contract at release v0.1.21: the closed settings section with settings.integrations.microsoft365, and readers first",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/lazurio-manifest-family.md#microsoft-365-company-app-settingsintegrationsmicrosoft365",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/organization-contract.md#organization-settings",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-decision-register-gen4",
-      "title": "Lazurio decision register for GEN3 and GEN4 in LazurioPlatform: the decisions cited by the IT and Admin pages",
+      "title": "Lazurio decision register for GEN3 and GEN4 in LazurioPlatform (main of 2026-11-17): the decisions cited by the IT and Admin pages",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-first-organization-rollout",
       "title": "First Organization rollout runbook (Czech): the GitHub access baseline and its read-back before the first Builder",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/first-client-organization-rollout.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/manual/first-client-organization-rollout.md#L293-L434",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-organization-install",
-      "title": "Organization install runbook (Czech): Lazurio for GitHub with All repositories, the access baseline, Read on Design Systems and role-scoped installation",
+      "title": "Organization install runbook (Czech): Lazurio for GitHub with All repositories, the access baseline, Read on Design Systems and the role-scoped installation with --role module-contributor",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/organization-install.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/manual/organization-install.md#L131-L275",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-root-agent-rules",
-      "title": "Lazurio Root rules for agents (Czech): Publication, Release, issues and Design System access",
+      "title": "GEN3 Lazurio Root rules for agents (Czech): Publication, Release, issues and Design System access",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/AGENTS.md",
+      "url": "https://github.com/HumanAndMachines/Lazurio/blob/31028d51893b2f7caa4a723dbe0081b4f17fbada/AGENTS.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-folder-release",
+      "title": "LazurioPlatform Folder manual at release v0.1.21: a Release is not a Publication; only whoever GitHub allows triggers it, on the user's explicit instruction or a standing mandate",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/manual.ts#L691-L694",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-folder-roles",
-      "title": "LazurioPlatform Folder manual: the Organization roles Admin, Steward, Builder and User",
+      "title": "LazurioPlatform Folder manual (main of 2026-11-17): the access roles of decision 0234, the Organization Owner and Admin of decision 0245, and the --role values of lazurio organization install",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/manual.ts#L888-L904",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/src/folder/manual.ts#L1095-L1206",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-decision-f31",
@@ -639,8 +679,8 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f31--a-team-environment-publishes-under-the-teams-identity",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-team-github",
@@ -649,18 +689,18 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/environment-tools.md#gh-on-a-team-environment",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-github-app-broker",
-      "title": "Lazurio for GitHub broker 0.14.0: one-repository installation tokens, permission tiers chosen by the Team's live grant, and the public-issue limitation",
+      "title": "Lazurio for GitHub broker 0.16.0: one-repository installation tokens, permission tiers chosen by the Team's live grant, optional read and contents ceilings, and the public-issue limitation",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md",
+      "url": "https://github.com/Lazurio/github-app/blob/56975c96615887520dddc20db60a4b647d4d344d/README.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-github-app-public-issues",
@@ -669,8 +709,8 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/github-app/issues/23",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-external-apps-org-steps",
@@ -679,8 +719,8 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/external-app-integrations.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-provider-runbooks",
@@ -689,18 +729,28 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/tree/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-integrations-catalog",
+      "title": "LazurioPlatform integrations catalog at release v0.1.21: LinkedIn is connected through Composio",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/integrations/catalog.json#L713-L726",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "composio-create-organization-request",
-      "title": "Composio issue 4949: create and rename an organization from the CLI (opened 2026-10-17, open on 2026-11-01)",
+      "title": "Composio issue 4949: create and rename an organization from the CLI (opened 2026-10-17, open on 2026-11-17)",
       "publisher": "Composio public issue tracker",
       "kind": "public-source",
       "url": "https://github.com/ComposioHQ/composio/issues/4949",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-permissions-consent",
@@ -709,8 +759,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-graph-permissions-reference",
@@ -719,8 +769,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/graph/permissions-reference",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-app-consent-policies",
@@ -729,8 +779,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-grant-admin-consent",
@@ -739,8 +789,18 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "microsoft-entra-assign-users-groups",
+      "title": "Manage users and groups assignment to an application: group-based assignment needs Microsoft Entra ID P1 or P2, nested groups are not supported, and an app that requires assignment needs administrator consent",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-delegate-app-roles",
@@ -749,8 +809,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-register-app",
@@ -759,8 +819,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-add-redirect-uri",
@@ -769,8 +829,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-enterprise-app-properties",
@@ -779,8 +839,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-redirect-uri",
@@ -789,8 +849,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/reply-url",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-desktop-app-configuration",
@@ -799,8 +859,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-auth-code-flow",
@@ -809,8 +869,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-access-tokens",
@@ -819,8 +879,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-refresh-tokens",
@@ -829,8 +889,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/refresh-tokens",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-revoke-user-access",
@@ -839,8 +899,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-graph-revoke-sign-in-sessions",
@@ -849,8 +909,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/graph/api/user-revokesigninsessions",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-session-lifetime",
@@ -859,8 +919,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-session-lifetime",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-error-codes",
@@ -869,8 +929,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-noninteractive-sign-ins",
@@ -879,8 +939,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-noninteractive-sign-ins",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-purview-audit",
@@ -889,8 +949,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/purview/audit-solutions-overview",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-entra-publisher-verification",
@@ -899,8 +959,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/entra/identity-platform/publisher-verification-overview",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-graph-create-event",
@@ -909,8 +969,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/graph/api/user-post-events",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-graph-event-cancel",
@@ -919,8 +979,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/graph/api/event-cancel",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-graph-driveitem-createlink",
@@ -929,8 +989,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-createlink",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-graph-driveitem-invite",
@@ -939,8 +999,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/graph/api/driveitem-invite",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-work-iq-permissions",
@@ -949,8 +1009,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/permissions",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "microsoft-work-iq-overview",
@@ -959,8 +1019,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/",
       "reviewOwner": "Pablo AI",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-organization-roles",
@@ -969,8 +1029,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-base-permissions",
@@ -979,8 +1039,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-install-app",
@@ -989,8 +1049,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/apps/using-github-apps/installing-a-github-app-from-a-third-party",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-protected-branches",
@@ -999,8 +1059,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-rulesets",
@@ -1009,8 +1069,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-code-owners",
@@ -1019,8 +1079,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-repository-collaborators",
@@ -1029,8 +1089,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/rest/collaborators/collaborators",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-rest-pull-requests",
@@ -1039,8 +1099,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.github.com/en/rest/pulls/pulls",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "google-oauth-audience",
@@ -1049,8 +1109,8 @@
       "kind": "provider-documentation",
       "url": "https://support.google.com/cloud/answer/15549945",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "google-oauth2-refresh-token-expiration",
@@ -1059,8 +1119,8 @@
       "kind": "provider-documentation",
       "url": "https://developers.google.com/identity/protocols/oauth2#expiration",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "google-workspace-mcp-servers",
@@ -1069,8 +1129,8 @@
       "kind": "provider-documentation",
       "url": "https://developers.google.com/workspace/guides/configure-mcp-servers",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "slack-mcp-server",
@@ -1079,8 +1139,8 @@
       "kind": "provider-documentation",
       "url": "https://docs.slack.dev/ai/slack-mcp-server/",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "atlassian-mcp-get-started",
@@ -1089,8 +1149,8 @@
       "kind": "provider-documentation",
       "url": "https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "atlassian-mcp-settings",
@@ -1099,8 +1159,8 @@
       "kind": "provider-documentation",
       "url": "https://support.atlassian.com/security-and-access-policies/docs/control-atlassian-mcp-server-settings/",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "canva-mcp-access",
@@ -1109,8 +1169,8 @@
       "kind": "provider-documentation",
       "url": "https://www.canva.dev/docs/apps/mcp/access/",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "canva-mcp-tools",
@@ -1119,8 +1179,8 @@
       "kind": "provider-documentation",
       "url": "https://www.canva.dev/docs/apps/mcp/tools/",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "linkedin-api-access",
@@ -1129,8 +1189,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/linkedin/shared/authentication/getting-access",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "linkedin-authorization-code-flow",
@@ -1139,8 +1199,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/linkedin/shared/authentication/authorization-code-flow",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "linkedin-share-api",
@@ -1149,8 +1209,8 @@
       "kind": "provider-documentation",
       "url": "https://learn.microsoft.com/en-us/linkedin/consumer/integrations/self-serve/share-on-linkedin",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "linkedin-user-agreement",
@@ -1159,88 +1219,88 @@
       "kind": "provider-documentation",
       "url": "https://www.linkedin.com/legal/user-agreement",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-onboarding-decision-register",
-      "title": "Lazurio decision register: decisions 0062, 0089, 0103, 0162, 0169, 0170, 0172, 0175, 0179, 0185, 0188, 0189, 0192, 0201, 0207 and 0211 (roles, Buddy, pull requests and Publication, Integrations, Henry, vocabulary, full access, the shell, the first start, entry and questions)",
+      "title": "Lazurio decision register (main of 2026-11-17): decisions 0062, 0089, 0103, 0162, 0169, 0170, 0172, 0175, 0179, 0185, 0188, 0189, 0201, 0207 and 0211, 0231 and 0234 (roles name their level; no Module role gives an application role), and 0245 to 0247, which supersede 0192 (roles, Buddy, pull requests and Publication, Integrations, Henry, vocabulary, full access, the shell, the first start, entry and questions)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-folder-agent-rules",
-      "title": "LazurioPlatform Folder generator: the agent instructions (AGENTS.md) on worktrees, Draft pull requests, Publication only with the user's consent, the question tool, Files links and Integrations",
+      "title": "LazurioPlatform Folder generator at release v0.1.21: the agent instructions (AGENTS.md) on worktrees, Draft pull requests, Publication only with the user's consent, the question tool, Files links and Integrations",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/render.ts",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/render.ts",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-folder-manual",
-      "title": "LazurioPlatform Folder generator: the agents' manual (glossary, roles, the handoff, Publication, where knowledge belongs, work-only Work Environments)",
+      "title": "LazurioPlatform Folder generator at release v0.1.21: the agents' manual (glossary, roles, the handoff, Publication, where knowledge belongs, work-only Work Environments, content synchronization and removal of a module copy when access ends)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/manual.ts",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/manual.ts",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-launchpad-texts",
-      "title": "LazurioPlatform Apps and Settings texts in English and Czech: Getting started, the tour, Apps, Files, Integrations, Vault and Recovery",
+      "title": "LazurioPlatform Apps and Settings texts in English and Czech at release v0.1.21: Getting started, the tour, Apps (Aplikace), Files, Integrations (Napojení), Vault (Správce hesel) and Recovery",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/launchpad/messages.ts",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/launchpad/messages.ts",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-getting-started",
-      "title": "LazurioPlatform Getting started: the steps checked from the Environment's own state, AI before GitHub, the Organization's download after GitHub",
+      "title": "LazurioPlatform Getting started at release v0.1.21: the steps checked from the Environment's own state, AI before GitHub, the Organization's download after GitHub",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/launchpad/start-view.ts",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/launchpad/start-view.ts",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-shell-column-head",
-      "title": "LazurioPlatform shell: the header of the left column with the Environment, its Settings gear, the Chat, Apps and Automate switch and the setup prompt",
+      "title": "LazurioPlatform shell at release v0.1.21: the header of the left column with the Environment named by its person and its kind, its Settings gear, the Chat, Apps and Automate switch and the setup prompt",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/shell/view.ts",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/shell/view.ts",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-shell-texts",
-      "title": "LazurioPlatform shell texts in English and Czech: the Settings of each kind of Environment and Finish setting up",
+      "title": "LazurioPlatform shell texts in English and Czech at release v0.1.21: the switch Chat · Apps · Automate (in Czech Chat · Aplikace · Automatizace), the Settings of each kind of Environment and Finish setting up",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/shell/messages.ts",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/shell/messages.ts",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-platform-onboarding-decisions",
-      "title": "LazurioPlatform decisions F24, F35, F36, F42, F51 and F56: Organization applications as Modules, Files, the shell, Integrations, Chat starting in the Folder and the page guide",
+      "title": "LazurioPlatform decisions F24, F35, F36 (with its addendum of 2026-11-06 on the Czech names), F42, F51 and F56: Organization applications as Modules, Files, the shell, Integrations, Chat starting in the Folder and the page guide",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decisions.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-01",
-      "reviewDueAt": "2026-12-01"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "github-about-pull-requests",
