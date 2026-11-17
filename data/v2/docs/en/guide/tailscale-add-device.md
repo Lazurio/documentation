@@ -467,11 +467,12 @@ operator how to submit the approval.
 **Target.** Lazurio's access model (decision 0245) describes a registered
 device that reaches nothing until the Organization Admin approves it in the
 Organization overview; a service on the Conglomerate Host applies the
-approval within tens of seconds and records it in the Organization's
-configuration as an audit record. A person can remove their own lost device
-immediately. For GEN4 it is decided that the service's audit entry is the
-only record of an approval, and Lazurio Auth keeps a copy of it for overviews
-and applications (decision 0245 as amended on 17 November 2026). That is still
+approval within tens of seconds. A person can remove their own lost device
+immediately. In GEN3 an approval is recorded as an audit entry in the
+Organization's configuration. For GEN4 it is decided that the service's own
+audit entry is the only record of an approval, Lazurio Auth keeps a copy of it
+for overviews and applications, and the GEN3 entry in the configuration does
+not carry over (decision 0245 as amended on 17 November 2026). That is still
 being built (`issue-2026-11-03-002`). This guide does not claim that it
 already runs for your Organization.
 

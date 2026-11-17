@@ -450,11 +450,12 @@ jeho, a postup podání schválení si vyžádejte od provozovatele sítě.
 **Cíl.** Model přístupu Lazuria (rozhodnutí 0245) popisuje zaregistrované
 zařízení, které nikam nedosáhne, dokud ho Admin Organizace neschválí
 v Přehledu Organizace; schválení provede služba na Conglomerate Hostu během
-desítek sekund a zapíše ho do konfigurace Organizace jako auditní záznam.
-Vlastní ztracené zařízení může člověk odebrat hned sám. Pro GEN4 je
-rozhodnuto, že jediným záznamem schválení je auditní záznam této služby
-a Lazurio Auth si drží jeho kopii pro přehledy a aplikace (rozhodnutí 0245
-ve znění ze 17. listopadu 2026). To se teprve staví (`issue-2026-11-03-002`).
+desítek sekund. Vlastní ztracené zařízení může člověk odebrat hned sám.
+V GEN3 se schválení zapisuje jako auditní záznam do konfigurace Organizace.
+Pro GEN4 je rozhodnuto, že jediným záznamem schválení je vlastní auditní
+záznam této služby, Lazurio Auth si drží jeho kopii pro přehledy a aplikace
+a záznam GEN3 v konfiguraci se do GEN4 nepřenáší (rozhodnutí 0245 ve znění
+ze 17. listopadu 2026). To se teprve staví (`issue-2026-11-03-002`).
 Návod netvrdí, že to už pro vaši Organizaci běží.
 
 **Jméno zařízení.** Pravidlo Lazuria pro jméno zařízení v síti je
