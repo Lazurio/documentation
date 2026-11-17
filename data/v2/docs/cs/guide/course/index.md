@@ -55,8 +55,8 @@ zkontrolujete. Použijte skutečnou, ale necitlivou práci.
 
 ## Co kurz popisuje
 
-Kurz popisuje Lazurio Platform tak, jak vypadá v posledním finálním vydání
-v0.1.21 z 13. listopadu 2026. Novější verze může mít jiné popisky. Pokud vaše Organizace ještě
+Kurz popisuje Lazurio Platform tak, jak vypadá ve vydání v0.1.21
+z 13. listopadu 2026. Novější verze může mít jiné popisky. Pokud vaše Organizace ještě
 pracuje s Lazurio Rootem na vašem počítači (GEN3), některé obrazovky
 a kroky se liší.
 

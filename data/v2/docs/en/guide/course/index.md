@@ -55,8 +55,8 @@ in lesson 8. Use real but non-sensitive work.
 
 ## What this course describes
 
-The course describes Lazurio Platform as it appears in its latest final
-release, v0.1.21 of 13 November 2026. A newer release may show other labels. If your
+The course describes Lazurio Platform as it appears in release v0.1.21
+of 13 November 2026. A newer release may show other labels. If your
 Organization still works with the Lazurio Root on your own computer (GEN3),
 some screens and steps differ.
 
