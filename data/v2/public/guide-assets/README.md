@@ -43,3 +43,17 @@
   register path are fictional. An orange ring marks where to click. Replace
   them with real screenshots once a Windows 11 test machine exists
   (`issue-2026-11-03-003`).
+- Motion scenes of the agent path on `guide/tailscale-add-device` (Windows and
+  macOS) — not image files: drawn in code by
+  `app/v2/src/components/DeviceSetupScene.astro`, with the visible label
+  "Ilustrace" / "Illustration" on the stage and a caption that the windows are
+  simplified and look different in reality. Made on 2026-11-17 after the
+  visual language of the Launchpad guide's scenes (Lazurio/LazurioPlatform
+  `src/shell/guide-scenes.ts` and `guide-scene-styles.ts` at `fe72f68`): a
+  paper stage of 320 × 180 units, Lazurio design tokens, Iconoir icons (MIT).
+  The steps follow this page's own prompt and manual steps; the Windows
+  dialog ("Povolit změny? Ano") stands for the User Account Control prompt a
+  winget installation raises, the macOS one ("Povolit VPN?") for the VPN
+  configuration request Tailscale's documentation describes. Neither copies
+  Microsoft's or Apple's artwork. Replace or check them against real
+  screenshots once Windows and macOS test machines exist.

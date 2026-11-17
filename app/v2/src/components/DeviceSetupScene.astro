@@ -35,6 +35,8 @@ interface Props {
     network: string
     waiting: string
     admin: string
+    badge: string
+    note: string
     steps: string[]
   }
 }
@@ -56,6 +58,7 @@ const total = c.steps.length
 ---
 <device-scene class="lzs not-content" data-system={system} data-step-of={c.stepOf} data-total={total}>
   <div class="lzs-stage" aria-hidden="true" hidden>
+    <span class="lzs-badge">{c.badge}</span>
     <div class="lzs-scene" data-beat="0">
       <span class="lzs-o lzs-box lzs-chat">
         <span class="lzs-title"><Fragment set:html={svg('laptop')} />{c.chat}</span>
@@ -96,6 +99,7 @@ const total = c.steps.length
       <button type="button" data-next data-next-label={c.next} data-restart-label={c.restart}>{c.next}</button>
     </span>
   </div>
+  <p class="lzs-note">{c.note}</p>
 </device-scene>
 
 <style>
@@ -192,6 +196,8 @@ const total = c.steps.length
   /* Beat 4: done; the device waits for the Organization Admin. */
   [data-beat='4'] :is(.lzs-chat, .lzs-sent, .lzs-linkmsg, .lzs-donemsg, .lzs-tile, .lzs-line, .lzs-person) { opacity: 1; }
 
+  .lzs-badge { position: absolute; z-index: 1; top: 0.5rem; right: 0.5rem; padding: 0.1rem 0.45rem; border-radius: var(--lz-radius-pill); background: var(--lz-ink); color: var(--lz-white); font-size: 0.7rem; font-weight: var(--lz-weight-title); letter-spacing: 0.04em; text-transform: uppercase; }
+  .lzs-note { margin: 0.5rem 0 0; color: var(--sl-color-gray-3); font-size: 0.85rem; }
   .lzs-steps { margin-block: 0.75rem 0; padding-inline-start: 1.5rem; list-style: decimal; }
   .lzs-steps li + li { margin-top: 0.25rem; }
   .lzs[data-ready] .lzs-steps { padding: 0; list-style: none; }
