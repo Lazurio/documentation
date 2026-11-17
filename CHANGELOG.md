@@ -2,6 +2,32 @@
 
 ## Unreleased
 
+- Re-verify the seventy-two evidence sources due on 2026-12-01 and renew all
+  seventy-two until 2026-12-17: 48 still support their pages, 24 after the
+  page text was corrected first. Microsoft 365: "Assignment required" is a
+  required step, with Microsoft Entra ID P1 or P2 for assigning a group
+  (decided by Matěj Suchánek on 2026-11-17); Work IQ has three permissions; an
+  administrator's password reset in the admin center also revokes passwordless
+  tokens; the status paragraph reports the code exchange without a secret on
+  Lazurio's test tenant of 2026-10-22 and what is still open. Provider notes:
+  Google's AI-agent client and full list of token ends, Canva's current rate
+  limits, direct connections for the organization-side steps, and LinkedIn
+  only through its official API through Composio, with agents never automating
+  its website (decided by Matěj Suchánek on 2026-11-17). GitHub baseline:
+  approvals tied to the reviewed changes, the broker's release 0.16.0 with its
+  read and contents ceilings, a person's bot approving the persona's pull
+  requests (0169), the `module-*` install values, Design System Read as a
+  template rule and no app installations for the Organization Admin; the
+  servers page marks 0209 as not yet deployed. Guide: the Czech interface
+  names of release v0.1.21 (Aplikace, Automatizace, Napojení, Správce hesel),
+  "An Organization Admin prepares it.", the left column's header, removal of a
+  module copy when access ends (F72), the default Application Admins of 0231
+  as amended on 2026-11-17, the Draft pull request fallback, a note that the
+  English interface still shows "Launchpad", and a course that describes
+  release v0.1.21. Lazurio sources move to release v0.1.21 or LazurioPlatform
+  main; six sources are new. `issue-2026-11-17-002` records the pilot check of
+  the code exchange with "Allow public client flows" off. Record:
+  `docs/source-review-2026-11-17-due-2026-12-01.md`.
 - Re-verify the fourteen evidence sources due by 2026-11-29 and renew all
   fourteen until 2026-12-17. The Wispr privacy note follows the current
   Context Awareness article. Pages that presented pinned 3c5bda5 statements as
