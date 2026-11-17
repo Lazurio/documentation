@@ -20,9 +20,10 @@ sourceRefs:
   - lazurio-decision-0234-role-names
   - lazurio-platform-folder-manual
   - lazurio-platform-launchpad-texts
-  - lazurio-platform-module-standard-v0-1-20
+  - lazurio-platform-module-standard
   - lazurio-platform-module-parts-f14
-  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-platform-marketplace
+  - lazurio-platform-release-v0-1-21
   - lazurio-marketplace-registry
   - github-about-pull-requests
   - github-protected-branches
@@ -97,8 +98,8 @@ pracuje, a aplikaci, ve které je vidíte a měníte. Moduly jsou například Mi
 Control a Knowledgebase. Víc na stránce [Moduly](/cs/guide/modules/).
 
 **Marketplace** Místo dole v Aplikacích se šablonami modulů. Šablona se do vaší
-Organizace přidá jako vaše vlastní soukromá kopie. Od verze 0.1.21, která je
-k 5. listopadu 2026 kandidát vydání, nabízí šablony z veřejného seznamu Lazuria.
+Organizace přidá jako vaše vlastní soukromá kopie. Od verze 0.1.21, vydané
+13. listopadu 2026, nabízí šablony z veřejného seznamu Lazuria.
 
 **Mission Control** Místo pro řízení práce. Uvidíte zde, co se řeší, kdo za
 to odpovídá a co má následovat.
@@ -282,7 +283,7 @@ k repozitářům určuje GitHub. Samotný název role přístup neuděluje.
 
 Pojmenování odpovídá veřejným [rozhodnutím Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md),
 zejména 0170 a 0207 s jejich dodatky, 0169 pro Henryho a 0089 pro Buddyho.
-Názvy rolí určuje [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
+Názvy rolí určuje [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
 (anglicky); dřívější názvy Builder, Steward a User už role neoznačují.
 Konkrétní instalace může používat starší popisky; technické názvy a příkazy
 zůstávají přesné. Pojmy krok za krokem používá [Úvodní kurz](/cs/guide/course/).

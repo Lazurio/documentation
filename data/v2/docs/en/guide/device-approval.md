@@ -4,7 +4,7 @@ description: "Why a registered device may still not reach your Environments, who
 stableId: lazurio-doc-guide-device-approval
 locale: en
 summary: "Why a registered device may still not reach your Environments, who decides about access and what to do when you lose a device."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -34,14 +34,14 @@ in yours.
 [Add a new device to the tailnet](/en/guide/tailscale-add-device/) walks you
 through it: installing Tailscale, signing in with your Lazurio account, how
 to tell waiting from approved, and [what to send your Organization
-Admin](/en/guide/tailscale-add-device/#ask-your-organization-admin-for-approval).
+Admin](/en/guide/tailscale-add-device/#what-happens-next).
 Registration alone does not guarantee access; if the Environment's address
 still does not open, ask the Organization Admin as that guide says.
 
 ## When you need no device in the tailnet
 
 - **Lazurio's reference Organization in its public entry**
-  ([decision 0213](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0213--network-for-people-an-organization-may-switch-from-tailnet-to-public-dns))
+  ([decision 0213](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0213--network-for-people-the-public-dns-mode-without-a-tailnet-retired-by-0243))
   needs no tailnet and no device approval until it returns to its tailnet. You
   sign in with your Lazurio account, but only to the web interface: Launchpad,
   chat, MausBot and Buddy. There is no SSH and no phone pairing for people
@@ -63,6 +63,6 @@ Admin does it.
 
 How to approve a device today, what to check first and the target in the
 Dashboard are in [For the Organization
-Admin](/en/guide/tailscale-add-device/#for-the-organization-admin).
+Admin](/en/guide/tailscale-add-device/#what-happens-next).
 Approving a device for the Organization's Environments opens nothing in a
 person's Personal Environment.

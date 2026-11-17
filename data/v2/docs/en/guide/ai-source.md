@@ -4,7 +4,7 @@ description: "The Organization's AI pool or your own ChatGPT account: where you 
 stableId: lazurio-doc-guide-ai-source
 locale: en
 summary: "The Organization's AI pool or your own ChatGPT account: where you see which one your Environment uses, who switches it and what a switch interrupts."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -36,7 +36,7 @@ its AI from one of two sources:
 | **Your own account** | You sign in with your own ChatGPT account, a work seat in your Organization's ChatGPT Business or a personal account, and with Claude if you want it. | **Connected:** with your account |
 
 Your Organization may mix both and move people one by one, in either
-direction ([decision 0229](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0229--the-organization-admin-sets-where-each-work-environment-takes-its-ai-from)).
+direction ([decision 0229](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0229--the-organization-admin-sets-where-each-work-environment-takes-its-ai-from)).
 
 ## What you do yourself
 

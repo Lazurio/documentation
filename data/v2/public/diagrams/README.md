@@ -14,4 +14,6 @@ and the Inter typeface. They hold no screenshots, accounts or customer data.
   on 2026-11-05 for the page Architecture, written from one layout so that the two
   languages stay the same picture. They follow the sources of that page: the Module
   Standard, the stack profiles and the decision register at v0.1.21-rc.1. Dashed
-  parts are decided and not deployed; change them when that status changes.
+  parts are decided and not deployed; change them when that status changes. On
+  2026-11-17 the two Czech diagrams took the Czech interface name Aplikace for
+  Apps (decision F36, addendum of 2026-11-06); nothing else in them changed.

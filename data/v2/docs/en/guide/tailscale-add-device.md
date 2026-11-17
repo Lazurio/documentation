@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-environment-access-model
   - lazurio-environment-access-model-device-approval
   - lazurio-agent-manual-device-enrollment
   - lazurio-device-node-names
@@ -333,13 +334,13 @@ Microsoft or Apple lead to someone else's network.
 <details>
 <summary>Details</summary>
 
-- Tailscale works on iOS 15 and later.
+- Tailscale works on iOS 16 and later.
 - The app changes its menus between versions. If you cannot find an item,
   look for a similar menu for a custom server.
 - We do not have our own pictures from an iPhone yet. The procedure with
   screen descriptions is on Tailscale's page [Configure Tailscale clients to
-  use a custom control
-  server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
+  use a custom coordination
+  server](https://tailscale.com/docs/how-to/set-up-custom-coordination-server).
 
 </details>
 
@@ -440,24 +441,25 @@ does not promise that a device that is not yet approved is blocked: that is
 decided by the Organization's network rules, which the Organization Admin
 manages with the network operator.
 
-**How it works today (as of 5 November 2026).** The Organization Admin
+**How it works today (as of 17 November 2026).** The Organization Admin
 approves a specific device and the Environments it may reach in the network
 operator's managed procedure; the network operator runs the server the
 tailnet is on. The change goes through review and deployment, and only then
-does the device reach the new places. Several waiting devices may go in one
-batch, so approval can take longer than a few minutes. The Organization
-overview does not show waiting devices yet: agree directly with the person
-which device is theirs, and ask the network operator how to submit the
-approval.
+does the device reach the new places, so approval can take longer than a few
+minutes. The Organization overview does not show waiting devices yet: agree
+directly with the person which device is theirs, and ask the network
+operator how to submit the approval.
 
 **Target.** Lazurio's access model (decision 0245) describes a registered
 device that reaches nothing until the Organization Admin approves it in the
 Organization overview; a service on the Conglomerate Host applies the
 approval within tens of seconds and records it in the Organization's
 configuration as an audit record. A person can remove their own lost device
-immediately. For GEN4 it is decided that approvals are written to Lazurio
-Auth. That is still being built (`issue-2026-11-03-002`). This guide does not
-claim that it already runs for your Organization.
+immediately. For GEN4 it is decided that the service's audit entry is the
+only record of an approval, and Lazurio Auth keeps a copy of it for overviews
+and applications (decision 0245 as amended on 17 November 2026). That is still
+being built (`issue-2026-11-03-002`). This guide does not claim that it
+already runs for your Organization.
 
 **Device name.** Tailscale names a device after the system: a computer after
 its name, a phone usually after its maker or model. The person cannot change

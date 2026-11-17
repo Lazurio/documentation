@@ -4,7 +4,7 @@ description: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes p
 stableId: lazurio-doc-guide-ask-the-admin
 locale: cs
 summary: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes požádat a co do žádosti patří a co nikdy."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-decision-register-access-0245-0247
   - lazurio-decision-register-admin-ai
   - lazurio-decision-0230-request
+  - lazurio-platform-folder-admin-request
   - lazurio-decision-0234-role-names
 audience:
   - builder
@@ -30,6 +31,8 @@ Některé věci ve vaší Organizaci dělá jen Admin Organizace. Požádejte ho
   ([Odkud bere vaše Prostředí AI](/cs/guide/ai-source/)).
 - Schvaluje a odebírá zařízení ([Schválení zařízení](/cs/guide/device-approval/)).
 - Zařizuje nové Prostředí nebo víc paměti či disku.
+- Zakládá v Organizaci nový modul podle vámi potvrzeného popisu
+  ([Moduly](/cs/guide/modules/)).
 - Dává vám roli v modulu jiného Teamu nebo přístup k jeho aplikaci. Podle
   rozhodnutí 0231, které zatím není nasazené, budou role v aplikaci dávat
   i Přispěvatelé modulu a Správci modulu tohoto modulu.
@@ -57,19 +60,19 @@ Ve **veřejném Prostředí**, které si může vyzkoušet kdokoli s Lazurio ú�
 
 ### S vaším agentem
 
-Lazurio agenty naučí žádost podat skillem `admin-request`. Do vašeho Prostředí
-přijde s verzí Lazuria, která ho obsahuje
-([LazurioPlatform#860](https://github.com/Lazurio/LazurioPlatform/pull/860),
-zatím nevydané). V Prostředí s touto verzí stačí říct třeba „Požádej Admina
-Organizace, ať mě přepne na můj účet ChatGPT“. Agent pak:
+Lazurio agenty učí žádost podat skillem `admin-request`, který je ve vydání
+v0.1.21 z 13. listopadu 2026 a novějších
+([LazurioPlatform#860](https://github.com/Lazurio/LazurioPlatform/pull/860)).
+Stačí říct třeba „Požádej Admina Organizace, ať mě přepne na můj účet
+ChatGPT“. Agent pak:
 
 1. ověří, že věc opravdu patří Adminovi Organizace;
 2. sebere údaje, které Admin Organizace potřebuje;
 3. zapíše issue;
 4. dá vám odkaz, nebo bez přístupu do repozitáře text, který pošlete sami.
 
-Do té doby vám agent může text žádosti podle této stránky připravit a podáte
-nebo pošlete ho sami.
+V Prostředí se starší verzí vám agent může text žádosti podle této stránky
+připravit a podáte nebo pošlete ho sami.
 
 ## Co v žádosti je
 
@@ -90,7 +93,7 @@ Prostředí mu to nedává. Pro GEN4 je Admin Organizace rozhodnutý jako role
 Lazuria, kterou jmenuje Vlastník Organizace
 ([rozhodnutí 0245](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use),
 zatím nenasazené). Názvy rolí určuje
-[rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
+[rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
 (anglicky).
 
 ## Co se chystá

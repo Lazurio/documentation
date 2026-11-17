@@ -4,7 +4,7 @@ description: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT 
 stableId: lazurio-doc-guide-phone-and-computer
 locale: cs
 summary: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT v telefonu nebo z ChatGPT Desktopu v počítači, a co použít, když to Připojení nenabízí."
-updatedAt: "2026-11-12"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -25,7 +25,7 @@ tam stránka ukáže. Tady najdete, co který případ znamená.
 ## Kdy jde párování
 
 Párování propojí aplikaci ChatGPT s vaším Prostředím přes váš účet ChatGPT
-([rozhodnutí 0215](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0215--chatgpt-apps-pair-with-an-environment-through-the-chatgpt-account-ssh-stays-a-hidden-option-for-advanced-users)).
+([rozhodnutí 0215](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0215--chatgpt-apps-pair-with-an-environment-through-the-chatgpt-account-ssh-stays-a-hidden-option-for-advanced-users)).
 Funguje jen tehdy, když platí všechno z tohoto:
 
 - vaše Prostředí používá **váš vlastní účet ChatGPT**, ne AI pool Organizace

@@ -32,7 +32,7 @@ a historii změn. Agent připravuje návrhy, jejich zveřejnění se schvaluje
 zvlášť. Přístupy dál určují GitHub, operační systém a připojené služby.
 
 Tento přehled vychází z instalovatelné Lazurio Platform v0.1.21 z 13. listopadu
-2026. CLI a Apps sdílejí jeden instalovaný program, který připravuje instrukce
+2026. CLI a Aplikace sdílejí jeden instalovaný program, který připravuje instrukce
 pro agenty v Lazurio Folderu
 ([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
 Součástí není předplatné AI ani univerzální sandbox. Starší repozitář Lazurio
@@ -51,7 +51,7 @@ jen tehdy, když je konkrétní nasazení zapne.
 
 | Položka | Současný stav podle veřejných zdrojů |
 | --- | --- |
-| Podoba produktu | Instalovatelné CLI a Apps s generovanými instrukcemi. Kopie zdrojového kódu není podmínkou každodenní práce. Vydání jsou verzovaná; tento přehled je ověřený proti v0.1.21 z 13. listopadu 2026. |
+| Podoba produktu | Instalovatelné CLI a Aplikace s generovanými instrukcemi. Kopie zdrojového kódu není podmínkou každodenní práce. Vydání jsou verzovaná; tento přehled je ověřený proti v0.1.21 z 13. listopadu 2026. |
 | Vyspělost prostředí | README Lazurio Platform stav dál označuje jako kandidáty na vydání (release candidates) a hostovaná Prostředí vedle ní zatím provozují dřívější Resident, dokud nebude nasazený hostovaný vstup a synchronizace obsahu. Ověřte instalované vydání a zapnuté služby. Vydání produktu nedokládá nasazení každé volitelné služby. |
 | Licence | Lazurio Platform je dostupná pod [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) a na Apache se automaticky nepřevádí. Hostovaná nebo spravovaná služba pro třetí strany, která zpřístupňuje podstatnou část funkcí nebo funkcionality softwaru, vyžaduje samostatnou smlouvu, i když je zdarma. Nejde o zákaz každého hostingu: interní použití ve firmě, i na pronajatém serveru nebo v interním cloudu, licence za svých podmínek povoluje ([rozsah](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)). Starší repozitář Lazurio rootu je pod [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md) a na každou jeho vydanou verzi se po dvou letech začne vztahovat Apache 2.0. |
 | Záruky | Nepřislibujeme certifikaci, univerzální úroveň služby, dobu uchování dat ani jednotné uspořádání nasazení. Podpora a hosting se řeší pro konkrétní nasazení. |

@@ -4,24 +4,24 @@ description: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace,
 stableId: lazurio-doc-architecture
 locale: cs
 summary: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace, moduly a služby okolo, co jde na GitHub a kde má modul data."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-platform-module-standard
   - lazurio-platform-module-standard-v0-1-20
-  - lazurio-platform-module-standard-v0-1-21
   - lazurio-platform-module-parts-f14
   - lazurio-platform-decision-f52
-  - lazurio-platform-content-sync-v0-1-20
+  - lazurio-platform-content-sync
   - lazurio-platform-release-v0-1-20
-  - lazurio-platform-release-v0-1-21-rc-1
-  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-platform-release-v0-1-21
+  - lazurio-platform-marketplace
   - lazurio-platform-stack-profiles
   - lazurio-platform-register-modules
-  - lazurio-platform-environment-access-v0-1-21
+  - lazurio-environment-access-model
   - lazurio-platform-app-database-connection-question
   - lazurio-documentation-readme
   - lazurio-decision-register-admin-ai
@@ -121,10 +121,13 @@ přes GitHub aplikaci Lazurio Administration Access s vlastními právy člověk
 který změnu dělá, takže ho audit GitHubu jmenuje. Změna, o kterou požádá
 Správce modulu, je žádost, kterou schvaluje Admin Organizace.
 
-Odebrání přístupu zastaví operace s repozitářem, ale nesmaže, co už Prostředí má.
-Kopie zůstane, agent s přístupem do tohoto Prostředí ji přečte a přestane se
-aktualizovat. Manifest Organizace uvádí všechny moduly, takže samotné jméno skryté
-není.
+Odebrání přístupu zastaví operace s repozitářem. Co se stane s kopií, záleží na
+Prostředí. V Pracovním Prostředí přiřazeném člověku Lazurio kopii modulu smaže
+i s neuloženou prací, jakmile dvě synchronizace po sobě, nejméně 30 minut od
+sebe, prokážou, že přístup skončil (rozhodnutí F72). V Týmovém Prostředí,
+v Henrym, ve Službách serveru a na vlastním počítači člověka kopie zůstane: agent
+s přístupem do tohoto Prostředí ji přečte a přestane se aktualizovat. Manifest
+Organizace uvádí všechny moduly, takže samotné jméno skryté není.
 
 Lazurio řídí vstup do modulu a předává mu ověřenou identitu. Co smí který člověk
 uvnitř, jsou vlastní pravidla Organizace v jejím kódu a datech (rozhodnutí 0196).
@@ -146,11 +149,11 @@ uvnitř, jsou vlastní pravidla Organizace v jejím kódu a datech (rozhodnutí 
 ## Kde má modul data
 
 Generace aplikace, tedy složka `app/v<N>`, říká, kde leží data, ne jak je
-aplikace dobrá (rozhodnutí F69, v kandidátu vydání v0.1.21-rc.1).
+aplikace dobrá (rozhodnutí F69, od vydání v0.1.21).
 
 | Generace | Kde data leží | Kdy se to hodí | Veřejný příklad | Stav |
 | --- | --- | --- | --- | --- |
-| `v1` | Obsah je součástí aplikace. Datová vrstva není. | Modul nemá vlastní záznamy. | Šablony Design System a Prezentace | K dispozici |
+| `v1` | Obsah je součástí aplikace. Datová vrstva není. | Modul nemá vlastní záznamy. | Šablony Design System a Presentations | K dispozici |
 | `v2` | Obsah leží vedle aplikace ve stejném repozitáři, v `data/v2/`. Vlastní datová vrstva není. | Obsahu je hodně, mění se občas a upravují ho agenti. | [Tato dokumentace](https://github.com/Lazurio/documentation) | K dispozici |
 | `v3` | Záznamy leží v datovém repozitáři `<owner>/<modul>-data`, spravuje je repository-db a je připojený jako `db/`. Úprava člověka je nepublikovaná změna; publikace je jeden commit a push. | Záznamy se mění denně a chcete historii a schvalování. Výchozí volba pro nový modul s daty. | Šablona Mission Control | K dispozici |
 | `v4` | Záznamy leží v databázi Dolt ve Službách serveru Organizace. Na GitHubu je aplikace, postup a schéma, řádky ne. | Zapisuje mnoho lidí najednou, přístup se liší uvnitř dat, osobní údaje se musí dát smazat nebo zapisuje služba zvenku. | Zatím žádný | **Rozhodnuto, nenasazeno** |
@@ -177,8 +180,10 @@ K tabulce tři poznámky:
 Cizí systém zůstává tam, kde je. Agent se k němu dostane jako k Integraci,
 například přes vlastní MCP server v Executoru, a vidí to, co mu připojení
 dovolí. Data zůstávají v tomto systému. Databáze `v4` slouží vnitřní práci
-Organizace; produkční aplikace a databáze, které obsluhují její zákazníky, jsou
-samostatné systémy mimo ni (rozhodnutí 0209).
+Organizace. Produkční data zůstávají mimo ni: produkční aplikace Organizace běží
+na samostatném aplikačním hostu, a až je bude obsluhovat i databázová služba,
+ponechá jejich data v samostatných databázích s vlastními identitami a granty
+(rozhodnutí 0209 a 0239, rozhodnuto, zatím nenasazeno).
 
 Naše hodnocení, ne technický limit: vlastní modul se vyplatí, když chcete vlastní
 postup a aplikaci, Integrace, když z velké části používáte cizí aplikaci.
@@ -192,10 +197,10 @@ označuje za návrh, který je třeba ověřit na prototypu, ne za ověřené ch
 
 ## Zdroje
 
-- [Lazurio Module Standard](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/module-standard.md) ve vydání v0.1.20 a [ve verzi v0.1.21-rc.1](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/module-standard.md) pro generace.
-- [Stack profily](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/stack-profiles.md) ve verzi v0.1.21-rc.1: datová vrstva každé generace, `app-data` a `app-database`.
-- [Synchronizace obsahu](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/content-sync.md) ve vydání v0.1.20.
-- [Přístup k Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/environment-access.md) ve verzi v0.1.21-rc.1.
-- [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/d1d8917cdf1afdf49c5091115ca9d615abc0c376/docs/decision-register.md) ve verzi v0.1.21-rc.1: rozhodnutí 0162, 0171, 0172, 0186, 0193, 0196, 0198, 0203, 0209 a 0213.
+- [Lazurio Module Standard](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/module-standard.md) ve vydání v0.1.22 a [ve vydání v0.1.20](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/module-standard.md) pro to, kde začínal nový modul s daty před v0.1.21.
+- [Stack profily](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/stack-profiles.md) ve vydání v0.1.22: datová vrstva každé generace, `app-data` a `app-database`.
+- [Synchronizace obsahu](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/content-sync.md) ve vydání v0.1.22.
+- [Přístup k Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/environment-access.md) ze 17. 11. 2026.
+- [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md) ze 17. 11. 2026: rozhodnutí 0162, 0171, 0172, 0186, 0193, 0196, 0198, 0203, 0209, 0213 a 0239.
 - [Rozhodnutí 0245, 0246 a 0247](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md) ze 14. 11. 2026, cílový model, zatím nenasazené: kdo je kdo v Organizaci, síť (do každého Prostředí jen přes tailnet) a vstup do Prostředí. Slučují rozhodnutí 0192, 0228 a 0243.
-- [Rozhodnutí F14](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (co modul drží) a [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (jeden generátor, osobní moduly).
+- [Rozhodnutí F14](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (co modul drží) a [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (jeden generátor, osobní moduly).

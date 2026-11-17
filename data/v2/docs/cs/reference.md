@@ -4,7 +4,7 @@ description: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřová
 stableId: lazurio-doc-reference
 locale: cs
 summary: "Odkazy na zdroje Lazuria a Microsoftu a pravidla jejich ověřování."
-updatedAt: "2026-10-04"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -47,7 +47,7 @@ ověření najdete v mapě zdrojů. Jazyková úprava stránky sama toto datum n
 - [Ochrana dat a audit](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing)
 - [Data, soukromí a bezpečnost](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy)
 - [Technické požadavky](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements)
-- [Pluginy Copilotu](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview)
+- [Pluginy Copilotu](https://learn.microsoft.com/en-us/plugins/overview)
 
 ## Kontrola aktuálnosti
 

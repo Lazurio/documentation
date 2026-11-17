@@ -10,17 +10,16 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-platform-module-standard-v0-1-20
-  - lazurio-platform-module-standard-v0-1-21
+  - lazurio-platform-module-standard
   - lazurio-platform-module-parts-f14
   - lazurio-platform-decision-f52
-  - lazurio-platform-content-sync-v0-1-20
-  - lazurio-platform-new-module-tile-v0-1-20
-  - lazurio-platform-texts-v0-1-20
-  - lazurio-platform-prompt-handoff-v0-1-20
+  - lazurio-platform-content-sync
+  - lazurio-platform-new-module-tile
+  - lazurio-platform-module-texts
+  - lazurio-platform-prompt-handoff
   - lazurio-platform-release-v0-1-20
-  - lazurio-platform-release-v0-1-21-rc-1
-  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-platform-release-v0-1-21
+  - lazurio-platform-marketplace
   - lazurio-marketplace-registry
   - lazurio-template-adoption
   - lazurio-platform-stack-profiles
@@ -74,7 +73,7 @@ pracují.
 
 ## Kde modul najdete
 
-Otevřete **Apps**. V části **Workspace** vidíte každý modul své Organizace, ke
+Otevřete **Aplikace**. V části **Workspace** vidíte každý modul své Organizace, ke
 kterému se vaše Prostředí dostane, a to každý jednou. Dlaždice otevře aplikaci
 modulu v prohlížeči; samotná aplikace běží ve vašem Prostředí.
 
@@ -83,26 +82,32 @@ se Admina Organizace.
 
 ## Jak modul vzniká
 
-**S agentem.** V Apps v části **Workspace** zvolte **Nový modul**. Otevře se
-Chat v novém vlákně s připraveným zadáním, zatím neodeslaným. Popíšete, co má
-modul řešit, agent se doptá na to, co mu chybí, a technické věci zvolí sám.
-Ukáže vám plán a modul založí až po vašem souhlasu.
+**S agentem.** V Aplikacích v části **Workspace** zvolte **Nový modul**. Krátký
+dialog vysvětlí, co je modul, a zeptá se, co má řešit; popíšete to vlastními
+slovy. Tlačítko **Otevřít v Chatu** pak otevře Chat v novém vlákně se zadáním,
+zatím neodeslaným. Agent se doptá na to, co mu chybí, a technické věci zvolí
+sám. Ukáže vám plán a modul založí až po vašem souhlasu.
 
 Kdo to může udělat, záleží na tom, kam modul patří:
 
-- **V Organizaci zakládá moduly Admin Organizace.** Dlaždici **Nový modul** vidí jen on.
-  Z modulu se stane soukromý repozitář Organizace.
-- **Když Adminem Organizace nejste,** popište, co potřebujete, a
-  [požádejte ho](/cs/guide/ask-the-admin/).
+- **V Organizaci zakládá moduly Admin Organizace.** Z modulu se stane soukromý
+  repozitář Organizace.
+- **Když Adminem Organizace nejste,** uvidíte dlaždici **Nový modul** ztlumenou,
+  se zámkem a řádkem „Zakládá Admin Organizace“. Otevře stejný dialog: popíšete,
+  co potřebujete, a agent z toho připraví žádost pro Admina Organizace a před
+  odesláním vám ji ukáže. V Týmovém Prostředí tato dlaždice není; tam
+  [požádejte Admina Organizace](/cs/guide/ask-the-admin/).
 - **V Osobním Prostředí si zakládáte moduly sami.** Stejnou dlaždici najdete ve
   svém osobním prostoru. Z modulu se stane soukromý repozitář na vašem vlastním
   GitHub účtu. Patří jen vám a do žádné Organizace nejde.
 
-**Ze šablony.** Verze 0.1.21, k 5. listopadu 2026 kandidát vydání, přináší
-šablony do **Marketplace** dole v Apps: Mission Control, Design System
-a Prezentace. Tlačítko **Přidat do Organizace** předá zadání vašemu agentovi,
-který vám ukáže plán a připraví soukromou kopii ve vaší Organizaci. Založí ji
-i tady Admin Organizace; když jím nejste, agent mu připraví žádost.
+**Ze šablony.** Od verze 0.1.21, vydané 13. listopadu 2026, nabízí
+**Marketplace** dole v Aplikacích šablony z veřejného seznamu Lazuria, třeba
+Mission Control, Design System a Presentations. Nová šablona se v něm objeví
+i bez nového vydání Lazuria. Tlačítko **Přidat do Organizace** předá zadání
+vašemu agentovi, který vám ukáže plán a připraví soukromou kopii ve vaší
+Organizaci. Založí ji i tady Admin Organizace: když jím nejste, tlačítko
+v dialogu se jmenuje **Požádat Admina Organizace** a agent mu připraví žádost.
 
 Ať modul vznikne jakkoli, je to váš modul. Začněte malou první verzí. Modul
 roste dalšími zadáními v Chatu.
@@ -119,7 +124,7 @@ Organizace sdílí moduly po Teamech. Admin Organizace rozhoduje, které Teamy
 k modulu dosáhnou, a to v Přehledu Organizace nebo přímo na GitHubu. Přístup
 Teamu k modulu má úroveň, jednu z rolí v modulu: Čtenář modulu, Přispěvatel
 modulu nebo Správce modulu (rozhodnutí 0232 a 0234). Modul se
-doručuje do Prostředí: co v Prostředí není, to v Apps nevidíte a agent tam nepřečte.
+doručuje do Prostředí: co v Prostředí není, to v Aplikacích nevidíte a agent tam nepřečte.
 Jméno modulu ale agent vidět může v manifestu Organizace.
 
 Rozhoduje, co v Prostředí opravdu leží. Kdo má plný přístup do sdíleného Prostředí,
@@ -131,7 +136,7 @@ přestane aktualizovat.
 
 Od verze 0.1.20 k vám modul dorazí sám, jakmile k němu máte přístup. Lazurio se ho
 pokusí stáhnout do vašeho Prostředí při startu a potom každou hodinu, takže se
-v Apps obvykle objeví do hodiny a nikdo nemusí nic instalovat. Je to pokus, ne
+v Aplikacích obvykle objeví do hodiny a nikdo nemusí nic instalovat. Je to pokus, ne
 záruka. Když nejde aktualizovat kopii kořenového repozitáře Organizace ve vašem
 Prostředí nebo když GitHub operaci odmítne či se nepovede, modul nedorazí a Lazurio
 to zkusí znovu v dalším kole. Když očekávaný modul nepřichází, zeptejte se Admina
@@ -188,12 +193,12 @@ Lidé pracují s kopií ve svém Prostředí.
 **Jsou to naše vlastní moduly, nebo ty vaše?**
 Vždycky vaše. I šablona se přidá jako vaše vlastní soukromá kopie.
 
-**Je Apps něco jiného než modul?**
-Ano. Apps je stránka v Lazuriu, na které moduly najdete. Modul je to, co otevře
+**Je stránka Aplikace něco jiného než modul?**
+Ano. Na stránce Aplikace v Lazuriu moduly najdete. Modul je to, co otevře
 její dlaždice.
 
 **Musím nový modul přesunout do nějaké složky?**
-Ne. Agent ho založí na správné místo a v Apps se objeví sám.
+Ne. Agent ho založí na správné místo a v Aplikacích se objeví sám.
 
 **Postaví jedno zadání celé CRM?**
 Najednou ne. Zadejte malou první verzi, která dělá dobře jednu věc, a v Chatu

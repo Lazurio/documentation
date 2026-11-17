@@ -10,17 +10,16 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
-  - lazurio-platform-module-standard-v0-1-20
-  - lazurio-platform-module-standard-v0-1-21
+  - lazurio-platform-module-standard
   - lazurio-platform-module-parts-f14
   - lazurio-platform-decision-f52
-  - lazurio-platform-content-sync-v0-1-20
-  - lazurio-platform-new-module-tile-v0-1-20
-  - lazurio-platform-texts-v0-1-20
-  - lazurio-platform-prompt-handoff-v0-1-20
+  - lazurio-platform-content-sync
+  - lazurio-platform-new-module-tile
+  - lazurio-platform-module-texts
+  - lazurio-platform-prompt-handoff
   - lazurio-platform-release-v0-1-20
-  - lazurio-platform-release-v0-1-21-rc-1
-  - lazurio-platform-marketplace-v0-1-21
+  - lazurio-platform-release-v0-1-21
+  - lazurio-platform-marketplace
   - lazurio-marketplace-registry
   - lazurio-template-adoption
   - lazurio-platform-stack-profiles
@@ -85,29 +84,34 @@ Ask your Organization Admin.
 
 ## How a module comes to be
 
-**With an agent.** Under **Workspace** in Apps, choose **New module**. Chat
-opens in a new thread with a prepared brief, not sent. You describe what the
-module should do, the agent asks about what it still needs and chooses the
-technical details itself. It shows you a plan and creates the module only after
-you confirm it.
+**With an agent.** Under **Workspace** in Apps, choose **New module**. A short
+dialog explains what a module is and asks what it should do, in your own words.
+**Open in Chat** then opens Chat in a new thread with the brief, not sent. The
+agent asks about what it still needs and chooses the technical details itself.
+It shows you a plan and creates the module only after you confirm it.
 
 Who can do this depends on where the module goes:
 
-- **In an Organization, the Organization Admin creates modules.** Only they see the
-  **New module** tile. The module becomes a private repository of the
-  Organization.
-- **If you are not the Organization Admin,** describe what you need and
-  [ask them](/en/guide/ask-the-admin/).
+- **In an Organization, the Organization Admin creates modules.** The module
+  becomes a private repository of the Organization.
+- **If you are not the Organization Admin,** you see the **New module** tile
+  muted, with a lock and the line "The Organization Admin creates it". It opens
+  the same dialog: you describe what you need, and your agent turns it into a
+  request to the Organization Admin and shows it to you before sending. A Team
+  Environment has no such tile; there, [ask the Organization
+  Admin](/en/guide/ask-the-admin/).
 - **In your Personal Environment, you create your own.** The same tile is in
   your personal space. The module becomes a private repository on your own
   GitHub account, belongs only to you and does not go into any Organization.
 
-**From a template.** Version 0.1.21, a release candidate on 5 November 2026,
-brings templates to the **Marketplace** at the bottom of Apps: Mission Control,
-Design System and Presentations. **Add to Organization** hands a brief to your
-agent, who shows you a plan and prepares a private copy in your Organization.
-The Organization Admin creates it here too; otherwise your agent prepares a
-request for them.
+**From a template.** Since version 0.1.21, released on 13 November 2026, the
+**Marketplace** at the bottom of Apps offers the templates of Lazurio's public
+registry, such as Mission Control, Design System and Presentations. A new
+template appears there without a new Lazurio release. **Add to Organization**
+hands a brief to your agent, who shows you a plan and prepares a private copy
+in your Organization. The Organization Admin creates it here too: if you are
+not the Organization Admin, the dialog's button reads **Ask the Organization
+Admin** and your agent prepares a request for them.
 
 However a module comes to be, it is your module. Start with a small first
 version. A module grows in further requests in Chat.

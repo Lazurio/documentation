@@ -36,7 +36,7 @@ zabezpečení a podmínky zpracování dat posuzujte samostatně.
 ## Je Lazurio hotový balíčkovaný produkt?
 
 Balíčkovaný ano. Současná Lazurio Platform se distribuuje jako instalovatelná
-vydání: verze v0.1.21 vyšla 13. listopadu 2026 a obsahuje CLI, Apps
+vydání: verze v0.1.21 vyšla 13. listopadu 2026 a obsahuje CLI, Aplikace
 i generované instrukce pro agenty. Její
 [README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)
 stav dál označuje jako kandidáty na vydání (release candidates) a vydaný
@@ -51,11 +51,11 @@ podklady k ověření](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).
 
 ## Nahrazuje Lazurio Microsoft Copilot?
 
-Ne ve všech situacích. Microsoft Copilot je určený především pro práci v
-prostředí Microsoft 365. Lazurio se soustředí na řízenou a dohledatelnou práci
-napříč repozitáři a dalšími nástroji. Organizace může používat jedno řešení,
-nebo obě s jasně oddělenými rolemi. Podrobnosti najdete ve [srovnání Lazuria a
-Microsoft Copilotu](/cs/lazurio-vs-microsoft-copilot/).
+Podle našeho hodnocení slouží obě řešení k jiné práci. Microsoft Copilot je
+určený především pro práci v prostředí Microsoft 365. Lazurio se soustředí na
+řízenou a dohledatelnou práci napříč repozitáři a dalšími nástroji. Organizace
+může používat jedno řešení, nebo obě s jasně oddělenými rolemi. Podrobnosti
+najdete ve [srovnání Lazuria a Microsoft Copilotu](/cs/lazurio-vs-microsoft-copilot/).
 
 ## Dostane se agent ke všemu, kam se dostane uživatel?
 

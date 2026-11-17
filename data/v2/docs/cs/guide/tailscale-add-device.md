@@ -11,6 +11,7 @@ secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-decision-register-access-0245-0247
+  - lazurio-environment-access-model
   - lazurio-environment-access-model-device-approval
   - lazurio-agent-manual-device-enrollment
   - lazurio-device-node-names
@@ -325,12 +326,12 @@ nebo Apple vedou do cizí sítě.
 <details>
 <summary>Podrobnosti</summary>
 
-- Tailscale funguje na iOS 15 a novějším.
+- Tailscale funguje na iOS 16 a novějším.
 - Aplikace nabídky mezi verzemi mění. Když položku nenajdete, hledejte
   podobnou nabídku pro vlastní (custom) server.
 - Vlastní obrázky z iPhonu zatím nemáme. Postup s popisem obrazovek je na
-  stránce Tailscale [Configure Tailscale clients to use a custom control
-  server](https://tailscale.com/docs/how-to/set-up-custom-control-server).
+  stránce Tailscale [Configure Tailscale clients to use a custom coordination
+  server](https://tailscale.com/docs/how-to/set-up-custom-coordination-server).
 
 </details>
 
@@ -426,22 +427,23 @@ Organizaci neotevře jinou. Návod neslibuje, že neschválené zařízení je
 zablokované: o tom rozhodují pravidla sítě Organizace, která spravuje Admin
 Organizace s provozovatelem sítě.
 
-**Jak to funguje dnes (stav k 5. listopadu 2026).** Admin Organizace
+**Jak to funguje dnes (stav k 17. listopadu 2026).** Admin Organizace
 schvaluje konkrétní zařízení a Prostředí, kam smí, v řízeném postupu
 provozovatele sítě, který provozuje server, na kterém tailnet běží. Změna
-projde kontrolou a nasazením a teprve potom zařízení dosáhne na nová místa.
-Několik čekajících zařízení může jít v jedné dávce, proto může schválení
-trvat déle než pár minut. Přehled Organizace čekající zařízení zatím
-neukazuje: s člověkem se přímo domluvte, které zařízení je jeho, a postup
-podání schválení si vyžádejte od provozovatele sítě.
+projde kontrolou a nasazením a teprve potom zařízení dosáhne na nová místa,
+proto může schválení trvat déle než pár minut. Přehled Organizace čekající
+zařízení zatím neukazuje: s člověkem se přímo domluvte, které zařízení je
+jeho, a postup podání schválení si vyžádejte od provozovatele sítě.
 
 **Cíl.** Model přístupu Lazuria (rozhodnutí 0245) popisuje zaregistrované
 zařízení, které nikam nedosáhne, dokud ho Admin Organizace neschválí
 v Přehledu Organizace; schválení provede služba na Conglomerate Hostu během
 desítek sekund a zapíše ho do konfigurace Organizace jako auditní záznam.
 Vlastní ztracené zařízení může člověk odebrat hned sám. Pro GEN4 je
-rozhodnuto, že se schválení zapisuje do Lazurio Auth. To se teprve staví
-(`issue-2026-11-03-002`). Návod netvrdí, že to už pro vaši Organizaci běží.
+rozhodnuto, že jediným záznamem schválení je auditní záznam této služby
+a Lazurio Auth si drží jeho kopii pro přehledy a aplikace (rozhodnutí 0245
+ve znění ze 17. listopadu 2026). To se teprve staví (`issue-2026-11-03-002`).
+Návod netvrdí, že to už pro vaši Organizaci běží.
 
 **Jméno zařízení.** Tailscale pojmenuje zařízení podle systému: počítač
 podle jeho názvu, telefon obvykle podle výrobce nebo modelu. Člověk ho

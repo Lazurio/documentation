@@ -4,7 +4,7 @@ description: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše
 stableId: lazurio-doc-guide-device-approval
 locale: cs
 summary: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše Prostředí, kdo o přístupu rozhoduje a co dělat, když zařízení ztratíte."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -33,14 +33,14 @@ Admin Organizace nebo pravidla vaší Organizace.
 Postup najdete v návodu [Přidání nového zařízení do
 tailnetu](/cs/guide/tailscale-add-device/): instalace Tailscale, přihlášení
 Lazurio účtem, jak poznáte, že zařízení čeká nebo je schválené,
-a [co poslat Adminovi Organizace](/cs/guide/tailscale-add-device/#požádejte-admina-organizace-o-schválení).
+a [co poslat Adminovi Organizace](/cs/guide/tailscale-add-device/#co-se-stane-potom).
 Samotná registrace přístup nezaručuje; když se adresa Prostředí pořád
 neotevře, požádejte Admina Organizace podle tohoto návodu.
 
 ## Kdy zařízení v tailnetu nepotřebujete
 
 - **Referenční Organizace Lazuria ve veřejném vstupu**
-  ([rozhodnutí 0213](https://github.com/Lazurio/LazurioPlatform/blob/b62383756209f13b7d4113ada969e6fa3d32f1a3/docs/decision-register.md#0213--network-for-people-an-organization-may-switch-from-tailnet-to-public-dns))
+  ([rozhodnutí 0213](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0213--network-for-people-the-public-dns-mode-without-a-tailnet-retired-by-0243))
   tailnet ani schválení zařízení nepotřebuje, dokud se nevrátí do tailnetu.
   Přihlásíte se Lazurio účtem, ale jen do webového rozhraní: Launchpad, chat,
   MausBot a Buddy. SSH ani párování telefonu tam lidé nemají. Jiná Organizace
@@ -62,5 +62,5 @@ Organizace.
 
 Jak zařízení dnes schválit, co předtím ověřit a jaký je cíl v Přehledu
 Organizace, popisuje [Pro Admina
-Organizace](/cs/guide/tailscale-add-device/#pro-admina-organizace). Schválení
+Organizace](/cs/guide/tailscale-add-device/#co-se-stane-potom). Schválení
 zařízení pro Prostředí Organizace neotevírá nic v Osobním Prostředí člověka.

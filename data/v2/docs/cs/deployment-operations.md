@@ -36,7 +36,7 @@ ne automaticky nejnovější verzi produktu.
 
 Současný produkt se od této revize liší: Lazurio Platform se instaluje jako
 verzovaná vydání; tato stránka je ověřená proti v0.1.21 z 13. listopadu 2026.
-Instalované vydání obsahuje CLI a Apps v jednom programu a generuje Lazurio
+Instalované vydání obsahuje CLI a Aplikace v jednom programu a generuje Lazurio
 Folder; aktualizace přicházejí jako nová vydání
 ([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
 Do seznamu dnes nasazovaných součástí zapište instalované vydání, ne tuto

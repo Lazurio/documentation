@@ -4,7 +4,7 @@ description: "Lazurio and Microsoft source links and how their review dates are 
 stableId: lazurio-doc-reference
 locale: en
 summary: "Lazurio and Microsoft source links and how their review dates are tracked."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-10-04"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -54,7 +54,7 @@ legal translation.
 - [Data protection and auditing](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing)
 - [Data, privacy, and security](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy)
 - [Requirements](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements)
-- [Copilot plugins](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/plugins-overview)
+- [Copilot plugins](https://learn.microsoft.com/en-us/plugins/overview)
 
 ## Review contract
 
