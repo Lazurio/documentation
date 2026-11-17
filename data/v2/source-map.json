@@ -1741,6 +1741,16 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-17",
       "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "tailscale-macos-bundle-ids",
+      "title": "Tailscale 1.104.5 source: bundle identifiers io.tailscale.ipn.macsys (Standalone) and io.tailscale.ipn.macos (Mac App Store)",
+      "publisher": "Tailscale",
+      "kind": "public-source",
+      "url": "https://github.com/tailscale/tailscale/blob/v1.104.5/version/prop.go#L26-L29",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     }
   ]
 }
