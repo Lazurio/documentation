@@ -157,8 +157,10 @@ header.header {
   border-bottom: 0;
 }
 
+/* A collapsible section keeps the same gap above it as a paragraph, after a
+   list, a paragraph or another collapsible section alike. */
 .sl-markdown-content details {
-  margin-block: 0 0.625rem;
+  margin-block: 1rem 0;
   padding: 0.85rem 1rem;
   border: 1px solid var(--sl-color-gray-5);
   border-radius: var(--lz-radius-md);
@@ -949,4 +951,10 @@ lz-language-menu details[hidden] { display: none; }
 @media (hover: hover) and (pointer: fine) {
   .sl-markdown-content .lz-directory a:hover,
   .sl-markdown-content .lz-guide-app:hover { background: var(--sl-color-gray-6); }
+}
+
+/* A screenshot that ends a list must not widen the gap to a collapsible
+   section after it. */
+.sl-markdown-content :is(ol, ul):has(+ details) > li:last-child > figure.lz-app-step:last-child {
+  margin-bottom: 0;
 }

@@ -1721,6 +1721,26 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-17",
       "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "tailscale-macos-sysext",
+      "title": "Tailscale: Authorizing the Tailscale system extension on macOS (Network Extensions in System Settings on macOS 15 and later, Privacy & Security on macOS 14 and earlier, then Allow the VPN configuration)",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/concepts/macos-sysext",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "headscale-auth-success-page",
+      "title": "Headscale 0.29.4 source: after a sign-in the browser shows a green success box with a check mark, the heading Node registered (Node reauthenticated for a known node), Registered as <user> and You can now close this window.",
+      "publisher": "Headscale",
+      "kind": "public-source",
+      "url": "https://github.com/juanfont/headscale/blob/v0.29.4/hscontrol/oidc.go#L1031-L1044",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     }
   ]
 }

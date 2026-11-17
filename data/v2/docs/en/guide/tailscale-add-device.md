@@ -1,5 +1,5 @@
 ---
-title: "Add a new device to the tailnet"
+title: "Add a new device to the Lazurio tailnet"
 description: "Pick your device. On Windows and Mac your agent does it for you; on a phone it takes a few taps in the Tailscale app. Then an Organization Admin approves the device."
 stableId: lazurio-doc-guide-tailscale-add-device
 locale: en
@@ -28,6 +28,8 @@ sourceRefs:
   - tailscale-install-windows-msi
   - tailscale-winget-package
   - tailscale-cli-reference
+  - tailscale-macos-sysext
+  - headscale-auth-success-page
   - tailscale-cli-login-output
   - tailscale-status-auth-url
   - microsoft-powershell-call-operator
@@ -52,6 +54,18 @@ Organization Admin gives it to you; it looks like
 `https://headscale.example.lazurio.io`. Do not guess it: with a different
 address you sign in to someone else's network, or not at all.
 
+:::danger[After installing, do not click Log in in the Tailscale app]
+The **Log in** button on Tailscale's welcome screen leads to Tailscale's own
+server. It offers sign-in with Google, GitHub, Microsoft or Apple, and the
+device then ends up in someone else's network, not your Organization's. After
+installing, follow only the steps of this guide: in them you enter the address
+of Lazurio's login server.
+
+**Already happened?** Do not delete anything; continue with the steps for your
+device from entering the address. Your Organization's network is added as
+another account and Tailscale switches to it.
+:::
+
 <nav class="lz-device-picker" aria-label="Pick your device">
   <a class="lz-device-card" href="#windows"><span class="lz-device-card__name">Windows</span><span class="lz-device-card__hint lz-device-card__hint--agent">Your agent does it</span></a>
   <a class="lz-device-card" href="#macos"><span class="lz-device-card__name">macOS</span><span class="lz-device-card__hint lz-device-card__hint--agent">Your agent does it</span></a>
@@ -64,6 +78,11 @@ your Organization's network and you only cannot connect, follow [Reach an Enviro
 through Tailscale](/en/guide/tailscale/).
 
 ## Windows
+
+:::caution[Do not click Log in in the Tailscale app]
+Your agent enters your Organization's address, or you enter it with the
+manual steps below.
+:::
 
 ### Let your agent do it (recommended)
 
@@ -97,7 +116,7 @@ What you do yourself:
 3. Read & "C:\Program Files\Tailscale\tailscale.exe" status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
-4. Send me that link as a clickable link and tell me in one sentence: open it, sign in with your Lazurio account, then come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+4. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
 5. status --json shows BackendState "Running" and & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This computer is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Windows computer," and add the computer's name in the network (Self.HostName from status --json).
@@ -144,8 +163,9 @@ window, so you enter it with one line in Windows PowerShell.
      <figcaption>Illustrative mockup. Your link is different every time.</figcaption>
    </figure>
 
-5. Sign in with your Lazurio account in the browser. Keep the PowerShell
-   window open until it shows **Success.** Then you can close it.
+5. Sign in with your Lazurio account in the browser. The browser shows a
+   green check mark and **Node registered**. Keep the PowerShell window open
+   until it shows **Success.** Then you can close it.
 
    <figure class="lz-app-step lz-app-step--wide">
      <img src="/guide-assets/tailscale-windows/windows-4-success-en.png" alt="Illustrative mockup: after the sign-in, PowerShell shows Success. and a new prompt." width="1280" height="560" loading="lazy" />
@@ -204,12 +224,20 @@ programmer: talk to them in plain language and do not show them commands.
 
 ## macOS
 
+:::caution[Do not click Log in in the Tailscale app]
+On a Mac you first go through the app's welcome steps and allow two things in
+System Settings. Your agent then enters your Organization's address, or you
+enter it with the manual steps below.
+:::
+
 ### Let your agent do it (recommended)
 
 It works the same as on Windows: give the agent full access (in Codex,
 **Full access** below the message box), copy the prompt, replace
 `<ADDRESS>` with your Organization's address and do what the agent asks.
-The Mac asks whether Tailscale may add a VPN configuration: click **Allow**.
+The agent asks you for two permissions: turning on Tailscale's network
+extension in System Settings and allowing the VPN configuration (the same
+steps are in manual step 2 below).
 
 ```text
 Connect this Mac to my Organization's tailnet in Lazurio through Tailscale.
@@ -221,13 +249,13 @@ First: if you cannot run commands on this computer or have no internet access (y
 
 What you do yourself:
 1. Check that /Applications/Tailscale.app exists. If not, open https://tailscale.com/download/mac for me and tell me to download and install the Standalone version. Wait until I have done it.
-2. Start the app (open -a Tailscale). If the Mac asks about a VPN configuration, tell me to click "Allow". Do not sign in in the app.
+2. Start the app (open -a Tailscale). Tell me to go through the app's welcome steps without signing in and to allow two things: in System Settings → General → Login Items & Extensions → Network Extensions, turn on Tailscale Network Extension (on macOS 14 and earlier, click Allow for Tailscale in Privacy & Security), then click "Allow" when asked about a VPN configuration. Wait until I have done it. Do not sign in in the app.
 3. Start the sign-in in the background; it waits until it is finished:
    /Applications/Tailscale.app/Contents/MacOS/Tailscale login --login-server=<ADDRESS>
 4. Read /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
-5. Send me that link as a clickable link and tell me in one sentence: open it, sign in with your Lazurio account, then come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+5. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
 6. status --json shows BackendState "Running" and debug prefs shows ControlURL equal to the address above. Then tell me: "Done. This Mac is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Mac," and add the Mac's name in the network (Self.HostName from status --json).
@@ -239,13 +267,21 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
 
 1. Install the
    [Standalone version from Tailscale's website](https://tailscale.com/download/mac)
-   or the Mac App Store version. Start it and allow the VPN configuration.
-   Do not sign in yet.
-2. Hold the **Option** (⌥) key and click the Tailscale icon in the menu bar.
+   and start it. Go through the welcome steps, but do not click **Log in**.
+2. Allow two things without which Tailscale does not work on a Mac:
+   - **Network extension:** open **System Settings → General → Login Items &
+     Extensions**, select the ⓘ icon next to **Network Extensions**, turn on
+     **Tailscale Network Extension**, confirm with your password or Touch ID
+     and select **Done**. On macOS 14 and earlier, instead click **Allow**
+     next to the Tailscale message in **Privacy & Security**.
+   - **VPN configuration:** when the Mac asks whether it may add a VPN
+     configuration, click **Allow**.
+3. Hold the **Option** (⌥) key and click the Tailscale icon in the menu bar.
    Point to **Debug** and, under **Custom Login Server**, choose **Add
    Account…**.
-3. Enter your Organization's address and click **Add Account**.
-4. Sign in with your Lazurio account in the browser.
+4. Enter your Organization's address and click **Add Account**.
+5. Sign in with your Lazurio account in the browser. You see a green check
+   mark and **Node registered**; then close the tab.
 
 <details>
 <summary>Details and other ways</summary>
@@ -255,12 +291,15 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
 - If you are already signed in to another tailnet in Tailscale, there is a
   second way: Tailscale icon in the menu bar → **Settings** → **Accounts**
   tab → arrow at the bottom left → enter the address → **Add account**.
-- Steps 2 and 3 follow the Headscale documentation; we do not have our own
+- Both permissions are described in Tailscale's documentation.
+- The Mac App Store version does not need the network extension in System
+  Settings; allowing the VPN configuration is enough.
+- Steps 3 and 4 follow the Headscale documentation; we do not have our own
   pictures from a Mac yet.
 - **For the agent:** the CLI is inside the app bundle at
   `/Applications/Tailscale.app/Contents/MacOS/Tailscale` (Tailscale CLI
-  documentation). It works only while the app is running and the VPN
-  configuration is allowed. The sign-in link, the done check, other accounts
+  documentation). It works only while the app is running and both the
+  network extension and the VPN configuration are allowed. The sign-in link, the done check, other accounts
   and the device name follow the same rules as in [Details for the agent on
   Windows](#windows).
 
@@ -268,15 +307,22 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
 
 ## iPhone and iPad
 
+:::caution[Do not choose Google, GitHub or any other account]
+On the sign-in screen, open the menu at the top right and enter your
+Organization's address (step 4). The buttons to sign in with Google, GitHub,
+Microsoft or Apple lead to someone else's network.
+:::
+
 1. Install [Tailscale from the App Store](https://apps.apple.com/app/tailscale/id1470499037).
 2. Open it, choose **Get Started** and allow the VPN configuration. Do not
    sign in yet.
 3. Tap the profile icon at the top right, then **Log in** (or your account,
-   if you already have one).
+   if you already have one). On the screen that opens, do not choose any
+   account.
 4. Open the menu at the top right and choose **Use a custom coordination
    server**.
 5. Enter your Organization's address, tap **Log in** and sign in with your
-   Lazurio account.
+   Lazurio account. You see a green check mark and **Node registered**.
 
 <details>
 <summary>Details</summary>
@@ -292,6 +338,11 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
 </details>
 
 ## Android
+
+:::caution[Do not tap the large Log in button]
+Continue with the gear at the top right (step 2). Log in leads to someone
+else's network.
+:::
 
 1. Install
    [Tailscale from Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn)
@@ -315,7 +366,7 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
    </figure>
 
 4. Enter your Organization's address, tap **Add account** and sign in with
-   your Lazurio account.
+   your Lazurio account. You see a green check mark and **Node registered**.
 
    <figure class="lz-app-step">
      <img src="/guide-assets/tailscale-android/android-5-address.png" alt="Add another account screen with the field Custom control server URL containing the example address https://headscale.example.lazurio.io, and the Add account button." width="540" height="485" loading="lazy" />
@@ -337,7 +388,12 @@ Rules: never send me to the Log in button in the Tailscale app; it leads somewhe
 
 ## What happens next
 
-After the sign-in, the device is in your Organization's network and **waits for approval by
+**When the sign-in works**, the browser shows a page with a green check mark
+and the heading **Node registered**, followed by "Registered as" with your
+account and "You can now close this window." Close the tab. If you added this
+device before, the heading reads **Node reauthenticated**; that is fine too.
+
+Now the device is in your Organization's network and **waits for approval by
 your Organization Admin**. Tell them that you added a new device, what kind
 (for example a Windows computer) and when. Use a channel they recognize you
 by: they approve the device only when they know the request comes from you.
