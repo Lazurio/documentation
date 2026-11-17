@@ -21,6 +21,7 @@ sourceRefs:
   - microsoft-graph-permissions-reference
   - microsoft-entra-app-consent-policies
   - microsoft-entra-grant-admin-consent
+  - microsoft-entra-assign-users-groups
   - microsoft-entra-delegate-app-roles
   - microsoft-entra-register-app
   - microsoft-entra-add-redirect-uri
@@ -123,7 +124,8 @@ manage your consent settings“. K 1. 11. 2026 Microsoft uvádí, že podle něj
 uživatelé smějí souhlasit s delegovanými oprávněními kromě seznamu, ve kterém
 jsou i `Mail.ReadWrite`, `Calendars.ReadWrite`, `Files.ReadWrite.All`
 a `Sites.Read.All`. Aplikace, která vyžaduje přiřazení uživatelů, navíc podle
-Microsoftu potřebuje souhlas správce vždy. Jeden souhlas správce za celý tenant
+Microsoftu potřebuje souhlas správce vždy, a krok 6 níže přiřazení zapíná.
+Jeden souhlas správce za celý tenant
 platí pro všechny uživatele a nikoho dalšího se aplikace na souhlas neptá.
 
 Souhlas za celý tenant s delegovanými oprávněními Microsoft Graph smí podle
@@ -136,7 +138,7 @@ role Application Developer.
 
 | Kdo | Rozhoduje |
 | --- | --- |
-| IT, administrátoři tenantu | Zda aplikace existuje, její oprávnění a souhlas; kdo se smí připojit („Assignment required“ a skupina); podmíněný přístup; vypnutí nebo smazání aplikace. Vypínačem je Entra. |
+| IT, administrátoři tenantu | Zda aplikace existuje, její oprávnění a souhlas; kdo se smí připojit („Assignment required“ a přiřazení uživatelé nebo skupina); podmíněný přístup; vypnutí nebo smazání aplikace. Vypínačem je Entra. |
 | Admin Organizace v Lazuriu | Zapíše id tenantu, id aplikace, zvolené části a zaregistrované návratové adresy do nastavení Organizace a požádá IT o registraci adresy každého nového Prostředí. |
 | Každý uživatel | Připojí svůj pracovní účet v Apps → Integrace, může přidat další účty a odpojuje je. |
 | Agenti | Používají připojené účty. Účet nikdy nepřipojují sami a změny, které uvidí ostatní, dělají jen na pokyn uživatele. Je to pravidlo práce, které agenti dodržují, ne technická zábrana. |
@@ -165,17 +167,21 @@ administrátora.
 5. **Certificates & secrets.** Nic nepřidávejte. Microsoft uvádí, že veřejný
    klient při výměně autorizačního kódu tajný klíč ani certifikát používat
    nesmí.
-6. **Omezte, kdo se smí připojit (doporučeno).** V Enterprise apps → aplikace →
-   Properties nastavte „Assignment required“ na Yes a v Users and groups
-   přiřaďte skupinu lidí, kteří se smějí připojit. Ostatní Microsoft odmítne
-   chybou `AADSTS50105`. Microsoft upozorňuje, že uživatelé s rolí Global
-   Administrator se přihlásí bez ohledu na toto nastavení.
+6. **Omezte, kdo se smí připojit.** Tento krok je povinný. V Enterprise apps →
+   aplikace → Properties nastavte „Assignment required“ na Yes a v Users and
+   groups přiřaďte lidi, kteří se smějí připojit. Přiřazení skupiny vyžaduje
+   Microsoft Entra ID P1 nebo P2; bez této licence přiřaďte uživatele
+   jednotlivě. Členové vnořených skupin přes skupinu přístup nedostanou.
+   Ostatní Microsoft odmítne chybou `AADSTS50105`. Microsoft upozorňuje, že
+   uživatelé s rolí Global Administrator se přihlásí bez ohledu na toto
+   nastavení.
 7. **Předejte identifikátory.** Z Overview zkopírujte Application (client) ID
    a Directory (tenant) ID a předejte je Adminovi Organizace.
 8. **Ověřte nastavení.** Zkontrolujte, že typ účtů je `AzureADMyOrg`, návratové
    adresy jsou přesně ty zamýšlené, platforma Web neexistuje, aplikace nemá
-   tajné klíče ani certifikáty a souhlas je udělený pro všech devět oprávnění.
-   Skutečným důkazem je až první připojení.
+   tajné klíče ani certifikáty, souhlas je udělený pro všech devět oprávnění
+   a „Assignment required“ je Yes se zamýšlenými lidmi přiřazenými. Skutečným
+   důkazem je až první připojení.
 9. **Zapište nastavení.** Admin Organizace schválí pull request, který do
    souboru `lazurio.organization.json` Organizace přidá
    `settings.integrations.microsoft365`: `tenant_id`, `client_id`, `apps`
@@ -296,7 +302,7 @@ se stejnou registrací aplikace.
 
 Stránky Microsoft Learn byly přečtené 1. 11. 2026.
 
-- Microsoft: [oprávnění a souhlas](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview), [přehled oprávnění Graphu](https://learn.microsoft.com/en-us/graph/permissions-reference), [zásady souhlasu](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies), [souhlas správce za celý tenant](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent), [kdo smí registrovat aplikace](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles), [registrace aplikace](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app), [přidání návratové adresy](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri), [vlastnosti podnikové aplikace](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties), [pravidla návratových adres](https://learn.microsoft.com/en-us/entra/identity-platform/reply-url), [toky veřejného klienta](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration), [tok autorizačního kódu](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow).
+- Microsoft: [oprávnění a souhlas](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview), [přehled oprávnění Graphu](https://learn.microsoft.com/en-us/graph/permissions-reference), [zásady souhlasu](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies), [souhlas správce za celý tenant](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent), [přiřazení uživatelů a skupin](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal), [kdo smí registrovat aplikace](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles), [registrace aplikace](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app), [přidání návratové adresy](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri), [vlastnosti podnikové aplikace](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties), [pravidla návratových adres](https://learn.microsoft.com/en-us/entra/identity-platform/reply-url), [toky veřejného klienta](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration), [tok autorizačního kódu](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow).
 - Microsoft: [přístupové tokeny](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens), [obnovovací tokeny](https://learn.microsoft.com/en-us/entra/identity-platform/refresh-tokens), [odvolání přístupu uživatele](https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access), [`revokeSignInSessions`](https://learn.microsoft.com/en-us/graph/api/user-revokesigninsessions), [frekvence přihlášení](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-session-lifetime), [chybové kódy](https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes), [neinteraktivní přihlášení](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-noninteractive-sign-ins), [audit v Purview](https://learn.microsoft.com/en-us/purview/audit-solutions-overview), [ověření vydavatele](https://learn.microsoft.com/en-us/entra/identity-platform/publisher-verification-overview).
 - Microsoft: [vytvoření události](https://learn.microsoft.com/en-us/graph/api/user-post-events), [zrušení události](https://learn.microsoft.com/en-us/graph/api/event-cancel), [odkazy ke sdílení](https://learn.microsoft.com/en-us/graph/api/driveitem-createlink), [pozvání k souboru](https://learn.microsoft.com/en-us/graph/api/driveitem-invite), [přehled Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) a [oprávnění Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/permissions).
 - Lazurio: [runbook Microsoft 365](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md) a [stránka pro IT](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md), [tvar nastavení a pořadí čtenářů](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/lazurio-manifest-family.md#microsoft-365-company-app-settingsintegrationsmicrosoft365), v Lazurio Platform [aplikace Organizace](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/integrations.md#the-microsoft-365-company-app) a [rozhodnutí F45](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back) (anglicky) a [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0162, 0172 a 0194, anglicky).

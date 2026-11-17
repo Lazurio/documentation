@@ -743,6 +743,16 @@
       "reviewDueAt": "2026-12-01"
     },
     {
+      "id": "microsoft-entra-assign-users-groups",
+      "title": "Manage users and groups assignment to an application: group-based assignment needs Microsoft Entra ID P1 or P2, nested groups are not supported, and an app that requires assignment needs administrator consent",
+      "publisher": "Microsoft Learn",
+      "kind": "provider-documentation",
+      "url": "https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal",
+      "reviewOwner": "Pablo AI",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
       "id": "microsoft-entra-delegate-app-roles",
       "title": "Delegate application management administrator permissions: who can register applications",
       "publisher": "Microsoft Learn",

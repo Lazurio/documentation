@@ -21,6 +21,7 @@ sourceRefs:
   - microsoft-graph-permissions-reference
   - microsoft-entra-app-consent-policies
   - microsoft-entra-grant-admin-consent
+  - microsoft-entra-assign-users-groups
   - microsoft-entra-delegate-app-roles
   - microsoft-entra-register-app
   - microsoft-entra-add-redirect-uri
@@ -125,7 +126,8 @@ your consent settings". On 1 November 2026 Microsoft documented that under it
 users may consent to delegated permissions except a list that includes
 `Mail.ReadWrite`, `Calendars.ReadWrite`, `Files.ReadWrite.All` and
 `Sites.Read.All`. Microsoft also requires administrator consent for an app that
-requires user assignment. One tenant-wide admin consent covers every user, and
+requires user assignment, which step 6 below turns on. One tenant-wide admin
+consent covers every user, and
 no user is asked for consent.
 
 Microsoft lets a Cloud Application Administrator, Application Administrator, AI
@@ -138,7 +140,7 @@ can.
 
 | Who | Decides |
 | --- | --- |
-| IT, the tenant's administrators | Whether the app exists, its permissions and the consent; who may connect ("Assignment required" and a group); Conditional Access; disabling or deleting the app. Entra is the off switch. |
+| IT, the tenant's administrators | Whether the app exists, its permissions and the consent; who may connect ("Assignment required" and the assigned users or group); Conditional Access; disabling or deleting the app. Entra is the off switch. |
 | The Organization Admin in Lazurio | Records the tenant ID, client ID, chosen parts and registered callbacks in the Organization's settings, and asks IT to register the callback of every new Environment. |
 | Each user | Connects their own work account in Apps → Integrations, may add further accounts and disconnects them. |
 | Agents | Use the connected accounts. They never connect an account themselves, and they make changes other people see only on the user's instruction. This is a working rule that agents follow, not a technical barrier. |
@@ -165,18 +167,21 @@ administrator account.
    the table, then select "Grant admin consent for &lt;tenant&gt;".
 5. **Certificates & secrets.** Add nothing. Microsoft states that public clients
    must not use secrets or certificates when they redeem an authorization code.
-6. **Limit who may connect (recommended).** In Enterprise apps → the app →
-   Properties set "Assignment required" to Yes, and under Users and
-   groups assign the group of people who may connect. Anyone else is refused
-   with `AADSTS50105`. Microsoft notes that users with the Global Administrator
-   role can sign in regardless of this setting.
+6. **Limit who may connect.** This step is required. In Enterprise apps → the
+   app → Properties set "Assignment required" to Yes, and under Users and
+   groups assign the people who may connect. Assigning a group requires
+   Microsoft Entra ID P1 or P2; without that licence, assign the users one by
+   one. Members of nested groups get no access through the group. Anyone else
+   is refused with `AADSTS50105`. Microsoft notes that users with the Global
+   Administrator role can sign in regardless of this setting.
 7. **Hand over the identifiers.** Copy the Application (client) ID and the
    Directory (tenant) ID from Overview and give them to the Organization
    Admin.
 8. **Read it back.** Check that the account type is `AzureADMyOrg`, that the
    redirect URIs are exactly the intended ones, that no Web platform exists,
-   that there are no secrets or certificates and that consent is granted for all
-   nine permissions. The first real connection is the proof that it works.
+   that there are no secrets or certificates, that consent is granted for all
+   nine permissions and that "Assignment required" is Yes with the intended
+   people assigned. The first real connection is the proof that it works.
 9. **Record the setting.** The Organization Admin approves a pull request that
    adds `settings.integrations.microsoft365` to the Organization's
    `lazurio.organization.json`: `tenant_id`, `client_id`, `apps` and
@@ -297,7 +302,7 @@ explicit instruction, against the same app registration.
 
 Microsoft Learn pages were read on 1 November 2026.
 
-- Microsoft: [permissions and consent](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview), [Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference), [app consent policies](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies), [tenant-wide admin consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent), [who can register apps](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles), [registering an app](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app), [adding a redirect URI](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri), [enterprise application properties](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties), [redirect URI rules](https://learn.microsoft.com/en-us/entra/identity-platform/reply-url), [public client flows](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration), [authorization code flow](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow).
+- Microsoft: [permissions and consent](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview), [Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference), [app consent policies](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies), [tenant-wide admin consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent), [assigning users and groups](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal), [who can register apps](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles), [registering an app](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app), [adding a redirect URI](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri), [enterprise application properties](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties), [redirect URI rules](https://learn.microsoft.com/en-us/entra/identity-platform/reply-url), [public client flows](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration), [authorization code flow](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow).
 - Microsoft: [access tokens](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens), [refresh tokens](https://learn.microsoft.com/en-us/entra/identity-platform/refresh-tokens), [revoking user access](https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access), [`revokeSignInSessions`](https://learn.microsoft.com/en-us/graph/api/user-revokesigninsessions), [sign-in frequency](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-session-lifetime), [error codes](https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes), [non-interactive sign-ins](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-noninteractive-sign-ins), [Purview auditing](https://learn.microsoft.com/en-us/purview/audit-solutions-overview), [publisher verification](https://learn.microsoft.com/en-us/entra/identity-platform/publisher-verification-overview).
 - Microsoft: [creating events](https://learn.microsoft.com/en-us/graph/api/user-post-events), [cancelling events](https://learn.microsoft.com/en-us/graph/api/event-cancel), [sharing links](https://learn.microsoft.com/en-us/graph/api/driveitem-createlink), [inviting people to a file](https://learn.microsoft.com/en-us/graph/api/driveitem-invite), [Work IQ overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) and [Work IQ permissions](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/permissions).
 - Lazurio: the [Microsoft 365 runbook](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md) and the [page for IT](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md) (both in Czech), the [setting's shape and readers first](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/lazurio-manifest-family.md#microsoft-365-company-app-settingsintegrationsmicrosoft365), Lazurio Platform's [company app](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/integrations.md#the-microsoft-365-company-app) and [decision F45](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back), and the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (decisions 0162, 0172 and 0194).
