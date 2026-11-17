@@ -1691,6 +1691,36 @@
       "reviewOwner": "Anna Blazickova",
       "reviewedAt": "2026-11-17",
       "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "tailscale-winget-package",
+      "title": "Windows Package Manager community repository: Tailscale package (identifier Tailscale.Tailscale)",
+      "publisher": "Microsoft",
+      "kind": "public-source",
+      "url": "https://github.com/microsoft/winget-pkgs/tree/master/manifests/t/Tailscale/Tailscale",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "tailscale-cli-reference",
+      "title": "Tailscale CLI reference: where the CLI lives on each platform, including /Applications/Tailscale.app/Contents/MacOS/Tailscale on macOS",
+      "publisher": "Tailscale",
+      "kind": "provider-documentation",
+      "url": "https://tailscale.com/docs/reference/tailscale-cli",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "tailscale-status-auth-url",
+      "title": "Tailscale 1.104.5 source: tailscale status --json reports BackendState and the current sign-in address in AuthURL",
+      "publisher": "Tailscale",
+      "kind": "public-source",
+      "url": "https://github.com/tailscale/tailscale/blob/v1.104.5/ipn/ipnstate/ipnstate.go#L43-L48",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     }
   ]
 }
