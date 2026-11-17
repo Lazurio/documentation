@@ -4,7 +4,7 @@ description: "Nine short lessons from your first sign-in to your first task that
 stableId: lazurio-doc-guide-course
 locale: en
 summary: "Nine short lessons from your first sign-in to your first task that an agent saves and you review."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -55,8 +55,8 @@ in lesson 8. Use real but non-sensitive work.
 
 ## What this course describes
 
-The course describes Lazurio Platform as its public source stood on
-1 November 2026. A newer release may show other labels. If your
+The course describes Lazurio Platform as it appears in release v0.1.21
+of 13 November 2026. A newer release may show other labels. If your
 Organization still works with the Lazurio Root on your own computer (GEN3),
 some screens and steps differ.
 

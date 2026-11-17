@@ -4,7 +4,7 @@ description: "What an Environment is, which kind you work in and how you get in.
 stableId: lazurio-doc-guide-course-first-sign-in
 locale: en
 summary: "What an Environment is, which kind you work in and how you get in."
-updatedAt: "2026-11-14"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-platform-folder-manual
   - lazurio-platform-shell-column-head
   - lazurio-platform-launchpad-texts
+  - lazurio-platform-shell-texts
 audience:
   - decision-maker
   - builder
@@ -60,8 +61,10 @@ sign-ins. Never sign in to Lazurio in it.
 ## Your task
 
 1. Open the address of your Environment and sign in with your Lazurio account.
-2. In the header of the left column, find the name of the Environment and
-   whom it serves. The gear beside it opens the Settings of exactly this
+2. In the header of the left column, find your Environment. A Work Environment
+   shows the photo and name of the person it is assigned to (or its own name,
+   if it has one), and under them its kind, **Work Environment**. The gear
+   beside it opens the Settings of exactly this
    Environment.
 3. In Settings, open the section named after the Environment, for example
    **This Work Environment**, and read **Kind**, **Owner** and **Assignment**.

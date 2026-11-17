@@ -69,7 +69,7 @@ allowed subject to the license ([scope and notices](https://github.com/Lazurio/L
 
 The current [user and agent terminology](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
 names the user as the person agents work with and for. The user has the final
-say. Under [decision 0089](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0089--buddy-is-the-persons-trusted-personal-representative),
+say. Under [decision 0089](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md#0089--buddy-is-the-persons-trusted-personal-representative),
 Buddy represents that user within their rights and the mandates they give.
 A task agent is a temporary work session with no permissions of its own.
 Access comes from GitHub, the operating system and connected services.
@@ -79,7 +79,7 @@ The agent may use credentials and files available to its process. Lazurio's
 rules specify when that use is permitted. The operating system, provider
 controls and any sandbox of the AI tool enforce technical restrictions. In a
 Lazurio Environment agents work with full access and without a sandbox: under
-[decision 0172](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
+[decision 0172](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
 the Environment is the boundary.
 
 ## Machine and Organization boundaries

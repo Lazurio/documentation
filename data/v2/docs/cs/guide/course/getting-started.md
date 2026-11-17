@@ -4,7 +4,7 @@ description: "Připojte AI a GitHub a stáhněte svou Organizaci, v tomto pořad
 stableId: lazurio-doc-guide-course-getting-started
 locale: cs
 summary: "Připojte AI a GitHub a stáhněte svou Organizaci, v tomto pořadí."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -14,6 +14,7 @@ sourceRefs:
   - lazurio-platform-getting-started
   - lazurio-platform-launchpad-texts
   - lazurio-platform-shell-column-head
+  - lazurio-platform-shell-texts
 audience:
   - decision-maker
   - builder
@@ -27,10 +28,10 @@ pracovat, a v jakém pořadí.
 Prostředí připraví k práci. Každý krok ověřuje podle stavu samotného
 Prostředí, ne podle vašeho prohlížeče, takže vypadá stejně, ať ho otevřete
 kdekoli
-([`start-view.ts`](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/launchpad/start-view.ts)).
+([`start-view.ts`](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/launchpad/start-view.ts)).
 Dokud některý povinný krok chybí, ukazuje hlavička levého sloupce
 **Dokončit nastavení**, například **(1 ze 3)**, a dovede vás tam
-([`view.ts`](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/shell/view.ts)).
+([`view.ts`](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/shell/view.ts)).
 
 Povinné kroky jdou v tomto pořadí:
 
@@ -47,8 +48,7 @@ Povinné kroky jdou v tomto pořadí:
 
 AI je na řadě první proto, aby vám se zbytkem mohl pomoct agent v Chatu.
 Když se krok zastaví, řekne, co dál. **Vyřešit v Chatu** otevře v Chatu nové
-vlákno s připraveným zadáním, které ještě není odeslané. **Organizaci
-připravuje Admin.** znamená, že jednat musí Admin Organizace, ne vy.
+vlákno s připraveným zadáním, které ještě není odeslané. **Organizaci připravuje Admin Organizace.** znamená, že jednat musí Admin Organizace, ne vy.
 
 Pod povinnými kroky jsou volitelné, například Composio pro poštu
 a kalendář, SSH z vlastního počítače a prohlídka aplikace. Přidat je můžete
@@ -60,8 +60,8 @@ kdykoli. Týmové Prostředí má povinné kroky připravené předem.
 2. Dokončete povinné kroky, dokud stránka neukáže **Prostředí je
    připravené.**
 3. V části **Prohlídka aplikace** zvolte **Spustit prohlídku** a proklikejte
-   Apps, Chat a Automate.
+   Aplikace, Chat a Automatizaci.
 
 **Hotovo poznáte takto:** všechny povinné kroky jsou hotové, stránka ukazuje
-**Prostředí je připravené.** a řádek **Apps, Chat a Automate** ukazuje
+**Prostředí je připravené.** a řádek **Aplikace, Chat a Automatizace** ukazuje
 **Prohlédnuto**.

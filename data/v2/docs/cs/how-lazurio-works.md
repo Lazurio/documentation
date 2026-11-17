@@ -30,7 +30,7 @@ a [pravidla spolupráce s Agenty](https://github.com/HumanAndMachines/Lazurio/bl
 
 Uživatel, Buddy a Task Agent níže odpovídají současnému názvosloví uživatele
 a agentů; Organizace, Workspace modul a Personalspace dál popisují starší model
-zdrojů. Aktuální názvy Prostředí a Apps najdete ve
+zdrojů. Aktuální názvy Prostředí a Aplikací najdete ve
 [slovníčku](/cs/guide/glossary/). Co je modul dnes, vysvětluje
 stránka [Moduly](/cs/guide/modules/) a jak do sebe části zapadají, stránka
 [Architektura](/cs/architecture/).

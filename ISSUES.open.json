@@ -208,6 +208,24 @@
         "the section Why Tailscale of guide/tailscale (en, cs)",
         "every documentation pull request after 2026-11-06"
       ]
+    },
+    {
+      "id": "issue-2026-11-17-002",
+      "title": "At the first pilot, verify the code exchange without a secret on an HTTPS return address with \"Allow public client flows\" off",
+      "status": "open",
+      "severity": "medium",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-17",
+      "updated_at": "2026-11-17",
+      "question": "Does a customer tenant exchange the sign-in code with PKCE and no client secret on an Environment's HTTPS callback registered under the platform \"Mobile and desktop applications\", while \"Allow public client flows\" stays off?",
+      "impact": "Step 3 of microsoft-365 (en, cs) tells IT to register every callback under \"Mobile and desktop applications\" and to leave \"Allow public client flows\" off, because Microsoft describes that switch for flows without a redirect URI, such as the device code flow. Microsoft's redirect URI page also says that an app with one or more redirect URIs needs a public client flow configuration. On the owner's decision of 2026-11-17 the text stays as it is. On 22 October 2026 Lazurio's own test tenant exchanged the code without a secret on an Environment's HTTPS callback (LazurioPlatform issue 596, decision F42 addendum (c) point 10), but the public record does not say whether the switch was off there. If a customer tenant refuses the exchange with the switch off, for example by asking for a client secret, step 3 is wrong for every Organization that follows it.",
+      "options": [
+        "Run the check at the first pilot with an assigned test user and the switch off: connect through the Environment's HTTPS callback, confirm that the exchange and later refreshes succeed without a secret, then record the result on microsoft-365 and in LazurioPlatform's company app section. Recommended: it proves the documented setting on the kind of tenant it is meant for.",
+        "Repeat the check on Lazurio's own test tenant with the switch confirmed off before the pilot, so that the first Organization does not meet a failure."
+      ],
+      "decision_needed_for": [
+        "step 3 of microsoft-365 (en, cs)"
+      ]
     }
   ]
 }

@@ -4,7 +4,7 @@ description: "You as the user, agents, colleagues and their roles, Henry and Bud
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: en
 summary: "You as the user, agents, colleagues and their roles, Henry and Buddy: who decides what."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -67,7 +67,7 @@ covers (decision 0089).
 A persona is an Organization's agent account, such as Henry's. Like the name
 you give your Buddy, it is not a user and holds no authority of its own. The
 decision numbers refer to the public
-[Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md).
+[Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md).
 
 ## Your task
 
