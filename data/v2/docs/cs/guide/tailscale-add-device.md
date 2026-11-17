@@ -118,10 +118,11 @@ Co uděláš sám:
 3. Opakovaně čti & "C:\Program Files\Tailscale\tailscale.exe" status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Než mi odkaz dáš, rozeber ho jako URL a ověř, že má stejné schéma (https), hostname a port jako adresa přihlašovacího serveru výše. Nestačí, že text odkazu stejně začíná. Když se liší, odkaz mi nedávej, řekni mi, co nesedí, a zastav se.
 
 Kde se zastavíš a necháš to na mně:
-4. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho a přihlaste se svým účtem Lazurio; až uvidíte zelenou fajfku a text „Node registered“, kartu zavřete a vraťte se sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
+4. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho a přihlaste se svým účtem Lazurio; až uvidíte zelenou fajfku s textem „Node registered“ nebo „Node reauthenticated“, kartu zavřete, vraťte se sem a napište mi, který z obou nadpisů jste viděli. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
 
 Jak poznáš, že je hotovo:
-5. status --json ukazuje BackendState „Running“, první část Self.DNSName je přesně jméno, které jsi zvolil, a příkaz & "C:\Program Files\Tailscale\tailscale.exe" debug prefs ukazuje ControlURL rovnou adrese výše. Když ses ve jméně spletl, oprav ho příkazem & "C:\Program Files\Tailscale\tailscale.exe" set --hostname=<JMÉNO>; když má jméno příponu, třeba -1, nic nemaž a řekni mi, ať se obrátím na Admina Organizace. Pak mi napiš: „Hotovo. Počítač čeká na schválení Adminem Organizace. Do té doby se z něj Lazurio nemusí otevřít, to je v pořádku. Napište Adminovi Organizace, že jste přidali počítač s Windows,“ a připoj jméno počítače v síti (Self.HostName ze status --json).
+5. Ověř tři věci: status --json ukazuje BackendState „Running“, příkaz & "C:\Program Files\Tailscale\tailscale.exe" debug prefs ukazuje ControlURL rovnou adrese výše a první část Self.DNSName ve status --json je přesně jméno, které jsi zvolil. Teprve když platí všechny tři, napiš mi: „Hotovo. Počítač čeká na schválení Adminem Organizace. Do té doby se z něj Lazurio nemusí otevřít, to je v pořádku. Napište Adminovi Organizace, že jste přidali počítač s Windows,“ a připoj to jméno.
+6. Když je jméno jiné, smíš počítač přejmenovat, jen když je jisté všechno tohle: na přihlašovací stránce bylo „Node registered“, takže jsi počítač zaregistroval právě teď; Admin Organizace o něm ode mě ještě neví, takže není schválený; a jméno se liší jen tvou chybou, bez přípony jako -1. Pak spusť & "C:\Program Files\Tailscale\tailscale.exe" set --hostname=<JMÉNO> a udělej znovu krok 5. Ve všech ostatních případech (na stránce bylo „Node reauthenticated“, počítač už může být schválený, nedá se to zjistit, nebo má jméno příponu jako -1, protože ho má jiné zařízení) nic neměň, nic nemaž a zastav se: napiš mi zvolené jméno, Self.DNSName, ControlURL a BackendState a požádej mě, ať přesně tohle pošlu Adminovi Organizace.
 
 Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede jinam než do sítě Organizace. Nic neodhlašuj ani neresetuj (žádné tailscale logout, down ani --reset). Má-li Tailscale už jinou síť, nech ji být: přihlášení přidá síť Organizace jako další účet a přepne na ni, zpět se dá přepnout v nabídce Tailscale. Nepoužívej auth key, neměň registr ani zásady Tailscale, Tailscale nevypínej a zařízení se nepokoušej schválit. Když něco selže, řekni mi jednoduše, co se stalo, a zastav se.
 ```
@@ -219,11 +220,17 @@ programátor: mluv s ním jednoduše a příkazy mu neukazuj.
   přihlášení, jak říká manuál agentů Lazuria. `<login>` je login, který
   člověku poslal Admin Organizace; nikdy ho neodvozuj z účtu ve Windows ani
   z e-mailu. `<zařízení>` je krátké stálé označení z malých písmen, číslic
-  a spojovníků. Jméno počítače ve Windows neměň. Zařízení, které ještě není
-  schválené a má špatné jméno, oprav příkazem `tailscale set --hostname=<jméno>`;
-  schválené zařízení se nikdy nepřejmenovává. Přípona `-1` nebo jiné jméno
-  není úspěch: nic nemaž a pošli člověka za Adminem Organizace. Výsledné
-  jméno člověku řekni, aby ho mohl napsat Adminovi Organizace.
+  a spojovníků. Jméno počítače ve Windows neměň. Úspěch hlas až ve chvíli,
+  kdy `Self.DNSName` má přesně zvolené jméno a `ControlURL` zadanou adresu.
+  Příkazem `tailscale set --hostname=<jméno>` přejmenuj jen zařízení, o kterém
+  jsi ověřil, že je nově zaregistrované a neschválené (člověk viděl **Node
+  registered** a Adminovi Organizace o něm ještě nenapsal), a jen kvůli své
+  vlastní chybě. Když zařízení může být schválené, nedá se to zjistit, nebo se
+  jméno liší kvůli kolizi (přípona `-1`), nic neměň, nic nemaž a předej případ
+  Adminovi Organizace s přesným stavem: zvolené jméno, `Self.DNSName`,
+  `ControlURL` a `BackendState`. Jméno schváleného zařízení je součástí jeho
+  přístupů, a proto se takhle nikdy nepřejmenovává. Výsledné jméno člověku
+  řekni, aby ho mohl napsat Adminovi Organizace.
 - Při chybě se zastav a řekni člověku, co se stalo. Nezkoušej auth key,
   změny registru, zásady Tailscale ani schválení zařízení.
 
@@ -264,10 +271,11 @@ Co uděláš sám:
 4. Opakovaně čti /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json, dokud se v poli AuthURL neobjeví přihlašovací odkaz. Než mi odkaz dáš, rozeber ho jako URL a ověř, že má stejné schéma (https), hostname a port jako adresa přihlašovacího serveru výše. Nestačí, že text odkazu stejně začíná. Když se liší, odkaz mi nedávej, řekni mi, co nesedí, a zastav se.
 
 Kde se zastavíš a necháš to na mně:
-5. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho a přihlaste se svým účtem Lazurio; až uvidíte zelenou fajfku a text „Node registered“, kartu zavřete a vraťte se sem. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
+5. Pošli mi ten odkaz jako klikací a jednou větou mi řekni: otevřete ho a přihlaste se svým účtem Lazurio; až uvidíte zelenou fajfku s textem „Node registered“ nebo „Node reauthenticated“, kartu zavřete, vraťte se sem a napište mi, který z obou nadpisů jste viděli. Přihlášení sám neotevírej, nevyplňuj ani nepotvrzuj. Nikdy po mně nechtěj heslo ani ověřovací kód.
 
 Jak poznáš, že je hotovo:
-6. status --json ukazuje BackendState „Running“, první část Self.DNSName je přesně jméno, které jsi zvolil, a debug prefs ukazuje ControlURL rovnou adrese výše. Když ses ve jméně spletl, oprav ho příkazem /Applications/Tailscale.app/Contents/MacOS/Tailscale set --hostname=<JMÉNO>; když má jméno příponu, třeba -1, nic nemaž a řekni mi, ať se obrátím na Admina Organizace. Pak mi napiš: „Hotovo. Mac čeká na schválení Adminem Organizace. Do té doby se z něj Lazurio nemusí otevřít, to je v pořádku. Napište Adminovi Organizace, že jste přidali Mac,“ a připoj jméno Macu v síti (Self.HostName ze status --json).
+6. Ověř tři věci: status --json ukazuje BackendState „Running“, debug prefs ukazuje ControlURL rovnou adrese výše a první část Self.DNSName ve status --json je přesně jméno, které jsi zvolil. Teprve když platí všechny tři, napiš mi: „Hotovo. Mac čeká na schválení Adminem Organizace. Do té doby se z něj Lazurio nemusí otevřít, to je v pořádku. Napište Adminovi Organizace, že jste přidali Mac,“ a připoj to jméno.
+7. Když je jméno jiné, smíš Mac přejmenovat, jen když je jisté všechno tohle: na přihlašovací stránce bylo „Node registered“, takže jsi Mac zaregistroval právě teď; Admin Organizace o něm ode mě ještě neví, takže není schválený; a jméno se liší jen tvou chybou, bez přípony jako -1. Pak spusť /Applications/Tailscale.app/Contents/MacOS/Tailscale set --hostname=<JMÉNO> a udělej znovu krok 6. Ve všech ostatních případech (na stránce bylo „Node reauthenticated“, Mac už může být schválený, nedá se to zjistit, nebo má jméno příponu jako -1, protože ho má jiné zařízení) nic neměň, nic nemaž a zastav se: napiš mi zvolené jméno, Self.DNSName, ControlURL a BackendState a požádej mě, ať přesně tohle pošlu Adminovi Organizace.
 
 Pravidla: nikdy mě neposílej na tlačítko Log in v aplikaci Tailscale, vede jinam než do sítě Organizace. Nic neodhlašuj ani neresetuj (žádné tailscale logout, down ani --reset). Má-li Tailscale už jinou síť, nech ji být: přihlášení přidá síť Organizace jako další účet a přepne na ni. Nepoužívej auth key, nic neinstaluj přes sudo, Tailscale nevypínej a zařízení se nepokoušej schválit. Když něco selže, řekni mi jednoduše, co se stalo, a zastav se.
 ```

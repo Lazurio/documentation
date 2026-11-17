@@ -123,10 +123,11 @@ What you do yourself:
 3. Read & "C:\Program Files\Tailscale\tailscale.exe" status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
-4. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+4. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark with "Node registered" or "Node reauthenticated", close the tab, come back here and tell me which of the two headings you saw. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
-5. status --json shows BackendState "Running", the first part of Self.DNSName is exactly the name you chose, and & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above. If you made a mistake in the name, fix it with & "C:\Program Files\Tailscale\tailscale.exe" set --hostname=<NAME>; if the name has a suffix such as -1, do not delete anything and tell me to ask my Organization Admin. Then tell me: "Done. This computer is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Windows computer," and add the computer's name in the network (Self.HostName from status --json).
+5. Check three things: status --json shows BackendState "Running", & "C:\Program Files\Tailscale\tailscale.exe" debug prefs shows ControlURL equal to the address above, and the first part of Self.DNSName in status --json is exactly the name you chose. Only when all three hold, tell me: "Done. This computer is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Windows computer," and add that name.
+6. If the name is different, you may rename the computer only when all of this is certain: I saw "Node registered", so you registered this computer just now; I have not told my Organization Admin about it yet, so it is not approved; and the name differs only because of your own mistake, with no suffix such as -1. Then run & "C:\Program Files\Tailscale\tailscale.exe" set --hostname=<NAME> and do step 5 again. In every other case (I saw "Node reauthenticated", the computer may already be approved, you cannot tell, or the name has a suffix such as -1 because another device has it) change nothing, delete nothing and stop: tell me the name you chose, Self.DNSName, ControlURL and BackendState, and ask me to send exactly that to my Organization Admin.
 
 Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it; switching back is in the Tailscale menu. Do not use an auth key, do not change the registry or Tailscale policies, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
 ```
@@ -226,11 +227,17 @@ programmer: talk to them in plain language and do not show them commands.
   that their Organization Admin sent; never derive it from the Windows
   account or an e-mail address. `<device>` is a short, stable label in
   lowercase letters, digits and hyphens. Do not change the computer's name in
-  Windows. A device that is not approved yet and has a wrong name is fixed
-  with `tailscale set --hostname=<name>`; an approved device is never renamed.
-  A `-1` suffix or another name is not success: do not delete anything and
-  send the person to their Organization Admin. Tell the person the final name
-  so they can pass it to the Organization Admin.
+  Windows. Report success only after `Self.DNSName` has exactly the chosen
+  name and `ControlURL` the given address. Rename with `tailscale set
+  --hostname=<name>` only a device you have confirmed is newly registered and
+  not approved (the person saw **Node registered** and has not told the
+  Organization Admin about it yet), and only to correct your own mistake. If
+  the device may be approved, you cannot tell, or the name differs because of
+  a collision (a `-1` suffix), change nothing, delete nothing and hand the
+  case to the Organization Admin with the exact state: the chosen name,
+  `Self.DNSName`, `ControlURL` and `BackendState`. An approved device's name is
+  part of its access, so it is never renamed this way. Tell the person the
+  final name so they can pass it to the Organization Admin.
 - On failure, stop and tell the person what happened. Do not try auth keys,
   registry changes, Tailscale policies or approving the device.
 
@@ -272,10 +279,11 @@ What you do yourself:
 4. Read /Applications/Tailscale.app/Contents/MacOS/Tailscale status --json repeatedly until the AuthURL field contains a sign-in link. Before you give me the link, parse it as a URL and check that its scheme (https), hostname and port match the login server address above. Matching text at the start is not enough. If they differ, do not give me the link; tell me what does not match and stop.
 
 Where you stop and leave it to me:
-5. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark and "Node registered", close the tab and come back here. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
+5. Send me that link as a clickable link and tell me in one sentence: open it and sign in with your Lazurio account; when you see a green check mark with "Node registered" or "Node reauthenticated", close the tab, come back here and tell me which of the two headings you saw. Do not open, fill in or confirm the sign-in yourself. Never ask me for a password or a verification code.
 
 How you know it is done:
-6. status --json shows BackendState "Running", the first part of Self.DNSName is exactly the name you chose, and debug prefs shows ControlURL equal to the address above. If you made a mistake in the name, fix it with /Applications/Tailscale.app/Contents/MacOS/Tailscale set --hostname=<NAME>; if the name has a suffix such as -1, do not delete anything and tell me to ask my Organization Admin. Then tell me: "Done. This Mac is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Mac," and add the Mac's name in the network (Self.HostName from status --json).
+6. Check three things: status --json shows BackendState "Running", debug prefs shows ControlURL equal to the address above, and the first part of Self.DNSName in status --json is exactly the name you chose. Only when all three hold, tell me: "Done. This Mac is waiting for approval by your Organization Admin. Until then Lazurio may not open from it, and that is fine. Tell your Organization Admin that you added a Mac," and add that name.
+7. If the name is different, you may rename the Mac only when all of this is certain: I saw "Node registered", so you registered this Mac just now; I have not told my Organization Admin about it yet, so it is not approved; and the name differs only because of your own mistake, with no suffix such as -1. Then run /Applications/Tailscale.app/Contents/MacOS/Tailscale set --hostname=<NAME> and do step 6 again. In every other case (I saw "Node reauthenticated", the Mac may already be approved, you cannot tell, or the name has a suffix such as -1 because another device has it) change nothing, delete nothing and stop: tell me the name you chose, Self.DNSName, ControlURL and BackendState, and ask me to send exactly that to my Organization Admin.
 
 Rules: never send me to the Log in button in the Tailscale app; it leads somewhere other than the Organization's network. Do not log out or reset anything (no tailscale logout, down or --reset). If Tailscale already has another network, leave it: the sign-in adds the Organization's network as another account and switches to it. Do not use an auth key, do not install anything with sudo, do not turn Tailscale off and do not try to approve the device. If something fails, tell me simply what happened and stop.
 ```
