@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -55,6 +56,11 @@ Každá vydaná verze přechází po dvou letech na Apache 2.0 a software je
 poskytován bez záruky. Licenční oznámení uvádí HumanAndMachine s.r.o. jako
 držitele autorských práv. Samotná licence neslibuje hosting, podporu ani úroveň
 služeb pro konkrétní nasazení.
+
+Vydaná Lazurio Platform místo toho používá
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE). Na Apache se automaticky nepřevádí a nabízet ji
+třetím stranám jako hostovanou nebo spravovanou službu vyžaduje samostatnou
+smlouvu s poskytovatelem licence ([rozsah a oznámení](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
 
 ## Identita a oprávnění
 

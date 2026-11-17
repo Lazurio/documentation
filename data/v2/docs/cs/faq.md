@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-readme
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -34,7 +35,8 @@ zabezpečení a podmínky zpracování dat posuzujte samostatně.
 ## Je Lazurio hotový balíčkovaný produkt?
 
 Ne. V odkazované revizi se Lazurio spouští ze zdrojové pracovní kopie
-s Gitem a Bunem. CLI v0 je experimentální a balíčkovaná instalace je plánovaná. Lazurio je momentálně dostupné pod licencí
+s Gitem a Bunem. CLI v0 je experimentální a balíčkovaná instalace je plánovaná. Vydaná Lazurio Platform je dostupná pod licencí
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) a starší repozitář Lazurio rootu pod
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
 podrobnosti o licenci a zralosti produktu najdete v části [Bezpečnost a
 podklady k ověření](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).

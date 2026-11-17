@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -51,7 +52,7 @@ them.
 | --- | --- |
 | Product form | Developer-operated source checkout using Git and Bun. A packaged installation is a future target. |
 | Runtime maturity | Launchpad, Doctor and selected module flows work today; CLI v0 remains experimental. |
-| License | Source-available under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each published version after two years. |
+| License | Lazurio Platform is source-available under [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE), with no automatic transition to Apache; offering it to third parties as a hosted or managed service needs a separate agreement ([scope](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)). The earlier Lazurio root repository is under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each of its published versions after two years. |
 | Assurance | No certification, universal service level, retention period or deployment topology is claimed. Support and hosting terms belong to the concrete deployment. |
 
 See [security and control evidence](/en/public-evidence/) for the license,

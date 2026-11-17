@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -54,6 +55,11 @@ similar functionality. Each published version becomes available under Apache 2.0
 its second anniversary, and the software is provided without warranty.
 The license notice names HumanAndMachine s.r.o. as copyright holder. It does
 not itself promise hosting, support or a service level for a concrete rollout.
+
+Lazurio Platform, the released product, uses
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) instead. It has no automatic transition to Apache,
+and offering it to third parties as a hosted or managed service needs a separate
+agreement with the licensor ([scope and notices](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
 
 ## Identity and authority
 

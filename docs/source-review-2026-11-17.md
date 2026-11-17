@@ -3,9 +3,10 @@
 Fourteen sources were due for review by 29 November 2026. Each one was opened
 again on 17 November 2026 and compared with the claims of every page in both
 locales that cites it. A review window moves only where the source still
-supports those claims, or where the page was corrected first. Thirteen
-windows move; `lazurio-license` keeps its window ending 27 November 2026 because
-its correction needs a product decision. The
+supports those claims, or where the page was corrected first. All fourteen
+windows move; `lazurio-license` moved after the license statements were
+corrected on the owner's decision (see its entry below), and the new source
+`lazurio-platform-license` was added. The
 repository's monthly cadence is retained: a renewed source is next due one
 calendar month after this review, on 17 December 2026.
 
@@ -117,15 +118,18 @@ already in the evidence map.
   "schemas"; neither the pin nor main says so. They now list what the
   standard allows in Git: standard paths, pointers, variable names,
   instructions without secrets and metadata-only checks.
-- **`lazurio-license`: not renewed.** `LICENSE.md` is byte-identical on the
-  pin and on main, but the released Lazurio Platform uses Elastic License 2.0
-  without an automatic Apache transition (`LICENSE` and `docs/licensing.md`
-  in LazurioPlatform). The home page and the FAQ still call FSL-1.1-Apache-2.0
-  Lazurio's current license, and the English IT table presents it as the
-  current position. Which license the pages present as current is a product
-  and legal decision. Issue #42 and the open pull request #48 already propose
-  it, so this review changes no license text and leaves the window at
-  27 November 2026. `ISSUES.open.json` records the consequence.
+- **`lazurio-license`: renewed after a correction.** `LICENSE.md` is
+  byte-identical on the pin and on main (blob `27224345`), so the FSL terms
+  stay true for the earlier Lazurio root repository. The released Lazurio
+  Platform uses Elastic License 2.0 without an automatic Apache transition
+  (`LICENSE`, SHA-256 `48255018b41fc0e9…`, and `docs/licensing.md` at
+  `fe72f687`). On the owner's decision of 17 November 2026 the home page, the
+  FAQ and the IT table now present Elastic-2.0 as the license of the released
+  Platform and FSL-1.1-Apache-2.0 as the license of the earlier root
+  repository; the evidence page keeps the root's FSL terms and adds the
+  Platform's. The new source `lazurio-platform-license` pins
+  `docs/licensing.md` at `fe72f687`. The wider refresh of the product form in
+  #48 (issue #42) is unchanged by this.
 - **`lazurio-product-vocabulary`:** decisions 0170, 0175, 0179, 0185 and 0207
   remain in force; 0170 and 0207 gained addenda, including a Services
   Environment that is decided but not shown. Since decision 0226 the

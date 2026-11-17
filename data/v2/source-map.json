@@ -99,8 +99,18 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-license",
+      "title": "Lazurio Platform license and scope",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "wispr-flow",

@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -46,7 +47,7 @@ jen tehdy, když je konkrétní nasazení zapne.
 | --- | --- |
 | Podoba produktu | Zdrojová pracovní kopie s Gitem a Bunem spravovaná technickým provozovatelem. Balíčkovaná instalace je budoucí cíl. |
 | Vyspělost prostředí | Launchpad, Doctor a vybrané postupy modulů jsou dostupné; CLI v0 zůstává experimentální. |
-| Licence | Zdrojový kód je dostupný pod [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md). Na každou vydanou verzi se po dvou letech začne vztahovat Apache 2.0. |
+| Licence | Lazurio Platform je dostupná pod [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) a na Apache se automaticky nepřevádí; nabízet ji třetím stranám jako hostovanou nebo spravovanou službu vyžaduje samostatnou smlouvu ([rozsah](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)). Starší repozitář Lazurio rootu je pod [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md) a na každou jeho vydanou verzi se po dvou letech začne vztahovat Apache 2.0. |
 | Záruky | Nepřislibujeme certifikaci, univerzální úroveň služby, dobu uchování dat ani jednotné uspořádání nasazení. Podpora a hosting se řeší pro konkrétní nasazení. |
 
 ## Stručně
