@@ -4,7 +4,7 @@ description: "Porovnejte účel, přístupy a nároky na správu obou řešení.
 stableId: lazurio-doc-copilot-comparison
 locale: cs
 summary: "Porovnejte účel, přístupy a nároky na správu obou řešení."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - microsoft-copilot-architecture
   - microsoft-copilot-data-protection
   - microsoft-copilot-privacy
@@ -110,9 +111,10 @@ Postup popisuje [přehled pluginů](https://learn.microsoft.com/en-us/microsoft-
 Tato cesta se hodí pro postupy spravované v produktech Microsoftu.
 
 Lazurio se rozšiřuje pomocí Workspace Modulů a samostatně vymezených integrací.
-Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-upřednostňuje oficiální MCP servery nebo nástroje příkazové řádky a samostatně
-odvolatelné identity pro jednotlivá zařízení. To se hodí tam, kde práce
+Veřejný [standard pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
+upřednostňuje oficiální MCP servery nebo nástroje příkazové řádky, jejichž
+přihlášení zůstávají v Prostředí a lze je samostatně odvolat. Kde Organizace
+povolí Composio, patří jeho připojení účtu Composia, ne jednomu zařízení. To se hodí tam, kde práce
 vychází z repozitářů, prochází více službami nebo vyžaduje vlastní testy a
 schválení.
 

@@ -4,7 +4,7 @@ description: "Public sources behind product and security claims, and the limits 
 stableId: lazurio-doc-public-evidence
 locale: en
 summary: "Public sources behind product and security claims, and the limits of that evidence."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -55,6 +56,15 @@ its second anniversary, and the software is provided without warranty.
 The license notice names HumanAndMachine s.r.o. as copyright holder. It does
 not itself promise hosting, support or a service level for a concrete rollout.
 
+Lazurio Platform, the released product, uses
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) instead. It has no automatic transition to Apache.
+Offering third parties a hosted or managed service that exposes a substantial
+set of the software's features or functionality needs a separate agreement
+with the licensor, even when the service is free. The licensing scope states
+that this is not a prohibition on every kind of hosting: personal and internal
+company use, including a rented server or an internal cloud deployment, is
+allowed subject to the license ([scope and notices](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
+
 ## Identity and authority
 
 The current [user and agent terminology](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
@@ -66,8 +76,11 @@ Access comes from GitHub, the operating system and connected services.
 A prompt cannot grant it.
 
 The agent may use credentials and files available to its process. Lazurio's
-rules specify when that use is permitted. The operating system, AI tool's
-sandbox and provider controls enforce technical restrictions.
+rules specify when that use is permitted. The operating system, provider
+controls and any sandbox of the AI tool enforce technical restrictions. In a
+Lazurio Environment agents work with full access and without a sandbox: under
+[decision 0172](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
+the Environment is the boundary.
 
 ## Machine and Organization boundaries
 

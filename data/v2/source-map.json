@@ -9,8 +9,8 @@
       "kind": "public-source",
       "url": "https://learn.chatgpt.com/docs/browser",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "composio-authentication",
@@ -19,8 +19,8 @@
       "kind": "public-source",
       "url": "https://docs.composio.dev/docs/authentication",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "mcp-local-servers",
@@ -29,8 +29,8 @@
       "kind": "public-source",
       "url": "https://modelcontextprotocol.io/docs/2026-07-28/develop/connect-local-servers",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "google-third-party-connections",
@@ -39,8 +39,8 @@
       "kind": "public-source",
       "url": "https://support.google.com/accounts/answer/13533235",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-readme",
@@ -49,8 +49,8 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/README.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-architecture",
@@ -59,8 +59,8 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/ARCHITECTURE.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-collaboration-model",
@@ -69,8 +69,8 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/AGENTS.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-external-apps",
@@ -79,8 +79,8 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-secret-custody",
@@ -89,8 +89,8 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-license",
@@ -99,8 +99,28 @@
       "kind": "public-source",
       "url": "https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-08-27",
-      "reviewDueAt": "2026-11-27"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-license",
+      "title": "Lazurio Platform license and scope",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-platform-readme-release",
+      "title": "Lazurio Platform README at release v0.1.21 (published 2026-11-13, commit 8c11468): one-command installation of versioned releases, CLI and Launchpad in one program, lazurio update, Folder Factory and the generated Lazurio Folder; status still release candidates",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "wispr-flow",
@@ -189,8 +209,8 @@
       "kind": "public-source",
       "url": "https://docs.wisprflow.ai/articles/4678293671-Context-Awareness",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "codexbar-permissions",
@@ -199,8 +219,8 @@
       "kind": "public-source",
       "url": "https://github.com/steipete/CodexBar/blob/d34fbb47afe73f81dd591bae28a60f72c39a9fe4/README.md#macos-permissions-why-theyre-needed",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-decision-0162",
@@ -497,10 +517,10 @@
       "title": "Lazurio product vocabulary: decisions 0170, 0175, 0179, 0185 and 0207 with their addenda",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/HumanAndMachines/Lazurio/blob/6416d27786296583baf08b75526cff225e2673f7/manual/decision-register.md",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/f9af2b7c8e6962d12986e369e6d09cf1d0fed2d1/docs/decision-register.md",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-24",
-      "reviewDueAt": "2026-11-24"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     },
     {
       "id": "lazurio-microsoft-365-company-app",
@@ -1669,8 +1689,8 @@
       "kind": "public-source",
       "url": "https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal",
       "reviewOwner": "Anna Blazickova",
-      "reviewedAt": "2026-10-29",
-      "reviewDueAt": "2026-11-29"
+      "reviewedAt": "2026-11-17",
+      "reviewDueAt": "2026-12-17"
     }
   ]
 }

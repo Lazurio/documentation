@@ -4,7 +4,7 @@ description: "Jak připravit nasazení, určit odpovědné osoby a ověřit obno
 stableId: lazurio-doc-deployment-operations
 locale: cs
 summary: "Jak připravit nasazení, určit odpovědné osoby a ověřit obnovu i odebrání přístupu."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -12,9 +12,11 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -28,15 +30,24 @@ služby. U každé položky určete odpovědnou osobu.
 
 ## Dostupné součásti a budoucí cíle
 
-Následující stav odpovídá odkazované revizi zdrojů, ne automaticky nejnovější
-verzi produktu.
+Následující stav odpovídá revizi zdrojů Lazuria
+[`3c5bda5`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60),
+ne automaticky nejnovější verzi produktu.
+
+Současný produkt se od této revize liší: Lazurio Platform se instaluje jako
+verzovaná vydání, poslední finální je v0.1.21 z 13. listopadu 2026.
+Instalované vydání obsahuje CLI a Apps v jednom programu a generuje Lazurio
+Folder; aktualizace přicházejí jako nová vydání
+([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
+Do seznamu dnes nasazovaných součástí zapište instalované vydání, ne tuto
+tabulku.
 
 | Součást | Stav | Co to znamená pro provoz |
 | --- | --- | --- |
 | Zdrojová pracovní kopie s Gitem a Bunem | Dostupná | Provozovatel spravuje přístupy k repozitářům, závislosti a aktualizace. |
 | Launchpad, Guide a Doctor | Dostupné | Lokální nástroje pro hledání a spouštění aplikací, návody a kontrolu instalace. Naslouchání na loopback adrese samo neověřuje identitu volajícího. |
 | CLI v0 | Experimentální | Používejte pevně určené verze a otestujte produkční automatizaci, která na CLI závisí. |
-| Balíčkované CLI a generovaný root bez Gitu | Budoucí cíl | Nezahrnujte je do seznamu dnes nasazovaných součástí. |
+| Balíčkované CLI a generovaný root bez Gitu | Cíl v této revizi | V této revizi nebyly součástí instalace. Vydaná Lazurio Platform dnes instaluje balíčkované CLI a generuje Lazurio Folder; do seznamu dnes nasazovaných součástí zapište instalované vydání. |
 | Dashboard, hostovaný workspace a Resident/Buddy | Volitelné, samostatně nasazované | U každé zapnuté služby evidujte vlastní identitu, síť, úložiště a provozovatele. |
 
 ## Součásti nasazení
@@ -89,7 +100,7 @@ vlastníka. Posouzení zopakujte při změně klienta, poskytovatele nebo typu �
 
 Začněte jedním jasně vymezeným scénářem. Uživatel má mít přístup pouze k
 repozitářům a rozsahům oprávnění, které pro něj potřebuje. Postupujte podle
-veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
+veřejného [standardu pro externí aplikace](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
 a vyzkoušejte také odebrání přístupu.
 
 ### 5. Nastavte schvalování výsledků

@@ -4,18 +4,21 @@ description: "Answers about the product, access, data and approval of results."
 stableId: lazurio-doc-faq
 locale: en
 summary: "Answers about the product, access, data and approval of results."
-updatedAt: "2026-09-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-onboarding-decision-register
   - microsoft-copilot-architecture
 audience:
   - it-admin
@@ -38,8 +41,16 @@ security and data terms separately.
 
 <summary>Is Lazurio a finished, packaged product?</summary>
 
-No. At the referenced revision, Lazurio runs from a source checkout using
-Git and Bun. CLI v0 is experimental; a packaged installation is planned. Lazurio is currently source-available under
+It is packaged. The current Platform is distributed as installable releases:
+version v0.1.21 was published on 13 November 2026 and includes CLI, Apps and
+generated agent instructions. Its
+[README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)
+still describes the status as release candidates, and a released package does
+not imply a universal SLA or a certified deployment. At revision `3c5bda5` of
+the earlier Lazurio root repository, which some pages still cite, Lazurio ran
+from a source checkout using Git and Bun and a packaged installation was still
+planned. Lazurio Platform, the released product, is source-available under
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE), and the earlier Lazurio root repository under
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
 the [security and control evidence](/en/public-evidence/#product-form-and-maturity) explains
 the license and maturity details.
@@ -62,8 +73,10 @@ comparison](/en/lazurio-vs-microsoft-copilot/).
 <summary>Can an agent access everything the user can?</summary>
 
 It depends on the setup. An agent may use files, accounts and tools available
-to its running process. OS permissions, the AI tool's sandbox, the workspace
-and service credentials determine access. A prompt neither grants new rights
+to its running process. OS permissions, the workspace, service credentials
+and any sandbox of the AI tool determine access. In a Lazurio Environment
+agents work with full access and without a sandbox: the Environment is the
+boundary, and narrower rights need a separate Environment. A prompt neither grants new rights
 nor removes existing ones. Test what should be allowed and what should be denied.
 
 </details>
@@ -84,8 +97,9 @@ data-flow and processor map belongs to the deployment.
 <summary>How are secrets handled?</summary>
 
 Real secrets stay outside Git in scoped ignored paths or approved provider
-stores. Tracked files contain only schemas, required variable names and
-instructions. Endpoint, backup, rotation and incident controls must protect the
+stores. Tracked files contain only standard paths, pointers to the local location,
+names of required variables, instructions without secrets and checks that read
+metadata only. Endpoint, backup, rotation and incident controls must protect the
 actual custody location.
 
 </details>

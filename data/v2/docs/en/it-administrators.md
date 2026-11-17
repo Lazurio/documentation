@@ -4,7 +4,7 @@ description: "What to verify before a Lazurio pilot and production deployment."
 stableId: lazurio-doc-it-administrators
 locale: en
 summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -12,10 +12,13 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -29,10 +32,15 @@ materials and change history. Agents prepare drafts; publication is approved
 separately. GitHub, the operating system and connected services still control
 access.
 
-The setup described in the linked source revision runs from source with Git and Bun. It
-includes Launchpad, diagnostics, operating contracts and an experimental CLI
-v0. It is not a vendor-managed AI service, a stable packaged installer or an
-additional sandbox around the selected agent client.
+The current baseline is installable Platform v0.1.21, released on 13 November
+2026. CLI and Apps share one installed program; the product generates the
+Lazurio Folder's agent instructions
+([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
+This does not supply an AI subscription or a universal sandbox. The earlier
+Lazurio root repository at revision `3c5bda5`, which this briefing still cites
+for some rules, ran from a developer-operated source checkout with Git and Bun
+and had an experimental CLI v0; that describes that revision, not the current
+release.
 
 Before approval, identify **the account, machine, Organization, tool and
 available data**. Separately verify who may publish the result.
@@ -48,9 +56,9 @@ them.
 
 | Item | Current public position |
 | --- | --- |
-| Product form | Developer-operated source checkout using Git and Bun. A packaged installation is a future target. |
-| Runtime maturity | Launchpad, Doctor and selected module flows work today; CLI v0 remains experimental. |
-| License | Source-available under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each published version after two years. |
+| Product form | Installable CLI and Apps, with generated instructions; source checkout is not required for daily use. Releases are versioned; the latest final release is v0.1.21 of 13 November 2026. |
+| Runtime maturity | The Platform README still describes the status as release candidates, and hosted Environments still run the earlier Resident beside it until hosted entry and content synchronization land. Verify the installed release and enabled services; a release is not a promise that every optional service is deployed. |
+| License | Lazurio Platform is source-available under [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE), with no automatic transition to Apache. A hosted or managed service offered to third parties that exposes a substantial set of the software's features or functionality needs a separate agreement, even when it is free. This is not a prohibition on every kind of hosting: internal company use, including a rented server or an internal cloud deployment, is allowed subject to the license ([scope](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)). The earlier Lazurio root repository is under [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md), with Apache 2.0 applying to each of its published versions after two years. |
 | Assurance | No certification, universal service level, retention period or deployment topology is claimed. Support and hosting terms belong to the concrete deployment. |
 
 See [security and control evidence](/en/public-evidence/) for the license,
@@ -64,7 +72,7 @@ source links and limits of these claims.
 | Company boundary | One company maps to one Organization and GitHub access boundary. One machine remains one trust domain. | Only intended repositories are mounted; use separate machines or equivalent isolation when companies must not share an OS boundary. |
 | Working context | Work begins in checked-out source and explicitly enabled tools. | Endpoint protection, local data scope and provider terms meet policy. |
 | Publication | Agent output stays editable until an authorized merge, deployment, send or provider action. | Branch rules, reviews and provider permissions enforce the intended gate. |
-| Integrations | Connections are locally curated and separately revocable; official MCP or CLI paths are preferred. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
+| Integrations | Each connected app has one route: a tool, Executor or, where the Organization allows it, Composio. Official MCP servers and CLIs come first. Tool and Executor sign-ins stay in the Environment and can be revoked separately; Composio connections belong to the Composio account, and Composio holds their tokens and call content. | Every provider, OAuth scope, owner, data path and revocation procedure is accepted. |
 | Evidence | Git and provider records can show who changed what, but coverage depends on the tools actually used. | Required endpoint, model, app and deployment logs exist and have named retention. |
 
 ## What data can be reached?
@@ -74,8 +82,9 @@ enabled tools. Check these five areas for your deployment:
 
 1. Git repositories and teams visible to the operating identity.
 2. Local files placed inside the active workspace or readable by the client.
-3. External applications enabled through an approved MCP server, CLI or
-   browser workflow.
+3. External applications connected through a tool, Executor (MCP servers)
+   or, where the Organization allows it, Composio, and work in a browser under
+   the user's supervision.
 4. The agent client, model provider and any hosting provider used by modules.
 5. Optional hosted Lazurio services such as Dashboard, a hosted team workspace
    or a per-owner Resident/Buddy service.

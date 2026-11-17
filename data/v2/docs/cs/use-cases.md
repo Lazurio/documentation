@@ -4,7 +4,7 @@ description: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné
 stableId: lazurio-doc-use-cases
 locale: cs
 summary: "Příklady práce, pro kterou se Lazurio hodí, a kdy zvolit jiné řešení."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -12,6 +12,7 @@ sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-external-apps-current
 audience:
   - it-admin
   - decision-maker
@@ -34,9 +35,11 @@ zkontroluje rozdíly a výsledky testů. Historie zůstává v Gitu.
 ### Provozní postupy napříč nástroji
 
 Jeden úkol může vyžadovat podklady z repozitáře i přístup ke schválené externí
-aplikaci. Každé takové propojení je v Lazuriu konkrétní, dohledatelné a
-samostatně odvolatelné pro dané zařízení. Systém nespoléhá na jedinou
-prostřednickou cloudovou službu se souhrnným přístupem ke všem nástrojům.
+aplikaci. Každá připojená aplikace má v Lazuriu jednu cestu: nástroj, Executor,
+nebo Composio, pokud ho Organizace povolí. Přihlášení nástroje nebo Executoru
+zůstávají v Prostředí a každé lze odvolat samostatně. Připojení přes Composio
+patří účtu Composia, ne jednomu zařízení, a Composio drží jejich tokeny i obsah
+volání.
 
 ### Trvalé organizační znalosti
 

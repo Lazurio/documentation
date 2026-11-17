@@ -4,7 +4,7 @@ description: "Work that suits Lazurio, the controls it needs and when to choose 
 stableId: lazurio-doc-use-cases
 locale: en
 summary: "Work that suits Lazurio, the controls it needs and when to choose another tool."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -12,6 +12,7 @@ sourceRefs:
   - lazurio-readme
   - lazurio-architecture
   - lazurio-collaboration-model
+  - lazurio-external-apps-current
 audience:
   - it-admin
   - decision-maker
@@ -33,8 +34,11 @@ and test results before accepting the change. Git keeps the history.
 ### Operational workflows across tools
 
 A task may need both repository files and an approved external application.
-Each connection is configured for the machine and can be revoked separately.
-The setup does not rely on a single cloud broker with access to every tool.
+Each connected app has one route: a tool, Executor or, where the Organization
+allows it, Composio. Sign-ins of a tool or of Executor stay in the Environment
+and can be revoked one by one. Composio connections belong to the Composio
+account rather than to one machine, and Composio holds their tokens and call
+content.
 
 ### Durable organizational knowledge
 

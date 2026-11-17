@@ -4,7 +4,7 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-external-apps-current
   - lazurio-readme
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
@@ -56,6 +57,15 @@ poskytován bez záruky. Licenční oznámení uvádí HumanAndMachine s.r.o. ja
 držitele autorských práv. Samotná licence neslibuje hosting, podporu ani úroveň
 služeb pro konkrétní nasazení.
 
+Vydaná Lazurio Platform místo toho používá
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE). Na Apache se automaticky nepřevádí.
+Nabízet třetím stranám hostovanou nebo spravovanou službu, která zpřístupňuje
+podstatnou část funkcí nebo funkcionality softwaru, vyžaduje samostatnou
+smlouvu s poskytovatelem licence, i když je služba zdarma. Popis rozsahu
+licence výslovně uvádí, že nejde o zákaz každého hostingu: osobní i interní
+firemní použití, včetně pronajatého serveru nebo nasazení v interním cloudu,
+je za podmínek licence povolené ([rozsah a oznámení](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)).
+
 ## Identita a oprávnění
 
 Současné [názvosloví uživatele a agentů](https://github.com/Lazurio/LazurioPlatform/blob/4681f49720fa7a6a7ceaac6ec07f8bd05d4e2193/docs/decisions.md#f30--the-operator-replaces-the-principal)
@@ -68,7 +78,10 @@ službách.
 
 Agent může použít soubory a přihlášení dostupné jeho procesu. Pravidla
 Lazuria určují, kdy je to dovoleno; technická omezení zajišťují operační
-systém, sandbox AI nástroje a poskytovatel.
+systém, poskytovatel a případný sandbox AI nástroje. V Prostředí Lazuria
+pracují agenti s plným přístupem a bez sandboxu: podle
+[rozhodnutí 0172](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md#0172--agents-work-with-full-access-the-environment-is-the-boundary)
+(anglicky) je hranicí Prostředí.
 
 ## Hranice zařízení a Organizace
 

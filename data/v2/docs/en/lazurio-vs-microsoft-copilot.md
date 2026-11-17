@@ -4,7 +4,7 @@ description: "Compare the work, access and administration each tool requires."
 stableId: lazurio-doc-copilot-comparison
 locale: en
 summary: "Compare the work, access and administration each tool requires."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,7 @@ sourceRefs:
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - microsoft-copilot-architecture
   - microsoft-copilot-data-protection
   - microsoft-copilot-privacy
@@ -48,7 +49,7 @@ recommendations are our assessment.
 | --- | --- | --- |
 | Primary purpose | AI assistance inside the Microsoft 365 productivity environment. | Prepare, review and approve versioned work across repositories and tools. |
 | Natural context | With a Premium license, Microsoft Graph and the user's permitted Microsoft 365 content. Copilot Chat (Basic) and Microsoft 365 Copilot (Basic) ground in web data, plus content the user supplies or a pay-as-you-go agent. Configured agents and connectors add more. | Selected Organization repositories, local workspace context and individually approved external tools. |
-| Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in user's GitHub/provider permissions and machine-scoped integrations; prompts do not grant authority. |
+| Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in user's GitHub/provider permissions and the integrations connected in the Environment; prompts do not grant authority. |
 | Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Changes, plans, reference material and app actions prepared for review and approval. |
 | Administration | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, devices, module requirements and each provider's administration. |
 | Extensibility | Plugins: installable packages that can include declarative agents, skills, and configuration or references for Copilot connectors and MCP servers. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
@@ -107,9 +108,10 @@ described in Microsoft's [plugin overview](https://learn.microsoft.com/en-us/mic
 Use this route for workflows managed within Microsoft's products.
 
 Lazurio extensions are workspace modules and scoped tool integrations. The
-documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md)
-prefers official local MCP servers or CLIs and separately revocable machine
-identities. Use this route for work across repositories or providers that needs its own tests and approvals.
+documented [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md)
+prefers official MCP servers or CLIs whose sign-ins stay in the Environment and
+can be revoked separately. Where the Organization allows Composio, its
+connections belong to the Composio account rather than to one machine. Use this route for work across repositories or providers that needs its own tests and approvals.
 
 ## Which should you choose?
 

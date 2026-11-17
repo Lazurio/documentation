@@ -4,18 +4,21 @@ description: "Odpovědi k produktu, přístupům, datům a schvalování výsled
 stableId: lazurio-doc-faq
 locale: cs
 summary: "Odpovědi k produktu, přístupům, datům a schvalování výsledků."
-updatedAt: "2026-09-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
   - lazurio-secret-custody
+  - lazurio-onboarding-decision-register
   - microsoft-copilot-architecture
 audience:
   - it-admin
@@ -32,8 +35,16 @@ zabezpečení a podmínky zpracování dat posuzujte samostatně.
 
 ## Je Lazurio hotový balíčkovaný produkt?
 
-Ne. V odkazované revizi se Lazurio spouští ze zdrojové pracovní kopie
-s Gitem a Bunem. CLI v0 je experimentální a balíčkovaná instalace je plánovaná. Lazurio je momentálně dostupné pod licencí
+Balíčkovaný ano. Současná Lazurio Platform se distribuuje jako instalovatelná
+vydání: verze v0.1.21 vyšla 13. listopadu 2026 a obsahuje CLI, Apps
+i generované instrukce pro agenty. Její
+[README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)
+stav dál označuje jako kandidáty na vydání (release candidates) a vydaný
+balíček sám nepřislibuje jednotné SLA ani certifikované nasazení. V revizi
+`3c5bda5` staršího repozitáře Lazurio rootu, na kterou některé stránky dál
+odkazují, se Lazurio spouštělo ze zdrojové pracovní kopie s Gitem a Bunem
+a balíčkovaná instalace byla teprve plánovaná. Vydaná Lazurio Platform je dostupná pod licencí
+[Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) a starší repozitář Lazurio rootu pod
 [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md);
 podrobnosti o licenci a zralosti produktu najdete v části [Bezpečnost a
 podklady k ověření](/cs/public-evidence/#podoba-produktu-a-jeho-zralost).
@@ -49,8 +60,10 @@ Microsoft Copilotu](/cs/lazurio-vs-microsoft-copilot/).
 ## Dostane se agent ke všemu, kam se dostane uživatel?
 
 Záleží na nastavení. Agent může použít soubory, účty a nástroje dostupné
-jeho běžícímu procesu. Rozhodují oprávnění operačního systému, sandbox AI
-nástroje, pracovní prostor a přístupy ke službám. Prompt nová práva neudělí
+jeho běžícímu procesu. Rozhodují oprávnění operačního systému, pracovní
+prostor, přístupy ke službám a případný sandbox AI nástroje. V Prostředí
+Lazuria pracují agenti s plným přístupem a bez sandboxu: hranicí je Prostředí
+a menší práva vyžadují samostatné Prostředí. Prompt nová práva neudělí
 a sám ani neodebere ta existující. Otestujte, co agent smí i co má být zamítnuto.
 
 ## Jsou všechna data Lazuria uložená lokálně?
@@ -65,7 +78,9 @@ nasazení.
 
 Skutečné tajné údaje se nemají ukládat do Gitu. Patří do vyhrazených lokálních
 úložišť mimo verzované soubory nebo do schváleného úložiště poskytovatele.
-Repozitář obsahuje pouze schémata, požadované názvy proměnných a pokyny. Více
+Repozitář obsahuje pouze standardní cesty, odkazy na lokální umístění, názvy
+požadovaných proměnných, pokyny bez tajných údajů a kontroly, které čtou jen
+metadata. Více
 uvádí veřejný [standard správy tajných údajů](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/security/local-secret-custody.md).
 
 ## Co brání agentovi zveřejnit škodlivou změnu?

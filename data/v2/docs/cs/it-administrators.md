@@ -4,7 +4,7 @@ description: "Co ověřit před pilotem a produkčním nasazením Lazuria."
 stableId: lazurio-doc-it-administrators
 locale: cs
 summary: "Přehled pro správce IT: hranice přístupu, podmínky poskytovatelů a schvalování výsledků před nasazením."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -12,10 +12,13 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-license
+  - lazurio-platform-license
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -28,10 +31,15 @@ doložit před nasazením. Lazurio používá Git repozitáře pro firemní podk
 a historii změn. Agent připravuje návrhy, jejich zveřejnění se schvaluje
 zvlášť. Přístupy dál určují GitHub, operační systém a připojené služby.
 
-Verze popsaná v odkazovaných zdrojích běží ze zdrojové pracovní kopie s Gitem a
-Bunem. Obsahuje Launchpad, diagnostiku, provozní pravidla a experimentální CLI
-v0. Není to spravovaná AI služba dodavatele, stabilní balíčkovaný instalátor ani
-další sandbox kolem vybraného klienta agenta.
+Tento přehled vychází z instalovatelné Lazurio Platform v0.1.21 z 13. listopadu
+2026. CLI a Apps sdílejí jeden instalovaný program, který připravuje instrukce
+pro agenty v Lazurio Folderu
+([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
+Součástí není předplatné AI ani univerzální sandbox. Starší repozitář Lazurio
+rootu se v revizi `3c5bda5`, na kterou tento přehled u některých pravidel dál
+odkazuje, spouštěl ze zdrojové pracovní kopie s Gitem a Bunem spravované
+technickým provozovatelem a měl experimentální CLI v0; to popisuje tuto revizi,
+ne současné vydání.
 
 Před schválením určete **účet, zařízení, Organizaci, nástroj a dostupná data**.
 Zvlášť ověřte, kdo smí výsledek zveřejnit.
@@ -41,11 +49,11 @@ jen tehdy, když je konkrétní nasazení zapne.
 
 ## Podklady pro rozhodnutí
 
-| Položka | Stav podle odkazované revize veřejných zdrojů |
+| Položka | Současný stav podle veřejných zdrojů |
 | --- | --- |
-| Podoba produktu | Zdrojová pracovní kopie s Gitem a Bunem spravovaná technickým provozovatelem. Balíčkovaná instalace je budoucí cíl. |
-| Vyspělost prostředí | Launchpad, Doctor a vybrané postupy modulů jsou dostupné; CLI v0 zůstává experimentální. |
-| Licence | Zdrojový kód je dostupný pod [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md). Na každou vydanou verzi se po dvou letech začne vztahovat Apache 2.0. |
+| Podoba produktu | Instalovatelné CLI a Apps s generovanými instrukcemi. Kopie zdrojového kódu není podmínkou každodenní práce. Vydání jsou verzovaná; poslední finální vydání je v0.1.21 z 13. listopadu 2026. |
+| Vyspělost prostředí | README Lazurio Platform stav dál označuje jako kandidáty na vydání (release candidates) a hostovaná Prostředí vedle ní zatím provozují dřívější Resident, dokud nebude nasazený hostovaný vstup a synchronizace obsahu. Ověřte instalované vydání a zapnuté služby. Vydání produktu nedokládá nasazení každé volitelné služby. |
+| Licence | Lazurio Platform je dostupná pod [Elastic License 2.0](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/LICENSE) a na Apache se automaticky nepřevádí. Hostovaná nebo spravovaná služba pro třetí strany, která zpřístupňuje podstatnou část funkcí nebo funkcionality softwaru, vyžaduje samostatnou smlouvu, i když je zdarma. Nejde o zákaz každého hostingu: interní použití ve firmě, i na pronajatém serveru nebo v interním cloudu, licence za svých podmínek povoluje ([rozsah](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/licensing.md)). Starší repozitář Lazurio rootu je pod [FSL-1.1-Apache-2.0](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/LICENSE.md) a na každou jeho vydanou verzi se po dvou letech začne vztahovat Apache 2.0. |
 | Záruky | Nepřislibujeme certifikaci, univerzální úroveň služby, dobu uchování dat ani jednotné uspořádání nasazení. Podpora a hosting se řeší pro konkrétní nasazení. |
 
 ## Stručně
@@ -56,7 +64,7 @@ jen tehdy, když je konkrétní nasazení zapne.
 | Oddělení firem | Jedna firma odpovídá jedné Organizaci a hranici přístupů v GitHubu; jedno zařízení je však stále jedna doména důvěry. | Připojené jsou jen zamýšlené repozitáře. Kde firmy nemají sdílet hranici operačního systému, použijte oddělená zařízení nebo rovnocennou izolaci. |
 | Lokální pracovní prostředí | Práce vychází z lokálně stažených, verzovaných podkladů na zařízení uživatele. | Zabezpečení zařízení, šifrování disku, dohled nad koncovými zařízeními, zálohování a odebrání přístupů odpovídají interním pravidlům. |
 | Schválení výsledku | Výstup agenta je nejprve vratný návrh. Sloučení změny, nasazení, odeslání nebo jiné zveřejnění vyžaduje příslušné oprávnění. | Pravidla repozitářů, povinné kontroly a oprávnění k nasazení skutečně vynucují zamýšlený schvalovací postup. |
-| Externí aplikace | Integrace se nastavují pro konkrétní zařízení, procházejí kontrolou a lze je samostatně odvolat. Přednost mají oficiální MCP servery a následně oficiální nástroje příkazové řádky. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
+| Externí aplikace | Každá připojená aplikace má jednu cestu: nástroj, Executor, nebo Composio, pokud ho Organizace povolí. Přednost mají oficiální MCP servery a oficiální nástroje příkazové řádky. Přihlášení nástrojů a Executoru zůstávají v Prostředí a lze je samostatně odvolat; připojení přes Composio patří účtu Composia a Composio drží jejich tokeny i obsah volání. | U každého poskytovatele jsou schválené rozsahy oprávnění, datové toky, uchovávání dat i postup odebrání přístupu. |
 | Přihlašovací a tajné údaje | Citlivé údaje patří do vyhrazených úložišť mimo Git a veřejnou dokumentaci. | Zvolené úložiště, obměna údajů, reakce na incident a kontrola úniků fungují i v praxi. |
 | Audit | Commity, pull requesty, schválení a záznamy o nasazení dobře dokládají změny zdrojů; jejich pokrytí závisí na použitých nástrojích. | Potřebné záznamy existují v GitHubu, na koncových zařízeních, u poskytovatele modelu, v připojených aplikacích i v infrastruktuře pro nasazení. |
 
@@ -72,8 +80,9 @@ Před nasazením zmapujte těchto pět míst:
 
 1. Git repozitáře a Teamy dostupné přihlášené identitě.
 2. Lokální soubory v aktivním pracovním prostředí i jiné soubory, které klient dokáže přečíst.
-3. Externí aplikace připojené přes schválený MCP server nebo nástroj příkazové
-   řádky nebo schválený postup v prohlížeči.
+3. Externí aplikace připojené přes nástroj, Executor (MCP servery) nebo,
+   pokud ho Organizace povolí, Composio, a práce v prohlížeči pod dohledem
+   uživatele.
 4. Poskytovatele modelu a hostingu, které využívá zvolený klient a jednotlivé
    Moduly.
 5. Volitelné hostované služby Lazuria, například Dashboard, týmový workspace

@@ -4,7 +4,7 @@ description: "Plan the deployment, assign owners and test recovery and access re
 stableId: lazurio-doc-deployment-operations
 locale: en
 summary: "Plan the deployment, assign owners and test recovery and access revocation."
-updatedAt: "2026-11-15"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -12,9 +12,11 @@ trustCritical: true
 sourceRefs:
   - lazurio-user-roles-current
   - lazurio-readme
+  - lazurio-platform-readme-release
   - lazurio-architecture
   - lazurio-collaboration-model
   - lazurio-external-apps
+  - lazurio-external-apps-current
   - lazurio-secret-custody
 audience:
   - it-admin
@@ -31,12 +33,23 @@ Name an owner for each.
 
 ## Current and target state
 
+The following status matches Lazurio source revision
+[`3c5bda5`](https://github.com/HumanAndMachines/Lazurio/tree/3c5bda5d54c5556a0e54f3c339d988aa911fda60),
+not automatically the latest product version.
+
+The current product differs from that revision: Lazurio Platform is installed
+as versioned releases, the latest final one being v0.1.21 of 13 November 2026.
+An installed release contains the CLI and Apps in one program and generates
+the Lazurio Folder; later updates arrive as new releases
+([README](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/README.md)).
+For a current bill of materials, list the installed release, not this table.
+
 | Surface | Status | Operational meaning |
 | --- | --- | --- |
-| Source checkout with Git and Bun | Supported today | The operator owns repository access, dependencies and updates. |
-| Launchpad, Guide and Doctor | Available today | These are local tools for finding applications, reading guidance, running applications and checking the installation. Loopback listeners are not caller authentication. |
+| Source checkout with Git and Bun | Supported | The operator owns repository access, dependencies and updates. |
+| Launchpad, Guide and Doctor | Available | These are local tools for finding applications, reading guidance, running applications and checking the installation. Loopback listeners are not caller authentication. |
 | CLI v0 | Experimental | Pin versions and test any production automation that depends on it. |
-| Packaged CLI and generated non-Git root | Future target | Do not include them in a current bill of materials. |
+| Packaged CLI and generated non-Git root | Target at that revision | They were not part of an installation at that revision. The released Lazurio Platform now installs a packaged CLI and generates the Lazurio Folder; list the installed release in a current bill of materials. |
 | Dashboard, hosted workspace and Resident/Buddy | Optional, separately deployed | Inventory each enabled service with its own identity, network, storage and operating owner. |
 
 Assign an owner to each part of the installation: the user's machine,
@@ -70,7 +83,7 @@ or account tier changes.
 
 Begin with one bounded use case. Grant only the repositories and provider
 scopes it needs, follow the [external application
-standard](https://github.com/HumanAndMachines/Lazurio/blob/3c5bda5d54c5556a0e54f3c339d988aa911fda60/manual/external-app-integrations.md),
+standard](https://github.com/HumanAndMachines/Lazurio/blob/46867061e6d0abf7781f9f9d0b93791be32da4d9/manual/external-app-integrations.md),
 and test revocation.
 
 ### 5. Enforce publication
