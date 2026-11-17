@@ -4,7 +4,7 @@ description: "Zadejte práci agentovi v Chatu a nechte výsledek uložit jako n�
 stableId: lazurio-doc-guide-course-first-task
 locale: cs
 summary: "Zadejte práci agentovi v Chatu a nechte výsledek uložit jako návrh ke kontrole."
-updatedAt: "2026-11-02"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-02"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -40,7 +40,7 @@ Víc o dobrém zadání najdete v návodu
 
 Instrukce, které Lazurio pro agenty generuje, tedy `AGENTS.md` ve Folderu,
 každému agentovi ukládají
-([`render.ts`](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/src/folder/render.ts)):
+([`render.ts`](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/folder/render.ts)):
 
 1. pracovat ve **worktree**, oddělené pracovní kopii repozitáře, aby platná
    verze v `main` zůstala netknutá;

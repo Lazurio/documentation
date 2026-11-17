@@ -4,7 +4,7 @@ description: "Devět krátkých lekcí od prvního přihlášení po první úko
 stableId: lazurio-doc-guide-course
 locale: cs
 summary: "Devět krátkých lekcí od prvního přihlášení po první úkol, který agent uloží a vy zkontrolujete."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -41,7 +41,7 @@ Budete potřebovat:
 
 1. [Přihlaste se do svého Prostředí](/cs/guide/course/first-sign-in/): co je Prostředí a v jakém druhu pracujete.
 2. [Dokončete Začínáme](/cs/guide/course/getting-started/): připojte AI a GitHub a stáhněte svou Organizaci.
-3. [Zorientujte se](/cs/guide/course/find-your-way/): Chat, Apps, Automate a Nastavení.
+3. [Zorientujte se](/cs/guide/course/find-your-way/): Chat, Aplikace, Automatizace a Nastavení.
 4. [Kdo s vámi pracuje](/cs/guide/course/who-works-with-you/): vy, agenti, Kolegové, Henry a Buddy.
 5. [Kam co patří](/cs/guide/course/where-things-belong/): Knowledgebase, Mission Control, issue, nebo Soubory.
 6. [Připojené aplikace](/cs/guide/course/connected-apps/): co smějí agenti s vaší poštou nebo kalendářem.
@@ -55,8 +55,8 @@ zkontrolujete. Použijte skutečnou, ale necitlivou práci.
 
 ## Co kurz popisuje
 
-Kurz popisuje Lazurio Platform podle jejího veřejného zdroje k 1. listopadu
-2026. Novější verze může mít jiné popisky. Pokud vaše Organizace ještě
+Kurz popisuje Lazurio Platform tak, jak vypadá v posledním finálním vydání
+v0.1.21 z 13. listopadu 2026. Novější verze může mít jiné popisky. Pokud vaše Organizace ještě
 pracuje s Lazurio Rootem na vašem počítači (GEN3), některé obrazovky
 a kroky se liší.
 

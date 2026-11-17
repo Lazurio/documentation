@@ -4,7 +4,7 @@ description: "Provider behaviour Lazurio met while connecting apps that holds fo
 stableId: lazurio-doc-provider-notes
 locale: en
 summary: "Dated notes on Google Workspace, Slack, Atlassian, Canva, LinkedIn, GitHub and Composio, each checked against the provider's own documentation."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-external-apps-org-steps
   - lazurio-provider-runbooks
+  - lazurio-platform-integrations-catalog
   - lazurio-github-app-broker
   - lazurio-github-app-public-issues
   - composio-create-organization-request
@@ -35,8 +36,7 @@ audience:
 
 These notes record provider behaviour that Lazurio met while connecting
 applications and that holds for any Organization. Each note says when Lazurio
-recorded it and links the provider's page where it was checked again on
-1 November 2026. Providers change their products, so check the linked page
+recorded it and links the provider's page where it was checked again on 17 November 2026. Providers change their products, so check the linked page
 before you rely on a note. Microsoft 365 has its own page,
 [Microsoft 365 for IT and the Organization Admin](/en/microsoft-365/), and the general rules
 for choosing a connection are in
@@ -44,8 +44,8 @@ for choosing a connection are in
 
 ## What an administrator does first
 
-Some providers need a one-time step on the Organization's side before any
-Environment can connect.
+Some providers need a one-time step on the Organization's side before an
+Environment can connect to them directly, without Composio.
 
 | Provider | First step on the provider's side |
 | --- | --- |
@@ -71,14 +71,16 @@ its runbook names as the most frequent one.
 - **Other ends of a refresh token.** Google lists these: the user revoked
   access, the token was not used for six months, the user changed their
   password and the token has Gmail scopes, the account exceeded the limit of
-  100 live refresh tokens per OAuth client, which silently invalidates the
-  oldest one, and an admin set a requested service to Restricted. Each
+  100 live refresh tokens per OAuth client, which silently invalidates the oldest one, the user granted time-based access
+  that has since expired, an admin set a requested service to Restricted, and,
+  for Google Cloud Platform APIs, the session length an admin set was exceeded. Each
   Environment's sign-in is its own grant, so many sign-ins of one account
   through the same client count toward that limit.
 - **Official MCP servers.** Google's Workspace MCP servers for Gmail, Drive,
   Docs, Sheets, Slides, Calendar, Chat and Classroom are a Developer Preview.
   They need the APIs and MCP services enabled in your own Google Cloud
-  project, an OAuth consent screen and your own OAuth client ID and secret.
+  project, an OAuth consent screen and your own OAuth client ID and secret, with the
+  option "Use this client for an AI-powered agent" selected on that client.
   Google Meet is not among them.
 
 ## Slack
@@ -100,8 +102,8 @@ enough.
 
 ## Atlassian: Jira and Confluence
 
-Lazurio recorded these on 2 September 2026. On 1 November 2026 Atlassian
-documented a different endpoint than Lazurio's runbook.
+Lazurio recorded these on 2 September 2026. On 17 November 2026 Atlassian
+still documents a different endpoint than Lazurio's runbook.
 
 - Atlassian's guide now gives `https://mcp.atlassian.com/v2/mcp`. Take the
   address from Atlassian's current guide, not from an older note.
@@ -121,7 +123,10 @@ Lazurio recorded its Canva setup on 2 September 2026.
 
 - Each user authenticates individually, and the operations available match
   that user's own access in Canva.
-- Canva limits every tool separately, from 20 to 100 requests per minute.
+- Canva limits most tools separately, from 10 to 100 requests per minute.
+  Tools with the Default limit have no limit of their own; a cap of 300
+  requests per minute per user applies to them, counted across all of that
+  user's MCP clients.
 - Resizing designs, autofill, brand kits and brand templates need Canva Pro or
   above.
 - The tools include creating and publishing brand templates. In Lazurio,
@@ -142,9 +147,11 @@ Lazurio recorded these on 24 July 2026.
 - The Share API allows 150 requests per member and 100,000 per application
   per UTC day.
 - LinkedIn's User Agreement forbids scraping and bots or other unauthorized
-  automated methods. Lazurio therefore allows only posting through the
-  official API, and agents read LinkedIn only in a browser under the user's
-  supervision.
+  automated methods. Lazurio connects LinkedIn only through its official API,
+  through Composio, and agents may do what that API allows. Agents never
+  automate LinkedIn's website: no scraping and no bots. They read it only in a
+  browser under the user's supervision; that is Lazurio's own rule, not an
+  exception in LinkedIn's agreement.
 
 ## GitHub
 
@@ -170,11 +177,11 @@ Lazurio recorded this on 17 October 2026.
   Composio organization named after your Lazurio Organization in Composio's
   dashboard. Lazurio asked Composio for that command in
   [issue 4949](https://github.com/ComposioHQ/composio/issues/4949), still open
-  on 1 November 2026.
+  on 17 November 2026.
 
 ## Sources
 
-- Lazurio: the [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/external-app-integrations.md) and the [provider runbooks](https://github.com/HumanAndMachines/Lazurio/tree/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations) (in Czech), and the [Lazurio for GitHub broker](https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md#opening-issues-in-public-repositories).
+- Lazurio: the [external application standard](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/external-app-integrations.md) and the [provider runbooks](https://github.com/HumanAndMachines/Lazurio/tree/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations) (in Czech), the [Lazurio for GitHub broker](https://github.com/Lazurio/github-app/blob/56975c96615887520dddc20db60a4b647d4d344d/README.md#opening-issues-in-public-repositories), and Lazurio Platform's [integrations catalog](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/integrations/catalog.json#L713-L726) at release v0.1.21.
 - Google: [OAuth audience and publishing status](https://support.google.com/cloud/answer/15549945), [refresh token expiration](https://developers.google.com/identity/protocols/oauth2#expiration), [Workspace MCP servers](https://developers.google.com/workspace/guides/configure-mcp-servers).
 - Slack: [Slack MCP server](https://docs.slack.dev/ai/slack-mcp-server/).
 - Atlassian: [getting started with the Atlassian MCP server](https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/) and [admin settings](https://support.atlassian.com/security-and-access-policies/docs/control-atlassian-mcp-server-settings/).

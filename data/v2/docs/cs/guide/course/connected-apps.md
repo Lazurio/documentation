@@ -4,7 +4,7 @@ description: "Co je Integrace, kdo ji připojuje a co smějí agenti s vaší po
 stableId: lazurio-doc-guide-course-connected-apps
 locale: cs
 summary: "Co je Integrace, kdo ji připojuje a co smějí agenti s vaší poštou nebo kalendářem."
-updatedAt: "2026-11-01"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -25,7 +25,7 @@ audience:
 smějí.
 
 **Integrace** je aplikace nebo služba připojená k vašemu Prostředí, třeba
-pošta, kalendář nebo chat. Najdete je v Apps → **Integrace**, v záložkách
+pošta, kalendář nebo chat. Najdete je v Aplikacích → **Napojení**, v záložkách
 **Vše**, **Připojené** a **Vlastní**. Každá aplikace má právě jednu cestu:
 nástroj z Nastavení → Nástroje (například `gh` pro GitHub), Executor
 Prostředí, nebo Composio s vaším vlastním účtem tam, kde ho vaše Organizace
@@ -45,12 +45,12 @@ zápis přes připojenou aplikaci žádný mechanismus Lazuria neblokuje
 ([Napojení Prostředí na aplikace](/cs/environment-app-connections/)).
 
 Hesla, tokeny ani ověřovací kódy nikdy nevkládejte do chatu. Když má
-Prostředí trezor a agent potřebuje heslo nebo klíč, požádá o něj
-v Apps → **Trezor**, kde ho vyplníte vy.
+Prostředí Správce hesel a agent potřebuje heslo nebo klíč, požádá o něj
+v Aplikacích → **Správce hesel**, kde ho vyplníte vy.
 
 ## Váš úkol
 
-1. Otevřete Apps → **Integrace** → **Připojené**.
+1. Otevřete Aplikace → **Napojení** → **Připojené**.
 2. V Chatu pošlete:
 
    ```text

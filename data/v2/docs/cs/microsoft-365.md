@@ -4,7 +4,7 @@ description: "Co Lazurio potřebuje od tenantu Microsoft 365, o čem rozhoduje I
 stableId: lazurio-doc-microsoft-365
 locale: cs
 summary: "Jedna aplikace Entra pro jediný tenant s delegovanými oprávněními Graphu a bez tajného klíče: co schvaluje IT, postup Admina Organizace, podmíněný přístup, audit a odvolání."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,9 @@ sourceRefs:
   - lazurio-platform-microsoft-365-company-app
   - lazurio-platform-decision-f45
   - lazurio-platform-release-v0-1-9
+  - lazurio-platform-decision-f42-m365-test
+  - lazurio-platform-m365-test-exchange
+  - lazurio-platform-m365-refresh-question
   - lazurio-manifest-family-settings
   - lazurio-decision-register-gen4
   - microsoft-entra-permissions-consent
@@ -59,14 +62,17 @@ aplikace (client ID), které tajné nejsou. Každý uživatel pak připojí svů
 pracovní účet a agenti v jeho Prostředí dosáhnou jen tam, kam dosáhne tento
 účet.
 
-**Stav k 1. 11. 2026.** Lazurio Platform aplikaci Organizace podporuje od
+**Stav k 17. 11. 2026.** Lazurio Platform aplikaci Organizace podporuje od
 [vydání v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9)
 z 19. 10. 2026. Dvě části hotové nejsou. Admin Organizace zatím nemůže nastavení upravit
 v Přehledu Organizace, proto se přidává pull requestem do repozitáře
-Organizace, který projde kontrolou. Lazurio celý postup ještě neprošlo na
-skutečném tenantu: výměna přihlašovacího kódu bez tajného klíče na návratové
-adrese HTTPS, obnova po vypršení přístupového tokenu a odvolání přes
-„Assignment required“ jsou zatím otevřené kontroly. Rejstřík rozhodnutí
+Organizace, který projde kontrolou. Lazurio postup zatím vyzkoušelo jen na vlastním testovacím tenantu
+s výchozím zabezpečením (security defaults) a bez podmíněného přístupu. Tam
+se 22. 10. 2026 přihlášení vrátilo na návratovou adresu HTTPS Prostředí,
+[Executor vyměnil kód bez tajného klíče](https://github.com/Lazurio/LazurioPlatform/issues/596#issuecomment-6344936802)
+a jedna automatická obnova tokenu proběhla. Zda připojení udrží i další
+obnovy, je [zatím otevřené](https://github.com/Lazurio/LazurioPlatform/issues/598),
+a výsledek odvolání přes „Assignment required“ Lazurio zatím nezveřejnilo. Rejstřík rozhodnutí
 Lazuria vede nastavení Microsoftu 365 z rozhodnutí 0162 jako rozhodnuté,
 zatím nenasazené. Nastavení u první Organizace proto plánujte jako pilot.
 
@@ -120,7 +126,7 @@ Admin Organizace požádá IT o doplnění souhlasu a uživatel se připojí zno
 ## Proč musí souhlas udělit IT
 
 Nové tenanty používají výchozí nastavení souhlasu Microsoftu „Let Microsoft
-manage your consent settings“. K 1. 11. 2026 Microsoft uvádí, že podle něj
+manage your consent settings“. K 17. 11. 2026 Microsoft uvádí, že podle něj
 uživatelé smějí souhlasit s delegovanými oprávněními kromě seznamu, ve kterém
 jsou i `Mail.ReadWrite`, `Calendars.ReadWrite`, `Files.ReadWrite.All`
 a `Sites.Read.All`. Aplikace, která vyžaduje přiřazení uživatelů, navíc podle
@@ -140,7 +146,7 @@ role Application Developer.
 | --- | --- |
 | IT, administrátoři tenantu | Zda aplikace existuje, její oprávnění a souhlas; kdo se smí připojit („Assignment required“ a přiřazení uživatelé nebo skupina); podmíněný přístup; vypnutí nebo smazání aplikace. Vypínačem je Entra. |
 | Admin Organizace v Lazuriu | Zapíše id tenantu, id aplikace, zvolené části a zaregistrované návratové adresy do nastavení Organizace a požádá IT o registraci adresy každého nového Prostředí. |
-| Každý uživatel | Připojí svůj pracovní účet v Apps → Integrace, může přidat další účty a odpojuje je. |
+| Každý uživatel | Připojí svůj pracovní účet v Aplikacích → Napojení, může přidat další účty a odpojuje je. |
 | Agenti | Používají připojené účty. Účet nikdy nepřipojují sami a změny, které uvidí ostatní, dělají jen na pokyn uživatele. Je to pravidlo práce, které agenti dodržují, ne technická zábrana. |
 
 ## Postup Admina Organizace
@@ -190,9 +196,9 @@ administrátora.
    nemůže. Před prvním nastavením ověřte, že všechna Prostředí Organizace
    běží na vydání Lazuria, které nastavení umí přečíst: starší čtenář odmítne
    celou sekci `settings`. Každé Prostředí Organizace pak nastavení použije
-   samo a v Apps → Integrace ukáže jednu kartu „Microsoft 365“; Prostředí,
+   samo a v Aplikacích → Napojení ukáže jednu kartu „Microsoft 365“; Prostředí,
    které se na nastavení ptá Přehledu Organizace, se ptá každé dvě minuty.
-10. **Uživatelé se připojí.** Každý uživatel otevře Apps → Integrace →
+10. **Uživatelé se připojí.** Každý uživatel otevře Aplikace → Napojení →
     Microsoft 365, zvolí Připojit, později Přidat účet, a jednou se přihlásí
     pracovním účtem. Kde je návratová adresa Prostředí zaregistrovaná, otevře
     se přihlášení ve vlastním prohlížeči uživatele. Jinak se otevře v prohlížeči
@@ -217,11 +223,12 @@ Shellu ve vlastním prohlížeči; ověření v kroku 8 zůstává stejné.
   prohlížeči uživatele na spravovaném zařízení projít může; pozdější obnova
   z Prostředí ale na zásadu narazit může.
 - Frekvence přihlášení (sign-in frequency) ukončí připojení po uplynutí
-  intervalu chybou `AADSTS70043`. Microsoft odkládá frekvenci přihlášení
-  u neinteraktivních přihlášení jen u důvěrných klientů a tato aplikace je
-  veřejný klient. Uživatel se pak připojí znovu.
-- Změna hesla zneplatní obnovovací tokeny z přihlášení heslem, ne
-  z přihlášení bez hesla. Přístup ukončíte zablokováním účtu nebo odvoláním
+  intervalu chybou `AADSTS70043`. U důvěrných klientů Microsoft frekvenci
+  přihlášení u neinteraktivních přihlášení odkládá do dalšího interaktivního
+  přihlášení; tato aplikace je ale veřejný klient. Uživatel se pak připojí znovu.
+- Když si uživatel změní heslo, zneplatní to obnovovací tokeny z přihlášení
+  heslem, ne z přihlášení bez hesla; reset hesla administrátorem v admin centru
+  Microsoft Entra nebo Microsoft 365 zneplatní obojí. Přístup ukončíte zablokováním účtu nebo odvoláním
   jeho relací.
 
 ## Data a tokeny
@@ -249,7 +256,7 @@ Shellu ve vlastním prohlížeči; ověření v kroku 8 zůstává stejné.
 | --- | --- | --- |
 | Jeden uživatel, i při odchodu z Organizace | Zablokujte účet nebo odvolejte relace uživatele (Microsoft Entra admin center → uživatel → Revoke sessions, nebo Graph `revokeSignInSessions`). | Další obnova selže a Executor pak ukáže připojení jako vypršelé. Už vydaný přístupový token platí do vypršení: Microsoft ve výchozím stavu přiděluje 60 až 90 minut a samotné odvolání může trvat několik minut. |
 | Celá Organizace | Enterprise apps → aplikace → Properties → „Enabled for users to sign in?“ na No, nebo odeberte souhlas, nebo aplikaci smažte. | Microsoft pro aplikaci nevydá žádné další tokeny, ani přiřazeným uživatelům. Už vydané tokeny vyprší jako výše. |
-| Jedno připojení, uživatelem | Apps → Integrace → ⋯ → Odpojit. | Připojení se smaže z Executoru Prostředí. |
+| Jedno připojení, uživatelem | Aplikace → Napojení → ⋯ → Odpojit. | Připojení se smaže z Executoru Prostředí. |
 
 Lazurio samo nic neodpojí a na jeho straně nic nevyprší. Odebrání nastavení
 z nastavení Organizace přestane aplikaci nabízet, existující připojení ale
@@ -281,10 +288,10 @@ tenant se souhlasem správce tento štítek nic nemění.
 ## Co Lazurio nepoužívá
 
 - **Work IQ MCP.** Oficiální MCP server Microsoftu pro data Microsoftu 365 není
-  výchozí cestou Lazuria. Jeho jediné delegované oprávnění `WorkIQAgent.Ask`
-  zahrnuje čtení i zápis ve zdrojích Microsoftu 365, na které agenti Work IQ za
-  uživatele dosáhnou, administrátor musí Work IQ nejdřív zapnout a účtuje se podle
-  využití. Naše hodnocení: Organizace, která ho chce, ho může později přidat
+  výchozí cestou Lazuria. Používá malou sadu širokých delegovaných oprávnění: Microsoft uvádí
+  `WorkIQ.Read`, `WorkIQ.Act` a `WorkIQAgent.Ask`, která dohromady pokrývají
+  čtení i změny dat Microsoftu 365, ke kterým má uživatel přístup. Administrátor
+  musí Work IQ nejdřív zapnout a účtuje se podle využití. Naše hodnocení: Organizace, která ho chce, ho může později přidat
   k téže aplikaci a do Executoru.
 - **Nové konektory ChatGPT nebo claude.ai** a aplikace zaregistrované jiným
   vydavatelem: souhlas správce patří vaší vlastní aplikaci.
@@ -300,9 +307,9 @@ se stejnou registrací aplikace.
 
 ## Zdroje
 
-Stránky Microsoft Learn byly přečtené 1. 11. 2026.
+Stránky Microsoft Learn byly přečtené 1. 11. 2026 a znovu 17. 11. 2026.
 
 - Microsoft: [oprávnění a souhlas](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview), [přehled oprávnění Graphu](https://learn.microsoft.com/en-us/graph/permissions-reference), [zásady souhlasu](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies), [souhlas správce za celý tenant](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent), [přiřazení uživatelů a skupin](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal), [kdo smí registrovat aplikace](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles), [registrace aplikace](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app), [přidání návratové adresy](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri), [vlastnosti podnikové aplikace](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties), [pravidla návratových adres](https://learn.microsoft.com/en-us/entra/identity-platform/reply-url), [toky veřejného klienta](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration), [tok autorizačního kódu](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow).
 - Microsoft: [přístupové tokeny](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens), [obnovovací tokeny](https://learn.microsoft.com/en-us/entra/identity-platform/refresh-tokens), [odvolání přístupu uživatele](https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access), [`revokeSignInSessions`](https://learn.microsoft.com/en-us/graph/api/user-revokesigninsessions), [frekvence přihlášení](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-session-lifetime), [chybové kódy](https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes), [neinteraktivní přihlášení](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-noninteractive-sign-ins), [audit v Purview](https://learn.microsoft.com/en-us/purview/audit-solutions-overview), [ověření vydavatele](https://learn.microsoft.com/en-us/entra/identity-platform/publisher-verification-overview).
 - Microsoft: [vytvoření události](https://learn.microsoft.com/en-us/graph/api/user-post-events), [zrušení události](https://learn.microsoft.com/en-us/graph/api/event-cancel), [odkazy ke sdílení](https://learn.microsoft.com/en-us/graph/api/driveitem-createlink), [pozvání k souboru](https://learn.microsoft.com/en-us/graph/api/driveitem-invite), [přehled Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) a [oprávnění Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/permissions).
-- Lazurio: [runbook Microsoft 365](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md) a [stránka pro IT](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md), [tvar nastavení a pořadí čtenářů](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/lazurio-manifest-family.md#microsoft-365-company-app-settingsintegrationsmicrosoft365), v Lazurio Platform [aplikace Organizace](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/integrations.md#the-microsoft-365-company-app) a [rozhodnutí F45](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back) (anglicky) a [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (rozhodnutí 0162, 0172 a 0194, anglicky).
+- Lazurio: [runbook Microsoft 365 z GEN3](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md) a [stránka pro IT](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md), v Lazurio Platform [kontrakt Organizace](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/organization-contract.md#organization-settings) pro tvar nastavení a pořadí čtenářů, [aplikace Organizace](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/integrations.md#the-microsoft-365-company-app) a [rozhodnutí F45](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back) (anglicky), [test na testovacím tenantu Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/decisions.md#f42--integrace-one-catalog-for-the-environment-one-path-per-app-executors-api-behind-the-launchpad) v rozhodnutí F42 (dodatek (c), bod 10) s issues [596](https://github.com/Lazurio/LazurioPlatform/issues/596#issuecomment-6344936802) a [598](https://github.com/Lazurio/LazurioPlatform/issues/598) a [rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md) (rozhodnutí 0162, 0172 a 0194, anglicky).

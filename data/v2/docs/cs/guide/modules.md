@@ -4,7 +4,7 @@ description: "Co je modul, kde ho najdete, jak vzniká, kdo ho dostane a kde le�
 stableId: lazurio-doc-guide-modules
 locale: cs
 summary: "Co je modul, kde ho najdete, jak vzniká, kdo ho dostane a kde leží jeho data."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -123,9 +123,11 @@ doručuje do Prostředí: co v Prostředí není, to v Apps nevidíte a agent ta
 Jméno modulu ale agent vidět může v manifestu Organizace.
 
 Rozhoduje, co v Prostředí opravdu leží. Kdo má plný přístup do sdíleného Prostředí,
-pracuje i s jeho moduly, i když sám přístup k modulu nemá. A odebrání přístupu
-nesmaže kopii, kterou Prostředí už má: zůstane tam, agent v tomto Prostředí ji
-přečte a jen se přestane aktualizovat.
+pracuje i s jeho moduly, i když sám přístup k modulu nemá. Co se stane po odebrání přístupu, záleží na Prostředí. V Pracovním Prostředí
+přiřazeném člověku Lazurio kopii modulu smaže i s neuloženou prací, jakmile
+dvě kontroly po sobě potvrdí, že přístup skončil. V Týmovém Prostředí,
+v Henrym a na vašem počítači kopie zůstane: agent v něm ji přečte a jen se
+přestane aktualizovat.
 
 Od verze 0.1.20 k vám modul dorazí sám, jakmile k němu máte přístup. Lazurio se ho
 pokusí stáhnout do vašeho Prostředí při startu a potom každou hodinu, takže se

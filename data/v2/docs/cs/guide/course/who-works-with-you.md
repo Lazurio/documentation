@@ -4,7 +4,7 @@ description: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy:
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: cs
 summary: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy: kdo o čem rozhoduje."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -64,7 +64,7 @@ nebo Release, na které se nevztahuje výslovný mandát (rozhodnutí 0089).
 Persona je účet agenta Organizace, třeba Henryho. Stejně jako jméno, které
 dáte svému Buddymu, není uživatel a nemá žádnou vlastní pravomoc. Čísla
 rozhodnutí odkazují na veřejný
-[rejstřík rozhodnutí Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md).
+[rejstřík rozhodnutí Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md).
 
 ## Váš úkol
 

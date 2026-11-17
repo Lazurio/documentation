@@ -4,7 +4,7 @@ description: "What Lazurio needs from a Microsoft 365 tenant, what IT decides, t
 stableId: lazurio-doc-microsoft-365
 locale: en
 summary: "One single-tenant Entra app with delegated Graph permissions and no secret: what IT approves, the Organization Admin's steps, Conditional Access, audit and revocation."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -15,6 +15,9 @@ sourceRefs:
   - lazurio-platform-microsoft-365-company-app
   - lazurio-platform-decision-f45
   - lazurio-platform-release-v0-1-9
+  - lazurio-platform-decision-f42-m365-test
+  - lazurio-platform-m365-test-exchange
+  - lazurio-platform-m365-refresh-question
   - lazurio-manifest-family-settings
   - lazurio-decision-register-gen4
   - microsoft-entra-permissions-consent
@@ -58,14 +61,18 @@ tenant ID and the application (client) ID, which are not secrets. Each user then
 connects their own work account, and agents in that user's Environment reach
 only what that account can reach.
 
-**Status on 1 November 2026.** Lazurio Platform supports this company app since
+**Status on 17 November 2026.** Lazurio Platform supports this company app since
 [release v0.1.9](https://github.com/Lazurio/LazurioPlatform/releases/tag/v0.1.9)
 of 19 October 2026. Two parts are not finished. The Organization Admin cannot yet edit the
 setting in Organization overview, so it is added by a reviewed pull request to
-the Organization's repository. Lazurio has not yet run the procedure end to end
-on a real tenant: an exchange of the sign-in code without a secret on an HTTPS
-return address, refresh after the access token expires and revocation through
-"Assignment required" are still open checks. Lazurio's decision register lists
+the Organization's repository. Lazurio has run the procedure only on its own test tenant,
+with security defaults and without Conditional Access. There, on 22 October
+2026, a sign-in returned to the Environment's HTTPS callback,
+[Executor exchanged the code without a secret](https://github.com/Lazurio/LazurioPlatform/issues/596#issuecomment-6344936802)
+and one automatic token refresh worked. Whether later refreshes keep the
+connection alive is [still open](https://github.com/Lazurio/LazurioPlatform/issues/598),
+and Lazurio has published no result for revocation through "Assignment
+required". Lazurio's decision register lists
 the Microsoft 365 setting of decision 0162 as decided, not yet deployed. Plan
 the first Organization's setup as a pilot.
 
@@ -122,7 +129,7 @@ again.
 ## Why IT must give the consent
 
 New tenants use Microsoft's default user consent setting, "Let Microsoft manage
-your consent settings". On 1 November 2026 Microsoft documented that under it
+your consent settings". On 17 November 2026 Microsoft documented that under it
 users may consent to delegated permissions except a list that includes
 `Mail.ReadWrite`, `Calendars.ReadWrite`, `Files.ReadWrite.All` and
 `Sites.Read.All`. Microsoft also requires administrator consent for an app that
@@ -220,10 +227,11 @@ browser instead of the admin center; the read-back in step 8 stays the same.
   policy.
 - Sign-in frequency ends a connection when its interval passes, with
   `AADSTS70043`. Microsoft defers sign-in frequency for non-interactive
-  sign-ins only for confidential clients, and this app is a public client. The
+  sign-ins on confidential clients, but this app is a public client. The
   user then connects again.
-- A password change revokes refresh tokens from password-based sign-ins, but
-  not from passwordless ones. To end access, block the account or revoke its
+- A password change by the user revokes refresh tokens from password-based
+  sign-ins, but not from passwordless ones; an administrator's reset in the
+  Microsoft Entra or Microsoft 365 admin center revokes both. To end access, block the account or revoke its
   sessions.
 
 ## Data and tokens
@@ -281,10 +289,11 @@ admin consent the label changes nothing.
 ## What Lazurio does not use
 
 - **Work IQ MCP.** Microsoft's official MCP server for Microsoft 365 data is not
-  Lazurio's default path. Its one delegated permission, `WorkIQAgent.Ask`,
-  covers reading and writing the Microsoft 365 resources that Work IQ agents
-  reach for the user, an administrator must enable Work IQ first, and its use is
-  billed by usage. Our assessment: an Organization that wants it can add it
+  Lazurio's default path. It uses a small set of broad delegated
+  permissions: Microsoft lists `WorkIQ.Read`, `WorkIQ.Act` and
+  `WorkIQAgent.Ask`, which together cover reading and changing the Microsoft 365
+  data the user can access. An administrator must enable Work IQ first, and its
+  use is billed by usage. Our assessment: an Organization that wants it can add it
   later to the same app and to Executor.
 - **New ChatGPT or claude.ai connectors** and an app registered by another
   publisher: the admin consent belongs to your own app.
@@ -300,9 +309,10 @@ explicit instruction, against the same app registration.
 
 ## Sources
 
-Microsoft Learn pages were read on 1 November 2026.
+Microsoft Learn pages were read on 1 November 2026 and again on 17 November
+2026.
 
 - Microsoft: [permissions and consent](https://learn.microsoft.com/en-us/entra/identity-platform/permissions-consent-overview), [Graph permissions reference](https://learn.microsoft.com/en-us/graph/permissions-reference), [app consent policies](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/manage-app-consent-policies), [tenant-wide admin consent](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent), [assigning users and groups](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/assign-user-or-group-access-portal), [who can register apps](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles), [registering an app](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app), [adding a redirect URI](https://learn.microsoft.com/en-us/entra/identity-platform/how-to-add-redirect-uri), [enterprise application properties](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties), [redirect URI rules](https://learn.microsoft.com/en-us/entra/identity-platform/reply-url), [public client flows](https://learn.microsoft.com/en-us/entra/identity-platform/scenario-desktop-app-configuration), [authorization code flow](https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow).
 - Microsoft: [access tokens](https://learn.microsoft.com/en-us/entra/identity-platform/access-tokens), [refresh tokens](https://learn.microsoft.com/en-us/entra/identity-platform/refresh-tokens), [revoking user access](https://learn.microsoft.com/en-us/entra/identity/users/users-revoke-access), [`revokeSignInSessions`](https://learn.microsoft.com/en-us/graph/api/user-revokesigninsessions), [sign-in frequency](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-session-lifetime), [error codes](https://learn.microsoft.com/en-us/entra/identity-platform/reference-error-codes), [non-interactive sign-ins](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/concept-noninteractive-sign-ins), [Purview auditing](https://learn.microsoft.com/en-us/purview/audit-solutions-overview), [publisher verification](https://learn.microsoft.com/en-us/entra/identity-platform/publisher-verification-overview).
 - Microsoft: [creating events](https://learn.microsoft.com/en-us/graph/api/user-post-events), [cancelling events](https://learn.microsoft.com/en-us/graph/api/event-cancel), [sharing links](https://learn.microsoft.com/en-us/graph/api/driveitem-createlink), [inviting people to a file](https://learn.microsoft.com/en-us/graph/api/driveitem-invite), [Work IQ overview](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) and [Work IQ permissions](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/permissions).
-- Lazurio: the [Microsoft 365 runbook](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md) and the [page for IT](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md) (both in Czech), the [setting's shape and readers first](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/lazurio-manifest-family.md#microsoft-365-company-app-settingsintegrationsmicrosoft365), Lazurio Platform's [company app](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/integrations.md#the-microsoft-365-company-app) and [decision F45](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back), and the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md) (decisions 0162, 0172 and 0194).
+- Lazurio: the GEN3 [Microsoft 365 runbook](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365.md) and the [page for IT](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations/microsoft-365-for-it.md) (both in Czech), Lazurio Platform's [Organization contract](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/organization-contract.md#organization-settings) for the setting's shape and readers first, its [company app](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/integrations.md#the-microsoft-365-company-app) and [decision F45](https://github.com/Lazurio/LazurioPlatform/blob/a2927744b5a87113425f93f5e1517ac97b2f6c06/docs/decisions.md#f45--organization-settings-reach-the-environment-asked-through-its-relay-recorded-in-the-folder-reported-back), the [test on Lazurio's test tenant](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/docs/decisions.md#f42--integrace-one-catalog-for-the-environment-one-path-per-app-executors-api-behind-the-launchpad) in decision F42 (addendum (c), point 10) with issues [596](https://github.com/Lazurio/LazurioPlatform/issues/596#issuecomment-6344936802) and [598](https://github.com/Lazurio/LazurioPlatform/issues/598), and the [decision register](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md) (decisions 0162, 0172 and 0194).

@@ -1,10 +1,10 @@
 ---
 title: "Lekce 3: Zorientujte se"
-description: "Chat, Apps a Automate, moduly vaší Organizace, Soubory a jak si nechat vysvětlit stránku."
+description: "Chat, Aplikace a Automatizace, moduly vaší Organizace, Soubory a jak si nechat vysvětlit stránku."
 stableId: lazurio-doc-guide-course-find-your-way
 locale: cs
-summary: "Chat, Apps a Automate, moduly vaší Organizace, Soubory a jak si nechat vysvětlit stránku."
-updatedAt: "2026-11-08"
+summary: "Chat, Aplikace a Automatizace, moduly vaší Organizace, Soubory a jak si nechat vysvětlit stránku."
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-onboarding-decision-register
   - lazurio-platform-onboarding-decisions
   - lazurio-platform-launchpad-texts
+  - lazurio-platform-shell-texts
 audience:
   - decision-maker
   - builder
@@ -22,18 +23,18 @@ audience:
 **Co se naučíte:** tři části Lazuria, kde najdete moduly své Organizace
 a jak si nechat vysvětlit stránku.
 
-Nahoře v levém sloupci je přepínač **Chat · Apps · Automate**:
+Nahoře v levém sloupci je přepínač **Chat · Aplikace · Automatizace**:
 
 - **Chat** je místo pro práci s agenty. V Prostředí je to T3 Code
   s označením T3 Code (Lazurio). Na každý nový úkol založte nové vlákno.
-- **Apps** ukazuje moduly vaší Organizace a stránky **Soubory**,
-  **Integrace** a tam, kde má Prostředí trezor, také **Trezor**.
-- **Automate** slouží pravidelným úkolům a automatizaci. Kde neběží, řekne
+- **Aplikace** ukazují moduly vaší Organizace a stránky **Soubory**,
+  **Napojení** a tam, kde ho Prostředí má, také **Správce hesel**.
+- **Automatizace** slouží pravidelným úkolům a automatizaci. Kde neběží, řekne
   vám to prohlídka.
 
 **Modul** je jedna oblast vaší práce, například
 Mission Control pro plány nebo Knowledgebase pro sdílené znalosti. V části
-**Workspace** ukazuje Apps každý modul Organizace, ke kterému se dostane
+**Workspace** ukazují Aplikace každý modul Organizace, ke kterému se dostane
 GitHub identita vašeho Prostředí, a to každý jednou. V části
 **Productionspace** jsou produkční repozitáře Organizace, jen ke čtení.
 O tom, jaké moduly Organizace má, rozhoduje ona sama. Když Kolega zmíní
@@ -48,13 +49,13 @@ přímo na místě.
 
 ## Váš úkol
 
-1. V **Apps** najděte jeden modul, který souvisí s vaší prací. Otevřete
+1. V **Aplikacích** najděte jeden modul, který souvisí s vaší prací. Otevřete
    jeho nabídku a zvolte **Informace o modulu**.
 2. Otevřete **Soubory** a podívejte se, co v nich je.
 3. Otevřete **Chat**, založte nové vlákno a pošlete:
 
    ```text
-   V této Organizaci začínám. Vypiš moduly, které vidím v Apps, a ke
+   V této Organizaci začínám. Vypiš moduly, které vidím v Aplikacích, a ke
    každému jednou větou řekni, k čemu slouží. Vycházej jen z vlastních
    dokumentů naší Organizace a u každé odpovědi uveď zdroj. Nic neměň.
    ```

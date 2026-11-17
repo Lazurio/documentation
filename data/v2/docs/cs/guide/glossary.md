@@ -26,6 +26,7 @@ sourceRefs:
   - lazurio-marketplace-registry
   - github-about-pull-requests
   - github-protected-branches
+  - lazurio-platform-shell-texts
 audience:
   - it-admin
   - decision-maker
@@ -57,14 +58,14 @@ smějí používat všichni oprávnění členové, proto do něj patří týmov
 **Váš počítač** Vlastní zařízení s místním Lazuriem. Není čtvrtým druhem
 hostovaného Prostředí.
 
-**Apps (ve starších zdrojích Launchpad)** Část Lazuria, kde otevíráte
-aplikace Organizace. Uvnitř Prostředí mezi částmi přepínáte přes Chat,
-Apps a Automate.
+**Aplikace (anglicky Apps, ve starších zdrojích Launchpad)** Část Lazuria, kde
+otevíráte aplikace Organizace. Uvnitř Prostředí mezi částmi přepínáte přes
+Chat, Aplikace a Automatizace.
 
 **Chat** Část Prostředí pro práci s agenty, na každý úkol jedno vlákno.
 V Prostředí je to T3 Code.
 
-**Automate** Část Prostředí pro pravidelné úkoly a automatizaci.
+**Automatizace** Část Prostředí pro pravidelné úkoly a automatizaci.
 
 **Začínáme** První oddíl Nastavení Prostředí. Ukazuje kroky, které Prostředí
 připraví k práci: AI, GitHub a obsah Organizace, v tomto pořadí.
@@ -95,7 +96,7 @@ Drží pohromadě postup, podle kterého agenti pracují, data, se kterými se
 pracuje, a aplikaci, ve které je vidíte a měníte. Moduly jsou například Mission
 Control a Knowledgebase. Víc na stránce [Moduly](/cs/guide/modules/).
 
-**Marketplace** Místo dole v Apps se šablonami modulů. Šablona se do vaší
+**Marketplace** Místo dole v Aplikacích se šablonami modulů. Šablona se do vaší
 Organizace přidá jako vaše vlastní soukromá kopie. Od verze 0.1.21, která je
 k 5. listopadu 2026 kandidát vydání, nabízí šablony z veřejného seznamu Lazuria.
 
@@ -107,7 +108,7 @@ práci. Agent z něj může čerpat, pokud k němu má přístup a načte si př
 zápis. Obsah chatu se do něj neukládá automaticky.
 
 **Integrace** Aplikace nebo služba připojená k Prostředí, třeba pošta nebo
-kalendář. Připojujete ji vy v Apps → Integrace; potom ji může používat každý
+kalendář. Připojujete ji vy v Aplikacích → Napojení; potom ji může používat každý
 agent tohoto Prostředí. Odeslání nebo Publikace přes ni dál potřebuje váš
 souhlas.
 
@@ -190,9 +191,9 @@ mít nemůže. Slovem Správce označuje Lazurio jen tuto roli.
 Samo roli neoznačuje. Kdo žádnou roli v modulu nemá, k modulu přístup nemá.
 
 **Admin aplikace** Role v aplikaci modulu, rozhodnutá a zatím nenasazená
-(rozhodnutí 0231). Co smí, určuje pravidlo Organizace v kódu modulu. Bez dalšího nastavení je Adminem aplikace každý Přispěvatel
-modulu a Správce modulu, Admin Organizace a ten, kdo má celé Prostředí, kde
-aplikace běží.
+(rozhodnutí 0231). Co smí, určuje pravidlo Organizace v kódu modulu. Bez dalšího nastavení je Adminem aplikace Admin Organizace a ten, kdo má celé
+Prostředí, kde aplikace běží. Role v modulu žádnou roli v jeho aplikaci
+nedává.
 
 **Uživatel aplikace** Druhá role v aplikaci modulu, také zatím nenasazená. Co
 smí, určuje také pravidlo Organizace v kódu modulu.
@@ -247,7 +248,9 @@ zařazením do oficiální verze.
 
 **Draft pull request** Pull request, který je ještě rozpracovaný. GitHub ho
 nikomu nedovolí mergnout, dokud ho někdo nepřepne na Ready for review.
-Agenti v Lazuriu ho otevírají hned, jak začnou na změně pracovat.
+Agenti v Lazuriu ho otevírají hned, jak začnou na změně pracovat; kde plán
+GitHubu pro repozitář Drafty nenabízí, otevřou běžný pull request a do jeho
+popisu napíšou, že je práce rozpracovaná.
 
 **Review** Kontrola pull requestu někým jiným než autorem, než se mergne.
 U chráněné větve může GitHub schvalující review vyžadovat.
@@ -277,7 +280,7 @@ k repozitářům určuje GitHub. Samotný název role přístup neuděluje.
 
 </div>
 
-Pojmenování odpovídá veřejným [rozhodnutím Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md),
+Pojmenování odpovídá veřejným [rozhodnutím Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md),
 zejména 0170 a 0207 s jejich dodatky, 0169 pro Henryho a 0089 pro Buddyho.
 Názvy rolí určuje [rozhodnutí 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
 (anglicky); dřívější názvy Builder, Steward a User už role neoznačují.

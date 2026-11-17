@@ -4,7 +4,7 @@ description: "What a module is, where you find it, how it comes to be, who gets 
 stableId: lazurio-doc-guide-modules
 locale: en
 summary: "What a module is, where you find it, how it comes to be, who gets it and where its data lies."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -131,9 +131,11 @@ Organization's manifest.
 
 What counts is what the Environment actually holds. Whoever has full access to a
 shared Environment works with its modules too, even without their own access to
-the module. And taking access away does not delete the copy an Environment
-already has: it stays there, an agent in that Environment can still read it, and
-it only stops updating.
+the module. What happens when access ends depends on the Environment. In a Work
+Environment assigned to a person, Lazurio deletes its copy of the module,
+unsaved work included, once two checks in a row confirm that the access has
+ended. In a Team Environment, in Henry and on your computer the copy stays: an
+agent there can still read it, and it only stops updating.
 
 Since version 0.1.20, a module you have been given access to comes by itself.
 Lazurio tries to bring it to your Environment when it starts and then every hour,

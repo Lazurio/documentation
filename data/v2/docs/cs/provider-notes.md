@@ -4,7 +4,7 @@ description: "Chování poskytovatelů, na které Lazurio narazilo při napojov�
 stableId: lazurio-doc-provider-notes
 locale: cs
 summary: "Datované poznatky o Google Workspace, Slacku, Atlassianu, Canvě, LinkedInu, GitHubu a Composiu, každý ověřený ve vlastní dokumentaci poskytovatele."
-updatedAt: "2026-11-08"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-01"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-external-apps-org-steps
   - lazurio-provider-runbooks
+  - lazurio-platform-integrations-catalog
   - lazurio-github-app-broker
   - lazurio-github-app-public-issues
   - composio-create-organization-request
@@ -35,8 +36,7 @@ audience:
 
 Tyto poznatky zachycují chování poskytovatelů, na které Lazurio narazilo při
 napojování aplikací a které platí pro každou Organizaci. U každého je uvedené,
-kdy ho Lazurio zapsalo, a odkaz na stránku poskytovatele, kde byl znovu
-ověřený 1. 11. 2026. Poskytovatelé své produkty mění, proto si před použitím
+kdy ho Lazurio zapsalo, a odkaz na stránku poskytovatele, kde byl znovu ověřený 17. 11. 2026. Poskytovatelé své produkty mění, proto si před použitím
 poznatku otevřete odkazovanou stránku. Microsoft 365 má vlastní stránku
 [Microsoft 365 pro IT a Admina Organizace](/cs/microsoft-365/) a obecná pravidla volby
 napojení najdete v [napojení Prostředí na aplikace](/cs/environment-app-connections/).
@@ -44,7 +44,7 @@ napojení najdete v [napojení Prostředí na aplikace](/cs/environment-app-conn
 ## Co administrátor udělá nejdřív
 
 Někteří poskytovatelé potřebují jednorázový krok na straně Organizace dřív,
-než se k nim může připojit jakékoli Prostředí.
+než se k nim Prostředí může připojit přímo, bez Composia.
 
 | Poskytovatel | První krok na straně poskytovatele |
 | --- | --- |
@@ -72,14 +72,17 @@ uvádí jako nejčastější opakovaný problém.
   přístup odvolal, token se šest měsíců nepoužil, uživatel změnil heslo
   a token má rozsahy Gmailu, účet překročil limit 100 živých obnovovacích
   tokenů na jednoho klienta OAuth, což bez varování zneplatní ten nejstarší,
-  a administrátor nastavil požadovanou službu jako Restricted. Přihlášení každého
+  uživatel aplikaci udělil časově omezený přístup a ten vypršel, administrátor
+  nastavil požadovanou službu jako Restricted a u API Google Cloud Platform
+  vypršela délka relace nastavená administrátorem. Přihlášení každého
   Prostředí je samostatný grant, takže se do limitu počítá každé přihlášení
   téhož účtu přes stejného klienta.
 - **Oficiální MCP servery.** MCP servery Googlu pro Gmail, Disk, Dokumenty,
   Tabulky, Prezentace, Kalendář, Chat a Classroom jsou ve stavu Developer
   Preview. Potřebují zapnutá API a služby MCP ve vašem vlastním projektu
-  Google Cloudu, obrazovku souhlasu OAuth a vlastní ID a tajný klíč klienta
-  OAuth. Google Meet mezi nimi není.
+  Google Cloudu, obrazovku souhlasu OAuth a vlastní ID a tajný klíč klienta OAuth, který má
+  zapnutou volbu „Use this client for an AI-powered agent“. Google Meet mezi
+  nimi není.
 
 ## Slack
 
@@ -100,8 +103,8 @@ přihlášením bez ID a tajného klíče aplikace ve Slacku nestačí.
 
 ## Atlassian: Jira a Confluence
 
-Lazurio tyto poznatky zapsalo 2. 9. 2026. K 1. 11. 2026 uvádí Atlassian jinou
-adresu, než má runbook Lazuria.
+Lazurio tyto poznatky zapsalo 2. 9. 2026. K 17. 11. 2026 uvádí Atlassian
+stále jinou adresu, než má runbook Lazuria.
 
 - Návod Atlassianu nyní uvádí `https://mcp.atlassian.com/v2/mcp`. Adresu
   berte z aktuálního návodu Atlassianu, ne ze starší poznámky.
@@ -121,7 +124,9 @@ Lazurio zapsalo nastavení Canvy 2. 9. 2026.
 
 - Každý uživatel se přihlašuje samostatně a dostupné operace odpovídají jeho
   vlastnímu přístupu v Canvě.
-- Canva omezuje každý nástroj zvlášť, na 20 až 100 požadavků za minutu.
+- Canva omezuje většinu nástrojů zvlášť, na 10 až 100 požadavků za minutu.
+  Nástroje s limitem Default vlastní limit nemají a platí pro ně strop 300
+  požadavků za minutu na uživatele, sečtený přes všechny jeho MCP klienty.
 - Změna rozměrů návrhů, autofill, brand kity a brand šablony vyžadují Canva Pro
   nebo vyšší plán.
 - Mezi nástroji je i vytvoření a publikování brand šablony. Publikování brand
@@ -141,8 +146,11 @@ Lazurio tyto poznatky zapsalo 24. 7. 2026.
 - Share API dovoluje 150 požadavků na člena a 100 000 na aplikaci za den podle
   UTC.
 - Uživatelská smlouva LinkedInu zakazuje scraping i boty a jiné nepovolené
-  automatizované metody. Lazurio proto dovoluje jen publikování přes oficiální
-  API a agenti LinkedIn čtou jen v prohlížeči pod dohledem uživatele.
+  automatizované metody. Lazurio LinkedIn připojuje jen přes jeho oficiální
+  API, přes Composio, a agenti smějí dělat, co toto API dovolí. Web LinkedInu
+  agenti nikdy neautomatizují: žádný scraping ani boti. Čtou ho jen
+  v prohlížeči pod dohledem uživatele; to je vlastní pravidlo Lazuria, ne
+  výjimka ve smlouvě LinkedInu.
 
 ## GitHub
 
@@ -167,11 +175,11 @@ Lazurio tento poznatek zapsalo 17. 10. 2026.
   pojmenovanou podle vaší Organizace v Lazuriu založte na webu Composia.
   Lazurio o tento příkaz Composio požádalo v
   [issue 4949](https://github.com/ComposioHQ/composio/issues/4949), které bylo
-  k 1. 11. 2026 stále otevřené.
+  k 17. 11. 2026 stále otevřené.
 
 ## Zdroje
 
-- Lazurio: [standard napojení externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/external-app-integrations.md), [runbooky poskytovatelů](https://github.com/HumanAndMachines/Lazurio/tree/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations) a [broker Lazurio for GitHub](https://github.com/Lazurio/github-app/blob/751eef11a285dea625c1d3fd4e286e396c5ab1d9/README.md#opening-issues-in-public-repositories) (anglicky).
+- Lazurio: [standard napojení externích aplikací](https://github.com/HumanAndMachines/Lazurio/blob/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/external-app-integrations.md), [runbooky poskytovatelů](https://github.com/HumanAndMachines/Lazurio/tree/66e437f7e563574ea35b79dd1bdd193fd0f6b4b6/manual/integrations), [broker Lazurio for GitHub](https://github.com/Lazurio/github-app/blob/56975c96615887520dddc20db60a4b647d4d344d/README.md#opening-issues-in-public-repositories) a [katalog Integrací](https://github.com/Lazurio/LazurioPlatform/blob/8c11468b8f7d90c91ea3a6c618af4b38563c3a56/src/integrations/catalog.json#L713-L726) Lazurio Platform ve vydání v0.1.21 (anglicky).
 - Google: [typ uživatelů a stav publikování OAuth](https://support.google.com/cloud/answer/15549945), [vypršení obnovovacího tokenu](https://developers.google.com/identity/protocols/oauth2#expiration), [MCP servery Workspace](https://developers.google.com/workspace/guides/configure-mcp-servers).
 - Slack: [MCP server Slacku](https://docs.slack.dev/ai/slack-mcp-server/).
 - Atlassian: [začátek s MCP serverem Atlassianu](https://support.atlassian.com/atlassian-ai-gateway/docs/get-started-with-the-atlassian-remote-mcp-server/) a [nastavení pro administrátory](https://support.atlassian.com/security-and-access-policies/docs/control-atlassian-mcp-server-settings/).

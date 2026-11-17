@@ -26,6 +26,7 @@ sourceRefs:
   - lazurio-marketplace-registry
   - github-about-pull-requests
   - github-protected-branches
+  - lazurio-platform-shell-texts
 audience:
   - it-admin
   - decision-maker
@@ -59,7 +60,8 @@ kind of hosted Environment.
 
 **Apps (called Launchpad in older sources)** The part of Lazurio where
 you open Organization applications. Within an Environment, switch between
-Chat, Apps and Automate.
+Chat, Apps and Automate. In English, its home page and the browser tab still
+show "Launchpad" (release v0.1.21).
 
 **Chat** The part of an Environment where you work with agents, one thread
 per task. In an Environment it is T3 Code.
@@ -201,9 +203,9 @@ access to it.
 **Application Admin** A role in a module's application, decided and not yet
 deployed (decision 0231). What it may do is the Organization's rule in the
 module's code. Without any setting, the
-Application Admins are the Module Contributors, the Module Maintainers, the
-Organization Admin and whoever has the whole Environment where the
-application runs.
+Application Admins are the Organization Admin and whoever has the whole
+Environment where the application runs. A role in the module gives no role in
+its application.
 
 **Application User** The other role in a module's application, also not yet
 deployed. What it may do is also the Organization's rule in the module's code.
@@ -259,7 +261,9 @@ before it enters the official version.
 
 **Draft pull request** A pull request that is still in progress. GitHub does
 not let anyone merge it until it is marked ready for review. Agents in
-Lazurio open one as soon as they start a change.
+Lazurio open one as soon as they start a change; where the repository's
+GitHub plan offers no drafts, they open an ordinary pull request and say in
+its description that the work is in progress.
 
 **Review** A check of a pull request by someone other than its author before
 it is merged. On a protected branch, GitHub can require an approving review.
@@ -289,7 +293,7 @@ repository permissions. A role name alone grants no access.
 
 </div>
 
-These names follow the public [Lazurio decisions](https://github.com/Lazurio/LazurioPlatform/blob/4d5ee62a963a0ae2fc98287f0072e739ff6d2cd8/docs/decision-register.md),
+These names follow the public [Lazurio decisions](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md),
 especially 0170 and 0207 with their addenda, 0169 for Henry and 0089 for
 Buddy. [Decision 0234](https://github.com/Lazurio/LazurioPlatform/blob/753cca123df45721c3c1395a16a3a0df9a04dbcd/docs/decision-register.md#0234--the-names-of-access-roles-one-vocabulary-for-every-text-screen-and-agent)
 sets the names of roles; the earlier names Builder, Steward and User no
