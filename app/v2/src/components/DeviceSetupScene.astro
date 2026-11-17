@@ -108,7 +108,7 @@ const svg = (name: keyof typeof icon) =>
     </div>
     <figcaption class="lzs-caption" aria-hidden="true">
       <span class="lzs-progress">{c.steps.map(() => <span></span>)}</span>
-      <span class="lzs-line-text"><span class="lzs-count"></span><span class="lzs-text"></span></span>
+      <span class="lzs-line-text"><span class="lzs-count"></span><span class="lzs-text">{c.steps.map((step) => <span>{step}</span>)}</span></span>
     </figcaption>
     <span class="lzs-live" aria-live="polite" aria-atomic="true"></span>
   </figure>
@@ -122,9 +122,9 @@ const svg = (name: keyof typeof icon) =>
   .lzs {
     display: block;
     margin-block: 1.25rem 2rem;
-    max-width: 36rem;
   }
-  /* One block: the stage and its caption share a single frame. */
+  /* One block: the stage and its caption share a single frame, as wide as
+     the code blocks and collapsible sections of the page. */
   .lzs-frame {
     margin: 0;
     overflow: hidden;
@@ -136,15 +136,21 @@ const svg = (name: keyof typeof icon) =>
   .lzs-view { position: relative; }
   .lzs-stage {
     position: relative;
+    /* Full width; height follows 16:9 up to a cap, so a wide column does
+       not make the stage tall (an explicit width stops the cap from
+       narrowing it). */
+    width: 100%;
     aspect-ratio: 16 / 9;
+    max-height: 22rem;
     overflow: hidden;
     background: var(--lz-paper);
   }
   .lzs-scene {
     --e: cubic-bezier(0.22, 0.8, 0.24, 1);
+    /* The scene keeps its 16:9 units and is centred in a wider stage. */
     position: absolute;
-    top: 0;
-    left: 0;
+    top: var(--y, 0px);
+    left: var(--x, 0px);
     width: 320px;
     height: 180px;
     scale: var(--k, 1);
@@ -237,7 +243,12 @@ const svg = (name: keyof typeof icon) =>
   .lzs-progress { display: flex; gap: 0.25rem; }
   .lzs-progress span { flex: 1; height: 3px; border-radius: 2px; background: var(--sl-color-gray-5); }
   .lzs-progress span[data-on] { background: var(--sl-color-text-accent); }
-  .lzs-line-text { display: flex; gap: 0.6rem; align-items: baseline; min-height: 3em; color: var(--sl-color-white); font-size: 0.95rem; line-height: 1.5; }
+  .lzs-line-text { display: flex; gap: 0.6rem; align-items: baseline; color: var(--sl-color-white); font-size: 0.95rem; line-height: 1.5; }
+  /* All step texts share one grid cell, so the caption is as tall as the
+     longest step and never jumps; only the current one is visible. */
+  .lzs-text { display: grid; }
+  .lzs-text > span { grid-area: 1 / 1; visibility: hidden; }
+  .lzs-text > span[data-on] { visibility: visible; }
   .lzs-count { flex: none; color: var(--sl-color-gray-3); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
 
   .lzs-steps { margin-block: 0.75rem 0; padding-inline-start: 1.5rem; list-style: decimal; }
@@ -281,7 +292,7 @@ const svg = (name: keyof typeof icon) =>
       const steps = [...this.querySelectorAll<HTMLElement>('.lzs-steps li')].map((li) => li.textContent ?? '')
       const bars = [...this.querySelectorAll<HTMLElement>('.lzs-progress span')]
       const count = this.querySelector<HTMLElement>('.lzs-count')!
-      const text = this.querySelector<HTMLElement>('.lzs-text')!
+      const texts = [...this.querySelectorAll<HTMLElement>('.lzs-text > span')]
       const prev = this.querySelector<HTMLButtonElement>('[data-prev]')!
       const next = this.querySelector<HTMLButtonElement>('[data-next]')!
       const toggle = this.querySelector<HTMLButtonElement>('[data-toggle]')!
@@ -296,7 +307,14 @@ const svg = (name: keyof typeof icon) =>
       let visible = false
       let timer: ReturnType<typeof setTimeout> | undefined
 
-      const fit = () => scene.style.setProperty('--k', String(stage.clientWidth / 320))
+      const fit = () => {
+        const width = stage.clientWidth
+        const height = stage.clientHeight
+        const k = Math.min(width / 320, height / 180)
+        scene.style.setProperty('--k', String(k))
+        scene.style.setProperty('--x', `${(width - 320 * k) / 2}px`)
+        scene.style.setProperty('--y', `${(height - 180 * k) / 2}px`)
+      }
       new ResizeObserver(fit).observe(stage)
 
       const show = (to: number) => {
@@ -304,7 +322,7 @@ const svg = (name: keyof typeof icon) =>
         scene.dataset.beat = String(beat)
         bars.forEach((bar, index) => bar.toggleAttribute('data-on', index <= beat))
         count.textContent = `${beat + 1}/${total}`
-        text.textContent = steps[beat]
+        texts.forEach((item, index) => item.toggleAttribute('data-on', index === beat))
       }
 
       // Focus inside the frame also counts when the window itself has no
