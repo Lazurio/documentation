@@ -38,6 +38,8 @@ audience:
   - agent
 ---
 
+import DeviceSetupScene from '@components/DeviceSetupScene.astro';
+
 Your device joins your Organization's network (its tailnet) through the
 Tailscale app. It takes a few minutes:
 
@@ -71,6 +73,17 @@ through Tailscale](/en/guide/tailscale/).
 If you work with an agent on this computer, such as Codex in the ChatGPT
 app or Claude Code, it does the whole setup for you. You only click **Yes**
 when Windows asks about the installation, and you sign in.
+
+<DeviceSetupScene system="windows" copy={{ "label": "How it goes", "stepOf": "Step {n} of {total}", "back": "Back", "next": "Next step", "restart": "Start again",
+  "you": "You", "chat": "Chat with agent", "prompt": "Prompt", "working": "Working…", "signIn": "Sign in",
+  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Waiting for approval", "admin": "Admin", "dialog": "Allow changes?", "allow": "Yes",
+  "steps": [
+    "Copy the prompt below and paste it into a new chat with your agent.",
+    "The agent installs Tailscale. When Windows asks whether it may make changes, click Yes.",
+    "The agent sends you a sign-in link. Click it.",
+    "Sign in with your Lazurio account. You never type a password or code for the agent.",
+    "Done. The computer is in your Organization's network and waits for approval. Message your Organization Admin."
+  ] }} />
 
 1. **Give the agent full access.** Without it, the agent cannot reach
    Tailscale. In Codex, switch the permission below the message box to
@@ -203,6 +216,17 @@ It works the same as on Windows: give the agent full access (in Codex,
 **Full access** below the message box), copy the prompt, replace
 `<ADDRESS>` with your Organization's address and do what the agent asks.
 The Mac asks whether Tailscale may add a VPN configuration: click **Allow**.
+
+<DeviceSetupScene system="macos" copy={{ "label": "How it goes", "stepOf": "Step {n} of {total}", "back": "Back", "next": "Next step", "restart": "Start again",
+  "you": "You", "chat": "Chat with agent", "prompt": "Prompt", "working": "Working…", "signIn": "Sign in",
+  "lazurio": "Lazurio", "signedIn": "Signed in", "done": "Done", "network": "Organization network", "waiting": "Waiting for approval", "admin": "Admin", "dialog": "Allow VPN?", "allow": "Allow",
+  "steps": [
+    "Copy the prompt below and paste it into a new chat with your agent.",
+    "The agent starts Tailscale. When the Mac asks about a VPN configuration, click Allow.",
+    "The agent sends you a sign-in link. Click it.",
+    "Sign in with your Lazurio account. You never type a password or code for the agent.",
+    "Done. The Mac is in your Organization's network and waits for approval. Message your Organization Admin."
+  ] }} />
 
 ```text
 Connect this Mac to my Organization's tailnet in Lazurio through Tailscale.

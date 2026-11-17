@@ -38,6 +38,8 @@ audience:
   - agent
 ---
 
+import DeviceSetupScene from '@components/DeviceSetupScene.astro';
+
 Zařízení se připojí do sítě vaší Organizace (tailnetu) přes aplikaci
 Tailscale. Celé to zabere pár minut:
 
@@ -69,6 +71,17 @@ přes Tailscale](/cs/guide/tailscale/).
 Pracujete-li na tomto počítači s agentem, třeba s Codexem v aplikaci ChatGPT
 nebo s Claude Code, celé připojení udělá za vás. Vy jen kliknete na **Ano**,
 až se Windows zeptá na instalaci, a přihlásíte se.
+
+<DeviceSetupScene system="windows" copy={{ "label": "Jak to probíhá", "stepOf": "Krok {n} z {total}", "back": "Zpět", "next": "Další krok", "restart": "Znovu od začátku",
+  "you": "Vy", "chat": "Chat s agentem", "prompt": "Prompt", "working": "Pracuji…", "signIn": "Přihlásit se",
+  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Čeká na schválení", "admin": "Admin", "dialog": "Povolit změny?", "allow": "Ano",
+  "steps": [
+    "Zkopírujte prompt níže a vložte ho agentovi do nového chatu.",
+    "Agent nainstaluje Tailscale. Až se Windows zeptá, jestli smí provést změny, klikněte na Ano.",
+    "Agent vám pošle odkaz na přihlášení. Klikněte na něj.",
+    "Přihlaste se svým účtem Lazurio. Heslo ani kód agentovi nepíšete.",
+    "Hotovo. Počítač je v síti Organizace a čeká na schválení. Napište Adminovi Organizace."
+  ] }} />
 
 1. **Zapněte agentovi plný přístup.** Bez něj na Tailscale nedosáhne.
    V Codexu přepněte dole u pole pro zprávu oprávnění na **Plný přístup**
@@ -200,6 +213,17 @@ Postup je stejný jako u Windows: zapněte agentovi plný přístup (v Codexu do
 u pole pro zprávu **Plný přístup**), zkopírujte mu prompt, místo `<ADRESA>`
 napište adresu Organizace a udělejte, o co vás požádá. Mac se zeptá, jestli
 Tailscale smí přidat konfiguraci VPN: klikněte na **Povolit**.
+
+<DeviceSetupScene system="macos" copy={{ "label": "Jak to probíhá", "stepOf": "Krok {n} z {total}", "back": "Zpět", "next": "Další krok", "restart": "Znovu od začátku",
+  "you": "Vy", "chat": "Chat s agentem", "prompt": "Prompt", "working": "Pracuji…", "signIn": "Přihlásit se",
+  "lazurio": "Lazurio", "signedIn": "Přihlášeno", "done": "Hotovo", "network": "Síť Organizace", "waiting": "Čeká na schválení", "admin": "Admin", "dialog": "Povolit VPN?", "allow": "Povolit",
+  "steps": [
+    "Zkopírujte prompt níže a vložte ho agentovi do nového chatu.",
+    "Agent spustí Tailscale. Až se Mac zeptá na konfiguraci VPN, klikněte na Povolit.",
+    "Agent vám pošle odkaz na přihlášení. Klikněte na něj.",
+    "Přihlaste se svým účtem Lazurio. Heslo ani kód agentovi nepíšete.",
+    "Hotovo. Mac je v síti Organizace a čeká na schválení. Napište Adminovi Organizace."
+  ] }} />
 
 ```text
 Připoj tento Mac do tailnetu mé Organizace v Lazuriu přes Tailscale.
