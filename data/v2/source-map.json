@@ -1734,13 +1734,13 @@
     },
     {
       "id": "lazurio-decision-register-access-0245-0247",
-      "title": "Lazurio decision register on 2026-11-14: decisions 0245 (who is who in an Organization: its Deployment Repo holds the boundaries of trust and Lazurio Auth their use), 0246 (the network: every Environment only through a tailnet, Conglomerates and Lazurio's personal tailnet) and 0247 (entry into an Environment and its record); in force as the target model, the transition is not complete; they consolidate decisions 0192, 0202, 0224, 0228, 0243 and 0244; and decision 0234 as amended on 2026-11-13 (until the Organization Admin role is deployed, an active Organization Owner performs the Admin's administrative acts and gets no access to Environments by them)",
+      "title": "Lazurio decision register on main at 0eb2e3a (2026-11-18): decisions 0245 (who is who in an Organization: its Deployment Repo holds the boundaries of trust and Lazurio Auth their use), 0246 (the network: every Environment only through a tailnet, Conglomerates and Lazurio's personal tailnet) and 0247 (entry into an Environment and its record), with their amendments of 2026-11-17; in force as the target model, the transition is not complete; they consolidate decisions 0192, 0202, 0224, 0228, 0243 and 0244; and decision 0234's interim rule (until the Organization Admin role is deployed, an active Organization Owner performs the Admin's administrative acts and gets no access to Environments by them). 0246's 'What runs today' sentence that no tailnet uses the sign-in with the Lazurio account yet is out of date: per the owner's answer of 2026-11-18 people sign in to Organization tailnets with their Lazurio account today, as the guides say (LazurioPlatform#1086)",
       "publisher": "Lazurio",
       "kind": "public-source",
-      "url": "https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/0eb2e3aea1e89d4ad8ddf0a0ff9414711b12f9fc/docs/decision-register.md#0245--who-is-who-in-an-organization-its-deployment-repo-holds-the-boundaries-of-trust-and-lazurio-auth-holds-their-use",
       "reviewOwner": "Matej Suchanek",
-      "reviewedAt": "2026-11-14",
-      "reviewDueAt": "2026-12-14"
+      "reviewedAt": "2026-11-18",
+      "reviewDueAt": "2026-12-18"
     },
     {
       "id": "lazurio-user-roles-current",
