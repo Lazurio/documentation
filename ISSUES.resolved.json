@@ -200,6 +200,35 @@
         "selected_option": "Remove the order and the GEN3 link from every page and cite only environment-app-connections and LazurioPlatform's Integrations.",
         "evidence": "LazurioPlatform docs/integrations.md (the path rule) and src/folder/manual.ts at v0.1.22, decision 0162 on main 7db8485; owner decision relayed in the working thread of the review on 2026-11-17."
       }
+    },
+    {
+      "id": "issue-2026-11-17-005",
+      "title": "Confirm whether Organization tailnets accept the sign-in with the Lazurio account today, which decision 0246 says no tailnet uses yet",
+      "status": "resolved",
+      "severity": "high",
+      "owner": "matejsuchanek",
+      "created_at": "2026-11-17",
+      "updated_at": "2026-11-18",
+      "question": "Does a person who adds a device to an Organization's tailnet today sign in with their Lazurio account (Headscale OIDC, ending on the page \"Node registered\"), as guide/tailscale-add-device and the Lazurio Platform v0.1.22 agent manual say, or does no tailnet use that sign-in yet, as decision 0246 says under \"What runs today\"?",
+      "impact": "Decision 0246, identical at the source's pin 25c72bc, in release v0.1.22 and on LazurioPlatform main 7db8485, says under \"What runs today\": \"Until Lazurio App is released, people enter as before, through the Tailscale app and the Environment's web interface ... No tailnet uses this sign-in with the Lazurio account yet\". guide/tailscale-add-device (en, cs) tells people in step 3, in the Windows and Mac prompts and in the manual steps to sign in with their Lazurio account and to expect \"Node registered\", and guide/device-approval repeats it; the agent manual at v0.1.22 (src/folder/manual.ts, Adding a computer to a tailnet, step 4) also says the user completes OIDC sign-in with the Lazurio account. Both are Lazurio sources and they disagree on the current state, which public sources cannot settle. The source lazurio-decision-register-access-0245-0247, cited by eighteen pages, stays at its review date 2026-12-14 until this is answered; from 2026-12-15 the content check fails every pull request.",
+      "options": [
+        "The sign-in with the Lazurio account runs today in the tailnets the guide is written for: the guide stays, the source is re-pinned to LazurioPlatform main with the amendments of 2026-11-17 and renewed, and an issue in LazurioPlatform asks to correct \"What runs today\" in decision 0246. Recommended: the guide was approved on 2026-11-17 and the released agent manual gives the same procedure, so the register's sentence is the likelier one to be out of date.",
+        "It does not run yet: guide/tailscale-add-device (step 3, the prompts, the manual steps and What happens next) and guide/device-approval describe how a device is registered today as a procedure the Organization Admin gives, the gap is recorded with a proposed product fix, and the source is renewed after the correction.",
+        "It differs between tailnets: the guide says that the sign-in with the Lazurio account works where the Organization's tailnet has it and that otherwise the Organization Admin gives the procedure; the source is renewed after the correction."
+      ],
+      "decision_needed_for": [
+        "guide/tailscale-add-device and guide/device-approval (en, cs)",
+        "the source lazurio-decision-register-access-0245-0247"
+      ],
+      "resolved_at": "2026-11-18",
+      "resolved_by": "matejsuchanek",
+      "resolved_from": "ISSUES.open.json",
+      "resolution": {
+        "decision": "People sign in to their Organization's tailnet with their Lazurio account today. guide/tailscale-add-device and guide/device-approval describe the procedure that runs and stay unchanged; the sentence in decision 0246 \"What runs today\" that no tailnet uses this sign-in yet is out of date and is tracked in LazurioPlatform#1086. The source lazurio-decision-register-access-0245-0247 is re-pinned to LazurioPlatform main 0eb2e3a and renewed.",
+        "rationale": "The owner operates the tailnets and confirmed the current state; the agent manual of release v0.1.22 gives the same procedure, so the register's sentence is the one to correct.",
+        "selected_option": "The sign-in with the Lazurio account runs today in the tailnets the guide is written for: the guide stays, the source is re-pinned to LazurioPlatform main with the amendments of 2026-11-17 and renewed, and an issue in LazurioPlatform asks to correct \"What runs today\" in decision 0246. Recommended: the guide was approved on 2026-11-17 and the released agent manual gives the same procedure, so the register's sentence is the likelier one to be out of date.",
+        "evidence": "Owner's answer relayed in the working thread of the review on 2026-11-18 at about 23:00 UTC; LazurioPlatform src/folder/manual.ts at v0.1.22 (4e9c6b9bc25b), Adding a computer to a tailnet, step 4; decision register at 0eb2e3a, line 1319; LazurioPlatform#1086."
+      }
     }
   ]
 }

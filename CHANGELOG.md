@@ -2,6 +2,22 @@
 
 ## Unreleased
 
+- Re-verify the five evidence sources due on 2026-12-12 and 2026-12-14
+  against LazurioPlatform main and release v0.1.22 of 2026-11-17: `wispr-flow`
+  and `codexbar` still support the recommended applications and are renewed
+  until 2026-12-17; `amphetamine` is renewed after the page text was corrected
+  first (a MacBook stays awake with the lid closed without a power condition,
+  and on Apple Silicon Amphetamine offers Power Protect as a separate
+  download); `lazurio-decision-0243` is removed, because no page cites it and
+  on main the decision is superseded by 0245 to 0247;
+  `lazurio-decision-register-access-0245-0247` is re-pinned to LazurioPlatform
+  main `0eb2e3a` and renewed on 2026-11-18 until 2026-12-18 after the owner's
+  answer of 2026-11-18 (`issue-2026-11-17-005`, resolved): people sign in to
+  Organization tailnets with their Lazurio account today, so the add-device
+  and device-approval guides stay as they are, and the sentence in decision
+  0246 "What runs today" that no tailnet uses that sign-in yet is out of date
+  (LazurioPlatform#1086). Record:
+  `docs/source-review-2026-11-17-due-2026-12-14.md`.
 - Re-verify the seventy-four evidence sources due from 2026-12-02 to
   2026-12-08 against LazurioPlatform release v0.1.22 of 2026-11-17 and
   LazurioPlatform main of the same day: 48 still support their pages and 26
