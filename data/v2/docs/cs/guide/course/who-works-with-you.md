@@ -4,7 +4,7 @@ description: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy:
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: cs
 summary: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy: kdo o čem rozhoduje."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-18"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -54,7 +54,8 @@ Název role sám nic neopravňuje. U rolí v Organizaci a v modulu dnes rozhoduj
 živý grant na GitHubu (rozhodnutí 0062 a 0232).
 
 **Henry** je jméno Pracovního Prostředí Organizace s automatizacemi.
-Pracuje v něm tým botů pod personou Organizace a odpovídá za něj jeden
+Pracuje v něm tým botů Henryho Organizace, agenta, který je pravou rukou
+Admina Organizace, a odpovídá za něj jeden
 odpovědný uživatel, Vlastník Organizace nebo Admin Organizace (rozhodnutí
 0169). Kde vaše Organizace Henryho provozuje, potkáte ho hlavně na GitHubu,
 třeba v review pull requestu.
@@ -65,8 +66,9 @@ a vlastnictví, obnova, tajné údaje, změny přístupů a ničivé kroky vždy
 potřebují váš souhlas s přesně tímto krokem, stejně jako merge, Publikace
 nebo Release, na které se nevztahuje výslovný mandát (rozhodnutí 0089).
 
-Persona je účet agenta Organizace, třeba Henryho. Stejně jako jméno, které
-dáte svému Buddymu, není uživatel a nemá žádnou vlastní pravomoc. Čísla
+Persona je jen jméno a charakter agentů, třeba Henry. Stejně jako jméno,
+které dáte svému Buddymu, není účet ani uživatel a nemá žádnou vlastní
+pravomoc. Čísla
 rozhodnutí odkazují na veřejný
 [rejstřík rozhodnutí Lazuria](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md).
 

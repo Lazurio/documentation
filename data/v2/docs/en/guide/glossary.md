@@ -4,7 +4,7 @@ description: "Terms for everyday work, administration and development in Lazurio
 stableId: lazurio-doc-guide-glossary
 locale: en
 summary: "Terms for everyday work, administration and development in Lazurio."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-18"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -129,8 +129,18 @@ documentation describes automation as agents working in a Work Environment
 with a responsible user. A role name grants no permissions by itself.
 
 **Henry** The name of an Organization's Work Environment with automations.
-A team of bots works in it under the Organization's persona, and one
+A team of bots of the Organization's Henry works in it, and one
 responsible user answers for it. It is not a separate kind of Environment.
+
+**Organization's Henry (Henry Organizace)** The agent who is the Organization
+Admin's right hand. It runs in this Organization's Environment with
+automations under its own GitHub account, which is an Organization Member with
+exact rights. It reviews changes as a second pair of eyes and, where the rules
+allow, approves, merges and deploys them. An Organization without a Henry of
+its own is served by the integrator's Henry, which does not run in that
+Organization's Environment with automations. The Organization may give it
+another name; the role is always called the Organization's Henry
+(decision 0250).
 
 **Buddy** The name of Lazurio's personal product and of your personal AI
 representative. Buddy belongs to your Personal Environment and acts only
@@ -221,8 +231,9 @@ the Admin opens it with a reason, it passes a recording entry point, and by
 default the Admin only observes. Anyone else has it only when it is granted
 for one Environment.
 
-**Persona** An Organization's agent account, such as Henry's. It never names
-a person's role.
+**Persona** The name and character of agents in an Environment, such as
+Henry or the name you give your Buddy. It is not an account, a user, a
+person's role or an authority (decision 0156).
 
 **Principal** A term for the responsible identity in older Lazurio sources.
 Current copy uses “user” for the person who assigns work and has the final say.

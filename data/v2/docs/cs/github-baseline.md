@@ -4,7 +4,7 @@ description: "Co musí mít GitHub Organization, než v ní začne pracovat Lazu
 stableId: lazurio-doc-github-baseline
 locale: cs
 summary: "Nastavení GitHubu, které Vlastník Organizace připraví a ověří před prvním Přispěvatelem modulu: aplikace, výchozí oprávnění none, Team builders, infra jen pro Vlastníky Organizace, chráněná main a merge."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-18"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -73,13 +73,13 @@ Změna členů, Teamů, grantů nebo instalací aplikací je zápis do GitHubu, 
 potřebuje výslovný pokyn uživatele; agent ji připraví a stav ověří.
 
 Organizace, která provozuje automatizovanou práci v Prostředí
-s automatizacemi (Henry), přidá svou personu: strojový účet s dvoufázovým
-ověřením, Člena Organizace a nikdy Vlastníka Organizace, v každé Organizaci
-jiný. Pracuje přes Team `steward` s oprávněním Maintain, tedy jako Správce
+s automatizacemi (Henry), přidá svého Henryho Organizace: strojový účet
+s dvoufázovým ověřením, Člena Organizace s přesně nastavenými právy a nikdy
+Vlastníka Organizace, v každé Organizaci jiný. Pracuje přes Team `steward` s oprávněním Maintain, tedy jako Správce
 modulu, ke všem repozitářům kromě `infra`. K `infra` smí dostat jen přímý
 zápis, nikdy přes Team a nikdy oprávnění `admin` v GitHubu, jako jmenovaný
 reviewer pull requestů do `infra`, až na to Organizace přepne svá pravidla
-review (rozhodnutí 0169 a 0093).
+review (rozhodnutí 0169, 0093 a 0250).
 
 ## Ověření před prvním Přispěvatelem modulu
 
@@ -104,7 +104,7 @@ v GitHubu zahrnuje i Vlastníky Organizace a členy GitHub Organization, kteří
 mají přístup přes Team nebo výchozí oprávnění, takže ukazuje výsledný
 přístup, ne jeho původ. Porovnejte ho s rolí každého člověka v Organizaci:
 kdo není Vlastník Organizace, se v něm objevit nesmí, kromě přímého zápisu
-persony do `infra` popsaného výše.
+Henryho Organizace do `infra` popsaného výše.
 
 Když Organizaci instaluje Pracovní Prostředí nebo počítač člověka, příkaz
 `lazurio organization install <login>` nejdřív ověří živou roli tohoto
@@ -171,7 +171,7 @@ Naše doporučení pro zamčenou `main` na placeném plánu:
 - vyžadujte vyřešené konverzace a kontroly (status checks) repozitáře;
 - obcházení pravidel nedovolte.
 
-Na tomto nastavení stojí tři pravidla Lazuria:
+Na tomto nastavení stojí čtyři pravidla Lazuria:
 
 - **Týmové Prostředí nikdy nemerguje.** Jeho pull requesty přicházejí od
   `lazurio-for-github[bot]` se štítkem `team:<slug>` a schvaluje a publikuje
@@ -182,14 +182,24 @@ Na tomto nastavení stojí tři pravidla Lazuria:
   omezení, které merge povolí jmenovaným lidem nebo Teamům a aplikaci
   vynechá; Admin Organizace, který na takové omezení spoléhá, si ho na
   repozitáři ověří.
-- **Pull requesty persony schvaluje člověk**: Vlastník Organizace, Admin
-  Organizace nebo Správce modulu, případně bot tohoto člověka pod jeho vlastním
-  účtem. Persona merguje jen pull requesty, jejichž je assignee, nikdy nespouští
-  apply infrastruktury, nevydává Release a nemění přístupy, tajemství ani
-  fakturaci (rozhodnutí 0169). Na placeném plánu schválení vynucují pravidla
+- **Vlastní pull requesty Henryho Organizace schvaluje člověk**: Vlastník
+  Organizace, Admin Organizace nebo Správce modulu, případně bot tohoto člověka
+  pod jeho vlastním účtem. Henry merguje jen pull requesty, jejichž je
+  assignee. Apply infrastruktury nespouští, kromě nasazení změny přístupu
+  podle dalšího pravidla, nevydává Release a nemění tajemství ani fakturaci
+  (rozhodnutí 0169). Na placeném plánu schválení vynucují pravidla
   větví, na bezplatném je to dohoda. GitHub bota od člověka nerozliší, proto
   jeho meze (rozsah, který člověk zapsal, nikdy Deployment Repo, podpis, ze
   kterého je vidět, že schválil bot) drží proces, ne pravidla větví.
+- **Změnu přístupu zakládá Vlastník Organizace.** Změnu přístupu (členství,
+  role, Teamy, zařízení lidí) zakládá jako pull request v `infra` jen
+  Vlastník Organizace. Henry Organizace ji jako druhé oči posoudí podle
+  principů Lazuria, a když sedí, smí ji schválit a po sloučení nasadit. Kde
+  Organizace vlastního Henryho nemá, dělá to Henry integrátora. Jiný agent
+  změnu přístupu jen navrhuje a sám ji neschvaluje. Ve Free Organizaci to
+  drží dohoda, v placené pravidla repozitáře `infra`; jejich vynucení se
+  v placených Organizacích teprve zavádí, do té doby platí dohoda i tam
+  (rozhodnutí 0250).
 - **Release není Publikace.** Release vydává jen ten, komu to dovolují práva
   na GitHubu, a jen na výslovný pokyn uživatele nebo podle stálého mandátu,
   který zapisuje rozhodnutí.
