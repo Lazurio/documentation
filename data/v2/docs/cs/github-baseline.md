@@ -207,7 +207,11 @@ Na tomto nastavení stojí čtyři pravidla Lazuria:
   změnu přístupu jen navrhuje a sám ji neschvaluje. Ve Free Organizaci to
   drží dohoda, v placené pravidla repozitáře `infra`; jejich vynucení se
   v placených Organizacích teprve zavádí, do té doby platí dohoda i tam
-  (rozhodnutí 0250).
+  (rozhodnutí 0250). Pravidlo se týká změny přístupu pull requestem v `infra`,
+  tedy změny hranic Organizace. Co rozhodnutí 0245 nechává Adminovi
+  Organizace uvnitř těchto hranic, například schválení zařízení člověka
+  rychlou cestou, až bude nasazená, tímto pull requestem nejde a rozhodnutí
+  0250 to nemění.
 - **Release není Publikace.** Release vydává jen ten, komu to dovolují práva
   na GitHubu, a jen na výslovný pokyn uživatele nebo podle stálého mandátu,
   který zapisuje rozhodnutí.

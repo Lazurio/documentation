@@ -210,6 +210,11 @@ Four Lazurio rules depend on this:
   Organization an agreement holds this; in a paid one the rules of the
   `infra` repository do, and while their enforcement in paid Organizations is
   still being introduced, the agreement holds there too (decision 0250).
+  This rule covers an access change by a pull request in `infra`, that is a
+  change of the Organization's boundaries. What decision 0245 leaves to an
+  Organization Admin inside those boundaries, for example approving a
+  person's device on the fast path once it is deployed, does not go through
+  this pull request, and decision 0250 does not change it.
 - **A Release is not a Publication.** Only someone whose GitHub rights allow it
   issues a Release, and only on the user's explicit instruction or under a
   standing mandate that a decision records.
