@@ -4,7 +4,7 @@ description: "You as the user, agents, colleagues and their roles, Henry and Bud
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: en
 summary: "You as the user, agents, colleagues and their roles, Henry and Buddy: who decides what."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-18"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -56,8 +56,8 @@ A role name authorizes nothing by itself. For the Organization and Module
 roles, the live grant on GitHub decides today (decisions 0062 and 0232).
 
 **Henry** is the name of an Organization's Work Environment with
-automations. A team of bots works there under the Organization's persona,
-and one responsible user, an Organization Owner or an Organization Admin,
+automations. A team of bots of the Organization's Henry, the agent who is
+the Organization Admin's right hand, works there, and one responsible user, an Organization Owner or an Organization Admin,
 answers for it (decision 0169). Where your Organization runs Henry, you meet it
 mostly on GitHub, for example in a review of a pull request.
 
@@ -68,8 +68,9 @@ access and destructive steps always need your consent to that exact step,
 and so do a merge, a publication or a release that no explicit mandate
 covers (decision 0089).
 
-A persona is an Organization's agent account, such as Henry's. Like the name
-you give your Buddy, it is not a user and holds no authority of its own. The
+A persona is only the name and character of agents, such as Henry. Like the
+name you give your Buddy, it is not an account or a user and holds no
+authority of its own. The
 decision numbers refer to the public
 [Lazurio decision register](https://github.com/Lazurio/LazurioPlatform/blob/fe72f68721e3f9968e8e52cee390af106f4e319c/docs/decision-register.md).
 

@@ -4,12 +4,13 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-18"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0250-henry
   - lazurio-decision-register-access-0245-0247
   - lazurio-user-roles-current
   - lazurio-product-vocabulary
@@ -124,8 +125,16 @@ popisujeme jako práci agentů v Pracovním Prostředí, za kterou odpovídá
 uživatel. Název role sám žádná oprávnění neuděluje.
 
 **Henry** Jméno Pracovního Prostředí Organizace s automatizacemi. Pracuje
-v něm tým botů pod personou Organizace a odpovídá za něj jeden odpovědný
+v něm tým botů Henryho Organizace a odpovídá za něj jeden odpovědný
 uživatel. Není to samostatný druh Prostředí.
+
+**Henry Organizace** Agent, který je pravou rukou Admina Organizace. Běží
+v Prostředí s automatizacemi této Organizace pod vlastním účtem na GitHubu,
+který je Členem Organizace s přesně nastavenými právy. Kontroluje změny jako
+druhé oči, a kde to pravidla dovolí, je schvaluje, slučuje a nasazuje.
+Organizaci, která vlastního Henryho nemá, slouží Henry integrátora, který
+v jejím Prostředí s automatizacemi neběží. Organizace mu může dát jiné jméno;
+role se vždy jmenuje Henry Organizace (rozhodnutí 0250).
 
 **Buddy** Jméno osobního produktu Lazuria a vašeho osobního AI zástupce.
 Buddy patří k vašemu Osobnímu Prostředí a jedná jen ve vašich právech
@@ -209,8 +218,9 @@ s důvodem, vstup vede přes nahrávací vstupní bod a ve výchozí úrovni Adm
 jen pozoruje. Kdokoli jiný ho má jen tehdy, když mu ho někdo udělí pro jedno
 Prostředí.
 
-**Persona** Účet agenta Organizace, třeba Henryho. Nikdy neoznačuje roli
-člověka.
+**Persona** Jméno a charakter agentů v Prostředí, třeba Henry nebo jméno,
+které dáte svému Buddymu. Není to účet, uživatel, role člověka ani pravomoc
+(rozhodnutí 0156).
 
 **Principál** Označení odpovědné identity ve starších zdrojích Lazuria.
 Aktuální texty mluví o uživateli jako o člověku, který práci zadává a má

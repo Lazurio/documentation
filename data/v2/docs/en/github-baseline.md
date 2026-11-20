@@ -4,12 +4,13 @@ description: "What a GitHub Organization needs before Lazurio works in it: roles
 stableId: lazurio-doc-github-baseline
 locale: en
 summary: "The GitHub settings an Organization Owner prepares and reads back before the first Module Contributor: the app, base permission none, the builders Team, infra only for Organization Owners, protected main and merging."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-18"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0250-henry
   - lazurio-decision-register-access-0245-0247
   - lazurio-decision-register-gen4
   - lazurio-decision-register-admin-ai
@@ -73,13 +74,13 @@ installations is a write to GitHub that needs the user's explicit instruction;
 an agent prepares it and reads it back.
 
 An Organization that runs automated work in an Environment with automations
-(Henry) adds its persona: a machine user account with two-factor
-authentication, an Organization Member and never an Organization Owner,
-different in every Organization. It works through a Team `steward` with
+(Henry) adds its Organization's Henry: a machine user account with two-factor
+authentication, an Organization Member with exact rights and never an
+Organization Owner, different in every Organization. It works through a Team `steward` with
 Maintain, the Module Maintainer role, on all repositories except `infra`. On
 `infra` it may get only a direct Write, never through a Team and never GitHub's
 `admin` permission, as the named reviewer of infra pull requests once the Organization
-switches its review policy to it (decisions 0169 and 0093).
+switches its review policy to it (decisions 0169, 0093 and 0250).
 
 ## Read it back before the first Module Contributor
 
@@ -104,7 +105,7 @@ collaborators includes Organization Owners and members who have access through
 a Team or the base permission, so it shows effective access and does not say
 where it comes from. Compare it with each person's Organization role: a person
 who is not an Organization Owner must not appear there, apart from the
-persona's direct Write on `infra` described above.
+Organization's Henry's direct Write on `infra` described above.
 
 When a person's Work Environment or computer installs the Organization,
 `lazurio organization install <login>` first verifies that person's live role
@@ -171,7 +172,7 @@ Our recommendation for a locked `main` on a paid plan:
 - require conversation resolution and the repository's status checks;
 - do not allow bypassing the rules.
 
-Three Lazurio rules depend on this:
+Four Lazurio rules depend on this:
 
 - **A Team Environment never merges.** Its pull requests come from
   `lazurio-for-github[bot]` with the label `team:<slug>`, and a named person
@@ -182,15 +183,38 @@ Three Lazurio rules depend on this:
   allows merging to named people or Teams and leaves the app out would
   enforce the rule, and an Organization Admin who relies on one verifies it on
   the repository.
-- **The persona's own pull requests are approved by a person**: an
-  Organization Owner, an Organization Admin or a Module Maintainer, or that
-  person's bot under the person's own account. The persona merges only pull
-  requests it is assigned to, never
-  runs an infrastructure apply, issues no Release and changes no access,
-  secrets or billing (decision 0169). On a paid plan branch rules enforce the approval; on a free one it is an
+- **The Organization's Henry's own pull requests are approved by a person**:
+  an Organization Owner, an Organization Admin or a Module Maintainer, or that
+  person's bot under the person's own account. Henry merges only pull
+  requests it is assigned to. It runs no infrastructure apply apart from
+  deploying an access change under the next rule, issues no Release and
+  changes no secrets or billing (decision 0169). On a paid plan branch rules enforce the approval; on a free one it is an
   agreement. GitHub cannot tell a person's bot from the person, so the bot's
   limits (a scope the person recorded, never a Deployment Repo, a signature
   that shows a bot approved) are held by process, not by branch rules.
+- **An Organization Owner opens an access change.** Only an Organization
+  Owner opens an access change (membership, roles, Teams, people's devices)
+  as a pull request in `infra`. The Organization's Henry reviews it as a
+  second pair of eyes against Lazurio's principles and, when it holds up, may
+  approve it and deploy it after the merge, within the gates that decisions
+  0205 and 0245 and the contract of Lazurio Machines set for a deployment,
+  including a person's approval where they require one. Who merges such a
+  pull request, and how its deployment meets the rule of 0205 that the
+  Organization's Henry never approves an apply, decision 0250 does not
+  decide; until then 0205 and 0245 hold for the merge and the apply. The
+  permission comes from this rule, not from an assignment: an assignment
+  alone never authorizes the Organization's Henry to approve an access
+  change, and it never opens one itself. Where an Organization has no Henry
+  of its own, the integrator's Henry does this until it has one. Any other
+  agent only proposes an access change and never approves it itself. In a Free
+  Organization an agreement holds this; in a paid one the rules of the
+  `infra` repository do, and while their enforcement in paid Organizations is
+  still being introduced, the agreement holds there too (decision 0250).
+  This rule covers an access change by a pull request in `infra`, that is a
+  change of the Organization's boundaries. What decision 0245 leaves to an
+  Organization Admin inside those boundaries, for example approving a
+  person's device on the fast path once it is deployed, does not go through
+  this pull request, and decision 0250 does not change it.
 - **A Release is not a Publication.** Only someone whose GitHub rights allow it
   issues a Release, and only on the user's explicit instruction or under a
   standing mandate that a decision records.
