@@ -196,9 +196,17 @@ Four Lazurio rules depend on this:
   Owner opens an access change (membership, roles, Teams, people's devices)
   as a pull request in `infra`. The Organization's Henry reviews it as a
   second pair of eyes against Lazurio's principles and, when it holds up, may
-  approve it and deploy it after the merge. Where an Organization has no
-  Henry of its own, the integrator's Henry does this. Any other agent only
-  proposes an access change and never approves it itself. In a Free
+  approve it and deploy it after the merge, within the gates that decisions
+  0205 and 0245 and the contract of Lazurio Machines set for a deployment,
+  including a person's approval where they require one. Who merges such a
+  pull request, and how its deployment meets the rule of 0205 that the
+  Organization's Henry never approves an apply, decision 0250 does not
+  decide; until then 0205 and 0245 hold for the merge and the apply. The
+  permission comes from this rule, not from an assignment: an assignment
+  alone never authorizes the Organization's Henry to approve an access
+  change, and it never opens one itself. Where an Organization has no Henry
+  of its own, the integrator's Henry does this until it has one. Any other
+  agent only proposes an access change and never approves it itself. In a Free
   Organization an agreement holds this; in a paid one the rules of the
   `infra` repository do, and while their enforcement in paid Organizations is
   still being introduced, the agreement holds there too (decision 0250).
