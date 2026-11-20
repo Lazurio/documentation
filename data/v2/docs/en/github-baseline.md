@@ -10,6 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0250-henry
   - lazurio-decision-register-access-0245-0247
   - lazurio-decision-register-gen4
   - lazurio-decision-register-admin-ai

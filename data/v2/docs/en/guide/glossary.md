@@ -10,6 +10,7 @@ reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-0250-henry
   - lazurio-decision-register-access-0245-0247
   - lazurio-user-roles-current
   - lazurio-product-vocabulary

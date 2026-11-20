@@ -233,6 +233,16 @@
       "reviewDueAt": "2026-12-17"
     },
     {
+      "id": "lazurio-decision-0250-henry",
+      "title": "Lazurio decision register on main (20 November 2026): decision 0250, the Organization's Henry and the rule for a change of access an Organization Owner opens",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/934764d69dd9c38d4723bf743696c209ffa8bc2f/docs/decision-register.md#0250--the-organizations-henry-the-agent-who-is-the-organization-admins-right-hand-and-who-may-approve-a-change-of-access-an-owner-opened",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-20",
+      "reviewDueAt": "2026-12-20"
+    },
+    {
       "id": "lazurio-external-apps-0162",
       "title": "LazurioPlatform Integrations at release v0.1.22: one path per app, the path rule, whether Composio is allowed, ChatGPT apps and who allows them, and Executor's approvals",
       "publisher": "Lazurio",
