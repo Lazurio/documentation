@@ -1811,6 +1811,26 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-17",
       "reviewDueAt": "2026-12-17"
+    },
+    {
+      "id": "lazurio-buddy-gen4-sign",
+      "title": "LazurioPlatform 0.1.24-rc.10: Buddy GEN4's sign on his figure in the Personal Environment's Lazurio (quiet, waiting, answered, failed, unavailable)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4b42340a72078150340eb9d08e1f8ef325ffee6d/src/shell/buddy-signal.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-21",
+      "reviewDueAt": "2026-12-21"
+    },
+    {
+      "id": "lazurio-buddy-gen4-folder",
+      "title": "LazurioPlatform 0.1.24-rc.10: Buddy GEN4's folder ~/Buddy, his generated instructions, and the Environment's tools he uses",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/4b42340a72078150340eb9d08e1f8ef325ffee6d/src/folder/buddy-gen4.ts",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-21",
+      "reviewDueAt": "2026-12-21"
     }
   ]
 }

@@ -4,12 +4,13 @@ description: "You as the user, agents, colleagues and their roles, Henry and Bud
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: en
 summary: "You as the user, agents, colleagues and their roles, Henry and Buddy: who decides what."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-buddy-gen4-folder
   - lazurio-onboarding-decision-register
   - lazurio-decision-0234-role-names
   - lazurio-platform-folder-manual
@@ -62,7 +63,8 @@ answers for it (decision 0169). Where your Organization runs Henry, you meet it
 mostly on GitHub, for example in a review of a pull request.
 
 **Buddy** is your personal representative. Buddy runs in your Personal
-Environment, if you have one, and acts only within your rights and the
+Environment, if you have one (in Buddy GEN4, as a thread in a window that you
+open from the figure at the bottom right of its Lazurio pages), and acts only within your rights and the
 mandates you give. Billing and ownership, recovery, secrets, changes of
 access and destructive steps always need your consent to that exact step,
 and so do a merge, a publication or a release that no explicit mandate

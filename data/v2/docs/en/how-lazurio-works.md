@@ -4,7 +4,7 @@ description: "Who assigns work, how an agent prepares a draft and who approves p
 stableId: lazurio-doc-how-it-works
 locale: en
 summary: "Who assigns work, how an agent prepares a draft and who approves publication."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -119,7 +119,7 @@ that revision, a packaged CLI and an automatically generated non-Git root were
 the planned target.
 
 The agent client sends model requests to the selected provider under their
-respective terms. Dashboard, hosted team workspaces and per-owner Resident/Buddy
-services are optional services, not hidden parts of every installation. The
+respective terms. Dashboard, hosted team workspaces and hosted Personal Environments
+are optional services, not hidden parts of every installation. The
 [IT briefing](/en/it-administrators/) explains what a concrete deployment must
 prove.

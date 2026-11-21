@@ -4,12 +4,13 @@ description: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy:
 stableId: lazurio-doc-guide-course-who-works-with-you
 locale: cs
 summary: "Vy jako uživatel, agenti, Kolegové a jejich role, Henry a Buddy: kdo o čem rozhoduje."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-11-01"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-buddy-gen4-folder
   - lazurio-onboarding-decision-register
   - lazurio-decision-0234-role-names
   - lazurio-platform-folder-manual
@@ -60,7 +61,8 @@ odpovědný uživatel, Vlastník Organizace nebo Admin Organizace (rozhodnutí
 třeba v review pull requestu.
 
 **Buddy** je váš osobní zástupce. Běží ve vašem Osobním Prostředí, pokud ho
-máte, a jedná jen ve vašich právech a v rámci mandátů, které mu dáte. Platby
+máte (u Buddyho GEN4 jako vlákno v okně, které otevřete z postavičky vpravo
+dole na jeho stránkách Lazuria), a jedná jen ve vašich právech a v rámci mandátů, které mu dáte. Platby
 a vlastnictví, obnova, tajné údaje, změny přístupů a ničivé kroky vždy
 potřebují váš souhlas s přesně tímto krokem, stejně jako merge, Publikace
 nebo Release, na které se nevztahuje výslovný mandát (rozhodnutí 0089).
