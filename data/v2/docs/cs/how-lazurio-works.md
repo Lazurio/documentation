@@ -4,7 +4,7 @@ description: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje z
 stableId: lazurio-doc-how-it-works
 locale: cs
 summary: "Kdo zadává práci, jak agent připraví návrh a kdo schvaluje zveřejnění."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -102,6 +102,6 @@ připojené Organizace a moduly. CLI v0 je experimentální; balíčkované CLI 
 automaticky generovaný root bez Gitu byly v té revizi plánovaným cílem.
 
 Vybraný klient agenta a poskytovatel modelu zpracovávají požadavky podle
-vlastních podmínek. Dashboard, hostované týmové workspaces a služby
-Resident/Buddy jsou volitelné, ne skrytá součást každé instalace. Co má
+vlastních podmínek. Dashboard, hostované týmové workspaces a hostovaná
+Osobní Prostředí jsou volitelné, ne skrytá součást každé instalace. Co má
 konkrétní nasazení doložit, shrnuje [Deset minut pro IT](/cs/it-administrators/).

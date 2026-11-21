@@ -4,7 +4,7 @@ description: "Public sources behind product and security claims, and the limits 
 stableId: lazurio-doc-public-evidence
 locale: en
 summary: "Public sources behind product and security claims, and the limits of that evidence."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -152,10 +152,11 @@ GitHub CLI and Codex CLI; a rollout using another agent client must test its
 actual Doctor and repair path rather than assuming equivalence.
 The checkout also ships bridge and provisioning code for separately deployed
 profiles; source presence does not mean activation. Optional architecture
-includes Dashboard, hosted team workspaces, and per-owner Resident/Buddy
-services that may use Zulip, GBrain, Tailscale or another private access layer,
-Hermes or another operator-chosen OpenAI-compatible agent runtime, and T3 Code
-or another agent CLI. A deployment that enables one must list it as
+includes Dashboard, hosted team workspaces, and hosted Personal Environments.
+In a Personal Environment Buddy runs inside Lazurio, as a thread in the same
+T3 Code as Chat, with the Environment's own tools and its Brain memory; it is
+not a separate service. These may use Tailscale or another private access
+layer and T3 Code or another agent CLI. A deployment that enables one must list it as
 a separate service with its own operator, identity, storage, network path,
 processors, logs, retention, backup and deletion controls.
 

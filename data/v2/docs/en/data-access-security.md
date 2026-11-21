@@ -4,7 +4,7 @@ description: "Which data an agent can use and how to test access restrictions."
 stableId: lazurio-doc-data-access-security
 locale: en
 summary: "Which data an agent can use and how to test access restrictions."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -107,8 +107,9 @@ model provider. Lazurio does not handle those model requests itself. The operato
 authentication, telemetry, retention and region where relevant. This site
 makes no universal training or retention claim across providers.
 
-Dashboard, hosted team workspaces and per-owner Resident/Buddy services are
-optional or separately deployed. If enabled, each needs its own operator,
+Dashboard, hosted team workspaces and hosted Personal Environments (where
+Buddy runs inside Lazurio, not as a separate service) are optional or
+separately deployed. If enabled, each needs its own operator,
 identity, storage, network path, processor list, logs, retention, backup,
 deletion and incident controls. Source code being present does not prove that a
 service is active.

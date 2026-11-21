@@ -4,7 +4,7 @@ description: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
 stableId: lazurio-doc-guide-glossary
 locale: cs
 summary: "Pojmy pro každodenní práci, správu a vývoj Lazuria."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-11-05"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -131,7 +131,13 @@ uživatel. Není to samostatný druh Prostředí.
 Buddy patří k vašemu Osobnímu Prostředí a jedná jen ve vašich právech
 a v rámci mandátů, které mu dáte. Platby, tajné údaje, změny přístupů
 a merge nebo Publikace mimo výslovný mandát vždy potřebují váš souhlas
-s přesně tímto krokem.
+s přesně tímto krokem. Buddyho otevřete z postavičky vpravo dole na každé
+stránce Lazuria: je to vlákno v okně, ve stejném T3 Code jako Chat, a pracuje
+ve složce `~/Buddy` s nástroji a zdrojem AI vašeho Prostředí, bez vlastního
+přihlášení a bez Telegramu. Znamení na postavičce ukazuje, co se děje: bez
+značky je klid, „?“ znamená, že na vás čeká otázka, tečka, že odpověděl,
+a „!“, že není dostupný nebo něco selhalo. Jeho jméno a to, jak vás oslovuje,
+nastavíte v Nastavení → Buddy.
 
 **Prompt** Zadání, které napíšete AI. Například: „Připravte mi přehled
 nezaplacených faktur a vysvětlete, co mám řešit jako první.“

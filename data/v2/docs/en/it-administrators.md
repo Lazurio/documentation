@@ -4,7 +4,7 @@ description: "What to verify before a Lazurio pilot and production deployment."
 stableId: lazurio-doc-it-administrators
 locale: en
 summary: "An IT checklist for access boundaries, provider terms and publication approval before deployment."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -87,7 +87,7 @@ enabled tools. Check these five areas for your deployment:
    the user's supervision.
 4. The agent client, model provider and any hosting provider used by modules.
 5. Optional hosted Lazurio services such as Dashboard, a hosted team workspace
-   or a per-owner Resident/Buddy service.
+   or a hosted Personal Environment, where Buddy runs inside Lazurio.
 
 An integration existing in the ecosystem is not evidence that it is enabled.
 Ask for a live list with provider, scopes, owner and revocation instructions.

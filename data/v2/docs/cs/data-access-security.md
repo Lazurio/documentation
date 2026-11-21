@@ -4,7 +4,7 @@ description: "Která data může agent použít a jak otestovat skutečná omeze
 stableId: lazurio-doc-data-access-security
 locale: cs
 summary: "Která data může agent použít a jak otestovat skutečná omezení přístupu."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-10-24"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -126,8 +126,9 @@ zvoleného poskytovatele, typ účtu, případný region, zapnutou telemetrii,
 podmínky uchovávání dat a případnou dohodu o nulové retenci. Tyto vlastnosti se
 od poskytovatele automaticky nepřenášejí na Lazurio jako celek.
 
-Dashboard, hostovaný týmový workspace a osobní služby Resident/Buddy jsou
-volitelné nebo se nasazují samostatně. U každé zapnuté služby určete
+Dashboard, hostovaný týmový workspace a hostovaná Osobní Prostředí (Buddy v nich
+běží uvnitř Lazuria, ne jako samostatná služba) jsou volitelné nebo se nasazují
+samostatně. U každé zapnuté služby určete
 provozovatele, identitu, úložiště, síťovou cestu, zpracovatele dat, logy, dobu
 uchování, zálohy, mazání a postup při incidentu. Přítomnost zdrojového kódu
 nedokazuje, že služba běží.

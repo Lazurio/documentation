@@ -4,7 +4,7 @@ description: "Co ověřit před pilotem a produkčním nasazením Lazuria."
 stableId: lazurio-doc-it-administrators
 locale: cs
 summary: "Přehled pro správce IT: hranice přístupu, podmínky poskytovatelů a schvalování výsledků před nasazením."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-21"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -86,7 +86,8 @@ Před nasazením zmapujte těchto pět míst:
 4. Poskytovatele modelu a hostingu, které využívá zvolený klient a jednotlivé
    Moduly.
 5. Volitelné hostované služby Lazuria, například Dashboard, týmový workspace
-   nebo Resident/Buddy, pokud je konkrétní nasazení skutečně používá.
+   nebo hostované Osobní Prostředí, ve kterém běží Buddy uvnitř Lazuria, pokud je
+   konkrétní nasazení skutečně používá.
 
 To, že Lazurio určitý typ integrace podporuje, ještě neznamená, že je v daném
 prostředí zapnutý. Pro konkrétní nasazení si vyžádejte aktuální seznam
