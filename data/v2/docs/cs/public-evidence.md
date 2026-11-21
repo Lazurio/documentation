@@ -4,7 +4,7 @@ description: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hran
 stableId: lazurio-doc-public-evidence
 locale: cs
 summary: "Veřejné zdroje k produktovým a bezpečnostním tvrzením a hranice jejich platnosti."
-updatedAt: "2026-11-21"
+updatedAt: "2026-11-17"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -153,9 +153,7 @@ cestu přes Doctor a repair, nemá předpokládat stejnou funkčnost.
 Zdrojová kopie obsahuje i kód pro bridge a provisionování samostatně
 nasazovaných profilů; samotná přítomnost ve zdroji neznamená aktivaci. Mezi
 volitelné části architektury patří Dashboard, hostované týmové workspaces a
-hostovaná Osobní Prostředí. V Osobním Prostředí běží Buddy uvnitř Lazuria jako
-vlákno ve stejném T3 Code jako Chat, s nástroji Prostředí a pamětí v Brainu;
-není to samostatná služba. Nasazení, které některou z
+služby Resident/Buddy pro jednotlivé vlastníky. Nasazení, které některou z
 těchto služeb zapne, ji musí uvést jako samostatnou službu s vlastním
 provozovatelem, identitou, úložištěm, sítí, zpracovateli, logy, retencí,
 zálohami a pravidly mazání.

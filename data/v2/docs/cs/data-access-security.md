@@ -10,6 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-buddy-gen4-folder
   - lazurio-user-roles-current
   - lazurio-external-apps-0162
   - lazurio-decision-0162
@@ -126,9 +127,11 @@ zvoleného poskytovatele, typ účtu, případný region, zapnutou telemetrii,
 podmínky uchovávání dat a případnou dohodu o nulové retenci. Tyto vlastnosti se
 od poskytovatele automaticky nepřenášejí na Lazurio jako celek.
 
-Dashboard, hostovaný týmový workspace a hostovaná Osobní Prostředí (Buddy v nich
-běží uvnitř Lazuria, ne jako samostatná služba) jsou volitelné nebo se nasazují
-samostatně. U každé zapnuté služby určete
+Dashboard, hostovaný týmový workspace a hostovaná Osobní Prostředí jsou
+volitelné nebo se nasazují samostatně. V Osobním Prostředí převedeném na Buddyho
+GEN4 (Lazurio 0.1.24 a novější) běží Buddy uvnitř Lazuria, ne jako samostatná
+služba; Prostředí, které ještě převedené není, má do převodu dřívější službu
+Buddyho. U každé zapnuté služby určete
 provozovatele, identitu, úložiště, síťovou cestu, zpracovatele dat, logy, dobu
 uchování, zálohy, mazání a postup při incidentu. Přítomnost zdrojového kódu
 nedokazuje, že služba běží.

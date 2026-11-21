@@ -10,6 +10,8 @@ reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-buddy-gen4-folder
+  - lazurio-buddy-gen4-sign
   - lazurio-decision-register-access-0245-0247
   - lazurio-user-roles-current
   - lazurio-product-vocabulary
@@ -136,13 +138,16 @@ responsible user answers for it. It is not a separate kind of Environment.
 representative. Buddy belongs to your Personal Environment and acts only
 within your rights and the mandates you give. Billing, secrets, access
 changes, and a merge or publication outside an explicit mandate always need
-your consent to that exact step. You open Buddy from the figure at the bottom
-right of every Lazurio page: he is a thread in a window, in the same T3 Code as
-Chat, and works in the folder `~/Buddy` with the Environment's own tools and
-AI source, with no sign-in or Telegram of his own. The mark on his figure says
-what is going on: none when all is quiet, “?” when a question waits for you, a
-dot when he has answered, “!” when he is unavailable or something failed. His
-name and how he addresses you are set in Settings → Buddy.
+your consent to that exact step. In Buddy GEN4 (a Personal Environment on
+Lazurio 0.1.24 or later, after its move from the earlier Buddy) you open Buddy
+from the figure at the bottom right of the pages of your Personal Environment's
+Lazurio: he is a thread in a window, in the same T3 Code as Chat, and works in
+the folder `~/Buddy` with the Environment's own tools and AI source, with no
+sign-in or Telegram of his own. The mark on his figure says what is going on:
+none when all is quiet, “?” when a question waits for you, a dot when he has
+answered, “!” when something failed; a grey figure with a struck-through mark
+means his state cannot be read right now. His name and how he addresses you
+are set in Settings → Buddy.
 
 **Prompt** A request you write for AI. For example: “Prepare an overview of
 unpaid invoices and explain what I should address first.”

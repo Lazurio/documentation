@@ -10,6 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-buddy-gen4-folder
   - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-platform-readme-release
@@ -87,7 +88,9 @@ enabled tools. Check these five areas for your deployment:
    the user's supervision.
 4. The agent client, model provider and any hosting provider used by modules.
 5. Optional hosted Lazurio services such as Dashboard, a hosted team workspace
-   or a hosted Personal Environment, where Buddy runs inside Lazurio.
+   or a hosted Personal Environment. After its move to Buddy GEN4 (Lazurio
+   0.1.24 and later), Buddy runs inside Lazurio there; before it, the earlier
+   per-owner Buddy service.
 
 An integration existing in the ecosystem is not evidence that it is enabled.
 Ask for a live list with provider, scopes, owner and revocation instructions.

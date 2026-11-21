@@ -10,6 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-buddy-gen4-folder
   - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-platform-readme-release
@@ -86,8 +87,9 @@ Před nasazením zmapujte těchto pět míst:
 4. Poskytovatele modelu a hostingu, které využívá zvolený klient a jednotlivé
    Moduly.
 5. Volitelné hostované služby Lazuria, například Dashboard, týmový workspace
-   nebo hostované Osobní Prostředí, ve kterém běží Buddy uvnitř Lazuria, pokud je
-   konkrétní nasazení skutečně používá.
+   nebo hostované Osobní Prostředí, pokud je konkrétní nasazení skutečně používá.
+   Po převodu na Buddyho GEN4 (Lazurio 0.1.24 a novější) v něm běží Buddy uvnitř
+   Lazuria, před ním dřívější služba Buddyho pro jednoho vlastníka.
 
 To, že Lazurio určitý typ integrace podporuje, ještě neznamená, že je v daném
 prostředí zapnutý. Pro konkrétní nasazení si vyžádejte aktuální seznam

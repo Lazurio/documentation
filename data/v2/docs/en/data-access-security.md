@@ -10,6 +10,7 @@ reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-buddy-gen4-folder
   - lazurio-user-roles-current
   - lazurio-external-apps-0162
   - lazurio-decision-0162
@@ -107,9 +108,11 @@ model provider. Lazurio does not handle those model requests itself. The operato
 authentication, telemetry, retention and region where relevant. This site
 makes no universal training or retention claim across providers.
 
-Dashboard, hosted team workspaces and hosted Personal Environments (where
-Buddy runs inside Lazurio, not as a separate service) are optional or
-separately deployed. If enabled, each needs its own operator,
+Dashboard, hosted team workspaces and hosted Personal Environments are
+optional or separately deployed. In a Personal Environment moved to Buddy GEN4
+(Lazurio 0.1.24 and later), Buddy runs inside Lazurio rather than as a
+separate service; an Environment not yet moved still runs the earlier Buddy
+service until its move. If enabled, each needs its own operator,
 identity, storage, network path, processor list, logs, retention, backup,
 deletion and incident controls. Source code being present does not prove that a
 service is active.
