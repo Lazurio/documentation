@@ -1,10 +1,10 @@
 ---
 title: "What Lazurio is good for"
-description: "Work that suits Lazurio, the controls it needs and when to choose another tool."
+description: "How teams prepare meetings, update applications and review work across tools. Choose a first task and see what access it needs."
 stableId: lazurio-doc-use-cases
 locale: en
-summary: "Work that suits Lazurio, the controls it needs and when to choose another tool."
-updatedAt: "2026-11-17"
+summary: "How teams prepare meetings, update applications and review work across tools. Choose a first task and see what access it needs."
+updatedAt: "2026-11-23"
 reviewedAt: "2026-09-15"
 reviewOwner: Matej Suchanek
 sourceRefs:
@@ -20,37 +20,29 @@ audience:
   - agent
 ---
 
-Lazurio fits work whose results need to be kept, reviewed and shared: an
-application change, a procedure or material for a decision. In the examples below, the agent prepares the work and the team reviews it.
+You prepare the agenda for a weekly team meeting. Some notes are reminders to check a fact beforehand. Others are decisions the team needs to make together. In Lazurio, you can ask an agent to draft the agenda, revise it and save the procedure in your shared Knowledgebase once it is approved. A colleague can use it next week without having been part of the original conversation.
+
+[Try preparing a meeting with the sample notes](/en/guide/first-steps/).
 
 ## Strong-fit use cases
 
 ### Product and software delivery
 
-Give the agent a specific application change. It can inspect the module,
-edit the code, run tests and prepare a pull request. The team reviews the diff
-and test results before accepting the change. Git keeps the history.
+Your team needs to change a form. Describe the missing field and give an example of what should happen when someone fills it in. An agent with access to the module can make the change, run the tests and open a pull request. The team can inspect the edits and test results before accepting the change. Git keeps the history.
 
 ### Operational workflows across tools
 
-A task may need both repository files and an approved external application.
-Each connected app has one route: a tool, Executor or, where the Organization
-allows it, Composio. Sign-ins of a tool or of Executor stay in the Environment
-and can be revoked one by one. Composio connections belong to the Composio
-account rather than to one machine, and Composio holds their tokens and call
-content.
+The draft is in your repository and the review notes are in a SharePoint folder. You could ask: “Compare the draft with the notes in this folder. List the decisions we still need to make and link each one to its source. Leave the documents as they are.”
+
+First check which folder the agent can read and which account it uses. Each connected app uses one route through a tool, Executor or, if your Organization allows it, Composio. Tool and Executor sign-ins stay in the Environment and can be revoked individually. Composio connections belong to a Composio account that can be used across devices. Composio holds the tokens and the contents of calls. [How to check and revoke app access](/en/environment-app-connections/).
 
 ### Durable organizational knowledge
 
-A conversation can produce a procedure, plan or proposed decision. Have it
-saved to the right place in the Organization and reviewed. Other people can
-then find the information without searching your chat.
+A colleague asks how to prepare next week's meeting. Send them the approved procedure in the Knowledgebase. If the rules are still in your chat, ask the agent to draft a procedure and check whether a similar one already exists. Before publishing, check that the draft reflects how your team works.
 
 ### Repeated agent roles
 
-For recurring work, save the instructions, tools, tests and approval
-requirements as a reviewed procedure. The next task can use that procedure
-without relying on assumptions hidden in a copied prompt.
+If an agent regularly prepares a list of open tasks, record where it should look, how to tell when a task is closed and who reviews the list before it is shared. Link to the approved procedure next time. You can check the new list against the same rules.
 
 ### Work across several companies
 
