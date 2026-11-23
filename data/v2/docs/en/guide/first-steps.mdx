@@ -4,7 +4,7 @@ description: "Try assigning a task, reviewing the result and saving a procedure 
 stableId: lazurio-doc-guide-first-steps
 locale: en
 summary: "Try assigning a task, reviewing the result and saving a procedure for next time."
-updatedAt: "2026-09-15"
+updatedAt: "2026-11-23"
 reviewedAt: "2026-09-15"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -18,69 +18,49 @@ audience:
   - agent
 ---
 
-Use a small work task to practise giving instructions, reviewing a draft
-and saving a procedure for next time. If you are new to agents,
-read the [short introduction](/en/guide/start-here/) first.
-
-The example conversations are scripted. Copy the prompts into your chat and
-adapt them to the task. Supply only materials you are allowed to use there.
+Draft a meeting agenda, then save the parts you want to reuse next week. The first prompt includes all the notes you need. If you use your own notes, choose material you can share in that Chat. New to working with agents? Read the [short introduction](/en/guide/start-here/).
 
 ## 1. Brief your first task and review the result
 
-Choose the correct organization and area of work in Launchpad. Open a task
-in the corresponding working context in your agent tool. Before starting,
-check with the agent which organization and materials it is working with.
+Open Chat in your Environment. If you work with several Organizations there, tell the agent which one the draft is for.
 
 ```text
-Use the attached notes to draft an agenda for a 30-minute team meeting.
-For each item, include its goal, proposed duration and the question to decide.
-Use only these notes. Flag missing information; do not invent it.
-Return a short list. Do not send anything or create calendar events.
+We have half an hour to pick a training date and decide who will prepare the materials. I still need to find out whether the supplier has sent a quote.
+Draft an agenda and list anything I should check before the meeting. Use only these notes. Don't send anything or create a calendar event.
 ```
 
-<details class="lz-learning-chat"><summary>Show an example conversation</summary><p><strong>AI · illustration:</strong> The first item does not specify the decision you need. Are we choosing an option or just sharing progress?</p><p><strong>You:</strong> We need to choose an option. Allow 15 minutes for that item and shorten the others to keep the whole meeting within 30 minutes.</p></details>
+**Example agenda**
 
-**Done means:** the agenda matches the notes, durations total 30 minutes,
-unconfirmed facts are marked and nothing was sent. The agent saying “done”
-is not enough — read the actual draft.
+- Before the meeting, check whether the supplier has sent the quote.
+- Spend the first 15 minutes choosing a training date.
+- Use the remaining 15 minutes to agree on who will prepare the materials and by when.
+
+Read through the draft. Does it match your notes? The date and the person responsible are still open decisions. If an item needs more time, adjust it in the same thread.
+
+<details class="lz-learning-chat"><summary>How to adjust the timing</summary><p><strong>Example feedback:</strong> Five minutes is plenty to pick a date. Leave the other 25 for dividing up the work.</p></details>
 
 ## 2. Explain one recurring procedure
 
-Choose something you regularly explain at work. Describe it in your own
-words, by voice if you prefer. The agent can organize it; you check that it
-accurately reflects your work.
+If you prepare a meeting like this every week, save the rule in your shared Knowledgebase. In the same Chat, try:
 
 ```text
-I want to explain how we prepare team meetings.
-First ask me about the inputs, sequence of steps and finished result.
-Then draft a procedure for our organization's Knowledgebase.
-Check whether one already exists; do not propose an unnecessary duplicate.
-Show the changes, their location and who will have access. Do not publish yet.
+We check the facts before a meeting and use our time together for decisions.
+Look in our Organization's Knowledgebase for an existing meeting preparation guide. If we have one, show me where this rule would fit. Otherwise, draft a short guide. Ask me about anything you still need to know.
+Show me the draft, where it would go and who could read it. Don't publish it yet.
 ```
 
-<details class="lz-learning-chat"><summary>Show an example of feedback</summary><p><strong>AI · illustration:</strong> The draft does not cover unresolved items from the previous meeting. How do you handle them?</p><p><strong>You:</strong> First compare them with the current situation. Do not carry outdated items forward automatically. Add that to the draft and show the final wording.</p></details>
-
-**Done means:** the procedure is accurate and you know where it belongs.
-Approve publication as a separate step under your permissions and your
-organization's rules. If another colleague must approve it, ask for a handoff
-to that person.
+Check whether the procedure would work for another meeting. Once the draft is ready, the person with permission to publish it in your Organization can approve publication.
 
 ## 3. Use the approved procedure in a new task
 
-After the procedure is approved and published, start a new task in the same
-organization. You are checking that saved materials are actually loaded,
-not testing “chat memory”.
+Once the procedure has been approved and published, start a new Chat in the same Organization. Try a meeting with a different topic:
 
 ```text
-Find the approved meeting preparation procedure in our organization's
-Knowledgebase. Show its source and summarize the rules. If you cannot find
-or access it, tell me; do not guess its contents. Then use it to draft an
-agenda from the new attached notes. Do not send anything.
+Find our approved meeting preparation guide in the Knowledgebase and give me the link. If you can't find or access it, tell me and wait.
+This time we need to choose a workshop venue. We don't yet know how many people are coming. Use the guide to suggest what to check beforehand and what to decide together. Don't send anything to the team.
 ```
 
-**Done means:** you can see the actual source and the draft follows its rules.
-If the agent cannot find it, check the organization, location, publication
-and access.
+Open the guide and compare it with the draft. Knowing the headcount beforehand will help the team choose a venue. If the agent couldn't find the guide, check which Organization published it and who has access.
 
 ## When to start a new thread
 
