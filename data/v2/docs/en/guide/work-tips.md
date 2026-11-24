@@ -133,7 +133,7 @@ menu shows how many chats you selected, for example **Settle (3)**.
   </video>
   <figcaption id="settle-video-words">A 22-second video guide: the steps above in Chat, with quiet
 music. The chats in it are made up. Also on
-<a href="{{YOUTUBE_URL}}">YouTube</a>.</figcaption>
+<a href="https://www.youtube.com/watch?v=7dL-LUVtPYs">YouTube</a>.</figcaption>
 </figure>
 
 The labels stay in English, as Chat shows them. Shown in Chat of a Lazurio

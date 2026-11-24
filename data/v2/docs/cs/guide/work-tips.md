@@ -132,7 +132,7 @@ Víc chatů najednou uklidíte tak, že je označíte s klávesou **Ctrl**
   </video>
   <figcaption id="settle-video-words">Dvaadvacetisekundový návod: kroky výše v Chatu, s tichou hudbou.
 Chaty ve videu jsou vymyšlené. Anglická verze je také na
-<a href="{{YOUTUBE_URL}}">YouTube</a>.</figcaption>
+<a href="https://www.youtube.com/watch?v=7dL-LUVtPYs">YouTube</a>.</figcaption>
 </figure>
 
 Popisky zůstávají anglicky, jak je Chat ukazuje. Ověřeno v Chatu Prostředí
