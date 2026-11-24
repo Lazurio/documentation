@@ -1831,6 +1831,16 @@
       "reviewOwner": "Matej Suchanek",
       "reviewedAt": "2026-11-21",
       "reviewDueAt": "2026-12-21"
+    },
+    {
+      "id": "lazurio-t3code-settle",
+      "title": "Lazurio T3 Code 0.1.10-lazurio.4 (commit b05167a): Settle in Chat's thread list (Settle thread, the Settled folder, Un-settle thread, the undo notice and Ctrl/Cmd+Z)",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/t3code/blob/b05167a204a0f5823077d155be819d773e29c616/apps/web/src/components/sidebar/SidebarThreadRow.tsx",
+      "reviewOwner": "Anna Blazickova",
+      "reviewedAt": "2026-11-24",
+      "reviewDueAt": "2026-12-24"
     }
   ]
 }

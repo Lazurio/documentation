@@ -4,7 +4,7 @@ description: "Assign work in the browser and review the result."
 stableId: lazurio-doc-guide-work-tips
 locale: en
 summary: "Assign work in the browser and review the result."
-updatedAt: "2026-10-24"
+updatedAt: "2026-11-24"
 reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - openai-browser
+  - lazurio-t3code-settle
 audience:
   - decision-maker
   - builder
@@ -104,3 +105,37 @@ In the ChatGPT desktop app, permanent deletion of a thread is offered only in
 In ChatGPT mode the thread menu only offers **Archive**. An archived thread
 stays stored; it is not deleted. Observed on 9 October 2026 in the ChatGPT app
 for Windows; the interface may differ in other app versions.
+
+## Tidy up finished chats with Settle
+
+When the work in a chat is done, move it out of your list in Chat with
+**Settle**. The chat is not deleted: it waits in **Settled** at the bottom
+of the list, and the list keeps only the work still in progress.
+
+1. **Hover over the finished chat** in the list on the left. **✓ Settle**
+   appears on the right of the row.
+2. **Click ✓ Settle.** The chat leaves the list and a notice at the bottom
+   of the list offers to undo it.
+3. **Find it at the bottom.** Click **Settled** to open the folder with your
+   settled chats.
+
+To bring a chat back, hover over it in **Settled** and click the arrow
+(**Un-settle thread**). Right after settling, **Ctrl+Z** (**Cmd+Z** on Mac)
+undoes it too, as long as you are not typing in a text field.
+
+To settle several chats at once, select them with **Ctrl**-click
+(**Cmd**-click on Mac), right-click one of them and choose **Settle**. The
+menu shows how many chats you selected, for example **Settle (3)**.
+
+<figure class="lz-diagram">
+  <video controls playsinline preload="none" poster="/videos/settle-en.webp" aria-describedby="settle-video-words">
+    <source src="/videos/settle-en.mp4" type="video/mp4" />
+  </video>
+  <figcaption id="settle-video-words">A 22-second video guide: the steps above in Chat, with quiet
+music. The chats in it are made up. Also on
+<a href="https://www.youtube.com/watch?v=7dL-LUVtPYs">YouTube</a>.</figcaption>
+</figure>
+
+The labels stay in English, as Chat shows them. Shown in Chat of a Lazurio
+Environment (T3 Code 0.1.10-lazurio.4) on 23 November 2026; the interface may
+change with the app version. Source: [T3 Code thread list](https://github.com/Lazurio/t3code/blob/b05167a204a0f5823077d155be819d773e29c616/apps/web/src/components/sidebar/SidebarThreadRow.tsx).
