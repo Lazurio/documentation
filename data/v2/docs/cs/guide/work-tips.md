@@ -4,7 +4,7 @@ description: "Jak zadat práci v prohlížeči a zkontrolovat výsledek."
 stableId: lazurio-doc-guide-work-tips
 locale: cs
 summary: "Jak zadat práci v prohlížeči a zkontrolovat výsledek."
-updatedAt: "2026-10-24"
+updatedAt: "2026-11-24"
 reviewedAt: "2026-10-24"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-collaboration-model
   - lazurio-external-apps
   - openai-browser
+  - lazurio-t3code-settle
 audience:
   - decision-maker
   - builder
@@ -102,3 +103,38 @@ V desktopové aplikaci ChatGPT se trvalé smazání vlákna nabízí jen v reži
 V režimu ChatGPT nabídka vlákna nabízí jen **Archive**. Archivované vlákno
 zůstává uložené, nesmaže se. Ověřeno 9. 10. 2026 v aplikaci ChatGPT pro
 Windows; v jiné verzi aplikace se rozhraní může lišit.
+
+## Ukliďte hotové chaty tlačítkem Settle
+
+Když je práce v chatu hotová, uklidíte ho v Chatu ze seznamu tlačítkem
+**Settle**. Chat se tím nesmaže: počká ve složce **Settled** dole v seznamu
+a v seznamu zůstane jen rozpracovaná práce.
+
+1. **Najeďte myší na hotový chat** v seznamu vlevo. Na pravém kraji řádku se
+   objeví **✓ Settle**.
+2. **Klikněte na ✓ Settle.** Chat zmizí ze seznamu a dole v seznamu se
+   ukáže nabídka, jak krok vrátit.
+3. **Najdete ho dole.** Kliknutím na **Settled** otevřete složku s uklizenými
+   chaty.
+
+Chat vrátíte tak, že na něj ve složce **Settled** najedete myší a kliknete na
+šipku (**Un-settle thread**). Hned po uklizení funguje i **Ctrl+Z**
+(na Macu **Cmd+Z**), pokud zrovna nepíšete do textového pole.
+
+Víc chatů najednou uklidíte tak, že je označíte s klávesou **Ctrl**
+(na Macu **Cmd**), na jeden z nich kliknete pravým tlačítkem a zvolíte
+**Settle**. V nabídce je vidět, kolik chatů máte označených, třeba
+**Settle (3)**.
+
+<figure class="lz-diagram">
+  <video controls playsinline preload="none" poster="/videos/settle-cs.webp" aria-describedby="settle-video-words">
+    <source src="/videos/settle-cs.mp4" type="video/mp4" />
+  </video>
+  <figcaption id="settle-video-words">Dvaadvacetisekundový návod: kroky výše v Chatu, s tichou hudbou.
+Chaty ve videu jsou vymyšlené. Anglická verze je také na
+<a href="{{YOUTUBE_URL}}">YouTube</a>.</figcaption>
+</figure>
+
+Popisky zůstávají anglicky, jak je Chat ukazuje. Ověřeno v Chatu Prostředí
+Lazuria (T3 Code 0.1.10-lazurio.4) 23. listopadu 2026; rozhraní se může
+s verzí aplikace změnit. Zdroj: [seznam vláken v T3 Code](https://github.com/Lazurio/t3code/blob/b05167a204a0f5823077d155be819d773e29c616/apps/web/src/components/sidebar/SidebarThreadRow.tsx).
