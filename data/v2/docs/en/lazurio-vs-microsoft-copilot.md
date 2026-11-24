@@ -1,15 +1,17 @@
 ---
 title: "Lazurio vs Microsoft Copilot"
-description: "Compare the work, access and administration each tool requires."
+description: "Choose AI for your team by looking at model choice, the apps you use and the work a colleague needs to repeat."
 stableId: lazurio-doc-copilot-comparison
 locale: en
-summary: "Compare the work, access and administration each tool requires."
-updatedAt: "2026-11-17"
+summary: "Choose AI for your team by looking at model choice, the apps you use and the work a colleague needs to repeat."
+updatedAt: "2026-11-24"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
 trustCritical: true
 sourceRefs:
+  - lazurio-decision-register-admin-ai
+  - lazurio-platform-launchpad-texts-pairing
   - lazurio-user-roles-current
   - lazurio-readme
   - lazurio-architecture
@@ -27,123 +29,38 @@ audience:
   - agent
 ---
 
-The choice depends on the work you want AI to do and who will manage it.
-Microsoft Copilot mainly assists with work in Microsoft 365. Lazurio focuses
-on company repositories and connected tools, including change review and
-approval. An organization may use both.
+If you need to reply to a long Outlook thread, Microsoft Copilot can draft the reply where you will edit it. If your team assembles a weekly briefing from email, a shared folder and an internal app, try that task in Lazurio. You can choose which services the agent may use, give it your team's procedure and decide who should review the result.
 
-Permissions matter in either case. Copilot uses work data available to the
-signed-in Microsoft 365 user. An agent in Lazurio works with selected
-repositories and tools it can actually access.
+This comparison covers the work version of Copilot for Microsoft 365. Our recommendations depend on the job your team needs to get done.
 
-Microsoft has renamed Microsoft 365 Copilot to Microsoft Copilot and
-Microsoft 365 Copilot Chat to Microsoft Copilot Chat. Some licenses,
-experiences and linked pages, such as the extensibility documentation, still
-use the earlier name during the transition. Microsoft product facts below come
-from current Microsoft Learn documentation. Lazurio positioning and the
-recommendations are our assessment.
+## Which AI can your team use?
 
-## Side-by-side
+In Lazurio you can choose the AI tool and provider for the task. For example, you can use Codex with a ChatGPT account in your Environment, or connect a Claude account to work with Claude Code. The **models** available depend on the tool, account and Organization settings. Your team's procedure for preparing a proposal can stay in the Knowledgebase. If you switch tools, the next agent can still follow that procedure as long as it has access. [Check the AI source for your Environment](/en/guide/ai-source/).
 
-| Decision area | Microsoft Copilot | Lazurio |
-| --- | --- | --- |
-| Primary purpose | AI assistance inside the Microsoft 365 productivity environment. | Prepare, review and approve versioned work across repositories and tools. |
-| Natural context | With a Premium license, Microsoft Graph and the user's permitted Microsoft 365 content. Copilot Chat (Basic) and Microsoft 365 Copilot (Basic) ground in web data, plus content the user supplies or has open in Outlook or Teams, or a pay-as-you-go agent. Configured agents and connectors add more. | Selected Organization repositories, local workspace context and individually approved external tools. |
-| Permission foundation | The signed-in user's Microsoft 365 permissions, identity controls and service boundary. | The signed-in user's GitHub/provider permissions and the integrations connected in the Environment; prompts do not grant authority. |
-| Typical output | Answers, summaries, drafts and actions in Microsoft applications and Copilot experiences. | Changes, plans, reference material and app actions prepared for review and approval. |
-| Administration | Microsoft-administered tenant services, licensing, Purview, Entra and Microsoft 365 administration. | Organization-owned Git repositories, devices, module requirements and each provider's administration. |
-| Extensibility | Plugins: installable packages that can include skills, tools such as Copilot connectors and remote MCP servers, and declarative agents. | Modules, reusable agent instructions, MCP servers, official CLIs and browser workflows under local curation. |
-| Deployment | Microsoft-managed cloud service with published tenant requirements. | Framework and module deployment chosen per Organization; current public model begins with local checkouts and independently deployed modules. |
-| Best fit | Productivity and knowledge work already centered on Microsoft 365. | Work across repositories or tools that needs version history, tests and explicit approval. |
+Microsoft also offers several models, including Anthropic models in selected experiences. Microsoft sets the range, and availability depends on licensing and admin settings. Check the combination you actually need: the model, the application and the account you intend to use. [Microsoft Copilot overview and licensing](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview).
 
-Microsoft documents that Copilot operates within the Microsoft 365 service
-boundary and only surfaces organizational data to which the user has at least
-view permission. With a Premium license, answers can be grounded in that
-data through Microsoft Graph. Copilot Chat (Basic) and Microsoft 365 Copilot
-(Basic) ground in web data and can't use organizational data via Microsoft
-Graph; they reach organizational content only when the user supplies it, has
-it open in Outlook or Teams, or uses a pay-as-you-go agent. See Microsoft's [Copilot overview](https://learn.microsoft.com/en-us/copilot/plan/copilot-overview)
-and [data protection and auditing](https://learn.microsoft.com/en-us/copilot/plan/architecture-data-protection-auditing).
+## When the work spans several apps
 
-Lazurio's public source defines GitHub as the access authority for repository
-work, separates Organizations, and treats agent output as a draft until an
-authorized publication decision. See the [security and control evidence](/en/public-evidence/)
-and its exact source links.
+Before a meeting, you have questions from colleagues in email, a draft in a shared folder and the team's procedure in the Knowledgebase. In Lazurio Chat you might ask: “Compare the questions with the draft. Use our procedure to prepare the agenda. Link each open question to its source. Don't send anything yet.” Specify the folder and messages the agent may read. It also needs access through approved tools and accounts.
 
-## Data and privacy questions
+The task can include Microsoft services, other providers and apps your team has built. When a colleague takes over, give them the procedure and an example of the result you expect. [How to connect apps](/en/environment-app-connections/) · [Try the meeting exercise](/en/guide/first-steps/).
 
-Microsoft states that prompts, responses and data accessed through Microsoft
-Graph are not used to train foundation models, including those used by
-Microsoft Copilot. It also documents stored interaction history, Purview
-controls, the need to check the terms of agents and the additional terms that
-may apply when an administrator enables third-party AI models, such as
-Anthropic or OpenAI models. Read the current [Microsoft privacy and security statement](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy)
-for the exact product and tenant terms.
+If the meeting is in Teams and the material is already in Word or Outlook, Copilot can save you from moving content between apps. The organizational content it can use depends on the license and the user's permissions. Copilot can also reach external sources through configured connectors and agents. Include the particular services and actions your team needs when you compare the two. [Extending Copilot](https://learn.microsoft.com/en-us/plugins/overview).
 
-Lazurio cannot give one equivalent model-provider statement because it is not
-one universal AI service account. Data flows depend on the selected AI client, model provider, Organization permissions and integrations. List those providers and permissions before approving a deployment. The Organization must manage that configuration.
+## Who uses GitHub?
 
-## Administration and prerequisites
+Ask for a meeting agenda in Lazurio Chat and you can read the draft there. GitHub comes into play when, for example, you want to update the **shared procedure** stored in your Organization's repository. An agent with write access can prepare the change and give you a link. The reviewer can see exactly how the proposal differs from the current procedure. Once the change is accepted, colleagues can look up what changed and when.
 
-Microsoft publishes tenant prerequisites including an eligible Microsoft 365
-subscription with a Microsoft Copilot license, Microsoft Entra ID work
-accounts, an Exchange Online mailbox for mailbox-grounded experiences and
-network access to the `*.cloud.microsoft` domain. It strongly recommends a
-secure and governed data foundation built with SharePoint Advanced Management
-and Microsoft Purview. See the current [Microsoft requirements](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements).
+The next person preparing a meeting can start in Chat again. The team can keep its email and accounting in the apps it already uses. [From a request to an approved result](/en/how-lazurio-works/).
 
-Lazurio instead requires the organization to own its GitHub structure,
-endpoint baseline, execution provider, repository rules and enabled
-integrations. It offers more direct control of the working source and
-publication process, while leaving more operational choices to the
-organization.
+## What to check with IT
 
-## Extending the tools
+For **Microsoft Copilot**, check the license and who can read the relevant Microsoft 365 documents. Microsoft says that prompts, responses and data retrieved through Microsoft Graph are not used to train foundation models. Its service policies cover interaction history. Additional models and connected agents may have their own terms. [Privacy and security](https://learn.microsoft.com/en-us/copilot/plan/microsoft-365-copilot-privacy) · [Microsoft requirements](https://learn.microsoft.com/en-us/copilot/plan/microsoft-copilot-requirements).
 
-Microsoft Copilot is extended through plugins. A plugin is an installable
-package that can include skills, tools such as Copilot connectors and remote
-MCP servers, and declarative agents. Remote MCP servers can run separately from
-the package. A plugin is then published or shared and made available under
-governance, as described in Microsoft's [plugin overview](https://learn.microsoft.com/en-us/plugins/overview).
-Use this route for workflows managed within Microsoft's products.
+For **Lazurio**, trace a task from start to finish. Which files can the agent read? Which model provider will process them? Who can release the result or revoke access? The model and services you choose affect where the data goes. Access to the team's procedure does not, on its own, grant access to its mailbox. [Data access and security](/en/data-access-security/).
 
-Lazurio extensions are workspace modules and scoped tool integrations. Each
-connected app has one path: its own tool or the Environment's Executor, whose
-sign-ins stay in the Environment and can be revoked separately, or, where the
-Organization allows it, Composio, whose connections belong to the Composio
-account rather than to one machine. Use this route for work across repositories or providers that needs its own tests and approvals.
+## Try a task your team did last week
 
-## Which should you choose?
+For an Outlook reply or a Word edit, try Copilot in the app first. If the task calls for your choice of model, several services or a procedure that a colleague will run again, try it in Lazurio.
 
-### Choose Microsoft Copilot first when
-
-- most valuable work already happens in Outlook, Teams, Word, Excel,
-  PowerPoint and SharePoint;
-- the tenant's Microsoft 365 permissions and administration are well managed;
-- you want a vendor-managed productivity experience with Microsoft's administration
-  and compliance tools;
-- custom work can stay within Microsoft's agent and connector ecosystem.
-
-### Choose Lazurio first when
-
-- the output must become a reviewed repository change, module, operating plan
-  or durable organizational source of truth;
-- work crosses GitHub, local source and several non-Microsoft providers;
-- you need explicit company boundaries and an inspectable draft-to-publication
-  workflow;
-- your organization is prepared to own endpoint, repository, provider and
-  integration configuration.
-
-### Use both when
-
-Microsoft Copilot is the productivity assistant for Microsoft 365 while
-Lazurio governs source-controlled delivery and cross-tool execution. Keep the
-responsibilities and credentials distinct: do not assume an approval or data
-boundary in one automatically applies to the other.
-
-## Bottom line
-
-Try the options on a real task. Compare not only the result, but also the
-required access, change review and administration time. Start with Copilot
-if most work happens in Microsoft 365. Try Lazurio if you need to version and
-approve work across repositories and tools.
+Watch for the parts you have to copy across by hand. Can you trace the answer to its sources? Could a colleague repeat the task next week? Both tools can play a part: for example, use Lazurio to gather the material for a proposal using your team's procedure, then edit the wording in Word with Copilot.
