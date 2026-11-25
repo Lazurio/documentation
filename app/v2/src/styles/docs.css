@@ -960,6 +960,7 @@ lz-language-menu details[hidden] { display: none; }
 @media (hover: hover) and (pointer: fine) {
   .sl-markdown-content .lz-directory a:hover,
   .sl-markdown-content .lz-guide-app:hover { background: var(--sl-color-gray-6); }
+  :root[data-theme='light'] .sl-markdown-content .lz-guide-app:hover { background: var(--lz-gray-50); }
 }
 
 /* A screenshot that ends a list must not widen the gap to a collapsible
