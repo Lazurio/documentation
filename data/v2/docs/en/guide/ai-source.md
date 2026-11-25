@@ -4,7 +4,7 @@ description: "The Organization's AI pool or your own ChatGPT account: where you 
 stableId: lazurio-doc-guide-ai-source
 locale: en
 summary: "The Organization's AI pool or your own ChatGPT account: where you see which one your Environment uses, who switches it and what a switch interrupts."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -70,7 +70,7 @@ Once the change is done:
   warns the others.
 - Claude Code leaves the pool together with Codex. If you use it, sign in to
   Claude as well.
-- Your phone connects differently: see [Phone and
+- The account choice affects whether you can try experimental phone pairing. For browser access from your phone, see [Phone and
   computer](/en/guide/phone-and-computer/).
 
 ## What is still coming

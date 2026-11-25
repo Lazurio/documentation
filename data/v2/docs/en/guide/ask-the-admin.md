@@ -4,7 +4,7 @@ description: "What only your Organization Admin does, how to ask them today and 
 stableId: lazurio-doc-guide-ask-the-admin
 locale: en
 summary: "What only your Organization Admin does, how to ask them today and what a request must and must never contain."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -40,7 +40,7 @@ with a request they can act on without asking back.
 - Changes a server.
 
 What you can do yourself is in Settings. Examples are signing in to AI off the
-pool, pairing a phone where Connections offers it and connecting your own
+pool, trying [experimental phone pairing](/en/guide/phone-and-computer/#phone) where Connections offers it and connecting your own
 Integrations.
 
 ## How to ask today

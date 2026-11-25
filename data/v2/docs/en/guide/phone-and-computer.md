@@ -1,10 +1,10 @@
 ---
 title: "Phone and computer"
-description: "When you can control your Environment's chats from the ChatGPT app on your phone or from ChatGPT Desktop on your computer, and what to use when Connections does not offer it."
+description: "Open Lazurio in your phone’s browser, see when experimental ChatGPT pairing is available, or connect your computer."
 stableId: lazurio-doc-guide-phone-and-computer
 locale: en
-summary: "When you can control your Environment's chats from the ChatGPT app on your phone or from ChatGPT Desktop on your computer, and what to use when Connections does not offer it."
-updatedAt: "2026-11-17"
+summary: "Open Lazurio in your phone’s browser, see when experimental ChatGPT pairing is available, or connect your computer."
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -19,52 +19,26 @@ audience:
   - agent
 ---
 
-**Settings → Connections** in your Environment shows what it offers you.
-Follow what the page shows. This page explains each case.
-
-## When pairing is possible
-
-Pairing connects the ChatGPT app with your Environment through your ChatGPT
-account
-([decision 0215](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0215--chatgpt-apps-pair-with-an-environment-through-the-chatgpt-account-ssh-stays-a-hidden-option-for-advanced-users)).
-It works only when all of these hold:
-
-- your Environment uses **your own ChatGPT account**, not the Organization's
-  AI pool ([Where your AI comes from](/en/guide/ai-source/), decision 0229);
-- Lazurio has recognized the remote-control feature in your Environment. The
-  feature is experimental, so Lazurio checks for it and offers pairing only
-  where it finds it;
-- you are not in the public entry of Lazurio's reference Organization
-  (decision 0213, until its return to its tailnet). There pairing shows as
-  unavailable, and you use the web interface instead: Launchpad, chat, MausBot
-  and Buddy.
-
-The ChatGPT app must be signed in with the same account as Codex in your
-Environment, ChatGPT Plus or higher.
+To continue working on your phone, open your Environment’s address in the browser. You can use the web interface without pairing your phone with the ChatGPT app.
 
 ## Phone
 
-If **Settings → Connections → Phone** offers **Pair a phone**:
+- **If your Organization uses a private network (tailnet),** turn on Tailscale on your phone and open your Environment’s address. For a new phone, follow the [iPhone or Android setup instructions](/en/guide/tailscale-add-device/). You can enter the Organization’s network once the [device is approved](/en/guide/device-approval/).
+- **If you use the public entry of Lazurio’s reference Organization,** open the address you were given in the browser and sign in with your Lazurio account. ChatGPT phone pairing is unavailable there.
 
-1. Choose **Pair a phone**.
-2. On your phone, open the ChatGPT app, go to **Codex → Add computer** and
-   scan the QR code.
-3. Done when the page says **Your phone is paired**.
+### When pairing is possible
 
-Your phones are listed under **Paired phones**. **Remove access** ends a
-phone's access at once, for example when you lose it.
+ChatGPT phone pairing is experimental. It lets you control Codex chats from the ChatGPT app on your phone. Even if **Settings → Connections → Phone** shows **Pair a phone**, pairing may not complete.
 
-If the page shows a message instead:
+To try it, first open the Environment on a device that already has access. Sign in to ChatGPT on your phone with the same account that Codex uses in the Environment (ChatGPT Plus or higher). Lazurio offers pairing only where it detects remote control. Pairing is unavailable in Team Environments or when using the [Organization’s AI pool](/en/guide/ai-source/).
 
-| The page says | What it means |
-| --- | --- |
-| **First sign in with your ChatGPT account.** | Sign in at Settings → Getting started → Connect AI first. |
-| **Coming soon for Environments on the Organization's AI.** | Your Environment uses the Organization's AI pool. Pairing needs your own account. Ask your Organization Admin to move you to your own account, or whether your Organization has another way for your phone: see [How to ask the Organization Admin](/en/guide/ask-the-admin/). |
-| **A Team Environment has no phone pairing.** | Shared Team Environments are not paired with a person's phone. |
-| **Pairing is not available right now.** | Pairing is not available in this Environment now. In the reference Organization's public entry, open the web interface in your phone's browser and sign in with your Lazurio account. In a tailnet, open it with the Tailscale app on and the phone approved (see [Device approval](/en/guide/device-approval/)). Otherwise try again later. |
+1. In the Environment, choose **Pair a phone**.
+2. On the phone, open **Codex → Add computer** in ChatGPT and scan the QR code.
+3. Wait for **Your phone is paired**. Displaying a code alone does not confirm pairing.
 
-**Restart Codex** on that page ends the chats running in Codex. Use it only
-when nothing important is running.
+If the button is missing, the app has no option to scan or the connection is never confirmed, use the phone’s browser as described above. **Restart Codex** ends chats currently running in Codex.
+
+You can find paired devices under **Paired phones**. If you lose your phone, choose **Remove access** for that device. If the phone was also approved for your Organization’s network, follow the [lost device instructions](/en/guide/device-approval/#when-you-lose-a-device).
 
 ## Computer
 
