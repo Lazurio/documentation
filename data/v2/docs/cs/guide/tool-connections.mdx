@@ -4,7 +4,7 @@ description: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu a
 stableId: lazurio-doc-tool-connections
 locale: cs
 summary: "Jak propojit e-mail nebo kalendář a ověřit rozsah přístupu agenta."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-06"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-platform-folder-manual
   - lazurio-external-apps
+  - lazurio-external-apps-0162
   - composio-authentication
   - mcp-local-servers
   - google-third-party-connections
@@ -90,32 +91,45 @@ export const walkthrough = {
   "testReply": "Asistent by měl vrátit výsledek ze skutečně připojené aplikace nebo přesně popsat, proč úkol nemůže provést. Srovnejte výsledek s aplikací. Odeslání zprávy, změnu události nebo jiný zápis schvalujte zvlášť."
 };
 
-Propojte AI s e-mailem nebo kalendářem. Vyberte aplikaci, projděte si ukázkový chat a zkopírujte prompt do svého asistenta.
-
-<ConnectionGuide copy={walkthrough} />
+Chcete si v Chatu nechat vypsat zítřejší schůzky? Připojte v Lazuriu účet Google, ve kterém máte pracovní kalendář. Stejným způsobem můžete připojit Gmail, pokud má agent pracovat i s poštou.
 
 ## Než začnete
 
-Připravte si název AI nástroje, tarif a účet, který chcete připojit.
-Začněte testovacími nebo necitlivými daty.
+Otevřete Prostředí, ve kterém chcete s kalendářem pracovat. V Pracovním a Týmovém Prostředí platí pravidla vaší Organizace. Pokud pracujete ve sdíleném Prostředí, ověřte, který týmový účet máte použít.
 
-**V Lazuriu se řiďte pravidly své Organizace.** Nové propojení vybírejte
-podle [standardu připojených aplikací](/cs/environment-app-connections/).
-Composio je povolená možnost za podmínek tohoto standardu. Vestavěné
-konektory zde ukazujeme i pro samostatné AI aplikace; ukázka sama
-neschvaluje nového poskytovatele pro pracovní data.
+## Připojte Google Kalendář
+
+1. V **Aplikacích → Napojení** vyhledejte **Google Kalendář**. Na kartě uvidíte, jak se v tomto Prostředí připojuje. O odkaz na kartu můžete požádat i agenta.
+2. Pokud karta už ukazuje připojený účet, zkontrolujte jeho adresu. Když váš účet ještě připojený není, zvolte **Připojit**. Pokud se aplikace připojuje přes Composio, může vás Lazurio nejprve vyzvat k přihlášení do Composia.
+3. Na stránce Googlu vyberte správný účet a přečtěte si požadovaná oprávnění. Jestli aplikace žádá širší přístup, než chcete dát, přihlášení přerušte. Po připojení se vraťte na kartu a ověřte adresu účtu.
+
+[Zobrazit postup se snímky karty aplikace](/cs/environment-app-connections/#připojení-aplikace).
+
+## Ověřte připojení na jedné schůzce
+
+Vyberte den, kdy máte v hlavním kalendáři událost, kterou poznáte. V Chatu zkuste třeba toto:
+
+> V mém hlavním Google Kalendáři najdi první zítřejší schůzku. Napiš její název, datum, čas a časové pásmo. Pokud připojený účet nedokážeš ověřit, zastav se. Nic v kalendáři neměň a nikomu neposílej pozvánku.
+
+Porovnejte výsledek s kalendářem ve stejném účtu. Tento úkol ověřuje čtení. Pokud příště chcete poslat pozvánku, zkontrolujte zvlášť termín a příjemce před odesláním.
 
 ## Když propojení nefunguje
 
-Ověřte správný účet, dostupnost funkce v tarifu, pravidla administrátora a platnost přihlášení. Prompt sám nedoplní chybějící propojení ani MCP server. Neposílejte do chatu hesla, tokeny nebo citlivé diagnostické výpisy.
+Když agent vrátí prázdný seznam, ověřte den, časové pásmo a to, zda je schůzka v hlavním kalendáři. Pokud hlásí chybějící přístup, otevřete kartu aplikace a zkontrolujte připojený účet. Pokud karta připojení nenabízí, požádejte Admina Organizace o pomoc. Heslo ani přihlašovací údaje do Chatu nevkládejte.
 
 ## Jak přístup odebrat
 
-Odpojte účet ve zvolené integrační službě nebo AI aplikaci a zkontrolujte také oprávnění třetích stran v účtu Google. U MCP zakažte server v klientovi a podle způsobu přihlášení zrušte jeho přístup u poskytovatele. Pouhé zavření chatu není odebrání oprávnění.
+Na kartě aplikace vyberte příslušný účet a použijte **Odpojit**, pokud je tato volba k dispozici. Chcete-li odebrat také souhlas udělený Googlu, otevřete v daném účtu Google připojení třetích stran a zkontrolujte, které aplikaci přístup rušíte. U připojení přes stejný účet a organizaci Composia mohou stejné připojení používat i další Prostředí. Před odpojením sdíleného účtu se proto domluvte s kolegy. [Správa připojení v účtu Google](https://support.google.com/accounts/answer/13533235).
+
+## Ukázkové chaty pro Gmail a kalendář
+
+V ukázce si můžete projít připojení, kontrolu účtu a první úkol. Zvolte aplikaci a způsob připojení, který máte skutečně dostupný. V Lazuriu ho určuje karta aplikace. Vestavěné konektory v nabídce ukazují postup pro samostatnou AI aplikaci. Ukázka pracuje s připravenými odpověďmi.
+
+<ConnectionGuide copy={walkthrough} />
 
 ## Podklady a rozsah ukázky
 
-Ukázka vám pomůže zadat připojení a ověřit, že funguje. Přesný instalační postup se liší podle AI aplikace a tarifu; ověřte ho v její dokumentaci.
+V samostatné AI aplikaci ověřte postup a dostupnost podle jejího tarifu. Pokud používáte vlastní MCP server a chcete mu přístup odebrat, vypněte ho tam, kde ho spravujete (v Lazuriu v Executoru), a podle způsobu přihlášení zrušte také oprávnění u poskytovatele.
 
 - [Composio: přihlašování a propojené účty](https://docs.composio.dev/docs/authentication)
 - [MCP: připojení lokálních serverů](https://modelcontextprotocol.io/docs/develop/connect-local-servers)
