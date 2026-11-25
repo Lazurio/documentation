@@ -23,7 +23,7 @@ Chcete na telefonu pokračovat v práci? Otevřete v prohlížeči adresu svého
 
 ## Telefon
 
-- **Pokud vaše Organizace používá soukromou síť (tailnet),** zapněte na telefonu Tailscale a otevřete adresu Prostředí. Při prvním připojení postupujte podle [návodu pro iPhone a Android](/cs/guide/tailscale-add-device/). Do sítě Organizace vás pustí až [schválení zařízení](/cs/guide/device-approval/).
+- **Pokud vaše Organizace používá soukromou síť (tailnet),** zapněte na telefonu Tailscale a otevřete adresu Prostředí. Při prvním připojení postupujte podle [návodu pro iPhone a Android](/cs/guide/tailscale-add-device/). Podmínky vstupu se zatím mezi sítěmi liší. V pravidlech vaší Organizace nebo u jejího Admina si ověřte, zda telefon potřebuje [schválení zařízení](/cs/guide/device-approval/).
 - **Pokud používáte veřejný vstup referenční Organizace Lazuria,** otevřete v prohlížeči přidělenou adresu a přihlaste se svým Lazurio účtem. V tomto vstupu se telefon s ChatGPT nepáruje.
 
 ### Kdy jde párování

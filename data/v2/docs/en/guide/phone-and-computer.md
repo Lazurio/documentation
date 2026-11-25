@@ -23,7 +23,7 @@ To continue working on your phone, open your Environment’s address in the brow
 
 ## Phone
 
-- **If your Organization uses a private network (tailnet),** turn on Tailscale on your phone and open your Environment’s address. For a new phone, follow the [iPhone or Android setup instructions](/en/guide/tailscale-add-device/). You can enter the Organization’s network once the [device is approved](/en/guide/device-approval/).
+- **If your Organization uses a private network (tailnet),** turn on Tailscale on your phone and open your Environment’s address. For a new phone, follow the [iPhone or Android setup instructions](/en/guide/tailscale-add-device/). Access requirements currently vary between networks. Check your Organization’s rules or ask its Admin whether your phone needs [device approval](/en/guide/device-approval/).
 - **If you use the public entry of Lazurio’s reference Organization,** open the address you were given in the browser and sign in with your Lazurio account. ChatGPT phone pairing is unavailable there.
 
 ### When pairing is possible
