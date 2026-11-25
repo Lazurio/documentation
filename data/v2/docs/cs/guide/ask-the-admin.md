@@ -4,7 +4,7 @@ description: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes p
 stableId: lazurio-doc-guide-ask-the-admin
 locale: cs
 summary: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes požádat a co do žádosti patří a co nikdy."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -40,7 +40,7 @@ Některé věci ve vaší Organizaci dělá jen Admin Organizace. Požádejte ho
 - Mění server.
 
 Co zvládnete sami, najdete v Nastavení: například přihlášení AI mimo pool,
-spárování telefonu tam, kde ho Připojení nabízí, nebo připojení vlastních
+vyzkoušení [experimentálního párování telefonu](/cs/guide/phone-and-computer/#telefon) tam, kde ho Připojení nabízí, nebo připojení vlastních
 Integrací.
 
 ## Jak požádat dnes

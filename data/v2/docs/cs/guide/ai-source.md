@@ -4,7 +4,7 @@ description: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidí
 stableId: lazurio-doc-guide-ai-source
 locale: cs
 summary: "AI pool Organizace, nebo váš vlastní účet ChatGPT: kde uvidíte, který zdroj Prostředí používá, kdo ho přepíná a co přepnutí přeruší."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -68,7 +68,7 @@ Po změně:
   předem upozorní.
 - Claude Code odchází z poolu spolu s Codexem. Pokud ho používáte, přihlaste
   i Claude.
-- Telefon se pak připojuje jinak; viz [Telefon a
+- Volba účtu ovlivňuje dostupnost experimentálního párování telefonu. Přístup z prohlížeče telefonu popisuje návod [Telefon a
   počítač](/cs/guide/phone-and-computer/).
 
 ## Co se teprve chystá

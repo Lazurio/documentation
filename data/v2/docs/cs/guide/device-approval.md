@@ -4,7 +4,7 @@ description: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše
 stableId: lazurio-doc-guide-device-approval
 locale: cs
 summary: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše Prostředí, kdo o přístupu rozhoduje a co dělat, když zařízení ztratíte."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -45,7 +45,7 @@ neotevře, požádejte Admina Organizace podle tohoto návodu.
   Přihlásíte se Lazurio účtem, ale jen do webového rozhraní: Launchpad, chat,
   MausBot a Buddy. SSH ani párování telefonu tam lidé nemají. Jiná Organizace
   na veřejný vstup přejít nemůže.
-- **Telefon spárovaný přes aplikaci ChatGPT**, pokud ho vaše Prostředí
+- **Telefon úspěšně spárovaný přes aplikaci ChatGPT**, pokud vaše Prostředí experimentální párování
   nabízí ([Telefon a počítač](/cs/guide/phone-and-computer/)). Telefon tailnet
   nepotřebuje. Párovací kód ale vytvoříte uvnitř Prostředí, takže ho už
   musíte umět otevřít.

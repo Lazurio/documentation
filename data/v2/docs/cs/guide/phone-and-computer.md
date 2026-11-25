@@ -1,10 +1,10 @@
 ---
 title: "Telefon a počítač"
-description: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT v telefonu nebo z ChatGPT Desktopu v počítači, a co použít, když to Připojení nenabízí."
+description: "Jak otevřít Lazurio v prohlížeči telefonu, kdy lze vyzkoušet experimentální párování s ChatGPT a jak připojit počítač."
 stableId: lazurio-doc-guide-phone-and-computer
 locale: cs
-summary: "Kdy můžete ovládat chaty svého Prostředí z aplikace ChatGPT v telefonu nebo z ChatGPT Desktopu v počítači, a co použít, když to Připojení nenabízí."
-updatedAt: "2026-11-17"
+summary: "Jak otevřít Lazurio v prohlížeči telefonu, kdy lze vyzkoušet experimentální párování s ChatGPT a jak připojit počítač."
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -19,50 +19,26 @@ audience:
   - agent
 ---
 
-Co vám Prostředí nabízí, ukazuje **Nastavení → Připojení**. Řiďte se tím, co
-tam stránka ukáže. Tady najdete, co který případ znamená.
-
-## Kdy jde párování
-
-Párování propojí aplikaci ChatGPT s vaším Prostředím přes váš účet ChatGPT
-([rozhodnutí 0215](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0215--chatgpt-apps-pair-with-an-environment-through-the-chatgpt-account-ssh-stays-a-hidden-option-for-advanced-users)).
-Funguje jen tehdy, když platí všechno z tohoto:
-
-- vaše Prostředí používá **váš vlastní účet ChatGPT**, ne AI pool Organizace
-  ([Odkud bere vaše Prostředí AI](/cs/guide/ai-source/), rozhodnutí 0229);
-- Lazurio ve vašem Prostředí rozpoznalo funkci vzdáleného ovládání. Ta je
-  zatím experimentální, proto ji Lazurio ověřuje a párování nabídne jen tam,
-  kde ji najde;
-- nejste ve veřejném vstupu referenční Organizace Lazuria (rozhodnutí 0213,
-  do jejího návratu do tailnetu). Tam se párování ukazuje jako nedostupné
-  a pracujete ve webovém rozhraní: Launchpad, chat, MausBot a Buddy.
-
-Aplikace ChatGPT musí být přihlášená stejným účtem jako Codex ve vašem
-Prostředí, ChatGPT Plus a vyšší.
+Chcete na telefonu pokračovat v práci? Otevřete v prohlížeči adresu svého Prostředí. Pro práci na webu nepotřebujete párovat telefon s aplikací ChatGPT.
 
 ## Telefon
 
-Když **Nastavení → Připojení → Telefon** nabízí **Spárovat telefon**:
+- **Pokud vaše Organizace používá soukromou síť (tailnet),** zapněte na telefonu Tailscale a otevřete adresu Prostředí. Při prvním připojení postupujte podle [návodu pro iPhone a Android](/cs/guide/tailscale-add-device/). Podmínky vstupu se zatím mezi sítěmi liší. V pravidlech vaší Organizace nebo u jejího Admina si ověřte, zda telefon potřebuje [schválení zařízení](/cs/guide/device-approval/).
+- **Pokud používáte veřejný vstup referenční Organizace Lazuria,** otevřete v prohlížeči přidělenou adresu a přihlaste se svým Lazurio účtem. V tomto vstupu se telefon s ChatGPT nepáruje.
 
-1. Zvolte **Spárovat telefon**.
-2. V telefonu otevřete aplikaci ChatGPT, zvolte **Codex → Přidat počítač**
-   a naskenujte QR kód.
-3. Hotovo je, když stránka ukáže **Telefon je spárovaný**.
+### Kdy jde párování
 
-Svoje telefony najdete v seznamu **Spárované telefony**. **Odebrat přístup**
-telefonu přístup hned ukončí, třeba když ho ztratíte.
+Párování přes ChatGPT je experimentální. Slouží k ovládání chatů Codexu z aplikace ChatGPT v telefonu. I když se v **Nastavení → Připojení → Telefon** objeví tlačítko **Spárovat telefon**, spojení se nemusí podařit dokončit.
 
-Když stránka místo toho ukáže hlášku:
+Pokud párování chcete vyzkoušet, nejdřív otevřete Prostředí na zařízení, ze kterého už máte přístup. V telefonu musíte být v aplikaci ChatGPT přihlášeni stejným účtem jako Codex v Prostředí (ChatGPT Plus nebo vyšší). Lazurio nabídne párování jen tam, kde rozpozná funkci vzdáleného ovládání. V Týmovém Prostředí ani při použití [AI poolu Organizace](/cs/guide/ai-source/) tuto možnost nemáte.
 
-| Stránka hlásí | Co to znamená |
-| --- | --- |
-| **Nejdřív se přihlaste svým účtem ChatGPT.** | Nejdřív se přihlaste v Nastavení → Začínáme → Připojit AI. |
-| **Pro Prostředí s AI Organizace telefon připravujeme.** | Vaše Prostředí používá AI pool Organizace a párování potřebuje váš vlastní účet. Požádejte Admina Organizace o přechod na vlastní účet, nebo se zeptejte, jestli má vaše Organizace pro telefon jinou cestu; viz [Jak požádat Admina Organizace](/cs/guide/ask-the-admin/). |
-| **Týmové Prostředí párování telefonu nemá.** | Sdílené Týmové Prostředí se s telefonem jednoho člověka nepáruje. |
-| **Párování teď není dostupné.** | Párování v tomto Prostředí teď nejde. Ve veřejném vstupu referenční Organizace otevřete webové rozhraní v prohlížeči telefonu a přihlaste se Lazurio účtem. V tailnetu ho otevřete se zapnutou aplikací Tailscale a schváleným telefonem (viz [Schválení zařízení](/cs/guide/device-approval/)). Jinak to zkuste později. |
+1. V Prostředí zvolte **Spárovat telefon**.
+2. V aplikaci ChatGPT v telefonu otevřete **Codex → Přidat počítač** a naskenujte zobrazený QR kód.
+3. Počkejte na stav **Telefon je spárovaný**. Samotné zobrazení kódu párování nepotvrzuje.
 
-**Restartovat Codex** na této stránce ukončí chaty, které v Codexu právě běží.
-Použijte ho, jen když nic důležitého neběží.
+Pokud tlačítko chybí, aplikace skenování nenabízí nebo se spojení nepotvrdí, pokračujte v prohlížeči telefonu podle návodu výše. **Restartovat Codex** ukončí běžící chaty v Codexu.
+
+Spárovaný telefon najdete v seznamu **Spárované telefony**. Pokud ho ztratíte, zvolte u něj **Odebrat přístup** a u zařízení schváleného do sítě Organizace postupujte také podle [návodu pro ztracené zařízení](/cs/guide/device-approval/#když-zařízení-ztratíte).
 
 ## Počítač
 

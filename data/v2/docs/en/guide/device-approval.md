@@ -4,7 +4,7 @@ description: "Why a registered device may still not reach your Environments, who
 stableId: lazurio-doc-guide-device-approval
 locale: en
 summary: "Why a registered device may still not reach your Environments, who decides about access and what to do when you lose a device."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -46,7 +46,7 @@ still does not open, ask the Organization Admin as that guide says.
   sign in with your Lazurio account, but only to the web interface: Launchpad,
   chat, MausBot and Buddy. There is no SSH and no phone pairing for people
   there. No other Organization can switch to a public entry.
-- **A phone paired through the ChatGPT app**, where your Environment offers
+- **A phone successfully paired through the ChatGPT app**, where your Environment offers experimental
   pairing ([Phone and computer](/en/guide/phone-and-computer/)). The phone
   needs no tailnet. You create the pairing code inside the Environment,
   though, so you must already be able to open it.
