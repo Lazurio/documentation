@@ -4,7 +4,7 @@ description: "Connect email or a calendar and check what the agent can access."
 stableId: lazurio-doc-tool-connections
 locale: en
 summary: "Connect email or a calendar and check what the agent can access."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-25"
 reviewedAt: "2026-11-06"
 reviewOwner: Anna Blazickova
 secondReviewOwner: Pablo AI
@@ -12,6 +12,7 @@ trustCritical: true
 sourceRefs:
   - lazurio-platform-folder-manual
   - lazurio-external-apps
+  - lazurio-external-apps-0162
   - composio-authentication
   - mcp-local-servers
   - google-third-party-connections
@@ -90,32 +91,47 @@ export const walkthrough = {
   "testReply": "The assistant should return a result from the connected app or explain exactly why it cannot. Compare the result with the app. Approve sending messages, changing events or other writes separately."
 };
 
-Connect AI to your email or calendar. Choose an app, walk through the example chat and copy the prompt into your assistant.
-
-<ConnectionGuide copy={walkthrough} />
+Want to ask Chat for tomorrow’s meetings? Connect the Google account that holds your work calendar in Lazurio. If you also want the agent to work with email, you can follow the same steps for Gmail.
 
 ## Before you start
 
-Have your AI app name, plan and intended account ready. Start with test
-or non-sensitive data.
+Open the Environment where you want to use the calendar. In a Work or Team Environment, follow your Organization’s rules. If you share the Environment, check which team account to use.
 
-**Follow your Organization's rules in Lazurio.** Choose new connections
-using the [connected-app standard](/en/environment-app-connections/).
-Composio is an option under that standard's conditions. Built-in connectors
-are also shown for standalone AI apps; this example does not approve a new
-provider for work data.
+Before connecting your first app, [review the conditions for data access](/en/environment-app-connections/#what-you-accept-before-the-first-connection). If the app card lists Composio, check who holds the access tokens and request content, and how long logs are kept.
+
+## Connect Google Calendar
+
+1. In **Apps → Integrations**, find **Google Calendar**. Its card shows how it connects in this Environment. You can also ask the agent for a link to the card.
+2. If an account is already connected, check its email address. If yours is not connected yet, choose **Connect**. If the app uses Composio, Lazurio may ask you to sign in to Composio first.
+3. On Google’s sign-in page, choose the correct account and read the requested permissions. If they are broader than you want to grant, stop here. After connecting, return to the card and check the account address.
+
+[See the steps with screenshots of the app card](/en/environment-app-connections/#connecting-an-app).
+
+## Check the connection against a meeting you know
+
+Pick a day when your primary calendar has an event you recognize. For example, try this in Chat:
+
+> Find tomorrow’s first meeting in my primary Google Calendar. Give me its title, date, time and time zone. If you can’t verify the connected account, stop. Leave the calendar unchanged and don’t send any invitations.
+
+Compare the result with the event in the same Google account. This checks whether the agent can read the calendar. If you later ask it to send an invitation, review the time and recipients before sending.
 
 ## If the connection fails
 
-Check the account, plan availability, administrator restrictions and authentication state. A prompt cannot supply a missing connection or MCP server. Never paste passwords, tokens or sensitive diagnostic output into chat.
+If the agent finds no events, check the day, time zone and whether the event is on your primary calendar. If the agent reports that it lacks access, open the app card and check which account is connected. If the card has no option to connect, ask your Organization Admin for help. Keep passwords and sign-in credentials out of Chat.
 
 ## Revoke access
 
-Disconnect the account in the chosen integration service or AI app and check third-party permissions in your Google account too. For MCP, disable the server in your client and revoke its provider access according to the authentication method. Closing a chat does not revoke permissions.
+Open the app card, find the account and choose **Disconnect** if available. To withdraw consent at Google as well, open the third-party connections for that Google account and check which app you are removing. Environments using the same Composio account and Composio organization can share a connection. Check with your colleagues before disconnecting a shared account. [Manage third-party connections in Google](https://support.google.com/accounts/answer/13533235).
+
+## Example chats for Gmail and Google Calendar
+
+The walkthrough covers connecting an app, checking the account and trying a first task. Choose an app and a connection method available to you. In Lazurio, the app card determines that method. The built-in connector example is for a standalone AI app. The replies in this walkthrough are scripted.
+
+<ConnectionGuide copy={walkthrough} />
 
 ## Sources and example scope
 
-Use this example to request a connection and check that it works. Exact setup steps depend on your AI app and plan; check that app's documentation.
+In a standalone AI app, check its documentation and plan for the available setup options. To revoke access for a custom MCP server, disable it where it is managed (in Executor in Lazurio) and revoke its provider permissions according to the sign-in method.
 
 - [Composio: authentication and connected accounts](https://docs.composio.dev/docs/authentication)
 - [MCP: connect local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers)
