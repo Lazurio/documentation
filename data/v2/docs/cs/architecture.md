@@ -4,7 +4,7 @@ description: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace,
 stableId: lazurio-doc-architecture
 locale: cs
 summary: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace, moduly a služby okolo, co jde na GitHub a kde má modul data."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -56,11 +56,11 @@ a přechod na něj není dokončený: jak se zařízení dostane dovnitř dnes, 
 v jednotlivých tailnetech lišit.
 [Rozhodnutí 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (cílový model, zatím nenasazené) dělá z tailnetu jedinou cestu do každého
-Prostředí. Veřejný vstup bez tailnetu dnes ještě běží na dvou místech. Jedním je
-referenční Organizace Lazuria, do jejího návratu do tailnetu: podmínku sítě
-a schválení zařízení tam lidé nemají, do webového rozhraní se dostanou přes vstup
-serveru a přihlásí se účtem Lazuria. Druhým je veřejný vstup Osobních Prostředí,
-dokud není nasazené jeho odstranění.
+Prostředí. Veřejný vstup bez tailnetu, který zrušilo rozhodnutí 0243, dnes
+neběží nikde. Referenční Organizace Lazuria je od 14. listopadu 2026 zpátky ve
+svém tailnetu: její Prostředí nemají veřejnou adresu a lidé do nich vstupují
+jako do každé jiné Organizace, přes Tailscale ze schváleného zařízení. Veřejný
+vstup Osobních Prostředí skončil 12. listopadu 2026.
 
 **Prostředí.** Počítač, na kterém pracují agenti: Osobní, Pracovní nebo Týmové
 Prostředí. Agenti v něm pracují s plným přístupem, bez sandboxu a bez

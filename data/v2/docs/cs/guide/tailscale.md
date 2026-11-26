@@ -4,7 +4,7 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -49,10 +49,10 @@ není dostupný“.
 Do Prostředí se vstupuje přes tailnet.
 [Rozhodnutí 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (cílový model, zatím nenasazené) z něj dělá jedinou cestu do každého Prostředí.
-Veřejný vstup bez tailnetu dnes ještě běží na dvou místech: u referenční
-Organizace Lazuria s veřejným Prostředím na vyzkoušení, kde skončí jejím
-návratem do tailnetu, a u Osobních Prostředí, dokud není nasazené odstranění
-jejich veřejného vstupu; viz
+Veřejný vstup bez tailnetu dnes neběží nikde: referenční Organizace Lazuria je
+od 14. listopadu 2026 zpátky ve svém tailnetu, její veřejné Prostředí na
+vyzkoušení skončilo 12. listopadu 2026 a veřejný vstup Osobních Prostředí
+skončil týž den. Kdy zařízení v tailnetu mít nemusíte, popisuje
 [Schválení zařízení](/cs/guide/device-approval/#kdy-zařízení-v-tailnetu-nepotřebujete).
 Lazurio App bude mít tailnet vestavěný; do jejího vydání použijte aplikaci
 Tailscale.

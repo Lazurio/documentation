@@ -4,7 +4,7 @@ description: "Jak otevřít Lazurio v prohlížeči telefonu, kdy lze vyzkoušet
 stableId: lazurio-doc-guide-phone-and-computer
 locale: cs
 summary: "Jak otevřít Lazurio v prohlížeči telefonu, kdy lze vyzkoušet experimentální párování s ChatGPT a jak připojit počítač."
-updatedAt: "2026-11-25"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -23,8 +23,7 @@ Chcete na telefonu pokračovat v práci? Otevřete v prohlížeči adresu svého
 
 ## Telefon
 
-- **Pokud vaše Organizace používá soukromou síť (tailnet),** zapněte na telefonu Tailscale a otevřete adresu Prostředí. Při prvním připojení postupujte podle [návodu pro iPhone a Android](/cs/guide/tailscale-add-device/). Podmínky vstupu se zatím mezi sítěmi liší. V pravidlech vaší Organizace nebo u jejího Admina si ověřte, zda telefon potřebuje [schválení zařízení](/cs/guide/device-approval/).
-- **Pokud používáte veřejný vstup referenční Organizace Lazuria,** otevřete v prohlížeči přidělenou adresu a přihlaste se svým Lazurio účtem. V tomto vstupu se telefon s ChatGPT nepáruje.
+Prostředí se otevírá přes soukromou síť (tailnet): zapněte na telefonu Tailscale a otevřete adresu Prostředí. Při prvním připojení postupujte podle [návodu pro iPhone a Android](/cs/guide/tailscale-add-device/). Podmínky vstupu se zatím mezi sítěmi liší. V pravidlech vaší Organizace nebo u jejího Admina si ověřte, zda telefon potřebuje [schválení zařízení](/cs/guide/device-approval/).
 
 ### Kdy jde párování
 
@@ -48,10 +47,9 @@ a klikněte na **Přidat do Codexu**. Když to stránka nenabízí, pracujte ve
 webovém rozhraní v prohlížeči.
 
 **SSH ze zařízení** na téže stránce je pokročilá možnost. Nabízí se jen tam,
-kde je SSH do Prostředí povolené, nikdy ve veřejném vstupu referenční
-Organizace.
+kde je SSH do Prostředí povolené.
 
-Mimo veřejný vstup referenční Organizace potřebuje počítač, který se takto
-připojuje, ještě Tailscale a přístup, který vaše Organizace vyžaduje; viz [Přidání nového zařízení do
+Počítač, který se takto připojuje, potřebuje ještě Tailscale a přístup, který
+vaše Organizace vyžaduje; viz [Přidání nového zařízení do
 tailnetu](/cs/guide/tailscale-add-device/) a [Schválení
 zařízení](/cs/guide/device-approval/).

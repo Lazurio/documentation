@@ -4,7 +4,7 @@ description: "Open Lazurio in your phone’s browser, see when experimental Chat
 stableId: lazurio-doc-guide-phone-and-computer
 locale: en
 summary: "Open Lazurio in your phone’s browser, see when experimental ChatGPT pairing is available, or connect your computer."
-updatedAt: "2026-11-25"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -23,8 +23,7 @@ To continue working on your phone, open your Environment’s address in the brow
 
 ## Phone
 
-- **If your Organization uses a private network (tailnet),** turn on Tailscale on your phone and open your Environment’s address. For a new phone, follow the [iPhone or Android setup instructions](/en/guide/tailscale-add-device/). Access requirements currently vary between networks. Check your Organization’s rules or ask its Admin whether your phone needs [device approval](/en/guide/device-approval/).
-- **If you use the public entry of Lazurio’s reference Organization,** open the address you were given in the browser and sign in with your Lazurio account. ChatGPT phone pairing is unavailable there.
+An Environment opens through a private network (tailnet): turn on Tailscale on your phone and open your Environment’s address. For a new phone, follow the [iPhone or Android setup instructions](/en/guide/tailscale-add-device/). Access requirements currently vary between networks. Check your Organization’s rules or ask its Admin whether your phone needs [device approval](/en/guide/device-approval/).
 
 ### When pairing is possible
 
@@ -48,9 +47,7 @@ and click **Add to Codex**. If the page does not offer it, work in the web
 interface in your browser.
 
 **SSH from your devices** on the same page is an advanced option. It is
-offered only where SSH into the Environment is allowed, never in the reference
-Organization's public entry.
+offered only where SSH into the Environment is allowed.
 
-Outside the reference Organization's public entry, a computer that connects
-this way also needs Tailscale and the access your Organization requires: see [Add a new device to the tailnet](/en/guide/tailscale-add-device/)
+A computer that connects this way also needs Tailscale and the access your Organization requires: see [Add a new device to the tailnet](/en/guide/tailscale-add-device/)
 and [Device approval](/en/guide/device-approval/).

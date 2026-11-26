@@ -4,7 +4,7 @@ description: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes p
 stableId: lazurio-doc-guide-ask-the-admin
 locale: cs
 summary: "Co ve vaší Organizaci dělá jen Admin Organizace, jak ho dnes požádat a co do žádosti patří a co nikdy."
-updatedAt: "2026-11-25"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -54,9 +54,6 @@ v obou stejný (další oddíl):
    rozhodnutí 0230 i skill agentů.
 2. **Zprávu Adminovi Organizace**, tak jak ho ve vašem týmu běžně
    kontaktujete.
-
-Ve **veřejném Prostředí**, které si může vyzkoušet kdokoli s Lazurio účtem, se
-žádná žádost nepodává. Nemáte tam svého Admina Organizace.
 
 ### S vaším agentem
 

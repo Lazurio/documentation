@@ -4,7 +4,7 @@ description: "Turn on Tailscale, choose the right network and troubleshoot conne
 stableId: lazurio-doc-guide-tailscale
 locale: en
 summary: "Turn on Tailscale, choose the right network and troubleshoot connection problems."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -47,11 +47,12 @@ shows an error such as "This site can't be reached".
 
 Environments are entered through a tailnet.
 [Decision 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
-(the target model, not yet deployed) makes it the only way into every Environment. Today
-two public entries without a tailnet still run: that of Lazurio's reference
-Organization, with its public Environment for trying Lazurio, which ends when
-that Organization returns to its tailnet, and the public entry of Personal
-Environments, until its removal is deployed; see
+(the target model, not yet deployed) makes it the only way into every Environment.
+No public entry without a tailnet runs today: Lazurio's reference Organization
+has been back in its tailnet since 14 November 2026, its public Environment for
+trying Lazurio ended on 12 November 2026, and the public entry of Personal
+Environments ended the same day. When a device does not need to be in the
+tailnet is described in
 [Device approval](/en/guide/device-approval/#when-you-need-no-device-in-the-tailnet).
 Lazurio App will have the tailnet built in; until it is released, use the
 Tailscale app.

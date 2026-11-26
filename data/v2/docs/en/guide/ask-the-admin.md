@@ -4,7 +4,7 @@ description: "What only your Organization Admin does, how to ask them today and 
 stableId: lazurio-doc-guide-ask-the-admin
 locale: en
 summary: "What only your Organization Admin does, how to ask them today and what a request must and must never contain."
-updatedAt: "2026-11-25"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -55,9 +55,6 @@ carry the same content (next section):
    skill use.
 2. **A message to the Organization Admin**, sent the way your team usually
    reaches them.
-
-In a **public Environment**, one that anyone with a Lazurio account may try,
-no request is filed. It has no Organization Admin of yours to ask.
 
 ### With your agent
 

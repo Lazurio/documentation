@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- Correct the state of public entry without a tailnet: it runs nowhere today.
+  Lazurio's reference Organization has been back in its tailnet since
+  2026-11-14, its public Environment for trying Lazurio ended on 2026-11-12,
+  and the public entry of Personal Environments ended on 2026-11-12.
+  Architecture and the Tailscale guide now say so; Phone and computer, Device
+  approval and Ask the Organization Admin no longer describe the reference
+  Organization's public entry or a public Environment as an exception. No
+  decision changes, and `data/v2/source-map.json` keeps its titles pinned to
+  2026-11-17. The same correction in the agent manual:
+  LazurioPlatform#1271.
 - Re-verify the five evidence sources due on 2026-12-12 and 2026-12-14
   against LazurioPlatform main and release v0.1.22 of 2026-11-17: `wispr-flow`
   and `codexbar` still support the recommended applications and are renewed
