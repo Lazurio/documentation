@@ -4,7 +4,7 @@ description: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace,
 stableId: lazurio-doc-architecture
 locale: cs
 summary: "Jak do sebe zapadají lidé, zařízení, Prostředí, Organizace, moduly a služby okolo, co jde na GitHub a kde má modul data."
-updatedAt: "2026-11-26"
+updatedAt: "2026-11-27"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -22,6 +22,7 @@ sourceRefs:
   - lazurio-platform-stack-profiles
   - lazurio-platform-register-modules
   - lazurio-environment-access-model
+  - lazurio-decision-register-entry-without-tailnet
   - lazurio-platform-app-database-connection-question
   - lazurio-documentation-readme
   - lazurio-decision-register-admin-ai
@@ -56,11 +57,13 @@ a přechod na něj není dokončený: jak se zařízení dostane dovnitř dnes, 
 v jednotlivých tailnetech lišit.
 [Rozhodnutí 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (cílový model, zatím nenasazené) dělá z tailnetu jedinou cestu do každého
-Prostředí. Veřejný vstup bez tailnetu, který zrušilo rozhodnutí 0243, dnes
-neběží nikde. Referenční Organizace Lazuria je od 14. listopadu 2026 zpátky ve
-svém tailnetu: její Prostředí nemají veřejnou adresu a lidé do nich vstupují
-jako do každé jiné Organizace, přes Tailscale ze schváleného zařízení. Veřejný
-vstup Osobních Prostředí skončil 12. listopadu 2026.
+Prostředí. Vstup bez tailnetu zrušilo rozhodnutí 0243 a žádná Organizace ani
+Osobní Prostředí na něj nepřejde.
+[Veřejný rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/ff5576bd78abe0cf88f78d0e5760eb9cc1270517/docs/decision-register.md) u něj ještě
+uvádí dvě výjimky, každou jen do jejího konce: referenční Organizaci Lazuria do
+jejího návratu do tailnetu (rozhodnutí 0204) a veřejný vstup Osobních Prostředí,
+dokud není nasazené jeho odstranění. K 27. listopadu 2026 rejstřík ani jednu
+nevede jako skončenou.
 
 **Prostředí.** Počítač, na kterém pracují agenti: Osobní, Pracovní nebo Týmové
 Prostředí. Agenti v něm pracují s plným přístupem, bez sandboxu a bez
@@ -202,5 +205,6 @@ označuje za návrh, který je třeba ověřit na prototypu, ne za ověřené ch
 - [Synchronizace obsahu](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/content-sync.md) ve vydání v0.1.22.
 - [Přístup k Prostředí](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/environment-access.md) ze 17. 11. 2026.
 - [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md) ze 17. 11. 2026: rozhodnutí 0162, 0171, 0172, 0186, 0193, 0196, 0198, 0203, 0209, 0213 a 0239.
+- [Rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/ff5576bd78abe0cf88f78d0e5760eb9cc1270517/docs/decision-register.md) z 27. 11. 2026: rozhodnutí 0204, 0213 a 0246 k tomu, kde ještě běží vstup bez tailnetu.
 - [Rozhodnutí 0245, 0246 a 0247](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md) ze 14. 11. 2026, cílový model, zatím nenasazené: kdo je kdo v Organizaci, síť (do každého Prostředí jen přes tailnet) a vstup do Prostředí. Slučují rozhodnutí 0192, 0228 a 0243.
 - [Rozhodnutí F14](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (co modul drží) a [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (jeden generátor, osobní moduly).

@@ -4,7 +4,7 @@ description: "Open Lazurio in your phone’s browser, see when experimental Chat
 stableId: lazurio-doc-guide-phone-and-computer
 locale: en
 summary: "Open Lazurio in your phone’s browser, see when experimental ChatGPT pairing is available, or connect your computer."
-updatedAt: "2026-11-26"
+updatedAt: "2026-11-27"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -23,7 +23,7 @@ To continue working on your phone, open your Environment’s address in the brow
 
 ## Phone
 
-An Environment opens through a private network (tailnet): turn on Tailscale on your phone and open your Environment’s address. For a new phone, follow the [iPhone or Android setup instructions](/en/guide/tailscale-add-device/). Access requirements currently vary between networks. Check your Organization’s rules or ask its Admin whether your phone needs [device approval](/en/guide/device-approval/).
+If your Organization uses a private network (tailnet), turn on Tailscale on your phone and open your Environment’s address. For a new phone, follow the [iPhone or Android setup instructions](/en/guide/tailscale-add-device/). Access requirements currently vary between networks. Check your Organization’s rules or ask its Admin whether your phone needs [device approval](/en/guide/device-approval/).
 
 ### When pairing is possible
 

@@ -4,7 +4,7 @@ description: "Jak otevřít Lazurio v prohlížeči telefonu, kdy lze vyzkoušet
 stableId: lazurio-doc-guide-phone-and-computer
 locale: cs
 summary: "Jak otevřít Lazurio v prohlížeči telefonu, kdy lze vyzkoušet experimentální párování s ChatGPT a jak připojit počítač."
-updatedAt: "2026-11-26"
+updatedAt: "2026-11-27"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -23,7 +23,7 @@ Chcete na telefonu pokračovat v práci? Otevřete v prohlížeči adresu svého
 
 ## Telefon
 
-Prostředí se otevírá přes soukromou síť (tailnet): zapněte na telefonu Tailscale a otevřete adresu Prostředí. Při prvním připojení postupujte podle [návodu pro iPhone a Android](/cs/guide/tailscale-add-device/). Podmínky vstupu se zatím mezi sítěmi liší. V pravidlech vaší Organizace nebo u jejího Admina si ověřte, zda telefon potřebuje [schválení zařízení](/cs/guide/device-approval/).
+Pokud vaše Organizace používá soukromou síť (tailnet), zapněte na telefonu Tailscale a otevřete adresu Prostředí. Při prvním připojení postupujte podle [návodu pro iPhone a Android](/cs/guide/tailscale-add-device/). Podmínky vstupu se zatím mezi sítěmi liší. V pravidlech vaší Organizace nebo u jejího Admina si ověřte, zda telefon potřebuje [schválení zařízení](/cs/guide/device-approval/).
 
 ### Kdy jde párování
 
