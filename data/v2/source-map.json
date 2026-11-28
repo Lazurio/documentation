@@ -373,6 +373,16 @@
       "reviewDueAt": "2026-12-17"
     },
     {
+      "id": "lazurio-decision-register-entry-without-tailnet",
+      "title": "Lazurio decision register on main at ff5576b (27 November 2026): where entry without a tailnet still runs. Decision 0243 retires it and no Organization or Personal Environment switches to it; decision 0213's status keeps it only where the reference Organization runs the mode until its return to its tailnet, and decision 0204 lists that return as decided, not yet deployed; decision 0246's 'What runs today' keeps the public entry of Personal Environments until its removal is deployed. The register records neither exception as ended on this date; the update recording the reference Organization's return is in review in LazurioPlatform#1271",
+      "publisher": "Lazurio",
+      "kind": "public-source",
+      "url": "https://github.com/Lazurio/LazurioPlatform/blob/ff5576bd78abe0cf88f78d0e5760eb9cc1270517/docs/decision-register.md",
+      "reviewOwner": "Matej Suchanek",
+      "reviewedAt": "2026-11-27",
+      "reviewDueAt": "2026-12-27"
+    },
+    {
       "id": "lazurio-platform-decision-f41",
       "title": "LazurioPlatform decision F41 with its addenda of 2026-10-09 and 2026-10-12, at release v0.1.22 (unchanged on main): the offline guide on an Environment's addresses, its formal Czech copy, and why its service worker is always updatable",
       "publisher": "Lazurio",

@@ -4,7 +4,7 @@ description: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše
 stableId: lazurio-doc-guide-device-approval
 locale: cs
 summary: "Proč zaregistrované zařízení nemusí hned dosáhnout na vaše Prostředí, kdo o přístupu rozhoduje a co dělat, když zařízení ztratíte."
-updatedAt: "2026-11-25"
+updatedAt: "2026-11-26"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -39,12 +39,6 @@ neotevře, požádejte Admina Organizace podle tohoto návodu.
 
 ## Kdy zařízení v tailnetu nepotřebujete
 
-- **Referenční Organizace Lazuria ve veřejném vstupu**
-  ([rozhodnutí 0213](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md#0213--network-for-people-the-public-dns-mode-without-a-tailnet-retired-by-0243))
-  tailnet ani schválení zařízení nepotřebuje, dokud se nevrátí do tailnetu.
-  Přihlásíte se Lazurio účtem, ale jen do webového rozhraní: Launchpad, chat,
-  MausBot a Buddy. SSH ani párování telefonu tam lidé nemají. Jiná Organizace
-  na veřejný vstup přejít nemůže.
 - **Telefon úspěšně spárovaný přes aplikaci ChatGPT**, pokud vaše Prostředí experimentální párování
   nabízí ([Telefon a počítač](/cs/guide/phone-and-computer/)). Telefon tailnet
   nepotřebuje. Párovací kód ale vytvoříte uvnitř Prostředí, takže ho už

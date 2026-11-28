@@ -2,6 +2,18 @@
 
 ## Unreleased
 
+- State entry without a tailnet only as far as the public decision register
+  supports it. Architecture and the Tailscale guide now say that decision 0243
+  retired it, that the register still lists two exceptions until they end
+  (Lazurio's reference Organization until its return to its tailnet, decision
+  0204, and the public entry of Personal Environments until its removal is
+  deployed) and that, as of 2026-11-27, it records neither as ended. They cite
+  the new source `lazurio-decision-register-entry-without-tailnet`, pinned to
+  LazurioPlatform main at ff5576b. A date for the reference Organization's
+  return is added once LazurioPlatform#1271 records it on main. Phone and
+  computer, Device approval and Ask the Organization Admin no longer give
+  readers steps for the reference Organization's public entry or a public
+  Environment. No decision changes.
 - Re-verify the five evidence sources due on 2026-12-12 and 2026-12-14
   against LazurioPlatform main and release v0.1.22 of 2026-11-17: `wispr-flow`
   and `codexbar` still support the recommended applications and are renewed

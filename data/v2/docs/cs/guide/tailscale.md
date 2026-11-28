@@ -4,7 +4,7 @@ description: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se a
 stableId: lazurio-doc-guide-tailscale
 locale: cs
 summary: "Zapněte Tailscale, vyberte správnou síť a ověřte, proč se adresa neotevírá."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-27"
 reviewedAt: "2026-11-06"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -13,6 +13,7 @@ sourceRefs:
   - lazurio-decision-register-access-0245-0247
   - lazurio-environment-network-decisions
   - lazurio-environment-access-model
+  - lazurio-decision-register-entry-without-tailnet
   - lazurio-platform-decision-f41
   - lazurio-platform-release-v0-1-8-rc-41
   - lazurio-platform-shell-texts
@@ -49,10 +50,12 @@ není dostupný“.
 Do Prostředí se vstupuje přes tailnet.
 [Rozhodnutí 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (cílový model, zatím nenasazené) z něj dělá jedinou cestu do každého Prostředí.
-Veřejný vstup bez tailnetu dnes ještě běží na dvou místech: u referenční
-Organizace Lazuria s veřejným Prostředím na vyzkoušení, kde skončí jejím
-návratem do tailnetu, a u Osobních Prostředí, dokud není nasazené odstranění
-jejich veřejného vstupu; viz
+Vstup bez tailnetu zrušilo rozhodnutí 0243 a žádná Organizace na něj nepřejde.
+[Veřejný rejstřík rozhodnutí](https://github.com/Lazurio/LazurioPlatform/blob/ff5576bd78abe0cf88f78d0e5760eb9cc1270517/docs/decision-register.md) u něj
+ještě uvádí dvě výjimky, každou jen do jejího konce: referenční Organizaci
+Lazuria do jejího návratu do tailnetu (rozhodnutí 0204) a veřejný vstup Osobních
+Prostředí, dokud není nasazené jeho odstranění. K 27. listopadu 2026 rejstřík
+ani jednu nevede jako skončenou. Kdy zařízení v tailnetu mít nemusíte, popisuje
 [Schválení zařízení](/cs/guide/device-approval/#kdy-zařízení-v-tailnetu-nepotřebujete).
 Lazurio App bude mít tailnet vestavěný; do jejího vydání použijte aplikaci
 Tailscale.

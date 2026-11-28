@@ -4,7 +4,7 @@ description: "How people, devices, Environments, Organizations, modules and outs
 stableId: lazurio-doc-architecture
 locale: en
 summary: "How people, devices, Environments, Organizations, modules and outside services fit together, what goes to GitHub and where a module keeps its data."
-updatedAt: "2026-11-17"
+updatedAt: "2026-11-27"
 reviewedAt: "2026-11-05"
 reviewOwner: Matej Suchanek
 secondReviewOwner: Pablo AI
@@ -22,6 +22,7 @@ sourceRefs:
   - lazurio-platform-stack-profiles
   - lazurio-platform-register-modules
   - lazurio-environment-access-model
+  - lazurio-decision-register-entry-without-tailnet
   - lazurio-platform-app-database-connection-question
   - lazurio-documentation-readme
   - lazurio-decision-register-admin-ai
@@ -56,11 +57,13 @@ and the transition is not complete: how a device gets in today can still differ
 between tailnets.
 [Decision 0246](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md#0246--the-network-every-environment-in-one-tailnet-conglomerates-lazurios-personal-tailnet-and-one-way-edges)
 (the target model, not yet deployed) makes the tailnet the only way into every
-Environment. Today two public entries without a tailnet still run. One is that of
-Lazurio's reference Organization, until its return to its tailnet: there people
-have no network condition or device approval, and they reach the web interface
-through the server's entry with a Lazurio account. The other is the public entry
-of Personal Environments, until its removal is deployed.
+Environment. Decision 0243 retired entry without a tailnet, and no Organization
+or Personal Environment switches to it. The
+[public decision register](https://github.com/Lazurio/LazurioPlatform/blob/ff5576bd78abe0cf88f78d0e5760eb9cc1270517/docs/decision-register.md) still lists two
+exceptions, each only until it ends: Lazurio's reference Organization, until its
+return to its tailnet (decision 0204), and the public entry of Personal
+Environments, until its removal is deployed. As of 27 November 2026 the register
+records neither as ended.
 
 **Environment.** The computer where agents work: a Personal, Work or Team
 Environment. Agents work there with full access, without a sandbox or approval of
@@ -210,5 +213,6 @@ prototype, not verified behaviour.
 - [Content synchronization](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/content-sync.md) at release v0.1.22.
 - [Environment access](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/environment-access.md) of 17 November 2026.
 - [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/7db84856de0181645884f18893aa9579804c20eb/docs/decision-register.md) of 17 November 2026: decisions 0162, 0171, 0172, 0186, 0193, 0196, 0198, 0203, 0209, 0213 and 0239.
+- [Decision register](https://github.com/Lazurio/LazurioPlatform/blob/ff5576bd78abe0cf88f78d0e5760eb9cc1270517/docs/decision-register.md) of 27 November 2026: decisions 0204, 0213 and 0246 on where entry without a tailnet still runs.
 - [Decisions 0245, 0246 and 0247](https://github.com/Lazurio/LazurioPlatform/blob/25c72bcf6428cdb321d26b8b8d792a526c97c20b/docs/decision-register.md) of 2026-11-14, the target model, not yet deployed: who is who in an Organization, the network (every Environment only through a tailnet) and entry into an Environment. They consolidate decisions 0192, 0228 and 0243.
 - [Decision F14](https://github.com/Lazurio/LazurioPlatform/blob/4e9c6b9bc25b4bc22d8555e1a2364a90dce8acbd/docs/decisions.md#f14--agent-manuals-live-in-the-lazurio-folder) (what a module holds) and [F52](https://github.com/Lazurio/LazurioPlatform/blob/5edbc2b7ebf53aec4e116663db60021d24593dbe/docs/decisions.md#f52--one-module-generator-in-the-platform-a-persons-own-modules-in-their-personalspace) (one generator, personal modules).
